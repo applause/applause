@@ -1,0 +1,29 @@
+import org::eclipse::emf::ecore;
+import de::itemis::mobilizer::appModelDsl;
+
+org::eclipse::emf::ecore::EObject eRootContainer(org::eclipse::emf::ecore::EObject this):
+	JAVA templates.Extensions.getRootContainer(org.eclipse.emf.ecore.EObject);
+
+model(org::eclipse::emf::ecore::EObject this):
+	(Model)this.eRootContainer();
+
+application(org::eclipse::emf::ecore::EObject this):
+	model().application;
+
+providersWithImplementation(Application this):
+	model().elements.typeSelect(ContentProvider);
+	
+entities(Application this):
+	model().elements.typeSelect(Entity);
+
+listViews(Application this):
+	model().elements.typeSelect(TableView);
+
+detailViews(Application this):
+	model().elements.typeSelect(DetailsView);
+
+sectionedViews(Application this):
+	model().elements.typeSelect(SectionedView);
+	
+type(SectionedView this):
+	this.content.description.type.name;

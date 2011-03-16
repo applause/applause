@@ -1,0 +1,11 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+«IMPORT java::lang»
+
+«EXTENSION templates::android::GeneratorExtensions»
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::android::ProviderExtension»
+
+«DEFINE main FOR Application-»
+«EXPAND ListActivities::main FOREACH this.sectionedViews()»
+«ENDDEFINE»
+

@@ -1,0 +1,33 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: de.itemis.mobilizer.appmodel
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0
+Bundle-SymbolicName: de.itemis.mobilizer.appmodel; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.generator;resolution:=optional,
+ de.itemis.xtext.antlr;resolution:=optional,
+ org.apache.commons.logging;resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe.core;resolution:=optional,
+ com.ibm.icu;resolution:=optional,
+ org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.emf.mwe2.launch;bundle-version="1.0.0"
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: de.itemis.mobilizer,
+ de.itemis.mobilizer.appModelDsl,
+ de.itemis.mobilizer.appModelDsl.impl,
+ de.itemis.mobilizer.appModelDsl.util,
+ de.itemis.mobilizer.appmodel.generator,
+ de.itemis.mobilizer.parseTreeConstruction,
+ de.itemis.mobilizer.parser.antlr,
+ de.itemis.mobilizer.parser.antlr.internal,
+ de.itemis.mobilizer.services,
+ de.itemis.mobilizer.validation

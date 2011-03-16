@@ -1,0 +1,221 @@
+tabbarApplication itemisApp {
+
+	button {
+		title= "News"
+		icon= "chat.png"
+		view= BlogList(Blogposts())
+	}
+
+
+	button {    
+		title= "Tuesday"
+		icon= "calendar.png"
+		view= SessionList( SessionsByDay("0") )
+	}
+
+	button {    
+		title= "Wednesday"
+		icon= "calendar.png"
+		view= SessionList( SessionsByDay("1") )
+	}
+	
+	button {    
+		title= "Thursday"
+		icon= "calendar.png"
+		view= SessionList( SessionsByDay("2") )
+	}
+	
+	button {
+		title= "Speakers"
+		icon= "person.png"
+		view= SpeakersList( AllSpeakers() )
+	}
+}
+
+/*
+ * DESCRIBING DATA
+ */
+
+type String mapsTo "NSString"
+
+entity BlogItem {
+	String title
+	String link
+	String description
+	String creator
+}
+
+entity Speaker {
+	String name
+	String bio
+	String pictureurl
+	Session[] sessions
+}
+
+entity Session {
+	String title
+	String description
+	String timeslot
+	String room
+	Speaker[] speakers
+}
+
+/*
+ * FETCHING DATA
+ */
+
+
+contentprovider Blogposts
+	returns BlogItem[]
+	fetches XML
+		//from "http://blogs.itemis.de/?showfeed=1"
+		from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"
+		selects "rss.channel.item"
+		
+contentprovider SessionsByDay(String day)
+	returns Session[]
+	fetches XML
+		from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
+		selects "sessions.session"
+
+//contentprovider VortragByTitel(String titel)
+//	returns Session
+//	fetches XML
+//		from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=vortragid%3D" urlconform(replace(titel, " ", "")))
+//		selects "feed.entry"
+		
+contentprovider AllSpeakers
+	returns Speaker[]
+	fetches XML
+		from "http://eclipsesummit2010.appspot.com/speakers/?format=xml"
+		selects "result.speakers.speaker"
+
+contentprovider SpeakerByName(String name)
+	returns Speaker
+	fetches XML
+		from ("http://eclipsesummit2010.appspot.com/speakers/name/" urlconform(name) "/?format=xml")
+		selects "result.speaker"
+		
+/*
+ * DESCRIBING VIEWS
+ */		
+
+tableview BlogList(BlogItem[] items) {
+	title= "itemis news"
+	section {
+		cell Subtitle foreach items as i {
+			text= i.creator
+			details= i.title
+			action= BlogDetails(i)
+		}
+	} 
+}  
+
+
+//tableview BlogList(BlogItem[] items) {
+//	title= "itemis news"
+//	section {
+//		cell Subtitle foreach items as i {
+//			text= i.author
+//			details= i.title
+//			action= BlogDetails(i)
+//		}
+//	} 
+//}  
+
+detailsview BlogDetails(BlogItem item) {
+	title= "Post" 
+	header {
+		title= item.title
+		details= item.description
+	}
+	section {
+		cell Default {
+			text= item.creator
+			action= SpeakerDetails(SpeakerByName(item.creator))
+		}		
+		cell Default {
+			text= "Open in Browser"
+			action= item.link
+		}
+	}
+} 
+
+
+tableview SessionList(Session[] items) {
+	title= "My Sessions"
+	section {
+		cell Subtitle foreach items as i {
+			text= i.title
+			details= i.timeslot
+			action= SessionDetails( i )   
+		} 
+	}
+}
+
+detailsview SessionDetails(Session session) {
+	title= "Session"
+	header {
+		title= session.title
+		subtitle= session.timeslot
+		details= session.description
+	}
+	
+	section {
+		cell DefaultWithDisclosure foreach session.speakers as s {
+			text= s.name
+			image= s.pictureurl
+			action= SpeakerDetails(SpeakerByName(s.name))
+		}
+		
+	}
+	
+}
+
+tableview SpeakersList(Speaker[] speakers) {
+	title= "Speakers"
+	section {
+		cell Default foreach speakers as s {
+			text= s.name
+			image= s.pictureurl
+			action= SpeakerDetails(SpeakerByName(s.name))   
+		}
+	}
+}
+
+detailsview SpeakerDetails(Speaker speaker) {
+	title= "Speaker"
+	header {
+		title= speaker.name
+		details= speaker.bio
+		image= speaker.pictureurl
+	}
+	
+	
+	section {
+		cell Default foreach speaker.sessions as session{
+			text= session.title
+			action= SessionDetails(session)
+		}
+	}
+	
+	section {
+		cell Value2 {
+			text= "mail"
+			details= "some address"
+			//action= ("mailto:"speaker.email) 
+		}
+		cell Value2 {
+			text= "blog"
+			details= "blog's url"
+			// action= ("http://"speaker.blog) 
+		}
+	}
+}
+
+//	button {
+//		title= "News"
+//		icon= "chat.png" 
+//		view= BlogList(Blogposts())
+//	}
+

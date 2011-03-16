@@ -1,0 +1,94 @@
+import org::eclipse::emf::ecore;
+import de::itemis::mobilizer::appModelDsl;
+
+extension templates::android::GeneratorExtensions;
+
+selectionToGetters(ContentProvider this):
+	selectionToGetters(this.selection, this);
+	
+selectionToGetters(ScalarExpression this, ContentProvider cp):
+	"ERROR";
+
+selectionToGetters(StringLiteral this, ContentProvider cp):
+	selectionToGetters(this.value.split("\\."), cp);
+
+String selectionToGetters(List[String] this, ContentProvider cp):
+	isChildTerminal() ? 
+		childGetterName(cp) + (cp.many?"s()":"()") 
+		: childGetterName(cp) + "s().get(0)." + this.withoutFirst().selectionToGetters(cp); 
+	 
+topLevelClass(ContentProvider this):
+	this.selection.topLevelClass();
+	
+topLevelClass(ScalarExpression this):
+	"ERROR";
+
+topLevelClass(StringLiteral this):
+	this.value.split("\\.").self().className();
+
+String self(List[String] this):
+	this.first();
+	
+String child(List[String] this):
+	this.withoutFirst().first();
+	
+String childClassName(List[String] this, ContentProvider provider):
+	isChildTerminal()
+		? provider.providerType()
+		: child().className();
+
+String childFieldName(List[String] this, ContentProvider provider):
+	isChildTerminal()
+		? provider.providerType().fieldName()
+		: child().fieldName();
+
+String childGetterName(List[String] this, ContentProvider provider):
+	isChildTerminal()
+		? provider.providerType().fieldName().getterName()
+		: child().fieldName().getterName();
+		
+String childTagName(List[String] this):
+	this.get(1);		
+	
+/*
+ * If the child is the last element in the list, we'll have a look at the 
+ * result cardinality of the provider. If the child is in the middle of the list,
+ * we always assume cardinality=many: 
+ */
+isChildList(List[String] this, ContentProvider provider):
+	this.size > 2
+		? true
+		: provider.many;
+		
+/* True if the child is the last element in our list. */
+isChildTerminal(List[String] this):
+	this.size == 2;
+	
+providerClassName(ProviderConstruction this):
+	"ERROR";
+	
+providerClassName(ComplexProviderConstruction this):
+	this.provider.providerClassName();
+	
+providerClassName(SimpleProviderConstruction this):
+	"???"; //} expression=Expression;
+	
+	
+providerFactoryClassName(Application this):
+	"ProviderFactory";	
+
+providerFactoryFileName(Application this):
+	packageName().toPath() + "/" + providerFactoryClassName() + ".java"; 
+	
+contentProvider(ProviderConstruction this, String prefix):
+	"<!ERROR!" + metaType + ">";
+
+contentProvider(SimpleProviderConstruction this, String prefix):
+	"new SimpleItemContentProvider<Object>(" + this.expression.expression(prefix)  +  ")";
+	 
+contentProvider(ComplexProviderConstruction this, String prefix):
+	let argument = (this.argument==null? "" : this.argument.expression("") ):
+	"ProviderFactory." + provider.providerClassName().getterName() + "(" + argument + ")"; 
+	
+	
+	

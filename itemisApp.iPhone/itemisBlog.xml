@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>   <rss version="2.0"
+	 xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	 xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	 xmlns:dc="http://purl.org/dc/elements/1.1/"
+	 xmlns:atom="http://www.w3.org/2005/Atom"
+	 xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+	
+  <channel>
+    <title>itemis Blogs</title>
+    <atom:link href="http://blogs.itemis.de/?showfeed=1" rel="self" type="application/rss+xml" />
+    <link>http://blogs.itemis.de</link>
+    <language>en-us</language>
+<description>itemis blog</description>    <item>
+      <title>Installing git-svn with Macports</title>
+      <link>http://blog.kamann.info/2010/03/14/installing-git-svn-with-macports/</link>
+      <pubDate>Sun, 14 Mar 2010 19:04:48 +0100</pubDate>
+      <author>thorque</author>
+      <guid isPermaLink="true">http://blog.kamann.info/2010/03/14/installing-git-svn-with-macports/</guid>
+      <description>
+<![CDATA[I am using a Macbook. Now I want to play with GIT and the Subversion-Support of this. After some searching with Google I found this Blog-Entry. If mentioned there is is very easy to install git-svn:
+
+Install Darwinports
+install subversion-perlbindings
+install git-core +svn
+
+Instead of Darwinports I want to use Macports. There is a image for SnowLeopard you can [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>How-to branch and patch SVN- or TFS/Codeplex-based open source projects with GIT (Part 1)</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/03/12/how-to-branch-and-patch-svn-or-tfscodeplex-based-open-source-projects-with-git-part-1/</link>
+      <pubDate>Fri, 12 Mar 2010 15:42:40 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/03/12/how-to-branch-and-patch-svn-or-tfscodeplex-based-open-source-projects-with-git-part-1/</guid>
+      <description>
+<![CDATA[The last couple of weeks I worked a lot with NPanday which brings maven to .NET. But this post is not about NPanday but rather about the workflow for maintaining a personal branch and uploading patches.
+I’m not a committer, but I had to do some changes to NPanday. I still want to version my changes. [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Xtext, BNF, Marte and MSCs</title>
+      <link>http://5ise.quanxinquanyi.de/2010/03/12/xtext-bnf-marte-and-mscs/</link>
+      <pubDate>Fri, 12 Mar 2010 12:24:29 +0100</pubDate>
+      <author>Andreas Graf</author>
+      <guid isPermaLink="true">http://5ise.quanxinquanyi.de/2010/03/12/xtext-bnf-marte-and-mscs/</guid>
+      <description>
+<![CDATA[Currently we are doing some work on the specification of non-functional properties (such as timing) in the ITEA2 VERDE project. In VERDE, the UML profile MARTE plays a major role. MARTE has a BNF-based Value Specification Language that can be used to specify, amongst other things, timing like The VSL is specified in typical BNF [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Another kind of domain specific</title>
+      <link>http://5ise.quanxinquanyi.de/2010/03/11/another-kind-of-domain-specific/</link>
+      <pubDate>Wed, 10 Mar 2010 23:24:47 +0100</pubDate>
+      <author>Andreas Graf</author>
+      <guid isPermaLink="true">http://5ise.quanxinquanyi.de/2010/03/11/another-kind-of-domain-specific/</guid>
+      <description>
+<![CDATA[On the lighter side of DSLs, Xtext 0.8M5 fixes a bug with unicode characters. It is now possible to use Unicode characters in literals of your grammar.
+So the example grammar of new Xtext Projects in Chinese could look like this:
+
+Of course, content assist and outline are fully supported:
+
+All you have to do is to set [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Running AppleScript from Java</title>
+      <link>http://feedproxy.google.com/~r/FormFollowsFunction/~3/Eh3s0AGgAqw/</link>
+      <pubDate>Mon, 08 Mar 2010 20:42:38 +0100</pubDate>
+      <author>Peter</author>
+      <guid isPermaLink="true">http://feedproxy.google.com/~r/FormFollowsFunction/~3/Eh3s0AGgAqw/</guid>
+      <description>
+<![CDATA[In my current project, I need to launch an external application and maybe execute some additional commands on this external application. Due to the very nature of the project, the whole system will always be run on Mac OS X. So I thought, "why not use AppleScript"?
+Turns out using AppleScript to launch applications is fairly]]>      </description>
+    </item>
+
+    <item>
+      <title>Lillesand #1: Introducing the Work Breakdown Structure for Task Estimation</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/03/05/lillesand-1-introducing-the-work-breakdown-structure-for-task-estimation/</link>
+      <pubDate>Fri, 05 Mar 2010 11:30:02 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/03/05/lillesand-1-introducing-the-work-breakdown-structure-for-task-estimation/</guid>
+      <description>
+<![CDATA[In a dream world a developer should code all the day, right? Well, a very common task beside coding though is to estimate tasks of manifold kinds. Estimating though, sucks.&#160; For badly educated product managers and for many of our customers a estimate equals to a personal commitment. Therefore you better get it right the [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Vortragsreihe Dortmund 15.03.2010: Spring 3 – Der dritte Frühling</title>
+      <link>http://blog.kamann.info/2010/03/05/vortragsreihe-dortmund-15-03-2010-spring-3-der-dritte-fruhling/</link>
+      <pubDate>Fri, 05 Mar 2010 10:29:00 +0100</pubDate>
+      <author>thorque</author>
+      <guid isPermaLink="true">http://blog.kamann.info/2010/03/05/vortragsreihe-dortmund-15-03-2010-spring-3-der-dritte-fruhling/</guid>
+      <description>
+<![CDATA[»Spring 3« ist da. Vieles ist geblieben, manches verschwunden, manches neu. Spring 3 verspricht eine verbesserte und dynamischere  Konfiguration, einen leistungsfähigen und mächtigen REST-Support und viele kleine Verbesserungen. Parallel zu dem Spring 3-Release wurden auch andere Tools und Projekte aktualisiert, auf die wir ebenfalls einen Blick werfen wollen:
+
+Wichtige Änderungen
+Java Configuration
+Spring Expression Language
+Spring MVC und Rest
+Embedded [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Textual models vs. graphical models – a different “view”</title>
+      <link>http://blogs.itemis.de/kloss/2010/03/04/textual-models-vs-graphical-models-a-different-view/</link>
+      <pubDate>Thu, 04 Mar 2010 13:49:18 +0100</pubDate>
+      <author>Michael Kloss</author>
+      <guid isPermaLink="true">http://blogs.itemis.de/kloss/2010/03/04/textual-models-vs-graphical-models-a-different-view/</guid>
+      <description>
+<![CDATA[Last Sunday I made a really &#8220;eye-opening&#8221; experience. I was at the Dialog Museum in Frankfurt City.
+There you can attend a guidance through this museum&#8230; one and a half our in total darkness just with a blindman&#8217;s stick.
+Ending up taking a drink at the &#8220;DunkelBar&#8221; (dark bar), what is really interesting if you have ordered [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Meta level &amp; modeling technologies</title>
+      <link>http://www.guersoy.net/knowledge/meta-level</link>
+      <pubDate>Thu, 04 Mar 2010 10:37:15 +0100</pubDate>
+      <author>guersoy</author>
+      <guid isPermaLink="true">http://www.guersoy.net/knowledge/meta-level</guid>
+      <description>
+<![CDATA[Again and again I meet people do not know at what abstraction level we just discussed. OMG's 4 level meta architecture is a good description of abstraction level in model driven software development environments. The following diagram provides an overview of meta level and some modeling technologies.
+&lt;!--break-->
+The meta-metamodel level (M3) includes the notation for meta modeling. The metamodel level (M2) includes the notation for modeling (domain specific language). The model level (M1) includes [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Prototyping a Configuration Toolkit for Eclipse SMILA with Xtext</title>
+      <link>http://kthoms.wordpress.com/2010/02/26/prototyping-a-configuration-toolkit-for-eclipse-smila-with-xtext/</link>
+      <pubDate>Fri, 26 Feb 2010 15:06:00 +0100</pubDate>
+      <author>kthoms</author>
+      <guid isPermaLink="true">http://kthoms.wordpress.com/2010/02/26/prototyping-a-configuration-toolkit-for-eclipse-smila-with-xtext/</guid>
+      <description>
+<![CDATA[I got the chance to get a bit more familiar with Eclipse SMILA and started development of a configuration toolkit with Xtext. Target is to develop a prototype which enables an easier setup of a valid SMILA configuration by use of a textual DSL with all the benefits which you get from using such a [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Turtles are Reptiles, right?</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/02/25/turtles-are-reptiles-right/</link>
+      <pubDate>Thu, 25 Feb 2010 20:21:20 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/02/25/turtles-are-reptiles-right/</guid>
+      <description>
+<![CDATA[While writing an article about co- and contravariance in .NET I stumbled over some funny C# behaviors. 
+Given a simple domain model of animals (Reptile is base of Snake and Turtle), will this actually work? 
+And if not, what will happen? Will it even compile?
+
+
+
+Reptile[] reptiles = new[]
+  {
+    new Snake(&#34;Leo&#34;),
+ [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Ghost Image Feedback - Enhancing Support for Viewports in GEF</title>
+      <link>http://nyssen.blogspot.com/2010/02/ghost-image-feedback-enhancing-support.html</link>
+      <pubDate>Thu, 25 Feb 2010 08:35:55 +0100</pubDate>
+      <author>Alexander Nyßen</author>
+      <guid isPermaLink="true">http://nyssen.blogspot.com/2010/02/ghost-image-feedback-enhancing-support.html</guid>
+      <description>
+<![CDATA[As I had quite recently initiated a&nbsp;discussion about enriching the&nbsp;Eclipse Graphical Editing Framework (GEF)&nbsp;with some&nbsp;"advanced" editing features, I thought this to be a good opportunity to give a concrete example of what I had in mind by posting about a feature that could&nbsp;improve the end-user experience when working with nested viewports.So what is the problem when working with viewports? To put it bluntly I think their biggest advantage most&nbsp;certainly is also their [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>First experience with SSD in MacBook Pro</title>
+      <link>http://kthoms.wordpress.com/2010/02/20/first-experience-with-ssd-in-macbook-pro/</link>
+      <pubDate>Sat, 20 Feb 2010 12:57:26 +0100</pubDate>
+      <author>kthoms</author>
+      <guid isPermaLink="true">http://kthoms.wordpress.com/2010/02/20/first-experience-with-ssd-in-macbook-pro/</guid>
+      <description>
+<![CDATA[The weakest link in the hardware chain of a notebook is always the harddisk. What do you really have from dual core processors and gigabytes of RAM when most of the time you have to wait for I/O? Over the time my notebook got steadily slower and the harddisk was running and running. I tried [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>What is left of Microsoft “Oslo”? What now with SQL Server Modeling? (Early 2010)</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/02/17/what-is-left-of-microsoft-oslo-what-now-with-sql-server-modeling-early-2010/</link>
+      <pubDate>Wed, 17 Feb 2010 17:39:27 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/02/17/what-is-left-of-microsoft-oslo-what-now-with-sql-server-modeling-early-2010/</guid>
+      <description>
+<![CDATA[Back in October 2008 Microsoft announced “Oslo” as a new and world-changing modeling platform. While it always consisted of a language, an editor and a repository the community seemed to be mostly interested in the language “M” and it’s grammar features for creating new domain specific languages.
+The feedback could be summarized to: 
+Great! We love [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Got deep fried – Podcast Interview about “Oslo”</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/02/16/got-deep-fried-podcast-interview-about-oslo/</link>
+      <pubDate>Tue, 16 Feb 2010 23:45:16 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/02/16/got-deep-fried-podcast-interview-about-oslo/</guid>
+      <description>
+<![CDATA[Keith and Woody interviewed me at PDC last year and now the show is out. 
+It was a pleasure to talk to you guys. Thanks also to Don Xml who introduced me to them.
+I should listen through it once more just to count how often I say “right?” and “stuff”.  
+    [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>New Features in GMFTools</title>
+      <link>http://blogs.itemis.de/wloch/?p=200</link>
+      <pubDate>Mon, 15 Feb 2010 23:21:49 +0100</pubDate>
+      <author>Robert Wloch</author>
+      <guid isPermaLink="true">http://blogs.itemis.de/wloch/?p=200</guid>
+      <description>
+<![CDATA[During a consultancy in Amsterdam two major requirements for the GMFTools arose. Up to today, GMFTools was not able to tell GMF to generate RCP code. Another issue was the lack of automation of regenerating a set of diagrams at once. Both features are part of GMFTools (SVN) as of today:]]>      </description>
+    </item>
+
+    <item>
+      <title>Lazy evaluation in Xpand</title>
+      <link>http://kthoms.wordpress.com/2010/02/15/lazy-evaluation-in-xpand/</link>
+      <pubDate>Mon, 15 Feb 2010 11:36:33 +0100</pubDate>
+      <author>kthoms</author>
+      <guid isPermaLink="true">http://kthoms.wordpress.com/2010/02/15/lazy-evaluation-in-xpand/</guid>
+      <description>
+<![CDATA[Usually code generation is a purely sequential process. Since the model does not change during the generation of an artifact all content can be computed in the template where it is needed for the output. But sometimes there is the wish to defer the output to a later point of time during the generation of [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Vortragsreihe Bonn 22.02.2010: Spring 3 – Der dritte Frühling</title>
+      <link>http://blog.kamann.info/2010/02/14/vortragsreihe-bonn-22-02-2010-spring-3-der-dritte-fruhling/</link>
+      <pubDate>Sun, 14 Feb 2010 21:09:25 +0100</pubDate>
+      <author>thorque</author>
+      <guid isPermaLink="true">http://blog.kamann.info/2010/02/14/vortragsreihe-bonn-22-02-2010-spring-3-der-dritte-fruhling/</guid>
+      <description>
+<![CDATA[»Spring 3« ist da. Vieles ist geblieben, manches verschwunden, manches neu. Dieser Vortrag beleuchtet die Änderungen und zeigt wie man die neuen Features einsetzen kann.
+Zusätzlich werfen wir gemeinsam einen Blick auf die SpringSource Toolsuite, Spring Roo, Grails.]]>      </description>
+    </item>
+
+    <item>
+      <title>Converting Enterprise Architect Model to EMF UML2 model</title>
+      <link>http://blogs.itemis.de/sasidharan/2010/02/11/ea-uml2-conversion/</link>
+      <pubDate>Thu, 11 Feb 2010 10:51:58 +0100</pubDate>
+      <author>sasidharan</author>
+      <guid isPermaLink="true">http://blogs.itemis.de/sasidharan/2010/02/11/ea-uml2-conversion/</guid>
+      <description>
+<![CDATA[Recently, I had a task of a converting a UML model in Enterprise Architect to a EMF UML2 model. Googling with the keywords took me straightaway to Ueli Brawand and his tool EA_UML2Exporter. It is a wonderful little tool that works with openArchitectureWare and gets the task done in no time. However, setting it up does [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Xtext Helios M5 is out!</title>
+      <link>http://blog.efftinge.de/2010/02/xtext-helios-m5-is-out.html</link>
+      <pubDate>Tue, 09 Feb 2010 09:12:47 +0100</pubDate>
+      <author>Sven Efftinge</author>
+      <guid isPermaLink="true">http://blog.efftinge.de/2010/02/xtext-helios-m5-is-out.html</guid>
+      <description>
+<![CDATA[Last Friday we (eclipse.org) officially released the M5 of the Helios release train. Xtext, being part of the train, got a couple of new &amp; noteworthy features we (Xtext team) are very happy (and sort of proud) with. I'm personally most excited about the new builder infrastructure, which allows to revalidate, index and build any kind of EMF resource. Some of the new features we added in M5 demonstrate the huge potential of that builder infrastructure. My favorite is the open element dialog, which [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>How Active is Your Committer Representative?</title>
+      <link>http://ed-merks.blogspot.com/2010/02/how-active-is-your-committer.html</link>
+      <pubDate>Tue, 09 Feb 2010 03:21:00 +0100</pubDate>
+      <author>Ed Merks</author>
+      <guid isPermaLink="true">http://ed-merks.blogspot.com/2010/02/how-active-is-your-committer.html</guid>
+      <description>
+<![CDATA[Now that we're in the middle of an exciting Eclipse board of directors election campaign, you're probably asking yourself, how will I decide for whom to vote? You might well be swayed by folks like Bjorn who are actively campaigning; Bjorn's always got interesting new ideas.  Then again, you might prefer Boris' more subtle approach of simply encouraging you to vote; I like that approach a lot!  Or you might like Chris' approach of tirelessly and visibly helping to promote our community; how can you [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>PHP-User-Artikel: Spiel mit den Wahrscheinlichkeiten</title>
+      <link>http://jendryschik.de/weblog/2010/02/08/php-user-artikel-spiel-mit-den-wahrscheinlichkeiten/</link>
+      <pubDate>Mon, 08 Feb 2010 13:55:06 +0100</pubDate>
+      <author>Michael Jendryschik</author>
+      <guid isPermaLink="true">http://jendryschik.de/weblog/2010/02/08/php-user-artikel-spiel-mit-den-wahrscheinlichkeiten/</guid>
+      <description>
+<![CDATA[
+
+Aufwandsschätzung, Ressourcenplanung und darauf basierende Terminpläne sind bei allen Arten von Projekten essenziell für deren Erfolg. Das gilt für die Organisation von Umzügen oder Geburtstagspartys nicht weniger als für Softwareprojekte oder die Erstellung von Websites. Dieser Artikel stellt zwei einfache Hilfsmittel vor, die Schätzer dabei unterstützen, eine hohe Schätzgüte zu erreichen: das Gesetz der großen Zahlen und die Dreipunktschätzung.
+
+Der Artikel erschien in der PHP [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Datenräuber</title>
+      <link>http://jenswagener.de/?p=224</link>
+      <pubDate>Fri, 05 Feb 2010 19:45:26 +0100</pubDate>
+      <author>jfwagener</author>
+      <guid isPermaLink="true">http://jenswagener.de/?p=224</guid>
+      <description>
+<![CDATA[In Sachen Steuerstreit mit den Schweizer Eidgenossen fehlt mir zurzeit ein wichtiger Diskussionspunkt. Wie kann es eigentlich sein, dass so eine tolle Bank wie die Credit Suisse nicht in der Lage ist ihre Daten zu schützen? Vielleicht hätte man in der Vergangenheit weniger Boni zahlen sollen und das gesparte Geld besser in IT-Sicherheit investiert. Zugegeben, [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Custom Search for Magento Features and Extensions</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/02/05/custom-search-for-magento-features-and-extensions/</link>
+      <pubDate>Fri, 05 Feb 2010 10:38:46 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/02/05/custom-search-for-magento-features-and-extensions/</guid>
+      <description>
+<![CDATA[Since the search on Magento Connect is horrible I created my own. Just to help you not searching the extensions for built-in features, I added the feature lists in the search:
+Open the Magento Developer Dashboard
+       ]]>      </description>
+    </item>
+
+    <item>
+      <title>Unit Converter and Specification Search for OOXML/WordML Development</title>
+      <link>http://startbigthinksmall.wordpress.com/2010/02/05/unit-converter-and-specification-search-for-ooxmlwordml-development/</link>
+      <pubDate>Fri, 05 Feb 2010 10:35:58 +0100</pubDate>
+      <author>Lars Corneliussen</author>
+      <guid isPermaLink="true">http://startbigthinksmall.wordpress.com/2010/02/05/unit-converter-and-specification-search-for-ooxmlwordml-development/</guid>
+      <description>
+<![CDATA[Since both converting all those strange ooxml units manually and searching the OOXML specification is not possible anywhere else, I created a dashboard for OOXML Development. I’ll add stuff to it whenever I feel for it.
+Open the OOXML Developer Dashboard.
+       ]]>      </description>
+    </item>
+
+    <item>
+      <title>EMF 4 Qt – what do you think?</title>
+      <link>http://blogs.itemis.de/wloch/?p=197</link>
+      <pubDate>Mon, 01 Feb 2010 09:47:33 +0100</pubDate>
+      <author>Robert Wloch</author>
+      <guid isPermaLink="true">http://blogs.itemis.de/wloch/?p=197</guid>
+      <description>
+<![CDATA[EMF and all the technologies that have emerged around it provide a real advantage in developing Java applications the model-driven way. Qt is a great framework for developing powerfull fast cross-platform applications, but lacks support for EMF. I'd like to provide that.[...]]]>      </description>
+    </item>
+
+    <item>
+      <title>140 x 365 = 2659</title>
+      <link>http://feedproxy.google.com/~r/FormFollowsFunction/~3/ynY0GFtJjnw/</link>
+      <pubDate>Sun, 31 Jan 2010 21:56:11 +0100</pubDate>
+      <author>Peter</author>
+      <guid isPermaLink="true">http://feedproxy.google.com/~r/FormFollowsFunction/~3/ynY0GFtJjnw/</guid>
+      <description>
+<![CDATA[It's exactly one year since I posted my first tweet on Twitter - time for a review.
+Before I give some reasons why I use Twitter, let's have a look at some stats.
+I sent out roughly 2660 tweets, on average 8.4 per day:
+
+Looking at my tweet density, I hardly seem to be getting any sleep, which]]>      </description>
+    </item>
+
+    <item>
+      <title>Scoping with Xtext/TMF 0.8</title>
+      <link>http://5ise.quanxinquanyi.de/2010/01/29/scoping-with-xtexttmf-08/</link>
+      <pubDate>Fri, 29 Jan 2010 14:58:04 +0100</pubDate>
+      <author>Andreas Graf</author>
+      <guid isPermaLink="true">http://5ise.quanxinquanyi.de/2010/01/29/scoping-with-xtexttmf-08/</guid>
+      <description>
+<![CDATA[Usually I hate it when APIs break. TMF 0.8 introduces a different scoping API than Xtext 0.7. It took me a while to figure out. So I&#8217;ll show the changes below:
+Component :
+    "component" name = ID "{"
+    (ports+=Port)*
+    "}";
+
+Port :
+    "port" dir=Direction name=ID ":"  ref=[Interface&#124;ID] ";"
+    ;
+
+enum Direction :
+    IN="in" &#124; OUT="out";
+
+Instance:
+    "instance" name=ID ":" [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>[MTF] creational review successful survived</title>
+      <link>http://blogs.itemis.de/stundzig/archives/635</link>
+      <pubDate>Wed, 27 Jan 2010 11:08:43 +0100</pubDate>
+      <author>stundzig</author>
+      <guid isPermaLink="true">http://blogs.itemis.de/stundzig/archives/635</guid>
+      <description>
+<![CDATA[last night (in europe  ) the EMO @ eclipse.org has declared the creation review as
+successful for our upcoming eclipse project Modeling Team Framework -&#62;
+http://www.eclipse.org/proposals/mtf/.
+The Modeling Team Framework will provide a mechanism like a meta repository on top of several repository types. It could be the base for software configuration management of Eclipse projects which [...]]]>      </description>
+    </item>
+
+    <item>
+      <title>Peripatetic</title>
+      <link>http://ed-merks.blogspot.com/2010/01/peripatetic.html</link>
+      <pubDate>Mon, 25 Jan 2010 11:33:00 +0100</pubDate>
+      <author>Ed Merks</author>
+      <guid isPermaLink="true">http://ed-merks.blogspot.com/2010/01/peripatetic.html</guid>
+      <description>
+<![CDATA[It was bound to happen: I was finally asked to be a model. I kid you not. The truth is stranger than fiction. It happened at Upper Canada Mall. Leaving a store that sells leather jackets, I was interrupted by a plaintiff "Excuse me sir, would you mind helping us out for a second." It turned out I was just the right build to act as a model for the lady's husband; she and two other ladies were picking a jacket for him. Being incredibly helpful and generally unable to say no, of course I obliged, volunteering [...]]]>      </description>
+    </item>
+
+  </channel>
+</rss>

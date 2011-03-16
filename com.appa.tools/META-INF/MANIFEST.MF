@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Tools
+Bundle-SymbolicName: com.appa.tools
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: APPA
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.appa.tools,
+ com.appa.tools.macosx
