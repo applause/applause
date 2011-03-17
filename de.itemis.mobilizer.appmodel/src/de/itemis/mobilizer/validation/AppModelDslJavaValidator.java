@@ -13,11 +13,13 @@ import com.google.common.collect.Iterables;
 
 import de.itemis.mobilizer.appModelDsl.AppModelDslPackage;
 import de.itemis.mobilizer.appModelDsl.ContentProvider;
+import de.itemis.mobilizer.appModelDsl.Entity;
 import de.itemis.mobilizer.appModelDsl.Model;
 import de.itemis.mobilizer.appModelDsl.ObjectReference;
 import de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction;
 import de.itemis.mobilizer.appModelDsl.StringLiteral;
 import de.itemis.mobilizer.appModelDsl.TabbarButton;
+import de.itemis.mobilizer.appModelDsl.TypeDescription;
 import de.itemis.mobilizer.appModelDsl.View;
 import de.itemis.mobilizer.scoping.TypeUtil;
 
@@ -98,8 +100,34 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 			error("Resolver must not use more than one attribute", AppModelDslPackage.CONTENT_PROVIDER__URL);
 	}
 	
+	@Check
+	void resolversInAndOutIdentical(ContentProvider cp) {
+		if(cp.isResolver() && !(
+				cp.getType() == cp.getParameter().getDescription().getType() &&
+				cp.isMany() == cp.getParameter().getDescription().isMany()))
+			error("Resolvers input and output types must match", AppModelDslPackage.CONTENT_PROVIDER__TYPE);
+	}
+	
+	@Check
 	void resolverExistsForDirectViewcall(SimpleProviderConstruction construction) {
-		// TODO: implement
+		TypeDescription typeDescription = TypeUtil.getTypeOf(construction.getExpression());
+		if (typeDescription.getType() instanceof Entity) {
+			TypeUtil.getTypeOf(construction.getExpression());
+			final Entity e = (Entity) typeDescription.getType();
+			
+			Model model = (Model) e.eContainer();
+			Iterable<ContentProvider> allProviders = Iterables.filter(model.getElements(), ContentProvider.class);
+			
+			Predicate<ContentProvider> matchingResolvers = new Predicate<ContentProvider>() {
+				public boolean apply(ContentProvider cp) {
+					return cp.isResolver() && cp.getType() == e && !cp.isMany(); 
+				}
+			};
+			
+			if(!Iterables.any(allProviders, matchingResolvers)) {
+				error("No matching resolver found for " + e.getName(), AppModelDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
+			}
+		}
 	}
 
 	

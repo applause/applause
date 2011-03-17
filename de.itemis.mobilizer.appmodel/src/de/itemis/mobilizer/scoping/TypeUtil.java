@@ -11,6 +11,7 @@ import com.google.common.collect.Iterables;
 import de.itemis.mobilizer.appModelDsl.AppModelDslFactory;
 import de.itemis.mobilizer.appModelDsl.CollectionIterator;
 import de.itemis.mobilizer.appModelDsl.CollectionLiteral;
+import de.itemis.mobilizer.appModelDsl.Expression;
 import de.itemis.mobilizer.appModelDsl.ObjectReference;
 import de.itemis.mobilizer.appModelDsl.Parameter;
 import de.itemis.mobilizer.appModelDsl.Property;
@@ -40,7 +41,7 @@ public class TypeUtil {
 //		}
 //	}
 
-	public static AppModelDslSwitch<TypeDescription> typeOf = new AppModelDslSwitch<TypeDescription>() {
+	private static AppModelDslSwitch<TypeDescription> typeOf = new AppModelDslSwitch<TypeDescription>() {
 		public TypeDescription caseProperty(Property object) {
 			return object.getDescription();
 		};
@@ -54,6 +55,7 @@ public class TypeUtil {
 		};
 
 		public TypeDescription caseCollectionIterator(CollectionIterator object) {
+			// TODO: return isMany==false
 			return doGetTypeOf(object.getCollection());
 		};
 
@@ -85,6 +87,10 @@ public class TypeUtil {
 	
 	public static TypeDescription getTypeOf(VariableDeclaration declaration) {
 		return doGetTypeOf(declaration);
+	}
+	
+	public static TypeDescription getTypeOf(Expression expression) {
+		return doGetTypeOf(expression);
 	}
 	
 	public static AppModelDslSwitch<Iterable<ObjectReference>> referencesIn = new AppModelDslSwitch<Iterable<ObjectReference>>() {
