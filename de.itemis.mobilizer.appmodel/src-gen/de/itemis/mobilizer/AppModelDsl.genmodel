@@ -27,9 +27,7 @@
     <genClasses ecoreClass="AppModelDsl.ecore#//ModelElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//ModelElement/name"/>
     </genClasses>
-    <genClasses ecoreClass="AppModelDsl.ecore#//VariableDeclaration">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//VariableDeclaration/name"/>
-    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//VariableDeclaration"/>
     <genClasses ecoreClass="AppModelDsl.ecore#//TypeDescription">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//TypeDescription/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//TypeDescription/many"/>
@@ -135,6 +133,9 @@
     <genClasses ecoreClass="AppModelDsl.ecore#//StringSplit">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringSplit/value"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringSplit/delimiter"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Constant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Constant/value"/>
     </genClasses>
     <genClasses ecoreClass="AppModelDsl.ecore#//ComplexProviderConstruction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ComplexProviderConstruction/provider"/>

@@ -10,7 +10,7 @@ Application:
 	TabBarApplication;
 
 ModelElement:
-	Type | ContentProvider | View;
+	Type | ContentProvider | View | Constant;
 	
 // -------------------------------------------
 // General
@@ -73,7 +73,10 @@ TabbarButton:
 		'icon=' icon=ScalarExpression
 		'view=' view=ViewCall
 	'}'
-;	
+;
+
+Constant returns VariableDeclaration:
+	{Constant} 'const' name=ID value=ScalarExpression;	
 
 // -------------------------------------------
 // types

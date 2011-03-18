@@ -26,7 +26,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElementsModelElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
 		
 		//Model:
-		//  application=Application elements+=ModelElement*;
+		//	application=Application elements+=ModelElement*;
 		public ParserRule getRule() { return rule; }
 
 		//application=Application elements+=ModelElement*
@@ -50,7 +50,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTabBarApplicationParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//Application:
-		//  TabBarApplication;
+		//	TabBarApplication;
 		public ParserRule getRule() { return rule; }
 
 		//TabBarApplication
@@ -63,12 +63,13 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cContentProviderParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cViewParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cConstantParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//ModelElement:
-		//  Type|ContentProvider|View;
+		//	Type | ContentProvider | View | Constant;
 		public ParserRule getRule() { return rule; }
 
-		//Type|ContentProvider|View
+		//Type | ContentProvider | View | Constant
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Type
@@ -79,6 +80,9 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//View
 		public RuleCall getViewParserRuleCall_2() { return cViewParserRuleCall_2; }
+
+		//Constant
+		public RuleCall getConstantParserRuleCall_3() { return cConstantParserRuleCall_3; }
 	}
 
 	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
@@ -90,15 +94,12 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// -------------------------------------------
 		//// General
-		//
 		//// common supertype to allow variableReferences
-		//
-		//
 		//VariableDeclaration:
-		//  Parameter|Property|CollectionIterator;
+		//	Parameter | Property | CollectionIterator;
 		public ParserRule getRule() { return rule; }
 
-		//Parameter|Property|CollectionIterator
+		//Parameter | Property | CollectionIterator
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Parameter
@@ -121,7 +122,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cManyLeftSquareBracketRightSquareBracketKeyword_1_0 = (Keyword)cManyAssignment_1.eContents().get(0);
 		
 		//TypeDescription:
-		//  type=[Type] many?="[]"?;
+		//	type=[Type] many?="[]"?;
 		public ParserRule getRule() { return rule; }
 
 		//type=[Type] many?="[]"?
@@ -152,7 +153,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
 		//Parameter:
-		//  description=TypeDescription name=ID;
+		//	description=TypeDescription name=ID;
 		public ParserRule getRule() { return rule; }
 
 		//description=TypeDescription name=ID
@@ -181,7 +182,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cTailNestedObjectReferenceParserRuleCall_1_0 = (RuleCall)cTailAssignment_1.eContents().get(0);
 		
 		//ObjectReference:
-		//  object=[VariableDeclaration] tail=NestedObjectReference?;
+		//	object=[VariableDeclaration] tail=NestedObjectReference?;
 		public ParserRule getRule() { return rule; }
 
 		//object=[VariableDeclaration] tail=NestedObjectReference?
@@ -217,10 +218,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		////   assist parser technically could have been include in ObjectReference like
 		////   ObjectReference:
 		////     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
-		//
-		//
 		//NestedObjectReference returns ObjectReference:
-		//  "." object=[VariableDeclaration] tail=NestedObjectReference?;
+		//	"." object=[VariableDeclaration] tail=NestedObjectReference?;
 		public ParserRule getRule() { return rule; }
 
 		//"." object=[VariableDeclaration] tail=NestedObjectReference?
@@ -255,12 +254,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cObjectReferenceParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//Expression:
-		//  StringLiteral|StringFunction|CollectionLiteral|CollectionFunction|
-		//  ObjectReference;
+		//	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
 		public ParserRule getRule() { return rule; }
 
-		//StringLiteral|StringFunction|CollectionLiteral|CollectionFunction|
-		//ObjectReference
+		//StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//StringLiteral
@@ -287,10 +284,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cObjectReferenceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//ScalarExpression:
-		//  StringLiteral|StringFunction|ObjectReference;
+		//	StringLiteral | StringFunction | ObjectReference;
 		public ParserRule getRule() { return rule; }
 
-		//StringLiteral|StringFunction|ObjectReference
+		//StringLiteral | StringFunction | ObjectReference
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//StringLiteral
@@ -311,10 +308,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cObjectReferenceParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//CollectionExpression:
-		//  CollectionLiteral|CollectionFunction|ObjectReference;
+		//	CollectionLiteral | CollectionFunction | ObjectReference;
 		public ParserRule getRule() { return rule; }
 
-		//CollectionLiteral|CollectionFunction|ObjectReference
+		//CollectionLiteral | CollectionFunction | ObjectReference
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//CollectionLiteral
@@ -333,7 +330,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//StringLiteral:
-		//  value=STRING;
+		//	value=STRING;
 		public ParserRule getRule() { return rule; }
 
 		//value=STRING
@@ -372,16 +369,14 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_2_3 = (Keyword)cGroup_2.eContents().get(3);
 		
 		//StringFunction:
-		//  {StringConcat} "(" values+=ScalarExpression+ ")"|{StringReplace} "replace("
-		//  value=ScalarExpression "," match=ScalarExpression ","
-		//  replacement=ScalarExpression ")"|{StringUrlConform} "urlconform("
-		//  value=ScalarExpression ")";
+		//	{StringConcat} "(" values+=ScalarExpression+ ")" | {StringReplace} "replace(" value=ScalarExpression ","
+		//	match=ScalarExpression "," replacement=ScalarExpression ")" | {StringUrlConform} "urlconform(" value=ScalarExpression
+		//	")";
 		public ParserRule getRule() { return rule; }
 
-		//{StringConcat} "(" values+=ScalarExpression+ ")"|{StringReplace} "replace("
-		//value=ScalarExpression "," match=ScalarExpression ","
-		//replacement=ScalarExpression ")"|{StringUrlConform} "urlconform("
-		//value=ScalarExpression ")"
+		//{StringConcat} "(" values+=ScalarExpression+ ")" | {StringReplace} "replace(" value=ScalarExpression ","
+		//match=ScalarExpression "," replacement=ScalarExpression ")" | {StringUrlConform} "urlconform(" value=ScalarExpression
+		//")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//{StringConcat} "(" values+=ScalarExpression+ ")"
@@ -402,8 +397,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_0_3() { return cRightParenthesisKeyword_0_3; }
 
-		//{StringReplace} "replace(" value=ScalarExpression "," match=ScalarExpression ","
-		//replacement=ScalarExpression ")"
+		//{StringReplace} "replace(" value=ScalarExpression "," match=ScalarExpression "," replacement=ScalarExpression ")"
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{StringReplace}
@@ -471,7 +465,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//CollectionLiteral:
-		//  "[" items+=ScalarExpression ("," items+=ScalarExpression)* "]";
+		//	"[" items+=ScalarExpression ("," items+=ScalarExpression)* "]";
 		public ParserRule getRule() { return rule; }
 
 		//"[" items+=ScalarExpression ("," items+=ScalarExpression)* "]"
@@ -515,8 +509,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//CollectionFunction:
-		//  {StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression
-		//  ")";
+		//	{StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression ")";
 		public ParserRule getRule() { return rule; }
 
 		//{StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression ")"
@@ -560,10 +553,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// -------------------------------------------
 		//// applications
-		//
-		//
 		//TabBarApplication returns Application:
-		//  "tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
+		//	"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
 		public ParserRule getRule() { return rule; }
 
 		//"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}"
@@ -608,12 +599,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//TabbarButton:
-		//  "button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression
-		//  "view=" view=ViewCall "}";
+		//	"button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression "view=" view=ViewCall "}";
 		public ParserRule getRule() { return rule; }
 
-		//"button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression
-		//"view=" view=ViewCall "}"
+		//"button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression "view=" view=ViewCall "}"
 		public Group getGroup() { return cGroup; }
 
 		//"button"
@@ -653,6 +642,42 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_8() { return cRightCurlyBracketKeyword_8; }
 	}
 
+	public class ConstantElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Constant");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cConstantAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cConstKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
+		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cValueScalarExpressionParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
+		
+		//Constant returns VariableDeclaration:
+		//	{Constant} "const" name=ID value=ScalarExpression;
+		public ParserRule getRule() { return rule; }
+
+		//{Constant} "const" name=ID value=ScalarExpression
+		public Group getGroup() { return cGroup; }
+
+		//{Constant}
+		public Action getConstantAction_0() { return cConstantAction_0; }
+
+		//"const"
+		public Keyword getConstKeyword_1() { return cConstKeyword_1; }
+
+		//name=ID
+		public Assignment getNameAssignment_2() { return cNameAssignment_2; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
+
+		//value=ScalarExpression
+		public Assignment getValueAssignment_3() { return cValueAssignment_3; }
+
+		//ScalarExpression
+		public RuleCall getValueScalarExpressionParserRuleCall_3_0() { return cValueScalarExpressionParserRuleCall_3_0; }
+	}
+
 	public class TypeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -661,13 +686,11 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// -------------------------------------------
 		//// types
-		//
-		//
 		//Type:
-		//  SimpleType|Entity;
+		//	SimpleType | Entity;
 		public ParserRule getRule() { return rule; }
 
-		//SimpleType|Entity
+		//SimpleType | Entity
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SimpleType
@@ -688,7 +711,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cPlatformTypeSTRINGTerminalRuleCall_3_0 = (RuleCall)cPlatformTypeAssignment_3.eContents().get(0);
 		
 		//SimpleType:
-		//  "type" name=ID "mapsTo" platformType=STRING;
+		//	"type" name=ID "mapsTo" platformType=STRING;
 		public ParserRule getRule() { return rule; }
 
 		//"type" name=ID "mapsTo" platformType=STRING
@@ -730,7 +753,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//Entity:
-		//  "entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
+		//	"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
 		public ParserRule getRule() { return rule; }
 
 		//"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}"
@@ -784,7 +807,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//Property:
-		//  derived?="derived"? description=TypeDescription name=ID;
+		//	derived?="derived"? description=TypeDescription name=ID;
 		public ParserRule getRule() { return rule; }
 
 		//derived?="derived"? description=TypeDescription name=ID
@@ -840,17 +863,13 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// -------------------------------------------
 		//// content provider
-		//
-		//
 		//ContentProvider:
-		//  "contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns"|
-		//  resolver?="resolves") type=[Type] many?="[]"? "fetches" "XML" "from"
-		//  url=ScalarExpression "selects" selection=ScalarExpression;
+		//	"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | resolver?="resolves") type=[Type] many?="[]"?
+		//	"fetches" "XML" "from" url=ScalarExpression "selects" selection=ScalarExpression;
 		public ParserRule getRule() { return rule; }
 
-		//"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns"|
-		//resolver?="resolves") type=[Type] many?="[]"? "fetches" "XML" "from"
-		//url=ScalarExpression "selects" selection=ScalarExpression
+		//"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | resolver?="resolves") type=[Type] many?="[]"?
+		//"fetches" "XML" "from" url=ScalarExpression "selects" selection=ScalarExpression
 		public Group getGroup() { return cGroup; }
 
 		//"contentprovider"
@@ -877,7 +896,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		//")"
 		public Keyword getRightParenthesisKeyword_2_2() { return cRightParenthesisKeyword_2_2; }
 
-		//"returns"|resolver?="resolves"
+		//"returns" | resolver?="resolves"
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 
 		//"returns"
@@ -947,16 +966,15 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionExpressionParserRuleCall_1_1_0 = (RuleCall)cExpressionAssignment_1_1.eContents().get(0);
 		
 		//ProviderConstruction:
-		//  {ComplexProviderConstruction} provider=[ContentProvider] "("
-		//  argument=Expression? ")"|{SimpleProviderConstruction} expression=Expression;
+		//	{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")" | {SimpleProviderConstruction}
+		//	expression=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression
-		//? ")"|{SimpleProviderConstruction} expression=Expression
+		//{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")" | {SimpleProviderConstruction}
+		//expression=Expression
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression
-		//? ")"
+		//{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")"
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{ComplexProviderConstruction}
@@ -1004,13 +1022,11 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		
 		//// -------------------------------------------
 		//// views
-		//
-		//
 		//View:
-		//  SectionedView|CustomView;
+		//	SectionedView | CustomView;
 		public ParserRule getRule() { return rule; }
 
-		//SectionedView|CustomView
+		//SectionedView | CustomView
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SectionedView
@@ -1027,10 +1043,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDetailsViewParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//SectionedView:
-		//  TableView|DetailsView;
+		//	TableView | DetailsView;
 		public ParserRule getRule() { return rule; }
 
-		//TableView|DetailsView
+		//TableView | DetailsView
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//TableView
@@ -1060,12 +1076,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//TableView:
-		//  "tableview" name=ID ("(" content=Parameter ")")? "{" "title="
-		//  title=ScalarExpression sections+=ViewSection* "}";
+		//	"tableview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression sections+=ViewSection* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"tableview" name=ID ("(" content=Parameter ")")? "{" "title="
-		//title=ScalarExpression sections+=ViewSection* "}"
+		//"tableview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression sections+=ViewSection* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"tableview"
@@ -1136,12 +1150,12 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//DetailsView:
-		//  "detailsview" name=ID ("(" content=Parameter ")")? "{" "title="
-		//  title=ScalarExpression header=ViewHeader? sections+=ViewSection* "}";
+		//	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression header=ViewHeader?
+		//	sections+=ViewSection* "}";
 		public ParserRule getRule() { return rule; }
 
-		//"detailsview" name=ID ("(" content=Parameter ")")? "{" "title="
-		//title=ScalarExpression header=ViewHeader? sections+=ViewSection* "}"
+		//"detailsview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression header=ViewHeader?
+		//sections+=ViewSection* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"detailsview"
@@ -1212,12 +1226,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cObjclassSTRINGTerminalRuleCall_4_0 = (RuleCall)cObjclassAssignment_4.eContents().get(0);
 		
 		//CustomView:
-		//  "customview" name=ID ("(" content=Parameter ")")? "implementedBy"
-		//  objclass=STRING;
+		//	"customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"customview" name=ID ("(" content=Parameter ")")? "implementedBy"
-		//objclass=STRING
+		//"customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"customview"
@@ -1279,14 +1291,12 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		
 		//ViewHeader:
-		//  {ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle="
-		//  subtitle=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-		//  image=ScalarExpression)? "}";
+		//	{ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle=" subtitle=ScalarExpression)? ("details="
+		//	details=ScalarExpression)? ("image=" image=ScalarExpression)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//{ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle="
-		//subtitle=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-		//image=ScalarExpression)? "}"
+		//{ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle=" subtitle=ScalarExpression)? ("details="
+		//details=ScalarExpression)? ("image=" image=ScalarExpression)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{ViewHeader}
@@ -1364,7 +1374,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//ViewSection:
-		//  "section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}";
+		//	"section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}";
 		public ParserRule getRule() { return rule; }
 
 		//"section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}"
@@ -1428,14 +1438,12 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_8 = (Keyword)cGroup.eContents().get(8);
 		
 		//SectionCell:
-		//  "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text="
-		//  text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-		//  image=ScalarExpression)? ("action=" action=ViewAction)? "}";
+		//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
+		//	details=ScalarExpression)? ("image=" image=ScalarExpression)? ("action=" action=ViewAction)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text="
-		//text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-		//image=ScalarExpression)? ("action=" action=ViewAction)? "}"
+		//"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
+		//details=ScalarExpression)? ("image=" image=ScalarExpression)? ("action=" action=ViewAction)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"cell"
@@ -1524,7 +1532,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
 		
 		//CollectionIterator:
-		//  collection=CollectionExpression "as" name=ID;
+		//	collection=CollectionExpression "as" name=ID;
 		public ParserRule getRule() { return rule; }
 
 		//collection=CollectionExpression "as" name=ID
@@ -1553,10 +1561,10 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExternalOpenParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//ViewAction:
-		//  ViewCall|ExternalOpen;
+		//	ViewCall | ExternalOpen;
 		public ParserRule getRule() { return rule; }
 
-		//ViewCall|ExternalOpen
+		//ViewCall | ExternalOpen
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//ViewCall
@@ -1572,7 +1580,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUrlScalarExpressionParserRuleCall_0 = (RuleCall)cUrlAssignment.eContents().get(0);
 		
 		//ExternalOpen:
-		//  url=ScalarExpression;
+		//	url=ScalarExpression;
 		public ParserRule getRule() { return rule; }
 
 		//url=ScalarExpression
@@ -1594,7 +1602,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//ViewCall:
-		//  view=[View] "(" provider=ProviderConstruction? ")";
+		//	view=[View] "(" provider=ProviderConstruction? ")";
 		public ParserRule getRule() { return rule; }
 
 		//view=[View] "(" provider=ProviderConstruction? ")"
@@ -1638,12 +1646,12 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cSubtitleSubtitleKeyword_4_0 = (Keyword)cSubtitleEnumLiteralDeclaration_4.eContents().get(0);
 		
 		//enum CellType:
-		//  default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2=
-		//  "Value2" | double="Double" | subtitle="Subtitle";
+		//	default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2="Value2" | double="Double" |
+		//	subtitle="Subtitle";
 		public EnumRule getRule() { return rule; }
 
-		//default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2=
-		//"Value2" | double="Double" | subtitle="Subtitle"
+		//default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2="Value2" | double="Double" |
+		//subtitle="Subtitle"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//default="Default"
@@ -1694,6 +1702,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	private CollectionFunctionElements pCollectionFunction;
 	private TabBarApplicationElements pTabBarApplication;
 	private TabbarButtonElements pTabbarButton;
+	private ConstantElements pConstant;
 	private TypeElements pType;
 	private SimpleTypeElements pSimpleType;
 	private EntityElements pEntity;
@@ -1736,7 +1745,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//  application=Application elements+=ModelElement*;
+	//	application=Application elements+=ModelElement*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -1746,7 +1755,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Application:
-	//  TabBarApplication;
+	//	TabBarApplication;
 	public ApplicationElements getApplicationAccess() {
 		return (pApplication != null) ? pApplication : (pApplication = new ApplicationElements());
 	}
@@ -1756,7 +1765,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ModelElement:
-	//  Type|ContentProvider|View;
+	//	Type | ContentProvider | View | Constant;
 	public ModelElementElements getModelElementAccess() {
 		return (pModelElement != null) ? pModelElement : (pModelElement = new ModelElementElements());
 	}
@@ -1767,12 +1776,9 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// -------------------------------------------
 	//// General
-	//
 	//// common supertype to allow variableReferences
-	//
-	//
 	//VariableDeclaration:
-	//  Parameter|Property|CollectionIterator;
+	//	Parameter | Property | CollectionIterator;
 	public VariableDeclarationElements getVariableDeclarationAccess() {
 		return (pVariableDeclaration != null) ? pVariableDeclaration : (pVariableDeclaration = new VariableDeclarationElements());
 	}
@@ -1782,7 +1788,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TypeDescription:
-	//  type=[Type] many?="[]"?;
+	//	type=[Type] many?="[]"?;
 	public TypeDescriptionElements getTypeDescriptionAccess() {
 		return (pTypeDescription != null) ? pTypeDescription : (pTypeDescription = new TypeDescriptionElements());
 	}
@@ -1792,7 +1798,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Parameter:
-	//  description=TypeDescription name=ID;
+	//	description=TypeDescription name=ID;
 	public ParameterElements getParameterAccess() {
 		return (pParameter != null) ? pParameter : (pParameter = new ParameterElements());
 	}
@@ -1802,7 +1808,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ObjectReference:
-	//  object=[VariableDeclaration] tail=NestedObjectReference?;
+	//	object=[VariableDeclaration] tail=NestedObjectReference?;
 	public ObjectReferenceElements getObjectReferenceAccess() {
 		return (pObjectReference != null) ? pObjectReference : (pObjectReference = new ObjectReferenceElements());
 	}
@@ -1815,10 +1821,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	////   assist parser technically could have been include in ObjectReference like
 	////   ObjectReference:
 	////     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
-	//
-	//
 	//NestedObjectReference returns ObjectReference:
-	//  "." object=[VariableDeclaration] tail=NestedObjectReference?;
+	//	"." object=[VariableDeclaration] tail=NestedObjectReference?;
 	public NestedObjectReferenceElements getNestedObjectReferenceAccess() {
 		return (pNestedObjectReference != null) ? pNestedObjectReference : (pNestedObjectReference = new NestedObjectReferenceElements());
 	}
@@ -1828,8 +1832,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Expression:
-	//  StringLiteral|StringFunction|CollectionLiteral|CollectionFunction|
-	//  ObjectReference;
+	//	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
 	public ExpressionElements getExpressionAccess() {
 		return (pExpression != null) ? pExpression : (pExpression = new ExpressionElements());
 	}
@@ -1839,7 +1842,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ScalarExpression:
-	//  StringLiteral|StringFunction|ObjectReference;
+	//	StringLiteral | StringFunction | ObjectReference;
 	public ScalarExpressionElements getScalarExpressionAccess() {
 		return (pScalarExpression != null) ? pScalarExpression : (pScalarExpression = new ScalarExpressionElements());
 	}
@@ -1849,7 +1852,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CollectionExpression:
-	//  CollectionLiteral|CollectionFunction|ObjectReference;
+	//	CollectionLiteral | CollectionFunction | ObjectReference;
 	public CollectionExpressionElements getCollectionExpressionAccess() {
 		return (pCollectionExpression != null) ? pCollectionExpression : (pCollectionExpression = new CollectionExpressionElements());
 	}
@@ -1859,7 +1862,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StringLiteral:
-	//  value=STRING;
+	//	value=STRING;
 	public StringLiteralElements getStringLiteralAccess() {
 		return (pStringLiteral != null) ? pStringLiteral : (pStringLiteral = new StringLiteralElements());
 	}
@@ -1869,10 +1872,9 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//StringFunction:
-	//  {StringConcat} "(" values+=ScalarExpression+ ")"|{StringReplace} "replace("
-	//  value=ScalarExpression "," match=ScalarExpression ","
-	//  replacement=ScalarExpression ")"|{StringUrlConform} "urlconform("
-	//  value=ScalarExpression ")";
+	//	{StringConcat} "(" values+=ScalarExpression+ ")" | {StringReplace} "replace(" value=ScalarExpression ","
+	//	match=ScalarExpression "," replacement=ScalarExpression ")" | {StringUrlConform} "urlconform(" value=ScalarExpression
+	//	")";
 	public StringFunctionElements getStringFunctionAccess() {
 		return (pStringFunction != null) ? pStringFunction : (pStringFunction = new StringFunctionElements());
 	}
@@ -1882,7 +1884,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CollectionLiteral:
-	//  "[" items+=ScalarExpression ("," items+=ScalarExpression)* "]";
+	//	"[" items+=ScalarExpression ("," items+=ScalarExpression)* "]";
 	public CollectionLiteralElements getCollectionLiteralAccess() {
 		return (pCollectionLiteral != null) ? pCollectionLiteral : (pCollectionLiteral = new CollectionLiteralElements());
 	}
@@ -1892,8 +1894,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CollectionFunction:
-	//  {StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression
-	//  ")";
+	//	{StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression ")";
 	public CollectionFunctionElements getCollectionFunctionAccess() {
 		return (pCollectionFunction != null) ? pCollectionFunction : (pCollectionFunction = new CollectionFunctionElements());
 	}
@@ -1904,10 +1905,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// -------------------------------------------
 	//// applications
-	//
-	//
 	//TabBarApplication returns Application:
-	//  "tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
+	//	"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
 	public TabBarApplicationElements getTabBarApplicationAccess() {
 		return (pTabBarApplication != null) ? pTabBarApplication : (pTabBarApplication = new TabBarApplicationElements());
 	}
@@ -1917,8 +1916,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TabbarButton:
-	//  "button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression
-	//  "view=" view=ViewCall "}";
+	//	"button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression "view=" view=ViewCall "}";
 	public TabbarButtonElements getTabbarButtonAccess() {
 		return (pTabbarButton != null) ? pTabbarButton : (pTabbarButton = new TabbarButtonElements());
 	}
@@ -1927,12 +1925,20 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getTabbarButtonAccess().getRule();
 	}
 
+	//Constant returns VariableDeclaration:
+	//	{Constant} "const" name=ID value=ScalarExpression;
+	public ConstantElements getConstantAccess() {
+		return (pConstant != null) ? pConstant : (pConstant = new ConstantElements());
+	}
+	
+	public ParserRule getConstantRule() {
+		return getConstantAccess().getRule();
+	}
+
 	//// -------------------------------------------
 	//// types
-	//
-	//
 	//Type:
-	//  SimpleType|Entity;
+	//	SimpleType | Entity;
 	public TypeElements getTypeAccess() {
 		return (pType != null) ? pType : (pType = new TypeElements());
 	}
@@ -1942,7 +1948,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SimpleType:
-	//  "type" name=ID "mapsTo" platformType=STRING;
+	//	"type" name=ID "mapsTo" platformType=STRING;
 	public SimpleTypeElements getSimpleTypeAccess() {
 		return (pSimpleType != null) ? pSimpleType : (pSimpleType = new SimpleTypeElements());
 	}
@@ -1952,7 +1958,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Entity:
-	//  "entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
+	//	"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
 	public EntityElements getEntityAccess() {
 		return (pEntity != null) ? pEntity : (pEntity = new EntityElements());
 	}
@@ -1962,7 +1968,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Property:
-	//  derived?="derived"? description=TypeDescription name=ID;
+	//	derived?="derived"? description=TypeDescription name=ID;
 	public PropertyElements getPropertyAccess() {
 		return (pProperty != null) ? pProperty : (pProperty = new PropertyElements());
 	}
@@ -1973,12 +1979,9 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// -------------------------------------------
 	//// content provider
-	//
-	//
 	//ContentProvider:
-	//  "contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns"|
-	//  resolver?="resolves") type=[Type] many?="[]"? "fetches" "XML" "from"
-	//  url=ScalarExpression "selects" selection=ScalarExpression;
+	//	"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | resolver?="resolves") type=[Type] many?="[]"?
+	//	"fetches" "XML" "from" url=ScalarExpression "selects" selection=ScalarExpression;
 	public ContentProviderElements getContentProviderAccess() {
 		return (pContentProvider != null) ? pContentProvider : (pContentProvider = new ContentProviderElements());
 	}
@@ -1988,8 +1991,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ProviderConstruction:
-	//  {ComplexProviderConstruction} provider=[ContentProvider] "("
-	//  argument=Expression? ")"|{SimpleProviderConstruction} expression=Expression;
+	//	{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")" | {SimpleProviderConstruction}
+	//	expression=Expression;
 	public ProviderConstructionElements getProviderConstructionAccess() {
 		return (pProviderConstruction != null) ? pProviderConstruction : (pProviderConstruction = new ProviderConstructionElements());
 	}
@@ -2000,10 +2003,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// -------------------------------------------
 	//// views
-	//
-	//
 	//View:
-	//  SectionedView|CustomView;
+	//	SectionedView | CustomView;
 	public ViewElements getViewAccess() {
 		return (pView != null) ? pView : (pView = new ViewElements());
 	}
@@ -2013,7 +2014,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SectionedView:
-	//  TableView|DetailsView;
+	//	TableView | DetailsView;
 	public SectionedViewElements getSectionedViewAccess() {
 		return (pSectionedView != null) ? pSectionedView : (pSectionedView = new SectionedViewElements());
 	}
@@ -2023,8 +2024,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//TableView:
-	//  "tableview" name=ID ("(" content=Parameter ")")? "{" "title="
-	//  title=ScalarExpression sections+=ViewSection* "}";
+	//	"tableview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression sections+=ViewSection* "}";
 	public TableViewElements getTableViewAccess() {
 		return (pTableView != null) ? pTableView : (pTableView = new TableViewElements());
 	}
@@ -2034,8 +2034,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//DetailsView:
-	//  "detailsview" name=ID ("(" content=Parameter ")")? "{" "title="
-	//  title=ScalarExpression header=ViewHeader? sections+=ViewSection* "}";
+	//	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression header=ViewHeader?
+	//	sections+=ViewSection* "}";
 	public DetailsViewElements getDetailsViewAccess() {
 		return (pDetailsView != null) ? pDetailsView : (pDetailsView = new DetailsViewElements());
 	}
@@ -2045,8 +2045,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CustomView:
-	//  "customview" name=ID ("(" content=Parameter ")")? "implementedBy"
-	//  objclass=STRING;
+	//	"customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING;
 	public CustomViewElements getCustomViewAccess() {
 		return (pCustomView != null) ? pCustomView : (pCustomView = new CustomViewElements());
 	}
@@ -2056,9 +2055,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ViewHeader:
-	//  {ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle="
-	//  subtitle=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-	//  image=ScalarExpression)? "}";
+	//	{ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle=" subtitle=ScalarExpression)? ("details="
+	//	details=ScalarExpression)? ("image=" image=ScalarExpression)? "}";
 	public ViewHeaderElements getViewHeaderAccess() {
 		return (pViewHeader != null) ? pViewHeader : (pViewHeader = new ViewHeaderElements());
 	}
@@ -2068,7 +2066,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ViewSection:
-	//  "section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}";
+	//	"section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}";
 	public ViewSectionElements getViewSectionAccess() {
 		return (pViewSection != null) ? pViewSection : (pViewSection = new ViewSectionElements());
 	}
@@ -2078,9 +2076,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SectionCell:
-	//  "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text="
-	//  text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-	//  image=ScalarExpression)? ("action=" action=ViewAction)? "}";
+	//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
+	//	details=ScalarExpression)? ("image=" image=ScalarExpression)? ("action=" action=ViewAction)? "}";
 	public SectionCellElements getSectionCellAccess() {
 		return (pSectionCell != null) ? pSectionCell : (pSectionCell = new SectionCellElements());
 	}
@@ -2090,8 +2087,8 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum CellType:
-	//  default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2=
-	//  "Value2" | double="Double" | subtitle="Subtitle";
+	//	default="Default" | defaultWithDisclosure="DefaultWithDisclosure" | value2="Value2" | double="Double" |
+	//	subtitle="Subtitle";
 	public CellTypeElements getCellTypeAccess() {
 		return (unknownRuleCellType != null) ? unknownRuleCellType : (unknownRuleCellType = new CellTypeElements());
 	}
@@ -2101,7 +2098,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CollectionIterator:
-	//  collection=CollectionExpression "as" name=ID;
+	//	collection=CollectionExpression "as" name=ID;
 	public CollectionIteratorElements getCollectionIteratorAccess() {
 		return (pCollectionIterator != null) ? pCollectionIterator : (pCollectionIterator = new CollectionIteratorElements());
 	}
@@ -2111,7 +2108,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ViewAction:
-	//  ViewCall|ExternalOpen;
+	//	ViewCall | ExternalOpen;
 	public ViewActionElements getViewActionAccess() {
 		return (pViewAction != null) ? pViewAction : (pViewAction = new ViewActionElements());
 	}
@@ -2121,7 +2118,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ExternalOpen:
-	//  url=ScalarExpression;
+	//	url=ScalarExpression;
 	public ExternalOpenElements getExternalOpenAccess() {
 		return (pExternalOpen != null) ? pExternalOpen : (pExternalOpen = new ExternalOpenElements());
 	}
@@ -2131,7 +2128,7 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//ViewCall:
-	//  view=[View] "(" provider=ProviderConstruction? ")";
+	//	view=[View] "(" provider=ProviderConstruction? ")";
 	public ViewCallElements getViewCallAccess() {
 		return (pViewCall != null) ? pViewCall : (pViewCall = new ViewCallElements());
 	}
@@ -2141,45 +2138,44 @@ public class AppModelDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//terminal ID:
-	//  "^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
+	//	"^"? ("a".."z" | "A".."Z" | "_") ("a".."z" | "A".."Z" | "_" | "0".."9")*;
 	public TerminalRule getIDRule() {
 		return gaTerminals.getIDRule();
 	} 
 
 	//terminal INT returns ecore::EInt:
-	//  "0".."9"+;
+	//	"0".."9"+;
 	public TerminalRule getINTRule() {
 		return gaTerminals.getINTRule();
 	} 
 
 	//terminal STRING:
-	//  "\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""
-	//  ))* "\"" | "\'" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !(
-	//  "\\" | "\'"))* "\'";
+	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"" | "\'" ("\\" ("b" | "t" | "n" |
+	//	"f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\'";
 	public TerminalRule getSTRINGRule() {
 		return gaTerminals.getSTRINGRule();
 	} 
 
 	//terminal ML_COMMENT:
-	//  "/ *"->"* /";
+	//	"/ *"->"* /";
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
-	//  "//" !("\n" | "\r")* ("\r"? "\n")?;
+	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
-	//  (" " | "\t" | "\r" | "\n")+;
+	//	(" " | "\t" | "\r" | "\n")+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
 
 	//terminal ANY_OTHER:
-	//  .;
+	//	.;
 	public TerminalRule getANY_OTHERRule() {
 		return gaTerminals.getANY_OTHERRule();
 	} 

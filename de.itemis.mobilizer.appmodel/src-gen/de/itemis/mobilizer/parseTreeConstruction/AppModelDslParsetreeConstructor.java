@@ -12,6 +12,7 @@ import de.itemis.mobilizer.services.AppModelDslGrammarAccess;
 
 import com.google.inject.Inject;
 
+@SuppressWarnings("all")
 public class AppModelDslParsetreeConstructor extends AbstractParseTreeConstructor {
 		
 	@Inject
@@ -47,24 +48,25 @@ protected class ThisRootNode extends RootToken {
 			case 14: return new CollectionFunction_Group(this, this, 14, inst);
 			case 15: return new TabBarApplication_Group(this, this, 15, inst);
 			case 16: return new TabbarButton_Group(this, this, 16, inst);
-			case 17: return new Type_Alternatives(this, this, 17, inst);
-			case 18: return new SimpleType_Group(this, this, 18, inst);
-			case 19: return new Entity_Group(this, this, 19, inst);
-			case 20: return new Property_Group(this, this, 20, inst);
-			case 21: return new ContentProvider_Group(this, this, 21, inst);
-			case 22: return new ProviderConstruction_Alternatives(this, this, 22, inst);
-			case 23: return new View_Alternatives(this, this, 23, inst);
-			case 24: return new SectionedView_Alternatives(this, this, 24, inst);
-			case 25: return new TableView_Group(this, this, 25, inst);
-			case 26: return new DetailsView_Group(this, this, 26, inst);
-			case 27: return new CustomView_Group(this, this, 27, inst);
-			case 28: return new ViewHeader_Group(this, this, 28, inst);
-			case 29: return new ViewSection_Group(this, this, 29, inst);
-			case 30: return new SectionCell_Group(this, this, 30, inst);
-			case 31: return new CollectionIterator_Group(this, this, 31, inst);
-			case 32: return new ViewAction_Alternatives(this, this, 32, inst);
-			case 33: return new ExternalOpen_UrlAssignment(this, this, 33, inst);
-			case 34: return new ViewCall_Group(this, this, 34, inst);
+			case 17: return new Constant_Group(this, this, 17, inst);
+			case 18: return new Type_Alternatives(this, this, 18, inst);
+			case 19: return new SimpleType_Group(this, this, 19, inst);
+			case 20: return new Entity_Group(this, this, 20, inst);
+			case 21: return new Property_Group(this, this, 21, inst);
+			case 22: return new ContentProvider_Group(this, this, 22, inst);
+			case 23: return new ProviderConstruction_Alternatives(this, this, 23, inst);
+			case 24: return new View_Alternatives(this, this, 24, inst);
+			case 25: return new SectionedView_Alternatives(this, this, 25, inst);
+			case 26: return new TableView_Group(this, this, 26, inst);
+			case 27: return new DetailsView_Group(this, this, 27, inst);
+			case 28: return new CustomView_Group(this, this, 28, inst);
+			case 29: return new ViewHeader_Group(this, this, 29, inst);
+			case 30: return new ViewSection_Group(this, this, 30, inst);
+			case 31: return new SectionCell_Group(this, this, 31, inst);
+			case 32: return new CollectionIterator_Group(this, this, 32, inst);
+			case 33: return new ViewAction_Alternatives(this, this, 33, inst);
+			case 34: return new ExternalOpen_UrlAssignment(this, this, 34, inst);
+			case 35: return new ViewCall_Group(this, this, 35, inst);
 			default: return null;
 		}	
 	}	
@@ -74,7 +76,7 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule Model ****************
  *
  * Model:
- *   application=Application elements+=ModelElement*;
+ * 	application=Application elements+=ModelElement*;
  *
  **/
 
@@ -207,7 +209,7 @@ protected class Model_ElementsAssignment_1 extends AssignmentToken  {
 /************ begin Rule Application ****************
  *
  * Application:
- *   TabBarApplication;
+ * 	TabBarApplication;
  *
  **/
 
@@ -253,11 +255,11 @@ protected class Application_TabBarApplicationParserRuleCall extends RuleCallToke
 /************ begin Rule ModelElement ****************
  *
  * ModelElement:
- *   Type|ContentProvider|View;
+ * 	Type | ContentProvider | View | Constant;
  *
  **/
 
-// Type|ContentProvider|View
+// Type | ContentProvider | View | Constant
 protected class ModelElement_Alternatives extends AlternativesToken {
 
 	public ModelElement_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -275,13 +277,15 @@ protected class ModelElement_Alternatives extends AlternativesToken {
 			case 0: return new ModelElement_TypeParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new ModelElement_ContentProviderParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new ModelElement_ViewParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new ModelElement_ConstantParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getContentProviderRule().getType().getClassifier() && 
+		if(getEObject().eClass() != grammarAccess.getConstantAccess().getConstantAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getContentProviderRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getCustomViewRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getDetailsViewRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getEntityRule().getType().getClassifier() && 
@@ -404,6 +408,42 @@ protected class ModelElement_ViewParserRuleCall_2 extends RuleCallToken {
 	}	
 }
 
+// Constant
+protected class ModelElement_ConstantParserRuleCall_3 extends RuleCallToken {
+	
+	public ModelElement_ConstantParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getModelElementAccess().getConstantParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Constant_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getConstantAccess().getConstantAction_0().getType().getClassifier())
+			return null;
+		if(checkForRecursion(Constant_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
 
 /************ end Rule ModelElement ****************/
 
@@ -412,16 +452,13 @@ protected class ModelElement_ViewParserRuleCall_2 extends RuleCallToken {
  *
  * // -------------------------------------------
  * // General
- * 
  * // common supertype to allow variableReferences
- * 
- * 
  * VariableDeclaration:
- *   Parameter|Property|CollectionIterator;
+ * 	Parameter | Property | CollectionIterator;
  *
  **/
 
-// Parameter|Property|CollectionIterator
+// Parameter | Property | CollectionIterator
 protected class VariableDeclaration_Alternatives extends AlternativesToken {
 
 	public VariableDeclaration_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -569,7 +606,7 @@ protected class VariableDeclaration_CollectionIteratorParserRuleCall_2 extends R
 /************ begin Rule TypeDescription ****************
  *
  * TypeDescription:
- *   type=[Type] many?="[]"?;
+ * 	type=[Type] many?="[]"?;
  *
  **/
 
@@ -680,7 +717,7 @@ protected class TypeDescription_ManyAssignment_1 extends AssignmentToken  {
 /************ begin Rule Parameter ****************
  *
  * Parameter:
- *   description=TypeDescription name=ID;
+ * 	description=TypeDescription name=ID;
  *
  **/
 
@@ -799,7 +836,7 @@ protected class Parameter_NameAssignment_1 extends AssignmentToken  {
 /************ begin Rule ObjectReference ****************
  *
  * ObjectReference:
- *   object=[VariableDeclaration] tail=NestedObjectReference?;
+ * 	object=[VariableDeclaration] tail=NestedObjectReference?;
  *
  **/
 
@@ -925,10 +962,8 @@ protected class ObjectReference_TailAssignment_1 extends AssignmentToken  {
  * //   assist parser technically could have been include in ObjectReference like
  * //   ObjectReference:
  * //     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
- * 
- * 
  * NestedObjectReference returns ObjectReference:
- *   "." object=[VariableDeclaration] tail=NestedObjectReference?;
+ * 	"." object=[VariableDeclaration] tail=NestedObjectReference?;
  *
  **/
 
@@ -1073,13 +1108,11 @@ protected class NestedObjectReference_TailAssignment_2 extends AssignmentToken  
 /************ begin Rule Expression ****************
  *
  * Expression:
- *   StringLiteral|StringFunction|CollectionLiteral|CollectionFunction|
- *   ObjectReference;
+ * 	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
  *
  **/
 
-// StringLiteral|StringFunction|CollectionLiteral|CollectionFunction|
-// ObjectReference
+// StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference
 protected class Expression_Alternatives extends AlternativesToken {
 
 	public Expression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1307,11 +1340,11 @@ protected class Expression_ObjectReferenceParserRuleCall_4 extends RuleCallToken
 /************ begin Rule ScalarExpression ****************
  *
  * ScalarExpression:
- *   StringLiteral|StringFunction|ObjectReference;
+ * 	StringLiteral | StringFunction | ObjectReference;
  *
  **/
 
-// StringLiteral|StringFunction|ObjectReference
+// StringLiteral | StringFunction | ObjectReference
 protected class ScalarExpression_Alternatives extends AlternativesToken {
 
 	public ScalarExpression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1463,11 +1496,11 @@ protected class ScalarExpression_ObjectReferenceParserRuleCall_2 extends RuleCal
 /************ begin Rule CollectionExpression ****************
  *
  * CollectionExpression:
- *   CollectionLiteral|CollectionFunction|ObjectReference;
+ * 	CollectionLiteral | CollectionFunction | ObjectReference;
  *
  **/
 
-// CollectionLiteral|CollectionFunction|ObjectReference
+// CollectionLiteral | CollectionFunction | ObjectReference
 protected class CollectionExpression_Alternatives extends AlternativesToken {
 
 	public CollectionExpression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1615,7 +1648,7 @@ protected class CollectionExpression_ObjectReferenceParserRuleCall_2 extends Rul
 /************ begin Rule StringLiteral ****************
  *
  * StringLiteral:
- *   value=STRING;
+ * 	value=STRING;
  *
  **/
 
@@ -1660,17 +1693,15 @@ protected class StringLiteral_ValueAssignment extends AssignmentToken  {
 /************ begin Rule StringFunction ****************
  *
  * StringFunction:
- *   {StringConcat} "(" values+=ScalarExpression+ ")"|{StringReplace} "replace("
- *   value=ScalarExpression "," match=ScalarExpression ","
- *   replacement=ScalarExpression ")"|{StringUrlConform} "urlconform("
- *   value=ScalarExpression ")";
+ * 	{StringConcat} "(" values+=ScalarExpression+ ")" | {StringReplace} "replace(" value=ScalarExpression ","
+ * 	match=ScalarExpression "," replacement=ScalarExpression ")" | {StringUrlConform} "urlconform(" value=ScalarExpression
+ * 	")";
  *
  **/
 
-// {StringConcat} "(" values+=ScalarExpression+ ")"|{StringReplace} "replace("
-// value=ScalarExpression "," match=ScalarExpression ","
-// replacement=ScalarExpression ")"|{StringUrlConform} "urlconform("
-// value=ScalarExpression ")"
+// {StringConcat} "(" values+=ScalarExpression+ ")" | {StringReplace} "replace(" value=ScalarExpression ","
+// match=ScalarExpression "," replacement=ScalarExpression ")" | {StringUrlConform} "urlconform(" value=ScalarExpression
+// ")"
 protected class StringFunction_Alternatives extends AlternativesToken {
 
 	public StringFunction_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1850,8 +1881,7 @@ protected class StringFunction_RightParenthesisKeyword_0_3 extends KeywordToken 
 }
 
 
-// {StringReplace} "replace(" value=ScalarExpression "," match=ScalarExpression ","
-// replacement=ScalarExpression ")"
+// {StringReplace} "replace(" value=ScalarExpression "," match=ScalarExpression "," replacement=ScalarExpression ")"
 protected class StringFunction_Group_1 extends GroupToken {
 	
 	public StringFunction_Group_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2286,7 +2316,7 @@ protected class StringFunction_RightParenthesisKeyword_2_3 extends KeywordToken 
 /************ begin Rule CollectionLiteral ****************
  *
  * CollectionLiteral:
- *   "[" items+=ScalarExpression ("," items+=ScalarExpression)* "]";
+ * 	"[" items+=ScalarExpression ("," items+=ScalarExpression)* "]";
  *
  **/
 
@@ -2508,8 +2538,7 @@ protected class CollectionLiteral_RightSquareBracketKeyword_3 extends KeywordTok
 /************ begin Rule CollectionFunction ****************
  *
  * CollectionFunction:
- *   {StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression
- *   ")";
+ * 	{StringSplit} "split(" value=ScalarExpression "," delimiter=ScalarExpression ")";
  *
  **/
 
@@ -2734,10 +2763,8 @@ protected class CollectionFunction_RightParenthesisKeyword_5 extends KeywordToke
  *
  * // -------------------------------------------
  * // applications
- * 
- * 
  * TabBarApplication returns Application:
- *   "tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
+ * 	"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
  *
  **/
 
@@ -2924,13 +2951,11 @@ protected class TabBarApplication_RightCurlyBracketKeyword_4 extends KeywordToke
 /************ begin Rule TabbarButton ****************
  *
  * TabbarButton:
- *   "button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression
- *   "view=" view=ViewCall "}";
+ * 	"button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression "view=" view=ViewCall "}";
  *
  **/
 
-// "button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression
-// "view=" view=ViewCall "}"
+// "button" "{" "title=" title=ScalarExpression "icon=" icon=ScalarExpression "view=" view=ViewCall "}"
 protected class TabbarButton_Group extends GroupToken {
 	
 	public TabbarButton_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3232,18 +3257,184 @@ protected class TabbarButton_RightCurlyBracketKeyword_8 extends KeywordToken  {
 /************ end Rule TabbarButton ****************/
 
 
+/************ begin Rule Constant ****************
+ *
+ * Constant returns VariableDeclaration:
+ * 	{Constant} "const" name=ID value=ScalarExpression;
+ *
+ **/
+
+// {Constant} "const" name=ID value=ScalarExpression
+protected class Constant_Group extends GroupToken {
+	
+	public Constant_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getConstantAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Constant_ValueAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getConstantAccess().getConstantAction_0().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// {Constant}
+protected class Constant_ConstantAction_0 extends ActionToken  {
+
+	public Constant_ConstantAction_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Action getGrammarElement() {
+		return grammarAccess.getConstantAccess().getConstantAction_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(!eObjectConsumer.isConsumed()) return null;
+		return eObjectConsumer;
+	}
+}
+
+// "const"
+protected class Constant_ConstKeyword_1 extends KeywordToken  {
+	
+	public Constant_ConstKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getConstantAccess().getConstKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Constant_ConstantAction_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// name=ID
+protected class Constant_NameAssignment_2 extends AssignmentToken  {
+	
+	public Constant_NameAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConstantAccess().getNameAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Constant_ConstKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("name",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getConstantAccess().getNameIDTerminalRuleCall_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// value=ScalarExpression
+protected class Constant_ValueAssignment_3 extends AssignmentToken  {
+	
+	public Constant_ValueAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getConstantAccess().getValueAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new ScalarExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getConstantAccess().getValueScalarExpressionParserRuleCall_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Constant_NameAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+/************ end Rule Constant ****************/
+
+
 /************ begin Rule Type ****************
  *
  * // -------------------------------------------
  * // types
- * 
- * 
  * Type:
- *   SimpleType|Entity;
+ * 	SimpleType | Entity;
  *
  **/
 
-// SimpleType|Entity
+// SimpleType | Entity
 protected class Type_Alternatives extends AlternativesToken {
 
 	public Type_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3353,7 +3544,7 @@ protected class Type_EntityParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule SimpleType ****************
  *
  * SimpleType:
- *   "type" name=ID "mapsTo" platformType=STRING;
+ * 	"type" name=ID "mapsTo" platformType=STRING;
  *
  **/
 
@@ -3504,7 +3695,7 @@ protected class SimpleType_PlatformTypeAssignment_3 extends AssignmentToken  {
 /************ begin Rule Entity ****************
  *
  * Entity:
- *   "entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
+ * 	"entity" name=ID ("extends" extends=[Entity])? "{" properties+=Property* "}";
  *
  **/
 
@@ -3774,7 +3965,7 @@ protected class Entity_RightCurlyBracketKeyword_5 extends KeywordToken  {
 /************ begin Rule Property ****************
  *
  * Property:
- *   derived?="derived"? description=TypeDescription name=ID;
+ * 	derived?="derived"? description=TypeDescription name=ID;
  *
  **/
 
@@ -3928,18 +4119,14 @@ protected class Property_NameAssignment_2 extends AssignmentToken  {
  *
  * // -------------------------------------------
  * // content provider
- * 
- * 
  * ContentProvider:
- *   "contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns"|
- *   resolver?="resolves") type=[Type] many?="[]"? "fetches" "XML" "from"
- *   url=ScalarExpression "selects" selection=ScalarExpression;
+ * 	"contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | resolver?="resolves") type=[Type] many?="[]"?
+ * 	"fetches" "XML" "from" url=ScalarExpression "selects" selection=ScalarExpression;
  *
  **/
 
-// "contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns"|
-// resolver?="resolves") type=[Type] many?="[]"? "fetches" "XML" "from"
-// url=ScalarExpression "selects" selection=ScalarExpression
+// "contentprovider" name=ID ("(" parameter=Parameter ")")? ("returns" | resolver?="resolves") type=[Type] many?="[]"?
+// "fetches" "XML" "from" url=ScalarExpression "selects" selection=ScalarExpression
 protected class ContentProvider_Group extends GroupToken {
 	
 	public ContentProvider_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4136,7 +4323,7 @@ protected class ContentProvider_RightParenthesisKeyword_2_2 extends KeywordToken
 }
 
 
-// "returns"|resolver?="resolves"
+// "returns" | resolver?="resolves"
 protected class ContentProvider_Alternatives_3 extends AlternativesToken {
 
 	public ContentProvider_Alternatives_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4477,13 +4664,13 @@ protected class ContentProvider_SelectionAssignment_11 extends AssignmentToken  
 /************ begin Rule ProviderConstruction ****************
  *
  * ProviderConstruction:
- *   {ComplexProviderConstruction} provider=[ContentProvider] "("
- *   argument=Expression? ")"|{SimpleProviderConstruction} expression=Expression;
+ * 	{ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")" | {SimpleProviderConstruction}
+ * 	expression=Expression;
  *
  **/
 
-// {ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression
-// ? ")"|{SimpleProviderConstruction} expression=Expression
+// {ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")" | {SimpleProviderConstruction}
+// expression=Expression
 protected class ProviderConstruction_Alternatives extends AlternativesToken {
 
 	public ProviderConstruction_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4514,8 +4701,7 @@ protected class ProviderConstruction_Alternatives extends AlternativesToken {
 
 }
 
-// {ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression
-// ? ")"
+// {ComplexProviderConstruction} provider=[ContentProvider] "(" argument=Expression? ")"
 protected class ProviderConstruction_Group_0 extends GroupToken {
 	
 	public ProviderConstruction_Group_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4809,14 +4995,12 @@ protected class ProviderConstruction_ExpressionAssignment_1_1 extends Assignment
  *
  * // -------------------------------------------
  * // views
- * 
- * 
  * View:
- *   SectionedView|CustomView;
+ * 	SectionedView | CustomView;
  *
  **/
 
-// SectionedView|CustomView
+// SectionedView | CustomView
 protected class View_Alternatives extends AlternativesToken {
 
 	public View_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4928,11 +5112,11 @@ protected class View_CustomViewParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule SectionedView ****************
  *
  * SectionedView:
- *   TableView|DetailsView;
+ * 	TableView | DetailsView;
  *
  **/
 
-// TableView|DetailsView
+// TableView | DetailsView
 protected class SectionedView_Alternatives extends AlternativesToken {
 
 	public SectionedView_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5042,13 +5226,11 @@ protected class SectionedView_DetailsViewParserRuleCall_1 extends RuleCallToken 
 /************ begin Rule TableView ****************
  *
  * TableView:
- *   "tableview" name=ID ("(" content=Parameter ")")? "{" "title="
- *   title=ScalarExpression sections+=ViewSection* "}";
+ * 	"tableview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression sections+=ViewSection* "}";
  *
  **/
 
-// "tableview" name=ID ("(" content=Parameter ")")? "{" "title="
-// title=ScalarExpression sections+=ViewSection* "}"
+// "tableview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression sections+=ViewSection* "}"
 protected class TableView_Group extends GroupToken {
 	
 	public TableView_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5413,13 +5595,13 @@ protected class TableView_RightCurlyBracketKeyword_7 extends KeywordToken  {
 /************ begin Rule DetailsView ****************
  *
  * DetailsView:
- *   "detailsview" name=ID ("(" content=Parameter ")")? "{" "title="
- *   title=ScalarExpression header=ViewHeader? sections+=ViewSection* "}";
+ * 	"detailsview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression header=ViewHeader?
+ * 	sections+=ViewSection* "}";
  *
  **/
 
-// "detailsview" name=ID ("(" content=Parameter ")")? "{" "title="
-// title=ScalarExpression header=ViewHeader? sections+=ViewSection* "}"
+// "detailsview" name=ID ("(" content=Parameter ")")? "{" "title=" title=ScalarExpression header=ViewHeader?
+// sections+=ViewSection* "}"
 protected class DetailsView_Group extends GroupToken {
 	
 	public DetailsView_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5832,13 +6014,11 @@ protected class DetailsView_RightCurlyBracketKeyword_8 extends KeywordToken  {
 /************ begin Rule CustomView ****************
  *
  * CustomView:
- *   "customview" name=ID ("(" content=Parameter ")")? "implementedBy"
- *   objclass=STRING;
+ * 	"customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING;
  *
  **/
 
-// "customview" name=ID ("(" content=Parameter ")")? "implementedBy"
-// objclass=STRING
+// "customview" name=ID ("(" content=Parameter ")")? "implementedBy" objclass=STRING
 protected class CustomView_Group extends GroupToken {
 	
 	public CustomView_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6099,15 +6279,13 @@ protected class CustomView_ObjclassAssignment_4 extends AssignmentToken  {
 /************ begin Rule ViewHeader ****************
  *
  * ViewHeader:
- *   {ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle="
- *   subtitle=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
- *   image=ScalarExpression)? "}";
+ * 	{ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle=" subtitle=ScalarExpression)? ("details="
+ * 	details=ScalarExpression)? ("image=" image=ScalarExpression)? "}";
  *
  **/
 
-// {ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle="
-// subtitle=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-// image=ScalarExpression)? "}"
+// {ViewHeader} "header" "{" ("title=" title=ScalarExpression)? ("subtitle=" subtitle=ScalarExpression)? ("details="
+// details=ScalarExpression)? ("image=" image=ScalarExpression)? "}"
 protected class ViewHeader_Group extends GroupToken {
 	
 	public ViewHeader_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6609,7 +6787,7 @@ protected class ViewHeader_RightCurlyBracketKeyword_7 extends KeywordToken  {
 /************ begin Rule ViewSection ****************
  *
  * ViewSection:
- *   "section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}";
+ * 	"section" "{" ("title=" title=ScalarExpression)? cells+=SectionCell+ "}";
  *
  **/
 
@@ -6853,15 +7031,13 @@ protected class ViewSection_RightCurlyBracketKeyword_4 extends KeywordToken  {
 /************ begin Rule SectionCell ****************
  *
  * SectionCell:
- *   "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text="
- *   text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
- *   image=ScalarExpression)? ("action=" action=ViewAction)? "}";
+ * 	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
+ * 	details=ScalarExpression)? ("image=" image=ScalarExpression)? ("action=" action=ViewAction)? "}";
  *
  **/
 
-// "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text="
-// text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image="
-// image=ScalarExpression)? ("action=" action=ViewAction)? "}"
+// "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
+// details=ScalarExpression)? ("image=" image=ScalarExpression)? ("action=" action=ViewAction)? "}"
 protected class SectionCell_Group extends GroupToken {
 	
 	public SectionCell_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7462,7 +7638,7 @@ protected class SectionCell_RightCurlyBracketKeyword_8 extends KeywordToken  {
 /************ begin Rule CollectionIterator ****************
  *
  * CollectionIterator:
- *   collection=CollectionExpression "as" name=ID;
+ * 	collection=CollectionExpression "as" name=ID;
  *
  **/
 
@@ -7603,11 +7779,11 @@ protected class CollectionIterator_NameAssignment_2 extends AssignmentToken  {
 /************ begin Rule ViewAction ****************
  *
  * ViewAction:
- *   ViewCall|ExternalOpen;
+ * 	ViewCall | ExternalOpen;
  *
  **/
 
-// ViewCall|ExternalOpen
+// ViewCall | ExternalOpen
 protected class ViewAction_Alternatives extends AlternativesToken {
 
 	public ViewAction_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7717,7 +7893,7 @@ protected class ViewAction_ExternalOpenParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule ExternalOpen ****************
  *
  * ExternalOpen:
- *   url=ScalarExpression;
+ * 	url=ScalarExpression;
  *
  **/
 
@@ -7774,7 +7950,7 @@ protected class ExternalOpen_UrlAssignment extends AssignmentToken  {
 /************ begin Rule ViewCall ****************
  *
  * ViewCall:
- *   view=[View] "(" provider=ProviderConstruction? ")";
+ * 	view=[View] "(" provider=ProviderConstruction? ")";
  *
  **/
 

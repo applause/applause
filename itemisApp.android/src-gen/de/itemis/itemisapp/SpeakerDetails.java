@@ -32,7 +32,7 @@ public class SpeakerDetails extends DetailsActivity<Speaker> {
 
 		setHeaderTitle(speaker.getName());
 		setHeaderDetails(speaker.getBio());
-		setHeaderImageURL(speaker.getPictureurl());
+		setHeaderImageURL("http://localhost:3000" + speaker.getPictureurl());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 

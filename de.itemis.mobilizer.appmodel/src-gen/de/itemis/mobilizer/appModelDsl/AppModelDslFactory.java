@@ -359,6 +359,15 @@ public interface AppModelDslFactory extends EFactory
   StringSplit createStringSplit();
 
   /**
+   * Returns a new object of class '<em>Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Constant</em>'.
+   * @generated
+   */
+  Constant createConstant();
+
+  /**
    * Returns a new object of class '<em>Complex Provider Construction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -14,6 +14,7 @@ import de.itemis.mobilizer.appModelDsl.CollectionFunction;
 import de.itemis.mobilizer.appModelDsl.CollectionIterator;
 import de.itemis.mobilizer.appModelDsl.CollectionLiteral;
 import de.itemis.mobilizer.appModelDsl.ComplexProviderConstruction;
+import de.itemis.mobilizer.appModelDsl.Constant;
 import de.itemis.mobilizer.appModelDsl.ContentProvider;
 import de.itemis.mobilizer.appModelDsl.CustomView;
 import de.itemis.mobilizer.appModelDsl.DetailsView;
@@ -328,6 +329,13 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass constantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass complexProviderConstructionEClass = null;
 
   /**
@@ -495,16 +503,6 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
   public EClass getVariableDeclaration()
   {
     return variableDeclarationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVariableDeclaration_Name()
-  {
-    return (EAttribute)variableDeclarationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1332,6 +1330,26 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getConstant()
+  {
+    return constantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConstant_Value()
+  {
+    return (EReference)constantEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getComplexProviderConstruction()
   {
     return complexProviderConstructionEClass;
@@ -1429,7 +1447,6 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
     createEAttribute(modelElementEClass, MODEL_ELEMENT__NAME);
 
     variableDeclarationEClass = createEClass(VARIABLE_DECLARATION);
-    createEAttribute(variableDeclarationEClass, VARIABLE_DECLARATION__NAME);
 
     typeDescriptionEClass = createEClass(TYPE_DESCRIPTION);
     createEReference(typeDescriptionEClass, TYPE_DESCRIPTION__TYPE);
@@ -1546,6 +1563,9 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
     createEReference(stringSplitEClass, STRING_SPLIT__VALUE);
     createEReference(stringSplitEClass, STRING_SPLIT__DELIMITER);
 
+    constantEClass = createEClass(CONSTANT);
+    createEReference(constantEClass, CONSTANT__VALUE);
+
     complexProviderConstructionEClass = createEClass(COMPLEX_PROVIDER_CONSTRUCTION);
     createEReference(complexProviderConstructionEClass, COMPLEX_PROVIDER_CONSTRUCTION__PROVIDER);
     createEReference(complexProviderConstructionEClass, COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT);
@@ -1586,6 +1606,7 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    variableDeclarationEClass.getESuperTypes().add(this.getModelElement());
     parameterEClass.getESuperTypes().add(this.getVariableDeclaration());
     objectReferenceEClass.getESuperTypes().add(this.getExpression());
     objectReferenceEClass.getESuperTypes().add(this.getScalarExpression());
@@ -1615,6 +1636,7 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
     stringReplaceEClass.getESuperTypes().add(this.getStringFunction());
     stringUrlConformEClass.getESuperTypes().add(this.getStringFunction());
     stringSplitEClass.getESuperTypes().add(this.getCollectionFunction());
+    constantEClass.getESuperTypes().add(this.getVariableDeclaration());
     complexProviderConstructionEClass.getESuperTypes().add(this.getProviderConstruction());
     simpleProviderConstructionEClass.getESuperTypes().add(this.getProviderConstruction());
 
@@ -1631,7 +1653,6 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
     initEAttribute(getModelElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableDeclarationEClass, VariableDeclaration.class, "VariableDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableDeclaration_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeDescriptionEClass, TypeDescription.class, "TypeDescription", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTypeDescription_Type(), this.getType(), null, "type", null, 0, 1, TypeDescription.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1747,6 +1768,9 @@ public class AppModelDslPackageImpl extends EPackageImpl implements AppModelDslP
     initEClass(stringSplitEClass, StringSplit.class, "StringSplit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getStringSplit_Value(), this.getScalarExpression(), null, "value", null, 0, 1, StringSplit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getStringSplit_Delimiter(), this.getScalarExpression(), null, "delimiter", null, 0, 1, StringSplit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(constantEClass, Constant.class, "Constant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConstant_Value(), this.getScalarExpression(), null, "value", null, 0, 1, Constant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(complexProviderConstructionEClass, ComplexProviderConstruction.class, "ComplexProviderConstruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getComplexProviderConstruction_Provider(), this.getContentProvider(), null, "provider", null, 0, 1, ComplexProviderConstruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

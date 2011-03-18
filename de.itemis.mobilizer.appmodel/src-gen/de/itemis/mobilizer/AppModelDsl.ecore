@@ -17,9 +17,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeDescription">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -167,6 +165,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="delimiter" eType="#//ScalarExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ComplexProviderConstruction" eSuperTypes="#//ProviderConstruction">

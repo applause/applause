@@ -105,6 +105,7 @@ public class AppModelDslFactoryImpl extends EFactoryImpl implements AppModelDslF
       case AppModelDslPackage.STRING_REPLACE: return createStringReplace();
       case AppModelDslPackage.STRING_URL_CONFORM: return createStringUrlConform();
       case AppModelDslPackage.STRING_SPLIT: return createStringSplit();
+      case AppModelDslPackage.CONSTANT: return createConstant();
       case AppModelDslPackage.COMPLEX_PROVIDER_CONSTRUCTION: return createComplexProviderConstruction();
       case AppModelDslPackage.SIMPLE_PROVIDER_CONSTRUCTION: return createSimpleProviderConstruction();
       default:
@@ -551,6 +552,17 @@ public class AppModelDslFactoryImpl extends EFactoryImpl implements AppModelDslF
   {
     StringSplitImpl stringSplit = new StringSplitImpl();
     return stringSplit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Constant createConstant()
+  {
+    ConstantImpl constant = new ConstantImpl();
+    return constant;
   }
 
   /**

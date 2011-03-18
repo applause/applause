@@ -21,18 +21,6 @@ public class AllSpeakersProvider extends GenericListContentProvider<Speaker> {
 	}
 
 	@Root(strict = false)
-	public static class Result {
-
-		@ElementList(inline = true, entry = "speakers")
-		private List<Speakers> speakerss = new ArrayList<Speakers>();
-
-		public List<Speakers> getSpeakerss() {
-			return speakerss;
-		}
-
-	}
-
-	@Root(strict = false)
 	public static class Speakers {
 
 		@ElementList(inline = true, entry = "speaker")
@@ -47,8 +35,8 @@ public class AllSpeakersProvider extends GenericListContentProvider<Speaker> {
 	@Override
 	protected List<Speaker> extractItems(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Result root = serializer.read(Result.class, reader);
-		return root.getSpeakerss().get(0).getSpeakers();
+		Speakers root = serializer.read(Speakers.class, reader);
+		return root.getSpeakers();
 	}
 
 }

@@ -145,6 +145,14 @@ String expression(StringUrlConform this, String prefix):
 private String getterPath(ObjectReference this):
 	"." + this.object.name.getterName() + "()" + (tail==null?"":tail.getterPath());
 	
+String expression(VariableDeclaration this, String prefix):
+	"!" + this.metaType;
+	
+String expression(Constant this, String prefix):
+	expression(value, prefix);		
+	
 String expression(ObjectReference this, String prefix):
-	this.object.name + (tail==null?"":tail.getterPath());
+	Constant.isInstance(object)
+		? expression(object, prefix)
+		: this.object.name + (tail==null?"":tail.getterPath());
 	

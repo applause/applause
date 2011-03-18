@@ -1,28 +1,27 @@
 tabbarApplication itemisApp {
 
-	button {
-		title= "News"
-		icon= "chat.png"
-		view= BlogList(Blogposts())
-	}
-
+//	button {
+//		title= "News"
+//		icon= "chat.png"
+//		view= BlogList(Blogposts())
+//	}
 
 	button {    
-		title= "Tuesday"
+		title= "Tuesday2"
 		icon= "calendar.png"
-		view= SessionList( SessionsByDay("0") )
+		view= SessionList( SessionsByDay("2011-03-22") )
 	}
 
 	button {    
 		title= "Wednesday"
 		icon= "calendar.png"
-		view= SessionList( SessionsByDay("1") )
+		view= SessionList( SessionsByDay("2011-03-23") )
 	}
 	
 	button {    
 		title= "Thursday"
 		icon= "calendar.png"
-		view= SessionList( SessionsByDay("2") )
+		view= SessionList( SessionsByDay("2011-03-24") )
 	}
 	
 	button {
@@ -66,42 +65,53 @@ entity Session {
  * FETCHING DATA
  */
 
+const SERVER_URL "http://localhost:3000"
 
 contentprovider Blogposts
 	returns BlogItem[]
 	fetches XML
 		//from "http://blogs.itemis.de/?showfeed=1"
 		from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"
+		//from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fwww.planeteclipse.org%2Fplanet%2Frss20.xml&format=rss"
 		selects "rss.channel.item"
 		
 contentprovider SessionsByDay(String day)
 	returns Session[]
 	fetches XML
-		from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
+		//from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
+		from (SERVER_URL "/sessions/day/" day ".xml")
 		selects "sessions.session"
-		
-contentprovider SessionById(Session s) //pk-contentprovider
+		 
+contentprovider SessionById(Session s) 
 	resolves Session
 	fetches XML
-	from ("dfsdfsdfsdfs" s.room)
-	selects "result.session" 		
+	from (SERVER_URL "/sessions/id/" s.id ".xml" )
+	selects "result.session"
+	
+contentprovider SpeakerById(Speaker s) 
+	resolves Speaker
+	fetches XML
+	from (SERVER_URL "/speakers/id/" s.id ".xml" s.id s.name)
+	selects "result.speaker"
+	
 
-//contentprovider VortragByTitel(String titel)
-//	returns Session
-//	fetches XML
-//		from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=vortragid%3D" urlconform(replace(titel, " ", "")))
-//		selects "feed.entry"
+contentprovider BlogItemById(BlogItem b)
+	resolves BlogItem
+	fetches XML
+	from ("dfsdfsdfsdfs" b.link) // TODO: enhance feedsanitizer to return single element
+	selects "result.session"
+
 		
 contentprovider AllSpeakers
 	returns Speaker[]
 	fetches XML
-		from "http://eclipsesummit2010.appspot.com/speakers/?format=xml"
-		selects "result.speakers.speaker"
+		from (SERVER_URL "/speakers.xml")
+		selects "speakers.speaker"
 
 contentprovider SpeakerByName(String name)
 	returns Speaker
 	fetches XML
-		from ("http://eclipsesummit2010.appspot.com/speakers/name/" urlconform(name) "/?format=xml")
+		from (SERVER_URL "/speakers/name/" urlconform(name) ".xml")
 		selects "result.speaker"
 		
 /*
@@ -172,7 +182,7 @@ detailsview SessionDetails(Session session) {
 	section {
 		cell DefaultWithDisclosure foreach session.speakers as s {
 			text= s.name
-			image= s.pictureurl
+			image= (SERVER_URL s.pictureurl)
 			action= SpeakerDetails(SpeakerByName(s.name))
 		}
 		
@@ -185,7 +195,7 @@ tableview SpeakersList(Speaker[] speakers) {
 	section {
 		cell Default foreach speakers as s {
 			text= s.name
-			image= s.pictureurl
+			image= (SERVER_URL s.pictureurl)
 			action= SpeakerDetails(SpeakerByName(s.name))   
 		}
 	}
@@ -196,14 +206,14 @@ detailsview SpeakerDetails(Speaker speaker) {
 	header {
 		title= speaker.name
 		details= speaker.bio
-		image= speaker.pictureurl
+		image= (SERVER_URL speaker.pictureurl)
 	}
 	
 	
 	section {
 		cell Default foreach speaker.sessions as session{
 			text= session.title
-			action= SessionDetails(session)
+			action= SessionDetails(session )
 		}
 	}
 	

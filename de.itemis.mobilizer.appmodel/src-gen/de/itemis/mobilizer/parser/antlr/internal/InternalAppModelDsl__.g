@@ -24,57 +24,58 @@ T24 : 'button' ;
 T25 : 'title=' ;
 T26 : 'icon=' ;
 T27 : 'view=' ;
-T28 : 'type' ;
-T29 : 'mapsTo' ;
-T30 : 'entity' ;
-T31 : 'extends' ;
-T32 : 'derived' ;
-T33 : 'contentprovider' ;
-T34 : 'returns' ;
-T35 : 'resolves' ;
-T36 : 'fetches' ;
-T37 : 'XML' ;
-T38 : 'from' ;
-T39 : 'selects' ;
-T40 : 'tableview' ;
-T41 : 'detailsview' ;
-T42 : 'customview' ;
-T43 : 'implementedBy' ;
-T44 : 'header' ;
-T45 : 'subtitle=' ;
-T46 : 'details=' ;
-T47 : 'image=' ;
-T48 : 'section' ;
-T49 : 'cell' ;
-T50 : 'foreach' ;
-T51 : 'text=' ;
-T52 : 'action=' ;
-T53 : 'as' ;
-T54 : 'Default' ;
-T55 : 'DefaultWithDisclosure' ;
-T56 : 'Value2' ;
-T57 : 'Double' ;
-T58 : 'Subtitle' ;
+T28 : 'const' ;
+T29 : 'type' ;
+T30 : 'mapsTo' ;
+T31 : 'entity' ;
+T32 : 'extends' ;
+T33 : 'derived' ;
+T34 : 'contentprovider' ;
+T35 : 'returns' ;
+T36 : 'resolves' ;
+T37 : 'fetches' ;
+T38 : 'XML' ;
+T39 : 'from' ;
+T40 : 'selects' ;
+T41 : 'tableview' ;
+T42 : 'detailsview' ;
+T43 : 'customview' ;
+T44 : 'implementedBy' ;
+T45 : 'header' ;
+T46 : 'subtitle=' ;
+T47 : 'details=' ;
+T48 : 'image=' ;
+T49 : 'section' ;
+T50 : 'cell' ;
+T51 : 'foreach' ;
+T52 : 'text=' ;
+T53 : 'action=' ;
+T54 : 'as' ;
+T55 : 'Default' ;
+T56 : 'DefaultWithDisclosure' ;
+T57 : 'Value2' ;
+T58 : 'Double' ;
+T59 : 'Subtitle' ;
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3160
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3256
 RULE_ID : '^'? ('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3162
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3258
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3164
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3260
 RULE_STRING : ('"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"'|'\'' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'\'')))* '\'');
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3166
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3262
 RULE_ML_COMMENT : '/*' ( options {greedy=false;} : . )*'*/';
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3168
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3264
 RULE_SL_COMMENT : '//' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3170
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3266
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3172
+// $ANTLR src "../de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/parser/antlr/internal/InternalAppModelDsl.g" 3268
 RULE_ANY_OTHER : .;
 
 

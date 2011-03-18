@@ -102,11 +102,20 @@ List[String] keyPath(ObjectReference this, String kvcPrefix):
 	let head = (kvcPrefix != "" ? {kvcPrefix} : {}):
 		head.addAll(keyPath().withoutFirst());
 	
+expression(VariableDeclaration this, String kvcTarget, String kvcPrefix):
+	"!" + this.metaType;
+	
+expression(Constant this, String kvcTarget, String kvcPrefix):
+	value.expression(kvcTarget, kvcPrefix); 	
+	
 expression(ObjectReference this, String kvcTarget, String kvcPrefix):
-	let keyPath = keyPath(kvcPrefix):
-		keyPath.isEmpty ? 
-			kvcTarget : 
-			'[' + kvcTarget + ' valueForKeyPath:@"' + keyPath.toString('.') + '"]';
+	Constant.isInstance(this.object)
+		? this.object.expression(kvcTarget, kvcPrefix)
+		: (let keyPath = keyPath(kvcPrefix):
+				keyPath.isEmpty ? 
+				kvcTarget : 
+				'[' + kvcTarget + ' valueForKeyPath:@"' + keyPath.toString('.') + '"]'
+		);
 	
 contentProvider(ProviderConstruction this, String providers, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + metaType + ">";

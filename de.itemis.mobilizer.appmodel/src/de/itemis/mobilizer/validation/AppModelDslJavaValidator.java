@@ -1,5 +1,6 @@
 package de.itemis.mobilizer.validation;
 
+import java.util.List;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
@@ -7,19 +8,24 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 
+import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 
 import de.itemis.mobilizer.appModelDsl.AppModelDslPackage;
+import de.itemis.mobilizer.appModelDsl.Constant;
 import de.itemis.mobilizer.appModelDsl.ContentProvider;
 import de.itemis.mobilizer.appModelDsl.Entity;
 import de.itemis.mobilizer.appModelDsl.Model;
 import de.itemis.mobilizer.appModelDsl.ObjectReference;
 import de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction;
+import de.itemis.mobilizer.appModelDsl.SimpleType;
 import de.itemis.mobilizer.appModelDsl.StringLiteral;
 import de.itemis.mobilizer.appModelDsl.TabbarButton;
+import de.itemis.mobilizer.appModelDsl.Type;
 import de.itemis.mobilizer.appModelDsl.TypeDescription;
+import de.itemis.mobilizer.appModelDsl.VariableDeclaration;
 import de.itemis.mobilizer.appModelDsl.View;
 import de.itemis.mobilizer.scoping.TypeUtil;
 
@@ -90,13 +96,23 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		if(!provider.isResolver()) 
 			return;
 		
-		Set<ObjectReference> references = ImmutableSet.copyOf(TypeUtil.getReferencesIn(provider.getUrl()));
-		if(references.size()<=0)
+		
+		Function<? super ObjectReference, ? extends VariableDeclaration> objRefToDeclaration = new Function<ObjectReference, VariableDeclaration>() {
+			public VariableDeclaration apply(ObjectReference from) {
+				return from.getObject();
+			}
+		};
+		Iterable<VariableDeclaration> allDeclarations = Iterables.transform(TypeUtil.getReferencesIn(provider.getUrl()), objRefToDeclaration); 
+		Iterable<VariableDeclaration> withoutConstants = Iterables.filter(allDeclarations, new Predicate<VariableDeclaration>() {
+			public boolean apply(VariableDeclaration d) {
+				return !(d instanceof Constant);
+			}
+		});
+		
+		Set<VariableDeclaration> declarations = ImmutableSet.copyOf(withoutConstants);
+		if(declarations.size()<=0)
 			error("Resolver must use an attribute", AppModelDslPackage.CONTENT_PROVIDER__URL);
-		if(references.size()==1) {
-			// TODO: Ensure simple attribute type
-		}
-		if(references.size()>1)
+		if(declarations.size()>1)
 			error("Resolver must not use more than one attribute", AppModelDslPackage.CONTENT_PROVIDER__URL);
 	}
 	

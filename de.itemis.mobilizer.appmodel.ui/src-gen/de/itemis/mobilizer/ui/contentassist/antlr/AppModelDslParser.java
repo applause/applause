@@ -63,6 +63,7 @@ public class AppModelDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getCollectionFunctionAccess().getGroup(), "rule__CollectionFunction__Group__0");
 					put(grammarAccess.getTabBarApplicationAccess().getGroup(), "rule__TabBarApplication__Group__0");
 					put(grammarAccess.getTabbarButtonAccess().getGroup(), "rule__TabbarButton__Group__0");
+					put(grammarAccess.getConstantAccess().getGroup(), "rule__Constant__Group__0");
 					put(grammarAccess.getSimpleTypeAccess().getGroup(), "rule__SimpleType__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup_2(), "rule__Entity__Group_2__0");
@@ -117,6 +118,8 @@ public class AppModelDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTabbarButtonAccess().getTitleAssignment_3(), "rule__TabbarButton__TitleAssignment_3");
 					put(grammarAccess.getTabbarButtonAccess().getIconAssignment_5(), "rule__TabbarButton__IconAssignment_5");
 					put(grammarAccess.getTabbarButtonAccess().getViewAssignment_7(), "rule__TabbarButton__ViewAssignment_7");
+					put(grammarAccess.getConstantAccess().getNameAssignment_2(), "rule__Constant__NameAssignment_2");
+					put(grammarAccess.getConstantAccess().getValueAssignment_3(), "rule__Constant__ValueAssignment_3");
 					put(grammarAccess.getSimpleTypeAccess().getNameAssignment_1(), "rule__SimpleType__NameAssignment_1");
 					put(grammarAccess.getSimpleTypeAccess().getPlatformTypeAssignment_3(), "rule__SimpleType__PlatformTypeAssignment_3");
 					put(grammarAccess.getEntityAccess().getNameAssignment_1(), "rule__Entity__NameAssignment_1");

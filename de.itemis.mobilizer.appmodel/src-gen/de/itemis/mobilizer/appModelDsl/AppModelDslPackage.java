@@ -179,7 +179,7 @@ public interface AppModelDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION__NAME = 0;
+  int VARIABLE_DECLARATION__NAME = MODEL_ELEMENT__NAME;
 
   /**
    * The number of structural features of the '<em>Variable Declaration</em>' class.
@@ -188,7 +188,7 @@ public interface AppModelDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VARIABLE_DECLARATION_FEATURE_COUNT = 1;
+  int VARIABLE_DECLARATION_FEATURE_COUNT = MODEL_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link de.itemis.mobilizer.appModelDsl.impl.TypeDescriptionImpl <em>Type Description</em>}' class.
@@ -1439,6 +1439,43 @@ public interface AppModelDslPackage extends EPackage
   int STRING_SPLIT_FEATURE_COUNT = COLLECTION_FUNCTION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link de.itemis.mobilizer.appModelDsl.impl.ConstantImpl <em>Constant</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see de.itemis.mobilizer.appModelDsl.impl.ConstantImpl
+   * @see de.itemis.mobilizer.appModelDsl.impl.AppModelDslPackageImpl#getConstant()
+   * @generated
+   */
+  int CONSTANT = 37;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT__NAME = VARIABLE_DECLARATION__NAME;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT__VALUE = VARIABLE_DECLARATION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Constant</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONSTANT_FEATURE_COUNT = VARIABLE_DECLARATION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link de.itemis.mobilizer.appModelDsl.impl.ComplexProviderConstructionImpl <em>Complex Provider Construction</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1446,7 +1483,7 @@ public interface AppModelDslPackage extends EPackage
    * @see de.itemis.mobilizer.appModelDsl.impl.AppModelDslPackageImpl#getComplexProviderConstruction()
    * @generated
    */
-  int COMPLEX_PROVIDER_CONSTRUCTION = 37;
+  int COMPLEX_PROVIDER_CONSTRUCTION = 38;
 
   /**
    * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -1483,7 +1520,7 @@ public interface AppModelDslPackage extends EPackage
    * @see de.itemis.mobilizer.appModelDsl.impl.AppModelDslPackageImpl#getSimpleProviderConstruction()
    * @generated
    */
-  int SIMPLE_PROVIDER_CONSTRUCTION = 38;
+  int SIMPLE_PROVIDER_CONSTRUCTION = 39;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1511,7 +1548,7 @@ public interface AppModelDslPackage extends EPackage
    * @see de.itemis.mobilizer.appModelDsl.impl.AppModelDslPackageImpl#getCellType()
    * @generated
    */
-  int CELL_TYPE = 39;
+  int CELL_TYPE = 40;
 
 
   /**
@@ -1608,17 +1645,6 @@ public interface AppModelDslPackage extends EPackage
    * @generated
    */
   EClass getVariableDeclaration();
-
-  /**
-   * Returns the meta object for the attribute '{@link de.itemis.mobilizer.appModelDsl.VariableDeclaration#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see de.itemis.mobilizer.appModelDsl.VariableDeclaration#getName()
-   * @see #getVariableDeclaration()
-   * @generated
-   */
-  EAttribute getVariableDeclaration_Name();
 
   /**
    * Returns the meta object for class '{@link de.itemis.mobilizer.appModelDsl.TypeDescription <em>Type Description</em>}'.
@@ -2490,6 +2516,27 @@ public interface AppModelDslPackage extends EPackage
   EReference getStringSplit_Delimiter();
 
   /**
+   * Returns the meta object for class '{@link de.itemis.mobilizer.appModelDsl.Constant <em>Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Constant</em>'.
+   * @see de.itemis.mobilizer.appModelDsl.Constant
+   * @generated
+   */
+  EClass getConstant();
+
+  /**
+   * Returns the meta object for the containment reference '{@link de.itemis.mobilizer.appModelDsl.Constant#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see de.itemis.mobilizer.appModelDsl.Constant#getValue()
+   * @see #getConstant()
+   * @generated
+   */
+  EReference getConstant_Value();
+
+  /**
    * Returns the meta object for class '{@link de.itemis.mobilizer.appModelDsl.ComplexProviderConstruction <em>Complex Provider Construction</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2654,14 +2701,6 @@ public interface AppModelDslPackage extends EPackage
      * @generated
      */
     EClass VARIABLE_DECLARATION = eINSTANCE.getVariableDeclaration();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute VARIABLE_DECLARATION__NAME = eINSTANCE.getVariableDeclaration_Name();
 
     /**
      * The meta object literal for the '{@link de.itemis.mobilizer.appModelDsl.impl.TypeDescriptionImpl <em>Type Description</em>}' class.
@@ -3384,6 +3423,24 @@ public interface AppModelDslPackage extends EPackage
      * @generated
      */
     EReference STRING_SPLIT__DELIMITER = eINSTANCE.getStringSplit_Delimiter();
+
+    /**
+     * The meta object literal for the '{@link de.itemis.mobilizer.appModelDsl.impl.ConstantImpl <em>Constant</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see de.itemis.mobilizer.appModelDsl.impl.ConstantImpl
+     * @see de.itemis.mobilizer.appModelDsl.impl.AppModelDslPackageImpl#getConstant()
+     * @generated
+     */
+    EClass CONSTANT = eINSTANCE.getConstant();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONSTANT__VALUE = eINSTANCE.getConstant_Value();
 
     /**
      * The meta object literal for the '{@link de.itemis.mobilizer.appModelDsl.impl.ComplexProviderConstructionImpl <em>Complex Provider Construction</em>}' class.
