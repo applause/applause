@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result>
+<session>
+  <id>{{session.session_id}}</id>
+  <title>{{session.title}}</title>
+  <description>{{session.abstract|striptags}}</description>
+  <timeslot>{{session.timeslot_short}}</timeslot>
+  <room>{{session.room}}</room>
+  <category>{{session.category}}</category>
+    {% for speaker in session.presenters %}
+    <speakers>
+      <id>{{speaker.speaker_id}}</id>
+      <name>{{speaker.full_name}}</name>
+    </speakers>
+    {% endfor %}
+</session>
+</result>

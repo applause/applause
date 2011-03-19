@@ -1,0 +1,1116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sessions>
+  
+  
+  <session>
+    <id>2356</id>
+    <title>Monday Contintental Breakfast (Registration Area, Mezzanine, Ballrooms A-D Foyer)</title>
+    <description>Find yummy breakfast food and coffee in the Magnolia Room (aka the Registration Area), the Hyatt Mezzanine, or the foyer outside Ballrooms A-D.</description>
+    <timeslot>08:00 - 09:00 </timeslot>
+    <room>Registration Area, Mezzanine, Ballrooms A-D Foyer</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>1980</id>
+    <title>Developing Rich Clients with Eclipse 4.x RCP</title>
+    <description>In this tutorial Kai will give an overview about the new features of the Eclipse 4.x Rich Client Platform. He will cover the following topics:
+
+Eclipse 4.x: What&#39;s new?
+&quot;Hello, World&quot; RCP 4.x Application
+Workbench Model
+Toolbar, Menus, Parts, Commands  and Handlers
+Dependency Injection
+Services (&quot;The Twenty Things&quot;)
+Look &amp; Feel Customization with CSS
+Dynamic CSS Theme Switching
+Rendering Engine
+
+This tutorial is interactive, with a few exercises. Please bring your notebook with pre-installed Java 6. The Eclipse 4.x SDK will be installed during the tutorial.
+</description>
+    <timeslot>09:00 - 12:00 </timeslot>
+    <room>Ballroom BC</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>bbokowski</id>
+        <name>Boris Bokowski</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/bbokowski.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>tschindl</id>
+        <name>Thomas Schindl</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/tschindl.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>emoffatt</id>
+        <name>Eric Moffatt</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/emoffatt.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>ktoedter</id>
+        <name>Kai Toedter</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/ktoedter.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>1999</id>
+    <title>Building web applications with EclipseRT</title>
+    <description>Server-Side Eclipse is the latest effort to use the Eclipse architecture and the OSGi platform to develop modular web applications. This tutorial introduces the technology, concepts and tools needed to develop Eclipse based web applications. A significant portion of the tutorial will be spent on hands-on activities with the aim of bringing attendees up to speed quickly with setting up the workspace, developing and deploying applications as well as looking at debugging and monitoring techniques.
+The tutorial will utilise the diversity of Server-Side Eclipse web technologies ranging from  web server components (Servletbridge, Http Service, Jetty, Gemini Web) installed on top of Equinox to the pre-integrated Virgo Web Server and Virgo Jetty Server.
+Audience
+
+This tutorial targets developers and architects who want to develop a better understanding of what&#39;s required to build Eclipse-based web applications. They should be familiar with OSGi bundles and services, the extension registry, as well as standard JavaEE web applications.
+Contents of tutorial
+
+1. Introduction to Server-Side Eclipse
+
+Introduction and motivation for Server-Side Eclipse
+What is the OSGi HTTP Service?
+What is the Servletbridge?
+Equinox integration scenarios (including Virgo, Gemini Web and  Web Application Bundles)
+
+2. Developing Server-Side Eclipse applications
+
+Configuring your Eclipse environment for Server-Side Eclipse development
+Running and configuring Equinox&#39;s Jetty based Http Service
+Servlet bundle development walk-through
+JSP bundle development walk-through
+Using HTTP Registry to simplify development
+Reusing existing plugins and web applications
+Tips, tricks, and best practices
+
+3. Deploying Server-Side Eclipse applications
+
+Applicable deployment scenarios
+Deploying a standalone Equinox server application (embedded Jetty HTTP service)
+Embedding a server-side application in the Eclipse IDE
+Building and Deploying a standard WAR application
+
+4. Monitoring and Debugging Server-Side Eclipse applications
+
+Getting the most out of logging
+Understanding request flow and key breakpoints when attaching a debugger
+Using the OSGi Console and the Servletbridge management commands
+Other useful monitoring tools
+
+5. Introduction to Virgo
+
+What is Virgo?
+Virgo Web Server and Virgo Jetty Server
+Deploying Server-Side Eclipse applications in Virgo
+Understanding administration, configuration, and logging
+Dynamic, modular web applications with snaps
+
+6. Summary
+
+Current state of development
+What is supported in Eclipse 3.7/4.1 and Equinox 3.7
+Outlook
+
+</description>
+    <timeslot>09:00 - 12:00 </timeslot>
+    <room>Ballroom A</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>jhiller</id>
+        <name>Jochen Hiller</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jhiller.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>cfrost</id>
+        <name>Christopher Frost</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/cfrost.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>gunnar</id>
+        <name>Gunnar Wagenknecht</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/gunnar.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>skaegi</id>
+        <name>Simon Kaegi</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/skaegi.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>gnormington</id>
+        <name>Glyn Normington</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/gnormington.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2047</id>
+    <title>Hands on with the C/C++ IDE</title>
+    <description>In this tutorial, attendees will be led through focussed examples that illustrate how to effectively use the C/C++ IDE.  A set of C/C++ projects will show users how to take advantage of the CDT to develop, build, debug, test, and profile their code within Eclipse.
+
+Exercises include:
+
+
+ Discovering and fixing source code errors 
+ Configuring the build 
+ Working with breakpoints and data available while debugging 
+ Finding memory usage problems 
+ Tracking down performance bottlenecks 
+ Performing refactorings 
+ Integration with UnitTests 
+ Building on the commandline 
+ Finding bugs and errors with static analysis 
+
+</description>
+    <timeslot>09:00 - 12:00 </timeslot>
+    <room>Lafayette</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>jjohnston</id>
+        <name>Jeff Johnston</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jjohnston.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>aoverholt</id>
+        <name>Andrew Overholt</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/aoverholt.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>bmerkle</id>
+        <name>Bernhard Merkle</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/bmerkle.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>sgehwolf</id>
+        <name>Severin Gehwolf</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/sgehwolf.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2049</id>
+    <title>Building Eclipse plugins and RCP applications with Tycho, Nexus &amp; Hudson</title>
+    <description>Build automation and continuous integration are central to the production of quality enterprise software. Without automation it is often difficult to keep track of defects and communicate build status. One of the goals of the Maven project is to bring efficient build automation to enterprise development, and as more organizations start to develop Eclipse plugins and RCP applications, there is a greater need for Maven to interoperate with the Eclipse platform.
+
+This tutorial provides first hand experience in how to use Tycho, Nexus &amp; Hudson to build Eclipse plugins and RCP applications. Tycho provides Maven plugins and tools for building OSGi bundles, Eclipse plugins, and RCP applications. In this tutorial, developers will learn how Tycho provides seamless integration with Eclipse PDE tools and allows developers to reuse project metadata created with Eclipse PDE tools in automated enterprise builds.
+
+After this tutorial, you will be able to integrate Eclipse plugin and RCP application builds into an existing Maven-based build infrastructure, and you will be able to build, release, and provision Eclipse plugins, RCP application, and OSGi bundles using familiar Maven development strategies and best practices.</description>
+    <timeslot>09:00 - 12:00 </timeslot>
+    <room>Stevens Creek</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>prapicau</id>
+        <name>Pascal Rapicault</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/prapicau.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>jvanzyl</id>
+        <name>Jason Van Zyl</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jvanzyl.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>ifedorenko</id>
+        <name>Igor Fedorenko</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/ifedorenko.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>jsievers</id>
+        <name>Jan Sievers</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jsievers.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2144</id>
+    <title>What every Eclipse Developer should know about EMF</title>
+    <description>
+You did not use EMF before? What is EMF anyway? What is all this modeling stuff about? And who is this Ed guy?
+
+
+This tutorial motivates the use of EMF and explains the basics. We show, how to build a very simple data-centric application based on EMF including the UI. We explain how to define a model in EMF and how to generate code from it. We explore the API of the generated code, that is how to create, navigate and modify model instances. We demonstrate how to build an UI based on this model using databinding. As an example we build an application to manage a conference, including authors and submissions.
+
+
+In the second part, there will be a brief overview of the most important additional technologies. The goal is that you learn, what different frameworks are available and which technology you should investigate in more detail. This part is organized using the Ignite format. There are 9 talks, 5 minutes each, given by committers of the respective projects. The projects are EMF Compare, GMF, EEF, EMF Client Platform, Teneo, CDO, EMFStore, EMF Query 2 and EDAPT. The goal of this part is not to go into detail about any specific news or features, but to just tell people, why they should have a closer look at the project and what they can gain from using this technology.
+
+
+After listing to this tutorial the audience should be well prepared to use EMF in their next project.
+
+
+This is our schedule for the tutorial including the speakers that have already confirmed their commitment:
+
+
+- EMF Modeling including UI (2 hours)
+- Ignite Talks (1 hour): 
+   - EMF Compare (Cedric Brun) 
+ - GMF (Mariot Chauvin) 
+ - EEF (Goulwen Le Fur) 
+ - EMF Client Platform (NItesh Narayan) 
+ - CDO (Eike Stepper) 
+ - Teneo (Martin Taal) 
+ - EMF Query 2 (Saurav Sarkar)
+ - EMFStore (Otto von Wesendonk &amp; Edgar Müller) 
+ - EDAPT (Markus Herrmannsdoerfer) 
+
+
+
+(Please find attached a PDF with the Tutorial Contents in more detail, also the tutorial can be shortened to fit in a regular tutorial slot if necessary.)
+
+
+http://www1.in.tum.de/static/unicase/tutorial/Tutorial.pdf
+</description>
+    <timeslot>09:00 - 12:00 </timeslot>
+    <room>Ballroom D</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>estepper</id>
+        <name>Eike Stepper</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/estepper.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>emueller</id>
+        <name>Edgar Mueller</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/emueller.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>jonas</id>
+        <name>Jonas Helming</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jonas.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>mherrmannsd</id>
+        <name>Markus Herrmannsdoerfer</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/mherrmannsd.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>nnarayan</id>
+        <name>Nitesh Narayan</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/nnarayan.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>cbrun</id>
+        <name>Cedric Brun</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/cbrun.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>tschindl</id>
+        <name>Thomas Schindl</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/tschindl.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>mkoegel</id>
+        <name>Maximilian Koegel</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/mkoegel.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>ovonwesend</id>
+        <name>Otto von Wesendonk</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/ovonwesend.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>mchauvin</id>
+        <name>Mariot Chauvin</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/mchauvin.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>sasarkar</id>
+        <name>Saurav Sarkar</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/sasarkar.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2436</id>
+    <title>Functional an UI Testing of Eclipse Applications with Q7 Community Edition</title>
+    <description>If you&#39;re interested in functional/UI testing of your Eclipse-based application(s) – you should attend this tutorial. We will give you hands-on experience in testing of Eclipse applications using Q7 Functional Testing tool (Community Edition). Tutorial is based on real application including Eclipse Projects and well know open-source/free applications, which are based on a wide set of Eclipse technologies. We will demo how easily you can develop testing of products utilizing Eclipse Platform, JDT, GEF and GMF. You&#39;d see how such tests would run on various platforms as is: independent of platform windowing system, workbench size, order and/or subset of tests to be executed, and initial state of the system under test, which should explode a myth about UI tests being fragile.
+The tutorial should give you an understanding how your test plans can be automated with Q7 Functional Testing tool and maintained by a non-technically skilled person, producing up to hundred of testing scenarios per day; how test engineers can write complex assertions, which are not limited to UI but cover a wide set of functionality of your Eclipse plugins and/or RCP applications. You would see how sophisticated Image Recognition and OCR may help you to deliver required test in cases when other tools got stuck.
+All you need for the tutorial is a laptop with one of following operating systems installed: Windows, Linux, or OS X. And of course please feel free to take any eclipse-based application you&#39;d like test (in binary form) to try Q7 against this application.
+</description>
+    <timeslot>09:00 - 12:00 </timeslot>
+    <room>Cypress</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2357</id>
+    <title>Monday Lunch (Ballrooms E-H)</title>
+    <description>Head over to the ballrooms in the Conference Center to find a hot sit-down lunch. Arrive promptly for an opportunity to win premium drinks and beers for your table!</description>
+    <timeslot>12:00 - 13:00 </timeslot>
+    <room>Ballrooms E-H</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2146</id>
+    <title>Efficient, Scalable Notification Handling for EMF</title>
+    <description>EMF offers various ways for dealing with change notifications. Among them are adapters such as EContentAdapter that assist in subscribing to notifications on entire composition trees, such as a ResourceSet. The current paradigm of adding adapters to objects and containment hierarchies is, however, not without flaws. When many subscribers register for many different types of events, either many adapters need to be registered and notified, or a single adapter registered on the ResourceSet&#39;s containment hierarchy needs to funnel and dispatch the notifications. We&#39;ve implemented an event manager plug-in that allows subscribers to provide an event filter and an adapter. Event filters can be complex boolean expression trees over basic filters such as for specific attributes, references or type of notifier/new/old value. The adapter won&#39;t be registered on each element in the ResourceSet. Instead, notifications are funneled through one EContentAdapter and then dispatched efficiently by the event manager. This session will describe the capabilities and scalability properties of the event manager component which is already freely available as a plug-in from git://github.com/FURCAS-dev/FURCAS.git.</description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Ballroom A</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>auhl</id>
+        <name>Axel Uhl</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/auhl.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2159</id>
+    <title>The C/C++ IDE Projects and Ecosystem</title>
+    <description>This talk presents an update on the various projects provide support for native development based on Eclipse IDE technologies. Of course this includes the CDT and activities going on there but also projects that extend CDT in interesting ways, e.g. for super computing and for Linux development.
+We’ll also give some insight into what’s happening in the community around native development including a survey of products that use CDT. Essentially we provide a roadmap for those attendees who want the 10,000 foot view and pointers on where to go next.</description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Lafayette</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>dschaefer</id>
+        <name>Doug Schaefer</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/dschaefer.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2175</id>
+    <title>INTERSTELLAR THERMONUCLEAR WAR ... with ECF - Multiplayer Game Development for High-Latency Mobile Networks</title>
+    <description>
+The Eclipse
+Communication Framework has a long history of providing mechanisms for optimistic concurrency control. What started out as the Google Summer of Code 2006 project dubbed Cola, an API for real-time shared text editing, is being opened up to provide functionality for entirely different application domains... such as interstellar warfare.
+
+
+With Android phones &amp; tablets becoming ubiquitous, application developers are keen to exploit the opportunities that always-on, networked mobile devices offer. The interconnecting high-latency cell phone data networks pose a unique challenge for communication-heavy real-time applications... such as interstellar warfare.
+
+
+In order to facilitate interoperability between different systems utilizing optimistic concurrency control and to provide for easy extendability over new application domains, ECF is moving from its proprietary communication protocol to Wave (formerly of Google, now in the process of becoming an official Apache project). Utilizing Wave also helps facilitate communication among a virtually unlimited set of collaborators... such as required for interstellar warfare.
+
+
+Being the peaceful Eclipse Committers that we are, our intention is not to disturb interstellar peace. Thus, we resort to the development of a mobile multiplayer game, running on Android and making heavy use of shared state. We show how ECF&#39;s Wave-based implementation of optimistic concurrency control allows for consistent near-real-time gaming in a high-latency low-bandwidth network. Meet INTERSTELLAR THERMONUCLEAR WAR!
+</description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Ballroom D</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>isikm</id>
+        <name>Mustafa Isik</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/isikm.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>sschmidt</id>
+        <name>Sebastian Schmidt</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/sschmidt.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2187</id>
+    <title>Supporting JavaScript toolkits with JSDT</title>
+    <description>JSDT is the JavaScript IDE now provided within the Web Tools Platform, a vendor neutral, standards oriented basis for web tools in Eclipse.  Being vendor neutral, however, means not playing favorites among the many JavaScript toolkits being used to create Web 2.0 sites.  Just as WTP offers mechanisms for application server vendors to have first class support within Eclipse, so too does JSDT offer extension points for enriching the experience when working with your JavaScript toolkit of choice.  This talk will cover the limitations to JSDT&#39;s built-in language support and how to aid it in inferring type information from your sources and leveraging custom documentation formats.</description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Stevens Creek</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>nitind</id>
+        <name>Nitin Dahyabhai</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/nitind.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2342</id>
+    <title>Introduction to OSGi</title>
+    <description>In previous OSGi DevCon/EclipseCon we found that almost all presentations spent a significant amount of their time introducing the basic concepts of OSGi. This repetition wasted the time of the audience and left less time for the more unique achievements. For this reason, the OSGi DevCon program committee decided to have a session at the beginning of the conference that introduce OSGi for beginners. The other presentations will therefore not give an introduction and assume you understand the basics. So unless you are well versed in OSGi attending this presentation is highly recommended.</description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Ballroom BC</room>
+    <category>OSGi DevCon</category>
+      
+  </session>
+  
+  <session>
+    <id>2411</id>
+    <title>What is BIRT? 20 Minute Jumpstart</title>
+    <description>You may have heard of BIRT, the Eclipse Foundation Business Intelligence and Reporting Tools open source project sponsored by Actuate, but are wondering what it is and how it might help you. This session introduces BIRT and looks at how you can leverage BIRT to quickly create data-driven reports, web pages, and compelling information visualizations using its visual drag-and-drop design environment. This session provides a great orientation to the BIRT project and technology and how it might benefit your applications. </description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Cypress</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2433</id>
+    <title>Eclipse Scout: Wicket integration. Give your scout application a webinterface.</title>
+    <description>Eclipse Scout is a framework to implement modern business applications, is simple to learn and significantly boosts developer productivity. So far, only rich clients are supported out of the box. As a next step, the Scout SDK tooling will also support the development of Scout web applications. We first give a overview of the Apache Wicket framework. Then we talk about how the Wicket integration in Scout is implemented and we also do a short demo.</description>
+    <timeslot>13:00 - 13:20 </timeslot>
+    <room>Camino Real</room>
+    <category>Making at Eclipse</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2007</id>
+    <title>Open in the Cloud:- Building, Deploying and Managing Java Applications on Windows Azure Platform using Eclipse</title>
+    <description>The Windows Azure Platform is an open and interoperable platform which supports development using many programming languages and tools. In this session, you will see how to build large-scale applications in the cloud using Java, taking advantage of new Windows Azure Platform as a Service features. You will learn how to build Windows Azure applications using Java with Eclipse Tools, Apache Tomcat, and the Windows Azure SDK for Java.</description>
+    <timeslot>13:30 - 13:50 </timeslot>
+    <room>Ballroom A</room>
+    <category>Making Community</category>
+      
+      <speakers>
+        <id>vrajagopala</id>
+        <name>Vijay Rajagopalan</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/vrajagopala.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2068</id>
+    <title>Tired of CVS? Pimp your productivity with Git, Gerrit, Hudson and Mylyn</title>
+    <description>The Git distributed versioning system is being increasingly adopted by the Eclipse community. Using Git for version control makes Gerrit the natural choice for code reviews. Besides source code, requirements and build artifacts also play an important role in the development cycle. For many projects Hudson and Bugzilla are the first choice to manage these. While these tools enable exciting development process improvements, adapting to new workflows and learning how to push, pull and fetch can be daunting. Furthermore, switching between command line, web-browser and Eclipse-based tool interfaces breaks the flow. 
+
+For tasks, Mylyn already streamlines workflow by providing first-class task integration with the IDE. The recent Mylyn project restructuring will soon enable the same integrated workflows for code reviews, builds and version control systems like Git. For example, a developer can use the Mylyn Task List to track requirements while EGit automatically manages change sets. Committing and pushing to EGit can automatically create a code review in Gerrit and trigger a Hudson build to execute tests. Meanwhile, the Mylyn Reviews project enables a team member to complete a code review and provide feedback to the developer, all without leaving the IDE.
+
+In this talk we will show how the tools available in the Mylyn project work together to seamlessly integrate development artifacts in Eclipse all the way from tracking the requirement to the final merge into the production branch.</description>
+    <timeslot>13:30 - 13:50 </timeslot>
+    <room>Stevens Creek</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>spingel</id>
+        <name>Steffen Pingel</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/spingel.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>bmuskalla</id>
+        <name>Benjamin Muskalla</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/bmuskalla.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2252</id>
+    <title>Eclipse 4.x Compatibility Layer: What&#39;s hot? What&#39;s not?</title>
+    <description>We can run 3.x plug-ins via the compatibility layer (the org.eclipse.ui.workbench 4.x bundle), as long as they&#39;re API clean...but what does that really mean? What behaviours over and above simply using APIs can enable your 3.x plug-ins to work on Eclipse 4.1?
+
+This talk is about what to expect when moving your plug-ins from Eclipse 3.x to Eclipse 4.x. Based on examples from the Eclipse SDK and beyond, we will talk about our experience with using the compatibility layer, tell success stories, but also cover the challenges that have surfaced thus far, such as not being API clean or relying on more subtle implementations details such as event ordering.
+
+
+This talk will also explain what needs to be done to port a plug-in from 3.x to 4.x without using the compatibility layer, i.e. what does it take to become a &quot;native&quot; e4 citizen (last year&#39;s migrating to e4 talk)?
+</description>
+    <timeslot>13:30 - 13:50 </timeslot>
+    <room>Ballroom D</room>
+    <category>Making at Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2273</id>
+    <title>CDT: So you want me to use which debugger ... ?</title>
+    <description>Deciphering the CDT debugger alphabet soup.
+As the developer of an IDE based on CDT, you can choose to support: 
+
+The GNU debugger (gdb)
+The Eclipse Debugger for C/C++ (EDC)
+Debug Services Framework (DSF)
+Target Communication Framework (TCF) agents
+
+How do you decide which ones are right for your application?
+This talk will present a guide describing how the current choices for remote debugging work together (or don’t) and a consumer’s view of the advantages of some of the possible combinations.</description>
+    <timeslot>13:30 - 13:50 </timeslot>
+    <room>Lafayette</room>
+    <category>Making at Eclipse</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2279</id>
+    <title>OSGi 4.3 Technical Update: What&#39;s new?</title>
+    <description>The next release of the OSGi specifications are planned for publication at EclipseCon 2011. So what is new? This presentation will provide an overview of the new features in the spec including Java 5 generics for the Framework and ServiceTracker, modern replacement for PackageAdmin and StartLevel, generic capabilities and requirements, resolver hooks, bytecode weaving and many more improvements and new features.
+
+The presentation assumes the audience has a basic understanding of OSGi and will focus on the changes in 4.3.</description>
+    <timeslot>13:30 - 14:20 </timeslot>
+    <room>Ballroom BC</room>
+    <category>OSGi DevCon</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2412</id>
+    <title>BIRT for ISV and OEM Applications</title>
+    <description>You may be familiar with the Eclipse BIRT tool, but did you know it is rapidly becoming the premiere choice for embedding data visualization and reporting into ISV and OEM applications.  This short session will give attendees an overview of how to leverage both Open Source and Actuate deployment choices to embed BIRT content into applications and distribute reports to users.
+
+AUTHOR: Rob Murphy
+</description>
+    <timeslot>13:30 - 13:50 </timeslot>
+    <room>Cypress</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2028</id>
+    <title>Reports and Charts right from your EMF models</title>
+    <description>So you heard Ed Merks talk about how great modeling is and started creating EMF models for your application.
+But now the customer requests that you provide shiny reports and you would like to leverage a rich reporting tool like BIRT.
+Until recently you were out of luck, as BIRT did not support EMF Ecore out of the box. This has now changed.
+
+Tradescape sponsored the development of a Datatools Project (DTP)  Open Data Access (ODA) driver for EMF Ecore. This driver allows BIRT to access and query EMF Ecore based models generically.
+Tradescape contributed this new driver as part of the Eclipse Indigo release train.
+
+Now you can use BIRT together with this new driver to create reports and charts directly from your models.
+
+This talk will 
+
+ Introduce you briefly to EMF models.
+ Introduce you briefly to BIRT and ODA.
+ Show how you can create reports with BIRT and the new Ecore ODA driver.
+
+</description>
+    <timeslot>14:00 - 14:20 </timeslot>
+    <room>Ballroom D</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>lwerzinger</id>
+        <name>Lothar Werzinger</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/lwerzinger.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2118</id>
+    <title>Singlesourcing for Eclipse 4.x and Eclipse 3.x</title>
+    <description>
+Eclipse 4.0 comes with a backward compatlayer so API clean Plug-ins are still functional in Eclipse 4.0 but it also comes with a new programming model (built upon OSGi-Services and Dependency Injection) which makes application development much more modern.
+
+
+The problem is now that in case you want adopt this programming model because it feels a lot better than th 3.x one you might think you can only target Eclipse 4.0. 
+
+This talk will present:
+
+How to apply the e4 programming model in 3.x
+Introduces the idea of a forward compat layer
+</description>
+    <timeslot>14:00 - 14:20 </timeslot>
+    <room>Ballroom A</room>
+    <category>Making Community</category>
+      
+      <speakers>
+        <id>tschindl</id>
+        <name>Thomas Schindl</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/tschindl.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2239</id>
+    <title>What&#39;s new in JDT</title>
+    <description>The talk will demo the exciting new and noteworthy items in JDT 3.7 such as new features in the compiler, additional coding aids and various additions to the UI. Besides that we will give a sneak preview of the ongoing Java 7 work.</description>
+    <timeslot>14:00 - 14:20 </timeslot>
+    <room>Stevens Creek</room>
+    <category>Making at Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2390</id>
+    <title>JRebel + Eclipse: Eliminate redeploys</title>
+    <description>Slow redeploys? Tired of waiting? JRebel eliminates redeploys. Save ~1hr daily.
+
+Since 2007, we have been developing a tool called JRebel that boosts developer productivity by eliminating redeploys and restarts. You can add/change/remove fields/methods/classes/resources without restarting the application under development. We have mainly concentrated on web applications, but the same approach can be used for Eclipse plugin/RCP development. Would you like to restart your Eclipse IDE 95% less? In this session, I will have three slides and two demos how to use JRebel to rock your development productivity and keep yourself in the flow.</description>
+    <timeslot>14:00 - 14:20 </timeslot>
+    <room>Cypress</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2439</id>
+    <title>Eclipse Enterprise Content Repository Project. - Overview of Nuxeo Core, a state of the art Content Repository Contribution</title>
+    <description>In February 2011, Nuxeo decided to contribute its content repository technology, Nuxeo Core, to the Eclipse Foundation as a new project under the Eclipse RT umbrella: Eclipse Enterprise Content Repository. While this project is still in its initial proposal and review phase, the goal of this talk is to provide the audience with a global understanding of what a Content Repository is from a functional standpoint: exploring all the services it offers, identifying the main standards and technologies integrated within an application of this caliber (such as the CMIS interoperability standard), and understand the main technical challenges to be resolved such as high scalability and high performance. The talk will also describe how ECR leverages OSGi and will highlight how extension technology is able to offer a lean and highly modular content repository, suitable for many uses.</description>
+    <timeslot>14:00 - 14:20 </timeslot>
+    <room>Lafayette</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2463</id>
+    <title>Lightning Intro to Git and GitHub</title>
+    <description>The Title says it ALL!!</description>
+    <timeslot>14:00 - 14:20 </timeslot>
+    <room>Camino Real</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2088</id>
+    <title>Codan - C/C++ Static Analysis Framework for CDT</title>
+    <description>
+&quot;Codan&quot; is an attempt to provide a framework for easy pluggable static analysis checkers to find variety of problems in the C/C++ from code style to complex quality issues. Codan is included in CDT 7.0 as an optional feature and will be included in CDT 8.0 as a default feature.
+
+The framework provides user controls for enabling and changing the severity of problems, as well as their parameters and scope, and a means to correct problems using the &quot;quick fix&quot; method. Codan allows customized launch of checkers such as: run as you type, on demand or during the project build. The framework comes with a development toolkit witch contains examples of various checkers, corresponding quick fix samples, as well as sample tests.
+
+This presentation will provide the following:
+
+ an overview of the framework with a demonstration of the user interface
+ the development status
+ how to create and integrate a simple checker (with an example)
+ how to create &quot;quick fix&quot; for the problem
+ how to integrate external tool such as lint
+ what API the CDT provides to aid in writing a checker
+</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Lafayette</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>alaskavaia</id>
+        <name>Alena Laskavaia</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/alaskavaia.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2094</id>
+    <title>WindowBuilder 101</title>
+    <description>After Google&#39;s recent acquisition of Instantiations, WindowBuilder (winner of the 2009 Eclipse Community award for Best Commercial Eclipse Tool) was relaunched under the Google banner and recently contributed to the Eclipse open source community (http://www.eclipse.org/windowbuilder). Now the most powerful Java UI builder in the world is freely available for any Eclipse developer to use and extend. This session will introduce you to using WindowBuilder to create and edit SWT, Swing and GWT apps through a combination of slides and live demos. We will also dive deeper and show you how easy it is to extend WindowBuilder using its powerful customization API and auto-discovery framework.</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Ballroom A</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>eclayberg</id>
+        <name>Eric Clayberg</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/eclayberg.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2161</id>
+    <title>CDO 3D</title>
+    <description>This talk does not include a demo.
+This entire talk is the demo! In order to present the unparalleled benefits of the CDO Model Repository we won&amp;apos;t bore you to death with endless PowerPoint slides about scalable object graphs, queries and transactions, pluggable data back-ends, offline modes, audits or branches. We&amp;apos;ll rather take you on a 3D trip into the world of CDO, modeled with EMF, driven by itself. Sit back and see how Eclipse technology can boost your data application. Please fasten your seat belts...
+</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Ballroom D</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>estepper</id>
+        <name>Eike Stepper</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/estepper.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>mfluegge</id>
+        <name>Martin Fluegge</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/mfluegge.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2167</id>
+    <title>Beyond Plug-in Architecture: Planning, Development and Support of Large Scale Eclipse Products</title>
+    <description>Successful products built on Eclipse are far more than collections of plug-ins. The Eclipse platform provides a number of services for product deployment, and polished offerings make careful use of these capabilities. Beyond the Eclipse platform itself, how does delivering a large scale product based on a set of plug-ins impact the product life cycle? What are the best practices for Eclipse products, and what are common pitfalls?
+Based on delivering enterprise-scale products since Eclipse 2, we will discuss the patterns, both good and bad, that emerge at the product level. We will discuss open and closed platform deployments, life cycle management in the presence of multiple product streams, product line development and evolution, levels of engagement in the Eclipse open source process, and fundamentally why plug-in products are different from other product types. We will describe a framework integrating these dimensions, which will allow for product evaluation and decisions throughout the life cycle. Attendees will gain a thorough understanding of the opportunities and challenges present in Eclipse product development, and will be prepared to succeed with Eclipse product offerings.</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Stevens Creek</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>jgraham</id>
+        <name>John Graham</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jgraham.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2209</id>
+    <title>OSGi and Cloud</title>
+    <description>Despite the element of novelty and fashion, there is little doubt that Cloud Computing will have a fundamental and long lasting influence on the technology landscape. Yet virtual machine based Cloud Compute offerings, which attempt to maximise resource utilisation and minimise operational management of those resources, have nothing to say about the dominant contributor to an organisations IT OPEX. Application maintainability accounts for approximately 70% of an applications TCO. To increase application maintainability, one must modularise and preferably modularise using an industry standard. Hence, for organisations with large in-house development teams, it is predicted that OSGi will have equivalent or greater impact than Cloud Computing!
+
+This presentation will look at the intersect of Cloud Computing and OSGi based Composite Applications. Areas explored will include the importance of dynamic dependency management, the anatomy of cloud enabled composite applications and the role of the PaaS in an OSGi enabled Cloud. Relevant OSGi standards will be reviewed along with how these may be used to address the configuration and management of distributed Cloud hosted composite applications.
+
+The presentation will conclude by demonstrating a distribute Cloud / OSGi runtime that demonstrates the concepts discussed.</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Ballroom BC</room>
+    <category>OSGi DevCon</category>
+      
+      <speakers>
+        <id>richard</id>
+        <name>Richard Nicholson</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/richard.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2305</id>
+    <title>Optimizing eclipse-based products package size and start-up time</title>
+    <description>Any company developing eclipse-based product faces two major drawbacks:
+
+Any Eclipse RCP application has noticeable installer size. For some of the smaller applications it may be even unacceptable to use Eclipse for this sole reason. Imagine a personal message client or a notebook application built on Eclipse.
+
+Eclipse RCP application starts slower then Java application built on a lighter framework or using no platform at all.
+
+
+In many cases power and flexibility of Eclipse Platform heavily overweight those drawbacks but even then reducing download size, disk footprint and start-up time can be a way to differentiate a product. A whole new niche of small eclipse applications may become available for software vendors.
+
+The first part of the session introduces a quick comparative analysis of existing approaches to RCP optimization like Excelsior JET and classical Pack200-based packaging solutions, even some of more theoretical ones, in the context of eclipse-based product.
+
+
+The second part of the session looks at what else can be done to make RCP application smaller and faster. We will demonstrate RCP application(s) compression and optimization with a solution being developed by OnPositive, outlining the new ways of dealing with these classical problems.
+</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Camino Real</room>
+    <category>Making at Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2417</id>
+    <title>Open Source tools in Continuous Integration environment </title>
+    <description>In this presentation, we present the concepts of agility and the build environment and tools required to develop efficiently (Maven, Hudson, JUnit)</description>
+    <timeslot>14:30 - 15:10 </timeslot>
+    <room>Cypress</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2358</id>
+    <title>Monday Afternoon Break (Registration Area, Mezzanine, Ballrooms A-D Foyer)</title>
+    <description>If your laptop also needs feeding, take your afternoon break in the Registration Area power-up lounge. You can also come to the Mezzanine or stop by the Ballroom A-D Foyer to catch up with old acquaintances and have a quick snack before heading into the afternoon tutorials. </description>
+    <timeslot>15:10 - 15:40 </timeslot>
+    <room>Registration Area, Mezzanine, Ballrooms A-D Foyer</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>1995</id>
+    <title>Getting Started with BIRT</title>
+    <description>This tutorial will introduce you to the Business Intelligence and Reporting Tools (BIRT) designer. In this tutorial, you will be given an overview of the entire BIRT product with a focus on getting you to a point where you can develop reports. This tutorial will provide you with the necessary tools to get started with BIRT.
+
+The course will take you on an interactive tour of the BIRT report designer including:
+
+    * How to develop reports the BIRT way
+    * Most important features
+    * Best practices
+    * Simple deployment scenarios
+
+During the course you will perform hands on exercises.</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Ballroom A</room>
+    <category>Making with Eclipse</category>
+      
+      <speakers>
+        <id>jward2</id>
+        <name>John Ward</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jward2.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2035</id>
+    <title>Effective Git</title>
+    <description>
+Eclipse and many other open source projects are moving to Git, are you prepared? Want to learn Git and use it within Eclipse? Well then this tutorial is made for you!
+
+
+This tutorial will introduce you to Git through hand on exercises that use EGit and Gerrit to perform common version control tasks.
+</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Stevens Creek</room>
+    <category>Making at Eclipse</category>
+      
+      <speakers>
+        <id>slay</id>
+        <name>Stefan Lay</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/slay.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>caniszczyk</id>
+        <name>Chris Aniszczyk</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/caniszczyk.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>spearce</id>
+        <name>Shawn Pearce</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/spearce.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>msohn</id>
+        <name>Matthias Sohn</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/msohn.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2098</id>
+    <title>Developing Apache Aries Enterprise OSGi Applications</title>
+    <description>With the release of OSGi Enterprise 4.2 specifications, and the establishment of open source projects like Apache Aries and Eclipse Virgo, the role of OSGi has been extended into the enterprise alongside what has traditionally been developed using JEE. In this tutorial we will introduce you to building OSGi technology based enterprise applications, and explain both differences and improvements over traditional JEE applications. We will use freely available Eclipse-based tools to develop a modular application using the Blueprint programming model, Web, and JPA 2.0 technologies, and show how to deploy the resulting application to an open source runtime enabled by Apache Aries.</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Ballroom BC</room>
+    <category>OSGi DevCon</category>
+      
+      <speakers>
+        <id>jhughes</id>
+        <name>Jeremy Hughes</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/jhughes.png</pictureurl>
+      </speakers>
+      
+      <speakers>
+        <id>gcharters</id>
+        <name>Graham Charters</name>
+        <pictureurl>http://eclipsesummit2010.appspot.com/media/files/speakers/gcharters.png</pictureurl>
+      </speakers>
+      
+  </session>
+  
+  <session>
+    <id>2271</id>
+    <title>Enrich Your Models With OCL</title>
+    <description>
+The utility of the Object Constraint Language for modeling within Eclipse has increased dramatically in the last few years, so that Eclipse OCL is now useful for everyday modelers rather than just advanced Java programmers.
+
+This tutorial will demonstrate to existing EMF users how OCL in isolation can enhance their models and how the Eclipse support is re-used within advanced model transformation tools.
+
+The tutorial will first introduce OMG\&#39;s OCL language and its capabilities, then show how OCL can be embedded within Ecore to support validation and evaluation of dynamic EMF models without using genmodel at all. This part of the tutorial will introduce the OCLinEcore text editor that supports the combined development of OCL and Ecore, the CompleteOCL editor that supports complementary development of OCL and the the Interactive OCL Console that supports interactive evaluation.
+
+Models developed during the Ecore integration part of the tutorial will be elaborated during the rest of the tutorial to demonstrate how model representations can be transformed using model to model transformations and then presented in human-friendly fashion by model to text transformations.
+
+The model to model transformation section of the tutorial will provide a brief overview of OMG\&#39;s QVT Operational Mappings language and Eclipse\&#39;s M2M/QVTo tooling, while developing the running example with particular emphasis on the use of OCL to perform complex navigations and queries.
+
+The model to text transformation section of the tutorial will provide similar brief overviews of OMG\&#39;s M2T language and Eclipse\&#39;s M2T/Acceleo tooling. The running example will be elaborated to showing more extensive use of OCL.
+
+OCL supports the formulation of very compact queries that it is useful to practice. The tutorial will demonstrate this style of working by providing regular opportunities to configure and use some OCL facility with additional challenges for those participants who find the basic examples too easy.
+</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Ballroom D</room>
+    <category>Making at Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2329</id>
+    <title>Architecture Patterns and Code Templates for Enterprise RCP Applications</title>
+    <description>Have you run the &quot;RCP Application with a View&quot; plugin project wizard, wanted to scale your application up to an auto-updating enterprise RCP application, and felt like you just ran into a brick wall?
+One of the challenges of the OSGi (and Eclipse RCP) learning curve is discovering the best way to structure your bundles, features, and other artifacts to build a complete, server-pushed, enterprise application.
+In this tutorial, we will develop a complete enterprise-capable skeleton application that illustrates solutions to the following concerns:
+
+What code makes up a minimal RCP application that updates itself automatically on launch?
+What are the numbers and types of projects that make a self-updating application easy to build and to scale up in size and complexity?
+At what granularity should one split a large application into multiple Bundles?
+How can code be structured so that it is easy to test while also maintaining a strict separation between tests and production code?
+What project structure makes it easy to add a continuous integration build using Maven/Tycho?
+How can one leverage P2 and Maven/Tycho to split a large application&#39;s build into many mutually-dependent modules rather than something big and monolithic?
+What concerns need to be addressed when designing the server-side P2 repositories that will back an enterprise RCP application?
+
+The skeleton application we will build uses the same structure as 
+large server-updated mission-critical enterprise RCP applications the presenter has helped deploy over the the past six years.  Attendees will leave the session with working code that they can in turn grow into large-scale, self-updating RCP applications.
+</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Lafayette</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2434</id>
+    <title>Workshop: Tycho Build Conversion</title>
+    <description>This tutorial picks up where the morning tutorial: Building Eclipse plugins and RCP applications with Tycho, Nexus &amp; Hudson  leaves off.
+
+Sponsored by Sonatype, attendees can drop by and get hands on Tycho help from the Sonatype team!</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Camino Real</room>
+    <category>Making with Eclipse</category>
+      
+  </session>
+  
+  <session>
+    <id>2440</id>
+    <title>Eclipse at the Crossroads - Annual General Meeting of the Eclipse Foundation</title>
+    <description>* This session is for Eclipse Foundation Members and Committers Only.
+
+Eclipse is at a crossroads.  The 2011 release train will include for the first time a complete runtime package and Orion and e4 will see more use and participation.  These new and innovative technology platforms will provide new opportunities for the Eclipse ecosystem.
+
+WindowBuilder, a world class GUI editor is now an Eclipse Project and Nuxeo has announced a new content management project.  An Automotive industry working group has recently been announced and collaboration in that umbrella will begin.
+
+This members meeting will include presentations from key contributors to the various technologies noted above, as well as an Executive Directors update on the Eclipse Foundation.  Also, during this meeting we will highlight a proposal to update the Eclipse Foundation Bylaws to prepare us for the upcoming years.</description>
+    <timeslot>15:40 - 17:40 </timeslot>
+    <room>Cypress</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2377</id>
+    <title>Members and Committers Reception  </title>
+    <description>Join us for the annual traditional meeting of the Members and Committers signaling the commencement of EclipseCon.  This reception is once again sponsored by Oracle!</description>
+    <timeslot>17:45 - 18:45 </timeslot>
+    <room>Poolside (weather permitting)</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2384</id>
+    <title>Eclipse Community Awards Presentation and EclipseCon Idol  Ballroom BC </title>
+    <description>Eclipse Community Awards
+
+The Eclipse Community awards will be presented throughout the event to the top Individuals, Projects and Products as selected by the community.
+
+Announcing EclipseCon Idol!
+
+Who will win bragging rights as the very first EclipseCon Idol?  Come to the Eclipse Community Awards Presentation
+and EclipseCon Idol event and see for yourself.
+
+EclipseCon Idol is a contest where nine EclipseCon attendees will present in &quot;Ignite Style&quot; a topic that is interesting to them.  It can be about Eclipse technology, but it does not have to be.  The only requirement is that humor and comedy need to be a key part of your presentation.
+
+Each Ignite talk will be subsequently judged by our celebrity panel including Lynn Gayowski, Jason Weathersby and a third judge so secret, we can&#39;t yet reveal their identity.
+
+To participate in EclipseCon Idol, please contact idol11@eclipse.org for full details.  There are only nine spots available.  We are looking for humor, so talks like &quot;Why Modeling is taking over the world&quot; will not be accepted.  But talks like &quot;Confessions of a modeling Red Neck&quot; might.  Other good examples include &quot;Why my cats would make great developers&quot;, &quot;Why authoring tech books is like working at McDonalds&quot; and &quot;You too can be arrogant by knowing a useless dated programming language&quot;.
+
+Here is how our three celebrity judges will be determining the winner:
+
+Humor - 50%
+Speaking Style - 25%
+Slide Quality - 25%
+
+
+Here is an example of a great humorous Ignite Style talk:
+
+</description>
+    <timeslot>19:00 - 21:00 </timeslot>
+    <room>Ballrooms</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+  
+  <session>
+    <id>2387</id>
+    <title>Healthcare Software Development with Eclipse and OSGi</title>
+    <description>Healthcare software development is a growing field with many facets. From laboratories to hospitals, EMR systems to pharmacies the bounds of software development is great. 
+
+Discussion on such subjects as: Eclipse RCP &amp; PDE tooling in healthcare [HL7 Editors, X12 Editors, HIPAA compliance in tooling, EMR systems in RCP/PDE], Eclipse Development in health care [how it is used, where, when, best practices, etc], EIP frameworks such as Apache Servicemix (OSGi based), Apache Mina HL7 codec.
+
+It would be beneficial to have multiple people willing to talk about how they use Eclipse &amp; OSGi within their health care positions - how it enhances it, what could use improvement, etc.
+
+I am willing to share my experiences within the medical laboratory realm - usage with HL7, OSGi, etc.</description>
+    <timeslot>21:00 - 22:00 </timeslot>
+    <room>Lafayette</room>
+    <category>OSGi DevCon</category>
+      
+  </session>
+  
+  <session>
+    <id>2447</id>
+    <title>Monday BoFsscheduled on site</title>
+    <description></description>
+    <timeslot>21:00 - 22:00 </timeslot>
+    <room>Winchester</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  <session>
+    <id>2448</id>
+    <title>Monday BoFsscheduled on site</title>
+    <description></description>
+    <timeslot>21:00 - 22:00 </timeslot>
+    <room>Sonoma</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  <session>
+    <id>2449</id>
+    <title>Monday BoFsscheduled on site</title>
+    <description></description>
+    <timeslot>21:00 - 22:00 </timeslot>
+    <room>Napa</room>
+    <category>Making Community</category>
+      
+  </session>
+  
+  
+</sessions>

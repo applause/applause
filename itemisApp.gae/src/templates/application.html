@@ -1,0 +1,12 @@
+{% extends "template_master.html" %}
+{% load menu_extras %}
+
+{% block title %}- Eclipse Summit Europe 2010{% endblock %}
+
+{% block navigation %}
+{% url views.session_all as url_sessions %}
+{% url views.session_favorites as url_myschedule %}
+{% url views.speaker_all as url_speakers %}
+{% url 'maps' as url_maps %}
+{% menu mainmenu selection mainmenu_selected with "Sessions" : url_sessions, "My Schedule" : url_myschedule, "Speakers" : url_speakers %}
+{% endblock %}

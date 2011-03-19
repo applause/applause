@@ -1,0 +1,31 @@
+{% extends "application.html" %}
+{% block title%}{{ session.title }}{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+<div class="header">
+  <div class="header_title">{{session.title}}</div>
+  <div class="header_subtitle">{{session.timeslot_long}}<br/>{{session.room}}</div>
+  <div class="header_actions">
+{% if isFavorite %}
+{%url views.session_remove session.session_id as url%}
+<a href="{{url}}?next={{nextIfChanged}}">Remove from your schedule</a>
+{% else %}
+{%url views.session_add session.session_id as url%}
+<a href="{{url}}?next={{nextIfChanged}}">Add to your schedule</a>
+{% endif %}
+  </div>
+  <div class="header_details">{{ session.abstract|safe }}</div>
+</div>
+
+<div class="table group">
+<ul>  
+{% for presenter in session.presenters %}
+<li>
+  {% url views.speaker_details presenter.speaker_id as url %}
+  <a href="{{url}}">{{ presenter.full_name }}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "application.html" %}
+{% block title%}{{ "speakers" }}{% endblock %}
+{% block content_class %}table list{% endblock %}
+
+{% block content %}
+
+<ul>
+  {% for group in speaker_groups %}
+  <li><div class="section">{{group.title}}</div></li>
+  {% for speaker in group.speakers %}
+  {% url views.speaker_details speaker.speaker_id as url %}
+  <li>
+  <a href="{{url}}">
+    <!--<img src="{{speaker.image_url}}" alt="{{speaker.full_name}}"/>-->
+    {{speaker.full_name}}
+    </a>
+  </li>
+  {% endfor %}
+  {% endfor %}
+</ul>
+
+{% endblock %}
