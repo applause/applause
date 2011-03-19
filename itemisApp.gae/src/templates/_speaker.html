@@ -13,7 +13,7 @@
 <ul>
 {% for session in data.sessions|to_list %}
 <li>
-  {% url generated_views.session_resolver session.id as url %}
+  {% url views.session_resolver session.id as url %}
   <a href="{{url}}">{{ session.title }}</a>
 </li>
 {% endfor %}

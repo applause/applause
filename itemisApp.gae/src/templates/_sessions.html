@@ -7,7 +7,7 @@
 {% block content %}
 <ul>
   {% for session in data|to_list %}
-  {% url generated_views.session_resolver session.id as url %}
+  {% url views.session_resolver session.id as url %}
   <li><a href="{{ url }}">{{ session.title }}</a></li>
   {% endfor %}
 </ul>

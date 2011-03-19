@@ -10,7 +10,7 @@
 <ul>  
 {% for speaker in data.speakers|to_list %}
 <li>
-  {% url generated_views.speaker_byName speaker.name as url %}
+  {% url views.speaker_byName speaker.name as url %}
   <a href="{{url}}">{{ speaker.name }}</a>
 </li>
 {% endfor %}

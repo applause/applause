@@ -1,17 +1,17 @@
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns
 
 handler500 = 'djangotoolbox.errorviews.server_error'
 
 urlpatterns = patterns('',
-    (r'^$', 'generated_views.sessions_byDay', {"day": "2011-03-21"}),
+    (r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
     
-    (r'^allSpeakers/$', 'generated_views.allSpeakers'),
+    (r'^allSpeakers/$', 'views.allSpeakers'),
     
-    (r'^speaker/id/(?P<id>.+?)/$', 'generated_views.speaker_resolver'),
+    (r'^speaker/id/(?P<id>.+?)/$', 'views.speaker_resolver'),
     
-    (r'^speaker/name/(?P<name>.+?)/$', 'generated_views.speaker_byName'),
+    (r'^speaker/name/(?P<name>.+?)/$', 'views.speaker_byName'),
 
-    (r'^session/id/(?P<id>.+?)/$', 'generated_views.session_resolver'),
+    (r'^session/id/(?P<id>.+?)/$', 'views.session_resolver'),
     
-    (r'^sessions/day/(?P<day>.+?)/$', 'generated_views.sessions_byDay'),
+    (r'^sessions/day/(?P<day>.+?)/$', 'views.sessions_byDay'),
 )

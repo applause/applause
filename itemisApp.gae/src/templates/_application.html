@@ -5,10 +5,10 @@
 {% block navigation %}
 <div class="menu">
 <ul>
-{% url generated_views.sessions_byDay "2011-03-21" as url1 %}
-{% url generated_views.sessions_byDay "2011-03-22" as url2 %}
-{% url generated_views.sessions_byDay "2011-03-23" as url3 %}
-{% url generated_views.allSpeakers as url4 %}
+{% url views.sessions_byDay "2011-03-21" as url1 %}
+{% url views.sessions_byDay "2011-03-22" as url2 %}
+{% url views.sessions_byDay "2011-03-23" as url3 %}
+{% url views.allSpeakers as url4 %}
 
 <li ><a href="{{url1}}">Mon</a></li>
 <li ><a href="{{url2}}">Tue</a></li>
