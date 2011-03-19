@@ -1,0 +1,24 @@
+{% extends "application.html" %}
+{% block content_class %}details{% endblock %}
+
+{% block content %}
+
+<div class="header">
+  <div class="header_title">{{ data.name }}</div>
+  <div class="header_subtitle">{{ data.affiliation }}</div>
+  <div class="header_details">{{data.bio}}</div>
+</div>
+
+<div class="table group">
+<ul>
+{% for session in data.sessions|to_list %}
+<li>
+  {% url views.session_details session.id as url %}
+  <a href="{{url}}">{{ session.title }}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+
+{% endblock %}

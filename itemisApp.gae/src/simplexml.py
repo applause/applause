@@ -38,7 +38,12 @@ class XMLTree(object):
         return self.nodes[attr]
 
     def __getitem__(self, key):
-        return self.node.attrib.get(key)
+        # subitems override attributes to overcome handling of django templates
+        node = self.nodes[key]
+        if node:
+            return node
+        else: 
+            return self.node.attrib.get(key)
 
     def __len__(self):
         return len(self.nodes)
@@ -71,7 +76,6 @@ def parse(file):
 
 def parsestring(s):
     return parse(StringIO(s))
-
 
 if __name__ == "__main__":
     xml = parse("fixture.xml")

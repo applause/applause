@@ -25,9 +25,13 @@ urlpatterns = patterns('',
     
     (r'^speakers/name/(?P<name>.+?)/$', 'views.speaker_details_by_name'),
     
-    (r'^speakers/(?P<id>.+?)/$', 'views.speaker_details'),
+    #(r'^speakers/(?P<id>.+?)/$', 'views.speaker_details'),
     
     (r'^update/$', 'logic.update'),
+    
+    (r'^allSpeakers/$', 'generated_views.allSpeakers'),
+    
+    (r'^speakers/id/(?P<id>.+?)/$', 'generated_views.speaker_resolver'),
 
     #('^$', 'django.views.generic.simple.direct_to_template',
     # {'template': 'home.html'}),

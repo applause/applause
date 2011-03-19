@@ -42,3 +42,8 @@ try:
     INSTALLED_APPS += ('dbindexer',)
 except ImportError:
     pass
+
+#TODO: put into right place
+from django.template.defaultfilters import register
+import custom_filters
+register.filter_function(custom_filters.to_list)

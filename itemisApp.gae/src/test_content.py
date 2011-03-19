@@ -6,11 +6,9 @@ Created on Mar 19, 2011
 import unittest
 import content
 
-def l(o):
-    if isinstance(o, list):
-        return o
-    else:
-        return [o]
+import custom_filters
+
+l = custom_filters.to_list
 
 class Test(unittest.TestCase):
     
@@ -69,6 +67,17 @@ class Test(unittest.TestCase):
         self.assertEqual(id, str(item.guid))
         self.assertEqual("http://heikobehrens.net/2011/03/18/what-is-eclipsecon/", str(item.link))
         self.assertEqual("Heiko Behrens", str(item.creator))
+        
+    def testTemplateAccess(self):
+        speaker = content.speakerByName("Heiko Behrens")
+        
+        self.assertEqual("Heiko Behrens", str(speaker['name']))
+        self.assertEqual("hbehrens", str(speaker['id']))
+        self.assertEqual("/media/files/speakers/hbehrens.png", str(speaker['pictureurl']))
+        
+        self.assertEqual(1, len(l(speaker['sessions'])))
+        session = l(speaker['sessions'])[0]
+        self.assertEqual("2075", str(session['id']))
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testAllSpeakers']

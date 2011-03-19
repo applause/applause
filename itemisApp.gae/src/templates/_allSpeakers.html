@@ -1,0 +1,18 @@
+{% extends "application.html" %}
+{% block title%}{{ "speakers" }}{% endblock %}
+{% block content_class %}table list{% endblock %}
+
+{% block content %}
+<ul>
+  {% for speaker in data %}
+  {% url generated_views.speaker_resolver speaker.id as url %}
+  <li>
+  <a href="{{url}}">
+    {{speaker.id}}
+  </a>
+  </li>
+  {% endfor %}
+</ul>
+
+
+{% endblock %}
