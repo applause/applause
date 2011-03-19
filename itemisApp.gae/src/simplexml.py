@@ -6,13 +6,16 @@ try:
     from cStringIO import StringIO
 except ImportError:
     from StringIO import StringIO
-
+import re
 
 class XMLTree(object):
     def __init__(self, node):
         self.nodes = {}
         self.node = node
         for n in node:
+            # strip namespace
+            n.tag = re.sub(r"^\{.*?\}", "", n.tag)
+            
             if len(n.getchildren()):
                 xmlnode = XMLTree(n)
             else:
