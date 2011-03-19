@@ -19,7 +19,11 @@ class Test(unittest.TestCase):
 
     def testAllSpeakers(self):
         self.assertEqual(207, len(content.allSpeakers()))
-        #assert len(content.allSpeakers()) == 12
+        
+    def testContainsHTML(self):
+        speaker= content.speakerByName("Peter Friese")
+        bio = str(speaker.bio)
+        self.assertTrue("</a>" in bio)
         
     def testSpeakerById(self):
         speaker = content.speakerById("eclipse")

@@ -1,0 +1,14 @@
+{% extends "application.html" %}
+{% load menu_extras %}
+
+{% block title%}{{ "sessions" }}{% endblock %}
+{% block content_class %}table list{% endblock %}
+
+{% block content %}
+<ul>
+  {% for session in data|to_list %}
+  {% url generated_views.session_resolver session.id as url %}
+  <li><a href="{{ url }}">{{ session.title }}</a></li>
+  {% endfor %}
+</ul>
+{% endblock %}

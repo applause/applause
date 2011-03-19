@@ -4,11 +4,11 @@
 
 {% block content %}
 <ul>
-  {% for speaker in data %}
+  {% for speaker in data|to_list %}
   {% url generated_views.speaker_resolver speaker.id as url %}
   <li>
   <a href="{{url}}">
-    {{speaker.id}}
+    {{speaker.name}}
   </a>
   </li>
   {% endfor %}

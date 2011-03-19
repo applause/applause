@@ -4,13 +4,13 @@
 {% block content %}
 <div class="header">
   <div class="header_title">{{data.title}}</div>
-  <div class="header_actions">
-
+  <div class="header_details">{{ data.description|safe }}</div>
+</div>
 <div class="table group">
 <ul>  
-{% for speaker in data.speakers %}
+{% for speaker in data.speakers|to_list %}
 <li>
-  {% url generated_views.speaker_resolver speaker.id as url %}
+  {% url generated_views.speaker_byName speaker.name as url %}
   <a href="{{url}}">{{ speaker.name }}</a>
 </li>
 {% endfor %}
