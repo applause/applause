@@ -14,3 +14,8 @@ def allSpeakers(request):
 def speaker_resolver(request, id):
     data = providers.speakerById(id)
     return render_to_response('_speaker.html', {'data': data})
+
+def session_resolver(request, id):
+    data = providers.sessionById(id)
+    return render_to_response('_session.html', {'data': data})
+    

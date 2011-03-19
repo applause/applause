@@ -1,0 +1,20 @@
+{% extends "application.html" %}
+{% block title%}{{ data.title }}{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+<div class="header">
+  <div class="header_title">{{data.title}}</div>
+  <div class="header_actions">
+
+<div class="table group">
+<ul>  
+{% for speaker in data.speakers %}
+<li>
+  {% url generated_views.speaker_resolver speaker.id as url %}
+  <a href="{{url}}">{{ speaker.name }}</a>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock %}
