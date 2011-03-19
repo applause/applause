@@ -1,10 +1,4 @@
-#from django.http import HttpResponse
-from django.shortcuts import render_to_response, get_object_or_404
-from models import Session, Speaker
-from datetime import date, timedelta
-import itertools
-import logging
-from django.http import HttpResponseRedirect, Http404
+from django.shortcuts import render_to_response
 import content as providers
 
 def allSpeakers(request):
