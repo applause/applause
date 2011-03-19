@@ -6,9 +6,9 @@ Created on Mar 19, 2011
 import unittest
 import content
 
-import custom_filters
+import lib.custom_filters
 
-l = custom_filters.to_list
+l = lib.custom_filters.to_list
 
 class Test(unittest.TestCase):
     

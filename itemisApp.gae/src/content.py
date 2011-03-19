@@ -1,4 +1,4 @@
-from simplexml import parse
+from lib.simplexml import parse
 from urllib import urlopen, quote
 
 #BASE_NODE_URL = 'http://eclipsecon2011.appspot.com'
