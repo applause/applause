@@ -16,13 +16,13 @@ def plainxml(url):
 «ENDDEFINE»
 
 «DEFINE provider FOR ViewCall»
-def «this.defViewName()»(«this.defViewParam()»):
+def «this.defViewName()»(«this.defViewParam()»):«"" -»
 «EXPAND providerImplementation FOR this.provider.contentProvider()»
 «ENDDEFINE»
 
 «DEFINE providerImplementation FOR ContentProvider»
     url = «url.expression()»
     xml = plainxml(url)
-    return «this.selection.expression()»
+    return xml.«(((StringLiteral)selection).value.split('\\.').withoutFirst()).toString('.')»
 «ENDDEFINE»
 
