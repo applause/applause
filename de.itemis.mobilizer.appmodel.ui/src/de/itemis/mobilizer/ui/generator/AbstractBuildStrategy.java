@@ -47,12 +47,7 @@ public abstract class AbstractBuildStrategy {
 		if (!folder.exists())
 			return;
 
-		for (IResource res : folder.members()) {
-			if (res instanceof IFile) {
-				IFile file = (IFile) res;
-				file.delete(true, monitor);
-			}
-		}
+		deletePreviouslyGeneratedFiles(monitor, folder);
 
 		List<EObject> objects = new ArrayList<EObject>();
 		for (Delta d : context.getDeltas()) {
@@ -79,6 +74,16 @@ public abstract class AbstractBuildStrategy {
 			
 			generate(app, output);
 			return;
+		}
+	}
+
+	protected void deletePreviouslyGeneratedFiles(IProgressMonitor monitor,
+			final IFolder folder) throws CoreException {
+		for (IResource res : folder.members()) {
+			if (res instanceof IFile) {
+				IFile file = (IFile) res;
+				file.delete(true, monitor);
+			}
 		}
 	}
 

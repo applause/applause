@@ -24,6 +24,9 @@ String _expression(CollectionExpression this, String target):
 String _expression(Expression this, String target):
 	"!_expression-" + this.metaType;
 
+String _expression(StringLiteral this, String target):
+	"'" + value + "'";
+
 List[ObjectReference] toList(Void this):
 	{};
 

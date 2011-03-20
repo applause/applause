@@ -1,15 +1,17 @@
+
 from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
-    (r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
-    
-    (r'^allSpeakers/$', 'views.allSpeakers'),
-    
-    (r'^speaker/id/(?P<id>.+?)/$', 'views.speaker_resolver'),
-    
-    (r'^speaker/name/(?P<name>.+?)/$', 'views.speaker_byName'),
+    #(r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
+	
+    (r'^SessionList/SessionsByDay/(?P<day>.+?)/$', 'views.SessionListBySessionsByDay'),
 
-    (r'^session/id/(?P<id>.+?)/$', 'views.session_resolver'),
-    
-    (r'^sessions/day/(?P<day>.+?)/$', 'views.sessions_byDay'),
+    (r'^SpeakersList/AllSpeakers/$', 'views.SpeakersListByAllSpeakers'),
+
+    (r'^BlogDetails/BlogItemById/(?P<b>.+?)/$', 'views.BlogDetailsByBlogItemById'),
+
+    (r'^SpeakerDetails/SpeakerByName/(?P<name>.+?)/$', 'views.SpeakerDetailsBySpeakerByName'),
+
+    (r'^SessionDetails/SessionById/(?P<s>.+?)/$', 'views.SessionDetailsBySessionById'),
+
 )

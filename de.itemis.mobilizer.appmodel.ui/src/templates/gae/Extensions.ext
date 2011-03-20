@@ -70,4 +70,4 @@ viewTemplateFilename(ViewCall this):
 	view.viewTemplateFilename();
 
 viewTemplateFilename(View this):
-	name + ".html";
+	"generated/" + name + ".html";

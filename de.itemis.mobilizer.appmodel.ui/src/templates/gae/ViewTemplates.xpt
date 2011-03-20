@@ -11,7 +11,7 @@
 «DEFINE viewTemplate FOR View»«ENDDEFINE»
 
 «DEFINE viewTemplate FOR SectionedView»
-«FILE viewTemplateFilename()-»
+«FILE "templates/"+viewTemplateFilename()-»
 {% extends "generated/application.html" %}
 {% block title%}«title.expression("data")»{% endblock %}
 {% block content_class %}«viewCssClasses()»{% endblock %}

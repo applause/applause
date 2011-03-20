@@ -1,5 +1,8 @@
 package de.itemis.mobilizer.ui.generator;
 
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.xpand2.output.Outlet;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext;
 
@@ -11,7 +14,7 @@ public class GaeBuildStrategy extends AbstractBuildStrategy {
 
 	@Override
 	protected String getGeneratedSourcesFolderName() {
-		return "Generated";
+		return "src";
 	}
 
 	@Override
@@ -22,6 +25,13 @@ public class GaeBuildStrategy extends AbstractBuildStrategy {
 	@Override
 	protected void configureOutlet(Outlet outlet) {
 		// do nothing
+	}
+	
+	@Override
+	protected void deletePreviouslyGeneratedFiles(IProgressMonitor monitor,
+			IFolder folder) throws CoreException {
+		IFolder generatedTemplates = folder.getFolder("templates/generated");
+		super.deletePreviouslyGeneratedFiles(monitor, generatedTemplates);
 	}
 
 }

@@ -190,6 +190,10 @@ detailsview SessionDetails(Session session) {
 	
 }
 
+//tableview NewView(Session session) {
+//	title= "foo" 
+//}
+
 tableview SpeakersList(Speaker[] speakers) {
 	title= "Speakers"
 	section {
@@ -202,7 +206,7 @@ tableview SpeakersList(Speaker[] speakers) {
 }
 
 detailsview SpeakerDetails(Speaker speaker) {
-	title= "Speaker"
+	title= "Speaker" 
 	header {
 		title= speaker.name
 		details= speaker.bio
