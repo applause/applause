@@ -154,6 +154,12 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 					error("No matching resolver found for " + typeDescription.getType().getName(), AppModelDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
 		}
 	}
+	
+	@Check
+	void contentProvidersSelectIsLiteral(ContentProvider provider) {
+		if(!(provider.getSelection() instanceof StringLiteral))
+			error("selection must be a string literal", AppModelDslPackage.CONTENT_PROVIDER__SELECTION);
+	}
 
 	
 }

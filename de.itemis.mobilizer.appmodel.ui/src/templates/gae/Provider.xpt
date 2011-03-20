@@ -2,6 +2,7 @@
 
 «EXTENSION templates::MetamodelExtensions»
 «EXTENSION templates::gae::Extensions»
+«EXTENSION templates::gae::CodeExtensions»
 
 «DEFINE main FOR Application-»
 «FILE "providers.py"»

@@ -1,7 +1,5 @@
 from django.conf.urls.defaults import patterns
 
-handler500 = 'djangotoolbox.errorviews.server_error'
-
 urlpatterns = patterns('',
     (r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
     

@@ -53,30 +53,3 @@ contentProvider(ProviderConstruction this):
 		
 ContentProvider resolver(SimpleProviderConstruction this):
 	JAVA de.itemis.mobilizer.validation.AppModelDslJavaValidator.findResolver(de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction);				
-	
-String expression(ScalarExpression this):
-	"!expression-" + this.metaType;
-	
-expression(StringLiteral this):
-	"'" + value + "'";
-	
-expression(StringUrlConform this):
-	'quote(' + this.value.expression() + ')';
-	
-expression(StringConcat this):
-	"'" + values.collect(e|"%s").toString("") + "' % ("
-		+ values.expression().toString(", ") + ")";
-		
-String expression(VariableDeclaration this):
-	"!expression-" + this.metaType;
-	
-String expression(Constant this):
-	expression(value);		
-	
-String expression(ObjectReference this):
-	Constant.isInstance(object)
-		? expression(object)
-		: this.object.name + (tail==null?"":tail.getterPath());
-
-private String getterPath(ObjectReference this):
-	"." + this.object.name + (tail==null?"":tail.getterPath());
