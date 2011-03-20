@@ -1,0 +1,5 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+
+«DEFINE main FOR Application»
+«EXPAND Provider::main FOR this»
+«ENDDEFINE»

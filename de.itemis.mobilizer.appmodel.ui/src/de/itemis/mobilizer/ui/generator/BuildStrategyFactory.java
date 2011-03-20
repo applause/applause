@@ -8,6 +8,7 @@ public class BuildStrategyFactory {
 	public static AbstractBuildStrategy getBuildStrategy(IBuildContext context) {
 		IFile androidManifest = context.getBuiltProject().getFile("AndroidManifest.xml");
 		IFile wp7Solution = context.getBuiltProject().getFile("ItemisAppWP7.sln");
+		IFile gaeYaml = context.getBuiltProject().getFile("src/app.yaml");
 		if (androidManifest.exists()) {
 			return new AndroidBuildStrategy(context);
 		}
@@ -16,7 +17,10 @@ public class BuildStrategyFactory {
 				return new WP7BuildStrategy(context);
 			}
 			else {
-				return new IPhoneBuildStrategy(context);
+				if (gaeYaml.exists()) {
+					return new GaeBuildStrategy(context);
+				} else
+					return new IPhoneBuildStrategy(context);
 			}
 		}
 	}

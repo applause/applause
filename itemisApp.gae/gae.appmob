@@ -1,0 +1,239 @@
+tabbarApplication itemisApp {
+
+//	button {
+//		title= "News"
+//		icon= "chat.png"
+//		view= BlogList(Blogposts())
+//	}
+
+	button {             
+		title= "Tuesday2"
+		icon= "calendar.png"  
+		view= SessionList( SessionsByDay("2011-03-22") )
+	}
+
+	button {    
+		title= "Wednesday"
+		icon= "calendar.png"
+		view= SessionList( SessionsByDay("2011-03-23") )
+	} 
+	
+	button {    
+		title= "Thursday"
+		icon= "calendar.png"
+		view= SessionList( SessionsByDay("2011-03-24") )
+	} 
+	
+	button {
+		title= "Speakers"
+		icon= "person.png"
+		view= SpeakersList( AllSpeakers() )
+	}
+}
+
+/*
+ * DESCRIBING DATA
+ */
+
+type String mapsTo "NSString"
+
+entity BlogItem {
+	String title
+	String link
+	String description
+	String creator
+}
+
+entity Speaker {
+	String id
+	String name
+	String bio
+	String pictureurl
+	Session[] sessions
+}
+
+entity Session {
+	String id
+	String title
+	String description
+	String timeslot
+	String room
+	Speaker[] speakers
+}
+
+/*
+ * FETCHING DATA
+ */
+
+const SERVER_URL "http://localhost:3000"
+
+contentprovider Blogposts
+	returns BlogItem[]
+	fetches XML
+		//from "http://blogs.itemis.de/?showfeed=1"
+		from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"
+		//from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fwww.planeteclipse.org%2Fplanet%2Frss20.xml&format=rss"
+		selects "rss.channel.item"
+		
+contentprovider SessionsByDay(String day)
+	returns Session[]
+	fetches XML
+		//from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
+		from (SERVER_URL "/sessions/day/" day ".xml")
+		selects "sessions.session"
+		 
+contentprovider SessionById(Session s) 
+	resolves Session
+	fetches XML
+	from (SERVER_URL "/sessions/id/" s.id ".xml" )
+	selects "result.session"
+	
+contentprovider SpeakerById(Speaker s) 
+	resolves Speaker
+	fetches XML
+	from (SERVER_URL "/speakers/id/" s.id ".xml" s.id s.name)
+	selects "result.speaker"
+	
+
+contentprovider BlogItemById(BlogItem b)
+	resolves BlogItem
+	fetches XML
+	from ("dfsdfsdfsdfs" b.link) // TODO: enhance feedsanitizer to return single element
+	selects "result.session"
+
+		
+contentprovider AllSpeakers
+	returns Speaker[]
+	fetches XML
+		from (SERVER_URL "/speakers.xml")
+		selects "speakers.speaker"
+
+contentprovider SpeakerByName(String name)
+	returns Speaker
+	fetches XML
+		from (SERVER_URL "/speakers/name/" urlconform(name) ".xml")
+		selects "result.speaker"
+		
+/*
+ * DESCRIBING VIEWS
+ */		
+
+tableview BlogList(BlogItem[] items) {
+	title= "itemis news"
+	section {
+		cell Subtitle foreach items as i {
+			text= i.creator
+			details= i.title
+			action= BlogDetails(i)
+		}
+	} 
+}  
+
+
+//tableview BlogList(BlogItem[] items) {
+//	title= "itemis news"
+//	section {
+//		cell Subtitle foreach items as i {
+//			text= i.author
+//			details= i.title
+//			action= BlogDetails(i)
+//		}
+//	} 
+//}  
+
+detailsview BlogDetails(BlogItem item) {
+	title= "Post" 
+	header {
+		title= item.title
+		details= item.description
+	}
+	section {
+		cell Default {
+			text= item.creator
+			action= SpeakerDetails(SpeakerByName(item.creator))
+		}		
+		cell Default {
+			text= "Open in Browser"
+			action= item.link
+		}
+	}
+} 
+
+
+tableview SessionList(Session[] sessions) {
+	title= "My Sessions"
+	section {
+		cell Subtitle foreach sessions as session {
+			text= session.title
+			details= session.timeslot
+			action= SessionDetails( session )   
+		} 
+	}
+}
+
+detailsview SessionDetails(Session session) {
+	title= "Session"
+	header {
+		title= session.title
+		subtitle= session.timeslot
+		details= session.description
+	}
+	
+	section {
+		cell DefaultWithDisclosure foreach session.speakers as s {
+			text= s.name
+			image= (SERVER_URL s.pictureurl)
+			action= SpeakerDetails(SpeakerByName(s.name))
+		}
+		
+	}
+	
+}
+
+tableview SpeakersList(Speaker[] speakers) {
+	title= "Speakers"
+	section {
+		cell Default foreach speakers as s {
+			text= s.name
+			image= (SERVER_URL s.pictureurl)
+			action= SpeakerDetails(SpeakerByName(s.name))   
+		}
+	}
+}
+
+detailsview SpeakerDetails(Speaker speaker) {
+	title= "Speaker"
+	header {
+		title= speaker.name
+		details= speaker.bio
+		image= (SERVER_URL speaker.pictureurl)
+	}
+	
+	
+	section {
+		cell Default foreach speaker.sessions as session{
+			text= session.title
+			action= SessionDetails(session )
+		}
+	}
+	
+	section {
+		cell Value2 {
+			text= "mail"
+			details= "some address"
+			//action= ("mailto:"speaker.email) 
+		}
+		cell Value2 {
+			text= "blog"
+			details= "blog's url"
+			// action= ("http://"speaker.blog) 
+		}
+	}
+}
+
+//	button {
+//		title= "News"
+//		icon= "chat.png" 
+//		view= BlogList(Blogposts())
+//	}
+

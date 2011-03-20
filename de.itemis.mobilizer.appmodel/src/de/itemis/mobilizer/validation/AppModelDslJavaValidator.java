@@ -1,6 +1,7 @@
 package de.itemis.mobilizer.validation;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
@@ -124,25 +125,33 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 			error("Resolvers input and output types must match", AppModelDslPackage.CONTENT_PROVIDER__TYPE);
 	}
 	
+	public static ContentProvider findResolver(SimpleProviderConstruction construction) {
+		TypeDescription typeDescription = TypeUtil.getTypeOf(construction.getExpression());
+		TypeUtil.getTypeOf(construction.getExpression());
+		final Entity e = (Entity) typeDescription.getType();
+		
+		Model model = (Model) e.eContainer();
+		Iterable<ContentProvider> allProviders = Iterables.filter(model.getElements(), ContentProvider.class);
+		
+		Predicate<ContentProvider> matchingResolvers = new Predicate<ContentProvider>() {
+			public boolean apply(ContentProvider cp) {
+				return cp.isResolver() && cp.getType() == e && !cp.isMany(); 
+			}
+		};
+		
+		try {
+			return Iterables.find(allProviders, matchingResolvers);
+		} catch(NoSuchElementException exception) {
+			return null;
+		}
+	}
+	
 	@Check
 	void resolverExistsForDirectViewcall(SimpleProviderConstruction construction) {
 		TypeDescription typeDescription = TypeUtil.getTypeOf(construction.getExpression());
 		if (typeDescription.getType() instanceof Entity) {
-			TypeUtil.getTypeOf(construction.getExpression());
-			final Entity e = (Entity) typeDescription.getType();
-			
-			Model model = (Model) e.eContainer();
-			Iterable<ContentProvider> allProviders = Iterables.filter(model.getElements(), ContentProvider.class);
-			
-			Predicate<ContentProvider> matchingResolvers = new Predicate<ContentProvider>() {
-				public boolean apply(ContentProvider cp) {
-					return cp.isResolver() && cp.getType() == e && !cp.isMany(); 
-				}
-			};
-			
-			if(!Iterables.any(allProviders, matchingResolvers)) {
-				error("No matching resolver found for " + e.getName(), AppModelDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
-			}
+				if(findResolver(construction) == null)
+					error("No matching resolver found for " + typeDescription.getType().getName(), AppModelDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
 		}
 	}
 
