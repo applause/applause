@@ -53,3 +53,9 @@ contentProvider(ProviderConstruction this):
 		
 ContentProvider resolver(SimpleProviderConstruction this):
 	JAVA de.itemis.mobilizer.validation.AppModelDslJavaValidator.findResolver(de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction);				
+	
+urlPattern(ViewCall this):
+	let cp = this.provider.contentProvider() :
+		'^' + this.view.name + "/" + cp.name + (
+			cp.parameter == null ? "" : "/(?P<" + cp.parameter.name + ">.+?)"
+		) + "/$";

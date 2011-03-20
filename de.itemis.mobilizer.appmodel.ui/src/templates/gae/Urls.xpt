@@ -1,0 +1,20 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::gae::Extensions»
+«EXTENSION templates::gae::CodeExtensions»
+
+«DEFINE main FOR Application-»
+«FILE "urls.py"»
+from django.conf.urls.defaults import patterns
+
+urlpatterns = patterns('',
+    (r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
+	«EXPAND pattern FOREACH uniqueViewCalls()»
+)
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE pattern FOR ViewCall»
+    (r'«urlPattern()»', 'views.«this.defViewName()»'),
+«ENDDEFINE»
