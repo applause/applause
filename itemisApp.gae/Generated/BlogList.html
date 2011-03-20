@@ -3,4 +3,14 @@
 {% block content_class %}table list{% endblock %}
 {% block content %}
 
+<ul>
+{% for i in data|to_list %}
+<li>
+  {% url views.BlogDetailsByBlogItemById as url %}
+  <a href="{{ url }}">{{i.creator}}</a>
+</li>
+{% endfor %}
+</ul>
+
+
 {% endblock %}

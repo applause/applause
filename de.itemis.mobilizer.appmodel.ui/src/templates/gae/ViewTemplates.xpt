@@ -45,5 +45,13 @@
   «action.tplPrepareUrl("url")»
   <a href="«action.tplUrl("url")»">«text.expression(cellContextVar())»</a>
 </li>
-«IF iterator!=null»{% endfor %}«ENDIF»
+«IF iterator!=null»{% endfor %}«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE content FOR TableView»
+«FOREACH sections AS section-» 
+<ul>
+«EXPAND cell FOREACH section.cells»
+</ul>
+«ENDFOREACH»
 «ENDDEFINE»

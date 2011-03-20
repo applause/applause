@@ -15,7 +15,7 @@ viewCssClasses(DetailsView this):
 tplCellForLoop(SectionCell this):
 	iterator == null 
 		? ""
-		: "{% for " + iterator.name + " in " + iterator.collection._expression("data") + "|to_list %}";
+		: "{% for " + iterator.name + " in " + iterator.collection._expression("data") + "|to_list %}\n";
 
 String _expression(CollectionExpression this, String target):
 	"!_expression-" + this.metaType;

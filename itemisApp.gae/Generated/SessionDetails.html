@@ -12,12 +12,12 @@
 
 <div class="table group">
 <ul>
-{% for s in data.speakers|to_list %}<li>
+{% for s in data.speakers|to_list %}
+<li>
   {% url views.SpeakerDetailsBySpeakerByName as url %}
   <a href="{{ url }}">{{s.name}}</a>
 </li>
 {% endfor %}
-
 </ul>
 
 </div>
