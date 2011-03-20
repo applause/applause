@@ -1,0 +1,30 @@
+{% extends "generated/application.html" %}
+{% block title%}Post{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+
+
+<div class="header">
+  <div class="header_title">{{data.title}}</div>
+  <div class="header_details">{{data.description}}</div>
+</div>
+
+
+<div class="table group">
+<ul>
+<li>
+  {% url views.SpeakerDetailsBySpeakerByName as url %}
+  <a href="{{ url }}">{{data.creator}}</a>
+</li>
+
+<li>
+  
+  <a href="{{url.link}}">Open in Browser</a>
+</li>
+
+
+</ul>
+
+</div>
+
+{% endblock %}

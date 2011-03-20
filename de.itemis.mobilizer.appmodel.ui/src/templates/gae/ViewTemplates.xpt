@@ -1,0 +1,49 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::gae::Extensions»
+«EXTENSION templates::gae::TemplateExtensions»
+
+«DEFINE main FOR Application»
+	«EXPAND viewTemplate FOREACH model().elements.typeSelect(View)»
+«ENDDEFINE»
+
+«DEFINE viewTemplate FOR View»«ENDDEFINE»
+
+«DEFINE viewTemplate FOR SectionedView»
+«FILE viewTemplateFilename()-»
+{% extends "generated/application.html" %}
+{% block title%}«title.expression("data")»{% endblock %}
+{% block content_class %}«viewCssClasses()»{% endblock %}
+{% block content %}
+«EXPAND content»
+{% endblock %}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE content FOR SectionedView»«ENDDEFINE»
+
+«DEFINE content FOR DetailsView»
+«IF header!=null»
+<div class="header">
+  «IF header.title!=null»<div class="header_title">«header.title.expression("data")»</div>«ENDIF»
+  «IF header.details!=null»<div class="header_details">«header.details.expression("data")»</div>«ENDIF»
+</div>
+«ENDIF»
+«FOREACH sections AS section»
+<div class="table group">
+<ul>
+«EXPAND cell FOREACH section.cells»
+</ul>
+«ENDFOREACH»
+</div>
+«ENDDEFINE»
+
+«DEFINE cell FOR SectionCell-»
+«tplCellForLoop()-»
+<li>
+  «action.tplPrepareUrl("url")»
+  <a href="«action.tplUrl("url")»">«text.expression(cellContextVar())»</a>
+</li>
+«IF iterator!=null»{% endfor %}«ENDIF»
+«ENDDEFINE»

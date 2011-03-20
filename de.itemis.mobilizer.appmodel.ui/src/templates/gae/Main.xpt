@@ -1,7 +1,8 @@
 «IMPORT de::itemis::mobilizer::appModelDsl»
 
 «DEFINE main FOR Application»
-«EXPAND Provider::main FOR this»
-«EXPAND Urls::main FOR this»
-«EXPAND Views::main FOR this»
+«EXPAND Provider::main»
+«EXPAND Urls::main»
+«EXPAND Views::main»
+«EXPAND ViewTemplates::main»
 «ENDDEFINE»

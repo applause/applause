@@ -66,5 +66,5 @@ urlPattern(ViewCall this):
 			cp.parameter == null ? "" : "/(?P<" + cp.parameter.name + ">.+?)"
 		) + "/$";
 		
-viewTemplateFilename(ViewCall this):
-	this.view.name + ".html";
+viewTemplateFilename(View this):
+	name + ".html";

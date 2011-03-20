@@ -16,6 +16,6 @@ import content as providers
 «DEFINE view FOR ViewCall»
 def «defViewName()»(request«defViewParam()!=""?", ":""»«defViewParam()»):
     data = providers.«defProviderName()»(«defViewParam()»)
-    return render_to_response('generated/«viewTemplateFilename()»', {'data': data})
+    return render_to_response('generated/«viewTemplateFilename(view)»', {'data': data})
 «ENDDEFINE»
 
