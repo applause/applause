@@ -17,7 +17,7 @@ def plainxml(url):
 «ENDDEFINE»
 
 «DEFINE provider FOR ViewCall»
-def «this.defViewName()»(«this.defViewParam()»):«"" -»
+def «this.defProviderName()»(«this.defProviderParam()»):«"" -»
 «EXPAND providerImplementation FOR this.provider.contentProvider()»
 «ENDDEFINE»
 

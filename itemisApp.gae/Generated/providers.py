@@ -6,31 +6,31 @@ def plainxml(url):
     return parse( urlopen(url) )
 
 
-def SessionListBySessionsByDay(day):
+def SessionsByDay(day):
     url = '%s%s%s%s' % ('http://localhost:3000', '/sessions/day/', day, '.xml')
     xml = plainxml(url)
     return xml.session
 
 
-def SpeakersListByAllSpeakers():
+def AllSpeakers():
     url = '%s%s' % ('http://localhost:3000', '/speakers.xml')
     xml = plainxml(url)
     return xml.speaker
 
 
-def BlogDetailsByBlogItemById(b):
+def BlogItemById(b):
     url = '%s%s' % ('dfsdfsdfsdfs', b.link)
     xml = plainxml(url)
     return xml.session
 
 
-def SpeakerDetailsBySpeakerByName(name):
+def SpeakerByName(name):
     url = '%s%s%s%s' % ('http://localhost:3000', '/speakers/name/', quote(name), '.xml')
     xml = plainxml(url)
     return xml.speaker
 
 
-def SessionDetailsBySessionById(s):
+def SessionById(s):
     url = '%s%s%s%s' % ('http://localhost:3000', '/sessions/id/', s.id, '.xml')
     xml = plainxml(url)
     return xml.session

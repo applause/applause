@@ -31,6 +31,12 @@ viewCalls(SectionCell this):
 	ViewCall.isInstance(this.action)
 		? {this.action}
 		: {};
+
+defProviderName(ViewCall this):
+	this.provider.contentProvider().name;
+	
+defProviderParam(ViewCall this):
+	defViewParam();	
 		
 defViewName(ViewCall this):
 	this.view.name + this.provider.defViewNameSuffix(view);
@@ -59,3 +65,6 @@ urlPattern(ViewCall this):
 		'^' + this.view.name + "/" + cp.name + (
 			cp.parameter == null ? "" : "/(?P<" + cp.parameter.name + ">.+?)"
 		) + "/$";
+		
+viewTemplateFilename(ViewCall this):
+	this.view.name + ".html";

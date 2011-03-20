@@ -3,4 +3,5 @@
 «DEFINE main FOR Application»
 «EXPAND Provider::main FOR this»
 «EXPAND Urls::main FOR this»
+«EXPAND Views::main FOR this»
 «ENDDEFINE»
