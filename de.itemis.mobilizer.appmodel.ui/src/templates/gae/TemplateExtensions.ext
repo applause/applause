@@ -1,6 +1,7 @@
 import org::eclipse::emf::ecore;
 import de::itemis::mobilizer::appModelDsl;
 
+extension templates::MetamodelExtensions;
 extension templates::gae::Extensions; 
 
 viewCssClasses(View this):
@@ -20,6 +21,9 @@ tplCellForLoop(SectionCell this):
 String _expression(CollectionExpression this, String target):
 	"!_expression-" + this.metaType;
 	
+String _expression(Expression this, String target):
+	"!_expression-" + this.metaType;
+
 List[ObjectReference] toList(Void this):
 	{};
 
@@ -49,11 +53,19 @@ String expression(ObjectReference this, String target):
 		? expression(object, target)
 		: "{{" + _expression(target) + "}}";
 		
-tplPrepareUrl(ViewAction this, String var):
+tplPrepareUrl(ViewAction this, String target, String var):
 	"";
 	
-tplPrepareUrl(ViewCall this, String var):	
-	"{% url views." + defViewName() + " as " + var + " %}";
+parameterValues(ProviderConstruction this, String target): "";
+
+parameterValues(ComplexProviderConstruction this, String target):
+	argument._expression(target);
+	
+parameterValues(SimpleProviderConstruction this, String target):
+	resolver().url.referencesIn().selectFirst(e|!Constant.isInstance(e.object))._expression(target);	
+	
+tplPrepareUrl(ViewCall this, String target, String var):	
+	"{% url views." + defViewName() + " " + provider.parameterValues(target) + " as " + var + " %}";
 	
 tplUrl(ViewAction this, String var):
 	"";

@@ -42,8 +42,9 @@
 «DEFINE cell FOR SectionCell-»
 «tplCellForLoop()-»
 <li>
-  «action.tplPrepareUrl("url")»
+  «IF action!=null»«action.tplPrepareUrl(cellContextVar(), "url")»
   <a href="«action.tplUrl("url")»">«text.expression(cellContextVar())»</a>
+  «ELSE»<a>«text.expression(cellContextVar())»</a>«ENDIF»
 </li>
 «IF iterator!=null»{% endfor %}«ENDIF-»
 «ENDDEFINE»

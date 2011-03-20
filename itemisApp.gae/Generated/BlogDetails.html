@@ -13,12 +13,14 @@
 <div class="table group">
 <ul>
 <li>
-  {% url views.SpeakerDetailsBySpeakerByName as url %}
+  {% url views.SpeakerDetailsBySpeakerByName data.creator as url %}
   <a href="{{ url }}">{{data.creator}}</a>
+  
 </li>
 <li>
   
   <a href="{{url.link}}">Open in Browser</a>
+  
 </li>
 
 </ul>

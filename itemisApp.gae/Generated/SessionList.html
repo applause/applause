@@ -6,8 +6,9 @@
 <ul>
 {% for session in data|to_list %}
 <li>
-  {% url views.SessionDetailsBySessionById as url %}
+  {% url views.SessionDetailsBySessionById session.id as url %}
   <a href="{{ url }}">{{session.title}}</a>
+  
 </li>
 {% endfor %}
 </ul>

@@ -14,8 +14,9 @@
 <ul>
 {% for s in data.speakers|to_list %}
 <li>
-  {% url views.SpeakerDetailsBySpeakerByName as url %}
+  {% url views.SpeakerDetailsBySpeakerByName s.name as url %}
   <a href="{{ url }}">{{s.name}}</a>
+  
 </li>
 {% endfor %}
 </ul>

@@ -1,0 +1,24 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::gae::Extensions»
+«EXTENSION templates::gae::TemplateExtensions»
+
+«DEFINE main FOR Application»
+«FILE "application.html"-»
+{% extends "template_master.html" %}
+
+{% block navigation %}
+<div class="menu">
+<ul>
+«FOREACH buttons AS button ITERATOR i-»
+«button.view.tplPrepareUrl("data", "url"+i.counter1)»
+<li><a href="«button.view.tplUrl("url"+i.counter1)»">«button.title.expression("data")»</a></li>
+«ENDFOREACH»
+</ul>
+<br style="clear: left" />
+</div>
+{% endblock %}
+«ENDFILE»
+«ENDDEFINE»
+

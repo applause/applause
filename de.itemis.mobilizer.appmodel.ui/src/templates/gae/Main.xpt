@@ -5,4 +5,5 @@
 «EXPAND Urls::main»
 «EXPAND Views::main»
 «EXPAND ViewTemplates::main»
+«EXPAND ApplicationTemplate::main»
 «ENDDEFINE»

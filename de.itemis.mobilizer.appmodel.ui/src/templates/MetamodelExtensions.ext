@@ -27,3 +27,6 @@ sectionedViews(Application this):
 	
 type(SectionedView this):
 	this.content.description.type.name;
+	
+List[ObjectReference] referencesIn(ScalarExpression this):
+	JAVA de.itemis.mobilizer.scoping.TypeUtil.getReferencesIn(de.itemis.mobilizer.appModelDsl.ScalarExpression);
