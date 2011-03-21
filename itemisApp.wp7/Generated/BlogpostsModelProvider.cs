@@ -57,7 +57,7 @@ namespace ItemisApp
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<BlogItem> result = 
+			List<BlogItem> result =
 				(
 					from item in xdoc.Descendants("item")
 					select new BlogItem

@@ -90,9 +90,9 @@ namespace ItemisApp
 			}
 		}
 
-		private Speaker _speakers;
+		private List<Speaker> _speakers;
 
-		public Speaker Speakers
+		public List<Speaker> Speakers
 		{
 			get { return _speakers; }
 			set

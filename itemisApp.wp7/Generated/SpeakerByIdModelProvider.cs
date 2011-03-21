@@ -41,7 +41,7 @@ namespace ItemisApp
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/id/" + s.Id() + ".xml" + s.Id() + s.Name()));
+			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/id/" + s.Id + ".xml"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -60,7 +60,7 @@ namespace ItemisApp
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<Speaker> result = 
+			List<Speaker> result =
 				(
 					from item in xdoc.Descendants("speaker")
 					select new Speaker
@@ -69,7 +69,19 @@ namespace ItemisApp
 						Name = item.Element("name").Value,
 						Bio = item.Element("bio").Value,
 						Pictureurl = item.Element("pictureurl").Value,
-						Sessions = item.Element("sessions").Value,
+						Sessions = 
+							(
+								from item in xdoc.Descendants("sessions")
+								select new Session
+								{
+									Id = item.Element("id").Value,
+									Title = item.Element("title").Value,
+									Description = item.Element("description").Value,
+									Timeslot = item.Element("timeslot").Value,
+									Room = item.Element("room").Value,
+								}
+							).ToList<Session>();
+
 					}
 				).ToList<Speaker>();
 			result.ForEach(this.Speakers.Add);

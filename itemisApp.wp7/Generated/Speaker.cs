@@ -75,9 +75,9 @@ namespace ItemisApp
 			}
 		}
 
-		private Session _sessions;
+		private List<Session> _sessions;
 
-		public Session Sessions
+		public List<Session> Sessions
 		{
 			get { return _sessions; }
 			set

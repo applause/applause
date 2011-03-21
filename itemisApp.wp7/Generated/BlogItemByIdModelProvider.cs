@@ -41,7 +41,7 @@ namespace ItemisApp
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("dfsdfsdfsdfs" + b.Link()));
+			client.DownloadStringAsync(new Uri("dfsdfsdfsdfs" + b.Link));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -60,7 +60,7 @@ namespace ItemisApp
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<BlogItem> result = 
+			List<BlogItem> result =
 				(
 					from item in xdoc.Descendants("session")
 					select new BlogItem
