@@ -16,7 +16,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class SpeakerByNameModelProvider
 	{
@@ -69,7 +69,7 @@ namespace ItemisApp.ViewModels
 						Name = item.Element("name").Value,
 						Bio = item.Element("bio").Value,
 						Pictureurl = item.Element("pictureurl").Value,
-						//Sessions = item.Element("sessions").Value,
+						Sessions = item.Element("sessions").Value,
 					}
 				).ToList<Speaker>();
 			result.ForEach(this.Speakers.Add);

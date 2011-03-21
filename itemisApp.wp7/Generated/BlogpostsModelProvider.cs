@@ -16,7 +16,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class BlogpostsModelProvider
 	{

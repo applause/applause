@@ -23,6 +23,8 @@ namespace ItemisApp
 			NewsBlogListListBox.DataContext = App.RootViewModelProvider.BlogpostsModelProvider();
 			Tuesday2SessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-22");
 			WednesdaySessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-23");
+			ThursdaySessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-24");
+			SpeakersSpeakersListListBox.DataContext = App.RootViewModelProvider.AllSpeakersModelProvider();
 			this.Loaded += new RoutedEventHandler(MainPage_Loaded);
 		}
 
@@ -37,23 +39,52 @@ namespace ItemisApp
 		
 		private void NewsBlogList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@51e622f8 (name: BlogList)!!
+			
 			if (NewsBlogListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + NewsBlogListListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/BlogDetailsDetailsView.xaml?itemByIndex=" + NewsBlogListListBox.SelectedIndex, UriKind.Relative));
+						
 		}
 
 		private void Tuesday2SessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@69d4cdfb (name: SessionList)!!
+			
 			if (Tuesday2SessionListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + Tuesday2SessionListListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + Tuesday2SessionListListBox.SelectedIndex, UriKind.Relative));
+						
 		}
 
 		private void WednesdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
+			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@69d4cdfb (name: SessionList)!!
+			
 			if (WednesdaySessionListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + WednesdaySessionListListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + WednesdaySessionListListBox.SelectedIndex, UriKind.Relative));
+						
+		}
+
+		private void ThursdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@69d4cdfb (name: SessionList)!!
+			
+			if (ThursdaySessionListListBox.SelectedIndex == -1)
+				return;
+			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + ThursdaySessionListListBox.SelectedIndex, UriKind.Relative));
+						
+		}
+
+		private void SpeakersSpeakersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@d929211 (name: SpeakersList)!!
+			
+			if (SpeakersSpeakersListListBox.SelectedIndex == -1)
+				return;
+			NavigationService.Navigate(new Uri("/Generated/SpeakerDetailsDetailsView.xaml?itemByIndex=" + SpeakersSpeakersListListBox.SelectedIndex, UriKind.Relative));
+						
 		}
 	}
 }

@@ -16,7 +16,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class SessionsByDayModelProvider
 	{
@@ -70,7 +70,7 @@ namespace ItemisApp.ViewModels
 						Description = item.Element("description").Value,
 						Timeslot = item.Element("timeslot").Value,
 						Room = item.Element("room").Value,
-						//Speakers = item.Element("speakers").Value,
+						Speakers = item.Element("speakers").Value,
 					}
 				).ToList<Session>();
 			result.ForEach(this.Sessions.Add);

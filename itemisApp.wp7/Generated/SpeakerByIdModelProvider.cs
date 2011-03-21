@@ -16,7 +16,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class SpeakerByIdModelProvider
 	{
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			// client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/id/" + s.Id() + ".xml" + s.Id() + s.Name()));
+			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/id/" + s.Id() + ".xml" + s.Id() + s.Name()));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -69,7 +69,7 @@ namespace ItemisApp.ViewModels
 						Name = item.Element("name").Value,
 						Bio = item.Element("bio").Value,
 						Pictureurl = item.Element("pictureurl").Value,
-						// Sessions = item.Element("sessions").Value,
+						Sessions = item.Element("sessions").Value,
 					}
 				).ToList<Speaker>();
 			result.ForEach(this.Speakers.Add);

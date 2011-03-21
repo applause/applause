@@ -16,7 +16,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class SessionByIdModelProvider
 	{
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			//client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/sessions/id/" + s.Id() + ".xml"));
+			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/sessions/id/" + s.Id() + ".xml"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -70,7 +70,7 @@ namespace ItemisApp.ViewModels
 						Description = item.Element("description").Value,
 						Timeslot = item.Element("timeslot").Value,
 						Room = item.Element("room").Value,
-						//Speakers = item.Element("speakers").Value,
+						Speakers = item.Element("speakers").Value,
 					}
 				).ToList<Session>();
 			result.ForEach(this.Sessions.Add);

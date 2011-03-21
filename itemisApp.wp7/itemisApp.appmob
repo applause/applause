@@ -17,18 +17,18 @@ tabbarApplication itemisApp {
 		icon= "calendar.png"
 		view= SessionList( SessionsByDay("2011-03-23") )
 	}
-//	
-//	button {    
-//		title= "Thursday"
-//		icon= "calendar.png"
-//		view= SessionList( SessionsByDay("2011-03-24") )
-//	}
-//	
-//	button {
-//		title= "Speakers"
-//		icon= "person.png"
-//		view= SpeakersList( AllSpeakers() )
-//	}
+	
+	button {    
+		title= "Thursday"
+		icon= "calendar.png"
+		view= SessionList( SessionsByDay("2011-03-24") )
+	}
+	
+	button {
+		title= "Speakers"
+		icon= "person.png"
+		view= SpeakersList( AllSpeakers() )
+	}
 }
 
 /*

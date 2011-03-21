@@ -10,7 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.ComponentModel;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class BlogItem : INotifyPropertyChanged
 	{

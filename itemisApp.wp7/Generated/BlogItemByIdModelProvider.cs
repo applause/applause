@@ -16,7 +16,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModels
+namespace ItemisApp
 {
 	public class BlogItemByIdModelProvider
 	{
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			// client.DownloadStringAsync(new Uri("dfsdfsdfsdfs" + b.Link()));
+			client.DownloadStringAsync(new Uri("dfsdfsdfsdfs" + b.Link()));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
