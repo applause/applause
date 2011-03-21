@@ -1,16 +1,3 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
-
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::wp7::GeneratorExtensions»
-«EXTENSION templates::wp7::BindingExtensions»
-«EXTENSION templates::wp7::WP7ViewExtensions»
-
-«DEFINE main FOR Application»
-«EXPAND detailsView FOREACH this.detailViews()»
-«ENDDEFINE»
-
-«DEFINE detailsView FOR DetailsView-»
-«FILE this.viewCSFileName()-»
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,11 +12,11 @@ using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using System.Windows.Navigation;
 
-namespace «namespace()»
+namespace ItemisApp
 {
-    public partial class «viewClassName()» : PhoneApplicationPage
+    public partial class SessionDetailsDetailsView : PhoneApplicationPage
     {
-        public «viewClassName()»()
+        public SessionDetailsDetailsView()
         {
             InitializeComponent();
         }
@@ -45,5 +32,3 @@ namespace «namespace()»
         }
     }
 }
-«ENDFILE»
-«ENDDEFINE»
