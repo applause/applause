@@ -59,14 +59,14 @@ namespace ItemisApp.ViewModels
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<Speaker> result = 
 				(
-					from item in xdoc.Descendants("speakers.speaker")
+					from item in xdoc.Descendants("speaker")
 					select new Speaker
 					{
 						Id = item.Element("id").Value,
 						Name = item.Element("name").Value,
 						Bio = item.Element("bio").Value,
 						Pictureurl = item.Element("pictureurl").Value,
-						Sessions = item.Element("sessions").Value,
+						//Sessions = item.Element("sessions").Value,
 					}
 				).ToList<Speaker>();
 			result.ForEach(this.Speakers.Add);

@@ -21,12 +21,12 @@
         <controls:Pivot Title="itemisApp">
             <!--Pivot item -->
             <controls:PivotItem Header="News">
-                <ListBox x:Name="NewsBlogListListBox" Margin="0,0,-12,0" ItemsSource="{Binding BlogItems}" SelectionChanged="NewsListBox_SelectionChanged">
+                <ListBox x:Name="NewsBlogListListBox" Margin="0,0,-12,0" ItemsSource="{Binding BlogItems}" SelectionChanged="NewsBlogList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
-                              <TextBlock Text="{Binding i.Creator()}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                              <TextBlock Text="{Binding i.Title()}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                              <TextBlock Text="{Binding Creator}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -34,12 +34,12 @@
             </controls:PivotItem>
             <!--Pivot item -->
             <controls:PivotItem Header="Tuesday2">
-                <ListBox x:Name="Tuesday2SessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding BlogItems}" SelectionChanged="NewsListBox_SelectionChanged">
+                <ListBox x:Name="Tuesday2SessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="Tuesday2SessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
-                              <TextBlock Text="{Binding session.Title()}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                              <TextBlock Text="{Binding session.Timeslot()}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                              <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Timeslot}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -47,12 +47,12 @@
             </controls:PivotItem>
             <!--Pivot item -->
             <controls:PivotItem Header="Wednesday">
-                <ListBox x:Name="WednesdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding BlogItems}" SelectionChanged="NewsListBox_SelectionChanged">
+                <ListBox x:Name="WednesdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="WednesdaySessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
-                              <TextBlock Text="{Binding session.Title()}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                              <TextBlock Text="{Binding session.Timeslot()}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                              <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Timeslot}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

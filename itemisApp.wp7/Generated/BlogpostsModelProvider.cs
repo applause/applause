@@ -18,19 +18,16 @@ using System.Xml.Linq;
 
 namespace ItemisApp.ViewModels
 {
-	public class SpeakerByNameModelProvider
+	public class BlogpostsModelProvider
 	{
 		
-		private String _name;
-		
-		public SpeakerByNameModelProvider(String name)
+		public BlogpostsModelProvider()
 		{
-			_name = name;
-			this.Speakers = new ObservableCollection<Speaker>();
+			this.BlogItems = new ObservableCollection<BlogItem>();
 		}
 				
 		
-		public ObservableCollection<Speaker> Speakers { get; private set; }
+		public ObservableCollection<BlogItem> BlogItems { get; private set; }
 		
 		public bool IsDataLoaded
 		{
@@ -41,7 +38,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/name/" + FIXME urlconform + ".xml"));
+			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/itemisblog-sanitized.rss"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -56,23 +53,22 @@ namespace ItemisApp.ViewModels
 
 		void ParseDataFromXml(String source)
 		{
-			this.Speakers.Clear();
+			this.BlogItems.Clear();
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<Speaker> result = 
+			List<BlogItem> result = 
 				(
-					from item in xdoc.Descendants("result.speaker")
-					select new Speaker
+					from item in xdoc.Descendants("item")
+					select new BlogItem
 					{
-						Id = item.Element("id").Value,
-						Name = item.Element("name").Value,
-						Bio = item.Element("bio").Value,
-						Pictureurl = item.Element("pictureurl").Value,
-						Sessions = item.Element("sessions").Value,
+						Title = item.Element("title").Value,
+						Link = item.Element("link").Value,
+						Description = item.Element("description").Value,
+						Creator = item.Element(dc + "creator").Value,
 					}
-				).ToList<Speaker>();
-			result.ForEach(this.Speakers.Add);
+				).ToList<BlogItem>();
+			result.ForEach(this.BlogItems.Add);
 		}
 	}
 }

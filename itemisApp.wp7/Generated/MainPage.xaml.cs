@@ -34,23 +34,26 @@ namespace ItemisApp
 				App.RootViewModelProvider.LoadData();
 			}
 		}
-
-		private void NewsListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		
+		private void NewsBlogList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (NewsListBox.SelectedIndex == -1)
+			if (NewsBlogListListBox.SelectedIndex == -1)
 				return;
-
-			BlogItemViewModel selectedItem = App.RootViewModelProvider.BlogItemsViewModelProvider.BlogItems[NewsListBox.SelectedIndex];
-			NavigationService.Navigate(new Uri("/DetailsPage.xaml?itemByIndex=" + NewsListBox.SelectedIndex, UriKind.Relative));
-
-			NewsListBox.SelectedIndex = -1;
+			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + NewsBlogListListBox.SelectedIndex, UriKind.Relative));
 		}
 
-		private void MondayListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void Tuesday2SessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (MondayListBox.SelectedIndex == -1)
+			if (Tuesday2SessionListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + MondayListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + Tuesday2SessionListListBox.SelectedIndex, UriKind.Relative));
+		}
+
+		private void WednesdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		{
+			if (WednesdaySessionListListBox.SelectedIndex == -1)
+				return;
+			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + WednesdaySessionListListBox.SelectedIndex, UriKind.Relative));
 		}
 	}
 }

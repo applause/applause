@@ -18,16 +18,19 @@ using System.Xml.Linq;
 
 namespace ItemisApp.ViewModels
 {
-	public class BlogpostsModelProvider
+	public class SessionsByDayModelProvider
 	{
 		
-		public BlogpostsModelProvider()
+		private String day;
+
+		public SessionsByDayModelProvider(String day)
 		{
-			this.BlogItems = new ObservableCollection<BlogItem>();
+			this.day = day;
+			this.Sessions = new ObservableCollection<Session>();
 		}
 				
 		
-		public ObservableCollection<BlogItem> BlogItems { get; private set; }
+		public ObservableCollection<Session> Sessions { get; private set; }
 		
 		public bool IsDataLoaded
 		{
@@ -38,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"));
+			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/sessions/day/" + day + ".xml"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -53,22 +56,24 @@ namespace ItemisApp.ViewModels
 
 		void ParseDataFromXml(String source)
 		{
-			this.BlogItems.Clear();
+			this.Sessions.Clear();
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<BlogItem> result = 
+			List<Session> result = 
 				(
-					from item in xdoc.Descendants("rss.channel.item")
-					select new BlogItem
+					from item in xdoc.Descendants("session")
+					select new Session
 					{
+						Id = item.Element("id").Value,
 						Title = item.Element("title").Value,
-						Link = item.Element("link").Value,
 						Description = item.Element("description").Value,
-						Creator = item.Element(dc + "creator").Value,
+						Timeslot = item.Element("timeslot").Value,
+						Room = item.Element("room").Value,
+						//Speakers = item.Element("speakers").Value,
 					}
-				).ToList<BlogItem>();
-			result.ForEach(this.BlogItems.Add);
+				).ToList<Session>();
+			result.ForEach(this.Sessions.Add);
 		}
 	}
 }

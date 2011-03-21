@@ -18,14 +18,14 @@ using System.Xml.Linq;
 
 namespace ItemisApp.ViewModels
 {
-	public class SpeakerByIdModelProvider
+	public class SpeakerByNameModelProvider
 	{
 		
-		private Speaker _s;
-		
-		public SpeakerByIdModelProvider(Speaker s)
+		private String name;
+
+		public SpeakerByNameModelProvider(String name)
 		{
-			_s = s;
+			this.name = name;
 			this.Speakers = new ObservableCollection<Speaker>();
 		}
 				
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/id/" + s.Id() + ".xml" + s.Id() + s.Name()));
+			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/name/" + name + ".xml"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -62,14 +62,14 @@ namespace ItemisApp.ViewModels
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<Speaker> result = 
 				(
-					from item in xdoc.Descendants("result.speaker")
+					from item in xdoc.Descendants("speaker")
 					select new Speaker
 					{
 						Id = item.Element("id").Value,
 						Name = item.Element("name").Value,
 						Bio = item.Element("bio").Value,
 						Pictureurl = item.Element("pictureurl").Value,
-						Sessions = item.Element("sessions").Value,
+						//Sessions = item.Element("sessions").Value,
 					}
 				).ToList<Speaker>();
 			result.ForEach(this.Speakers.Add);

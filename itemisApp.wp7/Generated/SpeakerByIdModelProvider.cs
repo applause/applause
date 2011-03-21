@@ -18,19 +18,19 @@ using System.Xml.Linq;
 
 namespace ItemisApp.ViewModels
 {
-	public class SessionByIdModelProvider
+	public class SpeakerByIdModelProvider
 	{
 		
-		private Session _s;
-		
-		public SessionByIdModelProvider(Session s)
+		private Speaker s;
+
+		public SpeakerByIdModelProvider(Speaker s)
 		{
-			_s = s;
-			this.Sessions = new ObservableCollection<Session>();
+			this.s = s;
+			this.Speakers = new ObservableCollection<Speaker>();
 		}
 				
 		
-		public ObservableCollection<Session> Sessions { get; private set; }
+		public ObservableCollection<Speaker> Speakers { get; private set; }
 		
 		public bool IsDataLoaded
 		{
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/sessions/id/" + s.Id() + ".xml"));
+			// client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers/id/" + s.Id() + ".xml" + s.Id() + s.Name()));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -56,24 +56,23 @@ namespace ItemisApp.ViewModels
 
 		void ParseDataFromXml(String source)
 		{
-			this.Sessions.Clear();
+			this.Speakers.Clear();
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<Session> result = 
+			List<Speaker> result = 
 				(
-					from item in xdoc.Descendants("result.session")
-					select new Session
+					from item in xdoc.Descendants("speaker")
+					select new Speaker
 					{
 						Id = item.Element("id").Value,
-						Title = item.Element("title").Value,
-						Description = item.Element("description").Value,
-						Timeslot = item.Element("timeslot").Value,
-						Room = item.Element("room").Value,
-						Speakers = item.Element("speakers").Value,
+						Name = item.Element("name").Value,
+						Bio = item.Element("bio").Value,
+						Pictureurl = item.Element("pictureurl").Value,
+						// Sessions = item.Element("sessions").Value,
 					}
-				).ToList<Session>();
-			result.ForEach(this.Sessions.Add);
+				).ToList<Speaker>();
+			result.ForEach(this.Speakers.Add);
 		}
 	}
 }

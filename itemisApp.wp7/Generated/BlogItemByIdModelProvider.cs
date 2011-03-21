@@ -21,11 +21,11 @@ namespace ItemisApp.ViewModels
 	public class BlogItemByIdModelProvider
 	{
 		
-		private BlogItem _b;
-		
+		private BlogItem b;
+
 		public BlogItemByIdModelProvider(BlogItem b)
 		{
-			_b = b;
+			this.b = b;
 			this.BlogItems = new ObservableCollection<BlogItem>();
 		}
 				
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("dfsdfsdfsdfs" + b.Link()));
+			// client.DownloadStringAsync(new Uri("dfsdfsdfsdfs" + b.Link()));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -62,7 +62,7 @@ namespace ItemisApp.ViewModels
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<BlogItem> result = 
 				(
-					from item in xdoc.Descendants("result.session")
+					from item in xdoc.Descendants("session")
 					select new BlogItem
 					{
 						Title = item.Element("title").Value,

@@ -70,11 +70,12 @@ const SERVER_URL "http://192.168.210.1:3000"
 contentprovider Blogposts
 	returns BlogItem[]
 	fetches XML
+		from (SERVER_URL "/itemisblog-sanitized.rss")
 		//from "http://blogs.itemis.de/?showfeed=1"
-		from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"
+		//from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"
 		//from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fwww.planeteclipse.org%2Fplanet%2Frss20.xml&format=rss"
 		selects "rss.channel.item"
-		
+	 
 contentprovider SessionsByDay(String day)
 	returns Session[]
 	fetches XML

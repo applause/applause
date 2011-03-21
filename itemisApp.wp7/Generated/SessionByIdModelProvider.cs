@@ -18,14 +18,14 @@ using System.Xml.Linq;
 
 namespace ItemisApp.ViewModels
 {
-	public class SessionsByDayModelProvider
+	public class SessionByIdModelProvider
 	{
 		
-		private String _day;
-		
-		public SessionsByDayModelProvider(String day)
+		private Session s;
+
+		public SessionByIdModelProvider(Session s)
 		{
-			_day = day;
+			this.s = s;
 			this.Sessions = new ObservableCollection<Session>();
 		}
 				
@@ -41,7 +41,7 @@ namespace ItemisApp.ViewModels
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/sessions/day/" + day + ".xml"));
+			//client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/sessions/id/" + s.Id() + ".xml"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -62,7 +62,7 @@ namespace ItemisApp.ViewModels
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<Session> result = 
 				(
-					from item in xdoc.Descendants("sessions.session")
+					from item in xdoc.Descendants("session")
 					select new Session
 					{
 						Id = item.Element("id").Value,
@@ -70,7 +70,7 @@ namespace ItemisApp.ViewModels
 						Description = item.Element("description").Value,
 						Timeslot = item.Element("timeslot").Value,
 						Room = item.Element("room").Value,
-						Speakers = item.Element("speakers").Value,
+						//Speakers = item.Element("speakers").Value,
 					}
 				).ToList<Session>();
 			result.ForEach(this.Sessions.Add);
