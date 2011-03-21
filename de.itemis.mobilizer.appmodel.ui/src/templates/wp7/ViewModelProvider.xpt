@@ -95,7 +95,7 @@ namespace «namespace()»
 				«d(indent)»	{
 				«d(indent)»		«EXPAND propertyMappings(recursion, indent + 1) FOR this-»
 				«d(indent)»	}
-				«d(indent)»).ToList<«viewModelClassName()»>();
+				«d(indent)»).ToList<«viewModelClassName()»>()«IF indent > 0»,«ELSE»;«ENDIF»
 «ENDIF-»
 «ENDDEFINE»
 
@@ -113,6 +113,6 @@ namespace «namespace()»
 						«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().type»
 «ENDIF-»					
 «ELSE-»
-						«d(indent - 1)»«this.propertyName()» = «viewModelClassName()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value,
+						«d(indent - 1)»«this.propertyName()» = «viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value,
 «ENDIF-»
 «ENDDEFINE»

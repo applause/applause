@@ -62,10 +62,10 @@ namespace ItemisApp
 					from blogItem in xdoc.Descendants("item")
 					select new BlogItem
 					{
-						Title = BlogItem.Element("title").Value,
-						Link = BlogItem.Element("link").Value,
-						Description = BlogItem.Element("description").Value,
-						Creator = BlogItem.Element(dc + "creator").Value,
+						Title = blogItem.Element("title").Value,
+						Link = blogItem.Element("link").Value,
+						Description = blogItem.Element("description").Value,
+						Creator = blogItem.Element(dc + "creator").Value,
 					}
 				).ToList<BlogItem>();
 			result.ForEach(this.BlogItems.Add);

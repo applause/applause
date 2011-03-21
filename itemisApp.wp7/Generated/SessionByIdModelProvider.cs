@@ -65,22 +65,22 @@ namespace ItemisApp
 					from session in xdoc.Descendants("session")
 					select new Session
 					{
-						Id = Session.Element("id").Value,
-						Title = Session.Element("title").Value,
-						Description = Session.Element("description").Value,
-						Timeslot = Session.Element("timeslot").Value,
-						Room = Session.Element("room").Value,
+						Id = session.Element("id").Value,
+						Title = session.Element("title").Value,
+						Description = session.Element("description").Value,
+						Timeslot = session.Element("timeslot").Value,
+						Room = session.Element("room").Value,
 						Speakers = 
 							(
 								from speaker in xdoc.Descendants("speakers")
 								select new Speaker
 								{
-									Id = Speaker.Element("id").Value,
-									Name = Speaker.Element("name").Value,
-									Bio = Speaker.Element("bio").Value,
-									Pictureurl = Speaker.Element("pictureurl").Value,
+									Id = speaker.Element("id").Value,
+									Name = speaker.Element("name").Value,
+									Bio = speaker.Element("bio").Value,
+									Pictureurl = speaker.Element("pictureurl").Value,
 								}
-							).ToList<Speaker>();
+							).ToList<Speaker>(),
 
 					}
 				).ToList<Session>();
