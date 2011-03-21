@@ -9,7 +9,9 @@
 from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
-    (r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
+	«LET buttons.first() AS b»
+    (r'^$', 'views.«b.view.defViewName()»', {«b.view.parameterKeysAndValues()»}),
+    «ENDLET»
 	«EXPAND pattern FOREACH uniqueViewCalls()»
 )
 «ENDFILE»

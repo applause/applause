@@ -30,3 +30,12 @@ type(SectionedView this):
 	
 List[ObjectReference] referencesIn(ScalarExpression this):
 	JAVA de.itemis.mobilizer.scoping.TypeUtil.getReferencesIn(de.itemis.mobilizer.appModelDsl.ScalarExpression);
+	
+contentProvider(ProviderConstruction this):
+	SimpleProviderConstruction.isInstance(this)
+		? ((SimpleProviderConstruction)this).resolver()
+		: ((ComplexProviderConstruction)this).provider;
+		
+ContentProvider resolver(SimpleProviderConstruction this):
+	JAVA de.itemis.mobilizer.validation.AppModelDslJavaValidator.findResolver(de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction);				
+	

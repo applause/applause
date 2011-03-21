@@ -2,7 +2,9 @@
 from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
-    #(r'^$', 'views.sessions_byDay', {"day": "2011-03-21"}),
+	
+    (r'^$', 'views.SessionListBySessionsByDay', {'day': '2011-03-22'}),
+    
 	
     (r'^SessionList/SessionsByDay/(?P<day>.+?)/$', 'views.SessionListBySessionsByDay'),
 

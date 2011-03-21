@@ -1,6 +1,8 @@
 import org::eclipse::emf::ecore;
 import de::itemis::mobilizer::appModelDsl;
 
+extension templates::MetamodelExtensions;
+
 List[ViewCall] withoutConceptionalDuplicates(Object calls):
 	JAVA templates.gae.Extensions.withoutConceptionalDuplicates(java.util.List);
 
@@ -51,14 +53,6 @@ defViewParam(ContentProvider this):
 	parameter != null
 		? parameter.name
 		: "";
-
-contentProvider(ProviderConstruction this):
-	SimpleProviderConstruction.isInstance(this)
-		? ((SimpleProviderConstruction)this).resolver()
-		: ((ComplexProviderConstruction)this).provider;
-		
-ContentProvider resolver(SimpleProviderConstruction this):
-	JAVA de.itemis.mobilizer.validation.AppModelDslJavaValidator.findResolver(de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction);				
 	
 urlPattern(ViewCall this):
 	let cp = this.provider.contentProvider() :
