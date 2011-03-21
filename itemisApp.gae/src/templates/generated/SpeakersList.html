@@ -6,8 +6,8 @@
 <ul>
 {% for s in data|to_list %}
 <li>
-  {% url views.SpeakerDetailsBySpeakerByName s.name as url %}
-  <a href="{{ url }}">{{s.name}}</a>
+  {% url views.SpeakerDetailsBySpeakerByName s.name|urlencode as url %}
+  <a href="{{ url }}">{{s.name|safe}}</a>
   
 </li>
 {% endfor %}

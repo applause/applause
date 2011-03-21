@@ -5,8 +5,8 @@
 
 
 <div class="header">
-  <div class="header_title">{{data.title}}</div>
-  <div class="header_details">{{data.description}}</div>
+  <div class="header_title">{{data.title|safe}}</div>
+  <div class="header_details">{{data.description|safe}}</div>
 </div>
 
 
@@ -14,8 +14,8 @@
 <ul>
 {% for s in data.speakers|to_list %}
 <li>
-  {% url views.SpeakerDetailsBySpeakerByName s.name as url %}
-  <a href="{{ url }}">{{s.name}}</a>
+  {% url views.SpeakerDetailsBySpeakerByName s.name|urlencode as url %}
+  <a href="{{ url }}">{{s.name|safe}}</a>
   
 </li>
 {% endfor %}

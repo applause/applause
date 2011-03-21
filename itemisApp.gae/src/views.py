@@ -2,6 +2,10 @@ from django.shortcuts import render_to_response
 import providers
 
 
+def BlogListByBlogposts(request):
+    data = providers.Blogposts()
+    return render_to_response('generated/BlogList.html', {'data': data})
+
 def SessionListBySessionsByDay(request, day):
     data = providers.SessionsByDay(day)
     return render_to_response('generated/SessionList.html', {'data': data})
@@ -10,8 +14,8 @@ def SpeakersListByAllSpeakers(request):
     data = providers.AllSpeakers()
     return render_to_response('generated/SpeakersList.html', {'data': data})
 
-def BlogDetailsByBlogItemById(request, link):
-    data = providers.BlogItemById(link)
+def BlogDetailsByBlogItemById(request, guid):
+    data = providers.BlogItemById(guid)
     return render_to_response('generated/BlogDetails.html', {'data': data})
 
 def SpeakerDetailsBySpeakerByName(request, name):

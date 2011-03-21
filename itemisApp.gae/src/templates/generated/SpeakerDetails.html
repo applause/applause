@@ -5,8 +5,8 @@
 
 
 <div class="header">
-  <div class="header_title">{{data.name}}</div>
-  <div class="header_details">{{data.bio}}</div>
+  <div class="header_title">{{data.name|safe}}</div>
+  <div class="header_details">{{data.bio|safe}}</div>
 </div>
 
 
@@ -14,8 +14,8 @@
 <ul>
 {% for session in data.sessions|to_list %}
 <li>
-  {% url views.SessionDetailsBySessionById session.id as url %}
-  <a href="{{ url }}">{{session.title}}</a>
+  {% url views.SessionDetailsBySessionById session.id|urlencode as url %}
+  <a href="{{ url }}">{{session.title|safe}}</a>
   
 </li>
 {% endfor %}

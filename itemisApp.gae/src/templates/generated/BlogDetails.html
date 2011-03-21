@@ -5,21 +5,21 @@
 
 
 <div class="header">
-  <div class="header_title">{{data.title}}</div>
-  <div class="header_details">{{data.description}}</div>
+  <div class="header_title">{{data.title|safe}}</div>
+  <div class="header_details">{{data.description|safe}}</div>
 </div>
 
 
 <div class="table group">
 <ul>
 <li>
-  {% url views.SpeakerDetailsBySpeakerByName data.creator as url %}
-  <a href="{{ url }}">{{data.creator}}</a>
+  {% url views.SpeakerDetailsBySpeakerByName data.creator|urlencode as url %}
+  <a href="{{ url }}">{{data.creator|safe}}</a>
   
 </li>
 <li>
   
-  <a href="{{url.link}}">Open in Browser</a>
+  <a href="{{url.link|safe}}">Open in Browser</a>
   
 </li>
 

@@ -6,8 +6,8 @@
 <ul>
 {% for i in data|to_list %}
 <li>
-  {% url views.BlogDetailsByBlogItemById i.link as url %}
-  <a href="{{ url }}">{{i.creator}}</a>
+  {% url views.BlogDetailsByBlogItemById i.guid|urlencode as url %}
+  <a href="{{ url }}">{{i.creator|safe}}</a>
   
 </li>
 {% endfor %}
