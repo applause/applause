@@ -39,7 +39,6 @@ namespace ItemisApp
 		
 		private void NewsBlogList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			
 			if (NewsBlogListListBox.SelectedIndex == -1)
 				return;
 			NavigationService.Navigate(new Uri("/Generated/BlogDetailsDetailsView.xaml?itemByIndex=" + NewsBlogListListBox.SelectedIndex, UriKind.Relative));
@@ -48,7 +47,6 @@ namespace ItemisApp
 
 		private void Tuesday2SessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			
 			if (Tuesday2SessionListListBox.SelectedIndex == -1)
 				return;
 			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + Tuesday2SessionListListBox.SelectedIndex, UriKind.Relative));
@@ -57,7 +55,6 @@ namespace ItemisApp
 
 		private void WednesdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			
 			if (WednesdaySessionListListBox.SelectedIndex == -1)
 				return;
 			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + WednesdaySessionListListBox.SelectedIndex, UriKind.Relative));
@@ -66,7 +63,6 @@ namespace ItemisApp
 
 		private void ThursdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			
 			if (ThursdaySessionListListBox.SelectedIndex == -1)
 				return;
 			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + ThursdaySessionListListBox.SelectedIndex, UriKind.Relative));
@@ -75,7 +71,6 @@ namespace ItemisApp
 
 		private void SpeakersSpeakersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			
 			if (SpeakersSpeakersListListBox.SelectedIndex == -1)
 				return;
 			NavigationService.Navigate(new Uri("/Generated/SpeakerDetailsDetailsView.xaml?itemByIndex=" + SpeakersSpeakersListListBox.SelectedIndex, UriKind.Relative));
