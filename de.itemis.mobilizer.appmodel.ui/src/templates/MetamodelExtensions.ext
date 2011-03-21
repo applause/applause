@@ -31,6 +31,9 @@ type(SectionedView this):
 List[ObjectReference] referencesIn(ScalarExpression this):
 	JAVA de.itemis.mobilizer.scoping.TypeUtil.getReferencesIn(de.itemis.mobilizer.appModelDsl.ScalarExpression);
 	
+resolversReference(ContentProvider this):
+	url.referencesIn().selectFirst(e|!Constant.isInstance(e.object));
+	
 contentProvider(ProviderConstruction this):
 	SimpleProviderConstruction.isInstance(this)
 		? ((SimpleProviderConstruction)this).resolver()
@@ -38,8 +41,7 @@ contentProvider(ProviderConstruction this):
 		
 ContentProvider resolver(SimpleProviderConstruction this):
 	JAVA de.itemis.mobilizer.validation.AppModelDslJavaValidator.findResolver(de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction);				
-	
-TypeDescription typeDescription(VariableDeclaration this):
+	TypeDescription typeDescription(VariableDeclaration this):
 	JAVA de.itemis.mobilizer.scoping.TypeUtil.getTypeOf(de.itemis.mobilizer.appModelDsl.VariableDeclaration);
 	
 hasParameter(ProviderConstruction this):
@@ -50,3 +52,11 @@ hasParameter(ComplexProviderConstruction this):
 	
 hasParameter(SimpleProviderConstruction this):
 	false;
+	
+private List[ObjectReference] toList(Void this):
+	{};
+
+List[ObjectReference] toList(ObjectReference this):
+	{object.name}.addAll(tail.toList());
+	
+	

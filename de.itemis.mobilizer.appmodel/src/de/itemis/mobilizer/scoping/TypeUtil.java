@@ -17,6 +17,8 @@ import de.itemis.mobilizer.appModelDsl.Parameter;
 import de.itemis.mobilizer.appModelDsl.Property;
 import de.itemis.mobilizer.appModelDsl.ScalarExpression;
 import de.itemis.mobilizer.appModelDsl.StringConcat;
+import de.itemis.mobilizer.appModelDsl.StringReplace;
+import de.itemis.mobilizer.appModelDsl.StringUrlConform;
 import de.itemis.mobilizer.appModelDsl.Type;
 import de.itemis.mobilizer.appModelDsl.TypeDescription;
 import de.itemis.mobilizer.appModelDsl.VariableDeclaration;
@@ -108,6 +110,19 @@ public class TypeUtil {
 				result = Iterables.concat(result, getReferencesIn(e));
 			}
 			return result;
+		};
+		
+		public Iterable<ObjectReference> caseStringUrlConform(StringUrlConform object) {
+			return getReferencesIn(object.getValue());
+		};
+		
+		@SuppressWarnings("unchecked")
+		public Iterable<ObjectReference> caseStringReplace(StringReplace object) {
+			return Iterables.concat(
+					getReferencesIn(object.getValue()),
+					getReferencesIn(object.getMatch()),
+					getReferencesIn(object.getReplacement())
+					);
 		};
 		
 		

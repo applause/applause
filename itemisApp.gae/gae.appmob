@@ -1,25 +1,25 @@
 tabbarApplication itemisApp {
 
-//	button {
-//		title= "News"
-//		icon= "chat.png"
-//		view= BlogList(Blogposts())
-//	}
+	button {
+		title= "News"
+		icon= "chat.png"
+		view= BlogList(Blogposts())
+	}
 
 	button {             
-		title= "Tuesday2"
+		title= "Tue"
 		icon= "calendar.png"  
 		view= SessionList( SessionsByDay("2011-03-22") )
 	}
 
 	button {    
-		title= "Wednesday"
+		title= "Wed"
 		icon= "calendar.png"
 		view= SessionList( SessionsByDay("2011-03-23") )
 	} 
 	
 	button {    
-		title= "Thursday"
+		title= "Thu"
 		icon= "calendar.png"
 		view= SessionList( SessionsByDay("2011-03-24") )
 	} 
@@ -38,6 +38,7 @@ tabbarApplication itemisApp {
 type String mapsTo "NSString"
 
 entity BlogItem {
+	String guid
 	String title
 	String link
 	String description
@@ -98,8 +99,8 @@ contentprovider SpeakerById(Speaker s)
 contentprovider BlogItemById(BlogItem b)
 	resolves BlogItem
 	fetches XML
-	from ("dfsdfsdfsdfs" b.link) // TODO: enhance feedsanitizer to return single element
-	selects "result.session"
+		from ("http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=" urlconform(b.guid) )
+		selects "rss.channel.item"
 
 		
 contentprovider AllSpeakers
@@ -161,7 +162,7 @@ detailsview BlogDetails(BlogItem item) {
 
 
 tableview SessionList(Session[] sessions) {
-	title= "My Sessions"
+	title= "Sessions"
 	section {
 		cell Subtitle foreach sessions as session {
 			text= session.title
@@ -195,7 +196,7 @@ detailsview SessionDetails(Session session) {
 //}
 
 tableview SpeakersList(Speaker[] speakers) {
-	title= "Speakers"
+	title= "Speakers" 
 	section {
 		cell Default foreach speakers as s {
 			text= s.name
@@ -233,6 +234,7 @@ detailsview SpeakerDetails(Speaker speaker) {
 			// action= ("http://"speaker.blog) 
 		}
 	}
+	
 }
 
 //	button {

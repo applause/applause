@@ -5,7 +5,7 @@
 «EXTENSION templates::gae::TemplateExtensions»
 
 «DEFINE main FOR Application»
-«FILE "application.html"-»
+«FILE "templates/generated/application.html"-»
 {% extends "template_master.html" %}
 
 {% block navigation %}

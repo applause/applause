@@ -42,8 +42,7 @@ ul {
 
 /* general selection */
 
-ul li a:active, ul li a:hover, ul li.selected a {
-    background-color:green;
+ul li a:active *, ul li a:hover *, ul li.selected a *{
     color:white;
 }
 
@@ -121,6 +120,20 @@ ul li a:active, ul li a:hover, ul li.selected a {
   background-color: #DDD;
   color: #222;
   padding: 0.6em;
+}
+
+.cell_details {
+  color: #555;
+  font-weight: normal;
+  margin-top: 0.2em;
+}
+
+.cell_details, .cell_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
 }
 
 p {
