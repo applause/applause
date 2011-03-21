@@ -76,14 +76,8 @@ namespace «namespace()»
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<«viewModelClassName()»> result = 
-				(
-					from item in xdoc.Descendants("«((StringLiteral)this.selection).value.split("\\.").last()»")
-					select new «viewModelClassName()»
-					{
-						«EXPAND propertyMappings FOR this.type-»
-					}
-				).ToList<«viewModelClassName()»>();
+			List<«viewModelClassName()»> result =
+				«EXPAND fromBlock(2, 0, ((StringLiteral)this.selection).value.split("\\.").last()) FOR this.type-»
 			result.ForEach(this.«viewModelCollectionName()».Add);
 		}
 	}
@@ -91,17 +85,34 @@ namespace «namespace()»
 «ENDFILE»
 «ENDDEFINE»
 
-«DEFINE propertyMappings FOR Type»
+«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Type»
+«ENDDEFINE»
+«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Entity-»
+«IF recursion > 0-»
+				«d(indent)»(
+				«d(indent)»	from item in xdoc.Descendants("«nodeName»")
+				«d(indent)»	select new «viewModelClassName()»
+				«d(indent)»	{
+				«d(indent)»		«EXPAND propertyMappings(recursion, indent + 1) FOR this-»
+				«d(indent)»	}
+				«d(indent)»).ToList<«viewModelClassName()»>();
+«ENDIF-»
 «ENDDEFINE»
 
-«DEFINE propertyMappings FOR Entity-»
-«EXPAND propertyMapping FOREACH this.properties-»
+«DEFINE propertyMappings(int recursion, int indent) FOR Type»
 «ENDDEFINE»
 
-«DEFINE propertyMapping FOR Property-»
-	«IF this.name == "creator"-»
-						«this.propertyName()» = item.Element(dc + "«this.name»").Value,
-	«ELSE-»
-						«this.propertyName()» = item.Element("«this.name»").Value,
-	«ENDIF-»
+«DEFINE propertyMappings(int recursion, int indent) FOR Entity-»
+«EXPAND propertyMapping(recursion, indent) FOREACH this.properties-»
+«ENDDEFINE»
+
+«DEFINE propertyMapping(int recursion, int indent) FOR Property-»
+«IF this.typeDescription().many-»
+«IF recursion > 1-»
+						«this.propertyName()» = 
+						«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().type»
+«ENDIF-»					
+«ELSE-»
+						«d(indent - 1)»«this.propertyName()» = item.Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value,
+«ENDIF-»
 «ENDDEFINE»

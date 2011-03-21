@@ -28,7 +28,7 @@ viewModelFileName(Entity this):
 	viewModelClassName() + ".cs";
 	
 String typeName(Parameter this):
-	this.typeDescription().type.name;
+	this.typeDescription().typeName();
 	
 String propertyName(Parameter this):
 	this.name.toFirstUpper();
@@ -36,8 +36,13 @@ String propertyName(Parameter this):
 String propertyFieldName(Parameter this):
 	"_" + this.name.toFirstLower();
 	
+String typeName(TypeDescription this):
+	many
+		? "List<" + type.name + ">"
+		: type.name;
+		
 String typeName(Property this):
-	this.typeDescription().type.name;
+	this.typeDescription().typeName();
 	
 String propertyName(Property this):
 	this.name.toFirstUpper();
@@ -151,7 +156,7 @@ String expression(VariableDeclaration this):
 	"!" + this.metaType;	
 
 private String propertyPath(ObjectReference this):
-	"." + this.object.name.toFirstUpper() + "()" + (tail==null?"":tail.propertyPath());
+	"." + this.object.name.toFirstUpper() + (tail==null?"":tail.propertyPath());
 
 namespace(Application this):
 	baseNamespace();	
@@ -182,3 +187,13 @@ selectionHandlerName(TableView this, String prefix):
 	
 selectionHandlerName(View this, String prefix):
 	"ERROR";
+	
+namespaceSpecialCaseHandling(Property this):
+	(this.name == "creator")
+		? "dc + "
+		: "";
+		
+d(int recursion):
+	(recursion == 0)
+		? ""
+		: "\t\t\t" + d(recursion - 1);
