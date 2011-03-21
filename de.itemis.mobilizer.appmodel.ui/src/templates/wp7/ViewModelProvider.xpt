@@ -70,13 +70,6 @@ namespace «namespace()»
 			}
 		}
 		
-        string nullsafe(XElement node, String attributeName)
-        {
-            return (node != null)
-                ? node.Element(attributeName).Value
-                : "";
-        }		
-
 		void ParseDataFromXml(String source)
 		{
 			this.«viewModelClassName()»s.Clear();
@@ -120,6 +113,6 @@ namespace «namespace()»
 						«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().type»
 «ENDIF-»					
 «ELSE-»
-						«d(indent - 1)»«this.propertyName()» = («viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»") != null) ? «viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value : "";
+						«d(indent - 1)»«this.propertyName()» = («viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»") != null) ? «viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value : "",
 «ENDIF-»
 «ENDDEFINE»

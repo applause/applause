@@ -54,13 +54,6 @@ namespace ItemisApp
 			}
 		}
 		
-        string nullsafe(XElement node, String attributeName)
-        {
-            return (node != null)
-                ? node.Element(attributeName).Value
-                : "";
-        }		
-
 		void ParseDataFromXml(String source)
 		{
 			this.Speakers.Clear();
@@ -72,20 +65,20 @@ namespace ItemisApp
 					from speaker in xdoc.Descendants("speaker")
 					select new Speaker
 					{
-						Id = (speaker.Element("id") != null) ? speaker.Element("id").Value : "";
-						Name = (speaker.Element("name") != null) ? speaker.Element("name").Value : "";
-						Bio = (speaker.Element("bio") != null) ? speaker.Element("bio").Value : "";
-						Pictureurl = (speaker.Element("pictureurl") != null) ? speaker.Element("pictureurl").Value : "";
+						Id = (speaker.Element("id") != null) ? speaker.Element("id").Value : "",
+						Name = (speaker.Element("name") != null) ? speaker.Element("name").Value : "",
+						Bio = (speaker.Element("bio") != null) ? speaker.Element("bio").Value : "",
+						Pictureurl = (speaker.Element("pictureurl") != null) ? speaker.Element("pictureurl").Value : "",
 						Sessions = 
 							(
 								from session in xdoc.Descendants("sessions")
 								select new Session
 								{
-									Id = (session.Element("id") != null) ? session.Element("id").Value : "";
-									Title = (session.Element("title") != null) ? session.Element("title").Value : "";
-									Description = (session.Element("description") != null) ? session.Element("description").Value : "";
-									Timeslot = (session.Element("timeslot") != null) ? session.Element("timeslot").Value : "";
-									Room = (session.Element("room") != null) ? session.Element("room").Value : "";
+									Id = (session.Element("id") != null) ? session.Element("id").Value : "",
+									Title = (session.Element("title") != null) ? session.Element("title").Value : "",
+									Description = (session.Element("description") != null) ? session.Element("description").Value : "",
+									Timeslot = (session.Element("timeslot") != null) ? session.Element("timeslot").Value : "",
+									Room = (session.Element("room") != null) ? session.Element("room").Value : "",
 								}
 							).ToList<Session>(),
 
