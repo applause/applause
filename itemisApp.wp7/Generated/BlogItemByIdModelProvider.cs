@@ -53,6 +53,13 @@ namespace ItemisApp
 				this.IsDataLoaded = true;
 			}
 		}
+		
+        string nullsafe(XElement node, String attributeName)
+        {
+            return (node != null)
+                ? node.Element(attributeName).Value
+                : "";
+        }		
 
 		void ParseDataFromXml(String source)
 		{
@@ -65,10 +72,10 @@ namespace ItemisApp
 					from blogItem in xdoc.Descendants("session")
 					select new BlogItem
 					{
-						Title = blogItem.Element("title").Value,
-						Link = blogItem.Element("link").Value,
-						Description = blogItem.Element("description").Value,
-						Creator = blogItem.Element(dc + "creator").Value,
+						Title = (blogItem.Element("title") != null) ? blogItem.Element("title").Value : "";
+						Link = (blogItem.Element("link") != null) ? blogItem.Element("link").Value : "";
+						Description = (blogItem.Element("description") != null) ? blogItem.Element("description").Value : "";
+						Creator = (blogItem.Element(dc + "creator") != null) ? blogItem.Element(dc + "creator").Value : "";
 					}
 				).ToList<BlogItem>();
 			result.ForEach(this.BlogItems.Add);
