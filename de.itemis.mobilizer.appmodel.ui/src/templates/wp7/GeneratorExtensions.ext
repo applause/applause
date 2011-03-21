@@ -1,0 +1,178 @@
+import org::eclipse::emf::ecore;
+import de::itemis::mobilizer::appModelDsl;
+
+extension templates::MetamodelExtensions;
+
+String baseNamespace(org::eclipse::emf::ecore::EObject this):
+	this.application().name.toFirstUpper();
+	
+viewModelClassName(Entity this):
+	name.toFirstUpper();
+	
+viewModelClassName(ContentProvider this):
+	((Entity)this.type).viewModelClassName();
+	
+viewModelCollectionName(ContentProvider this):
+	viewModelClassName() + "s";
+
+namespace(Entity this):
+	baseNamespace() + ".ViewModels";
+	
+namespace(ContentProvider this):
+	baseNamespace() + ".ViewModels";	
+
+viewModelFileName(Entity this):
+	namespace().toPath() + "/" + viewModelClassName() + ".cs";
+	
+String typeName(Parameter this):
+	this.typeDescription().type.name;
+	
+String propertyName(Parameter this):
+	this.name.toFirstUpper();
+
+String propertyFieldName(Parameter this):
+	"_" + this.name.toFirstLower();
+	
+String typeName(Property this):
+	this.typeDescription().type.name;
+	
+String propertyName(Property this):
+	this.name.toFirstUpper();
+	
+String propertyFieldName(Property this):
+	"_" + this.name.toFirstLower();
+	
+String toPath(String namespace):
+	namespace.replaceAll("\\.", "/");
+	
+viewModelProviderClassName(ContentProvider this):
+	name.toFirstUpper() + "ModelProvider";
+	
+viewModelProviderClassName(ViewCall this):
+	this.provider.viewModelProviderClassName();
+	
+viewModelProviderClassName(ProviderConstruction this):
+	"ERROR";
+	
+viewModelProviderClassName(ComplexProviderConstruction this):
+	provider.viewModelProviderClassName();
+	
+viewModelProviderClassName(SimpleProviderConstruction this):
+	"ERROR: SimpleProviders not yet supported by WP7";	
+		
+viewModelProviderConstructionParameter(ViewCall this):
+	this.provider.viewModelProviderConstructionParameter();
+	
+viewModelProviderConstructionParameter(ProviderConstruction this):
+	"ERROR";
+	
+viewModelProviderConstructionParameter(ComplexProviderConstruction this):
+	this.hasParameter() ? this.argument.expression() : "";
+		
+viewModelProviderConstructionParameter(SimpleProviderConstruction this):
+	this.expression;	
+		
+viewModelProviderFileName(ContentProvider this):
+	namespace().toPath() + "/" + viewModelProviderClassName() + ".cs";
+	
+// Expression --------------------------------------------------
+
+String expression(Expression this, String prefix):
+	"Error " + metaType;
+	
+String expression(CollectionExpression this, String prefix):
+	"ERROR-expression-Collection";	
+	
+String expression(ScalarExpression this, String prefix):
+	"ERROR-expression-Scalar";
+	
+String expression (StringLiteral this, String prefix):
+	prefix + this.value;
+	
+String expression(StringFunction this, String prefix):
+	"ERROR-expression-StringFunction";
+	
+String expression(StringSplit this, String prefix):
+	"splitter";
+	
+String expression(StringConcat this, String prefix):
+	values.expression(prefix).toString(" + ");
+
+String expression(StringReplace this, String prefix):
+	"FIXME replace";
+	
+String expression(StringUrlConform this, String prefix):
+	"FIXME urlconform";
+
+// Expression --------------------------------------------------
+
+String expression(Expression this):
+	"Error " + metaType;
+	
+String expression(CollectionExpression this):
+	"ERROR-expression-Collection";	
+	
+String expression(ScalarExpression this):
+	"ERROR-expression-Scalar";	
+	
+String expression (StringLiteral this):
+	"\"" + this.value + "\"";
+	
+String expression(StringFunction this):
+	"ERROR-expression-StringFunction";	
+	
+String expression(StringSplit this):
+	"splitter";	
+	
+String expression(StringConcat this):
+	values.expression().toString(" + ");	
+	
+String expression(StringReplace this):
+	"FIXME replace";
+	
+String expression(StringUrlConform this):
+	"FIXME urlconform";
+	
+String expression(Constant this):
+	expression(value);		
+	
+String expression(ObjectReference this):
+	Constant.isInstance(object)
+		? expression(object)
+		: this.object.name + (tail==null?"":tail.propertyPath());
+	
+String expression(VariableDeclaration this):
+	"!" + this.metaType;	
+
+private String propertyPath(ObjectReference this):
+	"." + this.object.name.toFirstUpper() + "()" + (tail==null?"":tail.propertyPath());
+
+namespace(Application this):
+	baseNamespace();	
+
+mainPageClassName(Application this):
+	"MainPage";
+
+String mainViewXAMLFileName(Application this):
+	namespace() + "/" + mainPageClassName() + ".xaml";
+	
+String mainViewCSFileName(Application this):
+	namespace() + "/" + mainPageClassName() + ".xaml.cs";
+	
+pivotControlName(TabbarButton this):
+	pivotControlName(this.view.view, this.title.expression().replaceAll(" ", "_").replaceAll("\"", ""));
+	
+pivotControlName(TableView this, String prefix):
+	prefix + this.name.toFirstUpper() + "ListBox";
+	
+pivotControlName(View this, String prefix):
+	"ERROR";	
+	
+selectionHandlerName(TabbarButton this):
+	selectionHandlerName(this.view.view, this.title.expression().replaceAll(" ", "_").replaceAll("\"", ""));
+	
+selectionHandlerName(TableView this, String prefix):
+	prefix + this.name.toFirstUpper() + "_SelectionChanged";
+	
+selectionHandlerName(View this, String prefix):
+	"ERROR";

@@ -106,9 +106,6 @@ String javaType(StringSplit this):
 String javaType(ObjectReference this):
 	tail==null?javaType(object):javaType(tail);
 
-private TypeDescription typeDescription(VariableDeclaration this):
-	JAVA de.itemis.mobilizer.scoping.TypeUtil.getTypeOf(de.itemis.mobilizer.appModelDsl.VariableDeclaration);
-
 String javaType(VariableDeclaration this):
 	typeDescription().type.name;
 

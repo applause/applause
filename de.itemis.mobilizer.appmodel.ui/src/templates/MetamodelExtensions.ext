@@ -39,3 +39,14 @@ contentProvider(ProviderConstruction this):
 ContentProvider resolver(SimpleProviderConstruction this):
 	JAVA de.itemis.mobilizer.validation.AppModelDslJavaValidator.findResolver(de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction);				
 	
+TypeDescription typeDescription(VariableDeclaration this):
+	JAVA de.itemis.mobilizer.scoping.TypeUtil.getTypeOf(de.itemis.mobilizer.appModelDsl.VariableDeclaration);
+	
+hasParameter(ProviderConstruction this):
+	false;
+
+hasParameter(ComplexProviderConstruction this):
+	this.provider.parameter != null;
+	
+hasParameter(SimpleProviderConstruction this):
+	false;
