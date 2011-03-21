@@ -7,7 +7,10 @@
 {% for session in data|to_list %}
 <li>
   {% url views.SessionDetailsBySessionById session.id|urlencode as url %}
-  <a href="{{ url }}">{{session.title|safe}}</a>
+  <a href="{{ url }}">
+  <div class="cell_text">{{session.title|safe}}</div>
+  <div class="cell_details">{{session.timeslot|safe}}</div>
+  </a>
   
 </li>
 {% endfor %}

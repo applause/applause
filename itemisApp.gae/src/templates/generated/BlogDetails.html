@@ -14,12 +14,18 @@
 <ul>
 <li>
   {% url views.SpeakerDetailsBySpeakerByName data.creator|urlencode as url %}
-  <a href="{{ url }}">{{data.creator|safe}}</a>
+  <a href="{{ url }}">
+  <div class="cell_text">{{data.creator|safe}}</div>
+  
+  </a>
   
 </li>
 <li>
   
-  <a href="{{url.link|safe}}">Open in Browser</a>
+  <a href="{{url.link|safe}}">
+  <div class="cell_text">Open in Browser</div>
+  
+  </a>
   
 </li>
 

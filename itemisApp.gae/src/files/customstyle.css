@@ -14,7 +14,6 @@ body {
 
 ul li a:active, ul li a:hover, ul li.selected a {
   background-color: #504392;
-  color: white;
 }
 
 .menu {

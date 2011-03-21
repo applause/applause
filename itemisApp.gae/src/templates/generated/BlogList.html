@@ -7,7 +7,10 @@
 {% for i in data|to_list %}
 <li>
   {% url views.BlogDetailsByBlogItemById i.guid|urlencode as url %}
-  <a href="{{ url }}">{{i.creator|safe}}</a>
+  <a href="{{ url }}">
+  <div class="cell_text">{{i.creator|safe}}</div>
+  <div class="cell_details">{{i.title|safe}}</div>
+  </a>
   
 </li>
 {% endfor %}
