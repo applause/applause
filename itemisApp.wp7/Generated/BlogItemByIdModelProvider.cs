@@ -62,13 +62,13 @@ namespace ItemisApp
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<BlogItem> result =
 				(
-					from item in xdoc.Descendants("session")
+					from blogItem in xdoc.Descendants("session")
 					select new BlogItem
 					{
-						Title = item.Element("title").Value,
-						Link = item.Element("link").Value,
-						Description = item.Element("description").Value,
-						Creator = item.Element(dc + "creator").Value,
+						Title = BlogItem.Element("title").Value,
+						Link = BlogItem.Element("link").Value,
+						Description = BlogItem.Element("description").Value,
+						Creator = BlogItem.Element(dc + "creator").Value,
 					}
 				).ToList<BlogItem>();
 			result.ForEach(this.BlogItems.Add);

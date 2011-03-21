@@ -59,23 +59,23 @@ namespace ItemisApp
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<Speaker> result =
 				(
-					from item in xdoc.Descendants("speaker")
+					from speaker in xdoc.Descendants("speaker")
 					select new Speaker
 					{
-						Id = item.Element("id").Value,
-						Name = item.Element("name").Value,
-						Bio = item.Element("bio").Value,
-						Pictureurl = item.Element("pictureurl").Value,
+						Id = Speaker.Element("id").Value,
+						Name = Speaker.Element("name").Value,
+						Bio = Speaker.Element("bio").Value,
+						Pictureurl = Speaker.Element("pictureurl").Value,
 						Sessions = 
 							(
-								from item in xdoc.Descendants("sessions")
+								from session in xdoc.Descendants("sessions")
 								select new Session
 								{
-									Id = item.Element("id").Value,
-									Title = item.Element("title").Value,
-									Description = item.Element("description").Value,
-									Timeslot = item.Element("timeslot").Value,
-									Room = item.Element("room").Value,
+									Id = Session.Element("id").Value,
+									Title = Session.Element("title").Value,
+									Description = Session.Element("description").Value,
+									Timeslot = Session.Element("timeslot").Value,
+									Room = Session.Element("room").Value,
 								}
 							).ToList<Session>();
 

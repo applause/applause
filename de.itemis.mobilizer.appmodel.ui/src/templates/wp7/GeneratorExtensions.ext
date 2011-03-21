@@ -6,6 +6,9 @@ extension templates::MetamodelExtensions;
 String baseNamespace(org::eclipse::emf::ecore::EObject this):
 	this.application().name.toFirstUpper();
 	
+viewModelClassName(Property this):
+	((Entity)this.eContainer()).viewModelClassName();
+
 viewModelClassName(Entity this):
 	name.toFirstUpper();
 	

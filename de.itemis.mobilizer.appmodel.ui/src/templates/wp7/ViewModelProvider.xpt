@@ -90,7 +90,7 @@ namespace «namespace()»
 «DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Entity-»
 «IF recursion > 0-»
 				«d(indent)»(
-				«d(indent)»	from item in xdoc.Descendants("«nodeName»")
+				«d(indent)»	from «viewModelClassName().toFirstLower()» in xdoc.Descendants("«nodeName»")
 				«d(indent)»	select new «viewModelClassName()»
 				«d(indent)»	{
 				«d(indent)»		«EXPAND propertyMappings(recursion, indent + 1) FOR this-»
@@ -113,6 +113,6 @@ namespace «namespace()»
 						«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().type»
 «ENDIF-»					
 «ELSE-»
-						«d(indent - 1)»«this.propertyName()» = item.Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value,
+						«d(indent - 1)»«this.propertyName()» = «viewModelClassName()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value,
 «ENDIF-»
 «ENDDEFINE»
