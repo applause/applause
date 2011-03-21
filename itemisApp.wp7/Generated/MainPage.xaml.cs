@@ -39,7 +39,6 @@ namespace ItemisApp
 		
 		private void NewsBlogList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@51e622f8 (name: BlogList)!!
 			
 			if (NewsBlogListListBox.SelectedIndex == -1)
 				return;
@@ -49,7 +48,6 @@ namespace ItemisApp
 
 		private void Tuesday2SessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@69d4cdfb (name: SessionList)!!
 			
 			if (Tuesday2SessionListListBox.SelectedIndex == -1)
 				return;
@@ -59,7 +57,6 @@ namespace ItemisApp
 
 		private void WednesdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@69d4cdfb (name: SessionList)!!
 			
 			if (WednesdaySessionListListBox.SelectedIndex == -1)
 				return;
@@ -69,7 +66,6 @@ namespace ItemisApp
 
 		private void ThursdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@69d4cdfb (name: SessionList)!!
 			
 			if (ThursdaySessionListListBox.SelectedIndex == -1)
 				return;
@@ -79,7 +75,6 @@ namespace ItemisApp
 
 		private void SpeakersSpeakersList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			!!de.itemis.mobilizer.appModelDsl.impl.TableViewImpl@d929211 (name: SpeakersList)!!
 			
 			if (SpeakersSpeakersListListBox.SelectedIndex == -1)
 				return;

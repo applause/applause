@@ -53,7 +53,6 @@ namespace «namespace()»
 «DEFINE selectionHandler FOR TabbarButton»
 		private void «selectionHandlerName()»(object sender, SelectionChangedEventArgs e)
 		{
-			!!«this.view.view»!!
 			«IF this.revealDetailsAction() != null»
 			if («pivotControlName()».SelectedIndex == -1)
 				return;
