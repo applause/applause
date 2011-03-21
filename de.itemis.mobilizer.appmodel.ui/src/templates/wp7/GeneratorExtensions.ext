@@ -6,6 +6,9 @@ extension templates::MetamodelExtensions;
 String baseNamespace(org::eclipse::emf::ecore::EObject this):
 	this.application().name.toFirstUpper();
 	
+viewModelClassName(Property this):
+	((Entity)this.eContainer()).viewModelClassName();
+
 viewModelClassName(Entity this):
 	name.toFirstUpper();
 	
@@ -16,16 +19,19 @@ viewModelCollectionName(ContentProvider this):
 	viewModelClassName() + "s";
 
 namespace(Entity this):
-	baseNamespace() + ".ViewModels";
+	baseNamespace();
 	
 namespace(ContentProvider this):
-	baseNamespace() + ".ViewModels";	
+	baseNamespace();
+	
+namespace(DetailsView this):
+	baseNamespace();	
 
 viewModelFileName(Entity this):
-	namespace().toPath() + "/" + viewModelClassName() + ".cs";
+	viewModelClassName() + ".cs";
 	
 String typeName(Parameter this):
-	this.typeDescription().type.name;
+	this.typeDescription().typeName();
 	
 String propertyName(Parameter this):
 	this.name.toFirstUpper();
@@ -33,8 +39,13 @@ String propertyName(Parameter this):
 String propertyFieldName(Parameter this):
 	"_" + this.name.toFirstLower();
 	
+String typeName(TypeDescription this):
+	many
+		? "List<" + type.name + ">"
+		: type.name;
+		
 String typeName(Property this):
-	this.typeDescription().type.name;
+	this.typeDescription().typeName();
 	
 String propertyName(Property this):
 	this.name.toFirstUpper();
@@ -45,6 +56,9 @@ String propertyFieldName(Property this):
 String toPath(String namespace):
 	namespace.replaceAll("\\.", "/");
 	
+viewModelProviderClassFieldName(ContentProvider this):
+	"_" + name.toFirstLower() + "ModelProvider";
+
 viewModelProviderClassName(ContentProvider this):
 	name.toFirstUpper() + "ModelProvider";
 	
@@ -73,7 +87,7 @@ viewModelProviderConstructionParameter(SimpleProviderConstruction this):
 	this.expression;	
 		
 viewModelProviderFileName(ContentProvider this):
-	namespace().toPath() + "/" + viewModelProviderClassName() + ".cs";
+	viewModelProviderClassName() + ".cs";
 	
 // Expression --------------------------------------------------
 
@@ -102,7 +116,7 @@ String expression(StringReplace this, String prefix):
 	"FIXME replace";
 	
 String expression(StringUrlConform this, String prefix):
-	"FIXME urlconform";
+	this.value.expression(prefix);
 
 // Expression --------------------------------------------------
 
@@ -131,7 +145,7 @@ String expression(StringReplace this):
 	"FIXME replace";
 	
 String expression(StringUrlConform this):
-	"FIXME urlconform";
+	this.value.expression();
 	
 String expression(Constant this):
 	expression(value);		
@@ -140,12 +154,12 @@ String expression(ObjectReference this):
 	Constant.isInstance(object)
 		? expression(object)
 		: this.object.name + (tail==null?"":tail.propertyPath());
-	
+
 String expression(VariableDeclaration this):
 	"!" + this.metaType;	
 
 private String propertyPath(ObjectReference this):
-	"." + this.object.name.toFirstUpper() + "()" + (tail==null?"":tail.propertyPath());
+	"." + this.object.name.toFirstUpper() + (tail==null?"":tail.propertyPath());
 
 namespace(Application this):
 	baseNamespace();	
@@ -154,10 +168,10 @@ mainPageClassName(Application this):
 	"MainPage";
 
 String mainViewXAMLFileName(Application this):
-	namespace() + "/" + mainPageClassName() + ".xaml";
+	mainPageClassName() + ".xaml";
 	
 String mainViewCSFileName(Application this):
-	namespace() + "/" + mainPageClassName() + ".xaml.cs";
+	mainPageClassName() + ".xaml.cs";
 	
 pivotControlName(TabbarButton this):
 	pivotControlName(this.view.view, this.title.expression().replaceAll(" ", "_").replaceAll("\"", ""));
@@ -176,3 +190,13 @@ selectionHandlerName(TableView this, String prefix):
 	
 selectionHandlerName(View this, String prefix):
 	"ERROR";
+	
+namespaceSpecialCaseHandling(Property this):
+	(this.name == "creator")
+		? "dc + "
+		: "";
+		
+d(int recursion):
+	(recursion == 0)
+		? ""
+		: "\t\t\t" + d(recursion - 1);

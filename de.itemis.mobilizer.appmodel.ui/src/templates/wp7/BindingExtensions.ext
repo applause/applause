@@ -1,0 +1,52 @@
+import org::eclipse::emf::ecore;
+import de::itemis::mobilizer::appModelDsl;
+
+extension templates::MetamodelExtensions;
+
+
+/**
+ * Get the name of the collection we want to bind in a view.
+ */
+bindingName(View this):
+	"ERROR";
+
+bindingName(DetailsView this):
+	this.content.bindingName();
+
+bindingName(TableView this):
+	this.content.bindingName();
+	
+bindingName(Parameter this):
+	this.typeDescription().type.name.toFirstUpper() + (this.typeDescription().many ? "s" : "");
+	
+/**
+ * Get the name of the field we want to bind.
+ */
+expressionBindingName(Expression this):
+	"expression";
+	
+expressionBindingName(ScalarExpression this):
+	"scalar";
+		
+expressionBindingName(ObjectReference this):
+	lastTailName(this).toFirstUpper();
+	
+String lastTailName(ObjectReference this):
+	(this.tail == null) ? this.object.name : lastTailName(this.tail);
+	
+	
+/**
+ *
+ */
+ 
+expressionSelectionName(Expression this):
+	"expression";
+	
+expressionSelectionName(ScalarExpression this):
+	"scalar";
+	
+String expressionSelectionName(StringLiteral this):
+	"\"" + this.value + "\"";
+		
+expressionSelectionName(ObjectReference this):
+	lastTailName(this).toFirstLower();

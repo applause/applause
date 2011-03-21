@@ -1,0 +1,71 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::wp7::GeneratorExtensions»
+
+«DEFINE main FOR Application-»
+«FILE "RootViewModelProvider.cs"-»
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.Net;
+using System.Linq;
+using System.Xml.Linq;
+
+namespace «namespace()»
+{
+    public class RootViewModelProvider
+    {
+        public RootViewModelProvider()
+        {
+        }
+        
+		«EXPAND provider FOREACH this.providersWithImplementation()-»        
+
+        public bool IsDataLoaded
+        {
+            get;
+            private set;
+        }
+
+        public void LoadData()
+        {
+            IsDataLoaded = false;
+            IsDataLoaded = true;
+        }
+
+    }
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE provider FOR ContentProvider-»
+        private «viewModelProviderClassName()» «viewModelProviderClassFieldName()»;
+        «IF this.parameter != null-»
+        public «viewModelProviderClassName()» «viewModelProviderClassName()»(«this.parameter.typeName()» «this.parameter.name») {
+		«ELSE-»
+        public «viewModelProviderClassName()» «viewModelProviderClassName()»() {		                
+        «ENDIF-»
+            if («viewModelProviderClassFieldName()» == null)
+            {
+                «viewModelProviderClassFieldName()» = new «viewModelProviderClassName()»(«this.parameter.name»);
+                «viewModelProviderClassFieldName()».LoadData();
+            }
+            return «viewModelProviderClassFieldName()»;
+        }
+«ENDDEFINE»
+
+«DEFINE loadData FOR ContentProvider-»
+			«viewModelProviderClassName()».LoadData();
+«ENDDEFINE»

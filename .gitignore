@@ -8,3 +8,4 @@
 *.pbxuser
 *.mode1v3
 *.pyc
+/itemisApp.wp7/obj/
