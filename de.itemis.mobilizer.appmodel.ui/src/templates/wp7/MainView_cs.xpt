@@ -2,6 +2,7 @@
 
 «EXTENSION templates::MetamodelExtensions»
 «EXTENSION templates::wp7::GeneratorExtensions»
+«EXTENSION templates::wp7::WP7ViewExtensions»
 
 «DEFINE main FOR Application-»
 «FILE this.mainViewCSFileName()-»
@@ -49,11 +50,14 @@ namespace «namespace()»
 			«this.pivotControlName()».DataContext = App.RootViewModelProvider.«this.view.viewModelProviderClassName()»(«this.view.viewModelProviderConstructionParameter()»);
 «ENDDEFINE»
 
-«DEFINE selectionHandler FOR TabbarButton-»
+«DEFINE selectionHandler FOR TabbarButton»
 		private void «selectionHandlerName()»(object sender, SelectionChangedEventArgs e)
 		{
+			!!«this.view.view»!!
+			«IF this.revealDetailsAction() != null»
 			if («pivotControlName()».SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/SessionDetailsPage.xaml?itemByIndex=" + «pivotControlName()».SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/«this.revealDetailsAction().view.viewXAMLFileName()»?itemByIndex=" + «pivotControlName()».SelectedIndex, UriKind.Relative));
+			«ENDIF»			
 		}
 «ENDDEFINE»

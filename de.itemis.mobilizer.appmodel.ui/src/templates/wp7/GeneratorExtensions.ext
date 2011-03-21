@@ -16,13 +16,16 @@ viewModelCollectionName(ContentProvider this):
 	viewModelClassName() + "s";
 
 namespace(Entity this):
-	baseNamespace() + ".ViewModels";
+	baseNamespace();
 	
 namespace(ContentProvider this):
-	baseNamespace() + ".ViewModels";	
+	baseNamespace();
+	
+namespace(DetailsView this):
+	baseNamespace();	
 
 viewModelFileName(Entity this):
-	namespace().toPath() + "/" + viewModelClassName() + ".cs";
+	viewModelClassName() + ".cs";
 	
 String typeName(Parameter this):
 	this.typeDescription().type.name;
@@ -45,6 +48,9 @@ String propertyFieldName(Property this):
 String toPath(String namespace):
 	namespace.replaceAll("\\.", "/");
 	
+viewModelProviderClassFieldName(ContentProvider this):
+	"_" + name.toFirstLower() + "ModelProvider";
+
 viewModelProviderClassName(ContentProvider this):
 	name.toFirstUpper() + "ModelProvider";
 	
@@ -73,7 +79,7 @@ viewModelProviderConstructionParameter(SimpleProviderConstruction this):
 	this.expression;	
 		
 viewModelProviderFileName(ContentProvider this):
-	namespace().toPath() + "/" + viewModelProviderClassName() + ".cs";
+	viewModelProviderClassName() + ".cs";
 	
 // Expression --------------------------------------------------
 
@@ -102,7 +108,7 @@ String expression(StringReplace this, String prefix):
 	"FIXME replace";
 	
 String expression(StringUrlConform this, String prefix):
-	"FIXME urlconform";
+	this.value.expression(prefix);
 
 // Expression --------------------------------------------------
 
@@ -131,7 +137,7 @@ String expression(StringReplace this):
 	"FIXME replace";
 	
 String expression(StringUrlConform this):
-	"FIXME urlconform";
+	this.value.expression();
 	
 String expression(Constant this):
 	expression(value);		
@@ -140,7 +146,7 @@ String expression(ObjectReference this):
 	Constant.isInstance(object)
 		? expression(object)
 		: this.object.name + (tail==null?"":tail.propertyPath());
-	
+
 String expression(VariableDeclaration this):
 	"!" + this.metaType;	
 
@@ -154,10 +160,10 @@ mainPageClassName(Application this):
 	"MainPage";
 
 String mainViewXAMLFileName(Application this):
-	namespace() + "/" + mainPageClassName() + ".xaml";
+	mainPageClassName() + ".xaml";
 	
 String mainViewCSFileName(Application this):
-	namespace() + "/" + mainPageClassName() + ".xaml.cs";
+	mainPageClassName() + ".xaml.cs";
 	
 pivotControlName(TabbarButton this):
 	pivotControlName(this.view.view, this.title.expression().replaceAll(" ", "_").replaceAll("\"", ""));

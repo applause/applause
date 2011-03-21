@@ -31,12 +31,12 @@ namespace «namespace()»
 {
 	public class «viewModelProviderClassName()»
 	{
-		«IF (this.parameter != null)»
-		private «this.parameter.typeName()» «this.parameter.propertyFieldName()»;
-		
+		«IF (parameter != null)»
+		private «parameter.typeName()» «parameter.name»;
+
 		public «viewModelProviderClassName()»(«this.parameter.typeName()» «this.parameter.name»)
 		{
-			«this.parameter.propertyFieldName()» = «this.parameter.name»;
+			this.«this.parameter.name» = «this.parameter.name»;
 			this.«viewModelCollectionName()» = new ObservableCollection<«viewModelClassName()»>();
 		}
 		«ELSE»
@@ -78,7 +78,7 @@ namespace «namespace()»
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
 			List<«viewModelClassName()»> result = 
 				(
-					from item in xdoc.Descendants(«this.selection.expression()»)
+					from item in xdoc.Descendants("«((StringLiteral)this.selection).value.split("\\.").last()»")
 					select new «viewModelClassName()»
 					{
 						«EXPAND propertyMappings FOR this.type-»

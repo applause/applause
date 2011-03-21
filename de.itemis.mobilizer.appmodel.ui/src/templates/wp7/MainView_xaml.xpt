@@ -2,6 +2,7 @@
 
 «EXTENSION templates::MetamodelExtensions»
 «EXTENSION templates::wp7::GeneratorExtensions»
+«EXTENSION templates::wp7::BindingExtensions»
 
 «DEFINE main FOR Application-»
 «FILE this.mainViewXAMLFileName()-»
@@ -29,19 +30,6 @@
         	«EXPAND pivotItem FOREACH this.buttons-»
         </controls:Pivot>
     </Grid>
- 
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
-
 </phone:PhoneApplicationPage>
 «ENDFILE»
 «ENDDEFINE»
@@ -57,7 +45,7 @@
 «ENDDEFINE»
 
 «DEFINE view(TabbarButton button) FOR TableView-»
-                <ListBox x:Name="«button.pivotControlName()»" Margin="0,0,-12,0" ItemsSource="{Binding BlogItems}" SelectionChanged="«button.selectionHandlerName()»">
+                <ListBox x:Name="«button.pivotControlName()»" Margin="0,0,-12,0" ItemsSource="{Binding «bindingName()»}" SelectionChanged="«button.selectionHandlerName()»">
                 «EXPAND viewSection FOREACH this.sections-»
                 </ListBox>
 «ENDDEFINE»
@@ -72,7 +60,7 @@
 
 «DEFINE sectionCell FOR SectionCell-»
                           <StackPanel Margin="0,0,0,17" Width="432">
-                              <TextBlock Text="{Binding «this.text.expression()»}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                              <TextBlock Text="{Binding «this.details.expression()»}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                              <TextBlock Text="{Binding «this.text.expressionBindingName()»}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding «this.details.expressionBindingName()»}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
 «ENDDEFINE»
