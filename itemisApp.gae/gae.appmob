@@ -66,53 +66,53 @@ entity Session {
  * FETCHING DATA
  */
 
-const SERVER_URL "http://localhost:3000"
+const DATA_SERVER_URL "http://localhost:3000"
+//const DATA_SERVER_URL "http://eclipsecon2011-data.webbyapp.com"
+const FEEDSANITIZER_URL "http://feedsanitizer.appspot.com"
 
 contentprovider Blogposts
 	returns BlogItem[]
 	fetches XML
-		//from "http://blogs.itemis.de/?showfeed=1"
-		from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"
-		//from "http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fwww.planeteclipse.org%2Fplanet%2Frss20.xml&format=rss"
+		from (FEEDSANITIZER_URL "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss")
 		selects "rss.channel.item"
 		
 contentprovider SessionsByDay(String day)
 	returns Session[]
 	fetches XML
 		//from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
-		from (SERVER_URL "/sessions/day/" day ".xml")
+		from (DATA_SERVER_URL "/sessions/day/" day ".xml")
 		selects "sessions.session"
 		 
 contentprovider SessionById(Session s) 
 	resolves Session
 	fetches XML
-	from (SERVER_URL "/sessions/id/" s.id ".xml" )
+	from (DATA_SERVER_URL "/sessions/id/" s.id ".xml" )
 	selects "result.session"
 	
 contentprovider SpeakerById(Speaker s) 
 	resolves Speaker
 	fetches XML
-	from (SERVER_URL "/speakers/id/" s.id ".xml" s.id s.name)
+	from (DATA_SERVER_URL "/speakers/id/" s.id ".xml")
 	selects "result.speaker"
 	
 
 contentprovider BlogItemById(BlogItem b)
 	resolves BlogItem
 	fetches XML
-		from ("http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=" urlconform(b.guid) )
+		from (FEEDSANITIZER_URL "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=" urlconform(b.guid) )
 		selects "rss.channel.item"
 
 		
 contentprovider AllSpeakers
 	returns Speaker[]
 	fetches XML
-		from (SERVER_URL "/speakers.xml")
+		from (DATA_SERVER_URL "/speakers.xml")
 		selects "speakers.speaker"
 
 contentprovider SpeakerByName(String name)
 	returns Speaker
 	fetches XML
-		from (SERVER_URL "/speakers/name/" urlconform(name) ".xml")
+		from (DATA_SERVER_URL "/speakers/name/" urlconform(name) ".xml")
 		selects "result.speaker"
 		
 /*
@@ -183,7 +183,7 @@ detailsview SessionDetails(Session session) {
 	section {
 		cell DefaultWithDisclosure foreach session.speakers as s {
 			text= s.name
-			image= (SERVER_URL s.pictureurl)
+			image= (DATA_SERVER_URL s.pictureurl)
 			action= SpeakerDetails(SpeakerByName(s.name))
 		}
 		
@@ -200,7 +200,7 @@ tableview SpeakersList(Speaker[] speakers) {
 	section {
 		cell Default foreach speakers as s {
 			text= s.name
-			image= (SERVER_URL s.pictureurl)
+			image= (DATA_SERVER_URL s.pictureurl)
 			action= SpeakerDetails(SpeakerByName(s.name))   
 		}
 	}
@@ -211,7 +211,7 @@ detailsview SpeakerDetails(Speaker speaker) {
 	header {
 		title= speaker.name
 		details= speaker.bio
-		image= (SERVER_URL speaker.pictureurl)
+		image= (DATA_SERVER_URL speaker.pictureurl)
 	}
 	
 	

@@ -43,7 +43,7 @@
 }
 
 -(void)updateData {
-	self.navigationItem.title = @"My Sessions";
+	self.navigationItem.title = @"Sessions";
 	
 	[super updateData];
 }

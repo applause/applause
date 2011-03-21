@@ -1,6 +1,5 @@
 package de.itemis.mobilizer.validation;
 
-import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Set;
 
@@ -15,19 +14,21 @@ import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Iterables;
 
 import de.itemis.mobilizer.appModelDsl.AppModelDslPackage;
+import de.itemis.mobilizer.appModelDsl.ComplexProviderConstruction;
 import de.itemis.mobilizer.appModelDsl.Constant;
 import de.itemis.mobilizer.appModelDsl.ContentProvider;
 import de.itemis.mobilizer.appModelDsl.Entity;
 import de.itemis.mobilizer.appModelDsl.Model;
 import de.itemis.mobilizer.appModelDsl.ObjectReference;
+import de.itemis.mobilizer.appModelDsl.Parameter;
+import de.itemis.mobilizer.appModelDsl.ProviderConstruction;
 import de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction;
-import de.itemis.mobilizer.appModelDsl.SimpleType;
 import de.itemis.mobilizer.appModelDsl.StringLiteral;
 import de.itemis.mobilizer.appModelDsl.TabbarButton;
-import de.itemis.mobilizer.appModelDsl.Type;
 import de.itemis.mobilizer.appModelDsl.TypeDescription;
 import de.itemis.mobilizer.appModelDsl.VariableDeclaration;
 import de.itemis.mobilizer.appModelDsl.View;
+import de.itemis.mobilizer.appModelDsl.ViewCall;
 import de.itemis.mobilizer.scoping.TypeUtil;
 
 
@@ -35,15 +36,6 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 
 	public static final String VIEW_NAME_UPPERCASE = "viewname_uppercase";
 
-//	@Check
-//	void appHasOneHomeView(Model model) {
-//		if (!with(model.getElements())
-//			.filter(isHomeView())
-//			.exactlyOnce()) {
-//			error("You need to specify exactly one home view.", AppModelDslPackage.APPLICATION);
-//		}
-//	}
-	
 	@Check
 	void viewNamesShouldStartWithCapital(View view) {
 		if (!Character.isUpperCase(view.getName().charAt(0))) {
@@ -61,8 +53,6 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
 			if(!exists)
 				error("File does not exist.", AppModelDslPackage.TABBAR_BUTTON__ICON);
-//			System.out.println("uri " + uri);
-//			System.out.println("exists " + exists);
 		}
 	}
 	
@@ -160,6 +150,47 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		if(!(provider.getSelection() instanceof StringLiteral))
 			error("selection must be a string literal", AppModelDslPackage.CONTENT_PROVIDER__SELECTION);
 	}
+	
+	
+	private void errorIfNotAssignable(TypeDescription actualType,
+			TypeDescription expectedType, int feature) {
+		if(!TypeUtil.isAssignable(expectedType, actualType)) {
+			error("Type mismatch: cannot covert from " + TypeUtil.asReadableString(actualType) 
+					+ " to " + TypeUtil.asReadableString(expectedType),
+					feature);
+		}
+	}
+	
+	boolean errorIfCountOfArgumentsDontMatch(boolean expected, boolean actual, int feature) {
+		if(expected && !actual)
+			error("Expects argument but nothing was passed", feature);
+		if(!expected && actual)
+			error("No argument expected but an argument was passed", feature);
+		return expected != actual;
+	}
+	
+	@Check
+	void viewsArgumentOfCorrectType(ViewCall vc) {
+		Parameter formalParameter = vc.getView().getContent();
+		ProviderConstruction actualParameter = vc.getProvider();
+		
+		if(! errorIfCountOfArgumentsDontMatch(formalParameter!=null, actualParameter!=null, AppModelDslPackage.VIEW_CALL__PROVIDER) ) {
+			TypeDescription expectedType = formalParameter.getDescription();
+			TypeDescription actualType = TypeUtil.getTypeOf(vc.getProvider());
+			errorIfNotAssignable(actualType, expectedType, AppModelDslPackage.VIEW_CALL__PROVIDER);
+		}
+	}
+
+	@Check
+	void contentProvidersArgumentOfCorrectType(ComplexProviderConstruction pc) {
+		ContentProvider p = pc.getProvider();
+		if(! errorIfCountOfArgumentsDontMatch(p.getParameter() != null, pc.getArgument() != null, AppModelDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT)) {
+			TypeDescription expectedType = TypeUtil.getTypeOf(p.getParameter());
+			TypeDescription actualType = TypeUtil.getTypeOf(pc.getArgument());
+			errorIfNotAssignable(actualType, expectedType, AppModelDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT);
+		}
+	}
+	
 
 	
 }

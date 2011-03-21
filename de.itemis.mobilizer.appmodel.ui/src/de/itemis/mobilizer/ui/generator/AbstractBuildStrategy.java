@@ -47,8 +47,6 @@ public abstract class AbstractBuildStrategy {
 		if (!folder.exists())
 			return;
 
-		deletePreviouslyGeneratedFiles(monitor, folder);
-
 		List<EObject> objects = new ArrayList<EObject>();
 		for (Delta d : context.getDeltas()) {
 			if (d.getNew() != null) {
@@ -60,7 +58,13 @@ public abstract class AbstractBuildStrategy {
 			}
 		}
 
-		for (Application app : Iterables.filter(objects, Application.class)) {
+		
+		Iterable<Application> applicationObjects = Iterables.filter(objects, Application.class);
+		
+		if(!Iterables.isEmpty(applicationObjects))
+			deletePreviouslyGeneratedFiles(monitor, folder);
+
+		for (Application app : applicationObjects) {
 			OutputImpl output = new OutputImpl();
 			Outlet outlet = new Outlet() {
 				@Override

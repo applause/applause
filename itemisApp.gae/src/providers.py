@@ -7,7 +7,7 @@ def plainxml(url):
 
 
 def Blogposts():
-    url = 'http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss' #foo
+    url = '%s%s' % ('http://feedsanitizer.appspot.com', '/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss') #foo
     xml = plainxml(url)
     return xml.channel.item
 
@@ -25,7 +25,7 @@ def AllSpeakers():
 
 
 def BlogItemById(guid):
-    url = '%s%s' % ('http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=', quote(guid)) #foo
+    url = '%s%s%s' % ('http://feedsanitizer.appspot.com', '/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=', quote(guid)) #foo
     xml = plainxml(url)
     return xml.channel.item
 

@@ -2,22 +2,34 @@ package de.itemis.mobilizer.scoping;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.EcoreUtil2;
 
+import com.google.common.base.Predicate;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Iterables;
 
 import de.itemis.mobilizer.appModelDsl.AppModelDslFactory;
 import de.itemis.mobilizer.appModelDsl.CollectionIterator;
 import de.itemis.mobilizer.appModelDsl.CollectionLiteral;
+import de.itemis.mobilizer.appModelDsl.ComplexProviderConstruction;
+import de.itemis.mobilizer.appModelDsl.ContentProvider;
 import de.itemis.mobilizer.appModelDsl.Expression;
 import de.itemis.mobilizer.appModelDsl.ObjectReference;
 import de.itemis.mobilizer.appModelDsl.Parameter;
 import de.itemis.mobilizer.appModelDsl.Property;
+import de.itemis.mobilizer.appModelDsl.ProviderConstruction;
 import de.itemis.mobilizer.appModelDsl.ScalarExpression;
+import de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction;
+import de.itemis.mobilizer.appModelDsl.SimpleType;
 import de.itemis.mobilizer.appModelDsl.StringConcat;
+import de.itemis.mobilizer.appModelDsl.StringFunction;
+import de.itemis.mobilizer.appModelDsl.StringLiteral;
 import de.itemis.mobilizer.appModelDsl.StringReplace;
+import de.itemis.mobilizer.appModelDsl.StringSplit;
 import de.itemis.mobilizer.appModelDsl.StringUrlConform;
 import de.itemis.mobilizer.appModelDsl.Type;
 import de.itemis.mobilizer.appModelDsl.TypeDescription;
@@ -57,8 +69,7 @@ public class TypeUtil {
 		};
 
 		public TypeDescription caseCollectionIterator(CollectionIterator object) {
-			// TODO: return isMany==false
-			return doGetTypeOf(object.getCollection());
+			return createDesc(doGetTypeOf(object.getCollection()).getType(), false);
 		};
 
 		public TypeDescription caseObjectReference(ObjectReference object) {
@@ -68,13 +79,61 @@ public class TypeUtil {
 			return doGetTypeOf(object.getObject());
 		};
 		
-		public TypeDescription caseCollectionLiteral(CollectionLiteral object) {
+		public Type getStringType(EObject object) {
+			EObject model = EcoreUtil.getRootContainer(object);
+			List<SimpleType> allSimpleTypes = EcoreUtil2.getAllContentsOfType(model, SimpleType.class);
+			Predicate<SimpleType> stringTypePredicate = new Predicate<SimpleType>() {
+				public boolean apply(SimpleType input) {
+					return "String".equals(input.getName());
+				}
+			};
+
+			try {
+				return Iterables.getOnlyElement(Iterables.filter(allSimpleTypes, stringTypePredicate));
+			} catch(NoSuchElementException ex) {
+				return null;
+			}
+		}
+		
+		public TypeDescription caseStringLiteral(StringLiteral object) {
+			return createStringDesc(object);
+		}
+		
+		public TypeDescription caseStringFunction(StringFunction object) {
+			return createStringDesc(object);
+		};
+		
+		public TypeDescription caseStringSplit(StringSplit object) {
+			return createDesc(getStringType(object), true);
+		};
+		
+		private TypeDescription createStringDesc(EObject object) {
+			return createDesc(getStringType(object), false);
+		};
+
+		private TypeDescription createDesc(Type type, boolean isMany) {
 			TypeDescription result = AppModelDslFactory.eINSTANCE.createTypeDescription();
-			result.setMany(true);
-			Type type = doGetTypeOf(object.getItems().get(0)).getType();
+			result.setMany(isMany);
 			result.setType(type);
 			return result;
 		};
+		
+		public TypeDescription caseCollectionLiteral(CollectionLiteral object) {
+			return createDesc(doGetTypeOf(object.getItems().get(0)).getType(), true);
+		};
+		
+		public TypeDescription caseComplexProviderConstruction(ComplexProviderConstruction object) {
+			ContentProvider p = object.getProvider();
+			if(p==null)
+				return null;
+			
+			return createDesc(p.getType(), p.isMany());
+		};
+		
+		public TypeDescription caseSimpleProviderConstruction(SimpleProviderConstruction object) {
+			return doGetTypeOf(object.getExpression());
+		};
+		
 		
 	};
 	
@@ -93,6 +152,10 @@ public class TypeUtil {
 	
 	public static TypeDescription getTypeOf(Expression expression) {
 		return doGetTypeOf(expression);
+	}
+	
+	public static TypeDescription getTypeOf(ProviderConstruction construction) {
+		return doGetTypeOf(construction);
 	}
 	
 	public static AppModelDslSwitch<Iterable<ObjectReference>> referencesIn = new AppModelDslSwitch<Iterable<ObjectReference>>() {
@@ -130,6 +193,30 @@ public class TypeUtil {
 
 	public static List<ObjectReference> getReferencesIn(ScalarExpression e) {
 		return ImmutableList.copyOf(referencesIn.doSwitch(e));
+	}
+	
+	
+
+	public static boolean isAssignable(TypeDescription target,
+			TypeDescription value) {
+		if(target == null || value == null)
+			return false;
+		return isAssignable(target.getType(), value.getType()) && (target.isMany() == value.isMany());  
+	}
+
+	private static boolean isAssignable(Type target, Type value) {
+		if(target == null || value == null)
+			return false;
+		
+		// look at type hierarchy
+		return target == value;
+	}
+
+	public static String asReadableString(TypeDescription desc) {
+		if(desc==null || desc.getType() == null)
+			return "unknown";
+
+		return desc.getType().getName() + (desc.isMany()?"[]":"");
 	}
 
 }

@@ -3,6 +3,7 @@
 #import "IPUIView.h"
 #import "itemisAppProviders.h"
 
+#import "BlogListViewController.h"
 #import "SessionListViewController.h"
 #import "SessionListViewController.h"
 #import "SessionListViewController.h"
@@ -23,12 +24,25 @@
 
 
 	
-	// controller for @"Tuesday2"
+	// controller for @"News"
+	contentProvider = [providers providerForBlogposts];
+	
+	controller = [[BlogListViewController alloc] init];
+	[controller setContentProvider: contentProvider];
+	controller.tabBarItem.title = @"News";
+	controller.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
+	navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	[controllers addObject: navController];
+	[controller release];
+	[navController release];
+
+	
+	// controller for @"Tue"
 	contentProvider = [providers providerForSessionsByDay: @"2011-03-22"];
 	
 	controller = [[SessionListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Tuesday2";
+	controller.tabBarItem.title = @"Tue";
 	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
@@ -36,12 +50,12 @@
 	[navController release];
 
 	
-	// controller for @"Wednesday"
+	// controller for @"Wed"
 	contentProvider = [providers providerForSessionsByDay: @"2011-03-23"];
 	
 	controller = [[SessionListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Wednesday";
+	controller.tabBarItem.title = @"Wed";
 	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
@@ -49,12 +63,12 @@
 	[navController release];
 
 	
-	// controller for @"Thursday"
+	// controller for @"Thu"
 	contentProvider = [providers providerForSessionsByDay: @"2011-03-24"];
 	
 	controller = [[SessionListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Thursday";
+	controller.tabBarItem.title = @"Thu";
 	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];

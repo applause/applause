@@ -7,7 +7,7 @@
 
 
 -(IPContentProvider*)providerForBlogposts {
-	NSString* url = @"http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss";
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -55,11 +55,11 @@
 
 
 -(IPContentProvider*)providerForBlogItemById:(id)b {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"dfsdfsdfsdfs", [b valueForKeyPath:@"link"]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=", [[b valueForKeyPath:@"guid"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"result.session"
+								  keyPathToContent: @"rss.channel.item"
 								  andProviders:self] autorelease];
 	return result;
 }
