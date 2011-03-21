@@ -15,8 +15,6 @@ using System.Collections.ObjectModel;
 using System.Net;
 using System.Linq;
 using System.Xml.Linq;
-using ItemisApp.ViewModels;
-
 
 namespace ItemisApp
 {

@@ -43,7 +43,7 @@
 
 
 -(IPContentProvider*)providerForSpeakerById:(id)s {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@%@%@", @"http://localhost:3000", @"/speakers/id/", [s valueForKeyPath:@"id"], @".xml", [s valueForKeyPath:@"id"], [s valueForKeyPath:@"name"]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://localhost:3000", @"/speakers/id/", [s valueForKeyPath:@"id"], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
