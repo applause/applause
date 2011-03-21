@@ -27,12 +27,6 @@ String _expression(Expression this, String target):
 String _expression(StringLiteral this, String target):
 	"'" + value + "'";
 
-List[ObjectReference] toList(Void this):
-	{};
-
-List[ObjectReference] toList(ObjectReference this):
-	{object.name}.addAll(tail.toList());
-
 String _expression(ObjectReference this, String target):
 	{target}.addAll(toList().withoutFirst()).toString(".");
 
@@ -62,10 +56,10 @@ tplPrepareUrl(ViewAction this, String target, String var):
 parameterValues(ProviderConstruction this, String target): "";
 
 parameterValues(ComplexProviderConstruction this, String target):
-	argument._expression(target);
+	argument==null?"":argument._expression(target);
 	
 parameterValues(SimpleProviderConstruction this, String target):
-	resolver().url.referencesIn().selectFirst(e|!Constant.isInstance(e.object))._expression(target);	
+	resolver().resolversReference()._expression(target);	
 	
 tplPrepareUrl(ViewCall this, String target, String var):	
 	"{% url views." + defViewName() + " " + provider.parameterValues(target) + " as " + var + " %}";

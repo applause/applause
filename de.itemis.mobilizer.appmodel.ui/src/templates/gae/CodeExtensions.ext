@@ -2,47 +2,46 @@ import org::eclipse::emf::ecore;
 import de::itemis::mobilizer::appModelDsl;
 
 extension templates::MetamodelExtensions;
+extension templates::gae::Extensions;
 
-String expression(Expression this):
+String expression(Expression this, Boolean resolved):
 	"!expression-" + this.metaType;
 	
-String expression(ScalarExpression this):
+String expression(ScalarExpression this, Boolean resolved):
 	"!expression-" + this.metaType;
 
-expression(StringLiteral this):
+expression(StringLiteral this, Boolean resolved):
 	"'" + value + "'";
 	
-expression(StringUrlConform this):
-	'quote(' + this.value.expression() + ')';
+expression(StringUrlConform this, Boolean resolved):
+	'quote(' + this.value.expression(resolved) + ')';
 	
-expression(StringConcat this):
+expression(StringConcat this, Boolean resolved):
 	"'" + values.collect(e|"%s").toString("") + "' % ("
-		+ values.expression().toString(", ") + ")";
+		+ values.expression(resolved).toString(", ") + ")";
 		
-String expression(VariableDeclaration this):
+String expression(VariableDeclaration this, Boolean resolved):
 	"!expression-" + this.metaType;
 	
-String expression(Constant this):
-	expression(value);		
+String expression(Constant this, Boolean resolved):
+	expression(value, resolved);
 	
-String expression(ObjectReference this):
+String expression(ObjectReference this, Boolean resolved):
 	Constant.isInstance(object)
-		? expression(object)
-		: this.object.name + (tail==null?"":tail.getterPath());
-
-private String getterPath(ObjectReference this):
-	"." + this.object.name + (tail==null?"":tail.getterPath());
-
+		? object.expression(resolved)
+		: ( let l = resolved ? {toList().last()} : toList() :
+			l.toString(".")
+		);
+		
 parameterValue(ProviderConstruction this): "!callParameter-" + metaType;
 
 parameterValue(SimpleProviderConstruction this): 
-	this.expression.expression();
+	this.expression.expression(false);
 	
 parameterValue(ComplexProviderConstruction this):
-	this.argument.expression(); 
+	this.argument.expression(false); 
 	
-
 parameterKeysAndValues(ViewCall this):
-	this.view.content == null
+	view.content == null || provider.contentProvider().parameter == null
 		? ""
-		: "'" + this.provider.contentProvider().parameter.name + "': " + provider.parameterValue();
+		: "'" + defViewParam() + "': " + provider.parameterValue();

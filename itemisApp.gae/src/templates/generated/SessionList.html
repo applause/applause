@@ -1,0 +1,17 @@
+{% extends "generated/application.html" %}
+{% block title%}Sessions{% endblock %}
+{% block content_class %}table list{% endblock %}
+{% block content %}
+
+<ul>
+{% for session in data|to_list %}
+<li>
+  {% url views.SessionDetailsBySessionById session.id as url %}
+  <a href="{{ url }}">{{session.title}}</a>
+  
+</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

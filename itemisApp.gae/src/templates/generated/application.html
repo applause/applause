@@ -1,0 +1,18 @@
+{% extends "template_master.html" %}
+
+{% block navigation %}
+<div class="menu">
+<ul>
+{% url views.SessionListBySessionsByDay '2011-03-22' as url1 %}
+<li><a href="{{ url1 }}">Tuesday2</a></li>
+{% url views.SessionListBySessionsByDay '2011-03-23' as url2 %}
+<li><a href="{{ url2 }}">Wednesday</a></li>
+{% url views.SessionListBySessionsByDay '2011-03-24' as url3 %}
+<li><a href="{{ url3 }}">Thursday</a></li>
+{% url views.SpeakersListByAllSpeakers  as url4 %}
+<li><a href="{{ url4 }}">Speakers</a></li>
+
+</ul>
+<br style="clear: left" />
+</div>
+{% endblock %}

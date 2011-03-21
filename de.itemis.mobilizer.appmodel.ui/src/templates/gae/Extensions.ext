@@ -38,26 +38,24 @@ defProviderName(ViewCall this):
 	this.provider.contentProvider().name;
 	
 defProviderParam(ViewCall this):
-	defViewParam();	
+	let cp = provider.contentProvider():
+		cp.resolver
+			? cp.resolversReference().toList().last()
+			: (cp.parameter!=null ? cp.parameter.name : "");
+			
+defViewParam(ViewCall this):
+	defProviderParam(); 
 		
 defViewName(ViewCall this):
 	this.view.name + this.provider.defViewNameSuffix(view);
 	
 defViewNameSuffix(ProviderConstruction this, View view):
 	"By" + contentProvider().name.toFirstUpper();
-	
-defViewParam(ViewCall this):
-	this.provider.contentProvider().defViewParam();	
-	
-defViewParam(ContentProvider this):
-	parameter != null
-		? parameter.name
-		: "";
-	
+		
 urlPattern(ViewCall this):
 	let cp = this.provider.contentProvider() :
 		'^' + this.view.name + "/" + cp.name + (
-			cp.parameter == null ? "" : "/(?P<" + cp.parameter.name + ">.+?)"
+			cp.parameter == null ? "" : "/(?P<" + defProviderParam() + ">.+?)"
 		) + "/$";
 		
 viewTemplateFilename(ViewCall this):

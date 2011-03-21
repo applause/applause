@@ -10,10 +10,10 @@ urlpatterns = patterns('',
 
     (r'^SpeakersList/AllSpeakers/$', 'views.SpeakersListByAllSpeakers'),
 
-    (r'^BlogDetails/BlogItemById/(?P<b>.+?)/$', 'views.BlogDetailsByBlogItemById'),
+    (r'^BlogDetails/BlogItemById/(?P<link>.+?)/$', 'views.BlogDetailsByBlogItemById'),
 
     (r'^SpeakerDetails/SpeakerByName/(?P<name>.+?)/$', 'views.SpeakerDetailsBySpeakerByName'),
 
-    (r'^SessionDetails/SessionById/(?P<s>.+?)/$', 'views.SessionDetailsBySessionById'),
+    (r'^SessionDetails/SessionById/(?P<id>.+?)/$', 'views.SessionDetailsBySessionById'),
 
 )

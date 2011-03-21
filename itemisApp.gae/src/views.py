@@ -10,15 +10,15 @@ def SpeakersListByAllSpeakers(request):
     data = providers.AllSpeakers()
     return render_to_response('generated/SpeakersList.html', {'data': data})
 
-def BlogDetailsByBlogItemById(request, b):
-    data = providers.BlogItemById(b)
+def BlogDetailsByBlogItemById(request, link):
+    data = providers.BlogItemById(link)
     return render_to_response('generated/BlogDetails.html', {'data': data})
 
 def SpeakerDetailsBySpeakerByName(request, name):
     data = providers.SpeakerByName(name)
     return render_to_response('generated/SpeakerDetails.html', {'data': data})
 
-def SessionDetailsBySessionById(request, s):
-    data = providers.SessionById(s)
+def SessionDetailsBySessionById(request, id):
+    data = providers.SessionById(id)
     return render_to_response('generated/SessionDetails.html', {'data': data})
 

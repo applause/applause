@@ -22,7 +22,7 @@ def «this.defProviderName()»(«this.defProviderParam()»):«"" -»
 «ENDDEFINE»
 
 «DEFINE providerImplementation FOR ContentProvider»
-    url = «url.expression()»
+    url = «url.expression(true)» #foo
     xml = plainxml(url)
     return xml.«(((StringLiteral)selection).value.split('\\.').withoutFirst()).toString('.')»
 «ENDDEFINE»

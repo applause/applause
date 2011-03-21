@@ -161,7 +161,7 @@ detailsview BlogDetails(BlogItem item) {
 
 
 tableview SessionList(Session[] sessions) {
-	title= "My Sessions"
+	title= "Sessions"
 	section {
 		cell Subtitle foreach sessions as session {
 			text= session.title
@@ -195,7 +195,7 @@ detailsview SessionDetails(Session session) {
 //}
 
 tableview SpeakersList(Speaker[] speakers) {
-	title= "Speakers"
+	title= "Speakers" 
 	section {
 		cell Default foreach speakers as s {
 			text= s.name
