@@ -92,7 +92,7 @@ contentprovider SessionById(Session s)
 contentprovider SpeakerById(Speaker s) 
 	resolves Speaker
 	fetches XML
-	from (SERVER_URL "/speakers/id/" s.id ".xml" s.id s.name)
+	from (SERVER_URL "/speakers/id/" s.id ".xml")
 	selects "result.speaker"
 	
 
