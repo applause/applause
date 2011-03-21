@@ -52,7 +52,7 @@ public class SpeakersList extends GenericListActivity<Speaker> {
 			Speaker s = getItem();
 			setText(s.getName());
 
-			setImageURL("http://localhost:3000" + s.getPictureurl());
+			setImageURL("http://10.211.55.2:3000" + s.getPictureurl());
 		}
 
 		@Override

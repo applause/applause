@@ -12,6 +12,17 @@ import org.simpleframework.xml.Root;
 public class BlogItem implements Serializable {
 
 	@Element(required = false)
+	private String guid;
+
+	public String getGuid() {
+		return guid;
+	}
+
+	public void setGuid(String guid) {
+		this.guid = guid;
+	}
+
+	@Element(required = false)
 	private String title;
 
 	public String getTitle() {

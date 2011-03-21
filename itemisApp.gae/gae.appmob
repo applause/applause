@@ -66,8 +66,8 @@ entity Session {
  * FETCHING DATA
  */
 
-//const DATA_SERVER_URL "http://localhost:3000"
-const DATA_SERVER_URL "http://eclipsecon2011-data.webbyapp.com"
+const DATA_SERVER_URL "http://localhost:3000"
+//const DATA_SERVER_URL "http://eclipsecon2011-data.webbyapp.com"
 const FEEDSANITIZER_URL "http://feedsanitizer.appspot.com"
 
 contentprovider Blogposts
@@ -92,7 +92,7 @@ contentprovider SessionById(Session s)
 contentprovider SpeakerById(Speaker s) 
 	resolves Speaker
 	fetches XML
-	from (DATA_SERVER_URL "/speakers/id/" s.id ".xml" s.id s.name)
+	from (DATA_SERVER_URL "/speakers/id/" s.id ".xml")
 	selects "result.speaker"
 	
 

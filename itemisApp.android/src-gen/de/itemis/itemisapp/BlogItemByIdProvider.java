@@ -21,9 +21,21 @@ public class BlogItemByIdProvider extends GenericItemContentProvider<BlogItem> {
 	}
 
 	@Root(strict = false)
-	public static class Result {
+	public static class Rss {
 
-		@Element(required = false, name = "session")
+		@ElementList(inline = true, entry = "channel")
+		private List<Channel> channels = new ArrayList<Channel>();
+
+		public List<Channel> getChannels() {
+			return channels;
+		}
+
+	}
+
+	@Root(strict = false)
+	public static class Channel {
+
+		@Element(required = false, name = "item")
 		private BlogItem blogItem;
 
 		public BlogItem getBlogItem() {
@@ -34,8 +46,8 @@ public class BlogItemByIdProvider extends GenericItemContentProvider<BlogItem> {
 
 	protected BlogItem extractItem(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Result root = serializer.read(Result.class, reader);
-		return root.getBlogItem();
+		Rss root = serializer.read(Rss.class, reader);
+		return root.getChannels().get(0).getBlogItem();
 	}
 
 }

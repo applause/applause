@@ -55,7 +55,7 @@ public class SessionDetails extends DetailsActivity<Session> {
 			Speaker s = getItem();
 			setText(s.getName());
 
-			setImageURL("http://localhost:3000" + s.getPictureurl());
+			setImageURL("http://10.211.55.2:3000" + s.getPictureurl());
 		}
 
 		@Override

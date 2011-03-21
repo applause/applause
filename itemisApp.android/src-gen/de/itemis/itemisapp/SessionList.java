@@ -26,7 +26,7 @@ public class SessionList extends GenericListActivity<Session> {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("My Sessions");
+		setTitle("Sessions");
 
 		sessions = getItemsFromProvider();
 
