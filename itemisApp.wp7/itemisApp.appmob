@@ -7,7 +7,7 @@ tabbarApplication itemisApp {
 	}
 
 	button {
-		title= "Tuesday2"
+		title= "Tuesday"
 		icon= "calendar.png"
 		view= SessionList( SessionsByDay("2011-03-22") )
 	}
