@@ -24,8 +24,9 @@ namespace ItemisApp
         {
         }
         
-        private BlogpostsModelProvider _blogpostsModelProvider;
+        private BlogpostsModelProvider _blogpostsModelProvider;		
         public BlogpostsModelProvider BlogpostsModelProvider() {		                
+
             if (_blogpostsModelProvider == null)
             {
                 _blogpostsModelProvider = new BlogpostsModelProvider();
@@ -33,44 +34,69 @@ namespace ItemisApp
             }
             return _blogpostsModelProvider;
         }
-        private SessionsByDayModelProvider _sessionsByDayModelProvider;
+        private Dictionary<String, SessionsByDayModelProvider> _sessionsByDayModelProvider = new Dictionary<String, SessionsByDayModelProvider>();
         public SessionsByDayModelProvider SessionsByDayModelProvider(String day) {
-            if (_sessionsByDayModelProvider == null)
+            SessionsByDayModelProvider provider = null;
+            if (!_sessionsByDayModelProvider.ContainsKey(day))
             {
-                _sessionsByDayModelProvider = new SessionsByDayModelProvider(day);
-                _sessionsByDayModelProvider.LoadData();
+                provider = new SessionsByDayModelProvider(day);
+                provider.LoadData();
+                _sessionsByDayModelProvider.Add(day, provider);
             }
-            return _sessionsByDayModelProvider;
+            else
+            {
+                provider = _sessionsByDayModelProvider[day];
+            }
+            return provider;
         }
-        private SessionByIdModelProvider _sessionByIdModelProvider;
+        private Dictionary<Session, SessionByIdModelProvider> _sessionByIdModelProvider = new Dictionary<Session, SessionByIdModelProvider>();
         public SessionByIdModelProvider SessionByIdModelProvider(Session s) {
-            if (_sessionByIdModelProvider == null)
+            SessionByIdModelProvider provider = null;
+            if (!_sessionByIdModelProvider.ContainsKey(s))
             {
-                _sessionByIdModelProvider = new SessionByIdModelProvider(s);
-                _sessionByIdModelProvider.LoadData();
+                provider = new SessionByIdModelProvider(s);
+                provider.LoadData();
+                _sessionByIdModelProvider.Add(s, provider);
             }
-            return _sessionByIdModelProvider;
+            else
+            {
+                provider = _sessionByIdModelProvider[s];
+            }
+            return provider;
         }
-        private SpeakerByIdModelProvider _speakerByIdModelProvider;
+        private Dictionary<Speaker, SpeakerByIdModelProvider> _speakerByIdModelProvider = new Dictionary<Speaker, SpeakerByIdModelProvider>();
         public SpeakerByIdModelProvider SpeakerByIdModelProvider(Speaker s) {
-            if (_speakerByIdModelProvider == null)
+            SpeakerByIdModelProvider provider = null;
+            if (!_speakerByIdModelProvider.ContainsKey(s))
             {
-                _speakerByIdModelProvider = new SpeakerByIdModelProvider(s);
-                _speakerByIdModelProvider.LoadData();
+                provider = new SpeakerByIdModelProvider(s);
+                provider.LoadData();
+                _speakerByIdModelProvider.Add(s, provider);
             }
-            return _speakerByIdModelProvider;
+            else
+            {
+                provider = _speakerByIdModelProvider[s];
+            }
+            return provider;
         }
-        private BlogItemByIdModelProvider _blogItemByIdModelProvider;
+        private Dictionary<BlogItem, BlogItemByIdModelProvider> _blogItemByIdModelProvider = new Dictionary<BlogItem, BlogItemByIdModelProvider>();
         public BlogItemByIdModelProvider BlogItemByIdModelProvider(BlogItem b) {
-            if (_blogItemByIdModelProvider == null)
+            BlogItemByIdModelProvider provider = null;
+            if (!_blogItemByIdModelProvider.ContainsKey(b))
             {
-                _blogItemByIdModelProvider = new BlogItemByIdModelProvider(b);
-                _blogItemByIdModelProvider.LoadData();
+                provider = new BlogItemByIdModelProvider(b);
+                provider.LoadData();
+                _blogItemByIdModelProvider.Add(b, provider);
             }
-            return _blogItemByIdModelProvider;
+            else
+            {
+                provider = _blogItemByIdModelProvider[b];
+            }
+            return provider;
         }
-        private AllSpeakersModelProvider _allSpeakersModelProvider;
+        private AllSpeakersModelProvider _allSpeakersModelProvider;		
         public AllSpeakersModelProvider AllSpeakersModelProvider() {		                
+
             if (_allSpeakersModelProvider == null)
             {
                 _allSpeakersModelProvider = new AllSpeakersModelProvider();
@@ -78,14 +104,20 @@ namespace ItemisApp
             }
             return _allSpeakersModelProvider;
         }
-        private SpeakerByNameModelProvider _speakerByNameModelProvider;
+        private Dictionary<String, SpeakerByNameModelProvider> _speakerByNameModelProvider = new Dictionary<String, SpeakerByNameModelProvider>();
         public SpeakerByNameModelProvider SpeakerByNameModelProvider(String name) {
-            if (_speakerByNameModelProvider == null)
+            SpeakerByNameModelProvider provider = null;
+            if (!_speakerByNameModelProvider.ContainsKey(name))
             {
-                _speakerByNameModelProvider = new SpeakerByNameModelProvider(name);
-                _speakerByNameModelProvider.LoadData();
+                provider = new SpeakerByNameModelProvider(name);
+                provider.LoadData();
+                _speakerByNameModelProvider.Add(name, provider);
             }
-            return _speakerByNameModelProvider;
+            else
+            {
+                provider = _speakerByNameModelProvider[name];
+            }
+            return provider;
         }
 
         public bool IsDataLoaded
