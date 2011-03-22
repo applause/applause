@@ -7,25 +7,25 @@ tabbarApplication itemisApp {
 	}
 
 	button {             
-		title= "Monday"
+		title= "Mon"
 		icon= "calendar.png"  
 		view= SessionList( SessionsByDay("2011-03-21") )
 	}
 
 	button {             
-		title= "Tuesday"
+		title= "Tue"
 		icon= "calendar.png"  
 		view= SessionList( SessionsByDay("2011-03-22") )
 	}
 
 	button {    
-		title= "Wednesday"
+		title= "Wed"
 		icon= "calendar.png"
 		view= SessionList( SessionsByDay("2011-03-23") )
 	} 
 	
 	button {    
-		title= "Thursday"
+		title= "Thu"
 		icon= "calendar.png"
 		view= SessionList( SessionsByDay("2011-03-24") )
 	} 
