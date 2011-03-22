@@ -30,7 +30,7 @@
 	controller = [[BlogListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
 	controller.tabBarItem.title = @"News";
-	controller.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
+	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];

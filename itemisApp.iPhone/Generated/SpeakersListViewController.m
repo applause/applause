@@ -25,7 +25,7 @@
     UITableViewCell *cell = [self cellDefaultForTableView:tableView];
 	cell.textLabel.text = [item valueForKeyPath:@"name"];
 	
-	NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://localhost:3000", [item valueForKeyPath:@"pictureurl"]];
+	NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", [item valueForKeyPath:@"pictureurl"]];
 	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	return cell;
 	

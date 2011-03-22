@@ -27,7 +27,7 @@
     UITableViewCell *cell = [self cellDefaultWithDisclosureForTableView:tableView];
 	cell.textLabel.text = [item valueForKeyPath:@"name"];
 	
-	NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://localhost:3000", [item valueForKeyPath:@"pictureurl"]];
+	NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", [item valueForKeyPath:@"pictureurl"]];
 	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	return cell;
 
@@ -59,7 +59,7 @@
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];
-		self.headerView.subtitleLabel.text = [contentProvider valueForKeyPath:@"content.timeslot"];
+		self.headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@%@%@", [contentProvider valueForKeyPath:@"content.date"], @" / ", [contentProvider valueForKeyPath:@"content.timeslot"]];
 		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.description"];
 		
 	}	

@@ -19,7 +19,7 @@
 
 
 -(IPContentProvider*)providerForSessionsByDay:(id)day {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://localhost:3000", @"/sessions/day/", day, @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/sessions/day/", day, @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -31,7 +31,7 @@
 
 
 -(IPContentProvider*)providerForSessionById:(id)s {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://localhost:3000", @"/sessions/id/", [s valueForKeyPath:@"id"], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/sessions/id/", [s valueForKeyPath:@"id"], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -43,7 +43,7 @@
 
 
 -(IPContentProvider*)providerForSpeakerById:(id)s {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://localhost:3000", @"/speakers/id/", [s valueForKeyPath:@"id"], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers/id/", [s valueForKeyPath:@"id"], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -67,7 +67,7 @@
 
 
 -(IPContentProvider*)providerForAllSpeakers {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://localhost:3000", @"/speakers.xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers.xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -79,7 +79,7 @@
 
 
 -(IPContentProvider*)providerForSpeakerByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://localhost:3000", @"/speakers/name/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers/name/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil

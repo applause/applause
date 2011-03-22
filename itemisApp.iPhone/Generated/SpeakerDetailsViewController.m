@@ -114,7 +114,7 @@
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.name"];
 		
 		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.bio"];
-		NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://localhost:3000", [contentProvider valueForKeyPath:@"content.pictureurl"]];
+		NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", [contentProvider valueForKeyPath:@"content.pictureurl"]];
 		self.headerView.image.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	}	
 
