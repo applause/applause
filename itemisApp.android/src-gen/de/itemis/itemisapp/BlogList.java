@@ -26,7 +26,7 @@ public class BlogList extends GenericListActivity<BlogItem> {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("itemis news");
+		setTitle("News");
 
 		items = getItemsFromProvider();
 
@@ -49,19 +49,19 @@ public class BlogList extends GenericListActivity<BlogItem> {
 
 		@Override
 		public void populateRowView() {
-			BlogItem i = getItem();
-			setText(i.getCreator());
-			setDetails(i.getTitle());
+			BlogItem item = getItem();
+			setText(item.getCreator());
+			setDetails(item.getTitle());
 
 		}
 
 		@Override
 		public void handleClick() {
-			BlogItem i = getItem();
+			BlogItem item = getItem();
 
 			Intent intent = new Intent(BlogList.this, BlogDetails.class);
 			Serializable contentProvider = new SimpleItemContentProvider<Object>(
-					i);
+					item);
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 

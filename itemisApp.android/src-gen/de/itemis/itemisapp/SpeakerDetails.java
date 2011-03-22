@@ -32,7 +32,8 @@ public class SpeakerDetails extends DetailsActivity<Speaker> {
 
 		setHeaderTitle(speaker.getName());
 		setHeaderDetails(speaker.getBio());
-		setHeaderImageURL("http://10.211.55.2:3000" + speaker.getPictureurl());
+		setHeaderImageURL("http://eclipsecon2011-data.webbyapp.com"
+				+ speaker.getPictureurl());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 

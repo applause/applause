@@ -52,7 +52,8 @@ public class SpeakersList extends GenericListActivity<Speaker> {
 			Speaker s = getItem();
 			setText(s.getName());
 
-			setImageURL("http://10.211.55.2:3000" + s.getPictureurl());
+			setImageURL("http://eclipsecon2011-data.webbyapp.com"
+					+ s.getPictureurl());
 		}
 
 		@Override
