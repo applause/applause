@@ -27,6 +27,7 @@
 «IF header!=null»
 <div class="header">
   «IF header.title!=null»<div class="header_title">«header.title.expression("data")»</div>«ENDIF»
+  «IF header.subtitle!=null»<div class="header_subtitle">«header.subtitle.expression("data")»</div>«ENDIF»
   «IF header.details!=null»<div class="header_details">«header.details.expression("data")»</div>«ENDIF»
 </div>
 «ENDIF»
