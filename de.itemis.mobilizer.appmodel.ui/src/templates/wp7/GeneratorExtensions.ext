@@ -191,12 +191,12 @@ selectionHandlerName(TableView this, String prefix):
 selectionHandlerName(View this, String prefix):
 	"ERROR";
 	
-namespaceSpecialCaseHandling(Property this):
+String namespaceSpecialCaseHandling(Property this):
 	(this.name == "creator")
 		? "dc + "
 		: "";
 		
-d(int recursion):
+String d(int recursion):
 	(recursion == 0)
 		? ""
 		: "\t\t\t" + d(recursion - 1);
