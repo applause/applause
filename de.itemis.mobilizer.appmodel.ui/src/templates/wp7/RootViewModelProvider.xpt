@@ -51,12 +51,26 @@ namespace «namespace()»
 «ENDDEFINE»
 
 «DEFINE provider FOR ContentProvider-»
-        private «viewModelProviderClassName()» «viewModelProviderClassFieldName()»;
         «IF this.parameter != null-»
+        private Dictionary<«this.parameter.typeName()», «viewModelProviderClassName()»> «viewModelProviderClassFieldName()» = new Dictionary<«this.parameter.typeName()», «viewModelProviderClassName()»>();
         public «viewModelProviderClassName()» «viewModelProviderClassName()»(«this.parameter.typeName()» «this.parameter.name») {
+            «viewModelProviderClassName()» provider = null;
+            if (!«viewModelProviderClassFieldName()».ContainsKey(«this.parameter.name»))
+            {
+                provider = new «viewModelProviderClassName()»(«this.parameter.name»);
+                provider.LoadData();
+                «viewModelProviderClassFieldName()».Add(«this.parameter.name», provider);
+            }
+            else
+            {
+                provider = «viewModelProviderClassFieldName()»[«this.parameter.name»];
+            }
+            return provider;
+        }
 		«ELSE-»
+        private «viewModelProviderClassName()» «viewModelProviderClassFieldName()»;		
         public «viewModelProviderClassName()» «viewModelProviderClassName()»() {		                
-        «ENDIF-»
+
             if («viewModelProviderClassFieldName()» == null)
             {
                 «viewModelProviderClassFieldName()» = new «viewModelProviderClassName()»(«this.parameter.name»);
@@ -64,6 +78,7 @@ namespace «namespace()»
             }
             return «viewModelProviderClassFieldName()»;
         }
+        «ENDIF-»        
 «ENDDEFINE»
 
 «DEFINE loadData FOR ContentProvider-»

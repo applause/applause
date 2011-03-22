@@ -50,7 +50,7 @@ namespace ItemisApp
 				this.IsDataLoaded = true;
 			}
 		}
-
+		
 		void ParseDataFromXml(String source)
 		{
 			this.BlogItems.Clear();
@@ -62,10 +62,10 @@ namespace ItemisApp
 					from blogItem in xdoc.Descendants("item")
 					select new BlogItem
 					{
-						Title = blogItem.Element("title").Value,
-						Link = blogItem.Element("link").Value,
-						Description = blogItem.Element("description").Value,
-						Creator = blogItem.Element(dc + "creator").Value,
+						Title = (blogItem.Element("title") != null) ? blogItem.Element("title").Value : "",
+						Link = (blogItem.Element("link") != null) ? blogItem.Element("link").Value : "",
+						Description = (blogItem.Element("description") != null) ? blogItem.Element("description").Value : "",
+						Creator = (blogItem.Element(dc + "creator") != null) ? blogItem.Element(dc + "creator").Value : "",
 					}
 				).ToList<BlogItem>();
 			result.ForEach(this.BlogItems.Add);
