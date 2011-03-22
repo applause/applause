@@ -38,7 +38,7 @@ namespace ItemisApp
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/speakers.xml"));
+			client.DownloadStringAsync(new Uri("http://eclipsecon2011-data.webbyapp.com" + "/speakers.xml"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -74,6 +74,7 @@ namespace ItemisApp
 									Id = (session.Element("id") != null) ? session.Element("id").Value : "",
 									Title = (session.Element("title") != null) ? session.Element("title").Value : "",
 									Description = (session.Element("description") != null) ? session.Element("description").Value : "",
+									Date = (session.Element("date") != null) ? session.Element("date").Value : "",
 									Timeslot = (session.Element("timeslot") != null) ? session.Element("timeslot").Value : "",
 									Room = (session.Element("room") != null) ? session.Element("room").Value : "",
 								}

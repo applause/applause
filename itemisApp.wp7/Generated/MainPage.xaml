@@ -33,8 +33,8 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Tuesday2">
-                <ListBox x:Name="Tuesday2SessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="Tuesday2SessionList_SelectionChanged">
+            <controls:PivotItem Header="Mon">
+                <ListBox x:Name="MonSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="MonSessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
@@ -46,8 +46,8 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Wednesday">
-                <ListBox x:Name="WednesdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="WednesdaySessionList_SelectionChanged">
+            <controls:PivotItem Header="Tue">
+                <ListBox x:Name="TueSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="TueSessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
@@ -59,8 +59,21 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Thursday">
-                <ListBox x:Name="ThursdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="ThursdaySessionList_SelectionChanged">
+            <controls:PivotItem Header="Wed">
+                <ListBox x:Name="WedSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="WedSessionList_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                          <StackPanel Margin="0,0,0,17" Width="432">
+                              <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Timeslot}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                          </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+            <!--Pivot item -->
+            <controls:PivotItem Header="Thu">
+                <ListBox x:Name="ThuSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="ThuSessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
