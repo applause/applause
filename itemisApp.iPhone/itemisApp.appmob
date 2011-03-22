@@ -126,32 +126,11 @@ tableview BlogList(BlogItem[] items) {
 		cell Subtitle foreach items as item {
 			text= item.creator
 			details= item.title
-			action= BlogDetails(item)
+			action= item.link
 		}			
 			
 	}
 }  
-
-
-
-detailsview BlogDetails(BlogItem item) {
-	title= "Post" 
-	header {
-		title= item.title
-		details= item.description
-	}
-	section {
-		cell Default {
-			text= item.creator
-			action= SpeakerDetails(SpeakerByName(item.creator))
-		}		
-		cell Default {
-			text= "Open in Browser"
-			action= item.link
-		}
-	}
-} 
-
 
 tableview SessionList(Session[] sessions) {
 	title= "Sessions"

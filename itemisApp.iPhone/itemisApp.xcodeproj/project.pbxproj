@@ -45,7 +45,6 @@
 		CB70CE86110C689D00291EA3 /* personLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = CB70CE84110C689D00291EA3 /* personLoading.png */; };
 		CB70CE87110C689D00291EA3 /* personUnknown.png in Resources */ = {isa = PBXBuildFile; fileRef = CB70CE85110C689D00291EA3 /* personUnknown.png */; };
 		CB70CFA6110C7B9A00291EA3 /* IPDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CFA5110C7B9A00291EA3 /* IPDetailsViewController.m */; };
-		CB769F2112A67A4800FBAE59 /* BlogDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1212A67A4800FBAE59 /* BlogDetailsViewController.m */; };
 		CB769F2212A67A4800FBAE59 /* BlogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1412A67A4800FBAE59 /* BlogListViewController.m */; };
 		CB769F2312A67A4800FBAE59 /* itemisAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1612A67A4800FBAE59 /* itemisAppAppDelegate.m */; };
 		CB769F2412A67A4800FBAE59 /* itemisAppProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1812A67A4800FBAE59 /* itemisAppProviders.m */; };
@@ -134,8 +133,6 @@
 		CB70CE85110C689D00291EA3 /* personUnknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personUnknown.png; sourceTree = "<group>"; };
 		CB70CFA4110C7B9A00291EA3 /* IPDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDetailsViewController.h; sourceTree = "<group>"; };
 		CB70CFA5110C7B9A00291EA3 /* IPDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDetailsViewController.m; sourceTree = "<group>"; };
-		CB769F1112A67A4800FBAE59 /* BlogDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogDetailsViewController.h; sourceTree = "<group>"; };
-		CB769F1212A67A4800FBAE59 /* BlogDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogDetailsViewController.m; sourceTree = "<group>"; };
 		CB769F1312A67A4800FBAE59 /* BlogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogListViewController.h; sourceTree = "<group>"; };
 		CB769F1412A67A4800FBAE59 /* BlogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogListViewController.m; sourceTree = "<group>"; };
 		CB769F1512A67A4800FBAE59 /* itemisAppAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemisAppAppDelegate.h; sourceTree = "<group>"; };
@@ -254,8 +251,6 @@
 		CB64F3531281B9AB0006B0FE /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				CB769F1112A67A4800FBAE59 /* BlogDetailsViewController.h */,
-				CB769F1212A67A4800FBAE59 /* BlogDetailsViewController.m */,
 				CB769F1312A67A4800FBAE59 /* BlogListViewController.h */,
 				CB769F1412A67A4800FBAE59 /* BlogListViewController.m */,
 				CB769F1512A67A4800FBAE59 /* itemisAppAppDelegate.h */,
@@ -513,7 +508,6 @@
 				CBAA4BB9110DA678006C9290 /* TTGlobalNetwork.m in Sources */,
 				CBAA4BCD110DA764006C9290 /* IPLoadingView.m in Sources */,
 				CBAA4CB7110DB6EF006C9290 /* IPCache.m in Sources */,
-				CB769F2112A67A4800FBAE59 /* BlogDetailsViewController.m in Sources */,
 				CB769F2212A67A4800FBAE59 /* BlogListViewController.m in Sources */,
 				CB769F2312A67A4800FBAE59 /* itemisAppAppDelegate.m in Sources */,
 				CB769F2412A67A4800FBAE59 /* itemisAppProviders.m in Sources */,

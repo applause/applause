@@ -16,7 +16,8 @@ public class ApplicationActivity extends TabActivity {
 
 		TabSpec tab1 = tabHost.newTabSpec("tab1");
 		// , getResources().getDrawable(R.drawable.microphone)
-		tab1.setIndicator("News", getResources().getDrawable(R.drawable.chat));
+		tab1.setIndicator("News",
+				getResources().getDrawable(R.drawable.calendar));
 
 		Intent tab1Intent = new Intent(this, BlogList.class);
 		BlogpostsProvider tab1IntentProvider = ProviderFactory

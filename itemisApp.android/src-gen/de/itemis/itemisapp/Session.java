@@ -45,6 +45,17 @@ public class Session implements Serializable {
 	}
 
 	@Element(required = false)
+	private String date;
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	@Element(required = false)
 	private String timeslot;
 
 	public String getTimeslot() {

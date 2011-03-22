@@ -11,20 +11,20 @@ public class ProviderFactory {
 	}
 
 	public static SessionsByDayProvider getSessionsByDayProvider(String day) {
-		String feedUrl = "http://10.211.55.2:3000" + "/sessions/day/" + day
-				+ ".xml";
+		String feedUrl = "http://eclipsecon2011-data.webbyapp.com"
+				+ "/sessions/day/" + day + ".xml";
 		return new SessionsByDayProvider(feedUrl);
 	}
 
 	public static SessionByIdProvider getSessionByIdProvider(Session s) {
-		String feedUrl = "http://10.211.55.2:3000" + "/sessions/id/"
-				+ s.getId() + ".xml";
+		String feedUrl = "http://eclipsecon2011-data.webbyapp.com"
+				+ "/sessions/id/" + s.getId() + ".xml";
 		return new SessionByIdProvider(feedUrl);
 	}
 
 	public static SpeakerByIdProvider getSpeakerByIdProvider(Speaker s) {
-		String feedUrl = "http://10.211.55.2:3000" + "/speakers/id/"
-				+ s.getId() + ".xml";
+		String feedUrl = "http://eclipsecon2011-data.webbyapp.com"
+				+ "/speakers/id/" + s.getId() + ".xml";
 		return new SpeakerByIdProvider(feedUrl);
 	}
 
@@ -36,13 +36,14 @@ public class ProviderFactory {
 	}
 
 	public static AllSpeakersProvider getAllSpeakersProvider() {
-		String feedUrl = "http://10.211.55.2:3000" + "/speakers.xml";
+		String feedUrl = "http://eclipsecon2011-data.webbyapp.com"
+				+ "/speakers.xml";
 		return new AllSpeakersProvider(feedUrl);
 	}
 
 	public static SpeakerByNameProvider getSpeakerByNameProvider(String name) {
-		String feedUrl = "http://10.211.55.2:3000" + "/speakers/name/"
-				+ urlconform(name) + ".xml";
+		String feedUrl = "http://eclipsecon2011-data.webbyapp.com"
+				+ "/speakers/name/" + urlconform(name) + ".xml";
 		return new SpeakerByNameProvider(feedUrl);
 	}
 
