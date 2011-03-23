@@ -33,8 +33,8 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Mon">
-                <ListBox x:Name="MonSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="MonSessionList_SelectionChanged">
+            <controls:PivotItem Header="Monday">
+                <ListBox x:Name="MondaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="MondaySessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
@@ -46,8 +46,8 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Tue">
-                <ListBox x:Name="TueSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="TueSessionList_SelectionChanged">
+            <controls:PivotItem Header="Tuesday">
+                <ListBox x:Name="TuesdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="TuesdaySessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
@@ -59,8 +59,8 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Wed">
-                <ListBox x:Name="WedSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="WedSessionList_SelectionChanged">
+            <controls:PivotItem Header="Wednesday">
+                <ListBox x:Name="WednesdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="WednesdaySessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
@@ -72,8 +72,8 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Thu">
-                <ListBox x:Name="ThuSessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="ThuSessionList_SelectionChanged">
+            <controls:PivotItem Header="Thursday">
+                <ListBox x:Name="ThursdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="ThursdaySessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">
