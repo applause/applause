@@ -61,6 +61,21 @@ namespace ItemisApp
 			}
 		}
 
+		private String _date;
+
+		public String Date
+		{
+			get { return _date; }
+			set
+			{
+				if (value != _date)
+				{
+					_date = value;
+					NotifyPropertyChanged("Date");
+				}
+			}
+		}
+
 		private String _timeslot;
 
 		public String Timeslot

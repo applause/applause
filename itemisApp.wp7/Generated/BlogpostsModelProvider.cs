@@ -38,7 +38,7 @@ namespace ItemisApp
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri("http://192.168.210.1:3000" + "/itemisblog-sanitized.rss"));
+			client.DownloadStringAsync(new Uri("http://feedsanitizer.appspot.com" + "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -62,6 +62,7 @@ namespace ItemisApp
 					from blogItem in xdoc.Descendants("item")
 					select new BlogItem
 					{
+						Guid = (blogItem.Element("guid") != null) ? blogItem.Element("guid").Value : "",
 						Title = (blogItem.Element("title") != null) ? blogItem.Element("title").Value : "",
 						Link = (blogItem.Element("link") != null) ? blogItem.Element("link").Value : "",
 						Description = (blogItem.Element("description") != null) ? blogItem.Element("description").Value : "",

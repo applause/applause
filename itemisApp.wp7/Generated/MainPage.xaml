@@ -33,8 +33,21 @@
                 </ListBox>
             </controls:PivotItem>
             <!--Pivot item -->
-            <controls:PivotItem Header="Tuesday2">
-                <ListBox x:Name="Tuesday2SessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="Tuesday2SessionList_SelectionChanged">
+            <controls:PivotItem Header="Monday">
+                <ListBox x:Name="MondaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="MondaySessionList_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                          <StackPanel Margin="0,0,0,17" Width="432">
+                              <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Timeslot}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                          </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </controls:PivotItem>
+            <!--Pivot item -->
+            <controls:PivotItem Header="Tuesday">
+                <ListBox x:Name="TuesdaySessionListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sessions}" SelectionChanged="TuesdaySessionList_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432">

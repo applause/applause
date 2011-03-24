@@ -16,6 +16,21 @@ namespace ItemisApp
 	public class BlogItem : INotifyPropertyChanged
 	{
 		
+		private String _guid;
+
+		public String Guid
+		{
+			get { return _guid; }
+			set
+			{
+				if (value != _guid)
+				{
+					_guid = value;
+					NotifyPropertyChanged("Guid");
+				}
+			}
+		}
+
 		private String _title;
 
 		public String Title
