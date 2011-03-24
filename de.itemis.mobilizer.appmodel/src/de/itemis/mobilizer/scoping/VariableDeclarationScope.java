@@ -17,11 +17,13 @@ public class VariableDeclarationScope extends AbstractScope {
 	protected final EObject context;
 	
 	public VariableDeclarationScope(EObject context) {
+		super(IScope.NULLSCOPE, false);
 		Preconditions.checkNotNull(context);
 		this.context = context;
 	}
 
-	public IScope getOuterScope() {
+	@Override
+	public IScope getParent() {
 		if(context.eContainer() == null)
 			return IScope.NULLSCOPE;
 		else
@@ -29,9 +31,9 @@ public class VariableDeclarationScope extends AbstractScope {
 	}
 
 	@Override
-	protected Iterable<IEObjectDescription> internalGetContents() {
+	protected Iterable<IEObjectDescription> getAllLocalElements() {
 		Iterable<VariableDeclaration> declarations = Iterables.filter(context.eContents(), VariableDeclaration.class);
 		return scopedElementsFor(declarations);
 	}
-
+	
 }

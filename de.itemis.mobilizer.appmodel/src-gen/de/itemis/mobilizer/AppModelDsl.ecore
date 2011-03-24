@@ -4,124 +4,130 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="appModelDsl"
     nsURI="http://www.itemis.de/mobilizer/AppModelDsl" nsPrefix="appModelDsl">
   <eClassifiers xsi:type="ecore:EClass" name="Model">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="#//Application"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="application" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Application"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
-        eType="#//ModelElement" containment="true"/>
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ModelElement"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Application">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="buttons" upperBound="-1"
-        eType="#//TabbarButton" containment="true"/>
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//TabbarButton"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="VariableDeclaration" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ModelElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="TypeDescription">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//VariableDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//TypeDescription"
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//TypeDescription"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ObjectReference" eSuperTypes="#//Expression #//ScalarExpression #//CollectionExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="#//VariableDeclaration"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tail" eType="#//ObjectReference"
+  <eClassifiers xsi:type="ecore:EClass" name="ObjectReference" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CollectionExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="object" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//VariableDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tail" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ObjectReference"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="ScalarExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//Expression #//ScalarExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringFunction" eSuperTypes="#//Expression #//ScalarExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CollectionLiteral" eSuperTypes="#//Expression #//CollectionExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="StringFunction" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionLiteral" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CollectionExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
-        eType="#//ScalarExpression" containment="true"/>
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CollectionFunction" eSuperTypes="#//Expression #//CollectionExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionFunction" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CollectionExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="TabbarButton">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="icon" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//ViewCall"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ViewCall"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//ModelElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleType" eSuperTypes="#//Type">
+  <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ModelElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleType" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="platformType" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Type">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="#//Entity"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="extends" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
-        eType="#//Property" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//VariableDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="#//TypeDescription"
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Property"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ContentProvider" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"
+  <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="derived" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="description" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//TypeDescription"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContentProvider" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Parameter"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="resolver" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="selection" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ProviderConstruction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="#//ModelElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//Parameter"
+  <eClassifiers xsi:type="ecore:EClass" name="View" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ModelElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Parameter"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SectionedView" eSuperTypes="#//View">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="SectionedView" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//View">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
-        eType="#//ViewSection" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableView" eSuperTypes="#//SectionedView"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DetailsView" eSuperTypes="#//SectionedView">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="#//ViewHeader"
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ViewSection"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CustomView" eSuperTypes="#//View">
+  <eClassifiers xsi:type="ecore:EClass" name="TableView" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//SectionedView"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DetailsView" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//SectionedView">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="header" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ViewHeader"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CustomView" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//View">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="objclass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewHeader">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="subtitle" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subtitle" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="details" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="details" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewSection">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
-        eType="#//SectionCell" containment="true"/>
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//SectionCell"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SectionCell">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CellType"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" eType="#//CollectionIterator"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EEnum platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CellType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CollectionIterator"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="details" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="details" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//ScalarExpression"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ViewAction"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ViewAction"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="CellType">
@@ -131,53 +137,54 @@
     <eLiterals name="double" value="3" literal="Double"/>
     <eLiterals name="subtitle" value="4" literal="Subtitle"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CollectionIterator" eSuperTypes="#//VariableDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="collection" eType="#//CollectionExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionIterator" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collection" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CollectionExpression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ViewAction"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ExternalOpen" eSuperTypes="#//ViewAction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="#//ScalarExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="ExternalOpen" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ViewAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="url" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ViewCall" eSuperTypes="#//ViewAction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="#//View"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//ProviderConstruction"
+  <eClassifiers xsi:type="ecore:EClass" name="ViewCall" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ViewAction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="view" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//View"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ProviderConstruction"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringConcat" eSuperTypes="#//StringFunction">
+  <eClassifiers xsi:type="ecore:EClass" name="StringConcat" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//StringFunction">
     <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
-        eType="#//ScalarExpression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringReplace" eSuperTypes="#//StringFunction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="replacement" eType="#//ScalarExpression"
+        eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringUrlConform" eSuperTypes="#//StringFunction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="StringReplace" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//StringFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="match" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="replacement" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="StringSplit" eSuperTypes="#//CollectionFunction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="delimiter" eType="#//ScalarExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="StringUrlConform" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//StringFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="#//VariableDeclaration">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//ScalarExpression"
+  <eClassifiers xsi:type="ecore:EClass" name="StringSplit" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//CollectionFunction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="delimiter" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ComplexProviderConstruction" eSuperTypes="#//ProviderConstruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="#//ContentProvider"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="argument" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="Constant" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//VariableDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ScalarExpression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleProviderConstruction" eSuperTypes="#//ProviderConstruction">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
+  <eClassifiers xsi:type="ecore:EClass" name="ComplexProviderConstruction" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ProviderConstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="provider" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ContentProvider"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="argument" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleProviderConstruction" eSuperTypes="platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//ProviderConstruction">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="ecore:EClass platform:/resource/de.itemis.mobilizer.appmodel/src-gen/de/itemis/mobilizer/AppModelDsl.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

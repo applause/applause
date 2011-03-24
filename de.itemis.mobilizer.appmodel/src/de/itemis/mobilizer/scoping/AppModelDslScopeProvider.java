@@ -3,11 +3,10 @@
  */
 package de.itemis.mobilizer.scoping;
 
-import static org.eclipse.xtext.scoping.Scopes.scopeFor;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.xtext.scoping.IScope;
+import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
 
 import com.google.common.collect.Lists;
@@ -24,14 +23,15 @@ import de.itemis.mobilizer.appModelDsl.ViewSection;
  * 
  * see : http://www.eclipse.org/Xtext/documentation/latest/xtext.html#scoping
  * on how and when to use it 
+ *
  */
 public class AppModelDslScopeProvider extends AbstractDeclarativeScopeProvider {
-	
+
 	IScope _scope_ObjectReference_object(SectionCell context, EReference ref) {
 		ViewSection section = (ViewSection) context.eContainer();
 		TableView tableView = (TableView) section.eContainer();
 		Parameter parameter = tableView.getContent();
-		return scopeFor(Lists.newArrayList(parameter));
+		return Scopes.scopeFor(Lists.newArrayList(parameter));
 	}
 	
 	@Override
@@ -49,5 +49,5 @@ public class AppModelDslScopeProvider extends AbstractDeclarativeScopeProvider {
 			return new VariableDeclarationScope(context);
 	}
 	
-
+	
 }

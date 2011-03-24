@@ -24,18 +24,8 @@ public abstract class AbstractAppModelDslUiModule extends DefaultUiModule {
 	}
 
 	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
-	public Class<? extends org.eclipse.jface.text.rules.ITokenScanner> bindITokenScanner() {
-		return org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AntlrTokenScanner.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.IProposalConflictHelper> bindIProposalConflictHelper() {
 		return org.eclipse.xtext.ui.editor.contentassist.antlr.AntlrProposalConflictHelper.class;
-	}
-
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.IDamagerRepairer> bindIDamagerRepairer() {
-		return org.eclipse.xtext.ui.editor.FastDamagerRepairer.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
@@ -49,8 +39,38 @@ public abstract class AbstractAppModelDslUiModule extends DefaultUiModule {
 	}
 
 	// contributed by org.eclipse.xtext.generator.exporting.QualifiedNamesFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher> bindPrefixMatcher() {
-		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
+	public Class<? extends org.eclipse.xtext.ui.refactoring.IDependentElementsCalculator> bindIDependentElementsCalculator() {
+		return org.eclipse.xtext.ui.refactoring.impl.DefaultDependentElementsCalculator.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public void configureIResourceDescriptionsBuilderScope(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.resource.impl.ResourceDescriptionsProvider.NAMED_BUILDER_SCOPE)).to(org.eclipse.xtext.builder.clustering.CurrentDescriptions.ResourceSetAware.class);
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
+		return org.eclipse.xtext.builder.nature.NatureAddingEditorCallback.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public void configureIResourceDescriptionsPersisted(com.google.inject.Binder binder) {
+		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.builder.impl.PersistentDataAwareDirtyResource.PERSISTED_DESCRIPTIONS)).to(org.eclipse.xtext.builder.builderState.IBuilderState.class);
+	}
+
+	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.DocumentBasedDirtyResource> bindDocumentBasedDirtyResource() {
+		return org.eclipse.xtext.builder.impl.PersistentDataAwareDirtyResource.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.generator.GeneratorFragment
+	public Class<? extends org.eclipse.xtext.builder.IXtextBuilderParticipant> bindIXtextBuilderParticipant() {
+		return org.eclipse.xtext.builder.JavaProjectBasedBuilderParticipant.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.generator.GeneratorFragment
+	public org.eclipse.core.resources.IWorkspaceRoot bindIWorkspaceRootToInstance() {
+		return org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot();
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.labeling.LabelProviderFragment
@@ -63,14 +83,19 @@ public abstract class AbstractAppModelDslUiModule extends DefaultUiModule {
 		binder.bind(org.eclipse.jface.viewers.ILabelProvider.class).annotatedWith(org.eclipse.xtext.ui.resource.ResourceServiceDescriptionLabelProvider.class).to(de.itemis.mobilizer.ui.labeling.AppModelDslDescriptionLabelProvider.class);
 	}
 
-	// contributed by org.eclipse.xtext.ui.generator.outline.TransformerFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.outline.transformer.ISemanticModelTransformer> bindISemanticModelTransformer() {
-		return de.itemis.mobilizer.ui.outline.AppModelDslTransformer.class;
+	// contributed by org.eclipse.xtext.ui.generator.outline.OutlineTreeProviderFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.outline.IOutlineTreeProvider> bindIOutlineTreeProvider() {
+		return de.itemis.mobilizer.ui.outline.AppModelDslOutlineTreeProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.ui.generator.outline.OutlineNodeAdapterFactoryFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.outline.actions.IContentOutlineNodeAdapterFactory> bindIContentOutlineNodeAdapterFactory() {
-		return de.itemis.mobilizer.ui.outline.AppModelDslOutlineNodeAdapterFactory.class;
+	// contributed by org.eclipse.xtext.ui.generator.outline.OutlineTreeProviderFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.outline.impl.IOutlineTreeStructureProvider> bindIOutlineTreeStructureProvider() {
+		return de.itemis.mobilizer.ui.outline.AppModelDslOutlineTreeProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
+		return de.itemis.mobilizer.ui.quickfix.AppModelDslQuickfixProvider.class;
 	}
 
 	// contributed by org.eclipse.xtext.ui.generator.contentAssist.JavaBasedContentAssistFragment
@@ -98,29 +123,44 @@ public abstract class AbstractAppModelDslUiModule extends DefaultUiModule {
 		binder.bind(org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.ui.LexerUIBindings.CONTENT_ASSIST)).to(de.itemis.mobilizer.ui.contentassist.antlr.internal.InternalAppModelDslLexer.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
-	public void configureIResourceDescriptionsBuilderScope(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.scoping.impl.AbstractGlobalScopeProvider.NAMED_BUILDER_SCOPE)).to(org.eclipse.xtext.builder.builderState.ShadowingResourceDescriptions.class);
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public java.lang.ClassLoader bindClassLoaderToInstance() {
+		return getClass().getClassLoader();
 	}
 
-	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.IXtextEditorCallback> bindIXtextEditorCallback() {
-		return org.eclipse.xtext.builder.nature.NatureAddingEditorCallback.class;
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.access.IJvmTypeProvider.Factory> bindIJvmTypeProvider$Factory() {
+		return org.eclipse.xtext.common.types.access.jdt.JdtTypeProviderFactory.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
-	public void configureIResourceDescriptionsPersisted(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.resource.IResourceDescriptions.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.builder.impl.PersistentDataAwareDirtyResource.PERSISTED_DESCRIPTIONS)).to(org.eclipse.xtext.builder.builderState.IBuilderState.class);
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.xtext.AbstractTypeScopeProvider> bindAbstractTypeScopeProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.JdtBasedSimpleTypeScopeProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.DocumentBasedDirtyResource> bindDocumentBasedDirtyResource() {
-		return org.eclipse.xtext.builder.impl.PersistentDataAwareDirtyResource.class;
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.xtext.ui.ITypesProposalProvider> bindITypesProposalProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.JdtTypesProposalProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
-	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
-		return de.itemis.mobilizer.ui.quickfix.AppModelDslQuickfixProvider.class;
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.common.types.access.jdt.IJavaProjectProvider> bindIJavaProjectProvider() {
+		return org.eclipse.xtext.common.types.xtext.ui.XtextResourceSetBasedProjectProvider.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper> bindIHyperlinkHelper() {
+		return org.eclipse.xtext.common.types.xtext.ui.TypeAwareHyperlinkHelper.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.PrefixMatcher> bindPrefixMatcher() {
+		return org.eclipse.xtext.ui.editor.contentassist.FQNPrefixMatcher.class;
+	}
+
+	// contributed by org.eclipse.xtext.generator.types.TypesGeneratorFragment
+	public Class<? extends org.eclipse.xtext.ui.editor.contentassist.AbstractJavaBasedContentProposalProvider.ReferenceProposalCreator> bindAbstractJavaBasedContentProposalProvider$ReferenceProposalCreator() {
+		return org.eclipse.xtext.common.types.xtext.ui.TypeAwareReferenceProposalCreator.class;
 	}
 
 

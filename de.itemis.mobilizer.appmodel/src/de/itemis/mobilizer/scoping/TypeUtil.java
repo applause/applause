@@ -1,5 +1,6 @@
 package de.itemis.mobilizer.scoping;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -160,7 +161,8 @@ public class TypeUtil {
 	
 	public static AppModelDslSwitch<Iterable<ObjectReference>> referencesIn = new AppModelDslSwitch<Iterable<ObjectReference>>() {
 		public Iterable<ObjectReference> caseScalarExpression(ScalarExpression object) {
-			return Iterables.emptyIterable();
+			// TODO: find out better way such as removed Iterables.emptyIterable()
+			return new ArrayList<ObjectReference>();
 		};
 		
 		public Iterable<ObjectReference> caseObjectReference(ObjectReference object) {
@@ -168,7 +170,8 @@ public class TypeUtil {
 		};
 		
 		public Iterable<ObjectReference> caseStringConcat(StringConcat sc) {
-			Iterable<ObjectReference> result = Iterables.emptyIterable();
+			// TODO: find out better way such as removed Iterables.emptyIterable()
+			Iterable<ObjectReference> result = new ArrayList<ObjectReference>();
 			for(ScalarExpression e : sc.getValues()) {
 				result = Iterables.concat(result, getReferencesIn(e));
 			}
@@ -179,7 +182,6 @@ public class TypeUtil {
 			return getReferencesIn(object.getValue());
 		};
 		
-		@SuppressWarnings("unchecked")
 		public Iterable<ObjectReference> caseStringReplace(StringReplace object) {
 			return Iterables.concat(
 					getReferencesIn(object.getValue()),

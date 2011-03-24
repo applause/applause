@@ -2,11 +2,11 @@ package de.itemis.mobilizer.scoping;
 
 import static org.eclipse.xtext.scoping.Scopes.scopedElementsFor;
 
+import java.util.ArrayList;
+
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractScope;
-
-import com.google.common.collect.Iterables;
 
 import de.itemis.mobilizer.appModelDsl.Entity;
 import de.itemis.mobilizer.appModelDsl.ObjectReference;
@@ -17,21 +17,24 @@ public class NestedDeclarationScope extends AbstractScope {
 	private final ObjectReference container;
 
 	public NestedDeclarationScope(ObjectReference container) {
+		super(IScope.NULLSCOPE, false);
 		this.container = container;
 	}
 
-	public IScope getOuterScope() {
+	@Override
+	public IScope getParent() {
 		return IScope.NULLSCOPE;
 	}
-
+	
 	@Override
-	protected Iterable<IEObjectDescription> internalGetContents() {
+	protected Iterable<IEObjectDescription> getAllLocalElements() {
 		TypeDescription outerType = TypeUtil.getTypeOf(container.getObject());
-		if(outerType.getType() instanceof Entity) {
+		if(outerType != null && outerType.getType() instanceof Entity) {
 			Entity entity = (Entity) outerType.getType();
 			return scopedElementsFor(entity.getProperties());
 		} else
-			return Iterables.emptyIterable();
+			// TODO: find out better way such as removed Iterables.emptyIterable()
+			return new ArrayList<IEObjectDescription>();
 	}
 
 }

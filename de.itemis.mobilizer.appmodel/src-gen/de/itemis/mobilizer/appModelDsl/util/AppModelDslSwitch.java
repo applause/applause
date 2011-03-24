@@ -7,10 +7,10 @@ package de.itemis.mobilizer.appModelDsl.util;
 
 import de.itemis.mobilizer.appModelDsl.*;
 
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EPackage;
+import java.util.List;
 
-import org.eclipse.emf.ecore.util.Switch;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see de.itemis.mobilizer.appModelDsl.AppModelDslPackage
  * @generated
  */
-public class AppModelDslSwitch<T> extends Switch<T>
+public class AppModelDslSwitch<T>
 {
   /**
    * The cached model package
@@ -50,17 +50,15 @@ public class AppModelDslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Checks whether this is a switch for the given package.
+   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @parameter ePackage the package in question.
-   * @return whether this is a switch for the given package.
+   * @return the first non-null result returned by a <code>caseXXX</code> call.
    * @generated
    */
-  @Override
-  protected boolean isSwitchFor(EPackage ePackage)
+  public T doSwitch(EObject theEObject)
   {
-    return ePackage == modelPackage;
+    return doSwitch(theEObject.eClass(), theEObject);
   }
 
   /**
@@ -70,7 +68,29 @@ public class AppModelDslSwitch<T> extends Switch<T>
    * @return the first non-null result returned by a <code>caseXXX</code> call.
    * @generated
    */
-  @Override
+  protected T doSwitch(EClass theEClass, EObject theEObject)
+  {
+    if (theEClass.eContainer() == modelPackage)
+    {
+      return doSwitch(theEClass.getClassifierID(), theEObject);
+    }
+    else
+    {
+      List<EClass> eSuperTypes = theEClass.getESuperTypes();
+      return
+        eSuperTypes.isEmpty() ?
+          defaultCase(theEObject) :
+          doSwitch(eSuperTypes.get(0), theEObject);
+    }
+  }
+
+  /**
+   * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the first non-null result returned by a <code>caseXXX</code> call.
+   * @generated
+   */
   protected T doSwitch(int classifierID, EObject theEObject)
   {
     switch (classifierID)
@@ -1063,7 +1083,6 @@ public class AppModelDslSwitch<T> extends Switch<T>
    * @see #doSwitch(org.eclipse.emf.ecore.EObject)
    * @generated
    */
-  @Override
   public T defaultCase(EObject object)
   {
     return null;

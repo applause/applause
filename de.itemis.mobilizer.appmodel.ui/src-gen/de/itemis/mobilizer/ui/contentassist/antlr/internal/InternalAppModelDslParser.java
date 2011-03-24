@@ -26,20 +26,77 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'returns'", "'Default'", "'DefaultWithDisclosure'", "'Value2'", "'Double'", "'Subtitle'", "'.'", "'('", "')'", "'replace('", "','", "'urlconform('", "'['", "']'", "'split('", "'tabbarApplication'", "'{'", "'}'", "'button'", "'title='", "'icon='", "'view='", "'const'", "'type'", "'mapsTo'", "'entity'", "'extends'", "'contentprovider'", "'fetches'", "'XML'", "'from'", "'selects'", "'tableview'", "'detailsview'", "'customview'", "'implementedBy'", "'header'", "'subtitle='", "'details='", "'image='", "'section'", "'cell'", "'foreach'", "'text='", "'action='", "'as'", "'[]'", "'derived'", "'resolves'"
     };
     public static final int RULE_ID=4;
-    public static final int RULE_STRING=5;
+    public static final int T__29=29;
+    public static final int T__28=28;
+    public static final int T__27=27;
+    public static final int T__26=26;
+    public static final int T__25=25;
+    public static final int T__24=24;
+    public static final int T__23=23;
+    public static final int T__22=22;
     public static final int RULE_ANY_OTHER=10;
-    public static final int RULE_INT=6;
-    public static final int RULE_WS=9;
-    public static final int RULE_SL_COMMENT=8;
+    public static final int T__21=21;
+    public static final int T__20=20;
     public static final int EOF=-1;
+    public static final int T__55=55;
+    public static final int T__56=56;
+    public static final int T__19=19;
+    public static final int T__57=57;
+    public static final int T__58=58;
+    public static final int T__51=51;
+    public static final int T__16=16;
+    public static final int T__52=52;
+    public static final int T__15=15;
+    public static final int T__53=53;
+    public static final int T__18=18;
+    public static final int T__54=54;
+    public static final int T__17=17;
+    public static final int T__12=12;
+    public static final int T__11=11;
+    public static final int T__14=14;
+    public static final int T__13=13;
+    public static final int T__59=59;
+    public static final int RULE_INT=6;
+    public static final int T__50=50;
+    public static final int T__42=42;
+    public static final int T__43=43;
+    public static final int T__40=40;
+    public static final int T__41=41;
+    public static final int T__46=46;
+    public static final int T__47=47;
+    public static final int T__44=44;
+    public static final int T__45=45;
+    public static final int T__48=48;
+    public static final int T__49=49;
+    public static final int RULE_SL_COMMENT=8;
     public static final int RULE_ML_COMMENT=7;
+    public static final int T__30=30;
+    public static final int T__31=31;
+    public static final int RULE_STRING=5;
+    public static final int T__32=32;
+    public static final int T__33=33;
+    public static final int T__34=34;
+    public static final int T__35=35;
+    public static final int T__36=36;
+    public static final int T__37=37;
+    public static final int T__38=38;
+    public static final int T__39=39;
+    public static final int RULE_WS=9;
+
+    // delegates
+    // delegators
+
 
         public InternalAppModelDslParser(TokenStream input) {
-            super(input);
+            this(input, new RecognizerSharedState());
+        }
+        public InternalAppModelDslParser(TokenStream input, RecognizerSharedState state) {
+            super(input, state);
+             
         }
         
 
-    public String[] getTokenNames() { return tokenNames; }
+    public String[] getTokenNames() { return InternalAppModelDslParser.tokenNames; }
     public String getGrammarFileName() { return "../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g"; }
 
 
@@ -63,7 +120,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
 
 
 
-    // $ANTLR start entryRuleModel
+    // $ANTLR start "entryRuleModel"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:61:1: entryRuleModel : ruleModel EOF ;
     public final void entryRuleModel() throws RecognitionException {
         try {
@@ -73,7 +130,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getModelRule()); 
             pushFollow(FOLLOW_ruleModel_in_entryRuleModel61);
             ruleModel();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getModelRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleModel68); 
@@ -89,10 +147,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleModel
+    // $ANTLR end "entryRuleModel"
 
 
-    // $ANTLR start ruleModel
+    // $ANTLR start "ruleModel"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:70:1: ruleModel : ( ( rule__Model__Group__0 ) ) ;
     public final void ruleModel() throws RecognitionException {
 
@@ -111,7 +169,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Model__Group__0_in_ruleModel94);
             rule__Model__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -135,10 +194,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleModel
+    // $ANTLR end "ruleModel"
 
 
-    // $ANTLR start entryRuleApplication
+    // $ANTLR start "entryRuleApplication"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:89:1: entryRuleApplication : ruleApplication EOF ;
     public final void entryRuleApplication() throws RecognitionException {
         try {
@@ -148,7 +207,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getApplicationRule()); 
             pushFollow(FOLLOW_ruleApplication_in_entryRuleApplication121);
             ruleApplication();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getApplicationRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleApplication128); 
@@ -164,10 +224,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleApplication
+    // $ANTLR end "entryRuleApplication"
 
 
-    // $ANTLR start ruleApplication
+    // $ANTLR start "ruleApplication"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:98:1: ruleApplication : ( ruleTabBarApplication ) ;
     public final void ruleApplication() throws RecognitionException {
 
@@ -183,7 +243,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getApplicationAccess().getTabBarApplicationParserRuleCall()); 
             pushFollow(FOLLOW_ruleTabBarApplication_in_ruleApplication154);
             ruleTabBarApplication();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getApplicationAccess().getTabBarApplicationParserRuleCall()); 
 
@@ -204,10 +265,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleApplication
+    // $ANTLR end "ruleApplication"
 
 
-    // $ANTLR start entryRuleModelElement
+    // $ANTLR start "entryRuleModelElement"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:117:1: entryRuleModelElement : ruleModelElement EOF ;
     public final void entryRuleModelElement() throws RecognitionException {
         try {
@@ -217,7 +278,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getModelElementRule()); 
             pushFollow(FOLLOW_ruleModelElement_in_entryRuleModelElement180);
             ruleModelElement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getModelElementRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleModelElement187); 
@@ -233,10 +295,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleModelElement
+    // $ANTLR end "entryRuleModelElement"
 
 
-    // $ANTLR start ruleModelElement
+    // $ANTLR start "ruleModelElement"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:126:1: ruleModelElement : ( ( rule__ModelElement__Alternatives ) ) ;
     public final void ruleModelElement() throws RecognitionException {
 
@@ -255,7 +317,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ModelElement__Alternatives_in_ruleModelElement213);
             rule__ModelElement__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -279,10 +342,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleModelElement
+    // $ANTLR end "ruleModelElement"
 
 
-    // $ANTLR start entryRuleTypeDescription
+    // $ANTLR start "entryRuleTypeDescription"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:147:1: entryRuleTypeDescription : ruleTypeDescription EOF ;
     public final void entryRuleTypeDescription() throws RecognitionException {
         try {
@@ -292,7 +355,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTypeDescriptionRule()); 
             pushFollow(FOLLOW_ruleTypeDescription_in_entryRuleTypeDescription242);
             ruleTypeDescription();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTypeDescriptionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleTypeDescription249); 
@@ -308,10 +372,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleTypeDescription
+    // $ANTLR end "entryRuleTypeDescription"
 
 
-    // $ANTLR start ruleTypeDescription
+    // $ANTLR start "ruleTypeDescription"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:156:1: ruleTypeDescription : ( ( rule__TypeDescription__Group__0 ) ) ;
     public final void ruleTypeDescription() throws RecognitionException {
 
@@ -330,7 +394,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TypeDescription__Group__0_in_ruleTypeDescription275);
             rule__TypeDescription__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -354,10 +419,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleTypeDescription
+    // $ANTLR end "ruleTypeDescription"
 
 
-    // $ANTLR start entryRuleParameter
+    // $ANTLR start "entryRuleParameter"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:175:1: entryRuleParameter : ruleParameter EOF ;
     public final void entryRuleParameter() throws RecognitionException {
         try {
@@ -367,7 +432,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getParameterRule()); 
             pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter302);
             ruleParameter();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getParameterRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleParameter309); 
@@ -383,10 +449,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleParameter
+    // $ANTLR end "entryRuleParameter"
 
 
-    // $ANTLR start ruleParameter
+    // $ANTLR start "ruleParameter"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:184:1: ruleParameter : ( ( rule__Parameter__Group__0 ) ) ;
     public final void ruleParameter() throws RecognitionException {
 
@@ -405,7 +471,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Parameter__Group__0_in_ruleParameter335);
             rule__Parameter__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -429,10 +496,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleParameter
+    // $ANTLR end "ruleParameter"
 
 
-    // $ANTLR start entryRuleObjectReference
+    // $ANTLR start "entryRuleObjectReference"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:203:1: entryRuleObjectReference : ruleObjectReference EOF ;
     public final void entryRuleObjectReference() throws RecognitionException {
         try {
@@ -442,7 +509,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getObjectReferenceRule()); 
             pushFollow(FOLLOW_ruleObjectReference_in_entryRuleObjectReference362);
             ruleObjectReference();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getObjectReferenceRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleObjectReference369); 
@@ -458,10 +526,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleObjectReference
+    // $ANTLR end "entryRuleObjectReference"
 
 
-    // $ANTLR start ruleObjectReference
+    // $ANTLR start "ruleObjectReference"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:212:1: ruleObjectReference : ( ( rule__ObjectReference__Group__0 ) ) ;
     public final void ruleObjectReference() throws RecognitionException {
 
@@ -480,7 +548,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ObjectReference__Group__0_in_ruleObjectReference395);
             rule__ObjectReference__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -504,10 +573,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleObjectReference
+    // $ANTLR end "ruleObjectReference"
 
 
-    // $ANTLR start entryRuleNestedObjectReference
+    // $ANTLR start "entryRuleNestedObjectReference"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:231:1: entryRuleNestedObjectReference : ruleNestedObjectReference EOF ;
     public final void entryRuleNestedObjectReference() throws RecognitionException {
         try {
@@ -517,7 +586,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getNestedObjectReferenceRule()); 
             pushFollow(FOLLOW_ruleNestedObjectReference_in_entryRuleNestedObjectReference422);
             ruleNestedObjectReference();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getNestedObjectReferenceRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleNestedObjectReference429); 
@@ -533,10 +603,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleNestedObjectReference
+    // $ANTLR end "entryRuleNestedObjectReference"
 
 
-    // $ANTLR start ruleNestedObjectReference
+    // $ANTLR start "ruleNestedObjectReference"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:240:1: ruleNestedObjectReference : ( ( rule__NestedObjectReference__Group__0 ) ) ;
     public final void ruleNestedObjectReference() throws RecognitionException {
 
@@ -555,7 +625,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__NestedObjectReference__Group__0_in_ruleNestedObjectReference455);
             rule__NestedObjectReference__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -579,10 +650,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleNestedObjectReference
+    // $ANTLR end "ruleNestedObjectReference"
 
 
-    // $ANTLR start entryRuleExpression
+    // $ANTLR start "entryRuleExpression"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:259:1: entryRuleExpression : ruleExpression EOF ;
     public final void entryRuleExpression() throws RecognitionException {
         try {
@@ -592,7 +663,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getExpressionRule()); 
             pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression482);
             ruleExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getExpressionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleExpression489); 
@@ -608,10 +680,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleExpression
+    // $ANTLR end "entryRuleExpression"
 
 
-    // $ANTLR start ruleExpression
+    // $ANTLR start "ruleExpression"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:268:1: ruleExpression : ( ( rule__Expression__Alternatives ) ) ;
     public final void ruleExpression() throws RecognitionException {
 
@@ -630,7 +702,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Expression__Alternatives_in_ruleExpression515);
             rule__Expression__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -654,10 +727,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleExpression
+    // $ANTLR end "ruleExpression"
 
 
-    // $ANTLR start entryRuleScalarExpression
+    // $ANTLR start "entryRuleScalarExpression"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:287:1: entryRuleScalarExpression : ruleScalarExpression EOF ;
     public final void entryRuleScalarExpression() throws RecognitionException {
         try {
@@ -667,7 +740,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getScalarExpressionRule()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_entryRuleScalarExpression542);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getScalarExpressionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleScalarExpression549); 
@@ -683,10 +757,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleScalarExpression
+    // $ANTLR end "entryRuleScalarExpression"
 
 
-    // $ANTLR start ruleScalarExpression
+    // $ANTLR start "ruleScalarExpression"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:296:1: ruleScalarExpression : ( ( rule__ScalarExpression__Alternatives ) ) ;
     public final void ruleScalarExpression() throws RecognitionException {
 
@@ -705,7 +779,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ScalarExpression__Alternatives_in_ruleScalarExpression575);
             rule__ScalarExpression__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -729,10 +804,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleScalarExpression
+    // $ANTLR end "ruleScalarExpression"
 
 
-    // $ANTLR start entryRuleCollectionExpression
+    // $ANTLR start "entryRuleCollectionExpression"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:315:1: entryRuleCollectionExpression : ruleCollectionExpression EOF ;
     public final void entryRuleCollectionExpression() throws RecognitionException {
         try {
@@ -742,7 +817,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionExpressionRule()); 
             pushFollow(FOLLOW_ruleCollectionExpression_in_entryRuleCollectionExpression602);
             ruleCollectionExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionExpressionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionExpression609); 
@@ -758,10 +834,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleCollectionExpression
+    // $ANTLR end "entryRuleCollectionExpression"
 
 
-    // $ANTLR start ruleCollectionExpression
+    // $ANTLR start "ruleCollectionExpression"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:324:1: ruleCollectionExpression : ( ( rule__CollectionExpression__Alternatives ) ) ;
     public final void ruleCollectionExpression() throws RecognitionException {
 
@@ -780,7 +856,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionExpression__Alternatives_in_ruleCollectionExpression635);
             rule__CollectionExpression__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -804,10 +881,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleCollectionExpression
+    // $ANTLR end "ruleCollectionExpression"
 
 
-    // $ANTLR start entryRuleStringLiteral
+    // $ANTLR start "entryRuleStringLiteral"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:343:1: entryRuleStringLiteral : ruleStringLiteral EOF ;
     public final void entryRuleStringLiteral() throws RecognitionException {
         try {
@@ -817,7 +894,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringLiteralRule()); 
             pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral662);
             ruleStringLiteral();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringLiteralRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral669); 
@@ -833,10 +911,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleStringLiteral
+    // $ANTLR end "entryRuleStringLiteral"
 
 
-    // $ANTLR start ruleStringLiteral
+    // $ANTLR start "ruleStringLiteral"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:352:1: ruleStringLiteral : ( ( rule__StringLiteral__ValueAssignment ) ) ;
     public final void ruleStringLiteral() throws RecognitionException {
 
@@ -855,7 +933,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringLiteral__ValueAssignment_in_ruleStringLiteral695);
             rule__StringLiteral__ValueAssignment();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -879,10 +958,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleStringLiteral
+    // $ANTLR end "ruleStringLiteral"
 
 
-    // $ANTLR start entryRuleStringFunction
+    // $ANTLR start "entryRuleStringFunction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:371:1: entryRuleStringFunction : ruleStringFunction EOF ;
     public final void entryRuleStringFunction() throws RecognitionException {
         try {
@@ -892,7 +971,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringFunctionRule()); 
             pushFollow(FOLLOW_ruleStringFunction_in_entryRuleStringFunction722);
             ruleStringFunction();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringFunctionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleStringFunction729); 
@@ -908,10 +988,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleStringFunction
+    // $ANTLR end "entryRuleStringFunction"
 
 
-    // $ANTLR start ruleStringFunction
+    // $ANTLR start "ruleStringFunction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:380:1: ruleStringFunction : ( ( rule__StringFunction__Alternatives ) ) ;
     public final void ruleStringFunction() throws RecognitionException {
 
@@ -930,7 +1010,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Alternatives_in_ruleStringFunction755);
             rule__StringFunction__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -954,10 +1035,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleStringFunction
+    // $ANTLR end "ruleStringFunction"
 
 
-    // $ANTLR start entryRuleCollectionLiteral
+    // $ANTLR start "entryRuleCollectionLiteral"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:399:1: entryRuleCollectionLiteral : ruleCollectionLiteral EOF ;
     public final void entryRuleCollectionLiteral() throws RecognitionException {
         try {
@@ -967,7 +1048,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionLiteralRule()); 
             pushFollow(FOLLOW_ruleCollectionLiteral_in_entryRuleCollectionLiteral782);
             ruleCollectionLiteral();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionLiteralRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionLiteral789); 
@@ -983,10 +1065,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleCollectionLiteral
+    // $ANTLR end "entryRuleCollectionLiteral"
 
 
-    // $ANTLR start ruleCollectionLiteral
+    // $ANTLR start "ruleCollectionLiteral"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:408:1: ruleCollectionLiteral : ( ( rule__CollectionLiteral__Group__0 ) ) ;
     public final void ruleCollectionLiteral() throws RecognitionException {
 
@@ -1005,7 +1087,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__0_in_ruleCollectionLiteral815);
             rule__CollectionLiteral__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1029,10 +1112,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleCollectionLiteral
+    // $ANTLR end "ruleCollectionLiteral"
 
 
-    // $ANTLR start entryRuleCollectionFunction
+    // $ANTLR start "entryRuleCollectionFunction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:427:1: entryRuleCollectionFunction : ruleCollectionFunction EOF ;
     public final void entryRuleCollectionFunction() throws RecognitionException {
         try {
@@ -1042,7 +1125,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionFunctionRule()); 
             pushFollow(FOLLOW_ruleCollectionFunction_in_entryRuleCollectionFunction842);
             ruleCollectionFunction();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionFunctionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionFunction849); 
@@ -1058,10 +1142,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleCollectionFunction
+    // $ANTLR end "entryRuleCollectionFunction"
 
 
-    // $ANTLR start ruleCollectionFunction
+    // $ANTLR start "ruleCollectionFunction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:436:1: ruleCollectionFunction : ( ( rule__CollectionFunction__Group__0 ) ) ;
     public final void ruleCollectionFunction() throws RecognitionException {
 
@@ -1080,7 +1164,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__0_in_ruleCollectionFunction875);
             rule__CollectionFunction__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1104,10 +1189,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleCollectionFunction
+    // $ANTLR end "ruleCollectionFunction"
 
 
-    // $ANTLR start entryRuleTabBarApplication
+    // $ANTLR start "entryRuleTabBarApplication"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:455:1: entryRuleTabBarApplication : ruleTabBarApplication EOF ;
     public final void entryRuleTabBarApplication() throws RecognitionException {
         try {
@@ -1117,7 +1202,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTabBarApplicationRule()); 
             pushFollow(FOLLOW_ruleTabBarApplication_in_entryRuleTabBarApplication902);
             ruleTabBarApplication();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTabBarApplicationRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleTabBarApplication909); 
@@ -1133,10 +1219,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleTabBarApplication
+    // $ANTLR end "entryRuleTabBarApplication"
 
 
-    // $ANTLR start ruleTabBarApplication
+    // $ANTLR start "ruleTabBarApplication"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:464:1: ruleTabBarApplication : ( ( rule__TabBarApplication__Group__0 ) ) ;
     public final void ruleTabBarApplication() throws RecognitionException {
 
@@ -1155,7 +1241,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__Group__0_in_ruleTabBarApplication935);
             rule__TabBarApplication__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1179,10 +1266,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleTabBarApplication
+    // $ANTLR end "ruleTabBarApplication"
 
 
-    // $ANTLR start entryRuleTabbarButton
+    // $ANTLR start "entryRuleTabbarButton"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:483:1: entryRuleTabbarButton : ruleTabbarButton EOF ;
     public final void entryRuleTabbarButton() throws RecognitionException {
         try {
@@ -1192,7 +1279,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTabbarButtonRule()); 
             pushFollow(FOLLOW_ruleTabbarButton_in_entryRuleTabbarButton962);
             ruleTabbarButton();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTabbarButtonRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleTabbarButton969); 
@@ -1208,10 +1296,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleTabbarButton
+    // $ANTLR end "entryRuleTabbarButton"
 
 
-    // $ANTLR start ruleTabbarButton
+    // $ANTLR start "ruleTabbarButton"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:492:1: ruleTabbarButton : ( ( rule__TabbarButton__Group__0 ) ) ;
     public final void ruleTabbarButton() throws RecognitionException {
 
@@ -1230,7 +1318,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__0_in_ruleTabbarButton995);
             rule__TabbarButton__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1254,10 +1343,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleTabbarButton
+    // $ANTLR end "ruleTabbarButton"
 
 
-    // $ANTLR start entryRuleConstant
+    // $ANTLR start "entryRuleConstant"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:511:1: entryRuleConstant : ruleConstant EOF ;
     public final void entryRuleConstant() throws RecognitionException {
         try {
@@ -1267,7 +1356,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getConstantRule()); 
             pushFollow(FOLLOW_ruleConstant_in_entryRuleConstant1022);
             ruleConstant();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getConstantRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleConstant1029); 
@@ -1283,10 +1373,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleConstant
+    // $ANTLR end "entryRuleConstant"
 
 
-    // $ANTLR start ruleConstant
+    // $ANTLR start "ruleConstant"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:520:1: ruleConstant : ( ( rule__Constant__Group__0 ) ) ;
     public final void ruleConstant() throws RecognitionException {
 
@@ -1305,7 +1395,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__Group__0_in_ruleConstant1055);
             rule__Constant__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1329,10 +1420,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleConstant
+    // $ANTLR end "ruleConstant"
 
 
-    // $ANTLR start entryRuleType
+    // $ANTLR start "entryRuleType"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:539:1: entryRuleType : ruleType EOF ;
     public final void entryRuleType() throws RecognitionException {
         try {
@@ -1342,7 +1433,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTypeRule()); 
             pushFollow(FOLLOW_ruleType_in_entryRuleType1082);
             ruleType();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTypeRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleType1089); 
@@ -1358,10 +1450,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleType
+    // $ANTLR end "entryRuleType"
 
 
-    // $ANTLR start ruleType
+    // $ANTLR start "ruleType"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:548:1: ruleType : ( ( rule__Type__Alternatives ) ) ;
     public final void ruleType() throws RecognitionException {
 
@@ -1380,7 +1472,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Type__Alternatives_in_ruleType1115);
             rule__Type__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1404,10 +1497,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleType
+    // $ANTLR end "ruleType"
 
 
-    // $ANTLR start entryRuleSimpleType
+    // $ANTLR start "entryRuleSimpleType"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:567:1: entryRuleSimpleType : ruleSimpleType EOF ;
     public final void entryRuleSimpleType() throws RecognitionException {
         try {
@@ -1417,7 +1510,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSimpleTypeRule()); 
             pushFollow(FOLLOW_ruleSimpleType_in_entryRuleSimpleType1142);
             ruleSimpleType();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSimpleTypeRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleSimpleType1149); 
@@ -1433,10 +1527,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleSimpleType
+    // $ANTLR end "entryRuleSimpleType"
 
 
-    // $ANTLR start ruleSimpleType
+    // $ANTLR start "ruleSimpleType"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:576:1: ruleSimpleType : ( ( rule__SimpleType__Group__0 ) ) ;
     public final void ruleSimpleType() throws RecognitionException {
 
@@ -1455,7 +1549,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__Group__0_in_ruleSimpleType1175);
             rule__SimpleType__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1479,10 +1574,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleSimpleType
+    // $ANTLR end "ruleSimpleType"
 
 
-    // $ANTLR start entryRuleEntity
+    // $ANTLR start "entryRuleEntity"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:595:1: entryRuleEntity : ruleEntity EOF ;
     public final void entryRuleEntity() throws RecognitionException {
         try {
@@ -1492,7 +1587,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getEntityRule()); 
             pushFollow(FOLLOW_ruleEntity_in_entryRuleEntity1202);
             ruleEntity();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getEntityRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleEntity1209); 
@@ -1508,10 +1604,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleEntity
+    // $ANTLR end "entryRuleEntity"
 
 
-    // $ANTLR start ruleEntity
+    // $ANTLR start "ruleEntity"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:604:1: ruleEntity : ( ( rule__Entity__Group__0 ) ) ;
     public final void ruleEntity() throws RecognitionException {
 
@@ -1530,7 +1626,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__0_in_ruleEntity1235);
             rule__Entity__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1554,10 +1651,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleEntity
+    // $ANTLR end "ruleEntity"
 
 
-    // $ANTLR start entryRuleProperty
+    // $ANTLR start "entryRuleProperty"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:623:1: entryRuleProperty : ruleProperty EOF ;
     public final void entryRuleProperty() throws RecognitionException {
         try {
@@ -1567,7 +1664,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getPropertyRule()); 
             pushFollow(FOLLOW_ruleProperty_in_entryRuleProperty1262);
             ruleProperty();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getPropertyRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleProperty1269); 
@@ -1583,10 +1681,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleProperty
+    // $ANTLR end "entryRuleProperty"
 
 
-    // $ANTLR start ruleProperty
+    // $ANTLR start "ruleProperty"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:632:1: ruleProperty : ( ( rule__Property__Group__0 ) ) ;
     public final void ruleProperty() throws RecognitionException {
 
@@ -1605,7 +1703,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Property__Group__0_in_ruleProperty1295);
             rule__Property__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1629,10 +1728,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleProperty
+    // $ANTLR end "ruleProperty"
 
 
-    // $ANTLR start entryRuleContentProvider
+    // $ANTLR start "entryRuleContentProvider"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:651:1: entryRuleContentProvider : ruleContentProvider EOF ;
     public final void entryRuleContentProvider() throws RecognitionException {
         try {
@@ -1642,7 +1741,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getContentProviderRule()); 
             pushFollow(FOLLOW_ruleContentProvider_in_entryRuleContentProvider1322);
             ruleContentProvider();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getContentProviderRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleContentProvider1329); 
@@ -1658,10 +1758,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleContentProvider
+    // $ANTLR end "entryRuleContentProvider"
 
 
-    // $ANTLR start ruleContentProvider
+    // $ANTLR start "ruleContentProvider"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:660:1: ruleContentProvider : ( ( rule__ContentProvider__Group__0 ) ) ;
     public final void ruleContentProvider() throws RecognitionException {
 
@@ -1680,7 +1780,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__0_in_ruleContentProvider1355);
             rule__ContentProvider__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1704,10 +1805,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleContentProvider
+    // $ANTLR end "ruleContentProvider"
 
 
-    // $ANTLR start entryRuleProviderConstruction
+    // $ANTLR start "entryRuleProviderConstruction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:679:1: entryRuleProviderConstruction : ruleProviderConstruction EOF ;
     public final void entryRuleProviderConstruction() throws RecognitionException {
         try {
@@ -1717,7 +1818,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getProviderConstructionRule()); 
             pushFollow(FOLLOW_ruleProviderConstruction_in_entryRuleProviderConstruction1382);
             ruleProviderConstruction();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProviderConstructionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleProviderConstruction1389); 
@@ -1733,10 +1835,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleProviderConstruction
+    // $ANTLR end "entryRuleProviderConstruction"
 
 
-    // $ANTLR start ruleProviderConstruction
+    // $ANTLR start "ruleProviderConstruction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:688:1: ruleProviderConstruction : ( ( rule__ProviderConstruction__Alternatives ) ) ;
     public final void ruleProviderConstruction() throws RecognitionException {
 
@@ -1755,7 +1857,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Alternatives_in_ruleProviderConstruction1415);
             rule__ProviderConstruction__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1779,10 +1882,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleProviderConstruction
+    // $ANTLR end "ruleProviderConstruction"
 
 
-    // $ANTLR start entryRuleView
+    // $ANTLR start "entryRuleView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:707:1: entryRuleView : ruleView EOF ;
     public final void entryRuleView() throws RecognitionException {
         try {
@@ -1792,7 +1895,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewRule()); 
             pushFollow(FOLLOW_ruleView_in_entryRuleView1442);
             ruleView();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleView1449); 
@@ -1808,10 +1912,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleView
+    // $ANTLR end "entryRuleView"
 
 
-    // $ANTLR start ruleView
+    // $ANTLR start "ruleView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:716:1: ruleView : ( ( rule__View__Alternatives ) ) ;
     public final void ruleView() throws RecognitionException {
 
@@ -1830,7 +1934,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__View__Alternatives_in_ruleView1475);
             rule__View__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1854,10 +1959,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleView
+    // $ANTLR end "ruleView"
 
 
-    // $ANTLR start entryRuleSectionedView
+    // $ANTLR start "entryRuleSectionedView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:735:1: entryRuleSectionedView : ruleSectionedView EOF ;
     public final void entryRuleSectionedView() throws RecognitionException {
         try {
@@ -1867,7 +1972,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionedViewRule()); 
             pushFollow(FOLLOW_ruleSectionedView_in_entryRuleSectionedView1502);
             ruleSectionedView();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionedViewRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleSectionedView1509); 
@@ -1883,10 +1989,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleSectionedView
+    // $ANTLR end "entryRuleSectionedView"
 
 
-    // $ANTLR start ruleSectionedView
+    // $ANTLR start "ruleSectionedView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:744:1: ruleSectionedView : ( ( rule__SectionedView__Alternatives ) ) ;
     public final void ruleSectionedView() throws RecognitionException {
 
@@ -1905,7 +2011,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionedView__Alternatives_in_ruleSectionedView1535);
             rule__SectionedView__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -1929,10 +2036,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleSectionedView
+    // $ANTLR end "ruleSectionedView"
 
 
-    // $ANTLR start entryRuleTableView
+    // $ANTLR start "entryRuleTableView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:763:1: entryRuleTableView : ruleTableView EOF ;
     public final void entryRuleTableView() throws RecognitionException {
         try {
@@ -1942,7 +2049,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTableViewRule()); 
             pushFollow(FOLLOW_ruleTableView_in_entryRuleTableView1562);
             ruleTableView();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTableViewRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleTableView1569); 
@@ -1958,10 +2066,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleTableView
+    // $ANTLR end "entryRuleTableView"
 
 
-    // $ANTLR start ruleTableView
+    // $ANTLR start "ruleTableView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:772:1: ruleTableView : ( ( rule__TableView__Group__0 ) ) ;
     public final void ruleTableView() throws RecognitionException {
 
@@ -1980,7 +2088,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__0_in_ruleTableView1595);
             rule__TableView__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2004,10 +2113,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleTableView
+    // $ANTLR end "ruleTableView"
 
 
-    // $ANTLR start entryRuleDetailsView
+    // $ANTLR start "entryRuleDetailsView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:791:1: entryRuleDetailsView : ruleDetailsView EOF ;
     public final void entryRuleDetailsView() throws RecognitionException {
         try {
@@ -2017,7 +2126,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getDetailsViewRule()); 
             pushFollow(FOLLOW_ruleDetailsView_in_entryRuleDetailsView1622);
             ruleDetailsView();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getDetailsViewRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleDetailsView1629); 
@@ -2033,10 +2143,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleDetailsView
+    // $ANTLR end "entryRuleDetailsView"
 
 
-    // $ANTLR start ruleDetailsView
+    // $ANTLR start "ruleDetailsView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:800:1: ruleDetailsView : ( ( rule__DetailsView__Group__0 ) ) ;
     public final void ruleDetailsView() throws RecognitionException {
 
@@ -2055,7 +2165,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__0_in_ruleDetailsView1655);
             rule__DetailsView__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2079,10 +2190,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleDetailsView
+    // $ANTLR end "ruleDetailsView"
 
 
-    // $ANTLR start entryRuleCustomView
+    // $ANTLR start "entryRuleCustomView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:819:1: entryRuleCustomView : ruleCustomView EOF ;
     public final void entryRuleCustomView() throws RecognitionException {
         try {
@@ -2092,7 +2203,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCustomViewRule()); 
             pushFollow(FOLLOW_ruleCustomView_in_entryRuleCustomView1682);
             ruleCustomView();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCustomViewRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleCustomView1689); 
@@ -2108,10 +2220,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleCustomView
+    // $ANTLR end "entryRuleCustomView"
 
 
-    // $ANTLR start ruleCustomView
+    // $ANTLR start "ruleCustomView"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:828:1: ruleCustomView : ( ( rule__CustomView__Group__0 ) ) ;
     public final void ruleCustomView() throws RecognitionException {
 
@@ -2130,7 +2242,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group__0_in_ruleCustomView1715);
             rule__CustomView__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2154,10 +2267,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleCustomView
+    // $ANTLR end "ruleCustomView"
 
 
-    // $ANTLR start entryRuleViewHeader
+    // $ANTLR start "entryRuleViewHeader"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:847:1: entryRuleViewHeader : ruleViewHeader EOF ;
     public final void entryRuleViewHeader() throws RecognitionException {
         try {
@@ -2167,7 +2280,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewHeaderRule()); 
             pushFollow(FOLLOW_ruleViewHeader_in_entryRuleViewHeader1742);
             ruleViewHeader();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewHeaderRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleViewHeader1749); 
@@ -2183,10 +2297,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleViewHeader
+    // $ANTLR end "entryRuleViewHeader"
 
 
-    // $ANTLR start ruleViewHeader
+    // $ANTLR start "ruleViewHeader"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:856:1: ruleViewHeader : ( ( rule__ViewHeader__Group__0 ) ) ;
     public final void ruleViewHeader() throws RecognitionException {
 
@@ -2205,7 +2319,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__0_in_ruleViewHeader1775);
             rule__ViewHeader__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2229,10 +2344,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleViewHeader
+    // $ANTLR end "ruleViewHeader"
 
 
-    // $ANTLR start entryRuleViewSection
+    // $ANTLR start "entryRuleViewSection"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:875:1: entryRuleViewSection : ruleViewSection EOF ;
     public final void entryRuleViewSection() throws RecognitionException {
         try {
@@ -2242,7 +2357,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewSectionRule()); 
             pushFollow(FOLLOW_ruleViewSection_in_entryRuleViewSection1802);
             ruleViewSection();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewSectionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleViewSection1809); 
@@ -2258,10 +2374,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleViewSection
+    // $ANTLR end "entryRuleViewSection"
 
 
-    // $ANTLR start ruleViewSection
+    // $ANTLR start "ruleViewSection"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:884:1: ruleViewSection : ( ( rule__ViewSection__Group__0 ) ) ;
     public final void ruleViewSection() throws RecognitionException {
 
@@ -2280,7 +2396,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group__0_in_ruleViewSection1835);
             rule__ViewSection__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2304,10 +2421,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleViewSection
+    // $ANTLR end "ruleViewSection"
 
 
-    // $ANTLR start entryRuleSectionCell
+    // $ANTLR start "entryRuleSectionCell"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:903:1: entryRuleSectionCell : ruleSectionCell EOF ;
     public final void entryRuleSectionCell() throws RecognitionException {
         try {
@@ -2317,7 +2434,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellRule()); 
             pushFollow(FOLLOW_ruleSectionCell_in_entryRuleSectionCell1862);
             ruleSectionCell();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleSectionCell1869); 
@@ -2333,10 +2451,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleSectionCell
+    // $ANTLR end "entryRuleSectionCell"
 
 
-    // $ANTLR start ruleSectionCell
+    // $ANTLR start "ruleSectionCell"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:912:1: ruleSectionCell : ( ( rule__SectionCell__Group__0 ) ) ;
     public final void ruleSectionCell() throws RecognitionException {
 
@@ -2355,7 +2473,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__0_in_ruleSectionCell1895);
             rule__SectionCell__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2379,10 +2498,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleSectionCell
+    // $ANTLR end "ruleSectionCell"
 
 
-    // $ANTLR start entryRuleCollectionIterator
+    // $ANTLR start "entryRuleCollectionIterator"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:931:1: entryRuleCollectionIterator : ruleCollectionIterator EOF ;
     public final void entryRuleCollectionIterator() throws RecognitionException {
         try {
@@ -2392,7 +2511,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionIteratorRule()); 
             pushFollow(FOLLOW_ruleCollectionIterator_in_entryRuleCollectionIterator1922);
             ruleCollectionIterator();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionIteratorRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionIterator1929); 
@@ -2408,10 +2528,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleCollectionIterator
+    // $ANTLR end "entryRuleCollectionIterator"
 
 
-    // $ANTLR start ruleCollectionIterator
+    // $ANTLR start "ruleCollectionIterator"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:940:1: ruleCollectionIterator : ( ( rule__CollectionIterator__Group__0 ) ) ;
     public final void ruleCollectionIterator() throws RecognitionException {
 
@@ -2430,7 +2550,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionIterator__Group__0_in_ruleCollectionIterator1955);
             rule__CollectionIterator__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2454,10 +2575,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleCollectionIterator
+    // $ANTLR end "ruleCollectionIterator"
 
 
-    // $ANTLR start entryRuleViewAction
+    // $ANTLR start "entryRuleViewAction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:959:1: entryRuleViewAction : ruleViewAction EOF ;
     public final void entryRuleViewAction() throws RecognitionException {
         try {
@@ -2467,7 +2588,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewActionRule()); 
             pushFollow(FOLLOW_ruleViewAction_in_entryRuleViewAction1982);
             ruleViewAction();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewActionRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleViewAction1989); 
@@ -2483,10 +2605,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleViewAction
+    // $ANTLR end "entryRuleViewAction"
 
 
-    // $ANTLR start ruleViewAction
+    // $ANTLR start "ruleViewAction"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:968:1: ruleViewAction : ( ( rule__ViewAction__Alternatives ) ) ;
     public final void ruleViewAction() throws RecognitionException {
 
@@ -2505,7 +2627,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewAction__Alternatives_in_ruleViewAction2015);
             rule__ViewAction__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2529,10 +2652,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleViewAction
+    // $ANTLR end "ruleViewAction"
 
 
-    // $ANTLR start entryRuleExternalOpen
+    // $ANTLR start "entryRuleExternalOpen"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:987:1: entryRuleExternalOpen : ruleExternalOpen EOF ;
     public final void entryRuleExternalOpen() throws RecognitionException {
         try {
@@ -2542,7 +2665,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getExternalOpenRule()); 
             pushFollow(FOLLOW_ruleExternalOpen_in_entryRuleExternalOpen2042);
             ruleExternalOpen();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getExternalOpenRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleExternalOpen2049); 
@@ -2558,10 +2682,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleExternalOpen
+    // $ANTLR end "entryRuleExternalOpen"
 
 
-    // $ANTLR start ruleExternalOpen
+    // $ANTLR start "ruleExternalOpen"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:996:1: ruleExternalOpen : ( ( rule__ExternalOpen__UrlAssignment ) ) ;
     public final void ruleExternalOpen() throws RecognitionException {
 
@@ -2580,7 +2704,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ExternalOpen__UrlAssignment_in_ruleExternalOpen2075);
             rule__ExternalOpen__UrlAssignment();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2604,10 +2729,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleExternalOpen
+    // $ANTLR end "ruleExternalOpen"
 
 
-    // $ANTLR start entryRuleViewCall
+    // $ANTLR start "entryRuleViewCall"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1015:1: entryRuleViewCall : ruleViewCall EOF ;
     public final void entryRuleViewCall() throws RecognitionException {
         try {
@@ -2617,7 +2742,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewCallRule()); 
             pushFollow(FOLLOW_ruleViewCall_in_entryRuleViewCall2102);
             ruleViewCall();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewCallRule()); 
             match(input,EOF,FOLLOW_EOF_in_entryRuleViewCall2109); 
@@ -2633,10 +2759,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end entryRuleViewCall
+    // $ANTLR end "entryRuleViewCall"
 
 
-    // $ANTLR start ruleViewCall
+    // $ANTLR start "ruleViewCall"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1024:1: ruleViewCall : ( ( rule__ViewCall__Group__0 ) ) ;
     public final void ruleViewCall() throws RecognitionException {
 
@@ -2655,7 +2781,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewCall__Group__0_in_ruleViewCall2135);
             rule__ViewCall__Group__0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2679,10 +2806,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleViewCall
+    // $ANTLR end "ruleViewCall"
 
 
-    // $ANTLR start ruleCellType
+    // $ANTLR start "ruleCellType"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1044:1: ruleCellType : ( ( rule__CellType__Alternatives ) ) ;
     public final void ruleCellType() throws RecognitionException {
 
@@ -2701,7 +2828,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CellType__Alternatives_in_ruleCellType2172);
             rule__CellType__Alternatives();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -2725,10 +2853,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end ruleCellType
+    // $ANTLR end "ruleCellType"
 
 
-    // $ANTLR start rule__ModelElement__Alternatives
+    // $ANTLR start "rule__ModelElement__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1062:1: rule__ModelElement__Alternatives : ( ( ruleType ) | ( ruleContentProvider ) | ( ruleView ) | ( ruleConstant ) );
     public final void rule__ModelElement__Alternatives() throws RecognitionException {
 
@@ -2763,7 +2891,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1062:1: rule__ModelElement__Alternatives : ( ( ruleType ) | ( ruleContentProvider ) | ( ruleView ) | ( ruleConstant ) );", 1, 0, input);
+                    new NoViableAltException("", 1, 0, input);
 
                 throw nvae;
             }
@@ -2778,7 +2906,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getModelElementAccess().getTypeParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleType_in_rule__ModelElement__Alternatives2207);
                     ruleType();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getModelElementAccess().getTypeParserRuleCall_0()); 
 
@@ -2796,7 +2925,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getModelElementAccess().getContentProviderParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleContentProvider_in_rule__ModelElement__Alternatives2224);
                     ruleContentProvider();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getModelElementAccess().getContentProviderParserRuleCall_1()); 
 
@@ -2814,7 +2944,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getModelElementAccess().getViewParserRuleCall_2()); 
                     pushFollow(FOLLOW_ruleView_in_rule__ModelElement__Alternatives2241);
                     ruleView();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getModelElementAccess().getViewParserRuleCall_2()); 
 
@@ -2832,7 +2963,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getModelElementAccess().getConstantParserRuleCall_3()); 
                     pushFollow(FOLLOW_ruleConstant_in_rule__ModelElement__Alternatives2258);
                     ruleConstant();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getModelElementAccess().getConstantParserRuleCall_3()); 
 
@@ -2855,10 +2987,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ModelElement__Alternatives
+    // $ANTLR end "rule__ModelElement__Alternatives"
 
 
-    // $ANTLR start rule__Expression__Alternatives
+    // $ANTLR start "rule__Expression__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1097:1: rule__Expression__Alternatives : ( ( ruleStringLiteral ) | ( ruleStringFunction ) | ( ruleCollectionLiteral ) | ( ruleCollectionFunction ) | ( ruleObjectReference ) );
     public final void rule__Expression__Alternatives() throws RecognitionException {
 
@@ -2897,7 +3029,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1097:1: rule__Expression__Alternatives : ( ( ruleStringLiteral ) | ( ruleStringFunction ) | ( ruleCollectionLiteral ) | ( ruleCollectionFunction ) | ( ruleObjectReference ) );", 2, 0, input);
+                    new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
             }
@@ -2912,7 +3044,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getExpressionAccess().getStringLiteralParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleStringLiteral_in_rule__Expression__Alternatives2291);
                     ruleStringLiteral();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getExpressionAccess().getStringLiteralParserRuleCall_0()); 
 
@@ -2930,7 +3063,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getExpressionAccess().getStringFunctionParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleStringFunction_in_rule__Expression__Alternatives2308);
                     ruleStringFunction();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getExpressionAccess().getStringFunctionParserRuleCall_1()); 
 
@@ -2948,7 +3082,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getExpressionAccess().getCollectionLiteralParserRuleCall_2()); 
                     pushFollow(FOLLOW_ruleCollectionLiteral_in_rule__Expression__Alternatives2325);
                     ruleCollectionLiteral();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getExpressionAccess().getCollectionLiteralParserRuleCall_2()); 
 
@@ -2966,7 +3101,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getExpressionAccess().getCollectionFunctionParserRuleCall_3()); 
                     pushFollow(FOLLOW_ruleCollectionFunction_in_rule__Expression__Alternatives2342);
                     ruleCollectionFunction();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getExpressionAccess().getCollectionFunctionParserRuleCall_3()); 
 
@@ -2984,7 +3120,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getExpressionAccess().getObjectReferenceParserRuleCall_4()); 
                     pushFollow(FOLLOW_ruleObjectReference_in_rule__Expression__Alternatives2359);
                     ruleObjectReference();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getExpressionAccess().getObjectReferenceParserRuleCall_4()); 
 
@@ -3007,10 +3144,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Expression__Alternatives
+    // $ANTLR end "rule__Expression__Alternatives"
 
 
-    // $ANTLR start rule__ScalarExpression__Alternatives
+    // $ANTLR start "rule__ScalarExpression__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1137:1: rule__ScalarExpression__Alternatives : ( ( ruleStringLiteral ) | ( ruleStringFunction ) | ( ruleObjectReference ) );
     public final void rule__ScalarExpression__Alternatives() throws RecognitionException {
 
@@ -3039,7 +3176,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1137:1: rule__ScalarExpression__Alternatives : ( ( ruleStringLiteral ) | ( ruleStringFunction ) | ( ruleObjectReference ) );", 3, 0, input);
+                    new NoViableAltException("", 3, 0, input);
 
                 throw nvae;
             }
@@ -3054,7 +3191,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getScalarExpressionAccess().getStringLiteralParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleStringLiteral_in_rule__ScalarExpression__Alternatives2391);
                     ruleStringLiteral();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getScalarExpressionAccess().getStringLiteralParserRuleCall_0()); 
 
@@ -3072,7 +3210,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getScalarExpressionAccess().getStringFunctionParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleStringFunction_in_rule__ScalarExpression__Alternatives2408);
                     ruleStringFunction();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getScalarExpressionAccess().getStringFunctionParserRuleCall_1()); 
 
@@ -3090,7 +3229,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getScalarExpressionAccess().getObjectReferenceParserRuleCall_2()); 
                     pushFollow(FOLLOW_ruleObjectReference_in_rule__ScalarExpression__Alternatives2425);
                     ruleObjectReference();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getScalarExpressionAccess().getObjectReferenceParserRuleCall_2()); 
 
@@ -3113,10 +3253,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ScalarExpression__Alternatives
+    // $ANTLR end "rule__ScalarExpression__Alternatives"
 
 
-    // $ANTLR start rule__CollectionExpression__Alternatives
+    // $ANTLR start "rule__CollectionExpression__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1165:1: rule__CollectionExpression__Alternatives : ( ( ruleCollectionLiteral ) | ( ruleCollectionFunction ) | ( ruleObjectReference ) );
     public final void rule__CollectionExpression__Alternatives() throws RecognitionException {
 
@@ -3143,7 +3283,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1165:1: rule__CollectionExpression__Alternatives : ( ( ruleCollectionLiteral ) | ( ruleCollectionFunction ) | ( ruleObjectReference ) );", 4, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
@@ -3158,7 +3298,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getCollectionExpressionAccess().getCollectionLiteralParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleCollectionLiteral_in_rule__CollectionExpression__Alternatives2457);
                     ruleCollectionLiteral();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getCollectionExpressionAccess().getCollectionLiteralParserRuleCall_0()); 
 
@@ -3176,7 +3317,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getCollectionExpressionAccess().getCollectionFunctionParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleCollectionFunction_in_rule__CollectionExpression__Alternatives2474);
                     ruleCollectionFunction();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getCollectionExpressionAccess().getCollectionFunctionParserRuleCall_1()); 
 
@@ -3194,7 +3336,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getCollectionExpressionAccess().getObjectReferenceParserRuleCall_2()); 
                     pushFollow(FOLLOW_ruleObjectReference_in_rule__CollectionExpression__Alternatives2491);
                     ruleObjectReference();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getCollectionExpressionAccess().getObjectReferenceParserRuleCall_2()); 
 
@@ -3217,10 +3360,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionExpression__Alternatives
+    // $ANTLR end "rule__CollectionExpression__Alternatives"
 
 
-    // $ANTLR start rule__StringFunction__Alternatives
+    // $ANTLR start "rule__StringFunction__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1193:1: rule__StringFunction__Alternatives : ( ( ( rule__StringFunction__Group_0__0 ) ) | ( ( rule__StringFunction__Group_1__0 ) ) | ( ( rule__StringFunction__Group_2__0 ) ) );
     public final void rule__StringFunction__Alternatives() throws RecognitionException {
 
@@ -3247,7 +3390,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1193:1: rule__StringFunction__Alternatives : ( ( ( rule__StringFunction__Group_0__0 ) ) | ( ( rule__StringFunction__Group_1__0 ) ) | ( ( rule__StringFunction__Group_2__0 ) ) );", 5, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
@@ -3265,7 +3408,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__StringFunction__Group_0__0_in_rule__StringFunction__Alternatives2523);
                     rule__StringFunction__Group_0__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3289,7 +3433,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__StringFunction__Group_1__0_in_rule__StringFunction__Alternatives2541);
                     rule__StringFunction__Group_1__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3313,7 +3458,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__StringFunction__Group_2__0_in_rule__StringFunction__Alternatives2559);
                     rule__StringFunction__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3339,10 +3485,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Alternatives
+    // $ANTLR end "rule__StringFunction__Alternatives"
 
 
-    // $ANTLR start rule__Type__Alternatives
+    // $ANTLR start "rule__Type__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1221:1: rule__Type__Alternatives : ( ( ruleSimpleType ) | ( ruleEntity ) );
     public final void rule__Type__Alternatives() throws RecognitionException {
 
@@ -3361,7 +3507,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1221:1: rule__Type__Alternatives : ( ( ruleSimpleType ) | ( ruleEntity ) );", 6, 0, input);
+                    new NoViableAltException("", 6, 0, input);
 
                 throw nvae;
             }
@@ -3375,7 +3521,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getTypeAccess().getSimpleTypeParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleSimpleType_in_rule__Type__Alternatives2592);
                     ruleSimpleType();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getTypeAccess().getSimpleTypeParserRuleCall_0()); 
 
@@ -3393,7 +3540,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getTypeAccess().getEntityParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleEntity_in_rule__Type__Alternatives2609);
                     ruleEntity();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getTypeAccess().getEntityParserRuleCall_1()); 
 
@@ -3416,10 +3564,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Type__Alternatives
+    // $ANTLR end "rule__Type__Alternatives"
 
 
-    // $ANTLR start rule__ContentProvider__Alternatives_3
+    // $ANTLR start "rule__ContentProvider__Alternatives_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1243:1: rule__ContentProvider__Alternatives_3 : ( ( 'returns' ) | ( ( rule__ContentProvider__ResolverAssignment_3_1 ) ) );
     public final void rule__ContentProvider__Alternatives_3() throws RecognitionException {
 
@@ -3438,7 +3586,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1243:1: rule__ContentProvider__Alternatives_3 : ( ( 'returns' ) | ( ( rule__ContentProvider__ResolverAssignment_3_1 ) ) );", 7, 0, input);
+                    new NoViableAltException("", 7, 0, input);
 
                 throw nvae;
             }
@@ -3470,7 +3618,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ContentProvider__ResolverAssignment_3_1_in_rule__ContentProvider__Alternatives_32661);
                     rule__ContentProvider__ResolverAssignment_3_1();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3496,10 +3645,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Alternatives_3
+    // $ANTLR end "rule__ContentProvider__Alternatives_3"
 
 
-    // $ANTLR start rule__ProviderConstruction__Alternatives
+    // $ANTLR start "rule__ProviderConstruction__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1267:1: rule__ProviderConstruction__Alternatives : ( ( ( rule__ProviderConstruction__Group_0__0 ) ) | ( ( rule__ProviderConstruction__Group_1__0 ) ) );
     public final void rule__ProviderConstruction__Alternatives() throws RecognitionException {
 
@@ -3513,15 +3662,15 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             if ( (LA8_0==RULE_ID) ) {
                 int LA8_1 = input.LA(2);
 
-                if ( (LA8_1==EOF||LA8_1==17||LA8_1==19) ) {
-                    alt8=2;
-                }
-                else if ( (LA8_1==18) ) {
+                if ( (LA8_1==18) ) {
                     alt8=1;
+                }
+                else if ( (LA8_1==EOF||LA8_1==17||LA8_1==19) ) {
+                    alt8=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1267:1: rule__ProviderConstruction__Alternatives : ( ( ( rule__ProviderConstruction__Group_0__0 ) ) | ( ( rule__ProviderConstruction__Group_1__0 ) ) );", 8, 1, input);
+                        new NoViableAltException("", 8, 1, input);
 
                     throw nvae;
                 }
@@ -3531,7 +3680,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1267:1: rule__ProviderConstruction__Alternatives : ( ( ( rule__ProviderConstruction__Group_0__0 ) ) | ( ( rule__ProviderConstruction__Group_1__0 ) ) );", 8, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
@@ -3548,7 +3697,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__0_in_rule__ProviderConstruction__Alternatives2694);
                     rule__ProviderConstruction__Group_0__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3572,7 +3722,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ProviderConstruction__Group_1__0_in_rule__ProviderConstruction__Alternatives2712);
                     rule__ProviderConstruction__Group_1__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -3598,10 +3749,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Alternatives
+    // $ANTLR end "rule__ProviderConstruction__Alternatives"
 
 
-    // $ANTLR start rule__View__Alternatives
+    // $ANTLR start "rule__View__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1289:1: rule__View__Alternatives : ( ( ruleSectionedView ) | ( ruleCustomView ) );
     public final void rule__View__Alternatives() throws RecognitionException {
 
@@ -3620,7 +3771,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1289:1: rule__View__Alternatives : ( ( ruleSectionedView ) | ( ruleCustomView ) );", 9, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
@@ -3634,7 +3785,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getViewAccess().getSectionedViewParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleSectionedView_in_rule__View__Alternatives2745);
                     ruleSectionedView();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getViewAccess().getSectionedViewParserRuleCall_0()); 
 
@@ -3652,7 +3804,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getViewAccess().getCustomViewParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleCustomView_in_rule__View__Alternatives2762);
                     ruleCustomView();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getViewAccess().getCustomViewParserRuleCall_1()); 
 
@@ -3675,10 +3828,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__View__Alternatives
+    // $ANTLR end "rule__View__Alternatives"
 
 
-    // $ANTLR start rule__SectionedView__Alternatives
+    // $ANTLR start "rule__SectionedView__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1311:1: rule__SectionedView__Alternatives : ( ( ruleTableView ) | ( ruleDetailsView ) );
     public final void rule__SectionedView__Alternatives() throws RecognitionException {
 
@@ -3697,7 +3850,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1311:1: rule__SectionedView__Alternatives : ( ( ruleTableView ) | ( ruleDetailsView ) );", 10, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
@@ -3711,7 +3864,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getSectionedViewAccess().getTableViewParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleTableView_in_rule__SectionedView__Alternatives2794);
                     ruleTableView();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getSectionedViewAccess().getTableViewParserRuleCall_0()); 
 
@@ -3729,7 +3883,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getSectionedViewAccess().getDetailsViewParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleDetailsView_in_rule__SectionedView__Alternatives2811);
                     ruleDetailsView();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getSectionedViewAccess().getDetailsViewParserRuleCall_1()); 
 
@@ -3752,10 +3907,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionedView__Alternatives
+    // $ANTLR end "rule__SectionedView__Alternatives"
 
 
-    // $ANTLR start rule__ViewAction__Alternatives
+    // $ANTLR start "rule__ViewAction__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1333:1: rule__ViewAction__Alternatives : ( ( ruleViewCall ) | ( ruleExternalOpen ) );
     public final void rule__ViewAction__Alternatives() throws RecognitionException {
 
@@ -3777,7 +3932,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1333:1: rule__ViewAction__Alternatives : ( ( ruleViewCall ) | ( ruleExternalOpen ) );", 11, 1, input);
+                        new NoViableAltException("", 11, 1, input);
 
                     throw nvae;
                 }
@@ -3787,7 +3942,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1333:1: rule__ViewAction__Alternatives : ( ( ruleViewCall ) | ( ruleExternalOpen ) );", 11, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
@@ -3801,7 +3956,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getViewActionAccess().getViewCallParserRuleCall_0()); 
                     pushFollow(FOLLOW_ruleViewCall_in_rule__ViewAction__Alternatives2843);
                     ruleViewCall();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getViewActionAccess().getViewCallParserRuleCall_0()); 
 
@@ -3819,7 +3975,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                      before(grammarAccess.getViewActionAccess().getExternalOpenParserRuleCall_1()); 
                     pushFollow(FOLLOW_ruleExternalOpen_in_rule__ViewAction__Alternatives2860);
                     ruleExternalOpen();
-                    _fsp--;
+
+                    state._fsp--;
 
                      after(grammarAccess.getViewActionAccess().getExternalOpenParserRuleCall_1()); 
 
@@ -3842,10 +3999,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewAction__Alternatives
+    // $ANTLR end "rule__ViewAction__Alternatives"
 
 
-    // $ANTLR start rule__CellType__Alternatives
+    // $ANTLR start "rule__CellType__Alternatives"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1355:1: rule__CellType__Alternatives : ( ( ( 'Default' ) ) | ( ( 'DefaultWithDisclosure' ) ) | ( ( 'Value2' ) ) | ( ( 'Double' ) ) | ( ( 'Subtitle' ) ) );
     public final void rule__CellType__Alternatives() throws RecognitionException {
 
@@ -3882,7 +4039,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("1355:1: rule__CellType__Alternatives : ( ( ( 'Default' ) ) | ( ( 'DefaultWithDisclosure' ) ) | ( ( 'Value2' ) ) | ( ( 'Double' ) ) | ( ( 'Subtitle' ) ) );", 12, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
@@ -4007,10 +4164,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CellType__Alternatives
+    // $ANTLR end "rule__CellType__Alternatives"
 
 
-    // $ANTLR start rule__Model__Group__0
+    // $ANTLR start "rule__Model__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1402:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
     public final void rule__Model__Group__0() throws RecognitionException {
 
@@ -4022,11 +4179,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Model__Group__0__Impl_in_rule__Model__Group__03010);
             rule__Model__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Model__Group__1_in_rule__Model__Group__03013);
             rule__Model__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4043,10 +4202,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Model__Group__0
+    // $ANTLR end "rule__Model__Group__0"
 
 
-    // $ANTLR start rule__Model__Group__0__Impl
+    // $ANTLR start "rule__Model__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1414:1: rule__Model__Group__0__Impl : ( ( rule__Model__ApplicationAssignment_0 ) ) ;
     public final void rule__Model__Group__0__Impl() throws RecognitionException {
 
@@ -4065,7 +4224,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Model__ApplicationAssignment_0_in_rule__Model__Group__0__Impl3040);
             rule__Model__ApplicationAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4089,10 +4249,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Model__Group__0__Impl
+    // $ANTLR end "rule__Model__Group__0__Impl"
 
 
-    // $ANTLR start rule__Model__Group__1
+    // $ANTLR start "rule__Model__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1431:1: rule__Model__Group__1 : rule__Model__Group__1__Impl ;
     public final void rule__Model__Group__1() throws RecognitionException {
 
@@ -4104,7 +4264,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Model__Group__1__Impl_in_rule__Model__Group__13070);
             rule__Model__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4121,10 +4282,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Model__Group__1
+    // $ANTLR end "rule__Model__Group__1"
 
 
-    // $ANTLR start rule__Model__Group__1__Impl
+    // $ANTLR start "rule__Model__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1442:1: rule__Model__Group__1__Impl : ( ( rule__Model__ElementsAssignment_1 )* ) ;
     public final void rule__Model__Group__1__Impl() throws RecognitionException {
 
@@ -4155,7 +4316,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__Model__ElementsAssignment_1_in_rule__Model__Group__1__Impl3097);
             	    rule__Model__ElementsAssignment_1();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -4185,10 +4347,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Model__Group__1__Impl
+    // $ANTLR end "rule__Model__Group__1__Impl"
 
 
-    // $ANTLR start rule__TypeDescription__Group__0
+    // $ANTLR start "rule__TypeDescription__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1463:1: rule__TypeDescription__Group__0 : rule__TypeDescription__Group__0__Impl rule__TypeDescription__Group__1 ;
     public final void rule__TypeDescription__Group__0() throws RecognitionException {
 
@@ -4200,11 +4362,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TypeDescription__Group__0__Impl_in_rule__TypeDescription__Group__03132);
             rule__TypeDescription__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TypeDescription__Group__1_in_rule__TypeDescription__Group__03135);
             rule__TypeDescription__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4221,10 +4385,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TypeDescription__Group__0
+    // $ANTLR end "rule__TypeDescription__Group__0"
 
 
-    // $ANTLR start rule__TypeDescription__Group__0__Impl
+    // $ANTLR start "rule__TypeDescription__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1475:1: rule__TypeDescription__Group__0__Impl : ( ( rule__TypeDescription__TypeAssignment_0 ) ) ;
     public final void rule__TypeDescription__Group__0__Impl() throws RecognitionException {
 
@@ -4243,7 +4407,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TypeDescription__TypeAssignment_0_in_rule__TypeDescription__Group__0__Impl3162);
             rule__TypeDescription__TypeAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4267,10 +4432,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TypeDescription__Group__0__Impl
+    // $ANTLR end "rule__TypeDescription__Group__0__Impl"
 
 
-    // $ANTLR start rule__TypeDescription__Group__1
+    // $ANTLR start "rule__TypeDescription__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1492:1: rule__TypeDescription__Group__1 : rule__TypeDescription__Group__1__Impl ;
     public final void rule__TypeDescription__Group__1() throws RecognitionException {
 
@@ -4282,7 +4447,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TypeDescription__Group__1__Impl_in_rule__TypeDescription__Group__13192);
             rule__TypeDescription__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4299,10 +4465,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TypeDescription__Group__1
+    // $ANTLR end "rule__TypeDescription__Group__1"
 
 
-    // $ANTLR start rule__TypeDescription__Group__1__Impl
+    // $ANTLR start "rule__TypeDescription__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1503:1: rule__TypeDescription__Group__1__Impl : ( ( rule__TypeDescription__ManyAssignment_1 )? ) ;
     public final void rule__TypeDescription__Group__1__Impl() throws RecognitionException {
 
@@ -4329,7 +4495,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__TypeDescription__ManyAssignment_1_in_rule__TypeDescription__Group__1__Impl3219);
                     rule__TypeDescription__ManyAssignment_1();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -4356,10 +4523,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TypeDescription__Group__1__Impl
+    // $ANTLR end "rule__TypeDescription__Group__1__Impl"
 
 
-    // $ANTLR start rule__Parameter__Group__0
+    // $ANTLR start "rule__Parameter__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1524:1: rule__Parameter__Group__0 : rule__Parameter__Group__0__Impl rule__Parameter__Group__1 ;
     public final void rule__Parameter__Group__0() throws RecognitionException {
 
@@ -4371,11 +4538,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Parameter__Group__0__Impl_in_rule__Parameter__Group__03254);
             rule__Parameter__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Parameter__Group__1_in_rule__Parameter__Group__03257);
             rule__Parameter__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4392,10 +4561,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Parameter__Group__0
+    // $ANTLR end "rule__Parameter__Group__0"
 
 
-    // $ANTLR start rule__Parameter__Group__0__Impl
+    // $ANTLR start "rule__Parameter__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1536:1: rule__Parameter__Group__0__Impl : ( ( rule__Parameter__DescriptionAssignment_0 ) ) ;
     public final void rule__Parameter__Group__0__Impl() throws RecognitionException {
 
@@ -4414,7 +4583,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Parameter__DescriptionAssignment_0_in_rule__Parameter__Group__0__Impl3284);
             rule__Parameter__DescriptionAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4438,10 +4608,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Parameter__Group__0__Impl
+    // $ANTLR end "rule__Parameter__Group__0__Impl"
 
 
-    // $ANTLR start rule__Parameter__Group__1
+    // $ANTLR start "rule__Parameter__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1553:1: rule__Parameter__Group__1 : rule__Parameter__Group__1__Impl ;
     public final void rule__Parameter__Group__1() throws RecognitionException {
 
@@ -4453,7 +4623,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Parameter__Group__1__Impl_in_rule__Parameter__Group__13314);
             rule__Parameter__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4470,10 +4641,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Parameter__Group__1
+    // $ANTLR end "rule__Parameter__Group__1"
 
 
-    // $ANTLR start rule__Parameter__Group__1__Impl
+    // $ANTLR start "rule__Parameter__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1564:1: rule__Parameter__Group__1__Impl : ( ( rule__Parameter__NameAssignment_1 ) ) ;
     public final void rule__Parameter__Group__1__Impl() throws RecognitionException {
 
@@ -4492,7 +4663,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Parameter__NameAssignment_1_in_rule__Parameter__Group__1__Impl3341);
             rule__Parameter__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4516,10 +4688,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Parameter__Group__1__Impl
+    // $ANTLR end "rule__Parameter__Group__1__Impl"
 
 
-    // $ANTLR start rule__ObjectReference__Group__0
+    // $ANTLR start "rule__ObjectReference__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1585:1: rule__ObjectReference__Group__0 : rule__ObjectReference__Group__0__Impl rule__ObjectReference__Group__1 ;
     public final void rule__ObjectReference__Group__0() throws RecognitionException {
 
@@ -4531,11 +4703,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ObjectReference__Group__0__Impl_in_rule__ObjectReference__Group__03375);
             rule__ObjectReference__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ObjectReference__Group__1_in_rule__ObjectReference__Group__03378);
             rule__ObjectReference__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4552,10 +4726,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ObjectReference__Group__0
+    // $ANTLR end "rule__ObjectReference__Group__0"
 
 
-    // $ANTLR start rule__ObjectReference__Group__0__Impl
+    // $ANTLR start "rule__ObjectReference__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1597:1: rule__ObjectReference__Group__0__Impl : ( ( rule__ObjectReference__ObjectAssignment_0 ) ) ;
     public final void rule__ObjectReference__Group__0__Impl() throws RecognitionException {
 
@@ -4574,7 +4748,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ObjectReference__ObjectAssignment_0_in_rule__ObjectReference__Group__0__Impl3405);
             rule__ObjectReference__ObjectAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4598,10 +4773,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ObjectReference__Group__0__Impl
+    // $ANTLR end "rule__ObjectReference__Group__0__Impl"
 
 
-    // $ANTLR start rule__ObjectReference__Group__1
+    // $ANTLR start "rule__ObjectReference__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1614:1: rule__ObjectReference__Group__1 : rule__ObjectReference__Group__1__Impl ;
     public final void rule__ObjectReference__Group__1() throws RecognitionException {
 
@@ -4613,7 +4788,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ObjectReference__Group__1__Impl_in_rule__ObjectReference__Group__13435);
             rule__ObjectReference__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4630,10 +4806,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ObjectReference__Group__1
+    // $ANTLR end "rule__ObjectReference__Group__1"
 
 
-    // $ANTLR start rule__ObjectReference__Group__1__Impl
+    // $ANTLR start "rule__ObjectReference__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1625:1: rule__ObjectReference__Group__1__Impl : ( ( rule__ObjectReference__TailAssignment_1 )? ) ;
     public final void rule__ObjectReference__Group__1__Impl() throws RecognitionException {
 
@@ -4660,7 +4836,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ObjectReference__TailAssignment_1_in_rule__ObjectReference__Group__1__Impl3462);
                     rule__ObjectReference__TailAssignment_1();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -4687,10 +4864,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ObjectReference__Group__1__Impl
+    // $ANTLR end "rule__ObjectReference__Group__1__Impl"
 
 
-    // $ANTLR start rule__NestedObjectReference__Group__0
+    // $ANTLR start "rule__NestedObjectReference__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1646:1: rule__NestedObjectReference__Group__0 : rule__NestedObjectReference__Group__0__Impl rule__NestedObjectReference__Group__1 ;
     public final void rule__NestedObjectReference__Group__0() throws RecognitionException {
 
@@ -4702,11 +4879,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__NestedObjectReference__Group__0__Impl_in_rule__NestedObjectReference__Group__03497);
             rule__NestedObjectReference__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__NestedObjectReference__Group__1_in_rule__NestedObjectReference__Group__03500);
             rule__NestedObjectReference__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4723,10 +4902,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__Group__0
+    // $ANTLR end "rule__NestedObjectReference__Group__0"
 
 
-    // $ANTLR start rule__NestedObjectReference__Group__0__Impl
+    // $ANTLR start "rule__NestedObjectReference__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1658:1: rule__NestedObjectReference__Group__0__Impl : ( '.' ) ;
     public final void rule__NestedObjectReference__Group__0__Impl() throws RecognitionException {
 
@@ -4760,10 +4939,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__Group__0__Impl
+    // $ANTLR end "rule__NestedObjectReference__Group__0__Impl"
 
 
-    // $ANTLR start rule__NestedObjectReference__Group__1
+    // $ANTLR start "rule__NestedObjectReference__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1677:1: rule__NestedObjectReference__Group__1 : rule__NestedObjectReference__Group__1__Impl rule__NestedObjectReference__Group__2 ;
     public final void rule__NestedObjectReference__Group__1() throws RecognitionException {
 
@@ -4775,11 +4954,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__NestedObjectReference__Group__1__Impl_in_rule__NestedObjectReference__Group__13559);
             rule__NestedObjectReference__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__NestedObjectReference__Group__2_in_rule__NestedObjectReference__Group__13562);
             rule__NestedObjectReference__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4796,10 +4977,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__Group__1
+    // $ANTLR end "rule__NestedObjectReference__Group__1"
 
 
-    // $ANTLR start rule__NestedObjectReference__Group__1__Impl
+    // $ANTLR start "rule__NestedObjectReference__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1689:1: rule__NestedObjectReference__Group__1__Impl : ( ( rule__NestedObjectReference__ObjectAssignment_1 ) ) ;
     public final void rule__NestedObjectReference__Group__1__Impl() throws RecognitionException {
 
@@ -4818,7 +4999,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__NestedObjectReference__ObjectAssignment_1_in_rule__NestedObjectReference__Group__1__Impl3589);
             rule__NestedObjectReference__ObjectAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4842,10 +5024,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__Group__1__Impl
+    // $ANTLR end "rule__NestedObjectReference__Group__1__Impl"
 
 
-    // $ANTLR start rule__NestedObjectReference__Group__2
+    // $ANTLR start "rule__NestedObjectReference__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1706:1: rule__NestedObjectReference__Group__2 : rule__NestedObjectReference__Group__2__Impl ;
     public final void rule__NestedObjectReference__Group__2() throws RecognitionException {
 
@@ -4857,7 +5039,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__NestedObjectReference__Group__2__Impl_in_rule__NestedObjectReference__Group__23619);
             rule__NestedObjectReference__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4874,10 +5057,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__Group__2
+    // $ANTLR end "rule__NestedObjectReference__Group__2"
 
 
-    // $ANTLR start rule__NestedObjectReference__Group__2__Impl
+    // $ANTLR start "rule__NestedObjectReference__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1717:1: rule__NestedObjectReference__Group__2__Impl : ( ( rule__NestedObjectReference__TailAssignment_2 )? ) ;
     public final void rule__NestedObjectReference__Group__2__Impl() throws RecognitionException {
 
@@ -4904,7 +5087,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__NestedObjectReference__TailAssignment_2_in_rule__NestedObjectReference__Group__2__Impl3646);
                     rule__NestedObjectReference__TailAssignment_2();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -4931,10 +5115,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__Group__2__Impl
+    // $ANTLR end "rule__NestedObjectReference__Group__2__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__0
+    // $ANTLR start "rule__StringFunction__Group_0__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1740:1: rule__StringFunction__Group_0__0 : rule__StringFunction__Group_0__0__Impl rule__StringFunction__Group_0__1 ;
     public final void rule__StringFunction__Group_0__0() throws RecognitionException {
 
@@ -4946,11 +5130,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_0__0__Impl_in_rule__StringFunction__Group_0__03683);
             rule__StringFunction__Group_0__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_0__1_in_rule__StringFunction__Group_0__03686);
             rule__StringFunction__Group_0__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -4967,10 +5153,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__0
+    // $ANTLR end "rule__StringFunction__Group_0__0"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__0__Impl
+    // $ANTLR start "rule__StringFunction__Group_0__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1752:1: rule__StringFunction__Group_0__0__Impl : ( () ) ;
     public final void rule__StringFunction__Group_0__0__Impl() throws RecognitionException {
 
@@ -5004,10 +5190,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__0__Impl
+    // $ANTLR end "rule__StringFunction__Group_0__0__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__1
+    // $ANTLR start "rule__StringFunction__Group_0__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1771:1: rule__StringFunction__Group_0__1 : rule__StringFunction__Group_0__1__Impl rule__StringFunction__Group_0__2 ;
     public final void rule__StringFunction__Group_0__1() throws RecognitionException {
 
@@ -5019,11 +5205,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_0__1__Impl_in_rule__StringFunction__Group_0__13744);
             rule__StringFunction__Group_0__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_0__2_in_rule__StringFunction__Group_0__13747);
             rule__StringFunction__Group_0__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5040,10 +5228,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__1
+    // $ANTLR end "rule__StringFunction__Group_0__1"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__1__Impl
+    // $ANTLR start "rule__StringFunction__Group_0__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1783:1: rule__StringFunction__Group_0__1__Impl : ( '(' ) ;
     public final void rule__StringFunction__Group_0__1__Impl() throws RecognitionException {
 
@@ -5077,10 +5265,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__1__Impl
+    // $ANTLR end "rule__StringFunction__Group_0__1__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__2
+    // $ANTLR start "rule__StringFunction__Group_0__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1802:1: rule__StringFunction__Group_0__2 : rule__StringFunction__Group_0__2__Impl rule__StringFunction__Group_0__3 ;
     public final void rule__StringFunction__Group_0__2() throws RecognitionException {
 
@@ -5092,11 +5280,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_0__2__Impl_in_rule__StringFunction__Group_0__23806);
             rule__StringFunction__Group_0__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_0__3_in_rule__StringFunction__Group_0__23809);
             rule__StringFunction__Group_0__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5113,10 +5303,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__2
+    // $ANTLR end "rule__StringFunction__Group_0__2"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__2__Impl
+    // $ANTLR start "rule__StringFunction__Group_0__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1814:1: rule__StringFunction__Group_0__2__Impl : ( ( ( rule__StringFunction__ValuesAssignment_0_2 ) ) ( ( rule__StringFunction__ValuesAssignment_0_2 )* ) ) ;
     public final void rule__StringFunction__Group_0__2__Impl() throws RecognitionException {
 
@@ -5138,7 +5328,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__ValuesAssignment_0_2_in_rule__StringFunction__Group_0__2__Impl3838);
             rule__StringFunction__ValuesAssignment_0_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5168,7 +5359,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__StringFunction__ValuesAssignment_0_2_in_rule__StringFunction__Group_0__2__Impl3850);
             	    rule__StringFunction__ValuesAssignment_0_2();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -5201,10 +5393,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__2__Impl
+    // $ANTLR end "rule__StringFunction__Group_0__2__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__3
+    // $ANTLR start "rule__StringFunction__Group_0__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1838:1: rule__StringFunction__Group_0__3 : rule__StringFunction__Group_0__3__Impl ;
     public final void rule__StringFunction__Group_0__3() throws RecognitionException {
 
@@ -5216,7 +5408,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_0__3__Impl_in_rule__StringFunction__Group_0__33883);
             rule__StringFunction__Group_0__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5233,10 +5426,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__3
+    // $ANTLR end "rule__StringFunction__Group_0__3"
 
 
-    // $ANTLR start rule__StringFunction__Group_0__3__Impl
+    // $ANTLR start "rule__StringFunction__Group_0__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1849:1: rule__StringFunction__Group_0__3__Impl : ( ')' ) ;
     public final void rule__StringFunction__Group_0__3__Impl() throws RecognitionException {
 
@@ -5270,10 +5463,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_0__3__Impl
+    // $ANTLR end "rule__StringFunction__Group_0__3__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__0
+    // $ANTLR start "rule__StringFunction__Group_1__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1876:1: rule__StringFunction__Group_1__0 : rule__StringFunction__Group_1__0__Impl rule__StringFunction__Group_1__1 ;
     public final void rule__StringFunction__Group_1__0() throws RecognitionException {
 
@@ -5285,11 +5478,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__0__Impl_in_rule__StringFunction__Group_1__03950);
             rule__StringFunction__Group_1__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__1_in_rule__StringFunction__Group_1__03953);
             rule__StringFunction__Group_1__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5306,10 +5501,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__0
+    // $ANTLR end "rule__StringFunction__Group_1__0"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__0__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1888:1: rule__StringFunction__Group_1__0__Impl : ( () ) ;
     public final void rule__StringFunction__Group_1__0__Impl() throws RecognitionException {
 
@@ -5343,10 +5538,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__0__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__0__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__1
+    // $ANTLR start "rule__StringFunction__Group_1__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1907:1: rule__StringFunction__Group_1__1 : rule__StringFunction__Group_1__1__Impl rule__StringFunction__Group_1__2 ;
     public final void rule__StringFunction__Group_1__1() throws RecognitionException {
 
@@ -5358,11 +5553,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__1__Impl_in_rule__StringFunction__Group_1__14011);
             rule__StringFunction__Group_1__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__2_in_rule__StringFunction__Group_1__14014);
             rule__StringFunction__Group_1__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5379,10 +5576,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__1
+    // $ANTLR end "rule__StringFunction__Group_1__1"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__1__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1919:1: rule__StringFunction__Group_1__1__Impl : ( 'replace(' ) ;
     public final void rule__StringFunction__Group_1__1__Impl() throws RecognitionException {
 
@@ -5416,10 +5613,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__1__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__1__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__2
+    // $ANTLR start "rule__StringFunction__Group_1__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1938:1: rule__StringFunction__Group_1__2 : rule__StringFunction__Group_1__2__Impl rule__StringFunction__Group_1__3 ;
     public final void rule__StringFunction__Group_1__2() throws RecognitionException {
 
@@ -5431,11 +5628,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__2__Impl_in_rule__StringFunction__Group_1__24073);
             rule__StringFunction__Group_1__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__3_in_rule__StringFunction__Group_1__24076);
             rule__StringFunction__Group_1__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5452,10 +5651,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__2
+    // $ANTLR end "rule__StringFunction__Group_1__2"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__2__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1950:1: rule__StringFunction__Group_1__2__Impl : ( ( rule__StringFunction__ValueAssignment_1_2 ) ) ;
     public final void rule__StringFunction__Group_1__2__Impl() throws RecognitionException {
 
@@ -5474,7 +5673,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__ValueAssignment_1_2_in_rule__StringFunction__Group_1__2__Impl4103);
             rule__StringFunction__ValueAssignment_1_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5498,10 +5698,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__2__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__2__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__3
+    // $ANTLR start "rule__StringFunction__Group_1__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1967:1: rule__StringFunction__Group_1__3 : rule__StringFunction__Group_1__3__Impl rule__StringFunction__Group_1__4 ;
     public final void rule__StringFunction__Group_1__3() throws RecognitionException {
 
@@ -5513,11 +5713,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__3__Impl_in_rule__StringFunction__Group_1__34133);
             rule__StringFunction__Group_1__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__4_in_rule__StringFunction__Group_1__34136);
             rule__StringFunction__Group_1__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5534,10 +5736,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__3
+    // $ANTLR end "rule__StringFunction__Group_1__3"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__3__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1979:1: rule__StringFunction__Group_1__3__Impl : ( ',' ) ;
     public final void rule__StringFunction__Group_1__3__Impl() throws RecognitionException {
 
@@ -5571,10 +5773,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__3__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__3__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__4
+    // $ANTLR start "rule__StringFunction__Group_1__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:1998:1: rule__StringFunction__Group_1__4 : rule__StringFunction__Group_1__4__Impl rule__StringFunction__Group_1__5 ;
     public final void rule__StringFunction__Group_1__4() throws RecognitionException {
 
@@ -5586,11 +5788,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__4__Impl_in_rule__StringFunction__Group_1__44195);
             rule__StringFunction__Group_1__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__5_in_rule__StringFunction__Group_1__44198);
             rule__StringFunction__Group_1__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5607,10 +5811,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__4
+    // $ANTLR end "rule__StringFunction__Group_1__4"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__4__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2010:1: rule__StringFunction__Group_1__4__Impl : ( ( rule__StringFunction__MatchAssignment_1_4 ) ) ;
     public final void rule__StringFunction__Group_1__4__Impl() throws RecognitionException {
 
@@ -5629,7 +5833,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__MatchAssignment_1_4_in_rule__StringFunction__Group_1__4__Impl4225);
             rule__StringFunction__MatchAssignment_1_4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5653,10 +5858,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__4__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__4__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__5
+    // $ANTLR start "rule__StringFunction__Group_1__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2027:1: rule__StringFunction__Group_1__5 : rule__StringFunction__Group_1__5__Impl rule__StringFunction__Group_1__6 ;
     public final void rule__StringFunction__Group_1__5() throws RecognitionException {
 
@@ -5668,11 +5873,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__5__Impl_in_rule__StringFunction__Group_1__54255);
             rule__StringFunction__Group_1__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__6_in_rule__StringFunction__Group_1__54258);
             rule__StringFunction__Group_1__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5689,10 +5896,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__5
+    // $ANTLR end "rule__StringFunction__Group_1__5"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__5__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2039:1: rule__StringFunction__Group_1__5__Impl : ( ',' ) ;
     public final void rule__StringFunction__Group_1__5__Impl() throws RecognitionException {
 
@@ -5726,10 +5933,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__5__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__5__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__6
+    // $ANTLR start "rule__StringFunction__Group_1__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2058:1: rule__StringFunction__Group_1__6 : rule__StringFunction__Group_1__6__Impl rule__StringFunction__Group_1__7 ;
     public final void rule__StringFunction__Group_1__6() throws RecognitionException {
 
@@ -5741,11 +5948,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__6__Impl_in_rule__StringFunction__Group_1__64317);
             rule__StringFunction__Group_1__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_1__7_in_rule__StringFunction__Group_1__64320);
             rule__StringFunction__Group_1__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5762,10 +5971,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__6
+    // $ANTLR end "rule__StringFunction__Group_1__6"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__6__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2070:1: rule__StringFunction__Group_1__6__Impl : ( ( rule__StringFunction__ReplacementAssignment_1_6 ) ) ;
     public final void rule__StringFunction__Group_1__6__Impl() throws RecognitionException {
 
@@ -5784,7 +5993,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__ReplacementAssignment_1_6_in_rule__StringFunction__Group_1__6__Impl4347);
             rule__StringFunction__ReplacementAssignment_1_6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5808,10 +6018,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__6__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__6__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__7
+    // $ANTLR start "rule__StringFunction__Group_1__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2087:1: rule__StringFunction__Group_1__7 : rule__StringFunction__Group_1__7__Impl ;
     public final void rule__StringFunction__Group_1__7() throws RecognitionException {
 
@@ -5823,7 +6033,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_1__7__Impl_in_rule__StringFunction__Group_1__74377);
             rule__StringFunction__Group_1__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5840,10 +6051,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__7
+    // $ANTLR end "rule__StringFunction__Group_1__7"
 
 
-    // $ANTLR start rule__StringFunction__Group_1__7__Impl
+    // $ANTLR start "rule__StringFunction__Group_1__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2098:1: rule__StringFunction__Group_1__7__Impl : ( ')' ) ;
     public final void rule__StringFunction__Group_1__7__Impl() throws RecognitionException {
 
@@ -5877,10 +6088,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_1__7__Impl
+    // $ANTLR end "rule__StringFunction__Group_1__7__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__0
+    // $ANTLR start "rule__StringFunction__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2133:1: rule__StringFunction__Group_2__0 : rule__StringFunction__Group_2__0__Impl rule__StringFunction__Group_2__1 ;
     public final void rule__StringFunction__Group_2__0() throws RecognitionException {
 
@@ -5892,11 +6103,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_2__0__Impl_in_rule__StringFunction__Group_2__04452);
             rule__StringFunction__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_2__1_in_rule__StringFunction__Group_2__04455);
             rule__StringFunction__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5913,10 +6126,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__0
+    // $ANTLR end "rule__StringFunction__Group_2__0"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__0__Impl
+    // $ANTLR start "rule__StringFunction__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2145:1: rule__StringFunction__Group_2__0__Impl : ( () ) ;
     public final void rule__StringFunction__Group_2__0__Impl() throws RecognitionException {
 
@@ -5950,10 +6163,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__0__Impl
+    // $ANTLR end "rule__StringFunction__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__1
+    // $ANTLR start "rule__StringFunction__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2164:1: rule__StringFunction__Group_2__1 : rule__StringFunction__Group_2__1__Impl rule__StringFunction__Group_2__2 ;
     public final void rule__StringFunction__Group_2__1() throws RecognitionException {
 
@@ -5965,11 +6178,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_2__1__Impl_in_rule__StringFunction__Group_2__14513);
             rule__StringFunction__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_2__2_in_rule__StringFunction__Group_2__14516);
             rule__StringFunction__Group_2__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -5986,10 +6201,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__1
+    // $ANTLR end "rule__StringFunction__Group_2__1"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__1__Impl
+    // $ANTLR start "rule__StringFunction__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2176:1: rule__StringFunction__Group_2__1__Impl : ( 'urlconform(' ) ;
     public final void rule__StringFunction__Group_2__1__Impl() throws RecognitionException {
 
@@ -6023,10 +6238,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__1__Impl
+    // $ANTLR end "rule__StringFunction__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__2
+    // $ANTLR start "rule__StringFunction__Group_2__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2195:1: rule__StringFunction__Group_2__2 : rule__StringFunction__Group_2__2__Impl rule__StringFunction__Group_2__3 ;
     public final void rule__StringFunction__Group_2__2() throws RecognitionException {
 
@@ -6038,11 +6253,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_2__2__Impl_in_rule__StringFunction__Group_2__24575);
             rule__StringFunction__Group_2__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__StringFunction__Group_2__3_in_rule__StringFunction__Group_2__24578);
             rule__StringFunction__Group_2__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6059,10 +6276,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__2
+    // $ANTLR end "rule__StringFunction__Group_2__2"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__2__Impl
+    // $ANTLR start "rule__StringFunction__Group_2__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2207:1: rule__StringFunction__Group_2__2__Impl : ( ( rule__StringFunction__ValueAssignment_2_2 ) ) ;
     public final void rule__StringFunction__Group_2__2__Impl() throws RecognitionException {
 
@@ -6081,7 +6298,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__ValueAssignment_2_2_in_rule__StringFunction__Group_2__2__Impl4605);
             rule__StringFunction__ValueAssignment_2_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6105,10 +6323,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__2__Impl
+    // $ANTLR end "rule__StringFunction__Group_2__2__Impl"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__3
+    // $ANTLR start "rule__StringFunction__Group_2__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2224:1: rule__StringFunction__Group_2__3 : rule__StringFunction__Group_2__3__Impl ;
     public final void rule__StringFunction__Group_2__3() throws RecognitionException {
 
@@ -6120,7 +6338,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__StringFunction__Group_2__3__Impl_in_rule__StringFunction__Group_2__34635);
             rule__StringFunction__Group_2__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6137,10 +6356,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__3
+    // $ANTLR end "rule__StringFunction__Group_2__3"
 
 
-    // $ANTLR start rule__StringFunction__Group_2__3__Impl
+    // $ANTLR start "rule__StringFunction__Group_2__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2235:1: rule__StringFunction__Group_2__3__Impl : ( ')' ) ;
     public final void rule__StringFunction__Group_2__3__Impl() throws RecognitionException {
 
@@ -6174,10 +6393,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__Group_2__3__Impl
+    // $ANTLR end "rule__StringFunction__Group_2__3__Impl"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__0
+    // $ANTLR start "rule__CollectionLiteral__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2262:1: rule__CollectionLiteral__Group__0 : rule__CollectionLiteral__Group__0__Impl rule__CollectionLiteral__Group__1 ;
     public final void rule__CollectionLiteral__Group__0() throws RecognitionException {
 
@@ -6189,11 +6408,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__0__Impl_in_rule__CollectionLiteral__Group__04702);
             rule__CollectionLiteral__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__1_in_rule__CollectionLiteral__Group__04705);
             rule__CollectionLiteral__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6210,10 +6431,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__0
+    // $ANTLR end "rule__CollectionLiteral__Group__0"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__0__Impl
+    // $ANTLR start "rule__CollectionLiteral__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2274:1: rule__CollectionLiteral__Group__0__Impl : ( '[' ) ;
     public final void rule__CollectionLiteral__Group__0__Impl() throws RecognitionException {
 
@@ -6247,10 +6468,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__0__Impl
+    // $ANTLR end "rule__CollectionLiteral__Group__0__Impl"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__1
+    // $ANTLR start "rule__CollectionLiteral__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2293:1: rule__CollectionLiteral__Group__1 : rule__CollectionLiteral__Group__1__Impl rule__CollectionLiteral__Group__2 ;
     public final void rule__CollectionLiteral__Group__1() throws RecognitionException {
 
@@ -6262,11 +6483,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__1__Impl_in_rule__CollectionLiteral__Group__14764);
             rule__CollectionLiteral__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__2_in_rule__CollectionLiteral__Group__14767);
             rule__CollectionLiteral__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6283,10 +6506,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__1
+    // $ANTLR end "rule__CollectionLiteral__Group__1"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__1__Impl
+    // $ANTLR start "rule__CollectionLiteral__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2305:1: rule__CollectionLiteral__Group__1__Impl : ( ( rule__CollectionLiteral__ItemsAssignment_1 ) ) ;
     public final void rule__CollectionLiteral__Group__1__Impl() throws RecognitionException {
 
@@ -6305,7 +6528,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__ItemsAssignment_1_in_rule__CollectionLiteral__Group__1__Impl4794);
             rule__CollectionLiteral__ItemsAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6329,10 +6553,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__1__Impl
+    // $ANTLR end "rule__CollectionLiteral__Group__1__Impl"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__2
+    // $ANTLR start "rule__CollectionLiteral__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2322:1: rule__CollectionLiteral__Group__2 : rule__CollectionLiteral__Group__2__Impl rule__CollectionLiteral__Group__3 ;
     public final void rule__CollectionLiteral__Group__2() throws RecognitionException {
 
@@ -6344,11 +6568,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__2__Impl_in_rule__CollectionLiteral__Group__24824);
             rule__CollectionLiteral__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__3_in_rule__CollectionLiteral__Group__24827);
             rule__CollectionLiteral__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6365,10 +6591,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__2
+    // $ANTLR end "rule__CollectionLiteral__Group__2"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__2__Impl
+    // $ANTLR start "rule__CollectionLiteral__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2334:1: rule__CollectionLiteral__Group__2__Impl : ( ( rule__CollectionLiteral__Group_2__0 )* ) ;
     public final void rule__CollectionLiteral__Group__2__Impl() throws RecognitionException {
 
@@ -6399,7 +6625,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__CollectionLiteral__Group_2__0_in_rule__CollectionLiteral__Group__2__Impl4854);
             	    rule__CollectionLiteral__Group_2__0();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -6429,10 +6656,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__2__Impl
+    // $ANTLR end "rule__CollectionLiteral__Group__2__Impl"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__3
+    // $ANTLR start "rule__CollectionLiteral__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2351:1: rule__CollectionLiteral__Group__3 : rule__CollectionLiteral__Group__3__Impl ;
     public final void rule__CollectionLiteral__Group__3() throws RecognitionException {
 
@@ -6444,7 +6671,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group__3__Impl_in_rule__CollectionLiteral__Group__34885);
             rule__CollectionLiteral__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6461,10 +6689,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__3
+    // $ANTLR end "rule__CollectionLiteral__Group__3"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group__3__Impl
+    // $ANTLR start "rule__CollectionLiteral__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2362:1: rule__CollectionLiteral__Group__3__Impl : ( ']' ) ;
     public final void rule__CollectionLiteral__Group__3__Impl() throws RecognitionException {
 
@@ -6498,10 +6726,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group__3__Impl
+    // $ANTLR end "rule__CollectionLiteral__Group__3__Impl"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group_2__0
+    // $ANTLR start "rule__CollectionLiteral__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2389:1: rule__CollectionLiteral__Group_2__0 : rule__CollectionLiteral__Group_2__0__Impl rule__CollectionLiteral__Group_2__1 ;
     public final void rule__CollectionLiteral__Group_2__0() throws RecognitionException {
 
@@ -6513,11 +6741,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group_2__0__Impl_in_rule__CollectionLiteral__Group_2__04952);
             rule__CollectionLiteral__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionLiteral__Group_2__1_in_rule__CollectionLiteral__Group_2__04955);
             rule__CollectionLiteral__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6534,10 +6764,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group_2__0
+    // $ANTLR end "rule__CollectionLiteral__Group_2__0"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group_2__0__Impl
+    // $ANTLR start "rule__CollectionLiteral__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2401:1: rule__CollectionLiteral__Group_2__0__Impl : ( ',' ) ;
     public final void rule__CollectionLiteral__Group_2__0__Impl() throws RecognitionException {
 
@@ -6571,10 +6801,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group_2__0__Impl
+    // $ANTLR end "rule__CollectionLiteral__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group_2__1
+    // $ANTLR start "rule__CollectionLiteral__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2420:1: rule__CollectionLiteral__Group_2__1 : rule__CollectionLiteral__Group_2__1__Impl ;
     public final void rule__CollectionLiteral__Group_2__1() throws RecognitionException {
 
@@ -6586,7 +6816,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__Group_2__1__Impl_in_rule__CollectionLiteral__Group_2__15014);
             rule__CollectionLiteral__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6603,10 +6834,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group_2__1
+    // $ANTLR end "rule__CollectionLiteral__Group_2__1"
 
 
-    // $ANTLR start rule__CollectionLiteral__Group_2__1__Impl
+    // $ANTLR start "rule__CollectionLiteral__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2431:1: rule__CollectionLiteral__Group_2__1__Impl : ( ( rule__CollectionLiteral__ItemsAssignment_2_1 ) ) ;
     public final void rule__CollectionLiteral__Group_2__1__Impl() throws RecognitionException {
 
@@ -6625,7 +6856,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionLiteral__ItemsAssignment_2_1_in_rule__CollectionLiteral__Group_2__1__Impl5041);
             rule__CollectionLiteral__ItemsAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6649,10 +6881,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__Group_2__1__Impl
+    // $ANTLR end "rule__CollectionLiteral__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__0
+    // $ANTLR start "rule__CollectionFunction__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2452:1: rule__CollectionFunction__Group__0 : rule__CollectionFunction__Group__0__Impl rule__CollectionFunction__Group__1 ;
     public final void rule__CollectionFunction__Group__0() throws RecognitionException {
 
@@ -6664,11 +6896,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__0__Impl_in_rule__CollectionFunction__Group__05075);
             rule__CollectionFunction__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionFunction__Group__1_in_rule__CollectionFunction__Group__05078);
             rule__CollectionFunction__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6685,10 +6919,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__0
+    // $ANTLR end "rule__CollectionFunction__Group__0"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__0__Impl
+    // $ANTLR start "rule__CollectionFunction__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2464:1: rule__CollectionFunction__Group__0__Impl : ( () ) ;
     public final void rule__CollectionFunction__Group__0__Impl() throws RecognitionException {
 
@@ -6722,10 +6956,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__0__Impl
+    // $ANTLR end "rule__CollectionFunction__Group__0__Impl"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__1
+    // $ANTLR start "rule__CollectionFunction__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2483:1: rule__CollectionFunction__Group__1 : rule__CollectionFunction__Group__1__Impl rule__CollectionFunction__Group__2 ;
     public final void rule__CollectionFunction__Group__1() throws RecognitionException {
 
@@ -6737,11 +6971,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__1__Impl_in_rule__CollectionFunction__Group__15136);
             rule__CollectionFunction__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionFunction__Group__2_in_rule__CollectionFunction__Group__15139);
             rule__CollectionFunction__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6758,10 +6994,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__1
+    // $ANTLR end "rule__CollectionFunction__Group__1"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__1__Impl
+    // $ANTLR start "rule__CollectionFunction__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2495:1: rule__CollectionFunction__Group__1__Impl : ( 'split(' ) ;
     public final void rule__CollectionFunction__Group__1__Impl() throws RecognitionException {
 
@@ -6795,10 +7031,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__1__Impl
+    // $ANTLR end "rule__CollectionFunction__Group__1__Impl"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__2
+    // $ANTLR start "rule__CollectionFunction__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2514:1: rule__CollectionFunction__Group__2 : rule__CollectionFunction__Group__2__Impl rule__CollectionFunction__Group__3 ;
     public final void rule__CollectionFunction__Group__2() throws RecognitionException {
 
@@ -6810,11 +7046,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__2__Impl_in_rule__CollectionFunction__Group__25198);
             rule__CollectionFunction__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionFunction__Group__3_in_rule__CollectionFunction__Group__25201);
             rule__CollectionFunction__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6831,10 +7069,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__2
+    // $ANTLR end "rule__CollectionFunction__Group__2"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__2__Impl
+    // $ANTLR start "rule__CollectionFunction__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2526:1: rule__CollectionFunction__Group__2__Impl : ( ( rule__CollectionFunction__ValueAssignment_2 ) ) ;
     public final void rule__CollectionFunction__Group__2__Impl() throws RecognitionException {
 
@@ -6853,7 +7091,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__ValueAssignment_2_in_rule__CollectionFunction__Group__2__Impl5228);
             rule__CollectionFunction__ValueAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6877,10 +7116,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__2__Impl
+    // $ANTLR end "rule__CollectionFunction__Group__2__Impl"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__3
+    // $ANTLR start "rule__CollectionFunction__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2543:1: rule__CollectionFunction__Group__3 : rule__CollectionFunction__Group__3__Impl rule__CollectionFunction__Group__4 ;
     public final void rule__CollectionFunction__Group__3() throws RecognitionException {
 
@@ -6892,11 +7131,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__3__Impl_in_rule__CollectionFunction__Group__35258);
             rule__CollectionFunction__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionFunction__Group__4_in_rule__CollectionFunction__Group__35261);
             rule__CollectionFunction__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6913,10 +7154,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__3
+    // $ANTLR end "rule__CollectionFunction__Group__3"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__3__Impl
+    // $ANTLR start "rule__CollectionFunction__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2555:1: rule__CollectionFunction__Group__3__Impl : ( ',' ) ;
     public final void rule__CollectionFunction__Group__3__Impl() throws RecognitionException {
 
@@ -6950,10 +7191,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__3__Impl
+    // $ANTLR end "rule__CollectionFunction__Group__3__Impl"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__4
+    // $ANTLR start "rule__CollectionFunction__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2574:1: rule__CollectionFunction__Group__4 : rule__CollectionFunction__Group__4__Impl rule__CollectionFunction__Group__5 ;
     public final void rule__CollectionFunction__Group__4() throws RecognitionException {
 
@@ -6965,11 +7206,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__4__Impl_in_rule__CollectionFunction__Group__45320);
             rule__CollectionFunction__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionFunction__Group__5_in_rule__CollectionFunction__Group__45323);
             rule__CollectionFunction__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -6986,10 +7229,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__4
+    // $ANTLR end "rule__CollectionFunction__Group__4"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__4__Impl
+    // $ANTLR start "rule__CollectionFunction__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2586:1: rule__CollectionFunction__Group__4__Impl : ( ( rule__CollectionFunction__DelimiterAssignment_4 ) ) ;
     public final void rule__CollectionFunction__Group__4__Impl() throws RecognitionException {
 
@@ -7008,7 +7251,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__DelimiterAssignment_4_in_rule__CollectionFunction__Group__4__Impl5350);
             rule__CollectionFunction__DelimiterAssignment_4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7032,10 +7276,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__4__Impl
+    // $ANTLR end "rule__CollectionFunction__Group__4__Impl"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__5
+    // $ANTLR start "rule__CollectionFunction__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2603:1: rule__CollectionFunction__Group__5 : rule__CollectionFunction__Group__5__Impl ;
     public final void rule__CollectionFunction__Group__5() throws RecognitionException {
 
@@ -7047,7 +7291,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionFunction__Group__5__Impl_in_rule__CollectionFunction__Group__55380);
             rule__CollectionFunction__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7064,10 +7309,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__5
+    // $ANTLR end "rule__CollectionFunction__Group__5"
 
 
-    // $ANTLR start rule__CollectionFunction__Group__5__Impl
+    // $ANTLR start "rule__CollectionFunction__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2614:1: rule__CollectionFunction__Group__5__Impl : ( ')' ) ;
     public final void rule__CollectionFunction__Group__5__Impl() throws RecognitionException {
 
@@ -7101,10 +7346,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__Group__5__Impl
+    // $ANTLR end "rule__CollectionFunction__Group__5__Impl"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__0
+    // $ANTLR start "rule__TabBarApplication__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2645:1: rule__TabBarApplication__Group__0 : rule__TabBarApplication__Group__0__Impl rule__TabBarApplication__Group__1 ;
     public final void rule__TabBarApplication__Group__0() throws RecognitionException {
 
@@ -7116,11 +7361,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__Group__0__Impl_in_rule__TabBarApplication__Group__05451);
             rule__TabBarApplication__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabBarApplication__Group__1_in_rule__TabBarApplication__Group__05454);
             rule__TabBarApplication__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7137,10 +7384,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__0
+    // $ANTLR end "rule__TabBarApplication__Group__0"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__0__Impl
+    // $ANTLR start "rule__TabBarApplication__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2657:1: rule__TabBarApplication__Group__0__Impl : ( 'tabbarApplication' ) ;
     public final void rule__TabBarApplication__Group__0__Impl() throws RecognitionException {
 
@@ -7174,10 +7421,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__0__Impl
+    // $ANTLR end "rule__TabBarApplication__Group__0__Impl"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__1
+    // $ANTLR start "rule__TabBarApplication__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2676:1: rule__TabBarApplication__Group__1 : rule__TabBarApplication__Group__1__Impl rule__TabBarApplication__Group__2 ;
     public final void rule__TabBarApplication__Group__1() throws RecognitionException {
 
@@ -7189,11 +7436,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__Group__1__Impl_in_rule__TabBarApplication__Group__15513);
             rule__TabBarApplication__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabBarApplication__Group__2_in_rule__TabBarApplication__Group__15516);
             rule__TabBarApplication__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7210,10 +7459,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__1
+    // $ANTLR end "rule__TabBarApplication__Group__1"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__1__Impl
+    // $ANTLR start "rule__TabBarApplication__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2688:1: rule__TabBarApplication__Group__1__Impl : ( ( rule__TabBarApplication__NameAssignment_1 ) ) ;
     public final void rule__TabBarApplication__Group__1__Impl() throws RecognitionException {
 
@@ -7232,7 +7481,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__NameAssignment_1_in_rule__TabBarApplication__Group__1__Impl5543);
             rule__TabBarApplication__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7256,10 +7506,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__1__Impl
+    // $ANTLR end "rule__TabBarApplication__Group__1__Impl"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__2
+    // $ANTLR start "rule__TabBarApplication__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2705:1: rule__TabBarApplication__Group__2 : rule__TabBarApplication__Group__2__Impl rule__TabBarApplication__Group__3 ;
     public final void rule__TabBarApplication__Group__2() throws RecognitionException {
 
@@ -7271,11 +7521,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__Group__2__Impl_in_rule__TabBarApplication__Group__25573);
             rule__TabBarApplication__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabBarApplication__Group__3_in_rule__TabBarApplication__Group__25576);
             rule__TabBarApplication__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7292,10 +7544,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__2
+    // $ANTLR end "rule__TabBarApplication__Group__2"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__2__Impl
+    // $ANTLR start "rule__TabBarApplication__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2717:1: rule__TabBarApplication__Group__2__Impl : ( '{' ) ;
     public final void rule__TabBarApplication__Group__2__Impl() throws RecognitionException {
 
@@ -7329,10 +7581,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__2__Impl
+    // $ANTLR end "rule__TabBarApplication__Group__2__Impl"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__3
+    // $ANTLR start "rule__TabBarApplication__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2736:1: rule__TabBarApplication__Group__3 : rule__TabBarApplication__Group__3__Impl rule__TabBarApplication__Group__4 ;
     public final void rule__TabBarApplication__Group__3() throws RecognitionException {
 
@@ -7344,11 +7596,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__Group__3__Impl_in_rule__TabBarApplication__Group__35635);
             rule__TabBarApplication__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabBarApplication__Group__4_in_rule__TabBarApplication__Group__35638);
             rule__TabBarApplication__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7365,10 +7619,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__3
+    // $ANTLR end "rule__TabBarApplication__Group__3"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__3__Impl
+    // $ANTLR start "rule__TabBarApplication__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2748:1: rule__TabBarApplication__Group__3__Impl : ( ( rule__TabBarApplication__ButtonsAssignment_3 )* ) ;
     public final void rule__TabBarApplication__Group__3__Impl() throws RecognitionException {
 
@@ -7399,7 +7653,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__TabBarApplication__ButtonsAssignment_3_in_rule__TabBarApplication__Group__3__Impl5665);
             	    rule__TabBarApplication__ButtonsAssignment_3();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -7429,10 +7684,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__3__Impl
+    // $ANTLR end "rule__TabBarApplication__Group__3__Impl"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__4
+    // $ANTLR start "rule__TabBarApplication__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2765:1: rule__TabBarApplication__Group__4 : rule__TabBarApplication__Group__4__Impl ;
     public final void rule__TabBarApplication__Group__4() throws RecognitionException {
 
@@ -7444,7 +7699,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabBarApplication__Group__4__Impl_in_rule__TabBarApplication__Group__45696);
             rule__TabBarApplication__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7461,10 +7717,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__4
+    // $ANTLR end "rule__TabBarApplication__Group__4"
 
 
-    // $ANTLR start rule__TabBarApplication__Group__4__Impl
+    // $ANTLR start "rule__TabBarApplication__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2776:1: rule__TabBarApplication__Group__4__Impl : ( '}' ) ;
     public final void rule__TabBarApplication__Group__4__Impl() throws RecognitionException {
 
@@ -7498,10 +7754,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__Group__4__Impl
+    // $ANTLR end "rule__TabBarApplication__Group__4__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__0
+    // $ANTLR start "rule__TabbarButton__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2805:1: rule__TabbarButton__Group__0 : rule__TabbarButton__Group__0__Impl rule__TabbarButton__Group__1 ;
     public final void rule__TabbarButton__Group__0() throws RecognitionException {
 
@@ -7513,11 +7769,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__0__Impl_in_rule__TabbarButton__Group__05765);
             rule__TabbarButton__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__1_in_rule__TabbarButton__Group__05768);
             rule__TabbarButton__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7534,10 +7792,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__0
+    // $ANTLR end "rule__TabbarButton__Group__0"
 
 
-    // $ANTLR start rule__TabbarButton__Group__0__Impl
+    // $ANTLR start "rule__TabbarButton__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2817:1: rule__TabbarButton__Group__0__Impl : ( 'button' ) ;
     public final void rule__TabbarButton__Group__0__Impl() throws RecognitionException {
 
@@ -7571,10 +7829,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__0__Impl
+    // $ANTLR end "rule__TabbarButton__Group__0__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__1
+    // $ANTLR start "rule__TabbarButton__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2836:1: rule__TabbarButton__Group__1 : rule__TabbarButton__Group__1__Impl rule__TabbarButton__Group__2 ;
     public final void rule__TabbarButton__Group__1() throws RecognitionException {
 
@@ -7586,11 +7844,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__1__Impl_in_rule__TabbarButton__Group__15827);
             rule__TabbarButton__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__2_in_rule__TabbarButton__Group__15830);
             rule__TabbarButton__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7607,10 +7867,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__1
+    // $ANTLR end "rule__TabbarButton__Group__1"
 
 
-    // $ANTLR start rule__TabbarButton__Group__1__Impl
+    // $ANTLR start "rule__TabbarButton__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2848:1: rule__TabbarButton__Group__1__Impl : ( '{' ) ;
     public final void rule__TabbarButton__Group__1__Impl() throws RecognitionException {
 
@@ -7644,10 +7904,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__1__Impl
+    // $ANTLR end "rule__TabbarButton__Group__1__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__2
+    // $ANTLR start "rule__TabbarButton__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2867:1: rule__TabbarButton__Group__2 : rule__TabbarButton__Group__2__Impl rule__TabbarButton__Group__3 ;
     public final void rule__TabbarButton__Group__2() throws RecognitionException {
 
@@ -7659,11 +7919,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__2__Impl_in_rule__TabbarButton__Group__25889);
             rule__TabbarButton__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__3_in_rule__TabbarButton__Group__25892);
             rule__TabbarButton__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7680,10 +7942,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__2
+    // $ANTLR end "rule__TabbarButton__Group__2"
 
 
-    // $ANTLR start rule__TabbarButton__Group__2__Impl
+    // $ANTLR start "rule__TabbarButton__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2879:1: rule__TabbarButton__Group__2__Impl : ( 'title=' ) ;
     public final void rule__TabbarButton__Group__2__Impl() throws RecognitionException {
 
@@ -7717,10 +7979,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__2__Impl
+    // $ANTLR end "rule__TabbarButton__Group__2__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__3
+    // $ANTLR start "rule__TabbarButton__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2898:1: rule__TabbarButton__Group__3 : rule__TabbarButton__Group__3__Impl rule__TabbarButton__Group__4 ;
     public final void rule__TabbarButton__Group__3() throws RecognitionException {
 
@@ -7732,11 +7994,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__3__Impl_in_rule__TabbarButton__Group__35951);
             rule__TabbarButton__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__4_in_rule__TabbarButton__Group__35954);
             rule__TabbarButton__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7753,10 +8017,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__3
+    // $ANTLR end "rule__TabbarButton__Group__3"
 
 
-    // $ANTLR start rule__TabbarButton__Group__3__Impl
+    // $ANTLR start "rule__TabbarButton__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2910:1: rule__TabbarButton__Group__3__Impl : ( ( rule__TabbarButton__TitleAssignment_3 ) ) ;
     public final void rule__TabbarButton__Group__3__Impl() throws RecognitionException {
 
@@ -7775,7 +8039,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__TitleAssignment_3_in_rule__TabbarButton__Group__3__Impl5981);
             rule__TabbarButton__TitleAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7799,10 +8064,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__3__Impl
+    // $ANTLR end "rule__TabbarButton__Group__3__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__4
+    // $ANTLR start "rule__TabbarButton__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2927:1: rule__TabbarButton__Group__4 : rule__TabbarButton__Group__4__Impl rule__TabbarButton__Group__5 ;
     public final void rule__TabbarButton__Group__4() throws RecognitionException {
 
@@ -7814,11 +8079,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__4__Impl_in_rule__TabbarButton__Group__46011);
             rule__TabbarButton__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__5_in_rule__TabbarButton__Group__46014);
             rule__TabbarButton__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7835,10 +8102,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__4
+    // $ANTLR end "rule__TabbarButton__Group__4"
 
 
-    // $ANTLR start rule__TabbarButton__Group__4__Impl
+    // $ANTLR start "rule__TabbarButton__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2939:1: rule__TabbarButton__Group__4__Impl : ( 'icon=' ) ;
     public final void rule__TabbarButton__Group__4__Impl() throws RecognitionException {
 
@@ -7872,10 +8139,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__4__Impl
+    // $ANTLR end "rule__TabbarButton__Group__4__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__5
+    // $ANTLR start "rule__TabbarButton__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2958:1: rule__TabbarButton__Group__5 : rule__TabbarButton__Group__5__Impl rule__TabbarButton__Group__6 ;
     public final void rule__TabbarButton__Group__5() throws RecognitionException {
 
@@ -7887,11 +8154,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__5__Impl_in_rule__TabbarButton__Group__56073);
             rule__TabbarButton__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__6_in_rule__TabbarButton__Group__56076);
             rule__TabbarButton__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7908,10 +8177,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__5
+    // $ANTLR end "rule__TabbarButton__Group__5"
 
 
-    // $ANTLR start rule__TabbarButton__Group__5__Impl
+    // $ANTLR start "rule__TabbarButton__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2970:1: rule__TabbarButton__Group__5__Impl : ( ( rule__TabbarButton__IconAssignment_5 ) ) ;
     public final void rule__TabbarButton__Group__5__Impl() throws RecognitionException {
 
@@ -7930,7 +8199,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__IconAssignment_5_in_rule__TabbarButton__Group__5__Impl6103);
             rule__TabbarButton__IconAssignment_5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7954,10 +8224,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__5__Impl
+    // $ANTLR end "rule__TabbarButton__Group__5__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__6
+    // $ANTLR start "rule__TabbarButton__Group__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2987:1: rule__TabbarButton__Group__6 : rule__TabbarButton__Group__6__Impl rule__TabbarButton__Group__7 ;
     public final void rule__TabbarButton__Group__6() throws RecognitionException {
 
@@ -7969,11 +8239,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__6__Impl_in_rule__TabbarButton__Group__66133);
             rule__TabbarButton__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__7_in_rule__TabbarButton__Group__66136);
             rule__TabbarButton__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -7990,10 +8262,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__6
+    // $ANTLR end "rule__TabbarButton__Group__6"
 
 
-    // $ANTLR start rule__TabbarButton__Group__6__Impl
+    // $ANTLR start "rule__TabbarButton__Group__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:2999:1: rule__TabbarButton__Group__6__Impl : ( 'view=' ) ;
     public final void rule__TabbarButton__Group__6__Impl() throws RecognitionException {
 
@@ -8027,10 +8299,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__6__Impl
+    // $ANTLR end "rule__TabbarButton__Group__6__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__7
+    // $ANTLR start "rule__TabbarButton__Group__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3018:1: rule__TabbarButton__Group__7 : rule__TabbarButton__Group__7__Impl rule__TabbarButton__Group__8 ;
     public final void rule__TabbarButton__Group__7() throws RecognitionException {
 
@@ -8042,11 +8314,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__7__Impl_in_rule__TabbarButton__Group__76195);
             rule__TabbarButton__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TabbarButton__Group__8_in_rule__TabbarButton__Group__76198);
             rule__TabbarButton__Group__8();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8063,10 +8337,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__7
+    // $ANTLR end "rule__TabbarButton__Group__7"
 
 
-    // $ANTLR start rule__TabbarButton__Group__7__Impl
+    // $ANTLR start "rule__TabbarButton__Group__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3030:1: rule__TabbarButton__Group__7__Impl : ( ( rule__TabbarButton__ViewAssignment_7 ) ) ;
     public final void rule__TabbarButton__Group__7__Impl() throws RecognitionException {
 
@@ -8085,7 +8359,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__ViewAssignment_7_in_rule__TabbarButton__Group__7__Impl6225);
             rule__TabbarButton__ViewAssignment_7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8109,10 +8384,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__7__Impl
+    // $ANTLR end "rule__TabbarButton__Group__7__Impl"
 
 
-    // $ANTLR start rule__TabbarButton__Group__8
+    // $ANTLR start "rule__TabbarButton__Group__8"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3047:1: rule__TabbarButton__Group__8 : rule__TabbarButton__Group__8__Impl ;
     public final void rule__TabbarButton__Group__8() throws RecognitionException {
 
@@ -8124,7 +8399,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TabbarButton__Group__8__Impl_in_rule__TabbarButton__Group__86255);
             rule__TabbarButton__Group__8__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8141,10 +8417,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__8
+    // $ANTLR end "rule__TabbarButton__Group__8"
 
 
-    // $ANTLR start rule__TabbarButton__Group__8__Impl
+    // $ANTLR start "rule__TabbarButton__Group__8__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3058:1: rule__TabbarButton__Group__8__Impl : ( '}' ) ;
     public final void rule__TabbarButton__Group__8__Impl() throws RecognitionException {
 
@@ -8178,10 +8454,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__Group__8__Impl
+    // $ANTLR end "rule__TabbarButton__Group__8__Impl"
 
 
-    // $ANTLR start rule__Constant__Group__0
+    // $ANTLR start "rule__Constant__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3095:1: rule__Constant__Group__0 : rule__Constant__Group__0__Impl rule__Constant__Group__1 ;
     public final void rule__Constant__Group__0() throws RecognitionException {
 
@@ -8193,11 +8469,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__Group__0__Impl_in_rule__Constant__Group__06332);
             rule__Constant__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Constant__Group__1_in_rule__Constant__Group__06335);
             rule__Constant__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8214,10 +8492,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__0
+    // $ANTLR end "rule__Constant__Group__0"
 
 
-    // $ANTLR start rule__Constant__Group__0__Impl
+    // $ANTLR start "rule__Constant__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3107:1: rule__Constant__Group__0__Impl : ( () ) ;
     public final void rule__Constant__Group__0__Impl() throws RecognitionException {
 
@@ -8251,10 +8529,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__0__Impl
+    // $ANTLR end "rule__Constant__Group__0__Impl"
 
 
-    // $ANTLR start rule__Constant__Group__1
+    // $ANTLR start "rule__Constant__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3126:1: rule__Constant__Group__1 : rule__Constant__Group__1__Impl rule__Constant__Group__2 ;
     public final void rule__Constant__Group__1() throws RecognitionException {
 
@@ -8266,11 +8544,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__Group__1__Impl_in_rule__Constant__Group__16393);
             rule__Constant__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Constant__Group__2_in_rule__Constant__Group__16396);
             rule__Constant__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8287,10 +8567,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__1
+    // $ANTLR end "rule__Constant__Group__1"
 
 
-    // $ANTLR start rule__Constant__Group__1__Impl
+    // $ANTLR start "rule__Constant__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3138:1: rule__Constant__Group__1__Impl : ( 'const' ) ;
     public final void rule__Constant__Group__1__Impl() throws RecognitionException {
 
@@ -8324,10 +8604,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__1__Impl
+    // $ANTLR end "rule__Constant__Group__1__Impl"
 
 
-    // $ANTLR start rule__Constant__Group__2
+    // $ANTLR start "rule__Constant__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3157:1: rule__Constant__Group__2 : rule__Constant__Group__2__Impl rule__Constant__Group__3 ;
     public final void rule__Constant__Group__2() throws RecognitionException {
 
@@ -8339,11 +8619,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__Group__2__Impl_in_rule__Constant__Group__26455);
             rule__Constant__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Constant__Group__3_in_rule__Constant__Group__26458);
             rule__Constant__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8360,10 +8642,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__2
+    // $ANTLR end "rule__Constant__Group__2"
 
 
-    // $ANTLR start rule__Constant__Group__2__Impl
+    // $ANTLR start "rule__Constant__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3169:1: rule__Constant__Group__2__Impl : ( ( rule__Constant__NameAssignment_2 ) ) ;
     public final void rule__Constant__Group__2__Impl() throws RecognitionException {
 
@@ -8382,7 +8664,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__NameAssignment_2_in_rule__Constant__Group__2__Impl6485);
             rule__Constant__NameAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8406,10 +8689,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__2__Impl
+    // $ANTLR end "rule__Constant__Group__2__Impl"
 
 
-    // $ANTLR start rule__Constant__Group__3
+    // $ANTLR start "rule__Constant__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3186:1: rule__Constant__Group__3 : rule__Constant__Group__3__Impl ;
     public final void rule__Constant__Group__3() throws RecognitionException {
 
@@ -8421,7 +8704,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__Group__3__Impl_in_rule__Constant__Group__36515);
             rule__Constant__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8438,10 +8722,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__3
+    // $ANTLR end "rule__Constant__Group__3"
 
 
-    // $ANTLR start rule__Constant__Group__3__Impl
+    // $ANTLR start "rule__Constant__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3197:1: rule__Constant__Group__3__Impl : ( ( rule__Constant__ValueAssignment_3 ) ) ;
     public final void rule__Constant__Group__3__Impl() throws RecognitionException {
 
@@ -8460,7 +8744,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Constant__ValueAssignment_3_in_rule__Constant__Group__3__Impl6542);
             rule__Constant__ValueAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8484,10 +8769,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__Group__3__Impl
+    // $ANTLR end "rule__Constant__Group__3__Impl"
 
 
-    // $ANTLR start rule__SimpleType__Group__0
+    // $ANTLR start "rule__SimpleType__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3222:1: rule__SimpleType__Group__0 : rule__SimpleType__Group__0__Impl rule__SimpleType__Group__1 ;
     public final void rule__SimpleType__Group__0() throws RecognitionException {
 
@@ -8499,11 +8784,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__Group__0__Impl_in_rule__SimpleType__Group__06580);
             rule__SimpleType__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SimpleType__Group__1_in_rule__SimpleType__Group__06583);
             rule__SimpleType__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8520,10 +8807,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__0
+    // $ANTLR end "rule__SimpleType__Group__0"
 
 
-    // $ANTLR start rule__SimpleType__Group__0__Impl
+    // $ANTLR start "rule__SimpleType__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3234:1: rule__SimpleType__Group__0__Impl : ( 'type' ) ;
     public final void rule__SimpleType__Group__0__Impl() throws RecognitionException {
 
@@ -8557,10 +8844,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__0__Impl
+    // $ANTLR end "rule__SimpleType__Group__0__Impl"
 
 
-    // $ANTLR start rule__SimpleType__Group__1
+    // $ANTLR start "rule__SimpleType__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3253:1: rule__SimpleType__Group__1 : rule__SimpleType__Group__1__Impl rule__SimpleType__Group__2 ;
     public final void rule__SimpleType__Group__1() throws RecognitionException {
 
@@ -8572,11 +8859,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__Group__1__Impl_in_rule__SimpleType__Group__16642);
             rule__SimpleType__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SimpleType__Group__2_in_rule__SimpleType__Group__16645);
             rule__SimpleType__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8593,10 +8882,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__1
+    // $ANTLR end "rule__SimpleType__Group__1"
 
 
-    // $ANTLR start rule__SimpleType__Group__1__Impl
+    // $ANTLR start "rule__SimpleType__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3265:1: rule__SimpleType__Group__1__Impl : ( ( rule__SimpleType__NameAssignment_1 ) ) ;
     public final void rule__SimpleType__Group__1__Impl() throws RecognitionException {
 
@@ -8615,7 +8904,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__NameAssignment_1_in_rule__SimpleType__Group__1__Impl6672);
             rule__SimpleType__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8639,10 +8929,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__1__Impl
+    // $ANTLR end "rule__SimpleType__Group__1__Impl"
 
 
-    // $ANTLR start rule__SimpleType__Group__2
+    // $ANTLR start "rule__SimpleType__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3282:1: rule__SimpleType__Group__2 : rule__SimpleType__Group__2__Impl rule__SimpleType__Group__3 ;
     public final void rule__SimpleType__Group__2() throws RecognitionException {
 
@@ -8654,11 +8944,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__Group__2__Impl_in_rule__SimpleType__Group__26702);
             rule__SimpleType__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SimpleType__Group__3_in_rule__SimpleType__Group__26705);
             rule__SimpleType__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8675,10 +8967,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__2
+    // $ANTLR end "rule__SimpleType__Group__2"
 
 
-    // $ANTLR start rule__SimpleType__Group__2__Impl
+    // $ANTLR start "rule__SimpleType__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3294:1: rule__SimpleType__Group__2__Impl : ( 'mapsTo' ) ;
     public final void rule__SimpleType__Group__2__Impl() throws RecognitionException {
 
@@ -8712,10 +9004,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__2__Impl
+    // $ANTLR end "rule__SimpleType__Group__2__Impl"
 
 
-    // $ANTLR start rule__SimpleType__Group__3
+    // $ANTLR start "rule__SimpleType__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3313:1: rule__SimpleType__Group__3 : rule__SimpleType__Group__3__Impl ;
     public final void rule__SimpleType__Group__3() throws RecognitionException {
 
@@ -8727,7 +9019,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__Group__3__Impl_in_rule__SimpleType__Group__36764);
             rule__SimpleType__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8744,10 +9037,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__3
+    // $ANTLR end "rule__SimpleType__Group__3"
 
 
-    // $ANTLR start rule__SimpleType__Group__3__Impl
+    // $ANTLR start "rule__SimpleType__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3324:1: rule__SimpleType__Group__3__Impl : ( ( rule__SimpleType__PlatformTypeAssignment_3 ) ) ;
     public final void rule__SimpleType__Group__3__Impl() throws RecognitionException {
 
@@ -8766,7 +9059,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SimpleType__PlatformTypeAssignment_3_in_rule__SimpleType__Group__3__Impl6791);
             rule__SimpleType__PlatformTypeAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8790,10 +9084,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__Group__3__Impl
+    // $ANTLR end "rule__SimpleType__Group__3__Impl"
 
 
-    // $ANTLR start rule__Entity__Group__0
+    // $ANTLR start "rule__Entity__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3349:1: rule__Entity__Group__0 : rule__Entity__Group__0__Impl rule__Entity__Group__1 ;
     public final void rule__Entity__Group__0() throws RecognitionException {
 
@@ -8805,11 +9099,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__06829);
             rule__Entity__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__06832);
             rule__Entity__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8826,10 +9122,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__0
+    // $ANTLR end "rule__Entity__Group__0"
 
 
-    // $ANTLR start rule__Entity__Group__0__Impl
+    // $ANTLR start "rule__Entity__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3361:1: rule__Entity__Group__0__Impl : ( 'entity' ) ;
     public final void rule__Entity__Group__0__Impl() throws RecognitionException {
 
@@ -8863,10 +9159,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__0__Impl
+    // $ANTLR end "rule__Entity__Group__0__Impl"
 
 
-    // $ANTLR start rule__Entity__Group__1
+    // $ANTLR start "rule__Entity__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3380:1: rule__Entity__Group__1 : rule__Entity__Group__1__Impl rule__Entity__Group__2 ;
     public final void rule__Entity__Group__1() throws RecognitionException {
 
@@ -8878,11 +9174,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__16891);
             rule__Entity__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__16894);
             rule__Entity__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8899,10 +9197,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__1
+    // $ANTLR end "rule__Entity__Group__1"
 
 
-    // $ANTLR start rule__Entity__Group__1__Impl
+    // $ANTLR start "rule__Entity__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3392:1: rule__Entity__Group__1__Impl : ( ( rule__Entity__NameAssignment_1 ) ) ;
     public final void rule__Entity__Group__1__Impl() throws RecognitionException {
 
@@ -8921,7 +9219,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl6921);
             rule__Entity__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8945,10 +9244,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__1__Impl
+    // $ANTLR end "rule__Entity__Group__1__Impl"
 
 
-    // $ANTLR start rule__Entity__Group__2
+    // $ANTLR start "rule__Entity__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3409:1: rule__Entity__Group__2 : rule__Entity__Group__2__Impl rule__Entity__Group__3 ;
     public final void rule__Entity__Group__2() throws RecognitionException {
 
@@ -8960,11 +9259,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__26951);
             rule__Entity__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__26954);
             rule__Entity__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -8981,10 +9282,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__2
+    // $ANTLR end "rule__Entity__Group__2"
 
 
-    // $ANTLR start rule__Entity__Group__2__Impl
+    // $ANTLR start "rule__Entity__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3421:1: rule__Entity__Group__2__Impl : ( ( rule__Entity__Group_2__0 )? ) ;
     public final void rule__Entity__Group__2__Impl() throws RecognitionException {
 
@@ -9011,7 +9312,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__Entity__Group_2__0_in_rule__Entity__Group__2__Impl6981);
                     rule__Entity__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -9038,10 +9340,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__2__Impl
+    // $ANTLR end "rule__Entity__Group__2__Impl"
 
 
-    // $ANTLR start rule__Entity__Group__3
+    // $ANTLR start "rule__Entity__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3438:1: rule__Entity__Group__3 : rule__Entity__Group__3__Impl rule__Entity__Group__4 ;
     public final void rule__Entity__Group__3() throws RecognitionException {
 
@@ -9053,11 +9355,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__37012);
             rule__Entity__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__37015);
             rule__Entity__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9074,10 +9378,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__3
+    // $ANTLR end "rule__Entity__Group__3"
 
 
-    // $ANTLR start rule__Entity__Group__3__Impl
+    // $ANTLR start "rule__Entity__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3450:1: rule__Entity__Group__3__Impl : ( '{' ) ;
     public final void rule__Entity__Group__3__Impl() throws RecognitionException {
 
@@ -9111,10 +9415,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__3__Impl
+    // $ANTLR end "rule__Entity__Group__3__Impl"
 
 
-    // $ANTLR start rule__Entity__Group__4
+    // $ANTLR start "rule__Entity__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3469:1: rule__Entity__Group__4 : rule__Entity__Group__4__Impl rule__Entity__Group__5 ;
     public final void rule__Entity__Group__4() throws RecognitionException {
 
@@ -9126,11 +9430,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__47074);
             rule__Entity__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__47077);
             rule__Entity__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9147,10 +9453,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__4
+    // $ANTLR end "rule__Entity__Group__4"
 
 
-    // $ANTLR start rule__Entity__Group__4__Impl
+    // $ANTLR start "rule__Entity__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3481:1: rule__Entity__Group__4__Impl : ( ( rule__Entity__PropertiesAssignment_4 )* ) ;
     public final void rule__Entity__Group__4__Impl() throws RecognitionException {
 
@@ -9181,7 +9487,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__Entity__PropertiesAssignment_4_in_rule__Entity__Group__4__Impl7104);
             	    rule__Entity__PropertiesAssignment_4();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -9211,10 +9518,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__4__Impl
+    // $ANTLR end "rule__Entity__Group__4__Impl"
 
 
-    // $ANTLR start rule__Entity__Group__5
+    // $ANTLR start "rule__Entity__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3498:1: rule__Entity__Group__5 : rule__Entity__Group__5__Impl ;
     public final void rule__Entity__Group__5() throws RecognitionException {
 
@@ -9226,7 +9533,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__57135);
             rule__Entity__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9243,10 +9551,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__5
+    // $ANTLR end "rule__Entity__Group__5"
 
 
-    // $ANTLR start rule__Entity__Group__5__Impl
+    // $ANTLR start "rule__Entity__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3509:1: rule__Entity__Group__5__Impl : ( '}' ) ;
     public final void rule__Entity__Group__5__Impl() throws RecognitionException {
 
@@ -9280,10 +9588,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group__5__Impl
+    // $ANTLR end "rule__Entity__Group__5__Impl"
 
 
-    // $ANTLR start rule__Entity__Group_2__0
+    // $ANTLR start "rule__Entity__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3540:1: rule__Entity__Group_2__0 : rule__Entity__Group_2__0__Impl rule__Entity__Group_2__1 ;
     public final void rule__Entity__Group_2__0() throws RecognitionException {
 
@@ -9295,11 +9603,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group_2__0__Impl_in_rule__Entity__Group_2__07206);
             rule__Entity__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Entity__Group_2__1_in_rule__Entity__Group_2__07209);
             rule__Entity__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9316,10 +9626,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group_2__0
+    // $ANTLR end "rule__Entity__Group_2__0"
 
 
-    // $ANTLR start rule__Entity__Group_2__0__Impl
+    // $ANTLR start "rule__Entity__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3552:1: rule__Entity__Group_2__0__Impl : ( 'extends' ) ;
     public final void rule__Entity__Group_2__0__Impl() throws RecognitionException {
 
@@ -9353,10 +9663,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group_2__0__Impl
+    // $ANTLR end "rule__Entity__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__Entity__Group_2__1
+    // $ANTLR start "rule__Entity__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3571:1: rule__Entity__Group_2__1 : rule__Entity__Group_2__1__Impl ;
     public final void rule__Entity__Group_2__1() throws RecognitionException {
 
@@ -9368,7 +9678,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__Group_2__1__Impl_in_rule__Entity__Group_2__17268);
             rule__Entity__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9385,10 +9696,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group_2__1
+    // $ANTLR end "rule__Entity__Group_2__1"
 
 
-    // $ANTLR start rule__Entity__Group_2__1__Impl
+    // $ANTLR start "rule__Entity__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3582:1: rule__Entity__Group_2__1__Impl : ( ( rule__Entity__ExtendsAssignment_2_1 ) ) ;
     public final void rule__Entity__Group_2__1__Impl() throws RecognitionException {
 
@@ -9407,7 +9718,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Entity__ExtendsAssignment_2_1_in_rule__Entity__Group_2__1__Impl7295);
             rule__Entity__ExtendsAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9431,10 +9743,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__Group_2__1__Impl
+    // $ANTLR end "rule__Entity__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__Property__Group__0
+    // $ANTLR start "rule__Property__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3603:1: rule__Property__Group__0 : rule__Property__Group__0__Impl rule__Property__Group__1 ;
     public final void rule__Property__Group__0() throws RecognitionException {
 
@@ -9446,11 +9758,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__07329);
             rule__Property__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Property__Group__1_in_rule__Property__Group__07332);
             rule__Property__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9467,10 +9781,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__Group__0
+    // $ANTLR end "rule__Property__Group__0"
 
 
-    // $ANTLR start rule__Property__Group__0__Impl
+    // $ANTLR start "rule__Property__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3615:1: rule__Property__Group__0__Impl : ( ( rule__Property__DerivedAssignment_0 )? ) ;
     public final void rule__Property__Group__0__Impl() throws RecognitionException {
 
@@ -9497,7 +9811,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__Property__DerivedAssignment_0_in_rule__Property__Group__0__Impl7359);
                     rule__Property__DerivedAssignment_0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -9524,10 +9839,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__Group__0__Impl
+    // $ANTLR end "rule__Property__Group__0__Impl"
 
 
-    // $ANTLR start rule__Property__Group__1
+    // $ANTLR start "rule__Property__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3632:1: rule__Property__Group__1 : rule__Property__Group__1__Impl rule__Property__Group__2 ;
     public final void rule__Property__Group__1() throws RecognitionException {
 
@@ -9539,11 +9854,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Property__Group__1__Impl_in_rule__Property__Group__17390);
             rule__Property__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__Property__Group__2_in_rule__Property__Group__17393);
             rule__Property__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9560,10 +9877,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__Group__1
+    // $ANTLR end "rule__Property__Group__1"
 
 
-    // $ANTLR start rule__Property__Group__1__Impl
+    // $ANTLR start "rule__Property__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3644:1: rule__Property__Group__1__Impl : ( ( rule__Property__DescriptionAssignment_1 ) ) ;
     public final void rule__Property__Group__1__Impl() throws RecognitionException {
 
@@ -9582,7 +9899,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Property__DescriptionAssignment_1_in_rule__Property__Group__1__Impl7420);
             rule__Property__DescriptionAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9606,10 +9924,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__Group__1__Impl
+    // $ANTLR end "rule__Property__Group__1__Impl"
 
 
-    // $ANTLR start rule__Property__Group__2
+    // $ANTLR start "rule__Property__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3661:1: rule__Property__Group__2 : rule__Property__Group__2__Impl ;
     public final void rule__Property__Group__2() throws RecognitionException {
 
@@ -9621,7 +9939,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Property__Group__2__Impl_in_rule__Property__Group__27450);
             rule__Property__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9638,10 +9957,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__Group__2
+    // $ANTLR end "rule__Property__Group__2"
 
 
-    // $ANTLR start rule__Property__Group__2__Impl
+    // $ANTLR start "rule__Property__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3672:1: rule__Property__Group__2__Impl : ( ( rule__Property__NameAssignment_2 ) ) ;
     public final void rule__Property__Group__2__Impl() throws RecognitionException {
 
@@ -9660,7 +9979,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__Property__NameAssignment_2_in_rule__Property__Group__2__Impl7477);
             rule__Property__NameAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9684,10 +10004,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__Group__2__Impl
+    // $ANTLR end "rule__Property__Group__2__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__0
+    // $ANTLR start "rule__ContentProvider__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3695:1: rule__ContentProvider__Group__0 : rule__ContentProvider__Group__0__Impl rule__ContentProvider__Group__1 ;
     public final void rule__ContentProvider__Group__0() throws RecognitionException {
 
@@ -9699,11 +10019,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__0__Impl_in_rule__ContentProvider__Group__07513);
             rule__ContentProvider__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__1_in_rule__ContentProvider__Group__07516);
             rule__ContentProvider__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9720,10 +10042,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__0
+    // $ANTLR end "rule__ContentProvider__Group__0"
 
 
-    // $ANTLR start rule__ContentProvider__Group__0__Impl
+    // $ANTLR start "rule__ContentProvider__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3707:1: rule__ContentProvider__Group__0__Impl : ( 'contentprovider' ) ;
     public final void rule__ContentProvider__Group__0__Impl() throws RecognitionException {
 
@@ -9757,10 +10079,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__0__Impl
+    // $ANTLR end "rule__ContentProvider__Group__0__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__1
+    // $ANTLR start "rule__ContentProvider__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3726:1: rule__ContentProvider__Group__1 : rule__ContentProvider__Group__1__Impl rule__ContentProvider__Group__2 ;
     public final void rule__ContentProvider__Group__1() throws RecognitionException {
 
@@ -9772,11 +10094,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__1__Impl_in_rule__ContentProvider__Group__17575);
             rule__ContentProvider__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__2_in_rule__ContentProvider__Group__17578);
             rule__ContentProvider__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9793,10 +10117,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__1
+    // $ANTLR end "rule__ContentProvider__Group__1"
 
 
-    // $ANTLR start rule__ContentProvider__Group__1__Impl
+    // $ANTLR start "rule__ContentProvider__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3738:1: rule__ContentProvider__Group__1__Impl : ( ( rule__ContentProvider__NameAssignment_1 ) ) ;
     public final void rule__ContentProvider__Group__1__Impl() throws RecognitionException {
 
@@ -9815,7 +10139,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__NameAssignment_1_in_rule__ContentProvider__Group__1__Impl7605);
             rule__ContentProvider__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9839,10 +10164,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__1__Impl
+    // $ANTLR end "rule__ContentProvider__Group__1__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__2
+    // $ANTLR start "rule__ContentProvider__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3755:1: rule__ContentProvider__Group__2 : rule__ContentProvider__Group__2__Impl rule__ContentProvider__Group__3 ;
     public final void rule__ContentProvider__Group__2() throws RecognitionException {
 
@@ -9854,11 +10179,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__2__Impl_in_rule__ContentProvider__Group__27635);
             rule__ContentProvider__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__3_in_rule__ContentProvider__Group__27638);
             rule__ContentProvider__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9875,10 +10202,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__2
+    // $ANTLR end "rule__ContentProvider__Group__2"
 
 
-    // $ANTLR start rule__ContentProvider__Group__2__Impl
+    // $ANTLR start "rule__ContentProvider__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3767:1: rule__ContentProvider__Group__2__Impl : ( ( rule__ContentProvider__Group_2__0 )? ) ;
     public final void rule__ContentProvider__Group__2__Impl() throws RecognitionException {
 
@@ -9905,7 +10232,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ContentProvider__Group_2__0_in_rule__ContentProvider__Group__2__Impl7665);
                     rule__ContentProvider__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -9932,10 +10260,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__2__Impl
+    // $ANTLR end "rule__ContentProvider__Group__2__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__3
+    // $ANTLR start "rule__ContentProvider__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3784:1: rule__ContentProvider__Group__3 : rule__ContentProvider__Group__3__Impl rule__ContentProvider__Group__4 ;
     public final void rule__ContentProvider__Group__3() throws RecognitionException {
 
@@ -9947,11 +10275,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__3__Impl_in_rule__ContentProvider__Group__37696);
             rule__ContentProvider__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__4_in_rule__ContentProvider__Group__37699);
             rule__ContentProvider__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -9968,10 +10298,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__3
+    // $ANTLR end "rule__ContentProvider__Group__3"
 
 
-    // $ANTLR start rule__ContentProvider__Group__3__Impl
+    // $ANTLR start "rule__ContentProvider__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3796:1: rule__ContentProvider__Group__3__Impl : ( ( rule__ContentProvider__Alternatives_3 ) ) ;
     public final void rule__ContentProvider__Group__3__Impl() throws RecognitionException {
 
@@ -9990,7 +10320,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Alternatives_3_in_rule__ContentProvider__Group__3__Impl7726);
             rule__ContentProvider__Alternatives_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10014,10 +10345,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__3__Impl
+    // $ANTLR end "rule__ContentProvider__Group__3__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__4
+    // $ANTLR start "rule__ContentProvider__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3813:1: rule__ContentProvider__Group__4 : rule__ContentProvider__Group__4__Impl rule__ContentProvider__Group__5 ;
     public final void rule__ContentProvider__Group__4() throws RecognitionException {
 
@@ -10029,11 +10360,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__4__Impl_in_rule__ContentProvider__Group__47756);
             rule__ContentProvider__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__5_in_rule__ContentProvider__Group__47759);
             rule__ContentProvider__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10050,10 +10383,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__4
+    // $ANTLR end "rule__ContentProvider__Group__4"
 
 
-    // $ANTLR start rule__ContentProvider__Group__4__Impl
+    // $ANTLR start "rule__ContentProvider__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3825:1: rule__ContentProvider__Group__4__Impl : ( ( rule__ContentProvider__TypeAssignment_4 ) ) ;
     public final void rule__ContentProvider__Group__4__Impl() throws RecognitionException {
 
@@ -10072,7 +10405,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__TypeAssignment_4_in_rule__ContentProvider__Group__4__Impl7786);
             rule__ContentProvider__TypeAssignment_4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10096,10 +10430,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__4__Impl
+    // $ANTLR end "rule__ContentProvider__Group__4__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__5
+    // $ANTLR start "rule__ContentProvider__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3842:1: rule__ContentProvider__Group__5 : rule__ContentProvider__Group__5__Impl rule__ContentProvider__Group__6 ;
     public final void rule__ContentProvider__Group__5() throws RecognitionException {
 
@@ -10111,11 +10445,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__5__Impl_in_rule__ContentProvider__Group__57816);
             rule__ContentProvider__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__6_in_rule__ContentProvider__Group__57819);
             rule__ContentProvider__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10132,10 +10468,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__5
+    // $ANTLR end "rule__ContentProvider__Group__5"
 
 
-    // $ANTLR start rule__ContentProvider__Group__5__Impl
+    // $ANTLR start "rule__ContentProvider__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3854:1: rule__ContentProvider__Group__5__Impl : ( ( rule__ContentProvider__ManyAssignment_5 )? ) ;
     public final void rule__ContentProvider__Group__5__Impl() throws RecognitionException {
 
@@ -10162,7 +10498,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ContentProvider__ManyAssignment_5_in_rule__ContentProvider__Group__5__Impl7846);
                     rule__ContentProvider__ManyAssignment_5();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -10189,10 +10526,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__5__Impl
+    // $ANTLR end "rule__ContentProvider__Group__5__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__6
+    // $ANTLR start "rule__ContentProvider__Group__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3871:1: rule__ContentProvider__Group__6 : rule__ContentProvider__Group__6__Impl rule__ContentProvider__Group__7 ;
     public final void rule__ContentProvider__Group__6() throws RecognitionException {
 
@@ -10204,11 +10541,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__6__Impl_in_rule__ContentProvider__Group__67877);
             rule__ContentProvider__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__7_in_rule__ContentProvider__Group__67880);
             rule__ContentProvider__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10225,10 +10564,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__6
+    // $ANTLR end "rule__ContentProvider__Group__6"
 
 
-    // $ANTLR start rule__ContentProvider__Group__6__Impl
+    // $ANTLR start "rule__ContentProvider__Group__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3883:1: rule__ContentProvider__Group__6__Impl : ( 'fetches' ) ;
     public final void rule__ContentProvider__Group__6__Impl() throws RecognitionException {
 
@@ -10262,10 +10601,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__6__Impl
+    // $ANTLR end "rule__ContentProvider__Group__6__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__7
+    // $ANTLR start "rule__ContentProvider__Group__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3902:1: rule__ContentProvider__Group__7 : rule__ContentProvider__Group__7__Impl rule__ContentProvider__Group__8 ;
     public final void rule__ContentProvider__Group__7() throws RecognitionException {
 
@@ -10277,11 +10616,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__7__Impl_in_rule__ContentProvider__Group__77939);
             rule__ContentProvider__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__8_in_rule__ContentProvider__Group__77942);
             rule__ContentProvider__Group__8();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10298,10 +10639,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__7
+    // $ANTLR end "rule__ContentProvider__Group__7"
 
 
-    // $ANTLR start rule__ContentProvider__Group__7__Impl
+    // $ANTLR start "rule__ContentProvider__Group__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3914:1: rule__ContentProvider__Group__7__Impl : ( 'XML' ) ;
     public final void rule__ContentProvider__Group__7__Impl() throws RecognitionException {
 
@@ -10335,10 +10676,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__7__Impl
+    // $ANTLR end "rule__ContentProvider__Group__7__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__8
+    // $ANTLR start "rule__ContentProvider__Group__8"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3933:1: rule__ContentProvider__Group__8 : rule__ContentProvider__Group__8__Impl rule__ContentProvider__Group__9 ;
     public final void rule__ContentProvider__Group__8() throws RecognitionException {
 
@@ -10350,11 +10691,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__8__Impl_in_rule__ContentProvider__Group__88001);
             rule__ContentProvider__Group__8__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__9_in_rule__ContentProvider__Group__88004);
             rule__ContentProvider__Group__9();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10371,10 +10714,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__8
+    // $ANTLR end "rule__ContentProvider__Group__8"
 
 
-    // $ANTLR start rule__ContentProvider__Group__8__Impl
+    // $ANTLR start "rule__ContentProvider__Group__8__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3945:1: rule__ContentProvider__Group__8__Impl : ( 'from' ) ;
     public final void rule__ContentProvider__Group__8__Impl() throws RecognitionException {
 
@@ -10408,10 +10751,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__8__Impl
+    // $ANTLR end "rule__ContentProvider__Group__8__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__9
+    // $ANTLR start "rule__ContentProvider__Group__9"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3964:1: rule__ContentProvider__Group__9 : rule__ContentProvider__Group__9__Impl rule__ContentProvider__Group__10 ;
     public final void rule__ContentProvider__Group__9() throws RecognitionException {
 
@@ -10423,11 +10766,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__9__Impl_in_rule__ContentProvider__Group__98063);
             rule__ContentProvider__Group__9__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__10_in_rule__ContentProvider__Group__98066);
             rule__ContentProvider__Group__10();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10444,10 +10789,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__9
+    // $ANTLR end "rule__ContentProvider__Group__9"
 
 
-    // $ANTLR start rule__ContentProvider__Group__9__Impl
+    // $ANTLR start "rule__ContentProvider__Group__9__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3976:1: rule__ContentProvider__Group__9__Impl : ( ( rule__ContentProvider__UrlAssignment_9 ) ) ;
     public final void rule__ContentProvider__Group__9__Impl() throws RecognitionException {
 
@@ -10466,7 +10811,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__UrlAssignment_9_in_rule__ContentProvider__Group__9__Impl8093);
             rule__ContentProvider__UrlAssignment_9();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10490,10 +10836,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__9__Impl
+    // $ANTLR end "rule__ContentProvider__Group__9__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__10
+    // $ANTLR start "rule__ContentProvider__Group__10"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:3993:1: rule__ContentProvider__Group__10 : rule__ContentProvider__Group__10__Impl rule__ContentProvider__Group__11 ;
     public final void rule__ContentProvider__Group__10() throws RecognitionException {
 
@@ -10505,11 +10851,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__10__Impl_in_rule__ContentProvider__Group__108123);
             rule__ContentProvider__Group__10__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group__11_in_rule__ContentProvider__Group__108126);
             rule__ContentProvider__Group__11();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10526,10 +10874,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__10
+    // $ANTLR end "rule__ContentProvider__Group__10"
 
 
-    // $ANTLR start rule__ContentProvider__Group__10__Impl
+    // $ANTLR start "rule__ContentProvider__Group__10__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4005:1: rule__ContentProvider__Group__10__Impl : ( 'selects' ) ;
     public final void rule__ContentProvider__Group__10__Impl() throws RecognitionException {
 
@@ -10563,10 +10911,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__10__Impl
+    // $ANTLR end "rule__ContentProvider__Group__10__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group__11
+    // $ANTLR start "rule__ContentProvider__Group__11"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4024:1: rule__ContentProvider__Group__11 : rule__ContentProvider__Group__11__Impl ;
     public final void rule__ContentProvider__Group__11() throws RecognitionException {
 
@@ -10578,7 +10926,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group__11__Impl_in_rule__ContentProvider__Group__118185);
             rule__ContentProvider__Group__11__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10595,10 +10944,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__11
+    // $ANTLR end "rule__ContentProvider__Group__11"
 
 
-    // $ANTLR start rule__ContentProvider__Group__11__Impl
+    // $ANTLR start "rule__ContentProvider__Group__11__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4035:1: rule__ContentProvider__Group__11__Impl : ( ( rule__ContentProvider__SelectionAssignment_11 ) ) ;
     public final void rule__ContentProvider__Group__11__Impl() throws RecognitionException {
 
@@ -10617,7 +10966,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__SelectionAssignment_11_in_rule__ContentProvider__Group__11__Impl8212);
             rule__ContentProvider__SelectionAssignment_11();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10641,10 +10991,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group__11__Impl
+    // $ANTLR end "rule__ContentProvider__Group__11__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group_2__0
+    // $ANTLR start "rule__ContentProvider__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4076:1: rule__ContentProvider__Group_2__0 : rule__ContentProvider__Group_2__0__Impl rule__ContentProvider__Group_2__1 ;
     public final void rule__ContentProvider__Group_2__0() throws RecognitionException {
 
@@ -10656,11 +11006,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group_2__0__Impl_in_rule__ContentProvider__Group_2__08266);
             rule__ContentProvider__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group_2__1_in_rule__ContentProvider__Group_2__08269);
             rule__ContentProvider__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10677,10 +11029,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group_2__0
+    // $ANTLR end "rule__ContentProvider__Group_2__0"
 
 
-    // $ANTLR start rule__ContentProvider__Group_2__0__Impl
+    // $ANTLR start "rule__ContentProvider__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4088:1: rule__ContentProvider__Group_2__0__Impl : ( '(' ) ;
     public final void rule__ContentProvider__Group_2__0__Impl() throws RecognitionException {
 
@@ -10714,10 +11066,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group_2__0__Impl
+    // $ANTLR end "rule__ContentProvider__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group_2__1
+    // $ANTLR start "rule__ContentProvider__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4107:1: rule__ContentProvider__Group_2__1 : rule__ContentProvider__Group_2__1__Impl rule__ContentProvider__Group_2__2 ;
     public final void rule__ContentProvider__Group_2__1() throws RecognitionException {
 
@@ -10729,11 +11081,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group_2__1__Impl_in_rule__ContentProvider__Group_2__18328);
             rule__ContentProvider__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ContentProvider__Group_2__2_in_rule__ContentProvider__Group_2__18331);
             rule__ContentProvider__Group_2__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10750,10 +11104,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group_2__1
+    // $ANTLR end "rule__ContentProvider__Group_2__1"
 
 
-    // $ANTLR start rule__ContentProvider__Group_2__1__Impl
+    // $ANTLR start "rule__ContentProvider__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4119:1: rule__ContentProvider__Group_2__1__Impl : ( ( rule__ContentProvider__ParameterAssignment_2_1 ) ) ;
     public final void rule__ContentProvider__Group_2__1__Impl() throws RecognitionException {
 
@@ -10772,7 +11126,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__ParameterAssignment_2_1_in_rule__ContentProvider__Group_2__1__Impl8358);
             rule__ContentProvider__ParameterAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10796,10 +11151,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group_2__1__Impl
+    // $ANTLR end "rule__ContentProvider__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__ContentProvider__Group_2__2
+    // $ANTLR start "rule__ContentProvider__Group_2__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4136:1: rule__ContentProvider__Group_2__2 : rule__ContentProvider__Group_2__2__Impl ;
     public final void rule__ContentProvider__Group_2__2() throws RecognitionException {
 
@@ -10811,7 +11166,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ContentProvider__Group_2__2__Impl_in_rule__ContentProvider__Group_2__28388);
             rule__ContentProvider__Group_2__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10828,10 +11184,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group_2__2
+    // $ANTLR end "rule__ContentProvider__Group_2__2"
 
 
-    // $ANTLR start rule__ContentProvider__Group_2__2__Impl
+    // $ANTLR start "rule__ContentProvider__Group_2__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4147:1: rule__ContentProvider__Group_2__2__Impl : ( ')' ) ;
     public final void rule__ContentProvider__Group_2__2__Impl() throws RecognitionException {
 
@@ -10865,10 +11221,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__Group_2__2__Impl
+    // $ANTLR end "rule__ContentProvider__Group_2__2__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__0
+    // $ANTLR start "rule__ProviderConstruction__Group_0__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4172:1: rule__ProviderConstruction__Group_0__0 : rule__ProviderConstruction__Group_0__0__Impl rule__ProviderConstruction__Group_0__1 ;
     public final void rule__ProviderConstruction__Group_0__0() throws RecognitionException {
 
@@ -10880,11 +11236,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__0__Impl_in_rule__ProviderConstruction__Group_0__08453);
             rule__ProviderConstruction__Group_0__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__1_in_rule__ProviderConstruction__Group_0__08456);
             rule__ProviderConstruction__Group_0__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10901,10 +11259,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__0
+    // $ANTLR end "rule__ProviderConstruction__Group_0__0"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__0__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_0__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4184:1: rule__ProviderConstruction__Group_0__0__Impl : ( () ) ;
     public final void rule__ProviderConstruction__Group_0__0__Impl() throws RecognitionException {
 
@@ -10938,10 +11296,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__0__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_0__0__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__1
+    // $ANTLR start "rule__ProviderConstruction__Group_0__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4203:1: rule__ProviderConstruction__Group_0__1 : rule__ProviderConstruction__Group_0__1__Impl rule__ProviderConstruction__Group_0__2 ;
     public final void rule__ProviderConstruction__Group_0__1() throws RecognitionException {
 
@@ -10953,11 +11311,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__1__Impl_in_rule__ProviderConstruction__Group_0__18514);
             rule__ProviderConstruction__Group_0__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__2_in_rule__ProviderConstruction__Group_0__18517);
             rule__ProviderConstruction__Group_0__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -10974,10 +11334,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__1
+    // $ANTLR end "rule__ProviderConstruction__Group_0__1"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__1__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_0__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4215:1: rule__ProviderConstruction__Group_0__1__Impl : ( ( rule__ProviderConstruction__ProviderAssignment_0_1 ) ) ;
     public final void rule__ProviderConstruction__Group_0__1__Impl() throws RecognitionException {
 
@@ -10996,7 +11356,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__ProviderAssignment_0_1_in_rule__ProviderConstruction__Group_0__1__Impl8544);
             rule__ProviderConstruction__ProviderAssignment_0_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11020,10 +11381,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__1__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_0__1__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__2
+    // $ANTLR start "rule__ProviderConstruction__Group_0__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4232:1: rule__ProviderConstruction__Group_0__2 : rule__ProviderConstruction__Group_0__2__Impl rule__ProviderConstruction__Group_0__3 ;
     public final void rule__ProviderConstruction__Group_0__2() throws RecognitionException {
 
@@ -11035,11 +11396,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__2__Impl_in_rule__ProviderConstruction__Group_0__28574);
             rule__ProviderConstruction__Group_0__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__3_in_rule__ProviderConstruction__Group_0__28577);
             rule__ProviderConstruction__Group_0__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11056,10 +11419,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__2
+    // $ANTLR end "rule__ProviderConstruction__Group_0__2"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__2__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_0__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4244:1: rule__ProviderConstruction__Group_0__2__Impl : ( '(' ) ;
     public final void rule__ProviderConstruction__Group_0__2__Impl() throws RecognitionException {
 
@@ -11093,10 +11456,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__2__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_0__2__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__3
+    // $ANTLR start "rule__ProviderConstruction__Group_0__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4263:1: rule__ProviderConstruction__Group_0__3 : rule__ProviderConstruction__Group_0__3__Impl rule__ProviderConstruction__Group_0__4 ;
     public final void rule__ProviderConstruction__Group_0__3() throws RecognitionException {
 
@@ -11108,11 +11471,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__3__Impl_in_rule__ProviderConstruction__Group_0__38636);
             rule__ProviderConstruction__Group_0__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__4_in_rule__ProviderConstruction__Group_0__38639);
             rule__ProviderConstruction__Group_0__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11129,10 +11494,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__3
+    // $ANTLR end "rule__ProviderConstruction__Group_0__3"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__3__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_0__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4275:1: rule__ProviderConstruction__Group_0__3__Impl : ( ( rule__ProviderConstruction__ArgumentAssignment_0_3 )? ) ;
     public final void rule__ProviderConstruction__Group_0__3__Impl() throws RecognitionException {
 
@@ -11159,7 +11524,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ProviderConstruction__ArgumentAssignment_0_3_in_rule__ProviderConstruction__Group_0__3__Impl8666);
                     rule__ProviderConstruction__ArgumentAssignment_0_3();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -11186,10 +11552,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__3__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_0__3__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__4
+    // $ANTLR start "rule__ProviderConstruction__Group_0__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4292:1: rule__ProviderConstruction__Group_0__4 : rule__ProviderConstruction__Group_0__4__Impl ;
     public final void rule__ProviderConstruction__Group_0__4() throws RecognitionException {
 
@@ -11201,7 +11567,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_0__4__Impl_in_rule__ProviderConstruction__Group_0__48697);
             rule__ProviderConstruction__Group_0__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11218,10 +11585,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__4
+    // $ANTLR end "rule__ProviderConstruction__Group_0__4"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_0__4__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_0__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4303:1: rule__ProviderConstruction__Group_0__4__Impl : ( ')' ) ;
     public final void rule__ProviderConstruction__Group_0__4__Impl() throws RecognitionException {
 
@@ -11255,10 +11622,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_0__4__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_0__4__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_1__0
+    // $ANTLR start "rule__ProviderConstruction__Group_1__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4332:1: rule__ProviderConstruction__Group_1__0 : rule__ProviderConstruction__Group_1__0__Impl rule__ProviderConstruction__Group_1__1 ;
     public final void rule__ProviderConstruction__Group_1__0() throws RecognitionException {
 
@@ -11270,11 +11637,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_1__0__Impl_in_rule__ProviderConstruction__Group_1__08766);
             rule__ProviderConstruction__Group_1__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_1__1_in_rule__ProviderConstruction__Group_1__08769);
             rule__ProviderConstruction__Group_1__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11291,10 +11660,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_1__0
+    // $ANTLR end "rule__ProviderConstruction__Group_1__0"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_1__0__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_1__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4344:1: rule__ProviderConstruction__Group_1__0__Impl : ( () ) ;
     public final void rule__ProviderConstruction__Group_1__0__Impl() throws RecognitionException {
 
@@ -11328,10 +11697,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_1__0__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_1__0__Impl"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_1__1
+    // $ANTLR start "rule__ProviderConstruction__Group_1__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4363:1: rule__ProviderConstruction__Group_1__1 : rule__ProviderConstruction__Group_1__1__Impl ;
     public final void rule__ProviderConstruction__Group_1__1() throws RecognitionException {
 
@@ -11343,7 +11712,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__Group_1__1__Impl_in_rule__ProviderConstruction__Group_1__18827);
             rule__ProviderConstruction__Group_1__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11360,10 +11730,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_1__1
+    // $ANTLR end "rule__ProviderConstruction__Group_1__1"
 
 
-    // $ANTLR start rule__ProviderConstruction__Group_1__1__Impl
+    // $ANTLR start "rule__ProviderConstruction__Group_1__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4374:1: rule__ProviderConstruction__Group_1__1__Impl : ( ( rule__ProviderConstruction__ExpressionAssignment_1_1 ) ) ;
     public final void rule__ProviderConstruction__Group_1__1__Impl() throws RecognitionException {
 
@@ -11382,7 +11752,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ProviderConstruction__ExpressionAssignment_1_1_in_rule__ProviderConstruction__Group_1__1__Impl8854);
             rule__ProviderConstruction__ExpressionAssignment_1_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11406,10 +11777,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__Group_1__1__Impl
+    // $ANTLR end "rule__ProviderConstruction__Group_1__1__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__0
+    // $ANTLR start "rule__TableView__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4395:1: rule__TableView__Group__0 : rule__TableView__Group__0__Impl rule__TableView__Group__1 ;
     public final void rule__TableView__Group__0() throws RecognitionException {
 
@@ -11421,11 +11792,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__0__Impl_in_rule__TableView__Group__08888);
             rule__TableView__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__1_in_rule__TableView__Group__08891);
             rule__TableView__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11442,10 +11815,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__0
+    // $ANTLR end "rule__TableView__Group__0"
 
 
-    // $ANTLR start rule__TableView__Group__0__Impl
+    // $ANTLR start "rule__TableView__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4407:1: rule__TableView__Group__0__Impl : ( 'tableview' ) ;
     public final void rule__TableView__Group__0__Impl() throws RecognitionException {
 
@@ -11479,10 +11852,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__0__Impl
+    // $ANTLR end "rule__TableView__Group__0__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__1
+    // $ANTLR start "rule__TableView__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4426:1: rule__TableView__Group__1 : rule__TableView__Group__1__Impl rule__TableView__Group__2 ;
     public final void rule__TableView__Group__1() throws RecognitionException {
 
@@ -11494,11 +11867,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__1__Impl_in_rule__TableView__Group__18950);
             rule__TableView__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__2_in_rule__TableView__Group__18953);
             rule__TableView__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11515,10 +11890,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__1
+    // $ANTLR end "rule__TableView__Group__1"
 
 
-    // $ANTLR start rule__TableView__Group__1__Impl
+    // $ANTLR start "rule__TableView__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4438:1: rule__TableView__Group__1__Impl : ( ( rule__TableView__NameAssignment_1 ) ) ;
     public final void rule__TableView__Group__1__Impl() throws RecognitionException {
 
@@ -11537,7 +11912,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__NameAssignment_1_in_rule__TableView__Group__1__Impl8980);
             rule__TableView__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11561,10 +11937,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__1__Impl
+    // $ANTLR end "rule__TableView__Group__1__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__2
+    // $ANTLR start "rule__TableView__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4455:1: rule__TableView__Group__2 : rule__TableView__Group__2__Impl rule__TableView__Group__3 ;
     public final void rule__TableView__Group__2() throws RecognitionException {
 
@@ -11576,11 +11952,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__2__Impl_in_rule__TableView__Group__29010);
             rule__TableView__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__3_in_rule__TableView__Group__29013);
             rule__TableView__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11597,10 +11975,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__2
+    // $ANTLR end "rule__TableView__Group__2"
 
 
-    // $ANTLR start rule__TableView__Group__2__Impl
+    // $ANTLR start "rule__TableView__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4467:1: rule__TableView__Group__2__Impl : ( ( rule__TableView__Group_2__0 )? ) ;
     public final void rule__TableView__Group__2__Impl() throws RecognitionException {
 
@@ -11627,7 +12005,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__TableView__Group_2__0_in_rule__TableView__Group__2__Impl9040);
                     rule__TableView__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -11654,10 +12033,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__2__Impl
+    // $ANTLR end "rule__TableView__Group__2__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__3
+    // $ANTLR start "rule__TableView__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4484:1: rule__TableView__Group__3 : rule__TableView__Group__3__Impl rule__TableView__Group__4 ;
     public final void rule__TableView__Group__3() throws RecognitionException {
 
@@ -11669,11 +12048,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__3__Impl_in_rule__TableView__Group__39071);
             rule__TableView__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__4_in_rule__TableView__Group__39074);
             rule__TableView__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11690,10 +12071,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__3
+    // $ANTLR end "rule__TableView__Group__3"
 
 
-    // $ANTLR start rule__TableView__Group__3__Impl
+    // $ANTLR start "rule__TableView__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4496:1: rule__TableView__Group__3__Impl : ( '{' ) ;
     public final void rule__TableView__Group__3__Impl() throws RecognitionException {
 
@@ -11727,10 +12108,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__3__Impl
+    // $ANTLR end "rule__TableView__Group__3__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__4
+    // $ANTLR start "rule__TableView__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4515:1: rule__TableView__Group__4 : rule__TableView__Group__4__Impl rule__TableView__Group__5 ;
     public final void rule__TableView__Group__4() throws RecognitionException {
 
@@ -11742,11 +12123,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__4__Impl_in_rule__TableView__Group__49133);
             rule__TableView__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__5_in_rule__TableView__Group__49136);
             rule__TableView__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11763,10 +12146,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__4
+    // $ANTLR end "rule__TableView__Group__4"
 
 
-    // $ANTLR start rule__TableView__Group__4__Impl
+    // $ANTLR start "rule__TableView__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4527:1: rule__TableView__Group__4__Impl : ( 'title=' ) ;
     public final void rule__TableView__Group__4__Impl() throws RecognitionException {
 
@@ -11800,10 +12183,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__4__Impl
+    // $ANTLR end "rule__TableView__Group__4__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__5
+    // $ANTLR start "rule__TableView__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4546:1: rule__TableView__Group__5 : rule__TableView__Group__5__Impl rule__TableView__Group__6 ;
     public final void rule__TableView__Group__5() throws RecognitionException {
 
@@ -11815,11 +12198,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__5__Impl_in_rule__TableView__Group__59195);
             rule__TableView__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__6_in_rule__TableView__Group__59198);
             rule__TableView__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11836,10 +12221,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__5
+    // $ANTLR end "rule__TableView__Group__5"
 
 
-    // $ANTLR start rule__TableView__Group__5__Impl
+    // $ANTLR start "rule__TableView__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4558:1: rule__TableView__Group__5__Impl : ( ( rule__TableView__TitleAssignment_5 ) ) ;
     public final void rule__TableView__Group__5__Impl() throws RecognitionException {
 
@@ -11858,7 +12243,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__TitleAssignment_5_in_rule__TableView__Group__5__Impl9225);
             rule__TableView__TitleAssignment_5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11882,10 +12268,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__5__Impl
+    // $ANTLR end "rule__TableView__Group__5__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__6
+    // $ANTLR start "rule__TableView__Group__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4575:1: rule__TableView__Group__6 : rule__TableView__Group__6__Impl rule__TableView__Group__7 ;
     public final void rule__TableView__Group__6() throws RecognitionException {
 
@@ -11897,11 +12283,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__6__Impl_in_rule__TableView__Group__69255);
             rule__TableView__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group__7_in_rule__TableView__Group__69258);
             rule__TableView__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -11918,10 +12306,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__6
+    // $ANTLR end "rule__TableView__Group__6"
 
 
-    // $ANTLR start rule__TableView__Group__6__Impl
+    // $ANTLR start "rule__TableView__Group__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4587:1: rule__TableView__Group__6__Impl : ( ( rule__TableView__SectionsAssignment_6 )* ) ;
     public final void rule__TableView__Group__6__Impl() throws RecognitionException {
 
@@ -11952,7 +12340,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__TableView__SectionsAssignment_6_in_rule__TableView__Group__6__Impl9285);
             	    rule__TableView__SectionsAssignment_6();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -11982,10 +12371,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__6__Impl
+    // $ANTLR end "rule__TableView__Group__6__Impl"
 
 
-    // $ANTLR start rule__TableView__Group__7
+    // $ANTLR start "rule__TableView__Group__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4604:1: rule__TableView__Group__7 : rule__TableView__Group__7__Impl ;
     public final void rule__TableView__Group__7() throws RecognitionException {
 
@@ -11997,7 +12386,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group__7__Impl_in_rule__TableView__Group__79316);
             rule__TableView__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12014,10 +12404,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__7
+    // $ANTLR end "rule__TableView__Group__7"
 
 
-    // $ANTLR start rule__TableView__Group__7__Impl
+    // $ANTLR start "rule__TableView__Group__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4615:1: rule__TableView__Group__7__Impl : ( '}' ) ;
     public final void rule__TableView__Group__7__Impl() throws RecognitionException {
 
@@ -12051,10 +12441,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group__7__Impl
+    // $ANTLR end "rule__TableView__Group__7__Impl"
 
 
-    // $ANTLR start rule__TableView__Group_2__0
+    // $ANTLR start "rule__TableView__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4650:1: rule__TableView__Group_2__0 : rule__TableView__Group_2__0__Impl rule__TableView__Group_2__1 ;
     public final void rule__TableView__Group_2__0() throws RecognitionException {
 
@@ -12066,11 +12456,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group_2__0__Impl_in_rule__TableView__Group_2__09391);
             rule__TableView__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group_2__1_in_rule__TableView__Group_2__09394);
             rule__TableView__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12087,10 +12479,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group_2__0
+    // $ANTLR end "rule__TableView__Group_2__0"
 
 
-    // $ANTLR start rule__TableView__Group_2__0__Impl
+    // $ANTLR start "rule__TableView__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4662:1: rule__TableView__Group_2__0__Impl : ( '(' ) ;
     public final void rule__TableView__Group_2__0__Impl() throws RecognitionException {
 
@@ -12124,10 +12516,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group_2__0__Impl
+    // $ANTLR end "rule__TableView__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__TableView__Group_2__1
+    // $ANTLR start "rule__TableView__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4681:1: rule__TableView__Group_2__1 : rule__TableView__Group_2__1__Impl rule__TableView__Group_2__2 ;
     public final void rule__TableView__Group_2__1() throws RecognitionException {
 
@@ -12139,11 +12531,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group_2__1__Impl_in_rule__TableView__Group_2__19453);
             rule__TableView__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__TableView__Group_2__2_in_rule__TableView__Group_2__19456);
             rule__TableView__Group_2__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12160,10 +12554,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group_2__1
+    // $ANTLR end "rule__TableView__Group_2__1"
 
 
-    // $ANTLR start rule__TableView__Group_2__1__Impl
+    // $ANTLR start "rule__TableView__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4693:1: rule__TableView__Group_2__1__Impl : ( ( rule__TableView__ContentAssignment_2_1 ) ) ;
     public final void rule__TableView__Group_2__1__Impl() throws RecognitionException {
 
@@ -12182,7 +12576,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__ContentAssignment_2_1_in_rule__TableView__Group_2__1__Impl9483);
             rule__TableView__ContentAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12206,10 +12601,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group_2__1__Impl
+    // $ANTLR end "rule__TableView__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__TableView__Group_2__2
+    // $ANTLR start "rule__TableView__Group_2__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4710:1: rule__TableView__Group_2__2 : rule__TableView__Group_2__2__Impl ;
     public final void rule__TableView__Group_2__2() throws RecognitionException {
 
@@ -12221,7 +12616,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__TableView__Group_2__2__Impl_in_rule__TableView__Group_2__29513);
             rule__TableView__Group_2__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12238,10 +12634,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group_2__2
+    // $ANTLR end "rule__TableView__Group_2__2"
 
 
-    // $ANTLR start rule__TableView__Group_2__2__Impl
+    // $ANTLR start "rule__TableView__Group_2__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4721:1: rule__TableView__Group_2__2__Impl : ( ')' ) ;
     public final void rule__TableView__Group_2__2__Impl() throws RecognitionException {
 
@@ -12275,10 +12671,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__Group_2__2__Impl
+    // $ANTLR end "rule__TableView__Group_2__2__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__0
+    // $ANTLR start "rule__DetailsView__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4746:1: rule__DetailsView__Group__0 : rule__DetailsView__Group__0__Impl rule__DetailsView__Group__1 ;
     public final void rule__DetailsView__Group__0() throws RecognitionException {
 
@@ -12290,11 +12686,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__0__Impl_in_rule__DetailsView__Group__09578);
             rule__DetailsView__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__1_in_rule__DetailsView__Group__09581);
             rule__DetailsView__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12311,10 +12709,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__0
+    // $ANTLR end "rule__DetailsView__Group__0"
 
 
-    // $ANTLR start rule__DetailsView__Group__0__Impl
+    // $ANTLR start "rule__DetailsView__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4758:1: rule__DetailsView__Group__0__Impl : ( 'detailsview' ) ;
     public final void rule__DetailsView__Group__0__Impl() throws RecognitionException {
 
@@ -12348,10 +12746,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__0__Impl
+    // $ANTLR end "rule__DetailsView__Group__0__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__1
+    // $ANTLR start "rule__DetailsView__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4777:1: rule__DetailsView__Group__1 : rule__DetailsView__Group__1__Impl rule__DetailsView__Group__2 ;
     public final void rule__DetailsView__Group__1() throws RecognitionException {
 
@@ -12363,11 +12761,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__1__Impl_in_rule__DetailsView__Group__19640);
             rule__DetailsView__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__2_in_rule__DetailsView__Group__19643);
             rule__DetailsView__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12384,10 +12784,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__1
+    // $ANTLR end "rule__DetailsView__Group__1"
 
 
-    // $ANTLR start rule__DetailsView__Group__1__Impl
+    // $ANTLR start "rule__DetailsView__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4789:1: rule__DetailsView__Group__1__Impl : ( ( rule__DetailsView__NameAssignment_1 ) ) ;
     public final void rule__DetailsView__Group__1__Impl() throws RecognitionException {
 
@@ -12406,7 +12806,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__NameAssignment_1_in_rule__DetailsView__Group__1__Impl9670);
             rule__DetailsView__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12430,10 +12831,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__1__Impl
+    // $ANTLR end "rule__DetailsView__Group__1__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__2
+    // $ANTLR start "rule__DetailsView__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4806:1: rule__DetailsView__Group__2 : rule__DetailsView__Group__2__Impl rule__DetailsView__Group__3 ;
     public final void rule__DetailsView__Group__2() throws RecognitionException {
 
@@ -12445,11 +12846,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__2__Impl_in_rule__DetailsView__Group__29700);
             rule__DetailsView__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__3_in_rule__DetailsView__Group__29703);
             rule__DetailsView__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12466,10 +12869,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__2
+    // $ANTLR end "rule__DetailsView__Group__2"
 
 
-    // $ANTLR start rule__DetailsView__Group__2__Impl
+    // $ANTLR start "rule__DetailsView__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4818:1: rule__DetailsView__Group__2__Impl : ( ( rule__DetailsView__Group_2__0 )? ) ;
     public final void rule__DetailsView__Group__2__Impl() throws RecognitionException {
 
@@ -12496,7 +12899,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__DetailsView__Group_2__0_in_rule__DetailsView__Group__2__Impl9730);
                     rule__DetailsView__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -12523,10 +12927,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__2__Impl
+    // $ANTLR end "rule__DetailsView__Group__2__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__3
+    // $ANTLR start "rule__DetailsView__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4835:1: rule__DetailsView__Group__3 : rule__DetailsView__Group__3__Impl rule__DetailsView__Group__4 ;
     public final void rule__DetailsView__Group__3() throws RecognitionException {
 
@@ -12538,11 +12942,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__3__Impl_in_rule__DetailsView__Group__39761);
             rule__DetailsView__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__4_in_rule__DetailsView__Group__39764);
             rule__DetailsView__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12559,10 +12965,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__3
+    // $ANTLR end "rule__DetailsView__Group__3"
 
 
-    // $ANTLR start rule__DetailsView__Group__3__Impl
+    // $ANTLR start "rule__DetailsView__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4847:1: rule__DetailsView__Group__3__Impl : ( '{' ) ;
     public final void rule__DetailsView__Group__3__Impl() throws RecognitionException {
 
@@ -12596,10 +13002,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__3__Impl
+    // $ANTLR end "rule__DetailsView__Group__3__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__4
+    // $ANTLR start "rule__DetailsView__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4866:1: rule__DetailsView__Group__4 : rule__DetailsView__Group__4__Impl rule__DetailsView__Group__5 ;
     public final void rule__DetailsView__Group__4() throws RecognitionException {
 
@@ -12611,11 +13017,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__4__Impl_in_rule__DetailsView__Group__49823);
             rule__DetailsView__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__5_in_rule__DetailsView__Group__49826);
             rule__DetailsView__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12632,10 +13040,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__4
+    // $ANTLR end "rule__DetailsView__Group__4"
 
 
-    // $ANTLR start rule__DetailsView__Group__4__Impl
+    // $ANTLR start "rule__DetailsView__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4878:1: rule__DetailsView__Group__4__Impl : ( 'title=' ) ;
     public final void rule__DetailsView__Group__4__Impl() throws RecognitionException {
 
@@ -12669,10 +13077,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__4__Impl
+    // $ANTLR end "rule__DetailsView__Group__4__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__5
+    // $ANTLR start "rule__DetailsView__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4897:1: rule__DetailsView__Group__5 : rule__DetailsView__Group__5__Impl rule__DetailsView__Group__6 ;
     public final void rule__DetailsView__Group__5() throws RecognitionException {
 
@@ -12684,11 +13092,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__5__Impl_in_rule__DetailsView__Group__59885);
             rule__DetailsView__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__6_in_rule__DetailsView__Group__59888);
             rule__DetailsView__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12705,10 +13115,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__5
+    // $ANTLR end "rule__DetailsView__Group__5"
 
 
-    // $ANTLR start rule__DetailsView__Group__5__Impl
+    // $ANTLR start "rule__DetailsView__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4909:1: rule__DetailsView__Group__5__Impl : ( ( rule__DetailsView__TitleAssignment_5 ) ) ;
     public final void rule__DetailsView__Group__5__Impl() throws RecognitionException {
 
@@ -12727,7 +13137,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__TitleAssignment_5_in_rule__DetailsView__Group__5__Impl9915);
             rule__DetailsView__TitleAssignment_5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12751,10 +13162,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__5__Impl
+    // $ANTLR end "rule__DetailsView__Group__5__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__6
+    // $ANTLR start "rule__DetailsView__Group__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4926:1: rule__DetailsView__Group__6 : rule__DetailsView__Group__6__Impl rule__DetailsView__Group__7 ;
     public final void rule__DetailsView__Group__6() throws RecognitionException {
 
@@ -12766,11 +13177,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__6__Impl_in_rule__DetailsView__Group__69945);
             rule__DetailsView__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__7_in_rule__DetailsView__Group__69948);
             rule__DetailsView__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12787,10 +13200,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__6
+    // $ANTLR end "rule__DetailsView__Group__6"
 
 
-    // $ANTLR start rule__DetailsView__Group__6__Impl
+    // $ANTLR start "rule__DetailsView__Group__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4938:1: rule__DetailsView__Group__6__Impl : ( ( rule__DetailsView__HeaderAssignment_6 )? ) ;
     public final void rule__DetailsView__Group__6__Impl() throws RecognitionException {
 
@@ -12817,7 +13230,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__DetailsView__HeaderAssignment_6_in_rule__DetailsView__Group__6__Impl9975);
                     rule__DetailsView__HeaderAssignment_6();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -12844,10 +13258,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__6__Impl
+    // $ANTLR end "rule__DetailsView__Group__6__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__7
+    // $ANTLR start "rule__DetailsView__Group__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4955:1: rule__DetailsView__Group__7 : rule__DetailsView__Group__7__Impl rule__DetailsView__Group__8 ;
     public final void rule__DetailsView__Group__7() throws RecognitionException {
 
@@ -12859,11 +13273,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__7__Impl_in_rule__DetailsView__Group__710006);
             rule__DetailsView__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group__8_in_rule__DetailsView__Group__710009);
             rule__DetailsView__Group__8();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12880,10 +13296,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__7
+    // $ANTLR end "rule__DetailsView__Group__7"
 
 
-    // $ANTLR start rule__DetailsView__Group__7__Impl
+    // $ANTLR start "rule__DetailsView__Group__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4967:1: rule__DetailsView__Group__7__Impl : ( ( rule__DetailsView__SectionsAssignment_7 )* ) ;
     public final void rule__DetailsView__Group__7__Impl() throws RecognitionException {
 
@@ -12914,7 +13330,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__DetailsView__SectionsAssignment_7_in_rule__DetailsView__Group__7__Impl10036);
             	    rule__DetailsView__SectionsAssignment_7();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -12944,10 +13361,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__7__Impl
+    // $ANTLR end "rule__DetailsView__Group__7__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group__8
+    // $ANTLR start "rule__DetailsView__Group__8"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4984:1: rule__DetailsView__Group__8 : rule__DetailsView__Group__8__Impl ;
     public final void rule__DetailsView__Group__8() throws RecognitionException {
 
@@ -12959,7 +13376,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group__8__Impl_in_rule__DetailsView__Group__810067);
             rule__DetailsView__Group__8__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -12976,10 +13394,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__8
+    // $ANTLR end "rule__DetailsView__Group__8"
 
 
-    // $ANTLR start rule__DetailsView__Group__8__Impl
+    // $ANTLR start "rule__DetailsView__Group__8__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:4995:1: rule__DetailsView__Group__8__Impl : ( '}' ) ;
     public final void rule__DetailsView__Group__8__Impl() throws RecognitionException {
 
@@ -13013,10 +13431,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group__8__Impl
+    // $ANTLR end "rule__DetailsView__Group__8__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group_2__0
+    // $ANTLR start "rule__DetailsView__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5032:1: rule__DetailsView__Group_2__0 : rule__DetailsView__Group_2__0__Impl rule__DetailsView__Group_2__1 ;
     public final void rule__DetailsView__Group_2__0() throws RecognitionException {
 
@@ -13028,11 +13446,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group_2__0__Impl_in_rule__DetailsView__Group_2__010144);
             rule__DetailsView__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group_2__1_in_rule__DetailsView__Group_2__010147);
             rule__DetailsView__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13049,10 +13469,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group_2__0
+    // $ANTLR end "rule__DetailsView__Group_2__0"
 
 
-    // $ANTLR start rule__DetailsView__Group_2__0__Impl
+    // $ANTLR start "rule__DetailsView__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5044:1: rule__DetailsView__Group_2__0__Impl : ( '(' ) ;
     public final void rule__DetailsView__Group_2__0__Impl() throws RecognitionException {
 
@@ -13086,10 +13506,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group_2__0__Impl
+    // $ANTLR end "rule__DetailsView__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group_2__1
+    // $ANTLR start "rule__DetailsView__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5063:1: rule__DetailsView__Group_2__1 : rule__DetailsView__Group_2__1__Impl rule__DetailsView__Group_2__2 ;
     public final void rule__DetailsView__Group_2__1() throws RecognitionException {
 
@@ -13101,11 +13521,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group_2__1__Impl_in_rule__DetailsView__Group_2__110206);
             rule__DetailsView__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__DetailsView__Group_2__2_in_rule__DetailsView__Group_2__110209);
             rule__DetailsView__Group_2__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13122,10 +13544,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group_2__1
+    // $ANTLR end "rule__DetailsView__Group_2__1"
 
 
-    // $ANTLR start rule__DetailsView__Group_2__1__Impl
+    // $ANTLR start "rule__DetailsView__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5075:1: rule__DetailsView__Group_2__1__Impl : ( ( rule__DetailsView__ContentAssignment_2_1 ) ) ;
     public final void rule__DetailsView__Group_2__1__Impl() throws RecognitionException {
 
@@ -13144,7 +13566,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__ContentAssignment_2_1_in_rule__DetailsView__Group_2__1__Impl10236);
             rule__DetailsView__ContentAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13168,10 +13591,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group_2__1__Impl
+    // $ANTLR end "rule__DetailsView__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__DetailsView__Group_2__2
+    // $ANTLR start "rule__DetailsView__Group_2__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5092:1: rule__DetailsView__Group_2__2 : rule__DetailsView__Group_2__2__Impl ;
     public final void rule__DetailsView__Group_2__2() throws RecognitionException {
 
@@ -13183,7 +13606,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__DetailsView__Group_2__2__Impl_in_rule__DetailsView__Group_2__210266);
             rule__DetailsView__Group_2__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13200,10 +13624,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group_2__2
+    // $ANTLR end "rule__DetailsView__Group_2__2"
 
 
-    // $ANTLR start rule__DetailsView__Group_2__2__Impl
+    // $ANTLR start "rule__DetailsView__Group_2__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5103:1: rule__DetailsView__Group_2__2__Impl : ( ')' ) ;
     public final void rule__DetailsView__Group_2__2__Impl() throws RecognitionException {
 
@@ -13237,10 +13661,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__Group_2__2__Impl
+    // $ANTLR end "rule__DetailsView__Group_2__2__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group__0
+    // $ANTLR start "rule__CustomView__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5128:1: rule__CustomView__Group__0 : rule__CustomView__Group__0__Impl rule__CustomView__Group__1 ;
     public final void rule__CustomView__Group__0() throws RecognitionException {
 
@@ -13252,11 +13676,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group__0__Impl_in_rule__CustomView__Group__010331);
             rule__CustomView__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CustomView__Group__1_in_rule__CustomView__Group__010334);
             rule__CustomView__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13273,10 +13699,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__0
+    // $ANTLR end "rule__CustomView__Group__0"
 
 
-    // $ANTLR start rule__CustomView__Group__0__Impl
+    // $ANTLR start "rule__CustomView__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5140:1: rule__CustomView__Group__0__Impl : ( 'customview' ) ;
     public final void rule__CustomView__Group__0__Impl() throws RecognitionException {
 
@@ -13310,10 +13736,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__0__Impl
+    // $ANTLR end "rule__CustomView__Group__0__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group__1
+    // $ANTLR start "rule__CustomView__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5159:1: rule__CustomView__Group__1 : rule__CustomView__Group__1__Impl rule__CustomView__Group__2 ;
     public final void rule__CustomView__Group__1() throws RecognitionException {
 
@@ -13325,11 +13751,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group__1__Impl_in_rule__CustomView__Group__110393);
             rule__CustomView__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CustomView__Group__2_in_rule__CustomView__Group__110396);
             rule__CustomView__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13346,10 +13774,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__1
+    // $ANTLR end "rule__CustomView__Group__1"
 
 
-    // $ANTLR start rule__CustomView__Group__1__Impl
+    // $ANTLR start "rule__CustomView__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5171:1: rule__CustomView__Group__1__Impl : ( ( rule__CustomView__NameAssignment_1 ) ) ;
     public final void rule__CustomView__Group__1__Impl() throws RecognitionException {
 
@@ -13368,7 +13796,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__NameAssignment_1_in_rule__CustomView__Group__1__Impl10423);
             rule__CustomView__NameAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13392,10 +13821,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__1__Impl
+    // $ANTLR end "rule__CustomView__Group__1__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group__2
+    // $ANTLR start "rule__CustomView__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5188:1: rule__CustomView__Group__2 : rule__CustomView__Group__2__Impl rule__CustomView__Group__3 ;
     public final void rule__CustomView__Group__2() throws RecognitionException {
 
@@ -13407,11 +13836,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group__2__Impl_in_rule__CustomView__Group__210453);
             rule__CustomView__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CustomView__Group__3_in_rule__CustomView__Group__210456);
             rule__CustomView__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13428,10 +13859,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__2
+    // $ANTLR end "rule__CustomView__Group__2"
 
 
-    // $ANTLR start rule__CustomView__Group__2__Impl
+    // $ANTLR start "rule__CustomView__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5200:1: rule__CustomView__Group__2__Impl : ( ( rule__CustomView__Group_2__0 )? ) ;
     public final void rule__CustomView__Group__2__Impl() throws RecognitionException {
 
@@ -13458,7 +13889,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__CustomView__Group_2__0_in_rule__CustomView__Group__2__Impl10483);
                     rule__CustomView__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -13485,10 +13917,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__2__Impl
+    // $ANTLR end "rule__CustomView__Group__2__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group__3
+    // $ANTLR start "rule__CustomView__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5217:1: rule__CustomView__Group__3 : rule__CustomView__Group__3__Impl rule__CustomView__Group__4 ;
     public final void rule__CustomView__Group__3() throws RecognitionException {
 
@@ -13500,11 +13932,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group__3__Impl_in_rule__CustomView__Group__310514);
             rule__CustomView__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CustomView__Group__4_in_rule__CustomView__Group__310517);
             rule__CustomView__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13521,10 +13955,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__3
+    // $ANTLR end "rule__CustomView__Group__3"
 
 
-    // $ANTLR start rule__CustomView__Group__3__Impl
+    // $ANTLR start "rule__CustomView__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5229:1: rule__CustomView__Group__3__Impl : ( 'implementedBy' ) ;
     public final void rule__CustomView__Group__3__Impl() throws RecognitionException {
 
@@ -13558,10 +13992,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__3__Impl
+    // $ANTLR end "rule__CustomView__Group__3__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group__4
+    // $ANTLR start "rule__CustomView__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5248:1: rule__CustomView__Group__4 : rule__CustomView__Group__4__Impl ;
     public final void rule__CustomView__Group__4() throws RecognitionException {
 
@@ -13573,7 +14007,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group__4__Impl_in_rule__CustomView__Group__410576);
             rule__CustomView__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13590,10 +14025,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__4
+    // $ANTLR end "rule__CustomView__Group__4"
 
 
-    // $ANTLR start rule__CustomView__Group__4__Impl
+    // $ANTLR start "rule__CustomView__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5259:1: rule__CustomView__Group__4__Impl : ( ( rule__CustomView__ObjclassAssignment_4 ) ) ;
     public final void rule__CustomView__Group__4__Impl() throws RecognitionException {
 
@@ -13612,7 +14047,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__ObjclassAssignment_4_in_rule__CustomView__Group__4__Impl10603);
             rule__CustomView__ObjclassAssignment_4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13636,10 +14072,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group__4__Impl
+    // $ANTLR end "rule__CustomView__Group__4__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group_2__0
+    // $ANTLR start "rule__CustomView__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5286:1: rule__CustomView__Group_2__0 : rule__CustomView__Group_2__0__Impl rule__CustomView__Group_2__1 ;
     public final void rule__CustomView__Group_2__0() throws RecognitionException {
 
@@ -13651,11 +14087,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group_2__0__Impl_in_rule__CustomView__Group_2__010643);
             rule__CustomView__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CustomView__Group_2__1_in_rule__CustomView__Group_2__010646);
             rule__CustomView__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13672,10 +14110,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group_2__0
+    // $ANTLR end "rule__CustomView__Group_2__0"
 
 
-    // $ANTLR start rule__CustomView__Group_2__0__Impl
+    // $ANTLR start "rule__CustomView__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5298:1: rule__CustomView__Group_2__0__Impl : ( '(' ) ;
     public final void rule__CustomView__Group_2__0__Impl() throws RecognitionException {
 
@@ -13709,10 +14147,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group_2__0__Impl
+    // $ANTLR end "rule__CustomView__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group_2__1
+    // $ANTLR start "rule__CustomView__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5317:1: rule__CustomView__Group_2__1 : rule__CustomView__Group_2__1__Impl rule__CustomView__Group_2__2 ;
     public final void rule__CustomView__Group_2__1() throws RecognitionException {
 
@@ -13724,11 +14162,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group_2__1__Impl_in_rule__CustomView__Group_2__110705);
             rule__CustomView__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CustomView__Group_2__2_in_rule__CustomView__Group_2__110708);
             rule__CustomView__Group_2__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13745,10 +14185,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group_2__1
+    // $ANTLR end "rule__CustomView__Group_2__1"
 
 
-    // $ANTLR start rule__CustomView__Group_2__1__Impl
+    // $ANTLR start "rule__CustomView__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5329:1: rule__CustomView__Group_2__1__Impl : ( ( rule__CustomView__ContentAssignment_2_1 ) ) ;
     public final void rule__CustomView__Group_2__1__Impl() throws RecognitionException {
 
@@ -13767,7 +14207,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__ContentAssignment_2_1_in_rule__CustomView__Group_2__1__Impl10735);
             rule__CustomView__ContentAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13791,10 +14232,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group_2__1__Impl
+    // $ANTLR end "rule__CustomView__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__CustomView__Group_2__2
+    // $ANTLR start "rule__CustomView__Group_2__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5346:1: rule__CustomView__Group_2__2 : rule__CustomView__Group_2__2__Impl ;
     public final void rule__CustomView__Group_2__2() throws RecognitionException {
 
@@ -13806,7 +14247,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CustomView__Group_2__2__Impl_in_rule__CustomView__Group_2__210765);
             rule__CustomView__Group_2__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13823,10 +14265,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group_2__2
+    // $ANTLR end "rule__CustomView__Group_2__2"
 
 
-    // $ANTLR start rule__CustomView__Group_2__2__Impl
+    // $ANTLR start "rule__CustomView__Group_2__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5357:1: rule__CustomView__Group_2__2__Impl : ( ')' ) ;
     public final void rule__CustomView__Group_2__2__Impl() throws RecognitionException {
 
@@ -13860,10 +14302,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__Group_2__2__Impl
+    // $ANTLR end "rule__CustomView__Group_2__2__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__0
+    // $ANTLR start "rule__ViewHeader__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5382:1: rule__ViewHeader__Group__0 : rule__ViewHeader__Group__0__Impl rule__ViewHeader__Group__1 ;
     public final void rule__ViewHeader__Group__0() throws RecognitionException {
 
@@ -13875,11 +14317,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__0__Impl_in_rule__ViewHeader__Group__010830);
             rule__ViewHeader__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__1_in_rule__ViewHeader__Group__010833);
             rule__ViewHeader__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13896,10 +14340,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__0
+    // $ANTLR end "rule__ViewHeader__Group__0"
 
 
-    // $ANTLR start rule__ViewHeader__Group__0__Impl
+    // $ANTLR start "rule__ViewHeader__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5394:1: rule__ViewHeader__Group__0__Impl : ( () ) ;
     public final void rule__ViewHeader__Group__0__Impl() throws RecognitionException {
 
@@ -13933,10 +14377,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__0__Impl
+    // $ANTLR end "rule__ViewHeader__Group__0__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__1
+    // $ANTLR start "rule__ViewHeader__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5413:1: rule__ViewHeader__Group__1 : rule__ViewHeader__Group__1__Impl rule__ViewHeader__Group__2 ;
     public final void rule__ViewHeader__Group__1() throws RecognitionException {
 
@@ -13948,11 +14392,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__1__Impl_in_rule__ViewHeader__Group__110891);
             rule__ViewHeader__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__2_in_rule__ViewHeader__Group__110894);
             rule__ViewHeader__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -13969,10 +14415,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__1
+    // $ANTLR end "rule__ViewHeader__Group__1"
 
 
-    // $ANTLR start rule__ViewHeader__Group__1__Impl
+    // $ANTLR start "rule__ViewHeader__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5425:1: rule__ViewHeader__Group__1__Impl : ( 'header' ) ;
     public final void rule__ViewHeader__Group__1__Impl() throws RecognitionException {
 
@@ -14006,10 +14452,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__1__Impl
+    // $ANTLR end "rule__ViewHeader__Group__1__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__2
+    // $ANTLR start "rule__ViewHeader__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5444:1: rule__ViewHeader__Group__2 : rule__ViewHeader__Group__2__Impl rule__ViewHeader__Group__3 ;
     public final void rule__ViewHeader__Group__2() throws RecognitionException {
 
@@ -14021,11 +14467,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__2__Impl_in_rule__ViewHeader__Group__210953);
             rule__ViewHeader__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__3_in_rule__ViewHeader__Group__210956);
             rule__ViewHeader__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14042,10 +14490,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__2
+    // $ANTLR end "rule__ViewHeader__Group__2"
 
 
-    // $ANTLR start rule__ViewHeader__Group__2__Impl
+    // $ANTLR start "rule__ViewHeader__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5456:1: rule__ViewHeader__Group__2__Impl : ( '{' ) ;
     public final void rule__ViewHeader__Group__2__Impl() throws RecognitionException {
 
@@ -14079,10 +14527,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__2__Impl
+    // $ANTLR end "rule__ViewHeader__Group__2__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__3
+    // $ANTLR start "rule__ViewHeader__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5475:1: rule__ViewHeader__Group__3 : rule__ViewHeader__Group__3__Impl rule__ViewHeader__Group__4 ;
     public final void rule__ViewHeader__Group__3() throws RecognitionException {
 
@@ -14094,11 +14542,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__3__Impl_in_rule__ViewHeader__Group__311015);
             rule__ViewHeader__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__4_in_rule__ViewHeader__Group__311018);
             rule__ViewHeader__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14115,10 +14565,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__3
+    // $ANTLR end "rule__ViewHeader__Group__3"
 
 
-    // $ANTLR start rule__ViewHeader__Group__3__Impl
+    // $ANTLR start "rule__ViewHeader__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5487:1: rule__ViewHeader__Group__3__Impl : ( ( rule__ViewHeader__Group_3__0 )? ) ;
     public final void rule__ViewHeader__Group__3__Impl() throws RecognitionException {
 
@@ -14145,7 +14595,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ViewHeader__Group_3__0_in_rule__ViewHeader__Group__3__Impl11045);
                     rule__ViewHeader__Group_3__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -14172,10 +14623,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__3__Impl
+    // $ANTLR end "rule__ViewHeader__Group__3__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__4
+    // $ANTLR start "rule__ViewHeader__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5504:1: rule__ViewHeader__Group__4 : rule__ViewHeader__Group__4__Impl rule__ViewHeader__Group__5 ;
     public final void rule__ViewHeader__Group__4() throws RecognitionException {
 
@@ -14187,11 +14638,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__4__Impl_in_rule__ViewHeader__Group__411076);
             rule__ViewHeader__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__5_in_rule__ViewHeader__Group__411079);
             rule__ViewHeader__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14208,10 +14661,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__4
+    // $ANTLR end "rule__ViewHeader__Group__4"
 
 
-    // $ANTLR start rule__ViewHeader__Group__4__Impl
+    // $ANTLR start "rule__ViewHeader__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5516:1: rule__ViewHeader__Group__4__Impl : ( ( rule__ViewHeader__Group_4__0 )? ) ;
     public final void rule__ViewHeader__Group__4__Impl() throws RecognitionException {
 
@@ -14238,7 +14691,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ViewHeader__Group_4__0_in_rule__ViewHeader__Group__4__Impl11106);
                     rule__ViewHeader__Group_4__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -14265,10 +14719,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__4__Impl
+    // $ANTLR end "rule__ViewHeader__Group__4__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__5
+    // $ANTLR start "rule__ViewHeader__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5533:1: rule__ViewHeader__Group__5 : rule__ViewHeader__Group__5__Impl rule__ViewHeader__Group__6 ;
     public final void rule__ViewHeader__Group__5() throws RecognitionException {
 
@@ -14280,11 +14734,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__5__Impl_in_rule__ViewHeader__Group__511137);
             rule__ViewHeader__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__6_in_rule__ViewHeader__Group__511140);
             rule__ViewHeader__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14301,10 +14757,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__5
+    // $ANTLR end "rule__ViewHeader__Group__5"
 
 
-    // $ANTLR start rule__ViewHeader__Group__5__Impl
+    // $ANTLR start "rule__ViewHeader__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5545:1: rule__ViewHeader__Group__5__Impl : ( ( rule__ViewHeader__Group_5__0 )? ) ;
     public final void rule__ViewHeader__Group__5__Impl() throws RecognitionException {
 
@@ -14331,7 +14787,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ViewHeader__Group_5__0_in_rule__ViewHeader__Group__5__Impl11167);
                     rule__ViewHeader__Group_5__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -14358,10 +14815,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__5__Impl
+    // $ANTLR end "rule__ViewHeader__Group__5__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__6
+    // $ANTLR start "rule__ViewHeader__Group__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5562:1: rule__ViewHeader__Group__6 : rule__ViewHeader__Group__6__Impl rule__ViewHeader__Group__7 ;
     public final void rule__ViewHeader__Group__6() throws RecognitionException {
 
@@ -14373,11 +14830,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__6__Impl_in_rule__ViewHeader__Group__611198);
             rule__ViewHeader__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group__7_in_rule__ViewHeader__Group__611201);
             rule__ViewHeader__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14394,10 +14853,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__6
+    // $ANTLR end "rule__ViewHeader__Group__6"
 
 
-    // $ANTLR start rule__ViewHeader__Group__6__Impl
+    // $ANTLR start "rule__ViewHeader__Group__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5574:1: rule__ViewHeader__Group__6__Impl : ( ( rule__ViewHeader__Group_6__0 )? ) ;
     public final void rule__ViewHeader__Group__6__Impl() throws RecognitionException {
 
@@ -14424,7 +14883,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ViewHeader__Group_6__0_in_rule__ViewHeader__Group__6__Impl11228);
                     rule__ViewHeader__Group_6__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -14451,10 +14911,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__6__Impl
+    // $ANTLR end "rule__ViewHeader__Group__6__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group__7
+    // $ANTLR start "rule__ViewHeader__Group__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5591:1: rule__ViewHeader__Group__7 : rule__ViewHeader__Group__7__Impl ;
     public final void rule__ViewHeader__Group__7() throws RecognitionException {
 
@@ -14466,7 +14926,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group__7__Impl_in_rule__ViewHeader__Group__711259);
             rule__ViewHeader__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14483,10 +14944,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__7
+    // $ANTLR end "rule__ViewHeader__Group__7"
 
 
-    // $ANTLR start rule__ViewHeader__Group__7__Impl
+    // $ANTLR start "rule__ViewHeader__Group__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5602:1: rule__ViewHeader__Group__7__Impl : ( '}' ) ;
     public final void rule__ViewHeader__Group__7__Impl() throws RecognitionException {
 
@@ -14520,10 +14981,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group__7__Impl
+    // $ANTLR end "rule__ViewHeader__Group__7__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_3__0
+    // $ANTLR start "rule__ViewHeader__Group_3__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5637:1: rule__ViewHeader__Group_3__0 : rule__ViewHeader__Group_3__0__Impl rule__ViewHeader__Group_3__1 ;
     public final void rule__ViewHeader__Group_3__0() throws RecognitionException {
 
@@ -14535,11 +14996,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_3__0__Impl_in_rule__ViewHeader__Group_3__011334);
             rule__ViewHeader__Group_3__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group_3__1_in_rule__ViewHeader__Group_3__011337);
             rule__ViewHeader__Group_3__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14556,10 +15019,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_3__0
+    // $ANTLR end "rule__ViewHeader__Group_3__0"
 
 
-    // $ANTLR start rule__ViewHeader__Group_3__0__Impl
+    // $ANTLR start "rule__ViewHeader__Group_3__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5649:1: rule__ViewHeader__Group_3__0__Impl : ( 'title=' ) ;
     public final void rule__ViewHeader__Group_3__0__Impl() throws RecognitionException {
 
@@ -14593,10 +15056,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_3__0__Impl
+    // $ANTLR end "rule__ViewHeader__Group_3__0__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_3__1
+    // $ANTLR start "rule__ViewHeader__Group_3__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5668:1: rule__ViewHeader__Group_3__1 : rule__ViewHeader__Group_3__1__Impl ;
     public final void rule__ViewHeader__Group_3__1() throws RecognitionException {
 
@@ -14608,7 +15071,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_3__1__Impl_in_rule__ViewHeader__Group_3__111396);
             rule__ViewHeader__Group_3__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14625,10 +15089,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_3__1
+    // $ANTLR end "rule__ViewHeader__Group_3__1"
 
 
-    // $ANTLR start rule__ViewHeader__Group_3__1__Impl
+    // $ANTLR start "rule__ViewHeader__Group_3__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5679:1: rule__ViewHeader__Group_3__1__Impl : ( ( rule__ViewHeader__TitleAssignment_3_1 ) ) ;
     public final void rule__ViewHeader__Group_3__1__Impl() throws RecognitionException {
 
@@ -14647,7 +15111,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__TitleAssignment_3_1_in_rule__ViewHeader__Group_3__1__Impl11423);
             rule__ViewHeader__TitleAssignment_3_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14671,10 +15136,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_3__1__Impl
+    // $ANTLR end "rule__ViewHeader__Group_3__1__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_4__0
+    // $ANTLR start "rule__ViewHeader__Group_4__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5700:1: rule__ViewHeader__Group_4__0 : rule__ViewHeader__Group_4__0__Impl rule__ViewHeader__Group_4__1 ;
     public final void rule__ViewHeader__Group_4__0() throws RecognitionException {
 
@@ -14686,11 +15151,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_4__0__Impl_in_rule__ViewHeader__Group_4__011457);
             rule__ViewHeader__Group_4__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group_4__1_in_rule__ViewHeader__Group_4__011460);
             rule__ViewHeader__Group_4__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14707,10 +15174,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_4__0
+    // $ANTLR end "rule__ViewHeader__Group_4__0"
 
 
-    // $ANTLR start rule__ViewHeader__Group_4__0__Impl
+    // $ANTLR start "rule__ViewHeader__Group_4__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5712:1: rule__ViewHeader__Group_4__0__Impl : ( 'subtitle=' ) ;
     public final void rule__ViewHeader__Group_4__0__Impl() throws RecognitionException {
 
@@ -14744,10 +15211,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_4__0__Impl
+    // $ANTLR end "rule__ViewHeader__Group_4__0__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_4__1
+    // $ANTLR start "rule__ViewHeader__Group_4__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5731:1: rule__ViewHeader__Group_4__1 : rule__ViewHeader__Group_4__1__Impl ;
     public final void rule__ViewHeader__Group_4__1() throws RecognitionException {
 
@@ -14759,7 +15226,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_4__1__Impl_in_rule__ViewHeader__Group_4__111519);
             rule__ViewHeader__Group_4__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14776,10 +15244,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_4__1
+    // $ANTLR end "rule__ViewHeader__Group_4__1"
 
 
-    // $ANTLR start rule__ViewHeader__Group_4__1__Impl
+    // $ANTLR start "rule__ViewHeader__Group_4__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5742:1: rule__ViewHeader__Group_4__1__Impl : ( ( rule__ViewHeader__SubtitleAssignment_4_1 ) ) ;
     public final void rule__ViewHeader__Group_4__1__Impl() throws RecognitionException {
 
@@ -14798,7 +15266,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__SubtitleAssignment_4_1_in_rule__ViewHeader__Group_4__1__Impl11546);
             rule__ViewHeader__SubtitleAssignment_4_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14822,10 +15291,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_4__1__Impl
+    // $ANTLR end "rule__ViewHeader__Group_4__1__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_5__0
+    // $ANTLR start "rule__ViewHeader__Group_5__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5763:1: rule__ViewHeader__Group_5__0 : rule__ViewHeader__Group_5__0__Impl rule__ViewHeader__Group_5__1 ;
     public final void rule__ViewHeader__Group_5__0() throws RecognitionException {
 
@@ -14837,11 +15306,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_5__0__Impl_in_rule__ViewHeader__Group_5__011580);
             rule__ViewHeader__Group_5__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group_5__1_in_rule__ViewHeader__Group_5__011583);
             rule__ViewHeader__Group_5__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14858,10 +15329,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_5__0
+    // $ANTLR end "rule__ViewHeader__Group_5__0"
 
 
-    // $ANTLR start rule__ViewHeader__Group_5__0__Impl
+    // $ANTLR start "rule__ViewHeader__Group_5__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5775:1: rule__ViewHeader__Group_5__0__Impl : ( 'details=' ) ;
     public final void rule__ViewHeader__Group_5__0__Impl() throws RecognitionException {
 
@@ -14895,10 +15366,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_5__0__Impl
+    // $ANTLR end "rule__ViewHeader__Group_5__0__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_5__1
+    // $ANTLR start "rule__ViewHeader__Group_5__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5794:1: rule__ViewHeader__Group_5__1 : rule__ViewHeader__Group_5__1__Impl ;
     public final void rule__ViewHeader__Group_5__1() throws RecognitionException {
 
@@ -14910,7 +15381,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_5__1__Impl_in_rule__ViewHeader__Group_5__111642);
             rule__ViewHeader__Group_5__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14927,10 +15399,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_5__1
+    // $ANTLR end "rule__ViewHeader__Group_5__1"
 
 
-    // $ANTLR start rule__ViewHeader__Group_5__1__Impl
+    // $ANTLR start "rule__ViewHeader__Group_5__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5805:1: rule__ViewHeader__Group_5__1__Impl : ( ( rule__ViewHeader__DetailsAssignment_5_1 ) ) ;
     public final void rule__ViewHeader__Group_5__1__Impl() throws RecognitionException {
 
@@ -14949,7 +15421,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__DetailsAssignment_5_1_in_rule__ViewHeader__Group_5__1__Impl11669);
             rule__ViewHeader__DetailsAssignment_5_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -14973,10 +15446,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_5__1__Impl
+    // $ANTLR end "rule__ViewHeader__Group_5__1__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_6__0
+    // $ANTLR start "rule__ViewHeader__Group_6__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5826:1: rule__ViewHeader__Group_6__0 : rule__ViewHeader__Group_6__0__Impl rule__ViewHeader__Group_6__1 ;
     public final void rule__ViewHeader__Group_6__0() throws RecognitionException {
 
@@ -14988,11 +15461,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_6__0__Impl_in_rule__ViewHeader__Group_6__011703);
             rule__ViewHeader__Group_6__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewHeader__Group_6__1_in_rule__ViewHeader__Group_6__011706);
             rule__ViewHeader__Group_6__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15009,10 +15484,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_6__0
+    // $ANTLR end "rule__ViewHeader__Group_6__0"
 
 
-    // $ANTLR start rule__ViewHeader__Group_6__0__Impl
+    // $ANTLR start "rule__ViewHeader__Group_6__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5838:1: rule__ViewHeader__Group_6__0__Impl : ( 'image=' ) ;
     public final void rule__ViewHeader__Group_6__0__Impl() throws RecognitionException {
 
@@ -15046,10 +15521,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_6__0__Impl
+    // $ANTLR end "rule__ViewHeader__Group_6__0__Impl"
 
 
-    // $ANTLR start rule__ViewHeader__Group_6__1
+    // $ANTLR start "rule__ViewHeader__Group_6__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5857:1: rule__ViewHeader__Group_6__1 : rule__ViewHeader__Group_6__1__Impl ;
     public final void rule__ViewHeader__Group_6__1() throws RecognitionException {
 
@@ -15061,7 +15536,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__Group_6__1__Impl_in_rule__ViewHeader__Group_6__111765);
             rule__ViewHeader__Group_6__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15078,10 +15554,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_6__1
+    // $ANTLR end "rule__ViewHeader__Group_6__1"
 
 
-    // $ANTLR start rule__ViewHeader__Group_6__1__Impl
+    // $ANTLR start "rule__ViewHeader__Group_6__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5868:1: rule__ViewHeader__Group_6__1__Impl : ( ( rule__ViewHeader__ImageAssignment_6_1 ) ) ;
     public final void rule__ViewHeader__Group_6__1__Impl() throws RecognitionException {
 
@@ -15100,7 +15576,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewHeader__ImageAssignment_6_1_in_rule__ViewHeader__Group_6__1__Impl11792);
             rule__ViewHeader__ImageAssignment_6_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15124,10 +15601,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__Group_6__1__Impl
+    // $ANTLR end "rule__ViewHeader__Group_6__1__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group__0
+    // $ANTLR start "rule__ViewSection__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5889:1: rule__ViewSection__Group__0 : rule__ViewSection__Group__0__Impl rule__ViewSection__Group__1 ;
     public final void rule__ViewSection__Group__0() throws RecognitionException {
 
@@ -15139,11 +15616,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group__0__Impl_in_rule__ViewSection__Group__011826);
             rule__ViewSection__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewSection__Group__1_in_rule__ViewSection__Group__011829);
             rule__ViewSection__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15160,10 +15639,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__0
+    // $ANTLR end "rule__ViewSection__Group__0"
 
 
-    // $ANTLR start rule__ViewSection__Group__0__Impl
+    // $ANTLR start "rule__ViewSection__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5901:1: rule__ViewSection__Group__0__Impl : ( 'section' ) ;
     public final void rule__ViewSection__Group__0__Impl() throws RecognitionException {
 
@@ -15197,10 +15676,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__0__Impl
+    // $ANTLR end "rule__ViewSection__Group__0__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group__1
+    // $ANTLR start "rule__ViewSection__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5920:1: rule__ViewSection__Group__1 : rule__ViewSection__Group__1__Impl rule__ViewSection__Group__2 ;
     public final void rule__ViewSection__Group__1() throws RecognitionException {
 
@@ -15212,11 +15691,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group__1__Impl_in_rule__ViewSection__Group__111888);
             rule__ViewSection__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewSection__Group__2_in_rule__ViewSection__Group__111891);
             rule__ViewSection__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15233,10 +15714,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__1
+    // $ANTLR end "rule__ViewSection__Group__1"
 
 
-    // $ANTLR start rule__ViewSection__Group__1__Impl
+    // $ANTLR start "rule__ViewSection__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5932:1: rule__ViewSection__Group__1__Impl : ( '{' ) ;
     public final void rule__ViewSection__Group__1__Impl() throws RecognitionException {
 
@@ -15270,10 +15751,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__1__Impl
+    // $ANTLR end "rule__ViewSection__Group__1__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group__2
+    // $ANTLR start "rule__ViewSection__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5951:1: rule__ViewSection__Group__2 : rule__ViewSection__Group__2__Impl rule__ViewSection__Group__3 ;
     public final void rule__ViewSection__Group__2() throws RecognitionException {
 
@@ -15285,11 +15766,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group__2__Impl_in_rule__ViewSection__Group__211950);
             rule__ViewSection__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewSection__Group__3_in_rule__ViewSection__Group__211953);
             rule__ViewSection__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15306,10 +15789,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__2
+    // $ANTLR end "rule__ViewSection__Group__2"
 
 
-    // $ANTLR start rule__ViewSection__Group__2__Impl
+    // $ANTLR start "rule__ViewSection__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5963:1: rule__ViewSection__Group__2__Impl : ( ( rule__ViewSection__Group_2__0 )? ) ;
     public final void rule__ViewSection__Group__2__Impl() throws RecognitionException {
 
@@ -15336,7 +15819,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ViewSection__Group_2__0_in_rule__ViewSection__Group__2__Impl11980);
                     rule__ViewSection__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -15363,10 +15847,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__2__Impl
+    // $ANTLR end "rule__ViewSection__Group__2__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group__3
+    // $ANTLR start "rule__ViewSection__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5980:1: rule__ViewSection__Group__3 : rule__ViewSection__Group__3__Impl rule__ViewSection__Group__4 ;
     public final void rule__ViewSection__Group__3() throws RecognitionException {
 
@@ -15378,11 +15862,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group__3__Impl_in_rule__ViewSection__Group__312011);
             rule__ViewSection__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewSection__Group__4_in_rule__ViewSection__Group__312014);
             rule__ViewSection__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15399,10 +15885,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__3
+    // $ANTLR end "rule__ViewSection__Group__3"
 
 
-    // $ANTLR start rule__ViewSection__Group__3__Impl
+    // $ANTLR start "rule__ViewSection__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:5992:1: rule__ViewSection__Group__3__Impl : ( ( ( rule__ViewSection__CellsAssignment_3 ) ) ( ( rule__ViewSection__CellsAssignment_3 )* ) ) ;
     public final void rule__ViewSection__Group__3__Impl() throws RecognitionException {
 
@@ -15424,7 +15910,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__CellsAssignment_3_in_rule__ViewSection__Group__3__Impl12043);
             rule__ViewSection__CellsAssignment_3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15454,7 +15941,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             	    {
             	    pushFollow(FOLLOW_rule__ViewSection__CellsAssignment_3_in_rule__ViewSection__Group__3__Impl12055);
             	    rule__ViewSection__CellsAssignment_3();
-            	    _fsp--;
+
+            	    state._fsp--;
 
 
             	    }
@@ -15487,10 +15975,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__3__Impl
+    // $ANTLR end "rule__ViewSection__Group__3__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group__4
+    // $ANTLR start "rule__ViewSection__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6016:1: rule__ViewSection__Group__4 : rule__ViewSection__Group__4__Impl ;
     public final void rule__ViewSection__Group__4() throws RecognitionException {
 
@@ -15502,7 +15990,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group__4__Impl_in_rule__ViewSection__Group__412088);
             rule__ViewSection__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15519,10 +16008,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__4
+    // $ANTLR end "rule__ViewSection__Group__4"
 
 
-    // $ANTLR start rule__ViewSection__Group__4__Impl
+    // $ANTLR start "rule__ViewSection__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6027:1: rule__ViewSection__Group__4__Impl : ( '}' ) ;
     public final void rule__ViewSection__Group__4__Impl() throws RecognitionException {
 
@@ -15556,10 +16045,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group__4__Impl
+    // $ANTLR end "rule__ViewSection__Group__4__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group_2__0
+    // $ANTLR start "rule__ViewSection__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6056:1: rule__ViewSection__Group_2__0 : rule__ViewSection__Group_2__0__Impl rule__ViewSection__Group_2__1 ;
     public final void rule__ViewSection__Group_2__0() throws RecognitionException {
 
@@ -15571,11 +16060,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group_2__0__Impl_in_rule__ViewSection__Group_2__012157);
             rule__ViewSection__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewSection__Group_2__1_in_rule__ViewSection__Group_2__012160);
             rule__ViewSection__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15592,10 +16083,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group_2__0
+    // $ANTLR end "rule__ViewSection__Group_2__0"
 
 
-    // $ANTLR start rule__ViewSection__Group_2__0__Impl
+    // $ANTLR start "rule__ViewSection__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6068:1: rule__ViewSection__Group_2__0__Impl : ( 'title=' ) ;
     public final void rule__ViewSection__Group_2__0__Impl() throws RecognitionException {
 
@@ -15629,10 +16120,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group_2__0__Impl
+    // $ANTLR end "rule__ViewSection__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__ViewSection__Group_2__1
+    // $ANTLR start "rule__ViewSection__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6087:1: rule__ViewSection__Group_2__1 : rule__ViewSection__Group_2__1__Impl ;
     public final void rule__ViewSection__Group_2__1() throws RecognitionException {
 
@@ -15644,7 +16135,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__Group_2__1__Impl_in_rule__ViewSection__Group_2__112219);
             rule__ViewSection__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15661,10 +16153,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group_2__1
+    // $ANTLR end "rule__ViewSection__Group_2__1"
 
 
-    // $ANTLR start rule__ViewSection__Group_2__1__Impl
+    // $ANTLR start "rule__ViewSection__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6098:1: rule__ViewSection__Group_2__1__Impl : ( ( rule__ViewSection__TitleAssignment_2_1 ) ) ;
     public final void rule__ViewSection__Group_2__1__Impl() throws RecognitionException {
 
@@ -15683,7 +16175,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewSection__TitleAssignment_2_1_in_rule__ViewSection__Group_2__1__Impl12246);
             rule__ViewSection__TitleAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15707,10 +16200,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__Group_2__1__Impl
+    // $ANTLR end "rule__ViewSection__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__0
+    // $ANTLR start "rule__SectionCell__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6119:1: rule__SectionCell__Group__0 : rule__SectionCell__Group__0__Impl rule__SectionCell__Group__1 ;
     public final void rule__SectionCell__Group__0() throws RecognitionException {
 
@@ -15722,11 +16215,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__0__Impl_in_rule__SectionCell__Group__012280);
             rule__SectionCell__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__1_in_rule__SectionCell__Group__012283);
             rule__SectionCell__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15743,10 +16238,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__0
+    // $ANTLR end "rule__SectionCell__Group__0"
 
 
-    // $ANTLR start rule__SectionCell__Group__0__Impl
+    // $ANTLR start "rule__SectionCell__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6131:1: rule__SectionCell__Group__0__Impl : ( 'cell' ) ;
     public final void rule__SectionCell__Group__0__Impl() throws RecognitionException {
 
@@ -15780,10 +16275,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__0__Impl
+    // $ANTLR end "rule__SectionCell__Group__0__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__1
+    // $ANTLR start "rule__SectionCell__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6150:1: rule__SectionCell__Group__1 : rule__SectionCell__Group__1__Impl rule__SectionCell__Group__2 ;
     public final void rule__SectionCell__Group__1() throws RecognitionException {
 
@@ -15795,11 +16290,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__1__Impl_in_rule__SectionCell__Group__112342);
             rule__SectionCell__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__2_in_rule__SectionCell__Group__112345);
             rule__SectionCell__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15816,10 +16313,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__1
+    // $ANTLR end "rule__SectionCell__Group__1"
 
 
-    // $ANTLR start rule__SectionCell__Group__1__Impl
+    // $ANTLR start "rule__SectionCell__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6162:1: rule__SectionCell__Group__1__Impl : ( ( rule__SectionCell__TypeAssignment_1 ) ) ;
     public final void rule__SectionCell__Group__1__Impl() throws RecognitionException {
 
@@ -15838,7 +16335,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__TypeAssignment_1_in_rule__SectionCell__Group__1__Impl12372);
             rule__SectionCell__TypeAssignment_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15862,10 +16360,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__1__Impl
+    // $ANTLR end "rule__SectionCell__Group__1__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__2
+    // $ANTLR start "rule__SectionCell__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6179:1: rule__SectionCell__Group__2 : rule__SectionCell__Group__2__Impl rule__SectionCell__Group__3 ;
     public final void rule__SectionCell__Group__2() throws RecognitionException {
 
@@ -15877,11 +16375,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__2__Impl_in_rule__SectionCell__Group__212402);
             rule__SectionCell__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__3_in_rule__SectionCell__Group__212405);
             rule__SectionCell__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15898,10 +16398,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__2
+    // $ANTLR end "rule__SectionCell__Group__2"
 
 
-    // $ANTLR start rule__SectionCell__Group__2__Impl
+    // $ANTLR start "rule__SectionCell__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6191:1: rule__SectionCell__Group__2__Impl : ( ( rule__SectionCell__Group_2__0 )? ) ;
     public final void rule__SectionCell__Group__2__Impl() throws RecognitionException {
 
@@ -15928,7 +16428,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__SectionCell__Group_2__0_in_rule__SectionCell__Group__2__Impl12432);
                     rule__SectionCell__Group_2__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -15955,10 +16456,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__2__Impl
+    // $ANTLR end "rule__SectionCell__Group__2__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__3
+    // $ANTLR start "rule__SectionCell__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6208:1: rule__SectionCell__Group__3 : rule__SectionCell__Group__3__Impl rule__SectionCell__Group__4 ;
     public final void rule__SectionCell__Group__3() throws RecognitionException {
 
@@ -15970,11 +16471,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__3__Impl_in_rule__SectionCell__Group__312463);
             rule__SectionCell__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__4_in_rule__SectionCell__Group__312466);
             rule__SectionCell__Group__4();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -15991,10 +16494,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__3
+    // $ANTLR end "rule__SectionCell__Group__3"
 
 
-    // $ANTLR start rule__SectionCell__Group__3__Impl
+    // $ANTLR start "rule__SectionCell__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6220:1: rule__SectionCell__Group__3__Impl : ( '{' ) ;
     public final void rule__SectionCell__Group__3__Impl() throws RecognitionException {
 
@@ -16028,10 +16531,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__3__Impl
+    // $ANTLR end "rule__SectionCell__Group__3__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__4
+    // $ANTLR start "rule__SectionCell__Group__4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6239:1: rule__SectionCell__Group__4 : rule__SectionCell__Group__4__Impl rule__SectionCell__Group__5 ;
     public final void rule__SectionCell__Group__4() throws RecognitionException {
 
@@ -16043,11 +16546,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__4__Impl_in_rule__SectionCell__Group__412525);
             rule__SectionCell__Group__4__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__5_in_rule__SectionCell__Group__412528);
             rule__SectionCell__Group__5();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16064,10 +16569,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__4
+    // $ANTLR end "rule__SectionCell__Group__4"
 
 
-    // $ANTLR start rule__SectionCell__Group__4__Impl
+    // $ANTLR start "rule__SectionCell__Group__4__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6251:1: rule__SectionCell__Group__4__Impl : ( ( rule__SectionCell__Group_4__0 )? ) ;
     public final void rule__SectionCell__Group__4__Impl() throws RecognitionException {
 
@@ -16094,7 +16599,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__SectionCell__Group_4__0_in_rule__SectionCell__Group__4__Impl12555);
                     rule__SectionCell__Group_4__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -16121,10 +16627,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__4__Impl
+    // $ANTLR end "rule__SectionCell__Group__4__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__5
+    // $ANTLR start "rule__SectionCell__Group__5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6268:1: rule__SectionCell__Group__5 : rule__SectionCell__Group__5__Impl rule__SectionCell__Group__6 ;
     public final void rule__SectionCell__Group__5() throws RecognitionException {
 
@@ -16136,11 +16642,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__5__Impl_in_rule__SectionCell__Group__512586);
             rule__SectionCell__Group__5__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__6_in_rule__SectionCell__Group__512589);
             rule__SectionCell__Group__6();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16157,10 +16665,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__5
+    // $ANTLR end "rule__SectionCell__Group__5"
 
 
-    // $ANTLR start rule__SectionCell__Group__5__Impl
+    // $ANTLR start "rule__SectionCell__Group__5__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6280:1: rule__SectionCell__Group__5__Impl : ( ( rule__SectionCell__Group_5__0 )? ) ;
     public final void rule__SectionCell__Group__5__Impl() throws RecognitionException {
 
@@ -16187,7 +16695,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__SectionCell__Group_5__0_in_rule__SectionCell__Group__5__Impl12616);
                     rule__SectionCell__Group_5__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -16214,10 +16723,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__5__Impl
+    // $ANTLR end "rule__SectionCell__Group__5__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__6
+    // $ANTLR start "rule__SectionCell__Group__6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6297:1: rule__SectionCell__Group__6 : rule__SectionCell__Group__6__Impl rule__SectionCell__Group__7 ;
     public final void rule__SectionCell__Group__6() throws RecognitionException {
 
@@ -16229,11 +16738,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__6__Impl_in_rule__SectionCell__Group__612647);
             rule__SectionCell__Group__6__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__7_in_rule__SectionCell__Group__612650);
             rule__SectionCell__Group__7();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16250,10 +16761,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__6
+    // $ANTLR end "rule__SectionCell__Group__6"
 
 
-    // $ANTLR start rule__SectionCell__Group__6__Impl
+    // $ANTLR start "rule__SectionCell__Group__6__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6309:1: rule__SectionCell__Group__6__Impl : ( ( rule__SectionCell__Group_6__0 )? ) ;
     public final void rule__SectionCell__Group__6__Impl() throws RecognitionException {
 
@@ -16280,7 +16791,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__SectionCell__Group_6__0_in_rule__SectionCell__Group__6__Impl12677);
                     rule__SectionCell__Group_6__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -16307,10 +16819,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__6__Impl
+    // $ANTLR end "rule__SectionCell__Group__6__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__7
+    // $ANTLR start "rule__SectionCell__Group__7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6326:1: rule__SectionCell__Group__7 : rule__SectionCell__Group__7__Impl rule__SectionCell__Group__8 ;
     public final void rule__SectionCell__Group__7() throws RecognitionException {
 
@@ -16322,11 +16834,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__7__Impl_in_rule__SectionCell__Group__712708);
             rule__SectionCell__Group__7__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group__8_in_rule__SectionCell__Group__712711);
             rule__SectionCell__Group__8();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16343,10 +16857,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__7
+    // $ANTLR end "rule__SectionCell__Group__7"
 
 
-    // $ANTLR start rule__SectionCell__Group__7__Impl
+    // $ANTLR start "rule__SectionCell__Group__7__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6338:1: rule__SectionCell__Group__7__Impl : ( ( rule__SectionCell__Group_7__0 )? ) ;
     public final void rule__SectionCell__Group__7__Impl() throws RecognitionException {
 
@@ -16373,7 +16887,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__SectionCell__Group_7__0_in_rule__SectionCell__Group__7__Impl12738);
                     rule__SectionCell__Group_7__0();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -16400,10 +16915,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__7__Impl
+    // $ANTLR end "rule__SectionCell__Group__7__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group__8
+    // $ANTLR start "rule__SectionCell__Group__8"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6355:1: rule__SectionCell__Group__8 : rule__SectionCell__Group__8__Impl ;
     public final void rule__SectionCell__Group__8() throws RecognitionException {
 
@@ -16415,7 +16930,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group__8__Impl_in_rule__SectionCell__Group__812769);
             rule__SectionCell__Group__8__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16432,10 +16948,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__8
+    // $ANTLR end "rule__SectionCell__Group__8"
 
 
-    // $ANTLR start rule__SectionCell__Group__8__Impl
+    // $ANTLR start "rule__SectionCell__Group__8__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6366:1: rule__SectionCell__Group__8__Impl : ( '}' ) ;
     public final void rule__SectionCell__Group__8__Impl() throws RecognitionException {
 
@@ -16469,10 +16985,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group__8__Impl
+    // $ANTLR end "rule__SectionCell__Group__8__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_2__0
+    // $ANTLR start "rule__SectionCell__Group_2__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6403:1: rule__SectionCell__Group_2__0 : rule__SectionCell__Group_2__0__Impl rule__SectionCell__Group_2__1 ;
     public final void rule__SectionCell__Group_2__0() throws RecognitionException {
 
@@ -16484,11 +17000,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_2__0__Impl_in_rule__SectionCell__Group_2__012846);
             rule__SectionCell__Group_2__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group_2__1_in_rule__SectionCell__Group_2__012849);
             rule__SectionCell__Group_2__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16505,10 +17023,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_2__0
+    // $ANTLR end "rule__SectionCell__Group_2__0"
 
 
-    // $ANTLR start rule__SectionCell__Group_2__0__Impl
+    // $ANTLR start "rule__SectionCell__Group_2__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6415:1: rule__SectionCell__Group_2__0__Impl : ( 'foreach' ) ;
     public final void rule__SectionCell__Group_2__0__Impl() throws RecognitionException {
 
@@ -16542,10 +17060,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_2__0__Impl
+    // $ANTLR end "rule__SectionCell__Group_2__0__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_2__1
+    // $ANTLR start "rule__SectionCell__Group_2__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6434:1: rule__SectionCell__Group_2__1 : rule__SectionCell__Group_2__1__Impl ;
     public final void rule__SectionCell__Group_2__1() throws RecognitionException {
 
@@ -16557,7 +17075,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_2__1__Impl_in_rule__SectionCell__Group_2__112908);
             rule__SectionCell__Group_2__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16574,10 +17093,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_2__1
+    // $ANTLR end "rule__SectionCell__Group_2__1"
 
 
-    // $ANTLR start rule__SectionCell__Group_2__1__Impl
+    // $ANTLR start "rule__SectionCell__Group_2__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6445:1: rule__SectionCell__Group_2__1__Impl : ( ( rule__SectionCell__IteratorAssignment_2_1 ) ) ;
     public final void rule__SectionCell__Group_2__1__Impl() throws RecognitionException {
 
@@ -16596,7 +17115,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__IteratorAssignment_2_1_in_rule__SectionCell__Group_2__1__Impl12935);
             rule__SectionCell__IteratorAssignment_2_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16620,10 +17140,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_2__1__Impl
+    // $ANTLR end "rule__SectionCell__Group_2__1__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_4__0
+    // $ANTLR start "rule__SectionCell__Group_4__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6466:1: rule__SectionCell__Group_4__0 : rule__SectionCell__Group_4__0__Impl rule__SectionCell__Group_4__1 ;
     public final void rule__SectionCell__Group_4__0() throws RecognitionException {
 
@@ -16635,11 +17155,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_4__0__Impl_in_rule__SectionCell__Group_4__012969);
             rule__SectionCell__Group_4__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group_4__1_in_rule__SectionCell__Group_4__012972);
             rule__SectionCell__Group_4__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16656,10 +17178,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_4__0
+    // $ANTLR end "rule__SectionCell__Group_4__0"
 
 
-    // $ANTLR start rule__SectionCell__Group_4__0__Impl
+    // $ANTLR start "rule__SectionCell__Group_4__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6478:1: rule__SectionCell__Group_4__0__Impl : ( 'text=' ) ;
     public final void rule__SectionCell__Group_4__0__Impl() throws RecognitionException {
 
@@ -16693,10 +17215,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_4__0__Impl
+    // $ANTLR end "rule__SectionCell__Group_4__0__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_4__1
+    // $ANTLR start "rule__SectionCell__Group_4__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6497:1: rule__SectionCell__Group_4__1 : rule__SectionCell__Group_4__1__Impl ;
     public final void rule__SectionCell__Group_4__1() throws RecognitionException {
 
@@ -16708,7 +17230,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_4__1__Impl_in_rule__SectionCell__Group_4__113031);
             rule__SectionCell__Group_4__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16725,10 +17248,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_4__1
+    // $ANTLR end "rule__SectionCell__Group_4__1"
 
 
-    // $ANTLR start rule__SectionCell__Group_4__1__Impl
+    // $ANTLR start "rule__SectionCell__Group_4__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6508:1: rule__SectionCell__Group_4__1__Impl : ( ( rule__SectionCell__TextAssignment_4_1 ) ) ;
     public final void rule__SectionCell__Group_4__1__Impl() throws RecognitionException {
 
@@ -16747,7 +17270,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__TextAssignment_4_1_in_rule__SectionCell__Group_4__1__Impl13058);
             rule__SectionCell__TextAssignment_4_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16771,10 +17295,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_4__1__Impl
+    // $ANTLR end "rule__SectionCell__Group_4__1__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_5__0
+    // $ANTLR start "rule__SectionCell__Group_5__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6529:1: rule__SectionCell__Group_5__0 : rule__SectionCell__Group_5__0__Impl rule__SectionCell__Group_5__1 ;
     public final void rule__SectionCell__Group_5__0() throws RecognitionException {
 
@@ -16786,11 +17310,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_5__0__Impl_in_rule__SectionCell__Group_5__013092);
             rule__SectionCell__Group_5__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group_5__1_in_rule__SectionCell__Group_5__013095);
             rule__SectionCell__Group_5__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16807,10 +17333,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_5__0
+    // $ANTLR end "rule__SectionCell__Group_5__0"
 
 
-    // $ANTLR start rule__SectionCell__Group_5__0__Impl
+    // $ANTLR start "rule__SectionCell__Group_5__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6541:1: rule__SectionCell__Group_5__0__Impl : ( 'details=' ) ;
     public final void rule__SectionCell__Group_5__0__Impl() throws RecognitionException {
 
@@ -16844,10 +17370,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_5__0__Impl
+    // $ANTLR end "rule__SectionCell__Group_5__0__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_5__1
+    // $ANTLR start "rule__SectionCell__Group_5__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6560:1: rule__SectionCell__Group_5__1 : rule__SectionCell__Group_5__1__Impl ;
     public final void rule__SectionCell__Group_5__1() throws RecognitionException {
 
@@ -16859,7 +17385,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_5__1__Impl_in_rule__SectionCell__Group_5__113154);
             rule__SectionCell__Group_5__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16876,10 +17403,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_5__1
+    // $ANTLR end "rule__SectionCell__Group_5__1"
 
 
-    // $ANTLR start rule__SectionCell__Group_5__1__Impl
+    // $ANTLR start "rule__SectionCell__Group_5__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6571:1: rule__SectionCell__Group_5__1__Impl : ( ( rule__SectionCell__DetailsAssignment_5_1 ) ) ;
     public final void rule__SectionCell__Group_5__1__Impl() throws RecognitionException {
 
@@ -16898,7 +17425,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__DetailsAssignment_5_1_in_rule__SectionCell__Group_5__1__Impl13181);
             rule__SectionCell__DetailsAssignment_5_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16922,10 +17450,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_5__1__Impl
+    // $ANTLR end "rule__SectionCell__Group_5__1__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_6__0
+    // $ANTLR start "rule__SectionCell__Group_6__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6592:1: rule__SectionCell__Group_6__0 : rule__SectionCell__Group_6__0__Impl rule__SectionCell__Group_6__1 ;
     public final void rule__SectionCell__Group_6__0() throws RecognitionException {
 
@@ -16937,11 +17465,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_6__0__Impl_in_rule__SectionCell__Group_6__013215);
             rule__SectionCell__Group_6__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group_6__1_in_rule__SectionCell__Group_6__013218);
             rule__SectionCell__Group_6__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -16958,10 +17488,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_6__0
+    // $ANTLR end "rule__SectionCell__Group_6__0"
 
 
-    // $ANTLR start rule__SectionCell__Group_6__0__Impl
+    // $ANTLR start "rule__SectionCell__Group_6__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6604:1: rule__SectionCell__Group_6__0__Impl : ( 'image=' ) ;
     public final void rule__SectionCell__Group_6__0__Impl() throws RecognitionException {
 
@@ -16995,10 +17525,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_6__0__Impl
+    // $ANTLR end "rule__SectionCell__Group_6__0__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_6__1
+    // $ANTLR start "rule__SectionCell__Group_6__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6623:1: rule__SectionCell__Group_6__1 : rule__SectionCell__Group_6__1__Impl ;
     public final void rule__SectionCell__Group_6__1() throws RecognitionException {
 
@@ -17010,7 +17540,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_6__1__Impl_in_rule__SectionCell__Group_6__113277);
             rule__SectionCell__Group_6__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17027,10 +17558,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_6__1
+    // $ANTLR end "rule__SectionCell__Group_6__1"
 
 
-    // $ANTLR start rule__SectionCell__Group_6__1__Impl
+    // $ANTLR start "rule__SectionCell__Group_6__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6634:1: rule__SectionCell__Group_6__1__Impl : ( ( rule__SectionCell__ImageAssignment_6_1 ) ) ;
     public final void rule__SectionCell__Group_6__1__Impl() throws RecognitionException {
 
@@ -17049,7 +17580,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__ImageAssignment_6_1_in_rule__SectionCell__Group_6__1__Impl13304);
             rule__SectionCell__ImageAssignment_6_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17073,10 +17605,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_6__1__Impl
+    // $ANTLR end "rule__SectionCell__Group_6__1__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_7__0
+    // $ANTLR start "rule__SectionCell__Group_7__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6655:1: rule__SectionCell__Group_7__0 : rule__SectionCell__Group_7__0__Impl rule__SectionCell__Group_7__1 ;
     public final void rule__SectionCell__Group_7__0() throws RecognitionException {
 
@@ -17088,11 +17620,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_7__0__Impl_in_rule__SectionCell__Group_7__013338);
             rule__SectionCell__Group_7__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__SectionCell__Group_7__1_in_rule__SectionCell__Group_7__013341);
             rule__SectionCell__Group_7__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17109,10 +17643,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_7__0
+    // $ANTLR end "rule__SectionCell__Group_7__0"
 
 
-    // $ANTLR start rule__SectionCell__Group_7__0__Impl
+    // $ANTLR start "rule__SectionCell__Group_7__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6667:1: rule__SectionCell__Group_7__0__Impl : ( 'action=' ) ;
     public final void rule__SectionCell__Group_7__0__Impl() throws RecognitionException {
 
@@ -17146,10 +17680,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_7__0__Impl
+    // $ANTLR end "rule__SectionCell__Group_7__0__Impl"
 
 
-    // $ANTLR start rule__SectionCell__Group_7__1
+    // $ANTLR start "rule__SectionCell__Group_7__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6686:1: rule__SectionCell__Group_7__1 : rule__SectionCell__Group_7__1__Impl ;
     public final void rule__SectionCell__Group_7__1() throws RecognitionException {
 
@@ -17161,7 +17695,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__Group_7__1__Impl_in_rule__SectionCell__Group_7__113400);
             rule__SectionCell__Group_7__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17178,10 +17713,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_7__1
+    // $ANTLR end "rule__SectionCell__Group_7__1"
 
 
-    // $ANTLR start rule__SectionCell__Group_7__1__Impl
+    // $ANTLR start "rule__SectionCell__Group_7__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6697:1: rule__SectionCell__Group_7__1__Impl : ( ( rule__SectionCell__ActionAssignment_7_1 ) ) ;
     public final void rule__SectionCell__Group_7__1__Impl() throws RecognitionException {
 
@@ -17200,7 +17735,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__SectionCell__ActionAssignment_7_1_in_rule__SectionCell__Group_7__1__Impl13427);
             rule__SectionCell__ActionAssignment_7_1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17224,10 +17760,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__Group_7__1__Impl
+    // $ANTLR end "rule__SectionCell__Group_7__1__Impl"
 
 
-    // $ANTLR start rule__CollectionIterator__Group__0
+    // $ANTLR start "rule__CollectionIterator__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6718:1: rule__CollectionIterator__Group__0 : rule__CollectionIterator__Group__0__Impl rule__CollectionIterator__Group__1 ;
     public final void rule__CollectionIterator__Group__0() throws RecognitionException {
 
@@ -17239,11 +17775,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionIterator__Group__0__Impl_in_rule__CollectionIterator__Group__013461);
             rule__CollectionIterator__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionIterator__Group__1_in_rule__CollectionIterator__Group__013464);
             rule__CollectionIterator__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17260,10 +17798,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__Group__0
+    // $ANTLR end "rule__CollectionIterator__Group__0"
 
 
-    // $ANTLR start rule__CollectionIterator__Group__0__Impl
+    // $ANTLR start "rule__CollectionIterator__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6730:1: rule__CollectionIterator__Group__0__Impl : ( ( rule__CollectionIterator__CollectionAssignment_0 ) ) ;
     public final void rule__CollectionIterator__Group__0__Impl() throws RecognitionException {
 
@@ -17282,7 +17820,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionIterator__CollectionAssignment_0_in_rule__CollectionIterator__Group__0__Impl13491);
             rule__CollectionIterator__CollectionAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17306,10 +17845,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__Group__0__Impl
+    // $ANTLR end "rule__CollectionIterator__Group__0__Impl"
 
 
-    // $ANTLR start rule__CollectionIterator__Group__1
+    // $ANTLR start "rule__CollectionIterator__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6747:1: rule__CollectionIterator__Group__1 : rule__CollectionIterator__Group__1__Impl rule__CollectionIterator__Group__2 ;
     public final void rule__CollectionIterator__Group__1() throws RecognitionException {
 
@@ -17321,11 +17860,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionIterator__Group__1__Impl_in_rule__CollectionIterator__Group__113521);
             rule__CollectionIterator__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__CollectionIterator__Group__2_in_rule__CollectionIterator__Group__113524);
             rule__CollectionIterator__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17342,10 +17883,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__Group__1
+    // $ANTLR end "rule__CollectionIterator__Group__1"
 
 
-    // $ANTLR start rule__CollectionIterator__Group__1__Impl
+    // $ANTLR start "rule__CollectionIterator__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6759:1: rule__CollectionIterator__Group__1__Impl : ( 'as' ) ;
     public final void rule__CollectionIterator__Group__1__Impl() throws RecognitionException {
 
@@ -17379,10 +17920,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__Group__1__Impl
+    // $ANTLR end "rule__CollectionIterator__Group__1__Impl"
 
 
-    // $ANTLR start rule__CollectionIterator__Group__2
+    // $ANTLR start "rule__CollectionIterator__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6778:1: rule__CollectionIterator__Group__2 : rule__CollectionIterator__Group__2__Impl ;
     public final void rule__CollectionIterator__Group__2() throws RecognitionException {
 
@@ -17394,7 +17935,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionIterator__Group__2__Impl_in_rule__CollectionIterator__Group__213583);
             rule__CollectionIterator__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17411,10 +17953,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__Group__2
+    // $ANTLR end "rule__CollectionIterator__Group__2"
 
 
-    // $ANTLR start rule__CollectionIterator__Group__2__Impl
+    // $ANTLR start "rule__CollectionIterator__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6789:1: rule__CollectionIterator__Group__2__Impl : ( ( rule__CollectionIterator__NameAssignment_2 ) ) ;
     public final void rule__CollectionIterator__Group__2__Impl() throws RecognitionException {
 
@@ -17433,7 +17975,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__CollectionIterator__NameAssignment_2_in_rule__CollectionIterator__Group__2__Impl13610);
             rule__CollectionIterator__NameAssignment_2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17457,10 +18000,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__Group__2__Impl
+    // $ANTLR end "rule__CollectionIterator__Group__2__Impl"
 
 
-    // $ANTLR start rule__ViewCall__Group__0
+    // $ANTLR start "rule__ViewCall__Group__0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6812:1: rule__ViewCall__Group__0 : rule__ViewCall__Group__0__Impl rule__ViewCall__Group__1 ;
     public final void rule__ViewCall__Group__0() throws RecognitionException {
 
@@ -17472,11 +18015,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewCall__Group__0__Impl_in_rule__ViewCall__Group__013646);
             rule__ViewCall__Group__0__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewCall__Group__1_in_rule__ViewCall__Group__013649);
             rule__ViewCall__Group__1();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17493,10 +18038,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__0
+    // $ANTLR end "rule__ViewCall__Group__0"
 
 
-    // $ANTLR start rule__ViewCall__Group__0__Impl
+    // $ANTLR start "rule__ViewCall__Group__0__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6824:1: rule__ViewCall__Group__0__Impl : ( ( rule__ViewCall__ViewAssignment_0 ) ) ;
     public final void rule__ViewCall__Group__0__Impl() throws RecognitionException {
 
@@ -17515,7 +18060,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewCall__ViewAssignment_0_in_rule__ViewCall__Group__0__Impl13676);
             rule__ViewCall__ViewAssignment_0();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17539,10 +18085,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__0__Impl
+    // $ANTLR end "rule__ViewCall__Group__0__Impl"
 
 
-    // $ANTLR start rule__ViewCall__Group__1
+    // $ANTLR start "rule__ViewCall__Group__1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6841:1: rule__ViewCall__Group__1 : rule__ViewCall__Group__1__Impl rule__ViewCall__Group__2 ;
     public final void rule__ViewCall__Group__1() throws RecognitionException {
 
@@ -17554,11 +18100,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewCall__Group__1__Impl_in_rule__ViewCall__Group__113706);
             rule__ViewCall__Group__1__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewCall__Group__2_in_rule__ViewCall__Group__113709);
             rule__ViewCall__Group__2();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17575,10 +18123,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__1
+    // $ANTLR end "rule__ViewCall__Group__1"
 
 
-    // $ANTLR start rule__ViewCall__Group__1__Impl
+    // $ANTLR start "rule__ViewCall__Group__1__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6853:1: rule__ViewCall__Group__1__Impl : ( '(' ) ;
     public final void rule__ViewCall__Group__1__Impl() throws RecognitionException {
 
@@ -17612,10 +18160,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__1__Impl
+    // $ANTLR end "rule__ViewCall__Group__1__Impl"
 
 
-    // $ANTLR start rule__ViewCall__Group__2
+    // $ANTLR start "rule__ViewCall__Group__2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6872:1: rule__ViewCall__Group__2 : rule__ViewCall__Group__2__Impl rule__ViewCall__Group__3 ;
     public final void rule__ViewCall__Group__2() throws RecognitionException {
 
@@ -17627,11 +18175,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewCall__Group__2__Impl_in_rule__ViewCall__Group__213768);
             rule__ViewCall__Group__2__Impl();
-            _fsp--;
+
+            state._fsp--;
 
             pushFollow(FOLLOW_rule__ViewCall__Group__3_in_rule__ViewCall__Group__213771);
             rule__ViewCall__Group__3();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17648,10 +18198,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__2
+    // $ANTLR end "rule__ViewCall__Group__2"
 
 
-    // $ANTLR start rule__ViewCall__Group__2__Impl
+    // $ANTLR start "rule__ViewCall__Group__2__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6884:1: rule__ViewCall__Group__2__Impl : ( ( rule__ViewCall__ProviderAssignment_2 )? ) ;
     public final void rule__ViewCall__Group__2__Impl() throws RecognitionException {
 
@@ -17678,7 +18228,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
                     {
                     pushFollow(FOLLOW_rule__ViewCall__ProviderAssignment_2_in_rule__ViewCall__Group__2__Impl13798);
                     rule__ViewCall__ProviderAssignment_2();
-                    _fsp--;
+
+                    state._fsp--;
 
 
                     }
@@ -17705,10 +18256,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__2__Impl
+    // $ANTLR end "rule__ViewCall__Group__2__Impl"
 
 
-    // $ANTLR start rule__ViewCall__Group__3
+    // $ANTLR start "rule__ViewCall__Group__3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6901:1: rule__ViewCall__Group__3 : rule__ViewCall__Group__3__Impl ;
     public final void rule__ViewCall__Group__3() throws RecognitionException {
 
@@ -17720,7 +18271,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
             {
             pushFollow(FOLLOW_rule__ViewCall__Group__3__Impl_in_rule__ViewCall__Group__313829);
             rule__ViewCall__Group__3__Impl();
-            _fsp--;
+
+            state._fsp--;
 
 
             }
@@ -17737,10 +18289,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__3
+    // $ANTLR end "rule__ViewCall__Group__3"
 
 
-    // $ANTLR start rule__ViewCall__Group__3__Impl
+    // $ANTLR start "rule__ViewCall__Group__3__Impl"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6912:1: rule__ViewCall__Group__3__Impl : ( ')' ) ;
     public final void rule__ViewCall__Group__3__Impl() throws RecognitionException {
 
@@ -17774,10 +18326,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__Group__3__Impl
+    // $ANTLR end "rule__ViewCall__Group__3__Impl"
 
 
-    // $ANTLR start rule__Model__ApplicationAssignment_0
+    // $ANTLR start "rule__Model__ApplicationAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6940:1: rule__Model__ApplicationAssignment_0 : ( ruleApplication ) ;
     public final void rule__Model__ApplicationAssignment_0() throws RecognitionException {
 
@@ -17793,7 +18345,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getModelAccess().getApplicationApplicationParserRuleCall_0_0()); 
             pushFollow(FOLLOW_ruleApplication_in_rule__Model__ApplicationAssignment_013901);
             ruleApplication();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getModelAccess().getApplicationApplicationParserRuleCall_0_0()); 
 
@@ -17814,10 +18367,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Model__ApplicationAssignment_0
+    // $ANTLR end "rule__Model__ApplicationAssignment_0"
 
 
-    // $ANTLR start rule__Model__ElementsAssignment_1
+    // $ANTLR start "rule__Model__ElementsAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6955:1: rule__Model__ElementsAssignment_1 : ( ruleModelElement ) ;
     public final void rule__Model__ElementsAssignment_1() throws RecognitionException {
 
@@ -17833,7 +18386,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getModelAccess().getElementsModelElementParserRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleModelElement_in_rule__Model__ElementsAssignment_113932);
             ruleModelElement();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getModelAccess().getElementsModelElementParserRuleCall_1_0()); 
 
@@ -17854,10 +18408,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Model__ElementsAssignment_1
+    // $ANTLR end "rule__Model__ElementsAssignment_1"
 
 
-    // $ANTLR start rule__TypeDescription__TypeAssignment_0
+    // $ANTLR start "rule__TypeDescription__TypeAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6970:1: rule__TypeDescription__TypeAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__TypeDescription__TypeAssignment_0() throws RecognitionException {
 
@@ -17899,10 +18453,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TypeDescription__TypeAssignment_0
+    // $ANTLR end "rule__TypeDescription__TypeAssignment_0"
 
 
-    // $ANTLR start rule__TypeDescription__ManyAssignment_1
+    // $ANTLR start "rule__TypeDescription__ManyAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:6989:1: rule__TypeDescription__ManyAssignment_1 : ( ( '[]' ) ) ;
     public final void rule__TypeDescription__ManyAssignment_1() throws RecognitionException {
 
@@ -17944,10 +18498,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TypeDescription__ManyAssignment_1
+    // $ANTLR end "rule__TypeDescription__ManyAssignment_1"
 
 
-    // $ANTLR start rule__Parameter__DescriptionAssignment_0
+    // $ANTLR start "rule__Parameter__DescriptionAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7012:1: rule__Parameter__DescriptionAssignment_0 : ( ruleTypeDescription ) ;
     public final void rule__Parameter__DescriptionAssignment_0() throws RecognitionException {
 
@@ -17963,7 +18517,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getParameterAccess().getDescriptionTypeDescriptionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_ruleTypeDescription_in_rule__Parameter__DescriptionAssignment_014046);
             ruleTypeDescription();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getParameterAccess().getDescriptionTypeDescriptionParserRuleCall_0_0()); 
 
@@ -17984,10 +18539,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Parameter__DescriptionAssignment_0
+    // $ANTLR end "rule__Parameter__DescriptionAssignment_0"
 
 
-    // $ANTLR start rule__Parameter__NameAssignment_1
+    // $ANTLR start "rule__Parameter__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7027:1: rule__Parameter__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Parameter__NameAssignment_1() throws RecognitionException {
 
@@ -18021,10 +18576,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Parameter__NameAssignment_1
+    // $ANTLR end "rule__Parameter__NameAssignment_1"
 
 
-    // $ANTLR start rule__ObjectReference__ObjectAssignment_0
+    // $ANTLR start "rule__ObjectReference__ObjectAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7042:1: rule__ObjectReference__ObjectAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ObjectReference__ObjectAssignment_0() throws RecognitionException {
 
@@ -18066,10 +18621,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ObjectReference__ObjectAssignment_0
+    // $ANTLR end "rule__ObjectReference__ObjectAssignment_0"
 
 
-    // $ANTLR start rule__ObjectReference__TailAssignment_1
+    // $ANTLR start "rule__ObjectReference__TailAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7061:1: rule__ObjectReference__TailAssignment_1 : ( ruleNestedObjectReference ) ;
     public final void rule__ObjectReference__TailAssignment_1() throws RecognitionException {
 
@@ -18085,7 +18640,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getObjectReferenceAccess().getTailNestedObjectReferenceParserRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleNestedObjectReference_in_rule__ObjectReference__TailAssignment_114147);
             ruleNestedObjectReference();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getObjectReferenceAccess().getTailNestedObjectReferenceParserRuleCall_1_0()); 
 
@@ -18106,10 +18662,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ObjectReference__TailAssignment_1
+    // $ANTLR end "rule__ObjectReference__TailAssignment_1"
 
 
-    // $ANTLR start rule__NestedObjectReference__ObjectAssignment_1
+    // $ANTLR start "rule__NestedObjectReference__ObjectAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7076:1: rule__NestedObjectReference__ObjectAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__NestedObjectReference__ObjectAssignment_1() throws RecognitionException {
 
@@ -18151,10 +18707,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__ObjectAssignment_1
+    // $ANTLR end "rule__NestedObjectReference__ObjectAssignment_1"
 
 
-    // $ANTLR start rule__NestedObjectReference__TailAssignment_2
+    // $ANTLR start "rule__NestedObjectReference__TailAssignment_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7095:1: rule__NestedObjectReference__TailAssignment_2 : ( ruleNestedObjectReference ) ;
     public final void rule__NestedObjectReference__TailAssignment_2() throws RecognitionException {
 
@@ -18170,7 +18726,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getNestedObjectReferenceAccess().getTailNestedObjectReferenceParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleNestedObjectReference_in_rule__NestedObjectReference__TailAssignment_214217);
             ruleNestedObjectReference();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getNestedObjectReferenceAccess().getTailNestedObjectReferenceParserRuleCall_2_0()); 
 
@@ -18191,10 +18748,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__NestedObjectReference__TailAssignment_2
+    // $ANTLR end "rule__NestedObjectReference__TailAssignment_2"
 
 
-    // $ANTLR start rule__StringLiteral__ValueAssignment
+    // $ANTLR start "rule__StringLiteral__ValueAssignment"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7110:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
     public final void rule__StringLiteral__ValueAssignment() throws RecognitionException {
 
@@ -18228,10 +18785,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringLiteral__ValueAssignment
+    // $ANTLR end "rule__StringLiteral__ValueAssignment"
 
 
-    // $ANTLR start rule__StringFunction__ValuesAssignment_0_2
+    // $ANTLR start "rule__StringFunction__ValuesAssignment_0_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7125:1: rule__StringFunction__ValuesAssignment_0_2 : ( ruleScalarExpression ) ;
     public final void rule__StringFunction__ValuesAssignment_0_2() throws RecognitionException {
 
@@ -18247,7 +18804,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringFunctionAccess().getValuesScalarExpressionParserRuleCall_0_2_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__StringFunction__ValuesAssignment_0_214279);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringFunctionAccess().getValuesScalarExpressionParserRuleCall_0_2_0()); 
 
@@ -18268,10 +18826,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__ValuesAssignment_0_2
+    // $ANTLR end "rule__StringFunction__ValuesAssignment_0_2"
 
 
-    // $ANTLR start rule__StringFunction__ValueAssignment_1_2
+    // $ANTLR start "rule__StringFunction__ValueAssignment_1_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7140:1: rule__StringFunction__ValueAssignment_1_2 : ( ruleScalarExpression ) ;
     public final void rule__StringFunction__ValueAssignment_1_2() throws RecognitionException {
 
@@ -18287,7 +18845,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringFunctionAccess().getValueScalarExpressionParserRuleCall_1_2_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__StringFunction__ValueAssignment_1_214310);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringFunctionAccess().getValueScalarExpressionParserRuleCall_1_2_0()); 
 
@@ -18308,10 +18867,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__ValueAssignment_1_2
+    // $ANTLR end "rule__StringFunction__ValueAssignment_1_2"
 
 
-    // $ANTLR start rule__StringFunction__MatchAssignment_1_4
+    // $ANTLR start "rule__StringFunction__MatchAssignment_1_4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7155:1: rule__StringFunction__MatchAssignment_1_4 : ( ruleScalarExpression ) ;
     public final void rule__StringFunction__MatchAssignment_1_4() throws RecognitionException {
 
@@ -18327,7 +18886,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringFunctionAccess().getMatchScalarExpressionParserRuleCall_1_4_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__StringFunction__MatchAssignment_1_414341);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringFunctionAccess().getMatchScalarExpressionParserRuleCall_1_4_0()); 
 
@@ -18348,10 +18908,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__MatchAssignment_1_4
+    // $ANTLR end "rule__StringFunction__MatchAssignment_1_4"
 
 
-    // $ANTLR start rule__StringFunction__ReplacementAssignment_1_6
+    // $ANTLR start "rule__StringFunction__ReplacementAssignment_1_6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7170:1: rule__StringFunction__ReplacementAssignment_1_6 : ( ruleScalarExpression ) ;
     public final void rule__StringFunction__ReplacementAssignment_1_6() throws RecognitionException {
 
@@ -18367,7 +18927,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringFunctionAccess().getReplacementScalarExpressionParserRuleCall_1_6_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__StringFunction__ReplacementAssignment_1_614372);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringFunctionAccess().getReplacementScalarExpressionParserRuleCall_1_6_0()); 
 
@@ -18388,10 +18949,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__ReplacementAssignment_1_6
+    // $ANTLR end "rule__StringFunction__ReplacementAssignment_1_6"
 
 
-    // $ANTLR start rule__StringFunction__ValueAssignment_2_2
+    // $ANTLR start "rule__StringFunction__ValueAssignment_2_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7185:1: rule__StringFunction__ValueAssignment_2_2 : ( ruleScalarExpression ) ;
     public final void rule__StringFunction__ValueAssignment_2_2() throws RecognitionException {
 
@@ -18407,7 +18968,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getStringFunctionAccess().getValueScalarExpressionParserRuleCall_2_2_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__StringFunction__ValueAssignment_2_214403);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getStringFunctionAccess().getValueScalarExpressionParserRuleCall_2_2_0()); 
 
@@ -18428,10 +18990,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__StringFunction__ValueAssignment_2_2
+    // $ANTLR end "rule__StringFunction__ValueAssignment_2_2"
 
 
-    // $ANTLR start rule__CollectionLiteral__ItemsAssignment_1
+    // $ANTLR start "rule__CollectionLiteral__ItemsAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7200:1: rule__CollectionLiteral__ItemsAssignment_1 : ( ruleScalarExpression ) ;
     public final void rule__CollectionLiteral__ItemsAssignment_1() throws RecognitionException {
 
@@ -18447,7 +19009,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionLiteralAccess().getItemsScalarExpressionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__CollectionLiteral__ItemsAssignment_114434);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionLiteralAccess().getItemsScalarExpressionParserRuleCall_1_0()); 
 
@@ -18468,10 +19031,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__ItemsAssignment_1
+    // $ANTLR end "rule__CollectionLiteral__ItemsAssignment_1"
 
 
-    // $ANTLR start rule__CollectionLiteral__ItemsAssignment_2_1
+    // $ANTLR start "rule__CollectionLiteral__ItemsAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7215:1: rule__CollectionLiteral__ItemsAssignment_2_1 : ( ruleScalarExpression ) ;
     public final void rule__CollectionLiteral__ItemsAssignment_2_1() throws RecognitionException {
 
@@ -18487,7 +19050,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionLiteralAccess().getItemsScalarExpressionParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__CollectionLiteral__ItemsAssignment_2_114465);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionLiteralAccess().getItemsScalarExpressionParserRuleCall_2_1_0()); 
 
@@ -18508,10 +19072,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionLiteral__ItemsAssignment_2_1
+    // $ANTLR end "rule__CollectionLiteral__ItemsAssignment_2_1"
 
 
-    // $ANTLR start rule__CollectionFunction__ValueAssignment_2
+    // $ANTLR start "rule__CollectionFunction__ValueAssignment_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7230:1: rule__CollectionFunction__ValueAssignment_2 : ( ruleScalarExpression ) ;
     public final void rule__CollectionFunction__ValueAssignment_2() throws RecognitionException {
 
@@ -18527,7 +19091,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionFunctionAccess().getValueScalarExpressionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__CollectionFunction__ValueAssignment_214496);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionFunctionAccess().getValueScalarExpressionParserRuleCall_2_0()); 
 
@@ -18548,10 +19113,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__ValueAssignment_2
+    // $ANTLR end "rule__CollectionFunction__ValueAssignment_2"
 
 
-    // $ANTLR start rule__CollectionFunction__DelimiterAssignment_4
+    // $ANTLR start "rule__CollectionFunction__DelimiterAssignment_4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7245:1: rule__CollectionFunction__DelimiterAssignment_4 : ( ruleScalarExpression ) ;
     public final void rule__CollectionFunction__DelimiterAssignment_4() throws RecognitionException {
 
@@ -18567,7 +19132,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionFunctionAccess().getDelimiterScalarExpressionParserRuleCall_4_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__CollectionFunction__DelimiterAssignment_414527);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionFunctionAccess().getDelimiterScalarExpressionParserRuleCall_4_0()); 
 
@@ -18588,10 +19154,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionFunction__DelimiterAssignment_4
+    // $ANTLR end "rule__CollectionFunction__DelimiterAssignment_4"
 
 
-    // $ANTLR start rule__TabBarApplication__NameAssignment_1
+    // $ANTLR start "rule__TabBarApplication__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7260:1: rule__TabBarApplication__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__TabBarApplication__NameAssignment_1() throws RecognitionException {
 
@@ -18625,10 +19191,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__NameAssignment_1
+    // $ANTLR end "rule__TabBarApplication__NameAssignment_1"
 
 
-    // $ANTLR start rule__TabBarApplication__ButtonsAssignment_3
+    // $ANTLR start "rule__TabBarApplication__ButtonsAssignment_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7275:1: rule__TabBarApplication__ButtonsAssignment_3 : ( ruleTabbarButton ) ;
     public final void rule__TabBarApplication__ButtonsAssignment_3() throws RecognitionException {
 
@@ -18644,7 +19210,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleTabbarButton_in_rule__TabBarApplication__ButtonsAssignment_314589);
             ruleTabbarButton();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0()); 
 
@@ -18665,10 +19232,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabBarApplication__ButtonsAssignment_3
+    // $ANTLR end "rule__TabBarApplication__ButtonsAssignment_3"
 
 
-    // $ANTLR start rule__TabbarButton__TitleAssignment_3
+    // $ANTLR start "rule__TabbarButton__TitleAssignment_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7290:1: rule__TabbarButton__TitleAssignment_3 : ( ruleScalarExpression ) ;
     public final void rule__TabbarButton__TitleAssignment_3() throws RecognitionException {
 
@@ -18684,7 +19251,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTabbarButtonAccess().getTitleScalarExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__TabbarButton__TitleAssignment_314620);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTabbarButtonAccess().getTitleScalarExpressionParserRuleCall_3_0()); 
 
@@ -18705,10 +19273,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__TitleAssignment_3
+    // $ANTLR end "rule__TabbarButton__TitleAssignment_3"
 
 
-    // $ANTLR start rule__TabbarButton__IconAssignment_5
+    // $ANTLR start "rule__TabbarButton__IconAssignment_5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7305:1: rule__TabbarButton__IconAssignment_5 : ( ruleScalarExpression ) ;
     public final void rule__TabbarButton__IconAssignment_5() throws RecognitionException {
 
@@ -18724,7 +19292,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTabbarButtonAccess().getIconScalarExpressionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__TabbarButton__IconAssignment_514651);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTabbarButtonAccess().getIconScalarExpressionParserRuleCall_5_0()); 
 
@@ -18745,10 +19314,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__IconAssignment_5
+    // $ANTLR end "rule__TabbarButton__IconAssignment_5"
 
 
-    // $ANTLR start rule__TabbarButton__ViewAssignment_7
+    // $ANTLR start "rule__TabbarButton__ViewAssignment_7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7320:1: rule__TabbarButton__ViewAssignment_7 : ( ruleViewCall ) ;
     public final void rule__TabbarButton__ViewAssignment_7() throws RecognitionException {
 
@@ -18764,7 +19333,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTabbarButtonAccess().getViewViewCallParserRuleCall_7_0()); 
             pushFollow(FOLLOW_ruleViewCall_in_rule__TabbarButton__ViewAssignment_714682);
             ruleViewCall();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTabbarButtonAccess().getViewViewCallParserRuleCall_7_0()); 
 
@@ -18785,10 +19355,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TabbarButton__ViewAssignment_7
+    // $ANTLR end "rule__TabbarButton__ViewAssignment_7"
 
 
-    // $ANTLR start rule__Constant__NameAssignment_2
+    // $ANTLR start "rule__Constant__NameAssignment_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7335:1: rule__Constant__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Constant__NameAssignment_2() throws RecognitionException {
 
@@ -18822,10 +19392,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__NameAssignment_2
+    // $ANTLR end "rule__Constant__NameAssignment_2"
 
 
-    // $ANTLR start rule__Constant__ValueAssignment_3
+    // $ANTLR start "rule__Constant__ValueAssignment_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7350:1: rule__Constant__ValueAssignment_3 : ( ruleScalarExpression ) ;
     public final void rule__Constant__ValueAssignment_3() throws RecognitionException {
 
@@ -18841,7 +19411,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getConstantAccess().getValueScalarExpressionParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__Constant__ValueAssignment_314744);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getConstantAccess().getValueScalarExpressionParserRuleCall_3_0()); 
 
@@ -18862,10 +19433,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Constant__ValueAssignment_3
+    // $ANTLR end "rule__Constant__ValueAssignment_3"
 
 
-    // $ANTLR start rule__SimpleType__NameAssignment_1
+    // $ANTLR start "rule__SimpleType__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7365:1: rule__SimpleType__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SimpleType__NameAssignment_1() throws RecognitionException {
 
@@ -18899,10 +19470,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__NameAssignment_1
+    // $ANTLR end "rule__SimpleType__NameAssignment_1"
 
 
-    // $ANTLR start rule__SimpleType__PlatformTypeAssignment_3
+    // $ANTLR start "rule__SimpleType__PlatformTypeAssignment_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7380:1: rule__SimpleType__PlatformTypeAssignment_3 : ( RULE_STRING ) ;
     public final void rule__SimpleType__PlatformTypeAssignment_3() throws RecognitionException {
 
@@ -18936,10 +19507,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SimpleType__PlatformTypeAssignment_3
+    // $ANTLR end "rule__SimpleType__PlatformTypeAssignment_3"
 
 
-    // $ANTLR start rule__Entity__NameAssignment_1
+    // $ANTLR start "rule__Entity__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7395:1: rule__Entity__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Entity__NameAssignment_1() throws RecognitionException {
 
@@ -18973,10 +19544,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__NameAssignment_1
+    // $ANTLR end "rule__Entity__NameAssignment_1"
 
 
-    // $ANTLR start rule__Entity__ExtendsAssignment_2_1
+    // $ANTLR start "rule__Entity__ExtendsAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7410:1: rule__Entity__ExtendsAssignment_2_1 : ( ( RULE_ID ) ) ;
     public final void rule__Entity__ExtendsAssignment_2_1() throws RecognitionException {
 
@@ -19018,10 +19589,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__ExtendsAssignment_2_1
+    // $ANTLR end "rule__Entity__ExtendsAssignment_2_1"
 
 
-    // $ANTLR start rule__Entity__PropertiesAssignment_4
+    // $ANTLR start "rule__Entity__PropertiesAssignment_4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7429:1: rule__Entity__PropertiesAssignment_4 : ( ruleProperty ) ;
     public final void rule__Entity__PropertiesAssignment_4() throws RecognitionException {
 
@@ -19037,7 +19608,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getEntityAccess().getPropertiesPropertyParserRuleCall_4_0()); 
             pushFollow(FOLLOW_ruleProperty_in_rule__Entity__PropertiesAssignment_414907);
             ruleProperty();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getEntityAccess().getPropertiesPropertyParserRuleCall_4_0()); 
 
@@ -19058,10 +19630,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Entity__PropertiesAssignment_4
+    // $ANTLR end "rule__Entity__PropertiesAssignment_4"
 
 
-    // $ANTLR start rule__Property__DerivedAssignment_0
+    // $ANTLR start "rule__Property__DerivedAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7444:1: rule__Property__DerivedAssignment_0 : ( ( 'derived' ) ) ;
     public final void rule__Property__DerivedAssignment_0() throws RecognitionException {
 
@@ -19103,10 +19675,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__DerivedAssignment_0
+    // $ANTLR end "rule__Property__DerivedAssignment_0"
 
 
-    // $ANTLR start rule__Property__DescriptionAssignment_1
+    // $ANTLR start "rule__Property__DescriptionAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7467:1: rule__Property__DescriptionAssignment_1 : ( ruleTypeDescription ) ;
     public final void rule__Property__DescriptionAssignment_1() throws RecognitionException {
 
@@ -19122,7 +19694,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getPropertyAccess().getDescriptionTypeDescriptionParserRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleTypeDescription_in_rule__Property__DescriptionAssignment_114982);
             ruleTypeDescription();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getPropertyAccess().getDescriptionTypeDescriptionParserRuleCall_1_0()); 
 
@@ -19143,10 +19716,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__DescriptionAssignment_1
+    // $ANTLR end "rule__Property__DescriptionAssignment_1"
 
 
-    // $ANTLR start rule__Property__NameAssignment_2
+    // $ANTLR start "rule__Property__NameAssignment_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7482:1: rule__Property__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Property__NameAssignment_2() throws RecognitionException {
 
@@ -19180,10 +19753,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__Property__NameAssignment_2
+    // $ANTLR end "rule__Property__NameAssignment_2"
 
 
-    // $ANTLR start rule__ContentProvider__NameAssignment_1
+    // $ANTLR start "rule__ContentProvider__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7497:1: rule__ContentProvider__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__ContentProvider__NameAssignment_1() throws RecognitionException {
 
@@ -19217,10 +19790,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__NameAssignment_1
+    // $ANTLR end "rule__ContentProvider__NameAssignment_1"
 
 
-    // $ANTLR start rule__ContentProvider__ParameterAssignment_2_1
+    // $ANTLR start "rule__ContentProvider__ParameterAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7512:1: rule__ContentProvider__ParameterAssignment_2_1 : ( ruleParameter ) ;
     public final void rule__ContentProvider__ParameterAssignment_2_1() throws RecognitionException {
 
@@ -19236,7 +19809,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getContentProviderAccess().getParameterParameterParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleParameter_in_rule__ContentProvider__ParameterAssignment_2_115075);
             ruleParameter();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getContentProviderAccess().getParameterParameterParserRuleCall_2_1_0()); 
 
@@ -19257,10 +19831,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__ParameterAssignment_2_1
+    // $ANTLR end "rule__ContentProvider__ParameterAssignment_2_1"
 
 
-    // $ANTLR start rule__ContentProvider__ResolverAssignment_3_1
+    // $ANTLR start "rule__ContentProvider__ResolverAssignment_3_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7527:1: rule__ContentProvider__ResolverAssignment_3_1 : ( ( 'resolves' ) ) ;
     public final void rule__ContentProvider__ResolverAssignment_3_1() throws RecognitionException {
 
@@ -19302,10 +19876,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__ResolverAssignment_3_1
+    // $ANTLR end "rule__ContentProvider__ResolverAssignment_3_1"
 
 
-    // $ANTLR start rule__ContentProvider__TypeAssignment_4
+    // $ANTLR start "rule__ContentProvider__TypeAssignment_4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7550:1: rule__ContentProvider__TypeAssignment_4 : ( ( RULE_ID ) ) ;
     public final void rule__ContentProvider__TypeAssignment_4() throws RecognitionException {
 
@@ -19347,10 +19921,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__TypeAssignment_4
+    // $ANTLR end "rule__ContentProvider__TypeAssignment_4"
 
 
-    // $ANTLR start rule__ContentProvider__ManyAssignment_5
+    // $ANTLR start "rule__ContentProvider__ManyAssignment_5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7569:1: rule__ContentProvider__ManyAssignment_5 : ( ( '[]' ) ) ;
     public final void rule__ContentProvider__ManyAssignment_5() throws RecognitionException {
 
@@ -19392,10 +19966,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__ManyAssignment_5
+    // $ANTLR end "rule__ContentProvider__ManyAssignment_5"
 
 
-    // $ANTLR start rule__ContentProvider__UrlAssignment_9
+    // $ANTLR start "rule__ContentProvider__UrlAssignment_9"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7592:1: rule__ContentProvider__UrlAssignment_9 : ( ruleScalarExpression ) ;
     public final void rule__ContentProvider__UrlAssignment_9() throws RecognitionException {
 
@@ -19411,7 +19985,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getContentProviderAccess().getUrlScalarExpressionParserRuleCall_9_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ContentProvider__UrlAssignment_915233);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getContentProviderAccess().getUrlScalarExpressionParserRuleCall_9_0()); 
 
@@ -19432,10 +20007,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__UrlAssignment_9
+    // $ANTLR end "rule__ContentProvider__UrlAssignment_9"
 
 
-    // $ANTLR start rule__ContentProvider__SelectionAssignment_11
+    // $ANTLR start "rule__ContentProvider__SelectionAssignment_11"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7607:1: rule__ContentProvider__SelectionAssignment_11 : ( ruleScalarExpression ) ;
     public final void rule__ContentProvider__SelectionAssignment_11() throws RecognitionException {
 
@@ -19451,7 +20026,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getContentProviderAccess().getSelectionScalarExpressionParserRuleCall_11_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ContentProvider__SelectionAssignment_1115264);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getContentProviderAccess().getSelectionScalarExpressionParserRuleCall_11_0()); 
 
@@ -19472,10 +20048,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ContentProvider__SelectionAssignment_11
+    // $ANTLR end "rule__ContentProvider__SelectionAssignment_11"
 
 
-    // $ANTLR start rule__ProviderConstruction__ProviderAssignment_0_1
+    // $ANTLR start "rule__ProviderConstruction__ProviderAssignment_0_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7622:1: rule__ProviderConstruction__ProviderAssignment_0_1 : ( ( RULE_ID ) ) ;
     public final void rule__ProviderConstruction__ProviderAssignment_0_1() throws RecognitionException {
 
@@ -19517,10 +20093,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__ProviderAssignment_0_1
+    // $ANTLR end "rule__ProviderConstruction__ProviderAssignment_0_1"
 
 
-    // $ANTLR start rule__ProviderConstruction__ArgumentAssignment_0_3
+    // $ANTLR start "rule__ProviderConstruction__ArgumentAssignment_0_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7641:1: rule__ProviderConstruction__ArgumentAssignment_0_3 : ( ruleExpression ) ;
     public final void rule__ProviderConstruction__ArgumentAssignment_0_3() throws RecognitionException {
 
@@ -19536,7 +20112,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getProviderConstructionAccess().getArgumentExpressionParserRuleCall_0_3_0()); 
             pushFollow(FOLLOW_ruleExpression_in_rule__ProviderConstruction__ArgumentAssignment_0_315334);
             ruleExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProviderConstructionAccess().getArgumentExpressionParserRuleCall_0_3_0()); 
 
@@ -19557,10 +20134,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__ArgumentAssignment_0_3
+    // $ANTLR end "rule__ProviderConstruction__ArgumentAssignment_0_3"
 
 
-    // $ANTLR start rule__ProviderConstruction__ExpressionAssignment_1_1
+    // $ANTLR start "rule__ProviderConstruction__ExpressionAssignment_1_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7656:1: rule__ProviderConstruction__ExpressionAssignment_1_1 : ( ruleExpression ) ;
     public final void rule__ProviderConstruction__ExpressionAssignment_1_1() throws RecognitionException {
 
@@ -19576,7 +20153,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getProviderConstructionAccess().getExpressionExpressionParserRuleCall_1_1_0()); 
             pushFollow(FOLLOW_ruleExpression_in_rule__ProviderConstruction__ExpressionAssignment_1_115365);
             ruleExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getProviderConstructionAccess().getExpressionExpressionParserRuleCall_1_1_0()); 
 
@@ -19597,10 +20175,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ProviderConstruction__ExpressionAssignment_1_1
+    // $ANTLR end "rule__ProviderConstruction__ExpressionAssignment_1_1"
 
 
-    // $ANTLR start rule__TableView__NameAssignment_1
+    // $ANTLR start "rule__TableView__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7671:1: rule__TableView__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__TableView__NameAssignment_1() throws RecognitionException {
 
@@ -19634,10 +20212,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__NameAssignment_1
+    // $ANTLR end "rule__TableView__NameAssignment_1"
 
 
-    // $ANTLR start rule__TableView__ContentAssignment_2_1
+    // $ANTLR start "rule__TableView__ContentAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7686:1: rule__TableView__ContentAssignment_2_1 : ( ruleParameter ) ;
     public final void rule__TableView__ContentAssignment_2_1() throws RecognitionException {
 
@@ -19653,7 +20231,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTableViewAccess().getContentParameterParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleParameter_in_rule__TableView__ContentAssignment_2_115427);
             ruleParameter();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTableViewAccess().getContentParameterParserRuleCall_2_1_0()); 
 
@@ -19674,10 +20253,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__ContentAssignment_2_1
+    // $ANTLR end "rule__TableView__ContentAssignment_2_1"
 
 
-    // $ANTLR start rule__TableView__TitleAssignment_5
+    // $ANTLR start "rule__TableView__TitleAssignment_5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7701:1: rule__TableView__TitleAssignment_5 : ( ruleScalarExpression ) ;
     public final void rule__TableView__TitleAssignment_5() throws RecognitionException {
 
@@ -19693,7 +20272,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTableViewAccess().getTitleScalarExpressionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__TableView__TitleAssignment_515458);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTableViewAccess().getTitleScalarExpressionParserRuleCall_5_0()); 
 
@@ -19714,10 +20294,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__TitleAssignment_5
+    // $ANTLR end "rule__TableView__TitleAssignment_5"
 
 
-    // $ANTLR start rule__TableView__SectionsAssignment_6
+    // $ANTLR start "rule__TableView__SectionsAssignment_6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7716:1: rule__TableView__SectionsAssignment_6 : ( ruleViewSection ) ;
     public final void rule__TableView__SectionsAssignment_6() throws RecognitionException {
 
@@ -19733,7 +20313,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getTableViewAccess().getSectionsViewSectionParserRuleCall_6_0()); 
             pushFollow(FOLLOW_ruleViewSection_in_rule__TableView__SectionsAssignment_615489);
             ruleViewSection();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getTableViewAccess().getSectionsViewSectionParserRuleCall_6_0()); 
 
@@ -19754,10 +20335,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__TableView__SectionsAssignment_6
+    // $ANTLR end "rule__TableView__SectionsAssignment_6"
 
 
-    // $ANTLR start rule__DetailsView__NameAssignment_1
+    // $ANTLR start "rule__DetailsView__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7731:1: rule__DetailsView__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DetailsView__NameAssignment_1() throws RecognitionException {
 
@@ -19791,10 +20372,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__NameAssignment_1
+    // $ANTLR end "rule__DetailsView__NameAssignment_1"
 
 
-    // $ANTLR start rule__DetailsView__ContentAssignment_2_1
+    // $ANTLR start "rule__DetailsView__ContentAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7746:1: rule__DetailsView__ContentAssignment_2_1 : ( ruleParameter ) ;
     public final void rule__DetailsView__ContentAssignment_2_1() throws RecognitionException {
 
@@ -19810,7 +20391,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getDetailsViewAccess().getContentParameterParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleParameter_in_rule__DetailsView__ContentAssignment_2_115551);
             ruleParameter();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getDetailsViewAccess().getContentParameterParserRuleCall_2_1_0()); 
 
@@ -19831,10 +20413,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__ContentAssignment_2_1
+    // $ANTLR end "rule__DetailsView__ContentAssignment_2_1"
 
 
-    // $ANTLR start rule__DetailsView__TitleAssignment_5
+    // $ANTLR start "rule__DetailsView__TitleAssignment_5"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7761:1: rule__DetailsView__TitleAssignment_5 : ( ruleScalarExpression ) ;
     public final void rule__DetailsView__TitleAssignment_5() throws RecognitionException {
 
@@ -19850,7 +20432,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getDetailsViewAccess().getTitleScalarExpressionParserRuleCall_5_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__DetailsView__TitleAssignment_515582);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getDetailsViewAccess().getTitleScalarExpressionParserRuleCall_5_0()); 
 
@@ -19871,10 +20454,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__TitleAssignment_5
+    // $ANTLR end "rule__DetailsView__TitleAssignment_5"
 
 
-    // $ANTLR start rule__DetailsView__HeaderAssignment_6
+    // $ANTLR start "rule__DetailsView__HeaderAssignment_6"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7776:1: rule__DetailsView__HeaderAssignment_6 : ( ruleViewHeader ) ;
     public final void rule__DetailsView__HeaderAssignment_6() throws RecognitionException {
 
@@ -19890,7 +20473,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getDetailsViewAccess().getHeaderViewHeaderParserRuleCall_6_0()); 
             pushFollow(FOLLOW_ruleViewHeader_in_rule__DetailsView__HeaderAssignment_615613);
             ruleViewHeader();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getDetailsViewAccess().getHeaderViewHeaderParserRuleCall_6_0()); 
 
@@ -19911,10 +20495,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__HeaderAssignment_6
+    // $ANTLR end "rule__DetailsView__HeaderAssignment_6"
 
 
-    // $ANTLR start rule__DetailsView__SectionsAssignment_7
+    // $ANTLR start "rule__DetailsView__SectionsAssignment_7"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7791:1: rule__DetailsView__SectionsAssignment_7 : ( ruleViewSection ) ;
     public final void rule__DetailsView__SectionsAssignment_7() throws RecognitionException {
 
@@ -19930,7 +20514,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getDetailsViewAccess().getSectionsViewSectionParserRuleCall_7_0()); 
             pushFollow(FOLLOW_ruleViewSection_in_rule__DetailsView__SectionsAssignment_715644);
             ruleViewSection();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getDetailsViewAccess().getSectionsViewSectionParserRuleCall_7_0()); 
 
@@ -19951,10 +20536,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__DetailsView__SectionsAssignment_7
+    // $ANTLR end "rule__DetailsView__SectionsAssignment_7"
 
 
-    // $ANTLR start rule__CustomView__NameAssignment_1
+    // $ANTLR start "rule__CustomView__NameAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7806:1: rule__CustomView__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__CustomView__NameAssignment_1() throws RecognitionException {
 
@@ -19988,10 +20573,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__NameAssignment_1
+    // $ANTLR end "rule__CustomView__NameAssignment_1"
 
 
-    // $ANTLR start rule__CustomView__ContentAssignment_2_1
+    // $ANTLR start "rule__CustomView__ContentAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7821:1: rule__CustomView__ContentAssignment_2_1 : ( ruleParameter ) ;
     public final void rule__CustomView__ContentAssignment_2_1() throws RecognitionException {
 
@@ -20007,7 +20592,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCustomViewAccess().getContentParameterParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleParameter_in_rule__CustomView__ContentAssignment_2_115706);
             ruleParameter();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCustomViewAccess().getContentParameterParserRuleCall_2_1_0()); 
 
@@ -20028,10 +20614,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__ContentAssignment_2_1
+    // $ANTLR end "rule__CustomView__ContentAssignment_2_1"
 
 
-    // $ANTLR start rule__CustomView__ObjclassAssignment_4
+    // $ANTLR start "rule__CustomView__ObjclassAssignment_4"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7836:1: rule__CustomView__ObjclassAssignment_4 : ( RULE_STRING ) ;
     public final void rule__CustomView__ObjclassAssignment_4() throws RecognitionException {
 
@@ -20065,10 +20651,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CustomView__ObjclassAssignment_4
+    // $ANTLR end "rule__CustomView__ObjclassAssignment_4"
 
 
-    // $ANTLR start rule__ViewHeader__TitleAssignment_3_1
+    // $ANTLR start "rule__ViewHeader__TitleAssignment_3_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7851:1: rule__ViewHeader__TitleAssignment_3_1 : ( ruleScalarExpression ) ;
     public final void rule__ViewHeader__TitleAssignment_3_1() throws RecognitionException {
 
@@ -20084,7 +20670,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewHeaderAccess().getTitleScalarExpressionParserRuleCall_3_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ViewHeader__TitleAssignment_3_115768);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewHeaderAccess().getTitleScalarExpressionParserRuleCall_3_1_0()); 
 
@@ -20105,10 +20692,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__TitleAssignment_3_1
+    // $ANTLR end "rule__ViewHeader__TitleAssignment_3_1"
 
 
-    // $ANTLR start rule__ViewHeader__SubtitleAssignment_4_1
+    // $ANTLR start "rule__ViewHeader__SubtitleAssignment_4_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7866:1: rule__ViewHeader__SubtitleAssignment_4_1 : ( ruleScalarExpression ) ;
     public final void rule__ViewHeader__SubtitleAssignment_4_1() throws RecognitionException {
 
@@ -20124,7 +20711,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewHeaderAccess().getSubtitleScalarExpressionParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ViewHeader__SubtitleAssignment_4_115799);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewHeaderAccess().getSubtitleScalarExpressionParserRuleCall_4_1_0()); 
 
@@ -20145,10 +20733,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__SubtitleAssignment_4_1
+    // $ANTLR end "rule__ViewHeader__SubtitleAssignment_4_1"
 
 
-    // $ANTLR start rule__ViewHeader__DetailsAssignment_5_1
+    // $ANTLR start "rule__ViewHeader__DetailsAssignment_5_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7881:1: rule__ViewHeader__DetailsAssignment_5_1 : ( ruleScalarExpression ) ;
     public final void rule__ViewHeader__DetailsAssignment_5_1() throws RecognitionException {
 
@@ -20164,7 +20752,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewHeaderAccess().getDetailsScalarExpressionParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ViewHeader__DetailsAssignment_5_115830);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewHeaderAccess().getDetailsScalarExpressionParserRuleCall_5_1_0()); 
 
@@ -20185,10 +20774,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__DetailsAssignment_5_1
+    // $ANTLR end "rule__ViewHeader__DetailsAssignment_5_1"
 
 
-    // $ANTLR start rule__ViewHeader__ImageAssignment_6_1
+    // $ANTLR start "rule__ViewHeader__ImageAssignment_6_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7896:1: rule__ViewHeader__ImageAssignment_6_1 : ( ruleScalarExpression ) ;
     public final void rule__ViewHeader__ImageAssignment_6_1() throws RecognitionException {
 
@@ -20204,7 +20793,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewHeaderAccess().getImageScalarExpressionParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ViewHeader__ImageAssignment_6_115861);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewHeaderAccess().getImageScalarExpressionParserRuleCall_6_1_0()); 
 
@@ -20225,10 +20815,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewHeader__ImageAssignment_6_1
+    // $ANTLR end "rule__ViewHeader__ImageAssignment_6_1"
 
 
-    // $ANTLR start rule__ViewSection__TitleAssignment_2_1
+    // $ANTLR start "rule__ViewSection__TitleAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7911:1: rule__ViewSection__TitleAssignment_2_1 : ( ruleScalarExpression ) ;
     public final void rule__ViewSection__TitleAssignment_2_1() throws RecognitionException {
 
@@ -20244,7 +20834,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewSectionAccess().getTitleScalarExpressionParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ViewSection__TitleAssignment_2_115892);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewSectionAccess().getTitleScalarExpressionParserRuleCall_2_1_0()); 
 
@@ -20265,10 +20856,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__TitleAssignment_2_1
+    // $ANTLR end "rule__ViewSection__TitleAssignment_2_1"
 
 
-    // $ANTLR start rule__ViewSection__CellsAssignment_3
+    // $ANTLR start "rule__ViewSection__CellsAssignment_3"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7926:1: rule__ViewSection__CellsAssignment_3 : ( ruleSectionCell ) ;
     public final void rule__ViewSection__CellsAssignment_3() throws RecognitionException {
 
@@ -20284,7 +20875,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewSectionAccess().getCellsSectionCellParserRuleCall_3_0()); 
             pushFollow(FOLLOW_ruleSectionCell_in_rule__ViewSection__CellsAssignment_315923);
             ruleSectionCell();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewSectionAccess().getCellsSectionCellParserRuleCall_3_0()); 
 
@@ -20305,10 +20897,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewSection__CellsAssignment_3
+    // $ANTLR end "rule__ViewSection__CellsAssignment_3"
 
 
-    // $ANTLR start rule__SectionCell__TypeAssignment_1
+    // $ANTLR start "rule__SectionCell__TypeAssignment_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7941:1: rule__SectionCell__TypeAssignment_1 : ( ruleCellType ) ;
     public final void rule__SectionCell__TypeAssignment_1() throws RecognitionException {
 
@@ -20324,7 +20916,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellAccess().getTypeCellTypeEnumRuleCall_1_0()); 
             pushFollow(FOLLOW_ruleCellType_in_rule__SectionCell__TypeAssignment_115954);
             ruleCellType();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellAccess().getTypeCellTypeEnumRuleCall_1_0()); 
 
@@ -20345,10 +20938,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__TypeAssignment_1
+    // $ANTLR end "rule__SectionCell__TypeAssignment_1"
 
 
-    // $ANTLR start rule__SectionCell__IteratorAssignment_2_1
+    // $ANTLR start "rule__SectionCell__IteratorAssignment_2_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7956:1: rule__SectionCell__IteratorAssignment_2_1 : ( ruleCollectionIterator ) ;
     public final void rule__SectionCell__IteratorAssignment_2_1() throws RecognitionException {
 
@@ -20364,7 +20957,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellAccess().getIteratorCollectionIteratorParserRuleCall_2_1_0()); 
             pushFollow(FOLLOW_ruleCollectionIterator_in_rule__SectionCell__IteratorAssignment_2_115985);
             ruleCollectionIterator();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellAccess().getIteratorCollectionIteratorParserRuleCall_2_1_0()); 
 
@@ -20385,10 +20979,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__IteratorAssignment_2_1
+    // $ANTLR end "rule__SectionCell__IteratorAssignment_2_1"
 
 
-    // $ANTLR start rule__SectionCell__TextAssignment_4_1
+    // $ANTLR start "rule__SectionCell__TextAssignment_4_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7971:1: rule__SectionCell__TextAssignment_4_1 : ( ruleScalarExpression ) ;
     public final void rule__SectionCell__TextAssignment_4_1() throws RecognitionException {
 
@@ -20404,7 +20998,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellAccess().getTextScalarExpressionParserRuleCall_4_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__SectionCell__TextAssignment_4_116016);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellAccess().getTextScalarExpressionParserRuleCall_4_1_0()); 
 
@@ -20425,10 +21020,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__TextAssignment_4_1
+    // $ANTLR end "rule__SectionCell__TextAssignment_4_1"
 
 
-    // $ANTLR start rule__SectionCell__DetailsAssignment_5_1
+    // $ANTLR start "rule__SectionCell__DetailsAssignment_5_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:7986:1: rule__SectionCell__DetailsAssignment_5_1 : ( ruleScalarExpression ) ;
     public final void rule__SectionCell__DetailsAssignment_5_1() throws RecognitionException {
 
@@ -20444,7 +21039,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellAccess().getDetailsScalarExpressionParserRuleCall_5_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__SectionCell__DetailsAssignment_5_116047);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellAccess().getDetailsScalarExpressionParserRuleCall_5_1_0()); 
 
@@ -20465,10 +21061,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__DetailsAssignment_5_1
+    // $ANTLR end "rule__SectionCell__DetailsAssignment_5_1"
 
 
-    // $ANTLR start rule__SectionCell__ImageAssignment_6_1
+    // $ANTLR start "rule__SectionCell__ImageAssignment_6_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8001:1: rule__SectionCell__ImageAssignment_6_1 : ( ruleScalarExpression ) ;
     public final void rule__SectionCell__ImageAssignment_6_1() throws RecognitionException {
 
@@ -20484,7 +21080,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellAccess().getImageScalarExpressionParserRuleCall_6_1_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__SectionCell__ImageAssignment_6_116078);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellAccess().getImageScalarExpressionParserRuleCall_6_1_0()); 
 
@@ -20505,10 +21102,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__ImageAssignment_6_1
+    // $ANTLR end "rule__SectionCell__ImageAssignment_6_1"
 
 
-    // $ANTLR start rule__SectionCell__ActionAssignment_7_1
+    // $ANTLR start "rule__SectionCell__ActionAssignment_7_1"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8016:1: rule__SectionCell__ActionAssignment_7_1 : ( ruleViewAction ) ;
     public final void rule__SectionCell__ActionAssignment_7_1() throws RecognitionException {
 
@@ -20524,7 +21121,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getSectionCellAccess().getActionViewActionParserRuleCall_7_1_0()); 
             pushFollow(FOLLOW_ruleViewAction_in_rule__SectionCell__ActionAssignment_7_116109);
             ruleViewAction();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getSectionCellAccess().getActionViewActionParserRuleCall_7_1_0()); 
 
@@ -20545,10 +21143,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__SectionCell__ActionAssignment_7_1
+    // $ANTLR end "rule__SectionCell__ActionAssignment_7_1"
 
 
-    // $ANTLR start rule__CollectionIterator__CollectionAssignment_0
+    // $ANTLR start "rule__CollectionIterator__CollectionAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8031:1: rule__CollectionIterator__CollectionAssignment_0 : ( ruleCollectionExpression ) ;
     public final void rule__CollectionIterator__CollectionAssignment_0() throws RecognitionException {
 
@@ -20564,7 +21162,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getCollectionIteratorAccess().getCollectionCollectionExpressionParserRuleCall_0_0()); 
             pushFollow(FOLLOW_ruleCollectionExpression_in_rule__CollectionIterator__CollectionAssignment_016140);
             ruleCollectionExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getCollectionIteratorAccess().getCollectionCollectionExpressionParserRuleCall_0_0()); 
 
@@ -20585,10 +21184,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__CollectionAssignment_0
+    // $ANTLR end "rule__CollectionIterator__CollectionAssignment_0"
 
 
-    // $ANTLR start rule__CollectionIterator__NameAssignment_2
+    // $ANTLR start "rule__CollectionIterator__NameAssignment_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8046:1: rule__CollectionIterator__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__CollectionIterator__NameAssignment_2() throws RecognitionException {
 
@@ -20622,10 +21221,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__CollectionIterator__NameAssignment_2
+    // $ANTLR end "rule__CollectionIterator__NameAssignment_2"
 
 
-    // $ANTLR start rule__ExternalOpen__UrlAssignment
+    // $ANTLR start "rule__ExternalOpen__UrlAssignment"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8061:1: rule__ExternalOpen__UrlAssignment : ( ruleScalarExpression ) ;
     public final void rule__ExternalOpen__UrlAssignment() throws RecognitionException {
 
@@ -20641,7 +21240,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getExternalOpenAccess().getUrlScalarExpressionParserRuleCall_0()); 
             pushFollow(FOLLOW_ruleScalarExpression_in_rule__ExternalOpen__UrlAssignment16202);
             ruleScalarExpression();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getExternalOpenAccess().getUrlScalarExpressionParserRuleCall_0()); 
 
@@ -20662,10 +21262,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ExternalOpen__UrlAssignment
+    // $ANTLR end "rule__ExternalOpen__UrlAssignment"
 
 
-    // $ANTLR start rule__ViewCall__ViewAssignment_0
+    // $ANTLR start "rule__ViewCall__ViewAssignment_0"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8076:1: rule__ViewCall__ViewAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__ViewCall__ViewAssignment_0() throws RecognitionException {
 
@@ -20707,10 +21307,10 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__ViewAssignment_0
+    // $ANTLR end "rule__ViewCall__ViewAssignment_0"
 
 
-    // $ANTLR start rule__ViewCall__ProviderAssignment_2
+    // $ANTLR start "rule__ViewCall__ProviderAssignment_2"
     // ../de.itemis.mobilizer.appmodel.ui/src-gen/de/itemis/mobilizer/ui/contentassist/antlr/internal/InternalAppModelDsl.g:8095:1: rule__ViewCall__ProviderAssignment_2 : ( ruleProviderConstruction ) ;
     public final void rule__ViewCall__ProviderAssignment_2() throws RecognitionException {
 
@@ -20726,7 +21326,8 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
              before(grammarAccess.getViewCallAccess().getProviderProviderConstructionParserRuleCall_2_0()); 
             pushFollow(FOLLOW_ruleProviderConstruction_in_rule__ViewCall__ProviderAssignment_216272);
             ruleProviderConstruction();
-            _fsp--;
+
+            state._fsp--;
 
              after(grammarAccess.getViewCallAccess().getProviderProviderConstructionParserRuleCall_2_0()); 
 
@@ -20747,7 +21348,9 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
         }
         return ;
     }
-    // $ANTLR end rule__ViewCall__ProviderAssignment_2
+    // $ANTLR end "rule__ViewCall__ProviderAssignment_2"
+
+    // Delegated rules
 
 
  
@@ -20893,12 +21496,12 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_14_in_rule__CellType__Alternatives2935 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_15_in_rule__CellType__Alternatives2956 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_16_in_rule__CellType__Alternatives2977 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Model__Group__0__Impl_in_rule__Model__Group__03010 = new BitSet(new long[]{0x0000385600000002L});
+    public static final BitSet FOLLOW_rule__Model__Group__0__Impl_in_rule__Model__Group__03010 = new BitSet(new long[]{0x0000385600000000L});
     public static final BitSet FOLLOW_rule__Model__Group__1_in_rule__Model__Group__03013 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Model__ApplicationAssignment_0_in_rule__Model__Group__0__Impl3040 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Model__Group__1__Impl_in_rule__Model__Group__13070 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Model__ElementsAssignment_1_in_rule__Model__Group__1__Impl3097 = new BitSet(new long[]{0x0000385600000002L});
-    public static final BitSet FOLLOW_rule__TypeDescription__Group__0__Impl_in_rule__TypeDescription__Group__03132 = new BitSet(new long[]{0x0200000000000002L});
+    public static final BitSet FOLLOW_rule__TypeDescription__Group__0__Impl_in_rule__TypeDescription__Group__03132 = new BitSet(new long[]{0x0200000000000000L});
     public static final BitSet FOLLOW_rule__TypeDescription__Group__1_in_rule__TypeDescription__Group__03135 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TypeDescription__TypeAssignment_0_in_rule__TypeDescription__Group__0__Impl3162 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TypeDescription__Group__1__Impl_in_rule__TypeDescription__Group__13192 = new BitSet(new long[]{0x0000000000000002L});
@@ -20908,7 +21511,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__Parameter__DescriptionAssignment_0_in_rule__Parameter__Group__0__Impl3284 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Parameter__Group__1__Impl_in_rule__Parameter__Group__13314 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Parameter__NameAssignment_1_in_rule__Parameter__Group__1__Impl3341 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ObjectReference__Group__0__Impl_in_rule__ObjectReference__Group__03375 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_rule__ObjectReference__Group__0__Impl_in_rule__ObjectReference__Group__03375 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_rule__ObjectReference__Group__1_in_rule__ObjectReference__Group__03378 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ObjectReference__ObjectAssignment_0_in_rule__ObjectReference__Group__0__Impl3405 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ObjectReference__Group__1__Impl_in_rule__ObjectReference__Group__13435 = new BitSet(new long[]{0x0000000000000002L});
@@ -20916,7 +21519,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__NestedObjectReference__Group__0__Impl_in_rule__NestedObjectReference__Group__03497 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__NestedObjectReference__Group__1_in_rule__NestedObjectReference__Group__03500 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_17_in_rule__NestedObjectReference__Group__0__Impl3528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NestedObjectReference__Group__1__Impl_in_rule__NestedObjectReference__Group__13559 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_rule__NestedObjectReference__Group__1__Impl_in_rule__NestedObjectReference__Group__13559 = new BitSet(new long[]{0x0000000000020000L});
     public static final BitSet FOLLOW_rule__NestedObjectReference__Group__2_in_rule__NestedObjectReference__Group__13562 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NestedObjectReference__ObjectAssignment_1_in_rule__NestedObjectReference__Group__1__Impl3589 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NestedObjectReference__Group__2__Impl_in_rule__NestedObjectReference__Group__23619 = new BitSet(new long[]{0x0000000000000002L});
@@ -20954,7 +21557,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__StringFunction__ReplacementAssignment_1_6_in_rule__StringFunction__Group_1__6__Impl4347 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__StringFunction__Group_1__7__Impl_in_rule__StringFunction__Group_1__74377 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_19_in_rule__StringFunction__Group_1__7__Impl4405 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__StringFunction__Group_2__0__Impl_in_rule__StringFunction__Group_2__04452 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_rule__StringFunction__Group_2__0__Impl_in_rule__StringFunction__Group_2__04452 = new BitSet(new long[]{0x0000000000540000L});
     public static final BitSet FOLLOW_rule__StringFunction__Group_2__1_in_rule__StringFunction__Group_2__04455 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__StringFunction__Group_2__1__Impl_in_rule__StringFunction__Group_2__14513 = new BitSet(new long[]{0x0000000000540030L});
     public static final BitSet FOLLOW_rule__StringFunction__Group_2__2_in_rule__StringFunction__Group_2__14516 = new BitSet(new long[]{0x0000000000000002L});
@@ -20970,7 +21573,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__CollectionLiteral__Group__1__Impl_in_rule__CollectionLiteral__Group__14764 = new BitSet(new long[]{0x0000000001200000L});
     public static final BitSet FOLLOW_rule__CollectionLiteral__Group__2_in_rule__CollectionLiteral__Group__14767 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CollectionLiteral__ItemsAssignment_1_in_rule__CollectionLiteral__Group__1__Impl4794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CollectionLiteral__Group__2__Impl_in_rule__CollectionLiteral__Group__24824 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_rule__CollectionLiteral__Group__2__Impl_in_rule__CollectionLiteral__Group__24824 = new BitSet(new long[]{0x0000000001200000L});
     public static final BitSet FOLLOW_rule__CollectionLiteral__Group__3_in_rule__CollectionLiteral__Group__24827 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CollectionLiteral__Group_2__0_in_rule__CollectionLiteral__Group__2__Impl4854 = new BitSet(new long[]{0x0000000000200002L});
     public static final BitSet FOLLOW_rule__CollectionLiteral__Group__3__Impl_in_rule__CollectionLiteral__Group__34885 = new BitSet(new long[]{0x0000000000000002L});
@@ -21005,7 +21608,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__TabBarApplication__Group__2__Impl_in_rule__TabBarApplication__Group__25573 = new BitSet(new long[]{0x0000000030000000L});
     public static final BitSet FOLLOW_rule__TabBarApplication__Group__3_in_rule__TabBarApplication__Group__25576 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_rule__TabBarApplication__Group__2__Impl5604 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TabBarApplication__Group__3__Impl_in_rule__TabBarApplication__Group__35635 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__TabBarApplication__Group__3__Impl_in_rule__TabBarApplication__Group__35635 = new BitSet(new long[]{0x0000000030000000L});
     public static final BitSet FOLLOW_rule__TabBarApplication__Group__4_in_rule__TabBarApplication__Group__35638 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TabBarApplication__ButtonsAssignment_3_in_rule__TabBarApplication__Group__3__Impl5665 = new BitSet(new long[]{0x0000000020000002L});
     public static final BitSet FOLLOW_rule__TabBarApplication__Group__4__Impl_in_rule__TabBarApplication__Group__45696 = new BitSet(new long[]{0x0000000000000002L});
@@ -21036,7 +21639,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__TabbarButton__ViewAssignment_7_in_rule__TabbarButton__Group__7__Impl6225 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TabbarButton__Group__8__Impl_in_rule__TabbarButton__Group__86255 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_rule__TabbarButton__Group__8__Impl6283 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Constant__Group__0__Impl_in_rule__Constant__Group__06332 = new BitSet(new long[]{0x0000000200000000L});
+    public static final BitSet FOLLOW_rule__Constant__Group__0__Impl_in_rule__Constant__Group__06332 = new BitSet(new long[]{0x0000385600000000L});
     public static final BitSet FOLLOW_rule__Constant__Group__1_in_rule__Constant__Group__06335 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Constant__Group__1__Impl_in_rule__Constant__Group__16393 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_rule__Constant__Group__2_in_rule__Constant__Group__16396 = new BitSet(new long[]{0x0000000000000002L});
@@ -21063,13 +21666,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__16891 = new BitSet(new long[]{0x0000002008000000L});
     public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__16894 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl6921 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__26951 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__26951 = new BitSet(new long[]{0x0000002008000000L});
     public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__26954 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group_2__0_in_rule__Entity__Group__2__Impl6981 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__37012 = new BitSet(new long[]{0x0400000010000010L});
     public static final BitSet FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__37015 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_rule__Entity__Group__3__Impl7043 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__47074 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__47074 = new BitSet(new long[]{0x0400000010000010L});
     public static final BitSet FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__47077 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__PropertiesAssignment_4_in_rule__Entity__Group__4__Impl7104 = new BitSet(new long[]{0x0400000000000012L});
     public static final BitSet FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__57135 = new BitSet(new long[]{0x0000000000000002L});
@@ -21079,7 +21682,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_37_in_rule__Entity__Group_2__0__Impl7237 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__Group_2__1__Impl_in_rule__Entity__Group_2__17268 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Entity__ExtendsAssignment_2_1_in_rule__Entity__Group_2__1__Impl7295 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__07329 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Property__Group__0__Impl_in_rule__Property__Group__07329 = new BitSet(new long[]{0x0400000000000010L});
     public static final BitSet FOLLOW_rule__Property__Group__1_in_rule__Property__Group__07332 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Property__DerivedAssignment_0_in_rule__Property__Group__0__Impl7359 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Property__Group__1__Impl_in_rule__Property__Group__17390 = new BitSet(new long[]{0x0000000000000010L});
@@ -21093,7 +21696,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ContentProvider__Group__1__Impl_in_rule__ContentProvider__Group__17575 = new BitSet(new long[]{0x0800000000040800L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__2_in_rule__ContentProvider__Group__17578 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__NameAssignment_1_in_rule__ContentProvider__Group__1__Impl7605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentProvider__Group__2__Impl_in_rule__ContentProvider__Group__27635 = new BitSet(new long[]{0x0800000000000800L});
+    public static final BitSet FOLLOW_rule__ContentProvider__Group__2__Impl_in_rule__ContentProvider__Group__27635 = new BitSet(new long[]{0x0800000000040800L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__3_in_rule__ContentProvider__Group__27638 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group_2__0_in_rule__ContentProvider__Group__2__Impl7665 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__3__Impl_in_rule__ContentProvider__Group__37696 = new BitSet(new long[]{0x0000000000000010L});
@@ -21102,7 +21705,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ContentProvider__Group__4__Impl_in_rule__ContentProvider__Group__47756 = new BitSet(new long[]{0x0200008000000000L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__5_in_rule__ContentProvider__Group__47759 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__TypeAssignment_4_in_rule__ContentProvider__Group__4__Impl7786 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentProvider__Group__5__Impl_in_rule__ContentProvider__Group__57816 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_rule__ContentProvider__Group__5__Impl_in_rule__ContentProvider__Group__57816 = new BitSet(new long[]{0x0200008000000000L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__6_in_rule__ContentProvider__Group__57819 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__ManyAssignment_5_in_rule__ContentProvider__Group__5__Impl7846 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__6__Impl_in_rule__ContentProvider__Group__67877 = new BitSet(new long[]{0x0000010000000000L});
@@ -21122,7 +21725,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_42_in_rule__ContentProvider__Group__10__Impl8154 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group__11__Impl_in_rule__ContentProvider__Group__118185 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__SelectionAssignment_11_in_rule__ContentProvider__Group__11__Impl8212 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ContentProvider__Group_2__0__Impl_in_rule__ContentProvider__Group_2__08266 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__ContentProvider__Group_2__0__Impl_in_rule__ContentProvider__Group_2__08266 = new BitSet(new long[]{0x0400000000000010L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group_2__1_in_rule__ContentProvider__Group_2__08269 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_rule__ContentProvider__Group_2__0__Impl8297 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ContentProvider__Group_2__1__Impl_in_rule__ContentProvider__Group_2__18328 = new BitSet(new long[]{0x0000000000080000L});
@@ -21138,7 +21741,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ProviderConstruction__Group_0__2__Impl_in_rule__ProviderConstruction__Group_0__28574 = new BitSet(new long[]{0x0000000002DC0030L});
     public static final BitSet FOLLOW_rule__ProviderConstruction__Group_0__3_in_rule__ProviderConstruction__Group_0__28577 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_rule__ProviderConstruction__Group_0__2__Impl8605 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ProviderConstruction__Group_0__3__Impl_in_rule__ProviderConstruction__Group_0__38636 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__ProviderConstruction__Group_0__3__Impl_in_rule__ProviderConstruction__Group_0__38636 = new BitSet(new long[]{0x0000000002DC0030L});
     public static final BitSet FOLLOW_rule__ProviderConstruction__Group_0__4_in_rule__ProviderConstruction__Group_0__38639 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ProviderConstruction__ArgumentAssignment_0_3_in_rule__ProviderConstruction__Group_0__3__Impl8666 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ProviderConstruction__Group_0__4__Impl_in_rule__ProviderConstruction__Group_0__48697 = new BitSet(new long[]{0x0000000000000002L});
@@ -21153,7 +21756,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__TableView__Group__1__Impl_in_rule__TableView__Group__18950 = new BitSet(new long[]{0x0000000008040000L});
     public static final BitSet FOLLOW_rule__TableView__Group__2_in_rule__TableView__Group__18953 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TableView__NameAssignment_1_in_rule__TableView__Group__1__Impl8980 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TableView__Group__2__Impl_in_rule__TableView__Group__29010 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__TableView__Group__2__Impl_in_rule__TableView__Group__29010 = new BitSet(new long[]{0x0000000008040000L});
     public static final BitSet FOLLOW_rule__TableView__Group__3_in_rule__TableView__Group__29013 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TableView__Group_2__0_in_rule__TableView__Group__2__Impl9040 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TableView__Group__3__Impl_in_rule__TableView__Group__39071 = new BitSet(new long[]{0x0000000040000000L});
@@ -21165,12 +21768,12 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__TableView__Group__5__Impl_in_rule__TableView__Group__59195 = new BitSet(new long[]{0x0008000010000000L});
     public static final BitSet FOLLOW_rule__TableView__Group__6_in_rule__TableView__Group__59198 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TableView__TitleAssignment_5_in_rule__TableView__Group__5__Impl9225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TableView__Group__6__Impl_in_rule__TableView__Group__69255 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__TableView__Group__6__Impl_in_rule__TableView__Group__69255 = new BitSet(new long[]{0x0008000010000000L});
     public static final BitSet FOLLOW_rule__TableView__Group__7_in_rule__TableView__Group__69258 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TableView__SectionsAssignment_6_in_rule__TableView__Group__6__Impl9285 = new BitSet(new long[]{0x0008000000000002L});
     public static final BitSet FOLLOW_rule__TableView__Group__7__Impl_in_rule__TableView__Group__79316 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_rule__TableView__Group__7__Impl9344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TableView__Group_2__0__Impl_in_rule__TableView__Group_2__09391 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__TableView__Group_2__0__Impl_in_rule__TableView__Group_2__09391 = new BitSet(new long[]{0x0400000000000010L});
     public static final BitSet FOLLOW_rule__TableView__Group_2__1_in_rule__TableView__Group_2__09394 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_rule__TableView__Group_2__0__Impl9422 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TableView__Group_2__1__Impl_in_rule__TableView__Group_2__19453 = new BitSet(new long[]{0x0000000000080000L});
@@ -21184,7 +21787,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__DetailsView__Group__1__Impl_in_rule__DetailsView__Group__19640 = new BitSet(new long[]{0x0000000008040000L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__2_in_rule__DetailsView__Group__19643 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__NameAssignment_1_in_rule__DetailsView__Group__1__Impl9670 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DetailsView__Group__2__Impl_in_rule__DetailsView__Group__29700 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__DetailsView__Group__2__Impl_in_rule__DetailsView__Group__29700 = new BitSet(new long[]{0x0000000008040000L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__3_in_rule__DetailsView__Group__29703 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__Group_2__0_in_rule__DetailsView__Group__2__Impl9730 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__3__Impl_in_rule__DetailsView__Group__39761 = new BitSet(new long[]{0x0000000040000000L});
@@ -21196,15 +21799,15 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__DetailsView__Group__5__Impl_in_rule__DetailsView__Group__59885 = new BitSet(new long[]{0x0008800010000000L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__6_in_rule__DetailsView__Group__59888 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__TitleAssignment_5_in_rule__DetailsView__Group__5__Impl9915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DetailsView__Group__6__Impl_in_rule__DetailsView__Group__69945 = new BitSet(new long[]{0x0008000010000000L});
+    public static final BitSet FOLLOW_rule__DetailsView__Group__6__Impl_in_rule__DetailsView__Group__69945 = new BitSet(new long[]{0x0008800010000000L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__7_in_rule__DetailsView__Group__69948 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__HeaderAssignment_6_in_rule__DetailsView__Group__6__Impl9975 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DetailsView__Group__7__Impl_in_rule__DetailsView__Group__710006 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__DetailsView__Group__7__Impl_in_rule__DetailsView__Group__710006 = new BitSet(new long[]{0x0008800010000000L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__8_in_rule__DetailsView__Group__710009 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__SectionsAssignment_7_in_rule__DetailsView__Group__7__Impl10036 = new BitSet(new long[]{0x0008000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__Group__8__Impl_in_rule__DetailsView__Group__810067 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_rule__DetailsView__Group__8__Impl10095 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DetailsView__Group_2__0__Impl_in_rule__DetailsView__Group_2__010144 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__DetailsView__Group_2__0__Impl_in_rule__DetailsView__Group_2__010144 = new BitSet(new long[]{0x0400000000000010L});
     public static final BitSet FOLLOW_rule__DetailsView__Group_2__1_in_rule__DetailsView__Group_2__010147 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_rule__DetailsView__Group_2__0__Impl10175 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__DetailsView__Group_2__1__Impl_in_rule__DetailsView__Group_2__110206 = new BitSet(new long[]{0x0000000000080000L});
@@ -21218,7 +21821,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__CustomView__Group__1__Impl_in_rule__CustomView__Group__110393 = new BitSet(new long[]{0x0000400000040000L});
     public static final BitSet FOLLOW_rule__CustomView__Group__2_in_rule__CustomView__Group__110396 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CustomView__NameAssignment_1_in_rule__CustomView__Group__1__Impl10423 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CustomView__Group__2__Impl_in_rule__CustomView__Group__210453 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_rule__CustomView__Group__2__Impl_in_rule__CustomView__Group__210453 = new BitSet(new long[]{0x0000400000040000L});
     public static final BitSet FOLLOW_rule__CustomView__Group__3_in_rule__CustomView__Group__210456 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CustomView__Group_2__0_in_rule__CustomView__Group__2__Impl10483 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CustomView__Group__3__Impl_in_rule__CustomView__Group__310514 = new BitSet(new long[]{0x0000000000000020L});
@@ -21226,7 +21829,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_46_in_rule__CustomView__Group__3__Impl10545 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CustomView__Group__4__Impl_in_rule__CustomView__Group__410576 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CustomView__ObjclassAssignment_4_in_rule__CustomView__Group__4__Impl10603 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__CustomView__Group_2__0__Impl_in_rule__CustomView__Group_2__010643 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__CustomView__Group_2__0__Impl_in_rule__CustomView__Group_2__010643 = new BitSet(new long[]{0x0400000000000010L});
     public static final BitSet FOLLOW_rule__CustomView__Group_2__1_in_rule__CustomView__Group_2__010646 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_rule__CustomView__Group_2__0__Impl10674 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__CustomView__Group_2__1__Impl_in_rule__CustomView__Group_2__110705 = new BitSet(new long[]{0x0000000000080000L});
@@ -21242,16 +21845,16 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ViewHeader__Group__2__Impl_in_rule__ViewHeader__Group__210953 = new BitSet(new long[]{0x0007000050000000L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group__3_in_rule__ViewHeader__Group__210956 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_rule__ViewHeader__Group__2__Impl10984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewHeader__Group__3__Impl_in_rule__ViewHeader__Group__311015 = new BitSet(new long[]{0x0007000010000000L});
+    public static final BitSet FOLLOW_rule__ViewHeader__Group__3__Impl_in_rule__ViewHeader__Group__311015 = new BitSet(new long[]{0x0007000050000000L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group__4_in_rule__ViewHeader__Group__311018 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group_3__0_in_rule__ViewHeader__Group__3__Impl11045 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewHeader__Group__4__Impl_in_rule__ViewHeader__Group__411076 = new BitSet(new long[]{0x0006000010000000L});
+    public static final BitSet FOLLOW_rule__ViewHeader__Group__4__Impl_in_rule__ViewHeader__Group__411076 = new BitSet(new long[]{0x0007000050000000L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group__5_in_rule__ViewHeader__Group__411079 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group_4__0_in_rule__ViewHeader__Group__4__Impl11106 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewHeader__Group__5__Impl_in_rule__ViewHeader__Group__511137 = new BitSet(new long[]{0x0004000010000000L});
+    public static final BitSet FOLLOW_rule__ViewHeader__Group__5__Impl_in_rule__ViewHeader__Group__511137 = new BitSet(new long[]{0x0007000050000000L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group__6_in_rule__ViewHeader__Group__511140 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group_5__0_in_rule__ViewHeader__Group__5__Impl11167 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewHeader__Group__6__Impl_in_rule__ViewHeader__Group__611198 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__ViewHeader__Group__6__Impl_in_rule__ViewHeader__Group__611198 = new BitSet(new long[]{0x0007000050000000L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group__7_in_rule__ViewHeader__Group__611201 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group_6__0_in_rule__ViewHeader__Group__6__Impl11228 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewHeader__Group__7__Impl_in_rule__ViewHeader__Group__711259 = new BitSet(new long[]{0x0000000000000002L});
@@ -21282,13 +21885,13 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ViewSection__Group__1__Impl_in_rule__ViewSection__Group__111888 = new BitSet(new long[]{0x0010000040000000L});
     public static final BitSet FOLLOW_rule__ViewSection__Group__2_in_rule__ViewSection__Group__111891 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_rule__ViewSection__Group__1__Impl11919 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewSection__Group__2__Impl_in_rule__ViewSection__Group__211950 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_rule__ViewSection__Group__2__Impl_in_rule__ViewSection__Group__211950 = new BitSet(new long[]{0x0010000040000000L});
     public static final BitSet FOLLOW_rule__ViewSection__Group__3_in_rule__ViewSection__Group__211953 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewSection__Group_2__0_in_rule__ViewSection__Group__2__Impl11980 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewSection__Group__3__Impl_in_rule__ViewSection__Group__312011 = new BitSet(new long[]{0x0000000010000000L});
     public static final BitSet FOLLOW_rule__ViewSection__Group__4_in_rule__ViewSection__Group__312014 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewSection__CellsAssignment_3_in_rule__ViewSection__Group__3__Impl12043 = new BitSet(new long[]{0x0010000000000002L});
-    public static final BitSet FOLLOW_rule__ViewSection__CellsAssignment_3_in_rule__ViewSection__Group__3__Impl12055 = new BitSet(new long[]{0x0010000000000002L});
+    public static final BitSet FOLLOW_rule__ViewSection__CellsAssignment_3_in_rule__ViewSection__Group__3__Impl12043 = new BitSet(new long[]{0x0010000040000002L});
+    public static final BitSet FOLLOW_rule__ViewSection__CellsAssignment_3_in_rule__ViewSection__Group__3__Impl12055 = new BitSet(new long[]{0x0010000040000002L});
     public static final BitSet FOLLOW_rule__ViewSection__Group__4__Impl_in_rule__ViewSection__Group__412088 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_rule__ViewSection__Group__4__Impl12116 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewSection__Group_2__0__Impl_in_rule__ViewSection__Group_2__012157 = new BitSet(new long[]{0x0000000000540030L});
@@ -21302,27 +21905,27 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__SectionCell__Group__1__Impl_in_rule__SectionCell__Group__112342 = new BitSet(new long[]{0x0020000008000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__2_in_rule__SectionCell__Group__112345 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__TypeAssignment_1_in_rule__SectionCell__Group__1__Impl12372 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SectionCell__Group__2__Impl_in_rule__SectionCell__Group__212402 = new BitSet(new long[]{0x0000000008000000L});
+    public static final BitSet FOLLOW_rule__SectionCell__Group__2__Impl_in_rule__SectionCell__Group__212402 = new BitSet(new long[]{0x0020000008000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__3_in_rule__SectionCell__Group__212405 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_2__0_in_rule__SectionCell__Group__2__Impl12432 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__3__Impl_in_rule__SectionCell__Group__312463 = new BitSet(new long[]{0x00C6000010000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__4_in_rule__SectionCell__Group__312466 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_27_in_rule__SectionCell__Group__3__Impl12494 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SectionCell__Group__4__Impl_in_rule__SectionCell__Group__412525 = new BitSet(new long[]{0x0086000010000000L});
+    public static final BitSet FOLLOW_rule__SectionCell__Group__4__Impl_in_rule__SectionCell__Group__412525 = new BitSet(new long[]{0x00C6000010000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__5_in_rule__SectionCell__Group__412528 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_4__0_in_rule__SectionCell__Group__4__Impl12555 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SectionCell__Group__5__Impl_in_rule__SectionCell__Group__512586 = new BitSet(new long[]{0x0084000010000000L});
+    public static final BitSet FOLLOW_rule__SectionCell__Group__5__Impl_in_rule__SectionCell__Group__512586 = new BitSet(new long[]{0x00C6000010000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__6_in_rule__SectionCell__Group__512589 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_5__0_in_rule__SectionCell__Group__5__Impl12616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SectionCell__Group__6__Impl_in_rule__SectionCell__Group__612647 = new BitSet(new long[]{0x0080000010000000L});
+    public static final BitSet FOLLOW_rule__SectionCell__Group__6__Impl_in_rule__SectionCell__Group__612647 = new BitSet(new long[]{0x00C6000010000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__7_in_rule__SectionCell__Group__612650 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_6__0_in_rule__SectionCell__Group__6__Impl12677 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SectionCell__Group__7__Impl_in_rule__SectionCell__Group__712708 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__SectionCell__Group__7__Impl_in_rule__SectionCell__Group__712708 = new BitSet(new long[]{0x00C6000010000000L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__8_in_rule__SectionCell__Group__712711 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_7__0_in_rule__SectionCell__Group__7__Impl12738 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group__8__Impl_in_rule__SectionCell__Group__812769 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_28_in_rule__SectionCell__Group__8__Impl12797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SectionCell__Group_2__0__Impl_in_rule__SectionCell__Group_2__012846 = new BitSet(new long[]{0x0000000002800010L});
+    public static final BitSet FOLLOW_rule__SectionCell__Group_2__0__Impl_in_rule__SectionCell__Group_2__012846 = new BitSet(new long[]{0x0000000002D40030L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_2__1_in_rule__SectionCell__Group_2__012849 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_53_in_rule__SectionCell__Group_2__0__Impl12877 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SectionCell__Group_2__1__Impl_in_rule__SectionCell__Group_2__112908 = new BitSet(new long[]{0x0000000000000002L});
@@ -21361,7 +21964,7 @@ public class InternalAppModelDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_rule__ViewCall__Group__1__Impl_in_rule__ViewCall__Group__113706 = new BitSet(new long[]{0x0000000002DC0030L});
     public static final BitSet FOLLOW_rule__ViewCall__Group__2_in_rule__ViewCall__Group__113709 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_18_in_rule__ViewCall__Group__1__Impl13737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__ViewCall__Group__2__Impl_in_rule__ViewCall__Group__213768 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_rule__ViewCall__Group__2__Impl_in_rule__ViewCall__Group__213768 = new BitSet(new long[]{0x0000000002DC0030L});
     public static final BitSet FOLLOW_rule__ViewCall__Group__3_in_rule__ViewCall__Group__213771 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewCall__ProviderAssignment_2_in_rule__ViewCall__Group__2__Impl13798 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__ViewCall__Group__3__Impl_in_rule__ViewCall__Group__313829 = new BitSet(new long[]{0x0000000000000002L});

@@ -10,3 +10,4 @@
 *.pyc
 /itemisApp.wp7/obj/
 peterfriese.perspectivev3
+/de.itemis.mobilizer.appmodel.tests/bin/

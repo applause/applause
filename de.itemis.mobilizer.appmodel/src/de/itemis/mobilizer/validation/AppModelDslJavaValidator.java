@@ -4,6 +4,7 @@ import java.util.NoSuchElementException;
 import java.util.Set;
 
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
@@ -37,13 +38,6 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 	public static final String VIEW_NAME_UPPERCASE = "viewname_uppercase";
 
 	@Check
-	void viewNamesShouldStartWithCapital(View view) {
-		if (!Character.isUpperCase(view.getName().charAt(0))) {
-			error("View names should start with an uppercase letter.", AppModelDslPackage.VIEW__NAME, VIEW_NAME_UPPERCASE);
-		}
-	}
-	
-	@Check
 	void iconExists(TabbarButton button) {
 		if (button.getIcon() instanceof StringLiteral) {
 			String filename = ((StringLiteral) button.getIcon()).getValue();
@@ -52,7 +46,7 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 			URI uri = res.getURI().appendSegment("..").appendSegment("Images").appendSegment(filename);
 			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
 			if(!exists)
-				error("File does not exist.", AppModelDslPackage.TABBAR_BUTTON__ICON);
+				error("File does not exist.", AppModelDslPackage.Literals.TABBAR_BUTTON__ICON);
 		}
 	}
 	
@@ -71,14 +65,14 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		};
 		
 		if(Iterables.any(allProviders, otherProviderOfSameType)) {
-			error("Only one resolver per type allowed", AppModelDslPackage.CONTENT_PROVIDER__TYPE);
+			error("Only one resolver per type allowed", AppModelDslPackage.Literals.CONTENT_PROVIDER__TYPE);
 		}
 	}
 	
 	@Check(CheckType.FAST)
 	void resolverMustNotReturnLists(ContentProvider provider) {
 		if(provider.isResolver() && provider.isMany()) {
-			error("Resolver must not return lists", AppModelDslPackage.CONTENT_PROVIDER__MANY);
+			error("Resolver must not return lists", AppModelDslPackage.Literals.CONTENT_PROVIDER__MANY);
 		}
 	}
 	
@@ -102,9 +96,9 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		
 		Set<VariableDeclaration> declarations = ImmutableSet.copyOf(withoutConstants);
 		if(declarations.size()<=0)
-			error("Resolver must use an attribute", AppModelDslPackage.CONTENT_PROVIDER__URL);
+			error("Resolver must use an attribute", AppModelDslPackage.Literals.CONTENT_PROVIDER__URL);
 		if(declarations.size()>1)
-			error("Resolver must not use more than one attribute", AppModelDslPackage.CONTENT_PROVIDER__URL);
+			error("Resolver must not use more than one attribute", AppModelDslPackage.Literals.CONTENT_PROVIDER__URL);
 	}
 	
 	@Check
@@ -112,7 +106,7 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		if(cp.isResolver() && !(
 				cp.getType() == cp.getParameter().getDescription().getType() &&
 				cp.isMany() == cp.getParameter().getDescription().isMany()))
-			error("Resolvers input and output types must match", AppModelDslPackage.CONTENT_PROVIDER__TYPE);
+			error("Resolvers input and output types must match", AppModelDslPackage.Literals.CONTENT_PROVIDER__TYPE);
 	}
 	
 	public static ContentProvider findResolver(SimpleProviderConstruction construction) {
@@ -141,19 +135,19 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		TypeDescription typeDescription = TypeUtil.getTypeOf(construction.getExpression());
 		if (typeDescription.getType() instanceof Entity) {
 				if(findResolver(construction) == null)
-					error("No matching resolver found for " + typeDescription.getType().getName(), AppModelDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
+					error("No matching resolver found for " + typeDescription.getType().getName(), AppModelDslPackage.Literals.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
 		}
 	}
 	
 	@Check
 	void contentProvidersSelectIsLiteral(ContentProvider provider) {
 		if(!(provider.getSelection() instanceof StringLiteral))
-			error("selection must be a string literal", AppModelDslPackage.CONTENT_PROVIDER__SELECTION);
+			error("selection must be a string literal", AppModelDslPackage.Literals.CONTENT_PROVIDER__SELECTION);
 	}
 	
 	
 	private void errorIfNotAssignable(TypeDescription actualType,
-			TypeDescription expectedType, int feature) {
+			TypeDescription expectedType, EStructuralFeature feature) {
 		if(!TypeUtil.isAssignable(expectedType, actualType)) {
 			error("Type mismatch: cannot covert from " + TypeUtil.asReadableString(actualType) 
 					+ " to " + TypeUtil.asReadableString(expectedType),
@@ -161,7 +155,7 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		}
 	}
 	
-	boolean errorIfCountOfArgumentsDontMatch(boolean expected, boolean actual, int feature) {
+	boolean errorIfCountOfArgumentsDontMatch(boolean expected, boolean actual, EStructuralFeature feature) {
 		if(expected && !actual)
 			error("Expects argument but nothing was passed", feature);
 		if(!expected && actual)
@@ -174,20 +168,20 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 		Parameter formalParameter = vc.getView().getContent();
 		ProviderConstruction actualParameter = vc.getProvider();
 		
-		if(! errorIfCountOfArgumentsDontMatch(formalParameter!=null, actualParameter!=null, AppModelDslPackage.VIEW_CALL__PROVIDER) ) {
+		if(! errorIfCountOfArgumentsDontMatch(formalParameter!=null, actualParameter!=null, AppModelDslPackage.Literals.VIEW_CALL__PROVIDER) ) {
 			TypeDescription expectedType = formalParameter.getDescription();
 			TypeDescription actualType = TypeUtil.getTypeOf(vc.getProvider());
-			errorIfNotAssignable(actualType, expectedType, AppModelDslPackage.VIEW_CALL__PROVIDER);
+			errorIfNotAssignable(actualType, expectedType, AppModelDslPackage.Literals.VIEW_CALL__PROVIDER);
 		}
 	}
 
 	@Check
 	void contentProvidersArgumentOfCorrectType(ComplexProviderConstruction pc) {
 		ContentProvider p = pc.getProvider();
-		if(! errorIfCountOfArgumentsDontMatch(p.getParameter() != null, pc.getArgument() != null, AppModelDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT)) {
+		if(! errorIfCountOfArgumentsDontMatch(p.getParameter() != null, pc.getArgument() != null, AppModelDslPackage.Literals.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT)) {
 			TypeDescription expectedType = TypeUtil.getTypeOf(p.getParameter());
 			TypeDescription actualType = TypeUtil.getTypeOf(pc.getArgument());
-			errorIfNotAssignable(actualType, expectedType, AppModelDslPackage.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT);
+			errorIfNotAssignable(actualType, expectedType, AppModelDslPackage.Literals.COMPLEX_PROVIDER_CONSTRUCTION__ARGUMENT);
 		}
 	}
 	

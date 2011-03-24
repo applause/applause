@@ -4,7 +4,7 @@
 package de.itemis.mobilizer;
 
 /**
- * Use this class to register components to be used within the IDE.
+ * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class AppModelDslRuntimeModule extends de.itemis.mobilizer.AbstractAppModelDslRuntimeModule {
 
