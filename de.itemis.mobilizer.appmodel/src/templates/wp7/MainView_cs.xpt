@@ -1,11 +1,11 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::wp7::GeneratorExtensions»
-«EXTENSION templates::wp7::WP7ViewExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::wp7::GeneratorExtensionsÂ»
+Â«EXTENSION templates::wp7::WP7ViewExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«FILE this.mainViewCSFileName()-»
+Â«DEFINE main FOR Application-Â»
+Â«FILE this.mainViewCSFileName()-Â»
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,43 +19,43 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace «namespace()»
+namespace Â«namespace()Â»
 {
-	public partial class «mainPageClassName()» : PhoneApplicationPage
+	public partial class Â«mainPageClassName()Â» : PhoneApplicationPage
 	{
 		// Constructor
-		public «mainPageClassName()»()
+		public Â«mainPageClassName()Â»()
 		{
 			InitializeComponent();
-			«EXPAND assignDataContextToPivotItem FOREACH this.buttons-»
+			Â«EXPAND assignDataContextToPivotItem FOREACH this.buttons-Â»
 			this.Loaded += new RoutedEventHandler(MainPage_Loaded);
 		}
 
 		// Load data for the ViewModel Items
-		private void «mainPageClassName()»_Loaded(object sender, RoutedEventArgs e)
+		private void Â«mainPageClassName()Â»_Loaded(object sender, RoutedEventArgs e)
 		{
 			if (!App.RootViewModelProvider.IsDataLoaded)
 			{
 				App.RootViewModelProvider.LoadData();
 			}
 		}
-		«EXPAND selectionHandler FOREACH this.buttons-»
+		Â«EXPAND selectionHandler FOREACH this.buttons-Â»
 	}
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE assignDataContextToPivotItem FOR TabbarButton-»
-			«this.pivotControlName()».DataContext = App.RootViewModelProvider.«this.view.viewModelProviderClassName()»(«this.view.viewModelProviderConstructionParameter()»);
-«ENDDEFINE»
+Â«DEFINE assignDataContextToPivotItem FOR TabbarButton-Â»
+			Â«this.pivotControlName()Â».DataContext = App.RootViewModelProvider.Â«this.view.viewModelProviderClassName()Â»(Â«this.view.viewModelProviderConstructionParameter()Â»);
+Â«ENDDEFINEÂ»
 
-«DEFINE selectionHandler FOR TabbarButton»
-		private void «selectionHandlerName()»(object sender, SelectionChangedEventArgs e)
+Â«DEFINE selectionHandler FOR TabbarButtonÂ»
+		private void Â«selectionHandlerName()Â»(object sender, SelectionChangedEventArgs e)
 		{
-			«IF this.revealDetailsAction() != null-»
-			if («pivotControlName()».SelectedIndex == -1)
+			Â«IF this.revealDetailsAction() != null-Â»
+			if (Â«pivotControlName()Â».SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/Generated/«this.revealDetailsAction().view.viewXAMLFileName()»?itemByIndex=" + «pivotControlName()».SelectedIndex, UriKind.Relative));
-			«ENDIF»			
+			NavigationService.Navigate(new Uri("/Generated/Â«this.revealDetailsAction().view.viewXAMLFileName()Â»?itemByIndex=" + Â«pivotControlName()Â».SelectedIndex, UriKind.Relative));
+			Â«ENDIFÂ»			
 		}
-«ENDDEFINE»
+Â«ENDDEFINEÂ»

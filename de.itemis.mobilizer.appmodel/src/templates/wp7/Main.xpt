@@ -1,11 +1,11 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
 
-«DEFINE main FOR Application»
-«EXPAND MainView_xaml::main FOR this»
-«EXPAND MainView_cs::main FOR this»
-«EXPAND DetailsView_xaml::main FOR this»
-«EXPAND DetailsView_cs::main FOR this»
-«EXPAND ViewModel::main FOR this»
-«EXPAND ViewModelProvider::main FOR this»
-«EXPAND RootViewModelProvider::main FOR this»
-«ENDDEFINE»
+Â«DEFINE main FOR ApplicationÂ»
+Â«EXPAND MainView_xaml::main FOR thisÂ»
+Â«EXPAND MainView_cs::main FOR thisÂ»
+Â«EXPAND DetailsView_xaml::main FOR thisÂ»
+Â«EXPAND DetailsView_cs::main FOR thisÂ»
+Â«EXPAND ViewModel::main FOR thisÂ»
+Â«EXPAND ViewModelProvider::main FOR thisÂ»
+Â«EXPAND RootViewModelProvider::main FOR thisÂ»
+Â«ENDDEFINEÂ»

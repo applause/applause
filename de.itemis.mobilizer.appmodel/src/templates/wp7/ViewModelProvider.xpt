@@ -1,14 +1,14 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::wp7::GeneratorExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::wp7::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«EXPAND provider FOREACH this.providersWithImplementation()»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND provider FOREACH this.providersWithImplementation()Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE provider FOR ContentProvider»
-«FILE this.viewModelProviderFileName()-»
+Â«DEFINE provider FOR ContentProviderÂ»
+Â«FILE this.viewModelProviderFileName()-Â»
 using System;
 using System.ComponentModel;
 using System.Collections.Generic;
@@ -27,26 +27,26 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace «namespace()»
+namespace Â«namespace()Â»
 {
-	public class «viewModelProviderClassName()»
+	public class Â«viewModelProviderClassName()Â»
 	{
-		«IF (parameter != null)»
-		private «parameter.typeName()» «parameter.name»;
+		Â«IF (parameter != null)Â»
+		private Â«parameter.typeName()Â» Â«parameter.nameÂ»;
 
-		public «viewModelProviderClassName()»(«this.parameter.typeName()» «this.parameter.name»)
+		public Â«viewModelProviderClassName()Â»(Â«this.parameter.typeName()Â» Â«this.parameter.nameÂ»)
 		{
-			this.«this.parameter.name» = «this.parameter.name»;
-			this.«viewModelCollectionName()» = new ObservableCollection<«viewModelClassName()»>();
+			this.Â«this.parameter.nameÂ» = Â«this.parameter.nameÂ»;
+			this.Â«viewModelCollectionName()Â» = new ObservableCollectionÂ«<viewModelClassName()Â»>();
 		}
-		«ELSE»
-		public «viewModelProviderClassName()»()
+		Â«ELSEÂ»
+		public Â«viewModelProviderClassName()Â»()
 		{
-			this.«viewModelCollectionName()» = new ObservableCollection<«viewModelClassName()»>();
+			this.Â«viewModelCollectionName()Â» = new ObservableCollectionÂ«<viewModelClassName()Â»>();
 		}
-		«ENDIF»		
+		Â«ENDIFÂ»		
 		
-		public ObservableCollection<«viewModelClassName()»> «viewModelCollectionName()» { get; private set; }
+		public ObservableCollectionÂ«<viewModelClassName()Â»> Â«viewModelCollectionName()Â» { get; private set; }
 		
 		public bool IsDataLoaded
 		{
@@ -57,7 +57,7 @@ namespace «namespace()»
 		public void LoadData()
 		{
 			WebClient client = new WebClient();
-			client.DownloadStringAsync(new Uri(«this.url.expression()»));
+			client.DownloadStringAsync(new Uri(Â«this.url.expression()Â»));
 			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
 		}
 		
@@ -72,47 +72,47 @@ namespace «namespace()»
 		
 		void ParseDataFromXml(String source)
 		{
-			this.«viewModelClassName()»s.Clear();
+			this.Â«viewModelClassName()Â»s.Clear();
 
 			XDocument xdoc = XDocument.Parse(source);
 			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<«viewModelClassName()»> result =
-				«EXPAND fromBlock(2, 0, ((StringLiteral)this.selection).value.split("\\.").last()) FOR this.type-»
-			result.ForEach(this.«viewModelCollectionName()».Add);
+			ListÂ«<viewModelClassName()Â»> result =
+				Â«EXPAND fromBlock(2, 0, ((StringLiteral)this.selection).value.split("\\.").last()) FOR this.type-Â»
+			result.ForEach(this.Â«viewModelCollectionName()Â».Add);
 		}
 	}
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Type»
-«ENDDEFINE»
-«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Entity-»
-«IF recursion > 0-»
-				«d(indent)»(
-				«d(indent)»	from «viewModelClassName().toFirstLower()» in xdoc.Descendants("«nodeName»")
-				«d(indent)»	select new «viewModelClassName()»
-				«d(indent)»	{
-				«d(indent)»		«EXPAND propertyMappings(recursion, indent + 1) FOR this-»
-				«d(indent)»	}
-				«d(indent)»).ToList<«viewModelClassName()»>()«IF indent > 0»,«ELSE»;«ENDIF»
-«ENDIF-»
-«ENDDEFINE»
+Â«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR TypeÂ»
+Â«ENDDEFINEÂ»
+Â«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Entity-Â»
+Â«IF recursion > 0-Â»
+				Â«d(indent)Â»(
+				Â«d(indent)Â»	from Â«viewModelClassName().toFirstLower()Â» in xdoc.Descendants("Â«nodeNameÂ»")
+				Â«d(indent)Â»	select new Â«viewModelClassName()Â»
+				Â«d(indent)Â»	{
+				Â«d(indent)Â»		Â«EXPAND propertyMappings(recursion, indent + 1) FOR this-Â»
+				Â«d(indent)Â»	}
+				Â«d(indent)Â»).ToListÂ«<viewModelClassName()Â»>()Â«IF indent > 0Â»,Â«ELSEÂ»;Â«ENDIFÂ»
+Â«ENDIF-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE propertyMappings(int recursion, int indent) FOR Type»
-«ENDDEFINE»
+Â«DEFINE propertyMappings(int recursion, int indent) FOR TypeÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE propertyMappings(int recursion, int indent) FOR Entity-»
-«EXPAND propertyMapping(recursion, indent) FOREACH this.properties-»
-«ENDDEFINE»
+Â«DEFINE propertyMappings(int recursion, int indent) FOR Entity-Â»
+Â«EXPAND propertyMapping(recursion, indent) FOREACH this.properties-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE propertyMapping(int recursion, int indent) FOR Property-»
-«IF this.typeDescription().many-»
-«IF recursion > 1-»
-						«this.propertyName()» = 
-						«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().type»
-«ENDIF-»					
-«ELSE-»
-						«d(indent - 1)»«this.propertyName()» = («viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»") != null) ? «viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value : "",
-«ENDIF-»
-«ENDDEFINE»
+Â«DEFINE propertyMapping(int recursion, int indent) FOR Property-Â»
+Â«IF this.typeDescription().many-Â»
+Â«IF recursion > 1-Â»
+						Â«this.propertyName()Â» = 
+						Â«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().typeÂ»
+Â«ENDIF-Â»					
+Â«ELSE-Â»
+						Â«d(indent - 1)Â»Â«this.propertyName()Â» = (Â«viewModelClassName().toFirstLower()Â».Element(Â«this.namespaceSpecialCaseHandling()Â»"Â«this.nameÂ»") != null) ? Â«viewModelClassName().toFirstLower()Â».Element(Â«this.namespaceSpecialCaseHandling()Â»"Â«this.nameÂ»").Value : "",
+Â«ENDIF-Â»
+Â«ENDDEFINEÂ»

@@ -1,10 +1,10 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::wp7::GeneratorExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::wp7::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«FILE "RootViewModelProvider.cs"-»
+Â«DEFINE main FOR Application-Â»
+Â«FILE "RootViewModelProvider.cs"-Â»
 using System;
 using System.ComponentModel;
 using System.Collections.Generic;
@@ -23,7 +23,7 @@ using System.Net;
 using System.Linq;
 using System.Xml.Linq;
 
-namespace «namespace()»
+namespace Â«namespace()Â»
 {
     public class RootViewModelProvider
     {
@@ -31,7 +31,7 @@ namespace «namespace()»
         {
         }
         
-		«EXPAND provider FOREACH this.providersWithImplementation()-»        
+		Â«EXPAND provider FOREACH this.providersWithImplementation()-Â»        
 
         public bool IsDataLoaded
         {
@@ -47,40 +47,40 @@ namespace «namespace()»
 
     }
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE provider FOR ContentProvider-»
-        «IF this.parameter != null-»
-        private Dictionary<«this.parameter.typeName()», «viewModelProviderClassName()»> «viewModelProviderClassFieldName()» = new Dictionary<«this.parameter.typeName()», «viewModelProviderClassName()»>();
-        public «viewModelProviderClassName()» «viewModelProviderClassName()»(«this.parameter.typeName()» «this.parameter.name») {
-            «viewModelProviderClassName()» provider = null;
-            if (!«viewModelProviderClassFieldName()».ContainsKey(«this.parameter.name»))
+Â«DEFINE provider FOR ContentProvider-Â»
+        Â«IF this.parameter != null-Â»
+        private DictionaryÂ«<this.parameter.typeName()Â», Â«viewModelProviderClassName()Â»> Â«viewModelProviderClassFieldName()Â» = new DictionaryÂ«<this.parameter.typeName()Â», Â«viewModelProviderClassName()Â»>();
+        public Â«viewModelProviderClassName()Â» Â«viewModelProviderClassName()Â»(Â«this.parameter.typeName()Â» Â«this.parameter.nameÂ») {
+            Â«viewModelProviderClassName()Â» provider = null;
+            if (!Â«viewModelProviderClassFieldName()Â».ContainsKey(Â«this.parameter.nameÂ»))
             {
-                provider = new «viewModelProviderClassName()»(«this.parameter.name»);
+                provider = new Â«viewModelProviderClassName()Â»(Â«this.parameter.nameÂ»);
                 provider.LoadData();
-                «viewModelProviderClassFieldName()».Add(«this.parameter.name», provider);
+                Â«viewModelProviderClassFieldName()Â».Add(Â«this.parameter.nameÂ», provider);
             }
             else
             {
-                provider = «viewModelProviderClassFieldName()»[«this.parameter.name»];
+                provider = Â«viewModelProviderClassFieldName()Â»[Â«this.parameter.nameÂ»];
             }
             return provider;
         }
-		«ELSE-»
-        private «viewModelProviderClassName()» «viewModelProviderClassFieldName()»;		
-        public «viewModelProviderClassName()» «viewModelProviderClassName()»() {		                
+		Â«ELSE-Â»
+        private Â«viewModelProviderClassName()Â» Â«viewModelProviderClassFieldName()Â»;		
+        public Â«viewModelProviderClassName()Â» Â«viewModelProviderClassName()Â»() {		                
 
-            if («viewModelProviderClassFieldName()» == null)
+            if (Â«viewModelProviderClassFieldName()Â» == null)
             {
-                «viewModelProviderClassFieldName()» = new «viewModelProviderClassName()»(«this.parameter.name»);
-                «viewModelProviderClassFieldName()».LoadData();
+                Â«viewModelProviderClassFieldName()Â» = new Â«viewModelProviderClassName()Â»(Â«this.parameter.nameÂ»);
+                Â«viewModelProviderClassFieldName()Â».LoadData();
             }
-            return «viewModelProviderClassFieldName()»;
+            return Â«viewModelProviderClassFieldName()Â»;
         }
-        «ENDIF-»        
-«ENDDEFINE»
+        Â«ENDIF-Â»        
+Â«ENDDEFINEÂ»
 
-«DEFINE loadData FOR ContentProvider-»
-			«viewModelProviderClassName()».LoadData();
-«ENDDEFINE»
+Â«DEFINE loadData FOR ContentProvider-Â»
+			Â«viewModelProviderClassName()Â».LoadData();
+Â«ENDDEFINEÂ»

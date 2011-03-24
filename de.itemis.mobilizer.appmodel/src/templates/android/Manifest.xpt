@@ -1,13 +1,13 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
-«EXTENSION templates::android::GeneratorExtensions»
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::android::ProviderExtension»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
+Â«EXTENSION templates::android::GeneratorExtensionsÂ»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::android::ProviderExtensionÂ»
 
-«DEFINE main FOR Application»
-«FILE manifestFileName()-»
+Â«DEFINE main FOR ApplicationÂ»
+Â«FILE manifestFileName()-Â»
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="«this.application().packageName()»"
+      package="Â«this.application().packageName()Â»"
       android:versionCode="1"
       android:versionName="1.0">
       <uses-permission android:name="android.permission.INTERNET" />      
@@ -19,10 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-«FOREACH this.sectionedViews() AS s-»
-    <activity android:name=".«s.activityClassName()»"></activity>
-«ENDFOREACH-»
+Â«FOREACH this.sectionedViews() AS s-Â»
+    <activity android:name=".Â«s.activityClassName()Â»"></activity>
+Â«ENDFOREACH-Â»
 </application>
 </manifest>
-«ENDFILE» 
-«ENDDEFINE»
+Â«ENDFILEÂ» 
+Â«ENDDEFINEÂ»

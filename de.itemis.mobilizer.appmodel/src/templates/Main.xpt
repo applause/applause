@@ -1,6 +1,6 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
 
-«DEFINE main FOR Application»
-«EXPAND android::Main::main FOR this»
-«EXPAND iphone::Main::main FOR this»
-«ENDDEFINE»
+Â«DEFINE main FOR ApplicationÂ»
+Â«EXPAND android::Main::main FOR thisÂ»
+Â«EXPAND iphone::Main::main FOR thisÂ»
+Â«ENDDEFINEÂ»

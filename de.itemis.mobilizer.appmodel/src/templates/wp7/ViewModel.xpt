@@ -1,14 +1,14 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
+Â«IMPORT de::itemis::mobilizer::appModelDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::wp7::GeneratorExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::wp7::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«EXPAND entity FOREACH this.entities()»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND entity FOREACH this.entities()Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE entity FOR Entity»
-«FILE this.viewModelFileName()-»
+Â«DEFINE entity FOR EntityÂ»
+Â«FILE this.viewModelFileName()-Â»
 using System;
 using System.Net;
 using System.Windows;
@@ -22,11 +22,11 @@ using System.Windows.Shapes;
 using System.ComponentModel;
 using System.Collections.Generic;
 
-namespace «namespace()»
+namespace Â«namespace()Â»
 {
-	public class «viewModelClassName()» : INotifyPropertyChanged
+	public class Â«viewModelClassName()Â» : INotifyPropertyChanged
 	{
-		«EXPAND property FOREACH this.properties»
+		Â«EXPAND property FOREACH this.propertiesÂ»
 		
 		// PF: Note to self: this really should be in a runtime class
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -40,22 +40,22 @@ namespace «namespace()»
 		}
 	}
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE property FOR Property»
-		private «typeName()» «propertyFieldName()»;
+Â«DEFINE property FOR PropertyÂ»
+		private Â«typeName()Â» Â«propertyFieldName()Â»;
 
-		public «typeName()» «propertyName()»
+		public Â«typeName()Â» Â«propertyName()Â»
 		{
-			get { return «propertyFieldName()»; }
+			get { return Â«propertyFieldName()Â»; }
 			set
 			{
-				if (value != «propertyFieldName()»)
+				if (value != Â«propertyFieldName()Â»)
 				{
-					«propertyFieldName()» = value;
-					NotifyPropertyChanged("«propertyName()»");
+					Â«propertyFieldName()Â» = value;
+					NotifyPropertyChanged("Â«propertyName()Â»");
 				}
 			}
 		}
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
