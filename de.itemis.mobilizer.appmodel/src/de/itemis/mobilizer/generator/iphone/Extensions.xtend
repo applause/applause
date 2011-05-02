@@ -14,6 +14,8 @@ import de.itemis.mobilizer.appModelDsl.StringReplace
 import java.util.List
 import de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction
 import de.itemis.mobilizer.appModelDsl.ComplexProviderConstruction
+import de.itemis.mobilizer.appModelDsl.Constant
+import de.itemis.mobilizer.appModelDsl.ObjectReference
 
 class Extensions {
 	// TODO: refactor pattern class+headerfilename+modulefilename
@@ -127,8 +129,38 @@ class Extensions {
 		']';
 	}
 	
+	dispatch String expression(Constant c, String kvcTarget, String kvcPrefix) {
+		c.value.expression(kvcTarget, kvcPrefix)
+	} 	
 	
+	keyPath(ObjectReference ref) {
+		val result = newArrayList(ref.object.name);
+		var iter = ref; 
+		while(iter.tail != null) {
+			iter = iter.tail;
+			result.add(iter.object.name);
+		}
+		
+		return result;
+	}
 	
-	
+	keyPath(ObjectReference ref, String kvcPrefix) {
+		val List<CharSequence> head = if(kvcPrefix.nullOrEmpty) newArrayList() else newArrayList(kvcPrefix as CharSequence);
+		head.addAll(ref.keyPath().tail.toList);
+		return head.toList
+	}
+
+	dispatch String expression(ObjectReference ref, String kvcTarget, String kvcPrefix) {
+		if(ref.object instanceof Constant) {
+			ref.object.expression(kvcTarget, kvcPrefix)
+		} else {
+			val keyPath = ref.keyPath(kvcPrefix)
+			if(keyPath.empty)
+				kvcTarget
+			else
+				'[' + kvcTarget + ' valueForKeyPath:@"' + keyPath.join('.') + '"]'	
+		}
+				
+	}	
 	
 }

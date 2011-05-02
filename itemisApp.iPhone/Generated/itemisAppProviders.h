@@ -1,4 +1,3 @@
-
 #import "IPContentProvider.h"
 
 @interface itemisAppProviders : NSObject {

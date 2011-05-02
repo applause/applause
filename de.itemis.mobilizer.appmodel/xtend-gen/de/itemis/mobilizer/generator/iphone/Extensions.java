@@ -3,8 +3,10 @@ package de.itemis.mobilizer.generator.iphone;
 import de.itemis.mobilizer.appModelDsl.Application;
 import de.itemis.mobilizer.appModelDsl.CollectionExpression;
 import de.itemis.mobilizer.appModelDsl.ComplexProviderConstruction;
+import de.itemis.mobilizer.appModelDsl.Constant;
 import de.itemis.mobilizer.appModelDsl.ContentProvider;
 import de.itemis.mobilizer.appModelDsl.Expression;
+import de.itemis.mobilizer.appModelDsl.ObjectReference;
 import de.itemis.mobilizer.appModelDsl.ProviderConstruction;
 import de.itemis.mobilizer.appModelDsl.ScalarExpression;
 import de.itemis.mobilizer.appModelDsl.SimpleProviderConstruction;
@@ -13,12 +15,15 @@ import de.itemis.mobilizer.appModelDsl.StringLiteral;
 import de.itemis.mobilizer.appModelDsl.StringReplace;
 import de.itemis.mobilizer.appModelDsl.StringSplit;
 import de.itemis.mobilizer.appModelDsl.StringUrlConform;
+import de.itemis.mobilizer.appModelDsl.VariableDeclaration;
 import de.itemis.mobilizer.appModelDsl.View;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -249,6 +254,94 @@ public class Extensions {
     return _operator_plus_5;
   }
   
+  public String _expression(final Constant c, final String kvcTarget, final String kvcPrefix) {
+    ScalarExpression _value = c.getValue();
+    String _expression = this.expression(_value, kvcTarget, kvcPrefix);
+    return _expression;
+  }
+  
+  public ArrayList<String> keyPath(final ObjectReference ref) {
+    {
+      VariableDeclaration _object = ref.getObject();
+      String _name = _object.getName();
+      ArrayList<String> _newArrayList = CollectionLiterals.<String>newArrayList(_name);
+      final ArrayList<String> result = _newArrayList;
+      ObjectReference iter = ref;
+      ObjectReference _tail = iter.getTail();
+      boolean _operator_notEquals = ObjectExtensions.operator_notEquals(_tail, null);
+      Boolean _xwhileexpression = _operator_notEquals;
+      while (_xwhileexpression) {
+        {
+          ObjectReference _tail_1 = iter.getTail();
+          iter = _tail_1;
+          VariableDeclaration _object_1 = iter.getObject();
+          String _name_1 = _object_1.getName();
+          result.add(_name_1);
+        }
+        ObjectReference _tail_2 = iter.getTail();
+        boolean _operator_notEquals_1 = ObjectExtensions.operator_notEquals(_tail_2, null);
+        _xwhileexpression = _operator_notEquals_1;
+      }
+      return result;
+    }
+  }
+  
+  public List<CharSequence> keyPath(final ObjectReference ref, final String kvcPrefix) {
+    {
+      ArrayList<CharSequence> _xifexpression = null;
+      boolean _isNullOrEmpty = StringExtensions.isNullOrEmpty(kvcPrefix);
+      if (_isNullOrEmpty) {
+        ArrayList<CharSequence> _newArrayList = CollectionLiterals.<CharSequence>newArrayList();
+        _xifexpression = _newArrayList;
+      } else {
+        ArrayList<CharSequence> _newArrayList_1 = CollectionLiterals.<CharSequence>newArrayList(((java.lang.CharSequence) kvcPrefix));
+        _xifexpression = _newArrayList_1;
+      }
+      final List<CharSequence> head = _xifexpression;
+      final List<CharSequence> typeConverted_head = (List<CharSequence>)head;
+      ArrayList<String> _keyPath = this.keyPath(ref);
+      Iterable<String> _tail = IterableExtensions.<String>tail(_keyPath);
+      List<String> _list = IterableExtensions.<String>toList(_tail);
+      typeConverted_head.addAll(_list);
+      final List<CharSequence> typeConverted_head_1 = (List<CharSequence>)head;
+      List<CharSequence> _list_1 = IterableExtensions.<CharSequence>toList(typeConverted_head_1);
+      return _list_1;
+    }
+  }
+  
+  public String _expression(final ObjectReference ref, final String kvcTarget, final String kvcPrefix) {
+    String _xifexpression = null;
+    VariableDeclaration _object = ref.getObject();
+    if ((_object instanceof de.itemis.mobilizer.appModelDsl.Constant)) {
+      VariableDeclaration _object_1 = ref.getObject();
+      String _expression = this.expression(_object_1, kvcTarget, kvcPrefix);
+      _xifexpression = _expression;
+    } else {
+      String _xblockexpression = null;
+      {
+        List<CharSequence> _keyPath = this.keyPath(ref, kvcPrefix);
+        final List<CharSequence> keyPath = _keyPath;
+        String _xifexpression_1 = null;
+        boolean _isEmpty = keyPath.isEmpty();
+        if (_isEmpty) {
+          _xifexpression_1 = kvcTarget;
+        } else {
+          final String typeConverted_kvcTarget = (String)kvcTarget;
+          String _operator_plus = StringExtensions.operator_plus("[", typeConverted_kvcTarget);
+          String _operator_plus_1 = StringExtensions.operator_plus(_operator_plus, " valueForKeyPath:@\"");
+          final List<CharSequence> typeConverted_keyPath = (List<CharSequence>)keyPath;
+          String _join = this.join(typeConverted_keyPath, ".");
+          String _operator_plus_2 = StringExtensions.operator_plus(_operator_plus_1, _join);
+          String _operator_plus_3 = StringExtensions.operator_plus(_operator_plus_2, "\"]");
+          _xifexpression_1 = _operator_plus_3;
+        }
+        _xblockexpression = (_xifexpression_1);
+      }
+      _xifexpression = _xblockexpression;
+    }
+    return _xifexpression;
+  }
+  
   public String contentProvider(final ProviderConstruction c, final String providers, final String kvcTarget, final String kvcPrefix) {
     if ((c instanceof ComplexProviderConstruction)
          && (providers instanceof String)
@@ -270,39 +363,47 @@ public class Extensions {
     }
   }
   
-  public String expression(final EObject s, final String kvcTarget, final String kvcPrefix) {
-    if ((s instanceof StringConcat)
+  public String expression(final EObject c, final String kvcTarget, final String kvcPrefix) {
+    if ((c instanceof Constant)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((StringConcat)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof StringReplace)
+      return _expression((Constant)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof StringConcat)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((StringReplace)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof StringSplit)
+      return _expression((StringConcat)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof StringReplace)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((StringSplit)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof StringUrlConform)
+      return _expression((StringReplace)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof StringSplit)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((StringUrlConform)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof StringLiteral)
+      return _expression((StringSplit)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof StringUrlConform)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((StringLiteral)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof CollectionExpression)
+      return _expression((StringUrlConform)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof ObjectReference)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((CollectionExpression)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof Expression)
+      return _expression((ObjectReference)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof StringLiteral)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((Expression)s, (String)kvcTarget, (String)kvcPrefix);
-    } else if ((s instanceof ScalarExpression)
+      return _expression((StringLiteral)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof CollectionExpression)
          && (kvcTarget instanceof String)
          && (kvcPrefix instanceof String)) {
-      return _expression((ScalarExpression)s, (String)kvcTarget, (String)kvcPrefix);
+      return _expression((CollectionExpression)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof Expression)
+         && (kvcTarget instanceof String)
+         && (kvcPrefix instanceof String)) {
+      return _expression((Expression)c, (String)kvcTarget, (String)kvcPrefix);
+    } else if ((c instanceof ScalarExpression)
+         && (kvcTarget instanceof String)
+         && (kvcPrefix instanceof String)) {
+      return _expression((ScalarExpression)c, (String)kvcTarget, (String)kvcPrefix);
     } else {
       throw new IllegalArgumentException();
     }

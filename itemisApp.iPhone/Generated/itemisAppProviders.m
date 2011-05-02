@@ -1,10 +1,7 @@
-
 #import "itemisAppProviders.h"
 #import "IPXMLContentProvider.h"
 
 @implementation itemisAppProviders
-
-
 
 -(IPContentProvider*)providerForBlogposts {
 	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"];
@@ -16,8 +13,6 @@
 	return result;
 }
 
-
-
 -(IPContentProvider*)providerForSessionsByDay:(id)day {
 	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/sessions/day/", day, @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
@@ -27,8 +22,6 @@
 								  andProviders:self] autorelease];
 	return result;
 }
-
-
 
 -(IPContentProvider*)providerForSessionById:(id)s {
 	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/sessions/id/", [s valueForKeyPath:@"id"], @".xml"];
@@ -40,8 +33,6 @@
 	return result;
 }
 
-
-
 -(IPContentProvider*)providerForSpeakerById:(id)s {
 	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers/id/", [s valueForKeyPath:@"id"], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
@@ -51,8 +42,6 @@
 								  andProviders:self] autorelease];
 	return result;
 }
-
-
 
 -(IPContentProvider*)providerForBlogItemById:(id)b {
 	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=", [[b valueForKeyPath:@"guid"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -64,8 +53,6 @@
 	return result;
 }
 
-
-
 -(IPContentProvider*)providerForAllSpeakers {
 	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers.xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
@@ -75,8 +62,6 @@
 								  andProviders:self] autorelease];
 	return result;
 }
-
-
 
 -(IPContentProvider*)providerForSpeakerByName:(id)name {
 	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers/name/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];

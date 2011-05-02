@@ -206,7 +206,7 @@ public class ApplicationDelegate {
       if (_operator_notEquals) {
         _builder.append("// controller for ");
         ScalarExpression _title = button.getTitle();
-        Object _expression = this.extensions.expression(_title, "", "");
+        String _expression = this.extensions.expression(_title, "", "");
         _builder.append(_expression, "");
         _builder.newLineIfNotEmpty();
         _builder.append("contentProvider = ");
@@ -230,13 +230,13 @@ public class ApplicationDelegate {
     _builder.newLine();
     _builder.append("controller.tabBarItem.title = ");
     ScalarExpression _title_1 = button.getTitle();
-    Object _expression_1 = this.extensions.expression(_title_1, "", "");
+    String _expression_1 = this.extensions.expression(_title_1, "", "");
     _builder.append(_expression_1, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("controller.tabBarItem.image = [UIImage imageNamed:");
     ScalarExpression _icon = button.getIcon();
-    Object _expression_2 = this.extensions.expression(_icon, "", "");
+    String _expression_2 = this.extensions.expression(_icon, "", "");
     _builder.append(_expression_2, "");
     _builder.append("];");
     _builder.newLineIfNotEmpty();

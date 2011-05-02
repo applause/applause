@@ -5,9 +5,11 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 
 class Generator{
 	 
-	@Inject ApplicationDelegate 
+	@Inject ApplicationDelegate
+	@Inject Provider 
 	 
 	generate(Application app, IFileSystemAccess fsa) {
 		applicationDelegate.main(app, fsa)
+		provider.main(app, fsa)
 	}
 }
