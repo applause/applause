@@ -9,7 +9,10 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 
 class AppModelDslGenerator implements IGenerator {
 	
+	@Inject
+	de.itemis.mobilizer.generator.iphone.Generator as iPhone
+	
 	override void doGenerate(Resource resource, IFileSystemAccess fsa) {
-		//TODO implment me
+		//iPhone.generate();
 	}
 }
