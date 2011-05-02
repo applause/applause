@@ -45,8 +45,9 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 			
 			URI uri = res.getURI().appendSegment("..").appendSegment("Images").appendSegment(filename);
 			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
-			if(!exists)
-				error("File does not exist.", AppModelDslPackage.Literals.TABBAR_BUTTON__ICON);
+			// TODO: remove workaround to allow code generation from MWE
+//			if(!exists)
+//				error("File does not exist.", AppModelDslPackage.Literals.TABBAR_BUTTON__ICON);
 		}
 	}
 	
