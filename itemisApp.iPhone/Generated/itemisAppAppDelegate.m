@@ -1,4 +1,3 @@
-
 #import "itemisAppAppDelegate.h"
 #import "IPUIView.h"
 #import "itemisAppProviders.h"
@@ -22,8 +21,6 @@
 	UINavigationController *navController;
 	IPContentProvider *contentProvider;
 
-
-	
 	// controller for @"News"
 	contentProvider = [providers providerForBlogposts];
 	
@@ -35,7 +32,6 @@
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
-
 	
 	// controller for @"Tue"
 	contentProvider = [providers providerForSessionsByDay: @"2011-03-22"];
@@ -48,7 +44,6 @@
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
-
 	
 	// controller for @"Wed"
 	contentProvider = [providers providerForSessionsByDay: @"2011-03-23"];
@@ -61,7 +56,6 @@
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
-
 	
 	// controller for @"Thu"
 	contentProvider = [providers providerForSessionsByDay: @"2011-03-24"];
@@ -74,7 +68,6 @@
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
-
 	
 	// controller for @"Speakers"
 	contentProvider = [providers providerForAllSpeakers];
@@ -87,22 +80,22 @@
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
-
+	
 
 	result.viewControllers = controllers;
 	return result;
 }
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
+- (void)applicationDidFinishLaunching:(UIApplication *)application {
 	self.rootController = [self createController];
 	[window addSubview: [self.rootController view]];
-    [window makeKeyAndVisible];
+	[window makeKeyAndVisible];
 }
 
 - (void)dealloc {
 	self.rootController = nil;
-    [window release];
-    [super dealloc];
+	[window release];
+	[super dealloc];
 }
 
 

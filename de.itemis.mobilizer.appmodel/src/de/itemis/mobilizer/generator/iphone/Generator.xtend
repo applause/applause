@@ -4,7 +4,10 @@ import de.itemis.mobilizer.appModelDsl.Application
 import org.eclipse.xtext.generator.IFileSystemAccess
 
 class Generator{
+	 
+	@Inject ApplicationDelegate 
+	 
 	generate(Application app, IFileSystemAccess fsa) {
-		fsa.generateFile("iphone_test.txt", app.name)
+		applicationDelegate.main(app, fsa)
 	}
 }
