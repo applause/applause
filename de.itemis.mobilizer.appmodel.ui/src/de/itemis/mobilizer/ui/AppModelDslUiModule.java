@@ -4,6 +4,9 @@
 package de.itemis.mobilizer.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.builder.IXtextBuilderParticipant;
+
+import de.itemis.mobilizer.ui.generator.BuilderParticipant;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -11,5 +14,10 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class AppModelDslUiModule extends de.itemis.mobilizer.ui.AbstractAppModelDslUiModule {
 	public AppModelDslUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
+	}
+	
+	@Override
+	public Class<? extends IXtextBuilderParticipant> bindIXtextBuilderParticipant() {
+		return BuilderParticipant.class;
 	}
 }
