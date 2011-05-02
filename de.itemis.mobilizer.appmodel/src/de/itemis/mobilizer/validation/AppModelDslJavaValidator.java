@@ -6,6 +6,7 @@ import java.util.Set;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.URIConverter;
 import org.eclipse.xtext.validation.Check;
 import org.eclipse.xtext.validation.CheckType;
 
@@ -43,11 +44,11 @@ public class AppModelDslJavaValidator extends AbstractAppModelDslJavaValidator {
 			String filename = ((StringLiteral) button.getIcon()).getValue();
 			Resource res = button.eResource();
 			
-			URI uri = res.getURI().appendSegment("..").appendSegment("Images").appendSegment(filename);
-			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
-			// TODO: remove workaround to allow code generation from MWE
-//			if(!exists)
-//				error("File does not exist.", AppModelDslPackage.Literals.TABBAR_BUTTON__ICON);
+			URI uri = res.getURI().trimSegments(1).appendSegment("Images").appendSegment(filename);
+			System.out.println(uri.toFileString());
+			boolean exists = res.getResourceSet().getURIConverter().exists(uri, null);
+			if(!exists)
+				error("File does not exist.", AppModelDslPackage.Literals.TABBAR_BUTTON__ICON);
 		}
 	}
 	
