@@ -118,6 +118,11 @@ public abstract class AbstractAppModelDslUiModule extends DefaultUiModule {
 		return org.eclipse.xtext.builder.impl.PersistentDataAwareDirtyResource.class;
 	}
 
+	// contributed by org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment
+	public Class<? extends org.eclipse.xtext.ui.wizard.IProjectCreator> bindIProjectCreator() {
+		return de.itemis.mobilizer.ui.wizard.AppModelDslProjectCreator.class;
+	}
+
 	// contributed by org.eclipse.xtext.ui.generator.quickfix.QuickfixProviderFragment
 	public Class<? extends org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider> bindIssueResolutionProvider() {
 		return de.itemis.mobilizer.ui.quickfix.AppModelDslQuickfixProvider.class;

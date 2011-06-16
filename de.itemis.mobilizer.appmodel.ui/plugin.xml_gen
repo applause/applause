@@ -173,6 +173,18 @@
 			</command>
 		</menuContribution>
 	</extension>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="org.eclipse.xtext.projectwiz"
+            class="de.itemis.mobilizer.ui.AppModelDslExecutableExtensionFactory:de.itemis.mobilizer.ui.wizard.AppModelDslNewProjectWizard"
+            icon="icons/editor.gif"
+            id="de.itemis.mobilizer.ui.wizard.AppModelDslNewProjectWizard"
+            name="AppModelDsl Project"
+            project="true">
+      </wizard>
+   </extension>
    <!-- quickfix marker resolution generator -->
    <extension
          point="org.eclipse.ui.ide.markerResolution">

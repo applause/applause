@@ -173,6 +173,7 @@
 			</command>
 		</menuContribution>
 	</extension>
+
    <!-- quickfix marker resolution generator -->
    <extension
          point="org.eclipse.ui.ide.markerResolution">
@@ -216,6 +217,21 @@
            </enablement>
          </contextualLaunch>
       </shortcut>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.itemis.mobilizer.appmodel.ui.wizards"
+            class="de.itemis.mobilizer.ui.AppModelDslExecutableExtensionFactory:de.itemis.mobilizer.ui.wizard.AppModelDslNewProjectWizard"
+            icon="icons/iphone.png"
+            id="de.itemis.mobilizer.ui.wizard.AppModelDslNewProjectWizard"
+            name="AppModelDsl Project"
+            project="true">
+      </wizard>
+      <category
+            id="de.itemis.mobilizer.appmodel.ui.wizards"
+            name="APPlause">
+      </category>
    </extension>
 
 </plugin>
