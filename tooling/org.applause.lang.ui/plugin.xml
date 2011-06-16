@@ -11,7 +11,7 @@
             default="true"
             extensions="applause"
             id="org.applause.lang.ApplauseDsl"
-            name="ApplauseDsl Editor">
+            name="APPlause DSL Editor">
         </editor>
     </extension>
     <extension
@@ -52,7 +52,7 @@
         <page
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.applause.lang.ApplauseDsl"
-            name="ApplauseDsl">
+            name="APPlause">
             <keywordReference id="org.applause.lang.ui.keyword_ApplauseDsl"/>
         </page>
         <page
@@ -74,7 +74,7 @@
         point="org.eclipse.ui.keywords">
         <keyword
             id="org.applause.lang.ui.keyword_ApplauseDsl"
-            label="ApplauseDsl"/>
+            label="APPlause"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
@@ -184,13 +184,17 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="org.eclipse.xtext.projectwiz"
+            category="org.applause.lang.ui.wizards"
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
-            icon="icons/editor.gif"
+            icon="icons/iphone.png"
             id="org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
-            name="ApplauseDsl Project"
+            name="APPlause Project"
             project="true">
       </wizard>
+      <category
+            id="org.applause.lang.ui.wizards"
+            name="APPlause">
+      </category>
    </extension>
 
 </plugin>

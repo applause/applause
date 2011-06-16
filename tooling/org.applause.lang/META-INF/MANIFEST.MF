@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.applause.lang
-Bundle-Vendor: My Company
+Bundle-Vendor: The APPlause Team
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: org.applause.lang; singleton:=true
 Bundle-ActivationPolicy: lazy
