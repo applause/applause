@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: APPlause Xcode Integration
+Bundle-SymbolicName: org.applause.integrations.xcode.ui
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Heiko Behrens / Peter Friese
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Export-Package: org.applause.integrations.xcode

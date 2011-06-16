@@ -1,0 +1,27 @@
+import org::eclipse::emf::ecore;
+import de::itemis::mobilizer::appModelDsl;
+
+extension templates::MetamodelExtensions;
+
+/**
+ * Filename and classname handling.
+ */
+viewClassName(DetailsView this):
+	this.name + "DetailsView";
+	
+viewClassName(TableView this):
+	this.name + "TableView";
+	
+viewClassName(View this):
+	this.name + "View";
+	
+viewXAMLFileName(View this):
+	this.viewClassName() + ".xaml";
+	
+viewCSFileName(View this):
+	this.viewClassName() + ".xaml.cs";
+	
+ViewCall revealDetailsAction(TabbarButton this):
+	SectionedView.isInstance(this.view.view)
+		? ((SectionedView)this.view.view).sections.cells.action.first()
+		: null;

@@ -1,0 +1,179 @@
+grammar org.applause.ApplauseDsl with org.eclipse.xtext.common.Terminals
+
+generate applauseDsl "http://www.applause.org/ApplauseDsl"
+
+Model:
+	application=Application
+	(elements+=ModelElement)*;
+	
+Application:
+	TabBarApplication;
+
+ModelElement:
+	Type | ContentProvider | View | Constant;
+	
+// -------------------------------------------
+// General
+
+// common supertype to allow variableReferences
+VariableDeclaration:
+	Parameter | Property | CollectionIterator;
+
+TypeDescription:
+	type=[Type] (many?='[]')?;
+	
+Parameter:
+	description=TypeDescription name=ID;
+
+ObjectReference:
+	object=[VariableDeclaration] tail=NestedObjectReference?;
+	
+//workaround: NestedObjectReference as separate rule to guide the content 
+//   assist parser technically could have been include in ObjectReference like
+//   ObjectReference:
+//     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
+NestedObjectReference returns ObjectReference:
+	'.' object=[VariableDeclaration] tail=NestedObjectReference?;
+	
+Expression:
+	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
+
+ScalarExpression:
+	StringLiteral | StringFunction | ObjectReference;
+	
+CollectionExpression:
+	CollectionLiteral | CollectionFunction | ObjectReference;
+	
+StringLiteral:
+	value=STRING;
+
+StringFunction:
+	{StringConcat} '(' (values+=ScalarExpression)+ ')' |
+	{StringReplace} 'replace(' value=ScalarExpression ',' match=ScalarExpression ',' replacement=ScalarExpression ')' |
+	{StringUrlConform} 'urlconform(' value=ScalarExpression ')';
+	
+CollectionLiteral:
+	'[' items+=ScalarExpression (',' items+=ScalarExpression)* ']';
+	
+CollectionFunction:
+	{StringSplit} 'split(' value=ScalarExpression ',' delimiter=ScalarExpression ')'
+;
+	
+// -------------------------------------------
+// applications
+
+TabBarApplication returns Application:
+	"tabbarApplication" name=ID '{'
+		(buttons += TabbarButton)*
+	'}';
+
+TabbarButton:
+	'button' '{'
+		'title=' title=ScalarExpression
+		'icon=' icon=ScalarExpression
+		'view=' view=ViewCall
+	'}'
+;
+
+Constant returns VariableDeclaration:
+	{Constant} 'const' name=ID value=ScalarExpression;	
+
+// -------------------------------------------
+// types
+Type:
+	SimpleType | Entity;
+	
+SimpleType:
+	'type' name=ID 'mapsTo' platformType = STRING;
+	
+Entity :
+	'entity' name=ID ('extends' extends=[Entity])? '{'
+		(properties+=Property)*
+	'}';
+
+Property:
+	(derived?='derived')? description=TypeDescription name=ID;
+
+// -------------------------------------------
+// content provider
+
+ContentProvider:
+	'contentprovider' name=ID
+	('(' parameter=Parameter ')')? 
+	('returns'|resolver?='resolves') type=[Type] (many?='[]')?
+	'fetches' 'XML'
+	'from' url=ScalarExpression
+	'selects' selection=ScalarExpression;
+
+ProviderConstruction:
+	{ComplexProviderConstruction} provider=[ContentProvider] '(' (argument=Expression)? ')' |
+	{SimpleProviderConstruction} expression=Expression;
+
+// -------------------------------------------
+// views
+
+
+
+View:
+	SectionedView | CustomView;
+	
+SectionedView: 
+	TableView | DetailsView;
+		
+TableView:
+	'tableview' name=ID ('(' content=Parameter ')')? '{'
+		'title=' title=ScalarExpression
+		(sections+=ViewSection)*
+	'}';
+	
+DetailsView:
+	'detailsview' name=ID ('(' content=Parameter ')')? '{'
+		'title=' title=ScalarExpression
+		(header=ViewHeader)?
+		(sections+=ViewSection)*
+	'}';
+	
+CustomView:
+	'customview' name=ID ('(' content=Parameter ')')? 'implementedBy' objclass=STRING;
+	
+ViewHeader:
+	{ViewHeader}
+	'header' '{'
+		('title=' title=ScalarExpression)?
+		('subtitle=' subtitle=ScalarExpression)?
+		('details=' details=ScalarExpression)?
+		('image=' image=ScalarExpression)?
+	'}';
+	
+ViewSection:
+	'section' '{'
+		('title=' title=ScalarExpression)?
+		(cells+=SectionCell)+
+	'}';
+	
+SectionCell:
+	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'
+		('text=' text=ScalarExpression)?
+		('details=' details=ScalarExpression)?
+		('image=' image=ScalarExpression)?
+		('action=' action=ViewAction)?
+	'}';
+	
+enum CellType:
+	default = 'Default' |
+	defaultWithDisclosure = 'DefaultWithDisclosure' |
+	value2 = 'Value2' |
+	double = 'Double' |
+	subtitle = 'Subtitle';
+	
+CollectionIterator:
+	collection=CollectionExpression 'as' name=ID;
+	
+ViewAction:
+	ViewCall | ExternalOpen;
+	
+ExternalOpen:
+	url=ScalarExpression;
+
+ViewCall:
+	view=[View] '(' (provider=ProviderConstruction)? ')';	

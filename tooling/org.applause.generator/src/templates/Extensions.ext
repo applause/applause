@@ -1,0 +1,4 @@
+import org::applause::applauseDsl;
+
+sortedGreetings(Model this) :
+	this.greetings.sortBy(g|g.name.toLowerCase());

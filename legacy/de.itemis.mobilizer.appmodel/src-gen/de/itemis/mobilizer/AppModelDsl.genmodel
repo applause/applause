@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.itemis.mobilizer.appmodel/src-gen"
+    editDirectory="/de.itemis.mobilizer.appmodel.edit/src" editorDirectory="/de.itemis.mobilizer.appmodel.editor/src"
+    modelPluginID="de.itemis.mobilizer.appmodel" forceOverwrite="true" modelName="AppModelDsl"
+    updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="de.itemis.mobilizer.appmodel.edit"
+    editorPluginID="de.itemis.mobilizer.appmodel.editor">
+  <genPackages prefix="AppModelDsl" basePackage="de.itemis.mobilizer" disposableProviderFactory="true"
+      ecorePackage="AppModelDsl.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="AppModelDsl.ecore#//CellType">
+      <genEnumLiterals ecoreEnumLiteral="AppModelDsl.ecore#//CellType/default"/>
+      <genEnumLiterals ecoreEnumLiteral="AppModelDsl.ecore#//CellType/defaultWithDisclosure"/>
+      <genEnumLiterals ecoreEnumLiteral="AppModelDsl.ecore#//CellType/value2"/>
+      <genEnumLiterals ecoreEnumLiteral="AppModelDsl.ecore#//CellType/double"/>
+      <genEnumLiterals ecoreEnumLiteral="AppModelDsl.ecore#//CellType/subtitle"/>
+    </genEnums>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Model/application"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Model/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Application">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//Application/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Application/buttons"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ModelElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//ModelElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//VariableDeclaration"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//TypeDescription">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//TypeDescription/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//TypeDescription/many"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Parameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Parameter/description"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ObjectReference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ObjectReference/object"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ObjectReference/tail"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Expression"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ScalarExpression"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//CollectionExpression"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//StringLiteral">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//StringFunction"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//CollectionLiteral">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//CollectionLiteral/items"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//CollectionFunction"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//TabbarButton">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//TabbarButton/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//TabbarButton/icon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//TabbarButton/view"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Type"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//SimpleType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//SimpleType/platformType"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Entity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Entity/extends"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Entity/properties"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//Property/derived"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Property/description"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ContentProvider">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ContentProvider/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//ContentProvider/resolver"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ContentProvider/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//ContentProvider/many"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ContentProvider/url"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ContentProvider/selection"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ProviderConstruction"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//View">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//View/content"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//SectionedView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionedView/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionedView/sections"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//TableView"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//DetailsView">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//DetailsView/header"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//CustomView">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//CustomView/objclass"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ViewHeader">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewHeader/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewHeader/subtitle"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewHeader/details"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewHeader/image"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ViewSection">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewSection/title"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewSection/cells"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//SectionCell">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute AppModelDsl.ecore#//SectionCell/type"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionCell/iterator"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionCell/text"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionCell/details"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionCell/image"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SectionCell/action"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//CollectionIterator">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//CollectionIterator/collection"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ViewAction"/>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ExternalOpen">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ExternalOpen/url"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ViewCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewCall/view"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ViewCall/provider"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//StringConcat">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringConcat/values"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//StringReplace">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringReplace/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringReplace/match"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringReplace/replacement"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//StringUrlConform">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringUrlConform/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//StringSplit">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringSplit/value"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//StringSplit/delimiter"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//Constant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//Constant/value"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//ComplexProviderConstruction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ComplexProviderConstruction/provider"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//ComplexProviderConstruction/argument"/>
+    </genClasses>
+    <genClasses ecoreClass="AppModelDsl.ecore#//SimpleProviderConstruction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference AppModelDsl.ecore#//SimpleProviderConstruction/expression"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
