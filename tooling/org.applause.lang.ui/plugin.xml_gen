@@ -2,7 +2,6 @@
 <?eclipse version="3.0"?>
 
 <plugin>
-   <extension-point id="buildstrategy" name="APPlause Build Strategy" schema="schema/buildstrategy.exsd"/>
 
     <extension
             point="org.eclipse.ui.editors">
@@ -12,7 +11,7 @@
             default="true"
             extensions="applause"
             id="org.applause.lang.ApplauseDsl"
-            name="APPlause DSL Editor">
+            name="ApplauseDsl Editor">
         </editor>
     </extension>
     <extension
@@ -53,7 +52,7 @@
         <page
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.preferences.LanguageRootPreferencePage"
             id="org.applause.lang.ApplauseDsl"
-            name="APPlause">
+            name="ApplauseDsl">
             <keywordReference id="org.applause.lang.ui.keyword_ApplauseDsl"/>
         </page>
         <page
@@ -75,7 +74,7 @@
         point="org.eclipse.ui.keywords">
         <keyword
             id="org.applause.lang.ui.keyword_ApplauseDsl"
-            label="APPlause"/>
+            label="ApplauseDsl"/>
     </extension>
     <extension
          point="org.eclipse.ui.commands">
@@ -185,23 +184,13 @@
    <extension
          point="org.eclipse.ui.newWizards">
       <wizard
-            category="org.applause.lang.ui.wizards"
+            category="org.eclipse.xtext.projectwiz"
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
-            icon="icons/iphone.png"
+            icon="icons/editor.gif"
             id="org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
-            name="APPlause Project"
+            name="ApplauseDsl Project"
             project="true">
       </wizard>
-      <category
-            id="org.applause.lang.ui.wizards"
-            name="APPlause">
-      </category>
-   </extension>
-   <extension
-         point="org.eclipse.xtext.builder.participant">
-      <participant
-            class="org.applause.lang.ui.builder.ApplauseBuilderParticipant">
-      </participant>
    </extension>
 
 </plugin>

@@ -1,0 +1,13 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«EXTENSION templates::Extensions»
+
+«DEFINE main FOR Object-»
+«ENDDEFINE»
+
+
+«DEFINE main FOR Application-»
+«EXPAND View::main»
+«EXPAND Provider::main»
+«EXPAND Application::main»
+«ENDDEFINE»

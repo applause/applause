@@ -1,0 +1,189 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«EXTENSION templates::Extensions»
+«EXTENSION templates::MetamodelExtensions»
+
+«DEFINE main FOR Application-»
+«EXPAND view FOREACH model().elements.typeSelect(SectionedView)»
+«ENDDEFINE»
+
+«DEFINE view FOR SectionedView»
+«EXPAND viewHeader»
+«EXPAND viewModule»
+«ENDDEFINE»
+
+«DEFINE viewHeader FOR View»
+«FILE filenameHeader()»
+#import <UIKit/UIKit.h>
+#import "«baseClassFilenameHeader()»"
+
+@interface «className()» : «baseClassName()» {
+
+}
+
+@end
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE viewModule FOR SectionedView»
+«FILE filenameModule()»
+#import "«filenameHeader()»"
+#import "NSObject+iPhonical.h"
+«EXPAND imports» 
+
+@implementation «className()»
+
+«EXPAND sectionCount»
+«EXPAND sectionTitleHeader»
+«EXPAND rowCounts»
+«EXPAND cellDescriptions»
+«EXPAND cellSelections»
+«EXPAND staticData»
+@end
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE imports FOR SectionedView-»
+«FOREACH neededImports() AS i»#import "«i»"
+«ENDFOREACH-»
+«ENDDEFINE»
+
+«DEFINE sectionCount FOR SectionedView»«IF sections.size != 1»
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	if(!contentProvider || !contentProvider.content || contentProvider.loading)
+		return 0;
+	else
+    	return «sections.size»;
+}
+«ENDIF»«ENDDEFINE»
+
+«DEFINE sectionTitleHeader FOR SectionedView»«IF sections.reject(e|e.title == null).size > 0»
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+«FOREACH sections AS s ITERATOR i SEPARATOR  "else" -»
+«IF s.title != null»
+	if(section == «i.counter0») {
+		return «s.title.expression('', '')»;
+	}
+«ENDIF»
+«ENDFOREACH-»
+}
+«ENDIF»«ENDDEFINE»
+
+«DEFINE rowCounts FOR SectionedView»
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+«FOREACH sections AS s ITERATOR i-»
+	if(section == «i.counter0») {
+		return «s.cells.rowCount().toString(" + ")»;
+	} else
+«ENDFOREACH-»
+		return 0;
+}
+«ENDDEFINE»
+
+«DEFINE cellDescriptions FOR View»«ENDDEFINE»
+
+«DEFINE cellDescriptions FOR TableView»
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	«LET firstCell() AS c»
+	id item = [self.items objectAtIndex: indexPath.row];
+	«EXPAND cellContent('item', '') FOR c»	
+	«ENDLET»    
+}
+«ENDDEFINE»
+
+«DEFINE cellConstraint(Integer section, Integer row) FOR SectionCell-»
+«IF iterator==null»indexPath.section == «section» && indexPath.row == «row-»
+«ELSE»indexPath.section == «section»«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE cellDescriptions FOR DetailsView»
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+«FOREACH sections AS s ITERATOR si»
+«FOREACH s.cells AS c ITERATOR ci»
+	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
+	«EXPAND cellContent FOR c»
+	} else
+«ENDFOREACH-»
+«ENDFOREACH-»
+		return nil;
+}
+«ENDDEFINE»
+
+«DEFINE cellContent FOR SectionCell-»
+	«IF iterator!=null»id item = [[«iterator.collection.expression('contentProvider', 'content')» asArray] objectAtIndex: indexPath.row];
+	«EXPAND cellContent('item', '')»«ELSE»
+	«EXPAND cellContent('contentProvider', 'content')»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE cellContent(String kvcTarget, String kvcPrefix) FOR SectionCell»
+    UITableViewCell *cell = [self cell«type()»ForTableView:tableView];
+	«IF text!=null»cell.textLabel.text = «text.expression(kvcTarget, kvcPrefix)»;«ENDIF»
+	«IF details!=null»cell.detailTextLabel.text = «details.expression(kvcTarget, kvcPrefix)»;«ENDIF»
+	«IF image!=null»NSString *imageURL = «image.expression(kvcTarget, kvcPrefix)»;
+	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];«ENDIF»
+	return cell;
+«ENDDEFINE»
+
+«DEFINE cellSelections FOR View»«ENDDEFINE»
+«DEFINE cellSelections FOR TableView»
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	id item = [self.items objectAtIndex: indexPath.row];
+	«EXPAND cellAction('item', '') FOR firstCell().action»
+}
+«ENDDEFINE»
+
+«DEFINE cellAction FOR SectionCell»
+	«IF iterator!=null»id item = [[«iterator.collection.expression('contentProvider', 'content')»asArray] objectAtIndex: indexPath.row];
+	«EXPAND cellAction('item', '') FOR action»«ELSE»
+	«EXPAND cellAction('contentProvider', 'content') FOR action»
+	«ENDIF»
+«ENDDEFINE»
+
+
+«DEFINE cellSelections FOR DetailsView»
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+«FOREACH sections AS s ITERATOR si»
+«FOREACH s.cells AS c ITERATOR ci»
+	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
+	«EXPAND cellAction FOR c»	
+	} else
+«ENDFOREACH-»
+«ENDFOREACH-»
+		return;
+}
+«ENDDEFINE»
+
+«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewAction»«this.metaType»«ENDDEFINE»
+
+«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewCall-»
+		IPContentProvider *provider = «provider.contentProvider('(' + application().centralProvidersClassName() + '*)contentProvider.providers', kvcTarget, kvcPrefix)»;
+		«view.className()» *controller = [[«view.className()» alloc] init];
+		controller.contentProvider = provider;
+		[self.navigationController pushViewController: controller animated: TRUE];
+		[controller release];
+«ENDDEFINE»
+
+«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ExternalOpen-»
+		NSString *urlString = «url.expression(kvcTarget, kvcPrefix)»;
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+«ENDDEFINE»
+
+«DEFINE staticData FOR SectionedView-»
+-(void)updateData {
+	«IF title!=null»self.navigationItem.title = «title.expression('contentProvider', 'content')»;«ENDIF»
+	«EXPAND staticData2»
+	[super updateData];
+}
+«ENDDEFINE»
+
+«DEFINE staticData2 FOR View»«ENDDEFINE»
+«DEFINE staticData2 FOR DetailsView»
+	if(contentProvider && contentProvider.content && !contentProvider.loading) {
+		«IF header!=null && header.title!=null»self.headerView.titleLabel.text = «header.title.expression('contentProvider', 'content')»;«ENDIF»
+		«IF header!=null && header.subtitle!=null»self.headerView.subtitleLabel.text = «header.subtitle.expression('contentProvider', 'content')»;«ENDIF»
+		«IF header!=null && header.details!=null»self.headerView.detailsLabel.text = «header.details.expression('contentProvider', 'content')»;«ENDIF»
+		«IF header!=null && header.image!=null»NSString *imageURL = «header.image.expression('contentProvider', 'content')»;
+		self.headerView.image.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];«ENDIF»
+	}	
+«ENDDEFINE»
