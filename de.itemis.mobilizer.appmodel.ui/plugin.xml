@@ -225,7 +225,7 @@
             class="de.itemis.mobilizer.ui.AppModelDslExecutableExtensionFactory:de.itemis.mobilizer.ui.wizard.AppModelDslNewProjectWizard"
             icon="icons/iphone.png"
             id="de.itemis.mobilizer.ui.wizard.AppModelDslNewProjectWizard"
-            name="AppModelDsl Project"
+            name="APPlause Project"
             project="true">
       </wizard>
       <category

@@ -13,7 +13,7 @@ public class AppModelDslNewProjectWizard extends XtextNewProjectWizard {
 	@Inject
 	public AppModelDslNewProjectWizard(IProjectCreator projectCreator) {
 		super(projectCreator);
-		setWindowTitle("New AppModelDsl Project");
+		setWindowTitle("New APPlause Project");
 	}
 
 	/**
@@ -22,8 +22,8 @@ public class AppModelDslNewProjectWizard extends XtextNewProjectWizard {
 	 */
 	public void addPages() {
 		mainPage = new WizardNewProjectCreationPage("basicNewProjectPage");
-		mainPage.setTitle("AppModelDsl Project");
-		mainPage.setDescription("Create a new AppModelDsl project.");
+		mainPage.setTitle("APPlause Project");
+		mainPage.setDescription("Create a new APPlause project.");
 		addPage(mainPage);
 	}
 
