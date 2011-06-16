@@ -1,0 +1,29 @@
+«IMPORT de::itemis::mobilizer::appModelDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::gae::Extensions»
+«EXTENSION templates::gae::CodeExtensions»
+
+«DEFINE main FOR Application-»
+«FILE "providers.py"»
+from lib.simplexml import parse
+from urllib import urlopen, quote
+
+def plainxml(url):
+    return parse( urlopen(url) )
+
+«EXPAND provider FOREACH uniqueViewCalls()»
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE provider FOR ViewCall»
+def «this.defProviderName()»(«this.defProviderParam()»):«"" -»
+«EXPAND providerImplementation FOR this.provider.contentProvider()»
+«ENDDEFINE»
+
+«DEFINE providerImplementation FOR ContentProvider»
+    url = «url.expression(true)» #foo
+    xml = plainxml(url)
+    return xml.«(((StringLiteral)selection).value.split('\\.').withoutFirst()).toString('.')»
+«ENDDEFINE»
+

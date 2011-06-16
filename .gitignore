@@ -10,3 +10,5 @@
 *.pyc
 /itemisApp.wp7/obj/
 peterfriese.perspectivev3
+bin
+.DS_Store
