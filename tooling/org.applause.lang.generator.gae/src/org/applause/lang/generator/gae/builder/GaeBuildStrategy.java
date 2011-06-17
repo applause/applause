@@ -1,4 +1,4 @@
-package org.applause.lang.generator.iphone.builder;
+package org.applause.lang.generator.gae.builder;
 
 import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;

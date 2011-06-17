@@ -18,3 +18,4 @@ Import-Package: org.apache.log4j,
  org.applause.lang.ui.builder,
  org.eclipse.xtext.builder
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: templates
