@@ -1,6 +1,8 @@
 
 #import "BlogListViewController.h"
 #import "NSObject+iPhonical.h"
+#import "IPContentProvider.h"
+#import "BlogDetailsViewController.h"
  
 
 @implementation BlogListViewController
@@ -32,8 +34,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	id item = [self.items objectAtIndex: indexPath.row];
-		NSString *urlString = [item valueForKeyPath:@"link"];
-		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
+		BlogDetailsViewController *controller = [[BlogDetailsViewController alloc] init];
+		controller.contentProvider = provider;
+		[self.navigationController pushViewController: controller animated: TRUE];
+		[controller release];
 
 }
 
