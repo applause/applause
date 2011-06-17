@@ -4,7 +4,7 @@
    <extension
          point="org.applause.lang.ui.buildstrategy">
       <buildstrategy
-            class="org.applause.lang.generator.iphone.builder.GaeBuildStrategy">
+            class="org.applause.lang.generator.gae.builder.GaeBuildStrategy">
       </buildstrategy>
    </extension>
 

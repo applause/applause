@@ -7,12 +7,13 @@
     <extension
             point="org.eclipse.ui.editors">
         <editor
-            class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
-            contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
-            default="true"
-            extensions="applause"
-            id="org.applause.lang.ApplauseDsl"
-            name="APPlause DSL Editor">
+              class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor"
+              contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor"
+              default="true"
+              extensions="applause"
+              icon="icons/applause.png"
+              id="org.applause.lang.ApplauseDsl"
+              name="APPlause DSL Editor">
         </editor>
     </extension>
     <extension
@@ -187,7 +188,7 @@
       <wizard
             category="org.applause.lang.ui.wizards"
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
-            icon="icons/iphone.png"
+            icon="icons/applause.png"
             id="org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
             name="APPlause Project"
             project="true">

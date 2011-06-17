@@ -8,6 +8,7 @@ import org.applause.lang.applauseDsl.Application;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -32,6 +33,8 @@ import com.google.common.collect.Iterables;
 
 public abstract class AbstractBuildStrategy {
 	
+	private IProject platformProject;
+	
 	private IBuildContext context;
 
 	protected IBuildContext getContext() {
@@ -42,13 +45,23 @@ public abstract class AbstractBuildStrategy {
 		this.context = context;
 	}
 	
+	public IProject getPlatformProject() {
+		return platformProject;
+	}
+	
+	public void setPlatformProject(IProject platformProject) {
+		this.platformProject = platformProject;
+	}
+	
 	protected boolean canBuildProject() {
 		return true;
 	}
 
 	public void build(IProgressMonitor monitor) throws CoreException {
 		if (canBuildProject()) {
-			final IFolder folder = context.getBuiltProject().getFolder(getGeneratedSourcesFolderName());
+			final IFolder folder = getPlatformProject().getFolder(getGeneratedSourcesFolderName());
+			
+			// FIXME: maybe we should just create the folder if it's missing?!
 			if (!folder.exists())
 				return;
 	
@@ -63,11 +76,11 @@ public abstract class AbstractBuildStrategy {
 				}
 			}
 	
-			
 			Iterable<Application> applicationObjects = Iterables.filter(objects, Application.class);
 			
-			if(!Iterables.isEmpty(applicationObjects))
+			if(!Iterables.isEmpty(applicationObjects)) {
 				deletePreviouslyGeneratedFiles(monitor, folder);
+			}
 	
 			for (Application app : applicationObjects) {
 				OutputImpl output = new OutputImpl();
@@ -87,8 +100,7 @@ public abstract class AbstractBuildStrategy {
 		}
 	}
 
-	protected void deletePreviouslyGeneratedFiles(IProgressMonitor monitor,
-			final IFolder folder) throws CoreException {
+	protected void deletePreviouslyGeneratedFiles(IProgressMonitor monitor, final IFolder folder) throws CoreException {
 		for (IResource res : folder.members()) {
 			if (res instanceof IFile) {
 				IFile file = (IFile) res;
@@ -111,7 +123,7 @@ public abstract class AbstractBuildStrategy {
 	protected abstract String getGeneratedSourcesFolderName();
 	
 	public void generate(Application app, Output output) {
-		System.out.println("Invoking the generator for project " + context.getBuiltProject().getName() + ". We're " + this.getClass().getName());
+		System.out.println("Generating code for platform project " + getPlatformProject().getName() + " from model in model project " + context.getBuiltProject());
 		XpandExecutionContextImpl ctx = new XpandExecutionContextImpl(output, null, Collections.<String, Variable>emptyMap(), null, null);
 		
 		ctx.registerMetaModel(new JavaBeansMetaModel());

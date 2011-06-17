@@ -19,8 +19,8 @@ public class AndroidBuildStrategy extends AbstractBuildStrategy {
 	
 	@Override
 	protected boolean canBuildProject() {
-		IFile androidManifest = getContext().getBuiltProject().getFile("AndroidManifest.xml");
-		System.out.println(getContext().getBuiltProject() + " is an Android project: " + androidManifest.exists());
+		IFile androidManifest = getPlatformProject().getFile("AndroidManifest.xml");
+		System.out.println(getPlatformProject() + " is an Android project: " + androidManifest.exists());
 		return androidManifest.exists();
 	}
 

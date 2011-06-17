@@ -3,6 +3,7 @@
 	<name>itemisApp.wp7</name>
 	<comment></comment>
 	<projects>
+		<project>itemisApp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

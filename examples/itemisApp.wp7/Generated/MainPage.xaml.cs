@@ -20,10 +20,9 @@ namespace ItemisApp
 		{
 			InitializeComponent();
 			NewsBlogListListBox.DataContext = App.RootViewModelProvider.BlogpostsModelProvider();
-			MondaySessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-21");
-			TuesdaySessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-22");
-			WednesdaySessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-23");
-			ThursdaySessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-24");
+			TueSessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-22");
+			WedSessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-23");
+			ThuSessionListListBox.DataContext = App.RootViewModelProvider.SessionsByDayModelProvider("2011-03-24");
 			SpeakersSpeakersListListBox.DataContext = App.RootViewModelProvider.AllSpeakersModelProvider();
 			this.Loaded += new RoutedEventHandler(MainPage_Loaded);
 		}
@@ -45,35 +44,27 @@ namespace ItemisApp
 						
 		}
 
-		private void MondaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void TueSessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (MondaySessionListListBox.SelectedIndex == -1)
+			if (TueSessionListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + MondaySessionListListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + TueSessionListListBox.SelectedIndex, UriKind.Relative));
 						
 		}
 
-		private void TuesdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void WedSessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (TuesdaySessionListListBox.SelectedIndex == -1)
+			if (WedSessionListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + TuesdaySessionListListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + WedSessionListListBox.SelectedIndex, UriKind.Relative));
 						
 		}
 
-		private void WednesdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+		private void ThuSessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
 		{
-			if (WednesdaySessionListListBox.SelectedIndex == -1)
+			if (ThuSessionListListBox.SelectedIndex == -1)
 				return;
-			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + WednesdaySessionListListBox.SelectedIndex, UriKind.Relative));
-						
-		}
-
-		private void ThursdaySessionList_SelectionChanged(object sender, SelectionChangedEventArgs e)
-		{
-			if (ThursdaySessionListListBox.SelectedIndex == -1)
-				return;
-			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + ThursdaySessionListListBox.SelectedIndex, UriKind.Relative));
+			NavigationService.Navigate(new Uri("/Generated/SessionDetailsDetailsView.xaml?itemByIndex=" + ThuSessionListListBox.SelectedIndex, UriKind.Relative));
 						
 		}
 

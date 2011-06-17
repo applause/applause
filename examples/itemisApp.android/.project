@@ -3,6 +3,7 @@
 	<name>itemisApp.android</name>
 	<comment></comment>
 	<projects>
+		<project>itemisApp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
