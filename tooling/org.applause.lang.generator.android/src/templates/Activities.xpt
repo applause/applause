@@ -1,0 +1,11 @@
+«IMPORT org::applause::lang::applauseDsl»
+«IMPORT java::lang»
+
+«EXTENSION templates::GeneratorExtensions»
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::ProviderExtension»
+
+«DEFINE main FOR Application-»
+«EXPAND ListActivities::main FOREACH this.sectionedViews()»
+«ENDDEFINE»
+

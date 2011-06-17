@@ -1,10 +1,11 @@
-package org.applause.lang.ui.builder;
+package org.applause.lang.generator.iphone.builder;
 
+import org.applause.lang.ui.builder.AbstractBuildStrategy;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.xpand2.output.Outlet;
-import org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext;
 
 public class GaeBuildStrategy extends AbstractBuildStrategy {
 
@@ -15,7 +16,14 @@ public class GaeBuildStrategy extends AbstractBuildStrategy {
 
 	@Override
 	protected String getMainTemplateName() {
-		return "templates::gae::Main::main";
+		return "templates::Main::main";
+	}
+	
+	@Override
+	protected boolean canBuildProject() {
+		IFile gaeYaml = getContext().getBuiltProject().getFile("src/app.yaml");
+		System.out.println(getContext().getBuiltProject() + " is a GAE project: " + gaeYaml.exists());		
+		return gaeYaml.exists();
 	}
 
 	@Override

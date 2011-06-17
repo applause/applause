@@ -4,7 +4,7 @@ import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.xpand2.output.Outlet;
 
-public class IPhoneBuildStrategy extends AbstractBuildStrategy {
+public class WP7BuildStrategy extends AbstractBuildStrategy {
 
 	@Override
 	protected String getGeneratedSourcesFolderName() {
@@ -18,12 +18,10 @@ public class IPhoneBuildStrategy extends AbstractBuildStrategy {
 	
 	@Override
 	protected boolean canBuildProject() {
-		IFile mainFile = getContext().getBuiltProject().getFile("main.m");
-		IFile precompiledHeaderFile = getContext().getBuiltProject().getFile(".*\\.pch");
-		boolean result = mainFile.exists() || precompiledHeaderFile.exists();
-		System.out.println(getContext().getBuiltProject() + " is an iPhone project: " + result);
-		return result;
-	
+		IFile wp7Solution = findFile(getContext().getBuiltProject(), ".*\\.csproj");
+		boolean isWP7 = (wp7Solution != null && wp7Solution.exists());
+		System.out.println(getContext().getBuiltProject() + " is a WP7  project: " + isWP7);		
+		return isWP7;
 	}
 
 	@Override

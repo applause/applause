@@ -1,0 +1,9 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«DEFINE main FOR Application»
+«EXPAND Provider::main FOR this»
+«EXPAND Entity::main FOR this»
+«EXPAND ApplicationActivity::main FOR this»
+«EXPAND Activities::main FOR this»
+«EXPAND Manifest::main FOR this»
+«ENDDEFINE»

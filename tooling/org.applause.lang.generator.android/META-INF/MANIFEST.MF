@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: APPlause Generator Fragment for iPhone
+Bundle-Name: APPlause Generator Fragment for Android
 Bundle-Vendor: The APPlause Team
 Bundle-Version: 1.0.0
-Bundle-SymbolicName: org.applause.lang.generator.iphone;singleton:=true
+Bundle-SymbolicName: org.applause.lang.generator.android;singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.applause.lang;visibility:=reexport,
  org.eclipse.xpand;visibility:=reexport,
@@ -18,4 +18,4 @@ Import-Package: org.apache.log4j,
  org.applause.lang.ui.builder,
  org.eclipse.xtext.builder
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.applause.lang.generator.iphone.builder
+Export-Package: org.applause.lang.generator.android.builder

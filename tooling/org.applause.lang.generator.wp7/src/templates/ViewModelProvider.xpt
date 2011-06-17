@@ -1,0 +1,118 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::GeneratorExtensions»
+
+«DEFINE main FOR Application-»
+«EXPAND provider FOREACH this.providersWithImplementation()»
+«ENDDEFINE»
+
+«DEFINE provider FOR ContentProvider»
+«FILE this.viewModelProviderFileName()-»
+using System;
+using System.ComponentModel;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using System.Net;
+using System.Linq;
+using System.Xml.Linq;
+
+namespace «namespace()»
+{
+	public class «viewModelProviderClassName()»
+	{
+		«IF (parameter != null)»
+		private «parameter.typeName()» «parameter.name»;
+
+		public «viewModelProviderClassName()»(«this.parameter.typeName()» «this.parameter.name»)
+		{
+			this.«this.parameter.name» = «this.parameter.name»;
+			this.«viewModelCollectionName()» = new ObservableCollection<«viewModelClassName()»>();
+		}
+		«ELSE»
+		public «viewModelProviderClassName()»()
+		{
+			this.«viewModelCollectionName()» = new ObservableCollection<«viewModelClassName()»>();
+		}
+		«ENDIF»		
+		
+		public ObservableCollection<«viewModelClassName()»> «viewModelCollectionName()» { get; private set; }
+		
+		public bool IsDataLoaded
+		{
+			get;
+			private set;
+		}
+		
+		public void LoadData()
+		{
+			WebClient client = new WebClient();
+			client.DownloadStringAsync(new Uri(«this.url.expression()»));
+			client.DownloadStringCompleted += new DownloadStringCompletedEventHandler(client_DownloadStringCompleted);			
+		}
+		
+		void client_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+		{
+			if (e.Error == null)
+			{
+				ParseDataFromXml(e.Result);
+				this.IsDataLoaded = true;
+			}
+		}
+		
+		void ParseDataFromXml(String source)
+		{
+			this.«viewModelClassName()»s.Clear();
+
+			XDocument xdoc = XDocument.Parse(source);
+			XNamespace dc ="http://purl.org/dc/elements/1.1/";
+			List<«viewModelClassName()»> result =
+				«EXPAND fromBlock(2, 0, ((StringLiteral)this.selection).value.split("\\.").last()) FOR this.type-»
+			result.ForEach(this.«viewModelCollectionName()».Add);
+		}
+	}
+}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Type»
+«ENDDEFINE»
+«DEFINE fromBlock(int recursion, int indent, String nodeName) FOR Entity-»
+«IF recursion > 0-»
+				«d(indent)»(
+				«d(indent)»	from «viewModelClassName().toFirstLower()» in xdoc.Descendants("«nodeName»")
+				«d(indent)»	select new «viewModelClassName()»
+				«d(indent)»	{
+				«d(indent)»		«EXPAND propertyMappings(recursion, indent + 1) FOR this-»
+				«d(indent)»	}
+				«d(indent)»).ToList<«viewModelClassName()»>()«IF indent > 0»,«ELSE»;«ENDIF»
+«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE propertyMappings(int recursion, int indent) FOR Type»
+«ENDDEFINE»
+
+«DEFINE propertyMappings(int recursion, int indent) FOR Entity-»
+«EXPAND propertyMapping(recursion, indent) FOREACH this.properties-»
+«ENDDEFINE»
+
+«DEFINE propertyMapping(int recursion, int indent) FOR Property-»
+«IF this.typeDescription().many-»
+«IF recursion > 1-»
+						«this.propertyName()» = 
+						«EXPAND fromBlock(recursion - 1, indent, this.name.toFirstLower()) FOR this.typeDescription().type»
+«ENDIF-»					
+«ELSE-»
+						«d(indent - 1)»«this.propertyName()» = («viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»") != null) ? «viewModelClassName().toFirstLower()».Element(«this.namespaceSpecialCaseHandling()»"«this.name»").Value : "",
+«ENDIF-»
+«ENDDEFINE»

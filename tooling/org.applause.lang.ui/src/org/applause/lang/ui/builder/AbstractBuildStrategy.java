@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.List;
 
 import org.applause.lang.applauseDsl.Application;
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
@@ -40,43 +41,49 @@ public abstract class AbstractBuildStrategy {
 	public void setContext(IBuildContext context) {
 		this.context = context;
 	}
+	
+	protected boolean canBuildProject() {
+		return true;
+	}
 
 	public void build(IProgressMonitor monitor) throws CoreException {
-		final IFolder folder = context.getBuiltProject().getFolder(getGeneratedSourcesFolderName());
-		if (!folder.exists())
-			return;
-
-		List<EObject> objects = new ArrayList<EObject>();
-		for (Delta d : context.getDeltas()) {
-			if (d.getNew() != null) {
-				for (IEObjectDescription desc : d.getNew().getExportedObjects()) {
-					EObject obj = context.getResourceSet().getEObject(desc.getEObjectURI(), true);
-					EcoreUtil2.resolveAll(context.getResourceSet());
-					objects.add(obj);
+		if (canBuildProject()) {
+			final IFolder folder = context.getBuiltProject().getFolder(getGeneratedSourcesFolderName());
+			if (!folder.exists())
+				return;
+	
+			List<EObject> objects = new ArrayList<EObject>();
+			for (Delta d : context.getDeltas()) {
+				if (d.getNew() != null) {
+					for (IEObjectDescription desc : d.getNew().getExportedObjects()) {
+						EObject obj = context.getResourceSet().getEObject(desc.getEObjectURI(), true);
+						EcoreUtil2.resolveAll(context.getResourceSet());
+						objects.add(obj);
+					}
 				}
 			}
-		}
-
-		
-		Iterable<Application> applicationObjects = Iterables.filter(objects, Application.class);
-		
-		if(!Iterables.isEmpty(applicationObjects))
-			deletePreviouslyGeneratedFiles(monitor, folder);
-
-		for (Application app : applicationObjects) {
-			OutputImpl output = new OutputImpl();
-			Outlet outlet = new Outlet() {
-				@Override
-				public FileHandle createFileHandle(String qualifiedName) throws VetoException {
-					return AbstractBuildStrategy.this.createFileHandle(folder, this, qualifiedName);
-				}
-
-			};
-			configureOutlet(outlet);
-			output.addOutlet(outlet);
+	
 			
-			generate(app, output);
-			return;
+			Iterable<Application> applicationObjects = Iterables.filter(objects, Application.class);
+			
+			if(!Iterables.isEmpty(applicationObjects))
+				deletePreviouslyGeneratedFiles(monitor, folder);
+	
+			for (Application app : applicationObjects) {
+				OutputImpl output = new OutputImpl();
+				Outlet outlet = new Outlet() {
+					@Override
+					public FileHandle createFileHandle(String qualifiedName) throws VetoException {
+						return AbstractBuildStrategy.this.createFileHandle(folder, this, qualifiedName);
+					}
+	
+				};
+				configureOutlet(outlet);
+				output.addOutlet(outlet);
+				
+				generate(app, output);
+				return;
+			}
 		}
 	}
 
@@ -104,6 +111,7 @@ public abstract class AbstractBuildStrategy {
 	protected abstract String getGeneratedSourcesFolderName();
 	
 	public void generate(Application app, Output output) {
+		System.out.println("Invoking the generator for project " + context.getBuiltProject().getName() + ". We're " + this.getClass().getName());
 		XpandExecutionContextImpl ctx = new XpandExecutionContextImpl(output, null, Collections.<String, Variable>emptyMap(), null, null);
 		
 		ctx.registerMetaModel(new JavaBeansMetaModel());
@@ -115,6 +123,23 @@ public abstract class AbstractBuildStrategy {
 	}
 	
 	protected abstract String getMainTemplateName();
+
+	protected IFile findFile(IContainer container, String fileName) {
+		IResource[] members;
+		try {
+			members = container.members();
+			for (IResource resource : members) {
+				if (resource.getType() == IResource.FILE) {
+					if (resource.getName().matches(fileName)) {
+						return (IFile) resource.getAdapter(IFile.class);
+					}
+				}
+			}			
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 	
 
 }
