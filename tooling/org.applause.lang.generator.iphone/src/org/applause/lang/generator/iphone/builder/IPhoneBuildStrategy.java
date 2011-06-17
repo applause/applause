@@ -18,10 +18,10 @@ public class IPhoneBuildStrategy extends AbstractBuildStrategy {
 	
 	@Override
 	protected boolean canBuildProject() {
-		IFile mainFile = getContext().getBuiltProject().getFile("main.m");
-		IFile precompiledHeaderFile = getContext().getBuiltProject().getFile(".*\\.pch");
+		IFile mainFile = getPlatformProject().getFile("main.m");
+		IFile precompiledHeaderFile = getPlatformProject().getFile(".*\\.pch");
 		boolean result = mainFile.exists() || precompiledHeaderFile.exists();
-		System.out.println(getContext().getBuiltProject() + " is an iPhone project: " + result);
+		System.out.println(getPlatformProject() + " is an iPhone project: " + result);
 		return result;
 	
 	}

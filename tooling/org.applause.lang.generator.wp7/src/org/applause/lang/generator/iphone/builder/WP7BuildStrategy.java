@@ -18,9 +18,9 @@ public class WP7BuildStrategy extends AbstractBuildStrategy {
 	
 	@Override
 	protected boolean canBuildProject() {
-		IFile wp7Solution = findFile(getContext().getBuiltProject(), ".*\\.csproj");
+		IFile wp7Solution = findFile(getPlatformProject(), ".*\\.csproj");
 		boolean isWP7 = (wp7Solution != null && wp7Solution.exists());
-		System.out.println(getContext().getBuiltProject() + " is a WP7  project: " + isWP7);		
+		System.out.println(getPlatformProject() + " is a WP7  project: " + isWP7);		
 		return isWP7;
 	}
 

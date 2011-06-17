@@ -21,8 +21,8 @@ public class GaeBuildStrategy extends AbstractBuildStrategy {
 	
 	@Override
 	protected boolean canBuildProject() {
-		IFile gaeYaml = getContext().getBuiltProject().getFile("src/app.yaml");
-		System.out.println(getContext().getBuiltProject() + " is a GAE project: " + gaeYaml.exists());		
+		IFile gaeYaml = getPlatformProject().getFile("src/app.yaml");
+		System.out.println(getPlatformProject() + " is a GAE project: " + gaeYaml.exists());		
 		return gaeYaml.exists();
 	}
 
