@@ -4,7 +4,7 @@
    <extension
          point="org.applause.lang.ui.buildstrategy">
       <buildstrategy
-            class="org.applause.lang.generator.iphone.builder.WP7BuildStrategy">
+            class="org.applause.lang.generator.wp7.builder.WP7BuildStrategy">
       </buildstrategy>
    </extension>
 
