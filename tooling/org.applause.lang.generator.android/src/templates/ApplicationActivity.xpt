@@ -1,0 +1,41 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«EXTENSION templates::GeneratorExtensions»
+«EXTENSION templates::ProviderExtension»
+
+«DEFINE main FOR Application»
+«FILE applicationActivityFileName()»
+package «packageName()»;
+
+import android.app.TabActivity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.TabHost;
+import android.widget.TabHost.TabSpec;
+
+public class ApplicationActivity extends TabActivity {
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        final TabHost tabHost = getTabHost();
+        «FOREACH this.buttons AS tab ITERATOR iter»
+        	«LET "tab" + iter.counter1 AS tabName»
+		        TabSpec «tabName» = tabHost.newTabSpec("«tabName»");
+		        // , getResources().getDrawable(R.drawable.microphone)
+	    	    «tabName».setIndicator(«tab.title.expression("")»«tab.icon==null?"":", " + tab.icon.asDrawable()»);
+	    	    
+	        	Intent «tabName»Intent = new Intent(this, «tab.view.view.name».class);
+	        	«tab.view.provider.providerClassName()» «tabName»IntentProvider = «contentProvider(tab.view.provider, "")»; 
+	        	«tabName»Intent.putExtra("provider", «tabName»IntentProvider);
+				«tabName».setContent(«tabName»Intent);
+				
+				tabHost.addTab(«tabName»);
+        	«ENDLET»
+        «ENDFOREACH»
+    }
+
+}
+«ENDFILE»
+«ENDDEFINE»

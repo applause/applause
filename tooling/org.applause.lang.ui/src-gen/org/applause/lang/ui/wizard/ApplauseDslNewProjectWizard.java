@@ -13,7 +13,7 @@ public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 	@Inject
 	public ApplauseDslNewProjectWizard(IProjectCreator projectCreator) {
 		super(projectCreator);
-		setWindowTitle("New APPlause Project");
+		setWindowTitle("New ApplauseDsl Project");
 	}
 
 	/**
@@ -22,8 +22,8 @@ public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 	 */
 	public void addPages() {
 		mainPage = new WizardNewProjectCreationPage("basicNewProjectPage");
-		mainPage.setTitle("APPlause Project");
-		mainPage.setDescription("Create a new APPlause project.");
+		mainPage.setTitle("ApplauseDsl Project");
+		mainPage.setDescription("Create a new ApplauseDsl project.");
 		addPage(mainPage);
 	}
 

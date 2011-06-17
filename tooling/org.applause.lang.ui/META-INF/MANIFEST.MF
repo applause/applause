@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.applause.lang.ui
+Bundle-Name: APPlause Language UI Plug-in
 Bundle-Vendor: The APPlause Team
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: org.applause.lang.ui; singleton:=true
@@ -19,5 +19,6 @@ Require-Bundle: org.applause.lang;visibility:=reexport,
  org.eclipse.xpand
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.applause.lang.ui.contentassist.antlr
+Export-Package: org.applause.lang.ui.builder,
+ org.applause.lang.ui.contentassist.antlr
 Bundle-Activator: org.applause.lang.ui.internal.ApplauseDslActivator

@@ -1,0 +1,47 @@
+import org::eclipse::emf::ecore;
+import org::applause::lang::applauseDsl;
+
+extension templates::MetamodelExtensions;
+extension templates::Extensions;
+
+String expression(Expression this, Boolean resolved):
+	"!expression-" + this.metaType;
+	
+String expression(ScalarExpression this, Boolean resolved):
+	"!expression-" + this.metaType;
+
+expression(StringLiteral this, Boolean resolved):
+	"'" + value + "'";
+	
+expression(StringUrlConform this, Boolean resolved):
+	'quote(' + this.value.expression(resolved) + ')';
+	
+expression(StringConcat this, Boolean resolved):
+	"'" + values.collect(e|"%s").toString("") + "' % ("
+		+ values.expression(resolved).toString(", ") + ")";
+		
+String expression(VariableDeclaration this, Boolean resolved):
+	"!expression-" + this.metaType;
+	
+String expression(Constant this, Boolean resolved):
+	expression(value, resolved);
+	
+String expression(ObjectReference this, Boolean resolved):
+	Constant.isInstance(object)
+		? object.expression(resolved)
+		: ( let l = resolved ? {toList().last()} : toList() :
+			l.toString(".")
+		);
+		
+parameterValue(ProviderConstruction this): "!callParameter-" + metaType;
+
+parameterValue(SimpleProviderConstruction this): 
+	this.expression.expression(false);
+	
+parameterValue(ComplexProviderConstruction this):
+	this.argument.expression(false); 
+	
+parameterKeysAndValues(ViewCall this):
+	view.content == null || provider.contentProvider().parameter == null
+		? ""
+		: "'" + defViewParam() + "': " + provider.parameterValue();

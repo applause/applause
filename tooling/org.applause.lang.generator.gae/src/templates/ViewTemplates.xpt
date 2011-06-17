@@ -1,0 +1,62 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::Extensions»
+«EXTENSION templates::TemplateExtensions»
+
+«DEFINE main FOR Application»
+	«EXPAND viewTemplate FOREACH model().elements.typeSelect(View)»
+«ENDDEFINE»
+
+«DEFINE viewTemplate FOR View»«ENDDEFINE»
+
+«DEFINE viewTemplate FOR SectionedView»
+«FILE "templates/"+viewTemplateFilename()-»
+{% extends "generated/application.html" %}
+{% block title%}«title.expression("data")»{% endblock %}
+{% block content_class %}«viewCssClasses()»{% endblock %}
+{% block content %}
+«EXPAND content»
+{% endblock %}
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE content FOR SectionedView»«ENDDEFINE»
+
+«DEFINE content FOR DetailsView»
+«IF header!=null»
+<div class="header">
+  «IF header.title!=null»<div class="header_title">«header.title.expression("data")»</div>«ENDIF»
+  «IF header.subtitle!=null»<div class="header_subtitle">«header.subtitle.expression("data")»</div>«ENDIF»
+  «IF header.details!=null»<div class="header_details">«header.details.expression("data")»</div>«ENDIF»
+</div>
+«ENDIF»
+«FOREACH sections AS section»
+<div class="table group">
+<ul>
+«EXPAND cell FOREACH section.cells»
+</ul>
+«ENDFOREACH»
+</div>
+«ENDDEFINE»
+
+«DEFINE cell FOR SectionCell-»
+«tplCellForLoop()-»
+<li>
+  «IF action!=null»«action.tplPrepareUrl(cellContextVar(), "url")»
+  <a href="«action.tplUrl("url")»">
+  «IF text!=null»<div class="cell_text">«text.expression(cellContextVar())»</div>«ENDIF»
+  «IF details!=null»<div class="cell_details">«details.expression(cellContextVar())»</div>«ENDIF»
+  </a>
+  «ELSE»<a>«text.expression(cellContextVar())»</a>«ENDIF»
+</li>
+«IF iterator!=null»{% endfor %}«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE content FOR TableView»
+«FOREACH sections AS section-» 
+<ul>
+«EXPAND cell FOREACH section.cells»
+</ul>
+«ENDFOREACH»
+«ENDDEFINE»

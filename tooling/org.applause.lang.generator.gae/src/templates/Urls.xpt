@@ -1,0 +1,22 @@
+«IMPORT org::applause::lang::applauseDsl»
+
+«EXTENSION templates::MetamodelExtensions»
+«EXTENSION templates::Extensions»
+«EXTENSION templates::CodeExtensions»
+
+«DEFINE main FOR Application-»
+«FILE "urls.py"»
+from django.conf.urls.defaults import patterns
+
+urlpatterns = patterns('',
+	«LET buttons.first() AS b»
+    (r'^$', 'views.«b.view.defViewName()»', {«b.view.parameterKeysAndValues()»}),
+    «ENDLET»
+	«EXPAND pattern FOREACH uniqueViewCalls()»
+)
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE pattern FOR ViewCall»
+    (r'«urlPattern()»', 'views.«this.defViewName()»'),
+«ENDDEFINE»

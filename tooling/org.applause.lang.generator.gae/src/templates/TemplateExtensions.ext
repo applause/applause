@@ -1,0 +1,80 @@
+import org::eclipse::emf::ecore;
+import org::applause::lang::applauseDsl;
+
+extension templates::MetamodelExtensions;
+extension templates::Extensions; 
+
+viewCssClasses(View this):
+	"";
+	
+viewCssClasses(TableView this):
+	"table list";
+		
+viewCssClasses(DetailsView this):
+	"details";
+	
+tplCellForLoop(SectionCell this):
+	iterator == null 
+		? ""
+		: "{% for " + iterator.name + " in " + iterator.collection._expression("data") + "|to_list %}\n";
+
+String _expression(CollectionExpression this, String target):
+	"!_expression-" + this.metaType;
+	
+String _expression(Expression this, String target):
+	"!_expression-" + this.metaType;
+
+String _expression(StringLiteral this, String target):
+	"'" + value + "'";
+
+String _expression(ObjectReference this, String target):
+	{target}.addAll(toList().withoutFirst()).toString(".");
+
+String expression(ScalarExpression this, String target):
+	"!expression-" + this.metaType;
+	
+expression(StringLiteral this, String target):
+	value;
+	
+expression(StringConcat this, String target):
+	values.expression(target).toString("");
+		
+String expression(VariableDeclaration this, String target):
+	"!expression-" + this.metaType;
+	
+String expression(Constant this, String target):
+	expression(value, target);		
+	
+String expression(ObjectReference this, String target):
+	Constant.isInstance(object)
+		? expression(object, target)
+		: "{{" + _expression(target) + "|safe}}";
+		
+tplPrepareUrl(ViewAction this, String target, String var):
+	"";
+	
+private String urlConform(String value):
+	value + "|urlencode";	
+	
+parameterValues(ProviderConstruction this, String target): "";
+
+parameterValues(ComplexProviderConstruction this, String target):
+	argument==null?"":argument._expression(target).urlConform();
+	
+parameterValues(SimpleProviderConstruction this, String target):
+	resolver().resolversReference()._expression(target).urlConform();	
+	
+tplPrepareUrl(ViewCall this, String target, String var):	
+	"{% url views." + defViewName() + " " + provider.parameterValues(target) + " as " + var + " %}";
+	
+tplUrl(ViewAction this, String var):
+	"";
+	
+tplUrl(ViewCall this, String var):
+	"{{ " + var + " }}";
+	
+tplUrl(ExternalOpen this, String var):
+	this.url.expression(var);
+	
+cellContextVar(SectionCell this):
+	iterator == null ? "data" : iterator.name; 	
