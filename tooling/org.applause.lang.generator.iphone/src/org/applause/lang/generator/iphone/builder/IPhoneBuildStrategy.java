@@ -31,4 +31,9 @@ public class IPhoneBuildStrategy extends AbstractBuildStrategy {
 		// do nothing
 	}
 
+	@Override
+	public String getName() {
+		return "iPhone";
+	}
+
 }

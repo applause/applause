@@ -7,5 +7,11 @@
             class="org.applause.lang.generator.gae.builder.GaeBuildStrategy">
       </buildstrategy>
    </extension>
+   <extension
+         point="org.applause.lang.ui.mobileplatform">
+      <mobileplatform
+            name="Mobile Web (using Google AppEngine)">
+      </mobileplatform>
+   </extension>
 
 </plugin>

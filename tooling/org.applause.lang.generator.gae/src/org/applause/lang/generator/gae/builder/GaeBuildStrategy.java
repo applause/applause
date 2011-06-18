@@ -38,4 +38,9 @@ public class GaeBuildStrategy extends AbstractBuildStrategy {
 		super.deletePreviouslyGeneratedFiles(monitor, generatedTemplates);
 	}
 
+	@Override
+	public String getName() {
+		return "Mobile Web based on Google App Engine";
+	}
+
 }

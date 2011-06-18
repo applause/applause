@@ -12,6 +12,8 @@ import com.google.inject.Inject;
 public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 
 	private WizardNewProjectCreationPage mainPage;
+
+	private GeneratorFragmentSelectionWizardPage generatorFragmentSelectionWizardPage;
 	
 	@Inject
 	private IImageHelper imageHelper;
@@ -19,7 +21,7 @@ public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 	@Inject
 	public ApplauseDslNewProjectWizard(IProjectCreator projectCreator) {
 		super(projectCreator);
-		setWindowTitle("New ApplauseDsl Project");
+		setWindowTitle("New APPlause Project");
 	}
 
 	/**
@@ -28,10 +30,14 @@ public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 	 */
 	public void addPages() {
 		mainPage = new WizardNewProjectCreationPage("basicNewProjectPage");
-		mainPage.setTitle("ApplauseDsl Project");
-		mainPage.setDescription("Create a new ApplauseDsl project.");
+		mainPage.setTitle("APPlause Project");
+		mainPage.setDescription("Create a new APPlause project.");
 		mainPage.setImageDescriptor(ImageDescriptor.createFromImage(imageHelper.getImage("applause-wizard-top.png")));		
 		addPage(mainPage);
+		
+		generatorFragmentSelectionWizardPage = new GeneratorFragmentSelectionWizardPage();
+		generatorFragmentSelectionWizardPage.setImageDescriptor(ImageDescriptor.createFromImage(imageHelper.getImage("applause-wizard-top.png")));		
+		addPage(generatorFragmentSelectionWizardPage);
 	}
 
 	/**
@@ -41,6 +47,7 @@ public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 	protected IProjectInfo getProjectInfo() {
 		org.applause.lang.ui.wizard.ApplauseDslProjectInfo projectInfo = new org.applause.lang.ui.wizard.ApplauseDslProjectInfo();
 		projectInfo.setProjectName(mainPage.getProjectName());
+		projectInfo.setSelectedPlatforms(generatorFragmentSelectionWizardPage.getSelectedPlatforms());
 		return projectInfo;
 	}
 

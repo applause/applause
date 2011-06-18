@@ -152,6 +152,8 @@ public abstract class AbstractBuildStrategy {
 		}
 		return null;
 	}
+
+	public abstract String getName();
 	
 
 }

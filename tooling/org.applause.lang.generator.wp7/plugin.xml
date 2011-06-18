@@ -7,5 +7,11 @@
             class="org.applause.lang.generator.wp7.builder.WP7BuildStrategy">
       </buildstrategy>
    </extension>
+   <extension
+         point="org.applause.lang.ui.mobileplatform">
+      <mobileplatform
+            name="Windows Phone 7">
+      </mobileplatform>
+   </extension>
 
 </plugin>

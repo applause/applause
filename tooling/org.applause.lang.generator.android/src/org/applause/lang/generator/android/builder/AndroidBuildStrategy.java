@@ -30,4 +30,9 @@ public class AndroidBuildStrategy extends AbstractBuildStrategy {
 		outlet.addPostprocessor(beautifier);
 	}
 
+	@Override
+	public String getName() {
+		return "Android";
+	}
+
 }

@@ -6,10 +6,8 @@ import java.util.List;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.ISafeRunnable;
-import org.eclipse.core.runtime.Platform;
 import org.eclipse.core.runtime.SafeRunner;
 import org.eclipse.emf.mwe.core.resources.ResourceLoaderFactory;
 import org.eclipse.emf.mwe.core.resources.ResourceLoaderImpl;
@@ -33,36 +31,13 @@ public class ApplauseBuilderParticipant implements IXtextBuilderParticipant {
 		
 		return dependentProjects;
 	}
-	
-	private List<AbstractBuildStrategy> buildStrategies;
-	
-	protected List<AbstractBuildStrategy> getBuildStrategies() {
-		if (buildStrategies == null || buildStrategies.size() == 0) {
-			buildStrategies = new ArrayList<AbstractBuildStrategy>();
-			IConfigurationElement[] configurationElements = Platform.getExtensionRegistry().getConfigurationElementsFor("org.applause.lang.ui.buildstrategy");
-			for (IConfigurationElement element : configurationElements) {
-				try {
-					final Object object = element.createExecutableExtension("class");
-					if (object instanceof AbstractBuildStrategy) {
-						AbstractBuildStrategy buildStrategy = (AbstractBuildStrategy) object;
-						buildStrategies.add(buildStrategy);
-					}
-				} catch (CoreException e) {
-					e.printStackTrace();
-				}
-			}
-				
-
-		}
-		return buildStrategies;
-	}
 
 	@Override
 	public void build(final IBuildContext context, final IProgressMonitor monitor)
 			throws CoreException {
 		
 		List<IProject> platformProjects = findDependentPlatformProjects(context.getBuiltProject());
-		List<AbstractBuildStrategy> strategies = getBuildStrategies();
+		List<AbstractBuildStrategy> strategies = BuildStrategyRegistry.getBuildStrategies();
 		for (final IProject platformProject : platformProjects) {
 			for (final AbstractBuildStrategy buildStrategy : strategies) {
 				SafeRunner.run(new ISafeRunnable() {

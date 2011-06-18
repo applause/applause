@@ -28,5 +28,10 @@ public class WP7BuildStrategy extends AbstractBuildStrategy {
 	protected void configureOutlet(Outlet outlet) {
 		// do nothing
 	}
+	
+	@Override
+	public String getName() {
+		return "Windows Phone 7";
+	}
 
 }

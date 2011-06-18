@@ -3,6 +3,7 @@
 
 <plugin>
    <extension-point id="buildstrategy" name="APPlause Build Strategy" schema="schema/buildstrategy.exsd"/>
+   <extension-point id="mobileplatform" name="APPlause Mobile Platform" schema="schema/mobileplatform.exsd"/>
 
     <extension
             point="org.eclipse.ui.editors">
