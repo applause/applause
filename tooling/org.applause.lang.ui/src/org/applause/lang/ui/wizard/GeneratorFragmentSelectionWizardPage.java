@@ -1,5 +1,7 @@
 package org.applause.lang.ui.wizard;
 
+import java.util.Arrays;
+
 import org.applause.lang.ui.builder.BuildStrategyRegistry;
 import org.applause.lang.ui.builder.MobilePlatform;
 import org.eclipse.jface.viewers.ArrayContentProvider;
@@ -61,7 +63,9 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 	}
 	
 	public MobilePlatform[] getSelectedPlatforms() {
-		return (MobilePlatform[]) checkboxTableViewer.getCheckedElements();
+		Object[] checkedElements = checkboxTableViewer.getCheckedElements();
+		MobilePlatform[] platforms = Arrays.asList(checkedElements).toArray(new MobilePlatform[checkedElements.length]);
+		return platforms;
 	}
 	
 }

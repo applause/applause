@@ -15,4 +15,8 @@ public class ApplauseDslProjectInfo extends DefaultProjectInfo {
 		return selectedPlatforms;
 	}
 
+	public int numberOfPlatforms() {
+		return selectedPlatforms.length;
+	}
+
 }
