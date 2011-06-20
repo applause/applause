@@ -10,7 +10,8 @@
    <extension
          point="org.applause.lang.ui.mobileplatform">
       <mobileplatform
-            name="Mobile Web (using Google AppEngine)">
+            name="Mobile Web (using Google AppEngine)"
+            projectNameSuffix="GAE">
       </mobileplatform>
    </extension>
 

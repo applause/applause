@@ -6,6 +6,7 @@ import java.util.List;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.Platform;
+import org.eclipse.emf.common.util.URI;
 
 public class BuildStrategyRegistry {
 	
@@ -40,6 +41,17 @@ public class BuildStrategyRegistry {
 			IConfigurationElement[] configurationElements = Platform.getExtensionRegistry().getConfigurationElementsFor("org.applause.lang.ui.mobileplatform");
 			for (IConfigurationElement element : configurationElements) {
 				MobilePlatform platform = new MobilePlatform(element.getAttribute("name"));
+				platform.setProjectNameSuffix(element.getAttribute("projectNameSuffix"));
+				
+				String templateProjectValue = element.getAttribute("templateProject");
+				if (templateProjectValue != null) {
+					URI templateProjectURI = URI.createURI(templateProjectValue);
+					if (templateProjectURI.isRelative()) {
+						URI pluginURI = URI.createPlatformPluginURI(element.getContributor().getName() + "/", true);
+						templateProjectURI = templateProjectURI.resolve(pluginURI);
+					}
+					platform.setTemplateProjectURI(templateProjectURI);
+				}
 				supportedMobilePlatforms.add(platform);
 			}
 		}

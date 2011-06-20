@@ -52,8 +52,25 @@
          <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
-                  
+                  The display name for the platform specified by this extension. This string will be used for example in the New Project Wizard.
                </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="projectNameSuffix" type="string" use="required">
+            <annotation>
+               <documentation>
+                  This string will be used to create the project name for the platform-specific project when creating a new project.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="templateProject" type="string" use="required">
+            <annotation>
+               <documentation>
+                  Path to an archive that contains a template project for the platform project.
+               </documentation>
+               <appInfo>
+                  <meta.attribute kind="resource"/>
+               </appInfo>
             </annotation>
          </attribute>
       </complexType>

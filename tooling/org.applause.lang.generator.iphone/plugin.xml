@@ -10,7 +10,9 @@
    <extension
          point="org.applause.lang.ui.mobileplatform">
       <mobileplatform
-            name="iPhone">
+            name="iPhone"
+            projectNameSuffix="IPhone"
+            templateProject="templateproject/project.zip">
       </mobileplatform>
    </extension>
 

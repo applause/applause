@@ -10,7 +10,8 @@
    <extension
          point="org.applause.lang.ui.mobileplatform">
       <mobileplatform
-            name="Android">
+            name="Android"
+            projectNameSuffix="Android">
       </mobileplatform>
    </extension>
 
