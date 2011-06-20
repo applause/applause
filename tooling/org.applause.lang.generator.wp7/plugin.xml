@@ -11,7 +11,8 @@
          point="org.applause.lang.ui.mobileplatform">
       <mobileplatform
             name="Windows Phone 7"
-            projectNameSuffix="WP7">
+            projectNameSuffix="WP7"
+            templateProject="templateproject/project.zip">
       </mobileplatform>
    </extension>
 
