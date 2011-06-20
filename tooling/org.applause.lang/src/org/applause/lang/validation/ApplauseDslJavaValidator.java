@@ -48,7 +48,7 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 			String filename = ((StringLiteral) button.getIcon()).getValue();
 			Resource res = button.eResource();
 			
-			URI uri = res.getURI().appendSegment("..").appendSegment("Images").appendSegment(filename);
+			URI uri = res.getURI().appendSegment("..").appendSegment("..").appendSegment("Images").appendSegment(filename);
 			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
 			if(!exists)
 				error("File does not exist.", ApplauseDslPackage.TABBAR_BUTTON__ICON);

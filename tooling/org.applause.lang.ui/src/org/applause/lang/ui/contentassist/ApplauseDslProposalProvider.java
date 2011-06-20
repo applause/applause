@@ -26,7 +26,7 @@ public class ApplauseDslProposalProvider extends AbstractApplauseDslProposalProv
 		super.completeTabbarButton_Icon(button, assignment, context, acceptor);
 		
 		Resource res = button.eResource();
-		URI uri = res.getURI().appendSegment("..").appendSegment("Images");
+		URI uri = res.getURI().appendSegment("..").appendSegment("..").appendSegment("Images");
 		
 	    String platformResourceString = uri.toPlatformString(true);
 	    IFolder folder = ResourcesPlugin.getWorkspace().getRoot().getFolder(new Path(platformResourceString));
