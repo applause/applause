@@ -2,7 +2,7 @@
 #import "BlogDetailsViewController.h"
 #import "NSObject+iPhonical.h"
 #import "itemisAppProviders.h"
-#import "SpeakerDetailsViewController.h"
+#import "PersonDetailsViewController.h"
  
 
 @implementation BlogDetailsViewController
@@ -56,8 +56,8 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForSpeakerByName: [contentProvider valueForKeyPath:@"content.creator"]];
-		SpeakerDetailsViewController *controller = [[SpeakerDetailsViewController alloc] init];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.creator"]];
+		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
 		[controller release];

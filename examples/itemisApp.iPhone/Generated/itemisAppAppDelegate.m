@@ -3,11 +3,9 @@
 #import "IPUIView.h"
 #import "itemisAppProviders.h"
 
+#import "EventListViewController.h"
 #import "BlogListViewController.h"
-#import "SessionListViewController.h"
-#import "SessionListViewController.h"
-#import "SessionListViewController.h"
-#import "SpeakersListViewController.h"
+#import "OfficeListViewController.h"
 
 @implementation itemisAppAppDelegate
 
@@ -25,9 +23,9 @@
 
 	
 	// controller for @"News"
-	contentProvider = [providers providerForBlogposts];
+	contentProvider = [providers providerForCurrentTimeline];
 	
-	controller = [[BlogListViewController alloc] init];
+	controller = [[EventListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
 	controller.tabBarItem.title = @"News";
 	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
@@ -37,52 +35,26 @@
 	[navController release];
 
 	
-	// controller for @"Tue"
-	contentProvider = [providers providerForSessionsByDay: @"2011-03-22"];
+	// controller for @"Blog"
+	contentProvider = [providers providerForBlogposts];
 	
-	controller = [[SessionListViewController alloc] init];
+	controller = [[BlogListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Tue";
-	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
+	controller.tabBarItem.title = @"Blog";
+	controller.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
 
 	
-	// controller for @"Wed"
-	contentProvider = [providers providerForSessionsByDay: @"2011-03-23"];
+	// controller for @"Contact"
+	contentProvider = [providers providerForAllOffices];
 	
-	controller = [[SessionListViewController alloc] init];
+	controller = [[OfficeListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Wed";
-	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
-
-	
-	// controller for @"Thu"
-	contentProvider = [providers providerForSessionsByDay: @"2011-03-24"];
-	
-	controller = [[SessionListViewController alloc] init];
-	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Thu";
-	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
-
-	
-	// controller for @"Speakers"
-	contentProvider = [providers providerForAllSpeakers];
-	
-	controller = [[SpeakersListViewController alloc] init];
-	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Speakers";
-	controller.tabBarItem.image = [UIImage imageNamed:@"person.png"];
+	controller.tabBarItem.title = @"Contact";
+	controller.tabBarItem.image = [UIImage imageNamed:@"microphone.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];

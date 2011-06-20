@@ -1,11 +1,11 @@
 
-#import "SessionListViewController.h"
+#import "EventListViewController.h"
 #import "NSObject+iPhonical.h"
 #import "IPContentProvider.h"
-#import "SessionDetailsViewController.h"
+#import "EventDetailsViewController.h"
  
 
-@implementation SessionListViewController
+@implementation EventListViewController
 
 
 
@@ -24,7 +24,7 @@
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
 	cell.textLabel.text = [item valueForKeyPath:@"title"];
-	cell.detailTextLabel.text = [item valueForKeyPath:@"timeslot"];
+	cell.detailTextLabel.text = [item valueForKeyPath:@"date"];
 	
 	return cell;
 	
@@ -35,7 +35,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	id item = [self.items objectAtIndex: indexPath.row];
 		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
-		SessionDetailsViewController *controller = [[SessionDetailsViewController alloc] init];
+		EventDetailsViewController *controller = [[EventDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
 		[controller release];
@@ -43,7 +43,7 @@
 }
 
 -(void)updateData {
-	self.navigationItem.title = @"Sessions";
+	self.navigationItem.title = @"test";
 	
 	[super updateData];
 }

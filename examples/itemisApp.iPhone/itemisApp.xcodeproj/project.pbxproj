@@ -15,6 +15,15 @@
 		CB1C33B411849B4E0074C808 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB1C33B311849B4E0074C808 /* CoreLocation.framework */; };
 		CB289380110C9C0D00FDC6A5 /* IPDetailsHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CB28937E110C9C0D00FDC6A5 /* IPDetailsHeaderView.m */; };
 		CB289381110C9C0D00FDC6A5 /* IPDetailsHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CB28937F110C9C0D00FDC6A5 /* IPDetailsHeaderView.xib */; };
+		CB33064A13AFF65D007A4AFD /* BlogDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33064913AFF65D007A4AFD /* BlogDetailsViewController.m */; };
+		CB33064D13AFF65D007A4AFD /* BlogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33064C13AFF65D007A4AFD /* BlogListViewController.m */; };
+		CB33065013AFF65D007A4AFD /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33064F13AFF65D007A4AFD /* EventDetailsViewController.m */; };
+		CB33065313AFF65D007A4AFD /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065213AFF65D007A4AFD /* EventListViewController.m */; };
+		CB33065613AFF65D007A4AFD /* OfficeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065513AFF65D007A4AFD /* OfficeDetailsViewController.m */; };
+		CB33065913AFF65E007A4AFD /* OfficeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065813AFF65E007A4AFD /* OfficeListViewController.m */; };
+		CB33065C13AFF65E007A4AFD /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065B13AFF65E007A4AFD /* PersonDetailsViewController.m */; };
+		CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */; };
+		CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33066113AFF65E007A4AFD /* itemisAppProviders.m */; };
 		CB70CD1C110C574400291EA3 /* IPContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD1B110C574400291EA3 /* IPContentProvider.m */; };
 		CB70CD58110C586000291EA3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD2F110C586000291EA3 /* Reachability.m */; };
 		CB70CD59110C586000291EA3 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD32110C586000291EA3 /* ASIAuthenticationDialog.m */; };
@@ -45,14 +54,6 @@
 		CB70CE86110C689D00291EA3 /* personLoading.png in Resources */ = {isa = PBXBuildFile; fileRef = CB70CE84110C689D00291EA3 /* personLoading.png */; };
 		CB70CE87110C689D00291EA3 /* personUnknown.png in Resources */ = {isa = PBXBuildFile; fileRef = CB70CE85110C689D00291EA3 /* personUnknown.png */; };
 		CB70CFA6110C7B9A00291EA3 /* IPDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CFA5110C7B9A00291EA3 /* IPDetailsViewController.m */; };
-		CB769F2212A67A4800FBAE59 /* BlogListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1412A67A4800FBAE59 /* BlogListViewController.m */; };
-		CB769F2312A67A4800FBAE59 /* itemisAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1612A67A4800FBAE59 /* itemisAppAppDelegate.m */; };
-		CB769F2412A67A4800FBAE59 /* itemisAppProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1812A67A4800FBAE59 /* itemisAppProviders.m */; };
-		CB769F2512A67A4800FBAE59 /* SessionDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1A12A67A4800FBAE59 /* SessionDetailsViewController.m */; };
-		CB769F2612A67A4800FBAE59 /* SessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1C12A67A4800FBAE59 /* SessionListViewController.m */; };
-		CB769F2712A67A4800FBAE59 /* SpeakerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1E12A67A4800FBAE59 /* SpeakerDetailsViewController.m */; };
-		CB769F2812A67A4800FBAE59 /* SpeakersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F2012A67A4800FBAE59 /* SpeakersListViewController.m */; };
-		CB9CF00E13AF1FE700289057 /* BlogDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CF00D13AF1FE700289057 /* BlogDetailsViewController.m */; };
 		CBAA4BB9110DA678006C9290 /* TTGlobalNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4BB8110DA678006C9290 /* TTGlobalNetwork.m */; };
 		CBAA4BCD110DA764006C9290 /* IPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4BCC110DA764006C9290 /* IPLoadingView.m */; };
 		CBAA4BEC110DAC03006C9290 /* itemis-App-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA4BEB110DAC03006C9290 /* itemis-App-Icon.png */; };
@@ -79,6 +80,24 @@
 		CB28937D110C9C0D00FDC6A5 /* IPDetailsHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDetailsHeaderView.h; sourceTree = "<group>"; };
 		CB28937E110C9C0D00FDC6A5 /* IPDetailsHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDetailsHeaderView.m; sourceTree = "<group>"; };
 		CB28937F110C9C0D00FDC6A5 /* IPDetailsHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IPDetailsHeaderView.xib; sourceTree = "<group>"; };
+		CB33064813AFF65D007A4AFD /* BlogDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlogDetailsViewController.h; path = Generated/BlogDetailsViewController.h; sourceTree = "<group>"; };
+		CB33064913AFF65D007A4AFD /* BlogDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlogDetailsViewController.m; path = Generated/BlogDetailsViewController.m; sourceTree = "<group>"; };
+		CB33064B13AFF65D007A4AFD /* BlogListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = BlogListViewController.h; path = Generated/BlogListViewController.h; sourceTree = "<group>"; };
+		CB33064C13AFF65D007A4AFD /* BlogListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = BlogListViewController.m; path = Generated/BlogListViewController.m; sourceTree = "<group>"; };
+		CB33064E13AFF65D007A4AFD /* EventDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EventDetailsViewController.h; path = Generated/EventDetailsViewController.h; sourceTree = "<group>"; };
+		CB33064F13AFF65D007A4AFD /* EventDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EventDetailsViewController.m; path = Generated/EventDetailsViewController.m; sourceTree = "<group>"; };
+		CB33065113AFF65D007A4AFD /* EventListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EventListViewController.h; path = Generated/EventListViewController.h; sourceTree = "<group>"; };
+		CB33065213AFF65D007A4AFD /* EventListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EventListViewController.m; path = Generated/EventListViewController.m; sourceTree = "<group>"; };
+		CB33065413AFF65D007A4AFD /* OfficeDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OfficeDetailsViewController.h; path = Generated/OfficeDetailsViewController.h; sourceTree = "<group>"; };
+		CB33065513AFF65D007A4AFD /* OfficeDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OfficeDetailsViewController.m; path = Generated/OfficeDetailsViewController.m; sourceTree = "<group>"; };
+		CB33065713AFF65E007A4AFD /* OfficeListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OfficeListViewController.h; path = Generated/OfficeListViewController.h; sourceTree = "<group>"; };
+		CB33065813AFF65E007A4AFD /* OfficeListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OfficeListViewController.m; path = Generated/OfficeListViewController.m; sourceTree = "<group>"; };
+		CB33065A13AFF65E007A4AFD /* PersonDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PersonDetailsViewController.h; path = Generated/PersonDetailsViewController.h; sourceTree = "<group>"; };
+		CB33065B13AFF65E007A4AFD /* PersonDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PersonDetailsViewController.m; path = Generated/PersonDetailsViewController.m; sourceTree = "<group>"; };
+		CB33065D13AFF65E007A4AFD /* itemisAppAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = itemisAppAppDelegate.h; path = Generated/itemisAppAppDelegate.h; sourceTree = "<group>"; };
+		CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppAppDelegate.m; path = Generated/itemisAppAppDelegate.m; sourceTree = "<group>"; };
+		CB33066013AFF65E007A4AFD /* itemisAppProviders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = itemisAppProviders.h; path = Generated/itemisAppProviders.h; sourceTree = "<group>"; };
+		CB33066113AFF65E007A4AFD /* itemisAppProviders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppProviders.m; path = Generated/itemisAppProviders.m; sourceTree = "<group>"; };
 		CB70CD1A110C574400291EA3 /* IPContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPContentProvider.h; sourceTree = "<group>"; };
 		CB70CD1B110C574400291EA3 /* IPContentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPContentProvider.m; sourceTree = "<group>"; };
 		CB70CD2E110C586000291EA3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -134,22 +153,6 @@
 		CB70CE85110C689D00291EA3 /* personUnknown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = personUnknown.png; sourceTree = "<group>"; };
 		CB70CFA4110C7B9A00291EA3 /* IPDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPDetailsViewController.h; sourceTree = "<group>"; };
 		CB70CFA5110C7B9A00291EA3 /* IPDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPDetailsViewController.m; sourceTree = "<group>"; };
-		CB769F1312A67A4800FBAE59 /* BlogListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogListViewController.h; sourceTree = "<group>"; };
-		CB769F1412A67A4800FBAE59 /* BlogListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogListViewController.m; sourceTree = "<group>"; };
-		CB769F1512A67A4800FBAE59 /* itemisAppAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemisAppAppDelegate.h; sourceTree = "<group>"; };
-		CB769F1612A67A4800FBAE59 /* itemisAppAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemisAppAppDelegate.m; sourceTree = "<group>"; };
-		CB769F1712A67A4800FBAE59 /* itemisAppProviders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = itemisAppProviders.h; sourceTree = "<group>"; };
-		CB769F1812A67A4800FBAE59 /* itemisAppProviders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = itemisAppProviders.m; sourceTree = "<group>"; };
-		CB769F1912A67A4800FBAE59 /* SessionDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionDetailsViewController.h; sourceTree = "<group>"; };
-		CB769F1A12A67A4800FBAE59 /* SessionDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionDetailsViewController.m; sourceTree = "<group>"; };
-		CB769F1B12A67A4800FBAE59 /* SessionListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionListViewController.h; sourceTree = "<group>"; };
-		CB769F1C12A67A4800FBAE59 /* SessionListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionListViewController.m; sourceTree = "<group>"; };
-		CB769F1D12A67A4800FBAE59 /* SpeakerDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakerDetailsViewController.h; sourceTree = "<group>"; };
-		CB769F1E12A67A4800FBAE59 /* SpeakerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDetailsViewController.m; sourceTree = "<group>"; };
-		CB769F1F12A67A4800FBAE59 /* SpeakersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakersListViewController.h; sourceTree = "<group>"; };
-		CB769F2012A67A4800FBAE59 /* SpeakersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakersListViewController.m; sourceTree = "<group>"; };
-		CB9CF00C13AF1FE700289057 /* BlogDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogDetailsViewController.h; sourceTree = "<group>"; };
-		CB9CF00D13AF1FE700289057 /* BlogDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogDetailsViewController.m; sourceTree = "<group>"; };
 		CBAA4BB8110DA678006C9290 /* TTGlobalNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalNetwork.m; sourceTree = "<group>"; };
 		CBAA4BBA110DA688006C9290 /* TTGlobalNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalNetwork.h; sourceTree = "<group>"; };
 		CBAA4BCB110DA764006C9290 /* IPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPLoadingView.h; sourceTree = "<group>"; };
@@ -187,13 +190,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		080E96DDFE201D6D7F000001 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +201,8 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				CB64F3531281B9AB0006B0FE /* Generated */,
+				CB33062A13AFF643007A4AFD /* Generated */,
 				CB70CD18110C56D300291EA3 /* Library */,
-				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
@@ -251,27 +246,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB64F3531281B9AB0006B0FE /* Generated */ = {
+		CB33062A13AFF643007A4AFD /* Generated */ = {
 			isa = PBXGroup;
 			children = (
-				CB9CF00C13AF1FE700289057 /* BlogDetailsViewController.h */,
-				CB9CF00D13AF1FE700289057 /* BlogDetailsViewController.m */,
-				CB769F1312A67A4800FBAE59 /* BlogListViewController.h */,
-				CB769F1412A67A4800FBAE59 /* BlogListViewController.m */,
-				CB769F1512A67A4800FBAE59 /* itemisAppAppDelegate.h */,
-				CB769F1612A67A4800FBAE59 /* itemisAppAppDelegate.m */,
-				CB769F1712A67A4800FBAE59 /* itemisAppProviders.h */,
-				CB769F1812A67A4800FBAE59 /* itemisAppProviders.m */,
-				CB769F1912A67A4800FBAE59 /* SessionDetailsViewController.h */,
-				CB769F1A12A67A4800FBAE59 /* SessionDetailsViewController.m */,
-				CB769F1B12A67A4800FBAE59 /* SessionListViewController.h */,
-				CB769F1C12A67A4800FBAE59 /* SessionListViewController.m */,
-				CB769F1D12A67A4800FBAE59 /* SpeakerDetailsViewController.h */,
-				CB769F1E12A67A4800FBAE59 /* SpeakerDetailsViewController.m */,
-				CB769F1F12A67A4800FBAE59 /* SpeakersListViewController.h */,
-				CB769F2012A67A4800FBAE59 /* SpeakersListViewController.m */,
+				CB33064813AFF65D007A4AFD /* BlogDetailsViewController.h */,
+				CB33064913AFF65D007A4AFD /* BlogDetailsViewController.m */,
+				CB33064B13AFF65D007A4AFD /* BlogListViewController.h */,
+				CB33064C13AFF65D007A4AFD /* BlogListViewController.m */,
+				CB33064E13AFF65D007A4AFD /* EventDetailsViewController.h */,
+				CB33064F13AFF65D007A4AFD /* EventDetailsViewController.m */,
+				CB33065113AFF65D007A4AFD /* EventListViewController.h */,
+				CB33065213AFF65D007A4AFD /* EventListViewController.m */,
+				CB33065413AFF65D007A4AFD /* OfficeDetailsViewController.h */,
+				CB33065513AFF65D007A4AFD /* OfficeDetailsViewController.m */,
+				CB33065713AFF65E007A4AFD /* OfficeListViewController.h */,
+				CB33065813AFF65E007A4AFD /* OfficeListViewController.m */,
+				CB33065A13AFF65E007A4AFD /* PersonDetailsViewController.h */,
+				CB33065B13AFF65E007A4AFD /* PersonDetailsViewController.m */,
+				CB33065D13AFF65E007A4AFD /* itemisAppAppDelegate.h */,
+				CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */,
+				CB33066013AFF65E007A4AFD /* itemisAppProviders.h */,
+				CB33066113AFF65E007A4AFD /* itemisAppProviders.m */,
 			);
-			path = Generated;
+			name = Generated;
 			sourceTree = "<group>";
 		};
 		CB70CCD6110C516400291EA3 /* Images */ = {
@@ -423,6 +420,7 @@
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				CB275AAE13AFEE93003A1F1A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -478,6 +476,22 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CB275AAE13AFEE93003A1F1A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "osascript IncludeScript.txt";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -513,14 +527,15 @@
 				CBAA4BB9110DA678006C9290 /* TTGlobalNetwork.m in Sources */,
 				CBAA4BCD110DA764006C9290 /* IPLoadingView.m in Sources */,
 				CBAA4CB7110DB6EF006C9290 /* IPCache.m in Sources */,
-				CB769F2212A67A4800FBAE59 /* BlogListViewController.m in Sources */,
-				CB769F2312A67A4800FBAE59 /* itemisAppAppDelegate.m in Sources */,
-				CB769F2412A67A4800FBAE59 /* itemisAppProviders.m in Sources */,
-				CB769F2512A67A4800FBAE59 /* SessionDetailsViewController.m in Sources */,
-				CB769F2612A67A4800FBAE59 /* SessionListViewController.m in Sources */,
-				CB769F2712A67A4800FBAE59 /* SpeakerDetailsViewController.m in Sources */,
-				CB769F2812A67A4800FBAE59 /* SpeakersListViewController.m in Sources */,
-				CB9CF00E13AF1FE700289057 /* BlogDetailsViewController.m in Sources */,
+				CB33064A13AFF65D007A4AFD /* BlogDetailsViewController.m in Sources */,
+				CB33064D13AFF65D007A4AFD /* BlogListViewController.m in Sources */,
+				CB33065013AFF65D007A4AFD /* EventDetailsViewController.m in Sources */,
+				CB33065313AFF65D007A4AFD /* EventListViewController.m in Sources */,
+				CB33065613AFF65D007A4AFD /* OfficeDetailsViewController.m in Sources */,
+				CB33065913AFF65E007A4AFD /* OfficeListViewController.m in Sources */,
+				CB33065C13AFF65E007A4AFD /* PersonDetailsViewController.m in Sources */,
+				CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */,
+				CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

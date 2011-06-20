@@ -2,7 +2,7 @@
 #import <UIKit/UIKit.h>
 #import "IPDetailsViewController.h"
 
-@interface SessionDetailsViewController : IPDetailsViewController {
+@interface OfficeDetailsViewController : IPDetailsViewController {
 
 }
 

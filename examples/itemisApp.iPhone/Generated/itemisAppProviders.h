@@ -5,6 +5,11 @@
 
 }
 
+-(IPContentProvider*)providerForAllOffices;
+-(IPContentProvider*)providerForOfficeResolver:(id)o;
+-(IPContentProvider*)providerForCurrentTimeline;
+-(IPContentProvider*)providerForEventById:(id)e;
+-(IPContentProvider*)providerForPersonByName:(id)name;
 -(IPContentProvider*)providerForBlogposts;
 -(IPContentProvider*)providerForSessionsByDay:(id)day;
 -(IPContentProvider*)providerForSessionById:(id)s;

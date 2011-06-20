@@ -6,6 +6,66 @@
 
 
 
+-(IPContentProvider*)providerForAllOffices {
+	NSString* url = @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values";
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"feed.entry"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForOfficeResolver:(id)o {
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D", [[o valueForKeyPath:@"location"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"feed.entry"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForCurrentTimeline {
+	NSString* url = @"http://heikobehrens.net/misc/jazoon11/data.php";
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"content.news"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForEventById:(id)e {
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==", [e valueForKeyPath:@"id"]];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"feed.entry"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForPersonByName:(id)name {
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D", [[name stringByReplacingOccurrencesOfString:@" " withString:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"feed.entry"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
 -(IPContentProvider*)providerForBlogposts {
 	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 

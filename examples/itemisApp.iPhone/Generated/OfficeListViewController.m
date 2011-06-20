@@ -1,11 +1,11 @@
 
-#import "SpeakersListViewController.h"
+#import "OfficeListViewController.h"
 #import "NSObject+iPhonical.h"
-#import "itemisAppProviders.h"
-#import "SpeakerDetailsViewController.h"
+#import "IPContentProvider.h"
+#import "OfficeDetailsViewController.h"
  
 
-@implementation SpeakersListViewController
+@implementation OfficeListViewController
 
 
 
@@ -23,10 +23,9 @@
 	id item = [self.items objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"name"];
+	cell.textLabel.text = [item valueForKeyPath:@"location"];
 	
-	NSString *imageURL = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", [item valueForKeyPath:@"pictureurl"]];
-	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
+	
 	return cell;
 	
 	    
@@ -35,8 +34,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	id item = [self.items objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForSpeakerByName: [item valueForKeyPath:@"name"]];
-		SpeakerDetailsViewController *controller = [[SpeakerDetailsViewController alloc] init];
+		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
+		OfficeDetailsViewController *controller = [[OfficeDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
 		[controller release];
@@ -44,7 +43,7 @@
 }
 
 -(void)updateData {
-	self.navigationItem.title = @"Speakers";
+	self.navigationItem.title = @"Offices";
 	
 	[super updateData];
 }
