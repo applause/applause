@@ -31,7 +31,7 @@ entity Event {
 	String title
 	String date
 	String location
-	String abstract
+	String description
 	String contact
 	String link
 	String speakers
@@ -74,7 +74,7 @@ detailsview EventDetails(Event event) {
 	header {
 		title= event.title
 		subtitle= (event.date " " event.location)
-		details= event.abstract
+		details= event.description
 	}
 	
 	section {
@@ -122,7 +122,7 @@ detailsview OfficeDetails(Office office) {
 			text= ""
 			details= "Show on Map"
 			action= ("http://maps.google.de/maps?q=" urlconform(office.address) )
-		}
+		} 
 		
 		cell Value2 {
 			text= "phone"

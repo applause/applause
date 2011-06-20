@@ -97,7 +97,7 @@
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];
 		self.headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@%@%@", [contentProvider valueForKeyPath:@"content.date"], @" ", [contentProvider valueForKeyPath:@"content.location"]];
-		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.abstract"];
+		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.description"];
 		
 	}	
 
