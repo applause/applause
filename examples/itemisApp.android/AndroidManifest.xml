@@ -12,11 +12,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+    <activity android:name=".EventList"></activity>
+    <activity android:name=".EventDetails"></activity>
+    <activity android:name=".OfficeList"></activity>
+    <activity android:name=".OfficeDetails"></activity>
     <activity android:name=".BlogList"></activity>
     <activity android:name=".BlogDetails"></activity>
-    <activity android:name=".SessionList"></activity>
-    <activity android:name=".SessionDetails"></activity>
-    <activity android:name=".SpeakersList"></activity>
-    <activity android:name=".SpeakerDetails"></activity>
+    <activity android:name=".PersonDetails"></activity>
 </application>
 </manifest>

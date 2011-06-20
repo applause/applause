@@ -18,26 +18,30 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class BlogDetails extends DetailsActivity<BlogItem> {
+public class OfficeDetails extends DetailsActivity<Office> {
 
-	BlogItem item;
+	Office office;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Post");
+		setTitle("Office");
 
-		item = getItemFromProvider();
+		office = getItemFromProvider();
 
-		setHeaderTitle(item.getTitle());
-		setHeaderDetails(item.getDescription());
+		setHeaderTitle(office.getLocation());
+		setHeaderDetails(office.getSummary());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
 		rowAdapters.add(new Cell1(null));
 
 		rowAdapters.add(new Cell2(null));
+
+		rowAdapters.add(new Cell3(null));
+
+		rowAdapters.add(new Cell4(null));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
@@ -53,16 +57,16 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 		@Override
 		public void populateRowView() {
 
-			setText(item.getCreator());
+			setText(office.getContact());
 
 		}
 
 		@Override
 		public void handleClick() {
 
-			Intent intent = new Intent(BlogDetails.this, PersonDetails.class);
+			Intent intent = new Intent(OfficeDetails.this, PersonDetails.class);
 			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(item.getCreator());
+					.getPersonByNameProvider(office.getContact());
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 
@@ -70,7 +74,7 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 
 	}
 
-	private class Cell2 extends RowAdapter.Default<Void> {
+	private class Cell2 extends RowAdapter.Value2<Void> {
 
 		public Cell2(Void item) {
 			super(item);
@@ -79,7 +83,8 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 		@Override
 		public void populateRowView() {
 
-			setText("Open in Browser");
+			setText("");
+			setDetails("Show on Map");
 
 		}
 
@@ -87,7 +92,58 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 		public void handleClick() {
 
 			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
-					Uri.parse(item.getLink()));
+					Uri.parse("http://maps.google.de/maps?q="
+							+ urlconform(office.getAddress())));
+			startActivity(intent);
+
+		}
+
+	}
+
+	private class Cell3 extends RowAdapter.Value2<Void> {
+
+		public Cell3(Void item) {
+			super(item);
+		}
+
+		@Override
+		public void populateRowView() {
+
+			setText("phone");
+			setDetails(office.getPhone());
+
+		}
+
+		@Override
+		public void handleClick() {
+
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
+					Uri.parse("tel:" + office.getPhone()));
+			startActivity(intent);
+
+		}
+
+	}
+
+	private class Cell4 extends RowAdapter.Value2<Void> {
+
+		public Cell4(Void item) {
+			super(item);
+		}
+
+		@Override
+		public void populateRowView() {
+
+			setText("mail");
+			setDetails(office.getMail());
+
+		}
+
+		@Override
+		public void handleClick() {
+
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
+					Uri.parse("mailto:" + office.getMail()));
 			startActivity(intent);
 
 		}

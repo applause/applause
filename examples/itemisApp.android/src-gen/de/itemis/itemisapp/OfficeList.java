@@ -18,76 +18,50 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class BlogDetails extends DetailsActivity<BlogItem> {
+public class OfficeList extends GenericListActivity<Office> {
 
-	BlogItem item;
+	List<Office> offices;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Post");
+		setTitle("Offices");
 
-		item = getItemFromProvider();
-
-		setHeaderTitle(item.getTitle());
-		setHeaderDetails(item.getDescription());
+		offices = getItemsFromProvider();
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
-		rowAdapters.add(new Cell1(null));
-
-		rowAdapters.add(new Cell2(null));
+		Iterable<Office> items1 = offices;
+		for (Office i : items1)
+			rowAdapters.add(new Cell1(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Void> {
+	private class Cell1 extends RowAdapter.Default<Office> {
 
-		public Cell1(Void item) {
+		public Cell1(Office item) {
 			super(item);
 		}
 
 		@Override
 		public void populateRowView() {
-
-			setText(item.getCreator());
+			Office o = getItem();
+			setText(o.getLocation());
 
 		}
 
 		@Override
 		public void handleClick() {
+			Office o = getItem();
 
-			Intent intent = new Intent(BlogDetails.this, PersonDetails.class);
-			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(item.getCreator());
+			Intent intent = new Intent(OfficeList.this, OfficeDetails.class);
+			Serializable contentProvider = new SimpleItemContentProvider<Object>(
+					o);
 			intent.putExtra("provider", contentProvider);
-			startActivity(intent);
-
-		}
-
-	}
-
-	private class Cell2 extends RowAdapter.Default<Void> {
-
-		public Cell2(Void item) {
-			super(item);
-		}
-
-		@Override
-		public void populateRowView() {
-
-			setText("Open in Browser");
-
-		}
-
-		@Override
-		public void handleClick() {
-
-			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
-					Uri.parse(item.getLink()));
 			startActivity(intent);
 
 		}

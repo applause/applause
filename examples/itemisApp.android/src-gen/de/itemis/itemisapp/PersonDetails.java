@@ -18,20 +18,21 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class BlogDetails extends DetailsActivity<BlogItem> {
+public class PersonDetails extends DetailsActivity<Person> {
 
-	BlogItem item;
+	Person person;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Post");
+		setTitle("Person");
 
-		item = getItemFromProvider();
+		person = getItemFromProvider();
 
-		setHeaderTitle(item.getTitle());
-		setHeaderDetails(item.getDescription());
+		setHeaderTitle(person.getName());
+		setHeaderDetails(person.getBio());
+		setHeaderImageURL(person.getPictureurl());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
@@ -44,7 +45,7 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Void> {
+	private class Cell1 extends RowAdapter.Value2<Void> {
 
 		public Cell1(Void item) {
 			super(item);
@@ -53,24 +54,19 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 		@Override
 		public void populateRowView() {
 
-			setText(item.getCreator());
+			setText("mail");
+			setDetails("some address");
 
 		}
 
 		@Override
 		public void handleClick() {
 
-			Intent intent = new Intent(BlogDetails.this, PersonDetails.class);
-			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(item.getCreator());
-			intent.putExtra("provider", contentProvider);
-			startActivity(intent);
-
 		}
 
 	}
 
-	private class Cell2 extends RowAdapter.Default<Void> {
+	private class Cell2 extends RowAdapter.Value2<Void> {
 
 		public Cell2(Void item) {
 			super(item);
@@ -79,16 +75,13 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 		@Override
 		public void populateRowView() {
 
-			setText("Open in Browser");
+			setText("blog");
+			setDetails("blog's url");
 
 		}
 
 		@Override
 		public void handleClick() {
-
-			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
-					Uri.parse(item.getLink()));
-			startActivity(intent);
 
 		}
 

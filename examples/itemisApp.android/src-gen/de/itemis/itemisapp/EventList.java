@@ -18,76 +18,51 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class BlogDetails extends DetailsActivity<BlogItem> {
+public class EventList extends GenericListActivity<Event> {
 
-	BlogItem item;
+	List<Event> events;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Post");
+		setTitle("test");
 
-		item = getItemFromProvider();
-
-		setHeaderTitle(item.getTitle());
-		setHeaderDetails(item.getDescription());
+		events = getItemsFromProvider();
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
-		rowAdapters.add(new Cell1(null));
-
-		rowAdapters.add(new Cell2(null));
+		Iterable<Event> items1 = events;
+		for (Event i : items1)
+			rowAdapters.add(new Cell1(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Void> {
+	private class Cell1 extends RowAdapter.Subtitle<Event> {
 
-		public Cell1(Void item) {
+		public Cell1(Event item) {
 			super(item);
 		}
 
 		@Override
 		public void populateRowView() {
-
-			setText(item.getCreator());
+			Event e = getItem();
+			setText(e.getTitle());
+			setDetails(e.getDate());
 
 		}
 
 		@Override
 		public void handleClick() {
+			Event e = getItem();
 
-			Intent intent = new Intent(BlogDetails.this, PersonDetails.class);
-			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(item.getCreator());
+			Intent intent = new Intent(EventList.this, EventDetails.class);
+			Serializable contentProvider = new SimpleItemContentProvider<Object>(
+					e);
 			intent.putExtra("provider", contentProvider);
-			startActivity(intent);
-
-		}
-
-	}
-
-	private class Cell2 extends RowAdapter.Default<Void> {
-
-		public Cell2(Void item) {
-			super(item);
-		}
-
-		@Override
-		public void populateRowView() {
-
-			setText("Open in Browser");
-
-		}
-
-		@Override
-		public void handleClick() {
-
-			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
-					Uri.parse(item.getLink()));
 			startActivity(intent);
 
 		}

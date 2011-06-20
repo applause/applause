@@ -18,26 +18,28 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class BlogDetails extends DetailsActivity<BlogItem> {
+public class EventDetails extends DetailsActivity<Event> {
 
-	BlogItem item;
+	Event event;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Post");
+		setTitle(event.getKind());
 
-		item = getItemFromProvider();
+		event = getItemFromProvider();
 
-		setHeaderTitle(item.getTitle());
-		setHeaderDetails(item.getDescription());
+		setHeaderTitle(event.getTitle());
+		setHeaderDetails(event.getDescription());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
 		rowAdapters.add(new Cell1(null));
 
-		rowAdapters.add(new Cell2(null));
+		Iterable<String> items2 = Splitter.on(",").split(event.getSpeakers());
+		for (String i : items2)
+			rowAdapters.add(new Cell2(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
@@ -53,16 +55,16 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 		@Override
 		public void populateRowView() {
 
-			setText(item.getCreator());
+			setText(event.getContact());
 
 		}
 
 		@Override
 		public void handleClick() {
 
-			Intent intent = new Intent(BlogDetails.this, PersonDetails.class);
+			Intent intent = new Intent(EventDetails.this, PersonDetails.class);
 			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(item.getCreator());
+					.getPersonByNameProvider(event.getContact());
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 
@@ -70,24 +72,27 @@ public class BlogDetails extends DetailsActivity<BlogItem> {
 
 	}
 
-	private class Cell2 extends RowAdapter.Default<Void> {
+	private class Cell2 extends RowAdapter.Default<String> {
 
-		public Cell2(Void item) {
+		public Cell2(String item) {
 			super(item);
 		}
 
 		@Override
 		public void populateRowView() {
-
-			setText("Open in Browser");
+			String s = getItem();
+			setText(s);
 
 		}
 
 		@Override
 		public void handleClick() {
+			String s = getItem();
 
-			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
-					Uri.parse(item.getLink()));
+			Intent intent = new Intent(EventDetails.this, PersonDetails.class);
+			Serializable contentProvider = ProviderFactory
+					.getPersonByNameProvider(s);
+			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 
 		}
