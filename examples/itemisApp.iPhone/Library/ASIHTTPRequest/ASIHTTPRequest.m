@@ -3426,9 +3426,9 @@ static BOOL isiPhoneOS2;
 			double extraSleepyTime = (-bytesRemaining/(maxBandwidthPerSecond*1.0));
 			[throttleWakeUpTime release];
 			#if TARGET_OS_IPHONE
-			throttleWakeUpTime = [[bandwidthMeasurementDate addTimeInterval:extraSleepyTime] retain];
-			#else
 			throttleWakeUpTime = [[bandwidthMeasurementDate dateByAddingTimeInterval:extraSleepyTime] retain];
+			#else
+			throttleWakeUpTime = [[bandwidthMeasurementDate bandwidthMeasurementDate:extraSleepyTime] retain];
 			#endif
 		}
 	}

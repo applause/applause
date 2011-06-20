@@ -52,6 +52,7 @@
 		CB769F2612A67A4800FBAE59 /* SessionListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1C12A67A4800FBAE59 /* SessionListViewController.m */; };
 		CB769F2712A67A4800FBAE59 /* SpeakerDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F1E12A67A4800FBAE59 /* SpeakerDetailsViewController.m */; };
 		CB769F2812A67A4800FBAE59 /* SpeakersListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB769F2012A67A4800FBAE59 /* SpeakersListViewController.m */; };
+		CB9CF00E13AF1FE700289057 /* BlogDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB9CF00D13AF1FE700289057 /* BlogDetailsViewController.m */; };
 		CBAA4BB9110DA678006C9290 /* TTGlobalNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4BB8110DA678006C9290 /* TTGlobalNetwork.m */; };
 		CBAA4BCD110DA764006C9290 /* IPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4BCC110DA764006C9290 /* IPLoadingView.m */; };
 		CBAA4BEC110DAC03006C9290 /* itemis-App-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA4BEB110DAC03006C9290 /* itemis-App-Icon.png */; };
@@ -147,6 +148,8 @@
 		CB769F1E12A67A4800FBAE59 /* SpeakerDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakerDetailsViewController.m; sourceTree = "<group>"; };
 		CB769F1F12A67A4800FBAE59 /* SpeakersListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakersListViewController.h; sourceTree = "<group>"; };
 		CB769F2012A67A4800FBAE59 /* SpeakersListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakersListViewController.m; sourceTree = "<group>"; };
+		CB9CF00C13AF1FE700289057 /* BlogDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogDetailsViewController.h; sourceTree = "<group>"; };
+		CB9CF00D13AF1FE700289057 /* BlogDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogDetailsViewController.m; sourceTree = "<group>"; };
 		CBAA4BB8110DA678006C9290 /* TTGlobalNetwork.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTGlobalNetwork.m; sourceTree = "<group>"; };
 		CBAA4BBA110DA688006C9290 /* TTGlobalNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalNetwork.h; sourceTree = "<group>"; };
 		CBAA4BCB110DA764006C9290 /* IPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPLoadingView.h; sourceTree = "<group>"; };
@@ -251,6 +254,8 @@
 		CB64F3531281B9AB0006B0FE /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				CB9CF00C13AF1FE700289057 /* BlogDetailsViewController.h */,
+				CB9CF00D13AF1FE700289057 /* BlogDetailsViewController.m */,
 				CB769F1312A67A4800FBAE59 /* BlogListViewController.h */,
 				CB769F1412A67A4800FBAE59 /* BlogListViewController.m */,
 				CB769F1512A67A4800FBAE59 /* itemisAppAppDelegate.h */,
@@ -515,6 +520,7 @@
 				CB769F2612A67A4800FBAE59 /* SessionListViewController.m in Sources */,
 				CB769F2712A67A4800FBAE59 /* SpeakerDetailsViewController.m in Sources */,
 				CB769F2812A67A4800FBAE59 /* SpeakersListViewController.m in Sources */,
+				CB9CF00E13AF1FE700289057 /* BlogDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,7 +569,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/libxml2;
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",
@@ -582,7 +588,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = /Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.2.sdk/usr/include/libxml2;
+				HEADER_SEARCH_PATHS = $SDKROOT/usr/include/libxml2;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lxml2",

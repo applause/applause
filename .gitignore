@@ -12,3 +12,5 @@
 peterfriese.perspectivev3
 bin
 .DS_Store
+/examples/itemisApp.iPhone/build/
+/examples/itemisApp.iPhone/itemisApp.xcodeproj/xcuserdata/
