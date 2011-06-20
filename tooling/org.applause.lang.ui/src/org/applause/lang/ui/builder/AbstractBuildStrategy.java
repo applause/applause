@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.IncrementalProjectBuilder;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -95,6 +96,9 @@ public abstract class AbstractBuildStrategy {
 				output.addOutlet(outlet);
 				
 				generate(app, output);
+				
+				getPlatformProject().build(IncrementalProjectBuilder.CLEAN_BUILD, monitor);
+				
 				return;
 			}
 		}
