@@ -105,7 +105,7 @@ public abstract class AbstractApplauseDslUiModule extends DefaultUiModule {
 
 	// contributed by org.eclipse.xtext.ui.generator.projectWizard.SimpleProjectWizardFragment
 	public Class<? extends org.eclipse.xtext.ui.wizard.IProjectCreator> bindIProjectCreator() {
-		return org.applause.lang.ui.wizard.ApplauseProjectCreator.class;
+		return org.applause.lang.ui.wizard.ApplauseDslProjectCreator.class;
 	}
 
 	// contributed by org.eclipse.xtext.generator.builder.BuilderIntegrationFragment

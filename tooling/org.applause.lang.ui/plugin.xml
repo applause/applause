@@ -188,7 +188,7 @@
          point="org.eclipse.ui.newWizards">
       <wizard
             category="org.applause.lang.ui.wizards"
-            class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
+            class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.applause.lang.ui.wizard.CustomApplauseDslNewProjectWizard"
             icon="icons/applause.png"
             id="org.applause.lang.ui.wizard.ApplauseDslNewProjectWizard"
             name="APPlause Project"

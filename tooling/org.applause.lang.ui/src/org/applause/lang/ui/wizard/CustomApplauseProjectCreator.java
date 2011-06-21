@@ -1,7 +1,6 @@
 package org.applause.lang.ui.wizard;
 
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,11 +10,9 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.applause.lang.ui.builder.MobilePlatform;
-import org.eclipse.core.internal.utils.FileUtil;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -23,7 +20,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
 import org.eclipse.xpand2.XpandExecutionContextImpl;
 import org.eclipse.xpand2.XpandFacade;
@@ -39,7 +35,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 
-public class ApplauseProjectCreator extends AbstractProjectCreator {
+public class CustomApplauseProjectCreator extends AbstractProjectCreator {
 
 	private static final String MODEL_ROOT = "model";
 	private static final List<String> ALL_FOLDERS = ImmutableList.of();
@@ -149,8 +145,8 @@ public class ApplauseProjectCreator extends AbstractProjectCreator {
 					}
 				} else {
 					IFile file = project.getFile(name);
-					// PFR: PNGs and GIfs will not be filtered. Poor man's binary detection :-/
-					if (entry.getName().endsWith(".png") || entry.getName().endsWith(".gif")) {
+					// PFR: PNGs, GIfs and ZIPs will not be filtered. Poor man's binary detection :-/
+					if (entry.getName().endsWith(".png") || entry.getName().endsWith(".gif") || entry.getName().endsWith(".jar")) {
 						File destFile = file.getLocation().toFile();
 						FileOutputStream output = FileUtils.openOutputStream(destFile);
 						IOUtils.copy(zipStream, output);
@@ -180,6 +176,7 @@ public class ApplauseProjectCreator extends AbstractProjectCreator {
 		String capitalizedProjectName = projectName.equals("_template_") ? "_Template_" : StringUtils.capitalize(projectName);
 		str = str.replace("itemisApp", projectName);
 		str = str.replace("ItemisApp", capitalizedProjectName);
+		str = str.replace("de.itemis.itemisapp.R", "de.itemis." + projectName.toLowerCase() + ".R");
 		return str;
 	}
 
