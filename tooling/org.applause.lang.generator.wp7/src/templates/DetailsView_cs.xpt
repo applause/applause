@@ -40,7 +40,7 @@ namespace «namespace()»
             if (NavigationContext.QueryString.TryGetValue("itemByIndex", out selectedIndex))
             {
                 int index = int.Parse(selectedIndex);
-                DataContext = App.RootViewModelProvider.BlogpostsModelProvider().BlogItems[index];
+                // DataContext = App.RootViewModelProvider.BlogpostsModelProvider().BlogItems[index];
             }
         }
     }

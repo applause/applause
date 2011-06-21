@@ -85,23 +85,33 @@ public abstract class AbstractBuildStrategy {
 	
 			for (Application app : applicationObjects) {
 				OutputImpl output = new OutputImpl();
-				Outlet outlet = new Outlet() {
-					@Override
-					public FileHandle createFileHandle(String qualifiedName) throws VetoException {
-						return AbstractBuildStrategy.this.createFileHandle(folder, this, qualifiedName);
-					}
-	
-				};
+				Outlet outlet = createOutlet(folder);
 				configureOutlet(outlet);
 				output.addOutlet(outlet);
-				
+
+//				IFolder rootFolder = (IFolder) getPlatformProject().getAdapter(IFolder.class);
+//				// IPath location = getPlatformProject().getFullPath();
+//				// IFolder rootFolder = ResourcesPlugin.getWorkspace().getRoot().getFolder(location);
+//				Outlet projectRootOutlet = createOutlet(rootFolder);
+//				projectRootOutlet.setName("ROOT");
+//				output.addOutlet(projectRootOutlet);
+
 				generate(app, output);
-				
 				getPlatformProject().build(IncrementalProjectBuilder.CLEAN_BUILD, monitor);
-				
 				return;
 			}
 		}
+	}
+
+	private Outlet createOutlet(final IFolder folder) {
+		Outlet outlet = new Outlet() {
+			@Override
+			public FileHandle createFileHandle(String qualifiedName) throws VetoException {
+				return AbstractBuildStrategy.this.createFileHandle(folder, this, qualifiedName);
+			}
+
+		};
+		return outlet;
 	}
 
 	protected void deletePreviouslyGeneratedFiles(IProgressMonitor monitor, final IFolder folder) throws CoreException {

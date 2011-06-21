@@ -3,6 +3,9 @@ import org::applause::lang::applauseDsl;
 
 extension templates::MetamodelExtensions;
 
+String assembyName(Application this):
+	this.name  + "WP7";
+
 String baseNamespace(org::eclipse::emf::ecore::EObject this):
 	this.application().name.toFirstUpper();
 	
@@ -10,7 +13,7 @@ viewModelClassName(Property this):
 	((Entity)this.eContainer()).viewModelClassName();
 
 viewModelClassName(Entity this):
-	name.toFirstUpper();
+	name.toFirstUpper() + "ViewModel";
 	
 viewModelClassName(ContentProvider this):
 	((Entity)this.type).viewModelClassName();
@@ -30,6 +33,9 @@ namespace(DetailsView this):
 viewModelFileName(Entity this):
 	viewModelClassName() + ".cs";
 	
+String typeName(Entity this):
+	this.name.toFirstUpper() + "ViewModel";
+	
 String typeName(Parameter this):
 	this.typeDescription().typeName();
 	
@@ -41,8 +47,11 @@ String propertyFieldName(Parameter this):
 	
 String typeName(TypeDescription this):
 	many
-		? "List<" + type.name + ">"
-		: type.name;
+		? "List<" + type.typeName() + ">"
+		: type.typeName();
+		
+String typeName(Type type):
+	type.name;
 		
 String typeName(Property this):
 	this.typeDescription().typeName();

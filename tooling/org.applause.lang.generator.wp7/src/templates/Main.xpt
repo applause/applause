@@ -1,6 +1,9 @@
 «IMPORT org::applause::lang::applauseDsl»
 
 «DEFINE main FOR Application»
+«EXPAND App_cs::main FOR this»
+«EXPAND App_xaml::main FOR this»
+«EXPAND CSProj::main FOR this»
 «EXPAND MainView_xaml::main FOR this»
 «EXPAND MainView_cs::main FOR this»
 «EXPAND DetailsView_xaml::main FOR this»
