@@ -35,7 +35,6 @@ String _expression(StringReplace this, String target): // TODO
 	
 String _expression(StringSplit this, String target): // TODO
 	this.value._expression(target) + '|split:' + this.delimiter._expression(target); 
-	//"##split" + target;
 		
 
 String _expression(ObjectReference this, String target):
@@ -44,6 +43,9 @@ String _expression(ObjectReference this, String target):
 String expression(ScalarExpression this, String target):
 	"!expression-" + this.metaType;
 	
+String expression(StringUrlConform this, String target):
+	"{{" + this.value._expression(target) + "|urlencode}}";
+		
 expression(StringLiteral this, String target):
 	value;
 	
