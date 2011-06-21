@@ -92,7 +92,7 @@
 }
 
 -(void)updateData {
-	self.navigationItem.title = [contentProvider valueForKeyPath:@"content.kind"];
+	self.navigationItem.title = @"Event";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];

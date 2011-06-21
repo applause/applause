@@ -7,7 +7,7 @@
 
 
 -(IPContentProvider*)providerForAllOffices {
-	NSString* url = @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values";
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -31,11 +31,11 @@
 
 
 -(IPContentProvider*)providerForCurrentTimeline {
-	NSString* url = @"http://heikobehrens.net/misc/jazoon11/data.php";
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"content.news"
+								  keyPathToContent: @"feed.entry"
 								  andProviders:self] autorelease];
 	return result;
 }
@@ -43,7 +43,7 @@
 
 
 -(IPContentProvider*)providerForEventById:(id)e {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==", [e valueForKeyPath:@"id"]];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", [[NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==", [e valueForKeyPath:@"id"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -55,7 +55,7 @@
 
 
 -(IPContentProvider*)providerForPersonByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D", [[name stringByReplacingOccurrencesOfString:@" " withString:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", [[NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D", [[name stringByReplacingOccurrencesOfString:@" " withString:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil

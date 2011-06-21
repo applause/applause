@@ -5,7 +5,8 @@ import static de.itemis.base.StringUtils.*;
 public class ProviderFactory {
 
 	public static AllOfficesProvider getAllOfficesProvider() {
-		String feedUrl = "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values";
+		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
+				+ "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values";
 		return new AllOfficesProvider(feedUrl);
 	}
 
@@ -16,19 +17,22 @@ public class ProviderFactory {
 	}
 
 	public static CurrentTimelineProvider getCurrentTimelineProvider() {
-		String feedUrl = "http://heikobehrens.net/misc/jazoon11/data.php";
+		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
+				+ "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values";
 		return new CurrentTimelineProvider(feedUrl);
 	}
 
 	public static EventByIdProvider getEventByIdProvider(Event e) {
-		String feedUrl = "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id=="
-				+ e.getId();
+		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
+				+ urlconform("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id=="
+						+ e.getId());
 		return new EventByIdProvider(feedUrl);
 	}
 
 	public static PersonByNameProvider getPersonByNameProvider(String name) {
-		String feedUrl = "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D"
-				+ urlconform(replace(name, " ", ""));
+		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
+				+ urlconform("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D"
+						+ urlconform(replace(name, " ", "")));
 		return new PersonByNameProvider(feedUrl);
 	}
 

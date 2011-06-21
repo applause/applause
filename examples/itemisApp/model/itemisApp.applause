@@ -25,6 +25,8 @@ tabbarApplication itemisApp {
 
 type String mapsTo "NSString"
 
+const SANITIZE_SHEET "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
+
 entity Event {
 	String id
 	String kind
@@ -49,7 +51,7 @@ entity Office {
 
 contentprovider AllOffices 
 	returns Office[]
-	fetches XML from "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values"
+	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values")
 	selects "feed.entry"
 
 contentprovider OfficeResolver(Office o)
@@ -70,7 +72,7 @@ tableview EventList(Event[] events) {
 }
 
 detailsview EventDetails(Event event) {
-	title= event.kind
+	title= "Event"
 	header {
 		title= event.title
 		subtitle= (event.date " " event.location)
@@ -141,17 +143,18 @@ detailsview OfficeDetails(Office office) {
 
 contentprovider CurrentTimeline
 	returns Event[]
-	fetches XML from "http://heikobehrens.net/misc/jazoon11/data.php"
-	selects "content.news"
+	//fetches XML from "http://heikobehrens.net/misc/jazoon11/data.php"
+	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values") 
+	selects "feed.entry"
 	
 contentprovider EventById(Event e)
 	resolves Event
-	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==" e.id)
+	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==" e.id)))
 	selects "feed.entry"
 	
 contentprovider PersonByName(String name)
 	returns Person
-	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D" urlconform(replace(name, " ", "")))
+	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D" urlconform(replace(name, " ", "")))))
 	selects "feed.entry"
 
 entity BlogItem {
