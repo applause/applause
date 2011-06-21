@@ -74,11 +74,15 @@ namespace «namespace()»
 		{
 			this.«viewModelClassName()»s.Clear();
 
-			XDocument xdoc = XDocument.Parse(source);
-			XNamespace dc ="http://purl.org/dc/elements/1.1/";
-			List<«viewModelClassName()»> result =
-				«EXPAND fromBlock(2, 0, ((StringLiteral)this.selection).value.split("\\.").last()) FOR this.type-»
-			result.ForEach(this.«viewModelCollectionName()».Add);
+			try {
+				XDocument xdoc = XDocument.Parse(source);
+				XNamespace dc ="http://purl.org/dc/elements/1.1/";
+				List<«viewModelClassName()»> result =
+					«EXPAND fromBlock(2, 0, ((StringLiteral)this.selection).value.split("\\.").last()) FOR this.type-»
+				result.ForEach(this.«viewModelCollectionName()».Add);
+			}
+			catch {
+			}
 		}
 	}
 }

@@ -41,6 +41,7 @@ namespace «namespace()»
             {
                 int index = int.Parse(selectedIndex);
                 // DataContext = App.RootViewModelProvider.BlogpostsModelProvider().BlogItems[index];
+                // DataContext = App.RootViewModelProvider.CurrentTimelineModelProvider().EventViewModels[index];
             }
         }
     }
