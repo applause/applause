@@ -17,7 +17,7 @@ bindingName(TableView this):
 	this.content.bindingName();
 	
 bindingName(Parameter this):
-	this.typeDescription().type.name.toFirstUpper() + (this.typeDescription().many ? "s" : "");
+	this.typeDescription().type.name.toFirstUpper() + "ViewModel" + (this.typeDescription().many ? "s" : "");
 	
 /**
  * Get the name of the field we want to bind.
