@@ -9,7 +9,7 @@ import org.eclipse.xtext.ui.wizard.XtextNewProjectWizard;
 
 import com.google.inject.Inject;
 
-public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
+public class CustomApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 
 	private WizardNewProjectCreationPage mainPage;
 
@@ -19,7 +19,7 @@ public class ApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 	private IImageHelper imageHelper;
 
 	@Inject
-	public ApplauseDslNewProjectWizard(IProjectCreator projectCreator) {
+	public CustomApplauseDslNewProjectWizard(IProjectCreator projectCreator) {
 		super(projectCreator);
 		setWindowTitle("New APPlause Project");
 	}
