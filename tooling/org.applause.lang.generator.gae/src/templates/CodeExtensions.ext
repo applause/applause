@@ -14,7 +14,10 @@ expression(StringLiteral this, Boolean resolved):
 	"'" + value + "'";
 	
 expression(StringUrlConform this, Boolean resolved):
-	'quote(' + this.value.expression(resolved) + ')';
+	'quote((' + this.value.expression(resolved) + ').encode("utf8"))';
+	
+expression(StringReplace this, Boolean resolved):
+	this.value.expression(resolved)+".replace(" + this.match.expression(resolved) + ", " + this.replacement.expression(resolved) + ")";
 	
 expression(StringConcat this, Boolean resolved):
 	"'" + values.collect(e|"%s").toString("") + "' % ("

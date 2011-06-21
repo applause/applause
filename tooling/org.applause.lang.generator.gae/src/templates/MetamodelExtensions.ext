@@ -2,7 +2,7 @@ import org::eclipse::emf::ecore;
 import org::applause::lang::applauseDsl;
 
 org::eclipse::emf::ecore::EObject eRootContainer(org::eclipse::emf::ecore::EObject this):
-	JAVA templates.Extensions.getRootContainer(org.eclipse.emf.ecore.EObject);
+	JAVA templates.Extensions2.getRootContainer(org.eclipse.emf.ecore.EObject);
 
 model(org::eclipse::emf::ecore::EObject this):
 	(Model)this.eRootContainer();

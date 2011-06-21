@@ -4,7 +4,7 @@ import org::applause::lang::applauseDsl;
 extension templates::MetamodelExtensions;
 
 List[ViewCall] withoutConceptionalDuplicates(Object calls):
-	JAVA templates.Extensions.withoutConceptionalDuplicates(java.util.List);
+	JAVA templates.Extensions2.withoutConceptionalDuplicates(java.util.List);
 
 List[ViewCall] uniqueViewCalls(Model this):
 	viewCalls().toList().withoutConceptionalDuplicates();

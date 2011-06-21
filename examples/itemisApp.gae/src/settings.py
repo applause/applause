@@ -47,3 +47,4 @@ except ImportError:
 from django.template.defaultfilters import register
 import lib.custom_filters
 register.filter_function(lib.custom_filters.to_list)
+register.filter_function(lib.custom_filters.split)

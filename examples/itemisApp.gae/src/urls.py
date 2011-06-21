@@ -3,19 +3,21 @@ from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
 	
-    (r'^$', 'views.BlogListByBlogposts', {}),
+    (r'^$', 'views.EventListByCurrentTimeline', {}),
     
 	
+    (r'^EventList/CurrentTimeline/$', 'views.EventListByCurrentTimeline'),
+
     (r'^BlogList/Blogposts/$', 'views.BlogListByBlogposts'),
 
-    (r'^SessionList/SessionsByDay/(?P<day>.+?)/$', 'views.SessionListBySessionsByDay'),
+    (r'^OfficeList/AllOffices/$', 'views.OfficeListByAllOffices'),
 
-    (r'^SpeakersList/AllSpeakers/$', 'views.SpeakersListByAllSpeakers'),
+    (r'^EventDetails/EventById/(?P<id>.+?)/$', 'views.EventDetailsByEventById'),
+
+    (r'^PersonDetails/PersonByName/(?P<name>.+?)/$', 'views.PersonDetailsByPersonByName'),
+
+    (r'^OfficeDetails/OfficeResolver/(?P<location>.+?)/$', 'views.OfficeDetailsByOfficeResolver'),
 
     (r'^BlogDetails/BlogItemById/(?P<guid>.+?)/$', 'views.BlogDetailsByBlogItemById'),
-
-    (r'^SpeakerDetails/SpeakerByName/(?P<name>.+?)/$', 'views.SpeakerDetailsBySpeakerByName'),
-
-    (r'^SessionDetails/SessionById/(?P<id>.+?)/$', 'views.SessionDetailsBySessionById'),
 
 )

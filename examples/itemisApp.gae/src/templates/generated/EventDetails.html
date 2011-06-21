@@ -1,0 +1,43 @@
+{% extends "generated/application.html" %}
+{% block title%}Event{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+
+
+<div class="header">
+  <div class="header_title">{{data.title|safe}}</div>
+  <div class="header_subtitle">{{data.date|safe}} {{data.location|safe}}</div>
+  <div class="header_details">{{data.description|safe}}</div>
+</div>
+
+
+<div class="table group">
+<ul>
+<li>
+  {% url views.PersonDetailsByPersonByName data.contact|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{data.contact|safe}}</div>
+  
+  </a>
+  
+</li>
+
+</ul>
+
+<div class="table group">
+<ul>
+{% for s in data.speakers|split:','|to_list %}
+<li>
+  {% url views.PersonDetailsByPersonByName s|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{s|safe}}</div>
+  
+  </a>
+  
+</li>
+{% endfor %}
+</ul>
+
+</div>
+
+{% endblock %}
