@@ -3,7 +3,16 @@
 */
 package org.applause.lang.ui.labeling;
 
+import org.applause.lang.applauseDsl.Application;
+import org.applause.lang.applauseDsl.Constant;
+import org.applause.lang.applauseDsl.ContentProvider;
+import org.applause.lang.applauseDsl.Property;
+import org.applause.lang.applauseDsl.SectionCell;
+import org.applause.lang.applauseDsl.Type;
+import org.applause.lang.applauseDsl.View;
+import org.applause.lang.applauseDsl.ViewSection;
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
+import org.eclipse.ui.part.ViewPart;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
 import com.google.inject.Inject;
@@ -20,15 +29,52 @@ public class ApplauseDslLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-/*
-	//Labels and icons can be computed like this:
-	
-	String text(MyModel ele) {
-	  return "my "+ele.getName();
+	String image(Application obj) {
+		return "iphone.png";
 	}
-	 
-    String image(MyModel ele) {
-      return "MyModel.gif";
-    }
-*/
+	
+	String image(Constant obj) {
+		return "field_public_obj.gif";
+	}
+	
+	String image(ContentProvider obj) {
+		return "prjct_nonexist_obj.gif";
+	}
+	
+	String image(Type obj) {
+		return "class_obj.gif";
+	}
+
+	String image(View obj) {
+		return "monitor_obj.gif";
+	}
+	
+	String imageForProperty(Type type, boolean many) {
+		return "field_public_obj.gif";
+	}
+	
+	String image(Property obj) {
+		return imageForProperty(obj.getDescription().getType(), obj.getDescription().isMany());
+	}
+	
+	String image(ViewPart obj) {
+		return "html_tag_obj.gif";
+	}
+	
+	String image(ViewSection obj) {
+		return "html_tag_obj.gif";
+	}
+	
+	String image(SectionCell obj) {
+		return "html_tag_obj.gif";
+	}
+	
+	String text(SectionCell obj){
+		return "cell " + obj.getType().getName();
+	}
+
+	String text(ViewSection obj){
+		return "section";
+	}
+
 }
