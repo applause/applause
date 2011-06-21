@@ -1,0 +1,20 @@
+{% extends "generated/application.html" %}
+{% block title%}test{% endblock %}
+{% block content_class %}table list{% endblock %}
+{% block content %}
+
+<ul>
+{% for e in data|to_list %}
+<li>
+  {% url views.EventDetailsByEventById e.id|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{e.title|safe}}</div>
+  <div class="cell_details">{{e.date|safe}}</div>
+  </a>
+  
+</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

@@ -14,7 +14,7 @@
 <div class="table group">
 <ul>
 <li>
-  {% url views.SpeakerDetailsBySpeakerByName data.creator|urlencode as url %}
+  {% url views.PersonDetailsByPersonByName data.creator|urlencode as url %}
   <a href="{{ url }}">
   <div class="cell_text">{{data.creator|safe}}</div>
   

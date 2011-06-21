@@ -1,5 +1,5 @@
 {% extends "generated/application.html" %}
-{% block title%}Speaker{% endblock %}
+{% block title%}Person{% endblock %}
 {% block content_class %}details{% endblock %}
 {% block content %}
 
@@ -10,20 +10,6 @@
   <div class="header_details">{{data.bio|safe}}</div>
 </div>
 
-
-<div class="table group">
-<ul>
-{% for session in data.sessions|to_list %}
-<li>
-  {% url views.SessionDetailsBySessionById session.id|urlencode as url %}
-  <a href="{{ url }}">
-  <div class="cell_text">{{session.title|safe}}</div>
-  
-  </a>
-  
-</li>
-{% endfor %}
-</ul>
 
 <div class="table group">
 <ul>

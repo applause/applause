@@ -1,0 +1,58 @@
+{% extends "generated/application.html" %}
+{% block title%}Office{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+
+
+<div class="header">
+  <div class="header_title">{{data.location|safe}}</div>
+  <div class="header_subtitle">{{data.address|safe}}</div>
+  <div class="header_details">{{data.summary|safe}}</div>
+</div>
+
+
+<div class="table group">
+<ul>
+<li>
+  {% url views.PersonDetailsByPersonByName data.contact|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{data.contact|safe}}</div>
+  
+  </a>
+  
+</li>
+
+</ul>
+
+<div class="table group">
+<ul>
+<li>
+  
+  <a href="http://maps.google.de/maps?q=!expression-org::applause::lang::applauseDsl::impl::StringUrlConformImpl">
+  <div class="cell_text"></div>
+  <div class="cell_details">Show on Map</div>
+  </a>
+  
+</li>
+<li>
+  
+  <a href="tel:{{url.phone|safe}}">
+  <div class="cell_text">phone</div>
+  <div class="cell_details">{{data.phone|safe}}</div>
+  </a>
+  
+</li>
+<li>
+  
+  <a href="mailto:{{url.mail|safe}}">
+  <div class="cell_text">mail</div>
+  <div class="cell_details">{{data.mail|safe}}</div>
+  </a>
+  
+</li>
+
+</ul>
+
+</div>
+
+{% endblock %}

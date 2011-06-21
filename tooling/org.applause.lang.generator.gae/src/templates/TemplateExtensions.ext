@@ -23,9 +23,20 @@ String _expression(CollectionExpression this, String target):
 	
 String _expression(Expression this, String target):
 	"!_expression-" + this.metaType;
+	
+String _expression(ScalarExpression this, String target):
+	"!_expression-" + this.metaType;
 
 String _expression(StringLiteral this, String target):
 	"'" + value + "'";
+	
+String _expression(StringReplace this, String target): // TODO
+	"##replace" + target;
+	
+String _expression(StringSplit this, String target): // TODO
+	this.value._expression(target) + '|split:' + this.delimiter._expression(target); 
+	//"##split" + target;
+		
 
 String _expression(ObjectReference this, String target):
 	{target}.addAll(toList().withoutFirst()).toString(".");

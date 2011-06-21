@@ -16,7 +16,7 @@ import org.eclipse.xtext.util.Tuples;
 
 import com.google.common.collect.Iterables;
 
-public class Extensions {
+public class Extensions2 {
 	
 	public static EObject getRootContainer(EObject obj) {
 		EObject result = EcoreUtil2.getRootContainer(obj);
