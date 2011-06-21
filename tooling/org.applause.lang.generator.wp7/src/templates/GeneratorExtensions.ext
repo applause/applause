@@ -122,7 +122,7 @@ String expression(StringConcat this, String prefix):
 	values.expression(prefix).toString(" + ");
 
 String expression(StringReplace this, String prefix):
-	"FIXME replace";
+	this.value.expression(prefix) + ".Replace(" + this.match.expression(prefix) + ", " + this.replacement.expression(prefix) + ")";
 	
 String expression(StringUrlConform this, String prefix):
 	this.value.expression(prefix);
@@ -151,7 +151,7 @@ String expression(StringConcat this):
 	values.expression().toString(" + ");	
 	
 String expression(StringReplace this):
-	"FIXME replace";
+	this.value.expression() + ".Replace(" + this.match.expression() + ", " + this.replacement.expression() + ")";
 	
 String expression(StringUrlConform this):
 	this.value.expression();

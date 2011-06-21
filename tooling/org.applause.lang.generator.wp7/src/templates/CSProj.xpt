@@ -97,7 +97,7 @@
       <SubType>Designer</SubType>
     </DesignData>
     «FOREACH this.detailViews() AS detailsView-»
-    <Page Include="«detailsView.viewXAMLFileName()»">
+    <Page Include="Generated\«detailsView.viewXAMLFileName()»">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
