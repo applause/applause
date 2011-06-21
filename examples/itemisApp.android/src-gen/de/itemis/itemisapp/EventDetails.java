@@ -26,7 +26,7 @@ public class EventDetails extends DetailsActivity<Event> {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle(event.getKind());
+		setTitle("Event");
 
 		event = getItemFromProvider();
 

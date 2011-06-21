@@ -21,9 +21,9 @@ public class CurrentTimelineProvider extends GenericListContentProvider<Event> {
 	}
 
 	@Root(strict = false)
-	public static class Content {
+	public static class Feed {
 
-		@ElementList(inline = true, entry = "news")
+		@ElementList(inline = true, entry = "entry")
 		private List<Event> events = new ArrayList<Event>();
 
 		public List<Event> getEvents() {
@@ -35,7 +35,7 @@ public class CurrentTimelineProvider extends GenericListContentProvider<Event> {
 	@Override
 	protected List<Event> extractItems(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Content root = serializer.read(Content.class, reader);
+		Feed root = serializer.read(Feed.class, reader);
 		return root.getEvents();
 	}
 
