@@ -26,7 +26,7 @@ public class EventList extends GenericListActivity<Event> {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("test");
+		setTitle("News");
 
 		events = getItemsFromProvider();
 

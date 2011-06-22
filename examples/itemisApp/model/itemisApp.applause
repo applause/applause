@@ -4,14 +4,14 @@ tabbarApplication itemisApp {
 		title="News"
 		icon="calendar.png"
 		view=EventList( CurrentTimeline() )
-	} 
-
-	button { 
-		title= "Blog"
-		icon= "chat.png"  
-		view= BlogList(Blogposts())
 	}
-
+	
+	button {
+		title= "Blog"
+		icon= "chat.png"
+		view= BlogList(Blogposts())
+	} 
+ 
 	button { 
 		title= "Contact"
 		icon= "microphone.png"  
@@ -61,7 +61,7 @@ contentprovider OfficeResolver(Office o)
 	
 
 tableview EventList(Event[] events) {
-	title= "test"
+	title= "News"
 	section {
 		cell Subtitle foreach events as e {
 			text= e.title
@@ -308,6 +308,12 @@ detailsview PersonDetails(Person person) {
 //	button {
 //		title= "News"
 //		icon= "chat.png" 
+//		view= BlogList(Blogposts())
+//	}
+
+//	button { 
+//		title= "Blog"
+//		icon= "chat.png"  
 //		view= BlogList(Blogposts())
 //	}
 
