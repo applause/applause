@@ -1,6 +1,0 @@
-«IMPORT de::itemis::mobilizer::appModelDsl»
-
-«DEFINE main FOR Application»
-«EXPAND android::Main::main FOR this»
-«EXPAND iphone::Main::main FOR this»
-«ENDDEFINE»
