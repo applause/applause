@@ -33,3 +33,4 @@ Even though you can build simple mobile applications with this open-source versi
 4. Import all projects in the *tooling* subdirectory into your workspace
 5. Right-click on *org.applause.lang* and choose *Run As... -> Eclipse Application*
 6. In the run-time workspace, create a new project by selection *File -> New -> Project... -> APPlause -> APPlause Project*
+7. Follow the tutorial, as soon as it is done #11
