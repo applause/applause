@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.apache.commons.lang
+Bundle-Version: 2.3.0.qualifier
+Bundle-Localization: plugin
+Bundle-Vendor: %providerName
+Bundle-RequiredExecutionEnvironment: JRE-1.1
+Export-Package: org.apache.commons.lang;version="2.3.0",
+ org.apache.commons.lang.builder;version="2.3.0",
+ org.apache.commons.lang.enum;version="2.3.0",
+ org.apache.commons.lang.enums;version="2.3.0",
+ org.apache.commons.lang.exception;version="2.3.0",
+ org.apache.commons.lang.math;version="2.3.0",
+ org.apache.commons.lang.mutable;version="2.3.0",
+ org.apache.commons.lang.text;version="2.3.0",
+ org.apache.commons.lang.time;version="2.3.0"

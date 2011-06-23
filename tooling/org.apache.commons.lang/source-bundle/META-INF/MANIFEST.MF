@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: org.apache.commons.lang.source
+Bundle-Version: 2.3.0.qualifier
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Eclipse-SourceBundle: org.apache.commons.lang;version="2.3.0.qualifier"

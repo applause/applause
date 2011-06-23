@@ -1,0 +1,54 @@
+$Id: RELEASE-NOTES.txt,v 1.1.2.1.2.1.2.1 2011/01/15 20:32:25 caniszczyk Exp $
+
+			 Commons IO Package
+			    Version 2.0.1
+			   Release Notes
+
+
+INTRODUCTION:
+
+Commons IO is a package of Java utility classes for java.io's hierarchy.  
+Classes in this package are considered to be so standard and of such high 
+reuse as to justify existence in java.io.
+
+Commons IO contains utility classes, stream implementations, file filters, 
+file comparators and endian transformation classes.
+
+
+Compatibility with 2.0 and 1.4
+------------------------------
+Binary compatible - Yes
+
+Source compatible - Yes
+
+Semantic compatible - Yes
+  Check the bug fixes section for semantic bug fixes
+
+Commons IO 2.0.1 requires a minimum of JDK 1.5
+ (Commons IO 1.4 had a minimum of JDK 1.3) 
+
+
+Enhancements from 2.0
+---------------------
+
+   * [IO-256] - Provide thread factory for FileAlternationMonitor
+
+
+Bug fixes from 2.0
+------------------
+
+   * [IO-257] - BOMInputStream.read(byte[]) can return 0 which it should not
+   * [IO-258] - XmlStreamReader consumes the stream during encoding detection
+
+Feedback
+--------
+Open source works best when you give feedback:
+http://commons.apache.org/io/
+
+Please direct all bug reports to JIRA
+http://issues.apache.org/jira/browse/IO
+
+Or subscribe to the commons-user mailing list (prefix emails by [io])
+http://commons.apache.org/mail-lists.html
+
+The Commons-IO Team
