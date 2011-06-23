@@ -1,20 +1,35 @@
-# Overview
+# Overview #
 
-Applause is a domain-specific language and a set of code-generators to produce mobile applications for iPhone, Android, Windows Phone and a mobile website on top of Google App Engine. It comes with IDE supports such as error checking, content assist and integrates into Eclipse.
+Applause is a domain-specific language and a set of code-generators to produce mobile applications for iPhone, Android, Windows Phone and a mobile website on top of Google App Engine. It tightly integrates with Eclipse and comes with IDE support such as error checking, content assist.
 
-Applause is not a web framework, a cross-compiler nor is it an interpreter. Instead, it uses a simple input language explicitily designed for data-driven mobile applications to produce human-readable source code in Objective-C, Java, C# or Python.
+Applause is not a web framework, a cross-compiler nor is it an interpreter. Instead, it uses a simple input language explicitly designed for data-driven mobile applications to produce human-readable source code in Objective-C, Java, C# or Python.
 
 Have a look at this [short screencast](http://vimeo.com/15018235) to see it in action.
 
-### Please Note
+## Please Note ##
 
 Even though you can build simple mobile applications with this open-source version of Applause, the code you are looking at is far from being a real product ;)
 
-## directory layout
+## Directory Layout ##
 
-* tools
+* tooling
  * org.applause.lang (language definition)
  * org.applause.lang.ui (Eclipse editor and tooling)
  * org.applause.lang.generator.* (generators for iPhone, Android, GAE, WP7)
 * examples (sample model and applications for the various platforms)
 * assets
+
+## Installation ##
+
+1. Get Eclipse + Xtext 1.0.2:
+* [Windows](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-win32.zip)
+* [Windows 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-win32-x86_64.zip)
+* [Mac OSX](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-macosx-cocoa.tar.gz)
+* [Mac OSX 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-macosx-cocoa-x86_64.tar.gz)
+* [Linux Gtk](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-linux-gtk.tar.gz)
+* [Linux Gtk 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-linux-gtk-x86_64.tar.gz)
+2. Clone APPlause
+3. Start Eclipse
+4. Import all projects in the *tooling* subdirectory into your workspace
+5. Right-click on *org.applause.lang* and choose *Run As... -> Eclipse Application*
+6. In the run-time workspace, create a new project by selection *File -> New -> Project... -> APPlause -> APPlause Project*
