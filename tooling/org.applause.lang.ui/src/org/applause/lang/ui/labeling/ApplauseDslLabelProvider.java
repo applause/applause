@@ -23,7 +23,7 @@ import com.google.inject.Inject;
  * see http://www.eclipse.org/Xtext/documentation/latest/xtext.html#labelProvider
  */
 public class ApplauseDslLabelProvider extends DefaultEObjectLabelProvider {
-
+	
 	@Inject
 	public ApplauseDslLabelProvider(AdapterFactoryLabelProvider delegate) {
 		super(delegate);
@@ -34,11 +34,11 @@ public class ApplauseDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	String image(Constant obj) {
-		return "field_public_obj.gif";
+		return "constant.gif";
 	}
 	
 	String image(ContentProvider obj) {
-		return "prjct_nonexist_obj.gif";
+		return "contentprovider.gif";
 	}
 	
 	String image(Type obj) {
@@ -46,11 +46,11 @@ public class ApplauseDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	String image(View obj) {
-		return "monitor_obj.gif";
+		return "view.gif";
 	}
 	
 	String imageForProperty(Type type, boolean many) {
-		return "field_public_obj.gif";
+		return "property.gif";
 	}
 	
 	String image(Property obj) {
@@ -58,15 +58,15 @@ public class ApplauseDslLabelProvider extends DefaultEObjectLabelProvider {
 	}
 	
 	String image(ViewPart obj) {
-		return "html_tag_obj.gif";
+		return "viewpart.gif";
 	}
 	
 	String image(ViewSection obj) {
-		return "html_tag_obj.gif";
+		return "section.gif";
 	}
 	
 	String image(SectionCell obj) {
-		return "html_tag_obj.gif";
+		return "cell.gif";
 	}
 	
 	String text(SectionCell obj){
