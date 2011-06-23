@@ -22,12 +22,12 @@ Even though you can build simple mobile applications with this open-source versi
 ## Installation ##
 
 1. Get Eclipse + Xtext 1.0.2:
-* [Windows](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-win32.zip)
-* [Windows 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-win32-x86_64.zip)
-* [Mac OSX](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-macosx-cocoa.tar.gz)
-* [Mac OSX 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-macosx-cocoa-x86_64.tar.gz)
-* [Linux Gtk](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-linux-gtk.tar.gz)
-* [Linux Gtk 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-linux-gtk-x86_64.tar.gz)
+ * [Windows](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-win32.zip)
+ * [Windows 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-win32-x86_64.zip)
+ * [Mac OSX](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-macosx-cocoa.tar.gz)
+ * [Mac OSX 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-macosx-cocoa-x86_64.tar.gz)
+ * [Linux Gtk](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-linux-gtk.tar.gz)
+ * [Linux Gtk 64bit](http://download.itemis.com/distros/eclipse-SDK-3.6.2-xtext-1.0.2-linux-gtk-x86_64.tar.gz)
 2. Clone APPlause
 3. Start Eclipse
 4. Import all projects in the *tooling* subdirectory into your workspace
