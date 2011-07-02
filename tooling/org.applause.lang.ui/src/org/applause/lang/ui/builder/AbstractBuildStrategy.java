@@ -34,6 +34,8 @@ import com.google.common.collect.Iterables;
 
 public abstract class AbstractBuildStrategy {
 	
+	private IProject modelProject;
+	
 	private IProject platformProject;
 	
 	private IBuildContext context;
@@ -44,6 +46,14 @@ public abstract class AbstractBuildStrategy {
 
 	public void setContext(IBuildContext context) {
 		this.context = context;
+	}
+	
+	public IProject getModelProject() {
+		return modelProject;
+	}
+	
+	public void setModelProject(IProject modelProject) {
+		this.modelProject = modelProject;
 	}
 	
 	public IProject getPlatformProject() {
@@ -97,11 +107,14 @@ public abstract class AbstractBuildStrategy {
 //				output.addOutlet(projectRootOutlet);
 
 				generate(app, output);
+				copyResources(app, folder);
 				getPlatformProject().build(IncrementalProjectBuilder.CLEAN_BUILD, monitor);
 				return;
 			}
 		}
 	}
+
+	protected abstract void copyResources(Application app, IFolder folder) throws CoreException;
 
 	private Outlet createOutlet(final IFolder folder) {
 		Outlet outlet = new Outlet() {

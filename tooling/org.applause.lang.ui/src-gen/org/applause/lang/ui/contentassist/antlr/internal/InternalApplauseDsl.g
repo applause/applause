@@ -1218,6 +1218,32 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__TabBarApplication__Alternatives_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0_0()); }
+
+	'tabbarApplication' 
+
+{ after(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0_0()); }
+)
+
+    |(
+{ before(grammarAccess.getTabBarApplicationAccess().getApplicationKeyword_0_1()); }
+
+	'application' 
+
+{ after(grammarAccess.getTabBarApplicationAccess().getApplicationKeyword_0_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Type__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -2660,11 +2686,9 @@ rule__TabBarApplication__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0()); }
-
-	'tabbarApplication' 
-
-{ after(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0()); }
+{ before(grammarAccess.getTabBarApplicationAccess().getAlternatives_0()); }
+(rule__TabBarApplication__Alternatives_0)
+{ after(grammarAccess.getTabBarApplicationAccess().getAlternatives_0()); }
 )
 
 ;
@@ -2751,9 +2775,9 @@ rule__TabBarApplication__Group__3__Impl
     }
 :
 (
-{ before(grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_3()); }
-(rule__TabBarApplication__ButtonsAssignment_3)*
-{ after(grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_3()); }
+{ before(grammarAccess.getTabBarApplicationAccess().getGroup_3()); }
+(rule__TabBarApplication__Group_3__0)?
+{ after(grammarAccess.getTabBarApplicationAccess().getGroup_3()); }
 )
 
 ;
@@ -2768,6 +2792,7 @@ rule__TabBarApplication__Group__4
     }
 :
 	rule__TabBarApplication__Group__4__Impl
+	rule__TabBarApplication__Group__5
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2779,11 +2804,39 @@ rule__TabBarApplication__Group__4__Impl
     }
 :
 (
-{ before(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_4()); }
+{ before(grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_4()); }
+(rule__TabBarApplication__ButtonsAssignment_4)*
+{ after(grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_4()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__TabBarApplication__Group__5
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__TabBarApplication__Group__5__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TabBarApplication__Group__5__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_5()); }
 
 	'}' 
 
-{ after(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_4()); }
+{ after(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_5()); }
 )
 
 ;
@@ -2796,6 +2849,71 @@ finally {
 
 
 
+
+
+
+
+
+
+
+
+rule__TabBarApplication__Group_3__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__TabBarApplication__Group_3__0__Impl
+	rule__TabBarApplication__Group_3__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TabBarApplication__Group_3__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTabBarApplicationAccess().getSplashKeyword_3_0()); }
+
+	'splash=' 
+
+{ after(grammarAccess.getTabBarApplicationAccess().getSplashKeyword_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__TabBarApplication__Group_3__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__TabBarApplication__Group_3__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TabBarApplication__Group_3__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTabBarApplicationAccess().getSplashAssignment_3_1()); }
+(rule__TabBarApplication__SplashAssignment_3_1)
+{ after(grammarAccess.getTabBarApplicationAccess().getSplashAssignment_3_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
 
 
 
@@ -7272,14 +7390,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__TabBarApplication__ButtonsAssignment_3
+rule__TabBarApplication__SplashAssignment_3_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0()); }
-	ruleTabbarButton{ after(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0()); }
+{ before(grammarAccess.getTabBarApplicationAccess().getSplashSTRINGTerminalRuleCall_3_1_0()); }
+	RULE_STRING{ after(grammarAccess.getTabBarApplicationAccess().getSplashSTRINGTerminalRuleCall_3_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__TabBarApplication__ButtonsAssignment_4
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_4_0()); }
+	ruleTabbarButton{ after(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_4_0()); }
 )
 
 ;

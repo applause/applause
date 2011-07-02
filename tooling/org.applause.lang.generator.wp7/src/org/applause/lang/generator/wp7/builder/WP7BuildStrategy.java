@@ -1,7 +1,10 @@
 package org.applause.lang.generator.wp7.builder;
 
+import org.applause.lang.applauseDsl.Application;
 import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.xpand2.output.Outlet;
 
 public class WP7BuildStrategy extends AbstractBuildStrategy {
@@ -32,6 +35,13 @@ public class WP7BuildStrategy extends AbstractBuildStrategy {
 	@Override
 	public String getName() {
 		return "Windows Phone 7";
+	}
+
+	@Override
+	protected void copyResources(Application app, IFolder folder)
+			throws CoreException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

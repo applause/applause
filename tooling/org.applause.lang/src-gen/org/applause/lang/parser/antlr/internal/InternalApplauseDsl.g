@@ -1122,13 +1122,18 @@ ruleTabBarApplication returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'tabbarApplication' 
+((	'tabbarApplication' 
     {
-        createLeafNode(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0(), null); 
+        createLeafNode(grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0_0(), null); 
     }
+
+    |	'application' 
+    {
+        createLeafNode(grammarAccess.getTabBarApplicationAccess().getApplicationKeyword_0_1(), null); 
+    }
+)(
 (
-(
-		lv_name_1_0=RULE_ID
+		lv_name_2_0=RULE_ID
 		{
 			createLeafNode(grammarAccess.getTabBarApplicationAccess().getNameIDTerminalRuleCall_1_0(), "name"); 
 		}
@@ -1141,7 +1146,7 @@ ruleTabBarApplication returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"name",
-	        		lv_name_1_0, 
+	        		lv_name_2_0, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
@@ -1154,12 +1159,40 @@ ruleTabBarApplication returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getTabBarApplicationAccess().getLeftCurlyBracketKeyword_2(), null); 
     }
+(	'splash=' 
+    {
+        createLeafNode(grammarAccess.getTabBarApplicationAccess().getSplashKeyword_3_0(), null); 
+    }
 (
+(
+		lv_splash_5_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getTabBarApplicationAccess().getSplashSTRINGTerminalRuleCall_3_1_0(), "splash"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTabBarApplicationRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"splash",
+	        		lv_splash_5_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_4_0(), currentNode); 
 	    }
-		lv_buttons_3_0=ruleTabbarButton		{
+		lv_buttons_6_0=ruleTabbarButton		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTabBarApplicationRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -1168,7 +1201,7 @@ ruleTabBarApplication returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"buttons",
-	        		lv_buttons_3_0, 
+	        		lv_buttons_6_0, 
 	        		"TabbarButton", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -1180,7 +1213,7 @@ ruleTabBarApplication returns [EObject current=null]
 )
 )*	'}' 
     {
-        createLeafNode(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_4(), null); 
+        createLeafNode(grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_5(), null); 
     }
 )
 ;

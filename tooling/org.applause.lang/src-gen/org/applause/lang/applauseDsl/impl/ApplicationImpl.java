@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ApplicationImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.ApplicationImpl#getSplash <em>Splash</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ApplicationImpl#getButtons <em>Buttons</em>}</li>
  * </ul>
  * </p>
@@ -60,6 +61,26 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getSplash() <em>Splash</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSplash()
+   * @generated
+   * @ordered
+   */
+  protected static final String SPLASH_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getSplash() <em>Splash</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSplash()
+   * @generated
+   * @ordered
+   */
+  protected String splash = SPLASH_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getButtons() <em>Buttons</em>}' containment reference list.
@@ -120,6 +141,29 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
    * <!-- end-user-doc -->
    * @generated
    */
+  public String getSplash()
+  {
+    return splash;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setSplash(String newSplash)
+  {
+    String oldSplash = splash;
+    splash = newSplash;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.APPLICATION__SPLASH, oldSplash, splash));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<TabbarButton> getButtons()
   {
     if (buttons == null)
@@ -157,6 +201,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     {
       case ApplauseDslPackage.APPLICATION__NAME:
         return getName();
+      case ApplauseDslPackage.APPLICATION__SPLASH:
+        return getSplash();
       case ApplauseDslPackage.APPLICATION__BUTTONS:
         return getButtons();
     }
@@ -176,6 +222,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     {
       case ApplauseDslPackage.APPLICATION__NAME:
         setName((String)newValue);
+        return;
+      case ApplauseDslPackage.APPLICATION__SPLASH:
+        setSplash((String)newValue);
         return;
       case ApplauseDslPackage.APPLICATION__BUTTONS:
         getButtons().clear();
@@ -198,6 +247,9 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
       case ApplauseDslPackage.APPLICATION__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case ApplauseDslPackage.APPLICATION__SPLASH:
+        setSplash(SPLASH_EDEFAULT);
+        return;
       case ApplauseDslPackage.APPLICATION__BUTTONS:
         getButtons().clear();
         return;
@@ -217,6 +269,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     {
       case ApplauseDslPackage.APPLICATION__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case ApplauseDslPackage.APPLICATION__SPLASH:
+        return SPLASH_EDEFAULT == null ? splash != null : !SPLASH_EDEFAULT.equals(splash);
       case ApplauseDslPackage.APPLICATION__BUTTONS:
         return buttons != null && !buttons.isEmpty();
     }
@@ -236,6 +290,8 @@ public class ApplicationImpl extends MinimalEObjectImpl.Container implements App
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", splash: ");
+    result.append(splash);
     result.append(')');
     return result.toString();
   }

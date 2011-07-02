@@ -117,13 +117,22 @@ public interface ApplauseDslPackage extends EPackage
   int APPLICATION__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Splash</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int APPLICATION__SPLASH = 1;
+
+  /**
    * The feature id for the '<em><b>Buttons</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int APPLICATION__BUTTONS = 1;
+  int APPLICATION__BUTTONS = 2;
 
   /**
    * The number of structural features of the '<em>Application</em>' class.
@@ -132,7 +141,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int APPLICATION_FEATURE_COUNT = 2;
+  int APPLICATION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ModelElementImpl <em>Model Element</em>}' class.
@@ -1605,6 +1614,17 @@ public interface ApplauseDslPackage extends EPackage
   EAttribute getApplication_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Application#getSplash <em>Splash</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Splash</em>'.
+   * @see org.applause.lang.applauseDsl.Application#getSplash()
+   * @see #getApplication()
+   * @generated
+   */
+  EAttribute getApplication_Splash();
+
+  /**
    * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.Application#getButtons <em>Buttons</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2665,6 +2685,14 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EAttribute APPLICATION__NAME = eINSTANCE.getApplication_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Splash</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute APPLICATION__SPLASH = eINSTANCE.getApplication_Splash();
 
     /**
      * The meta object literal for the '<em><b>Buttons</b></em>' containment reference list feature.

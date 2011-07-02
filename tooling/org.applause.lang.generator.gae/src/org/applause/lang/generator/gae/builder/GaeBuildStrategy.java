@@ -1,5 +1,6 @@
 package org.applause.lang.generator.gae.builder;
 
+import org.applause.lang.applauseDsl.Application;
 import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -41,6 +42,13 @@ public class GaeBuildStrategy extends AbstractBuildStrategy {
 	@Override
 	public String getName() {
 		return "Mobile Web based on Google App Engine";
+	}
+
+	@Override
+	protected void copyResources(Application app, IFolder folder)
+			throws CoreException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

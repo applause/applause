@@ -45,6 +45,7 @@ public class ApplauseBuilderParticipant implements IXtextBuilderParticipant {
 					public void run() throws Exception {
 						ResourceLoaderFactory.setCurrentThreadResourceLoader(new ResourceLoaderImpl(buildStrategy.getClass().getClassLoader()));						
 						buildStrategy.setContext(context);
+						buildStrategy.setModelProject(context.getBuiltProject());
 						buildStrategy.setPlatformProject(platformProject);
 						buildStrategy.build(monitor);						
 					}

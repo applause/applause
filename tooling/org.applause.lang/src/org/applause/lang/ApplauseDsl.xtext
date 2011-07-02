@@ -63,7 +63,8 @@ CollectionFunction:
 // applications
 
 TabBarApplication returns Application:
-	"tabbarApplication" name=ID '{'
+	("tabbarApplication" | "application") name=ID '{'
+		("splash=" splash=STRING)?
 		(buttons += TabbarButton)*
 	'}';
 

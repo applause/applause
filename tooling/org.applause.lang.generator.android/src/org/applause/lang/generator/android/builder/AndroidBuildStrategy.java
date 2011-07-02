@@ -1,7 +1,10 @@
 package org.applause.lang.generator.android.builder;
 
+import org.applause.lang.applauseDsl.Application;
 import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.xpand2.output.JavaBeautifier;
 import org.eclipse.xpand2.output.Outlet;
 
@@ -33,6 +36,13 @@ public class AndroidBuildStrategy extends AbstractBuildStrategy {
 	@Override
 	public String getName() {
 		return "Android";
+	}
+
+	@Override
+	protected void copyResources(Application app, IFolder folder)
+			throws CoreException {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

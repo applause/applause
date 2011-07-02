@@ -2764,11 +2764,11 @@ protected class CollectionFunction_RightParenthesisKeyword_5 extends KeywordToke
  * // -------------------------------------------
  * // applications
  * TabBarApplication returns Application:
- * 	"tabbarApplication" name=ID "{" buttons+=TabbarButton* "}";
+ * 	("tabbarApplication" | "application") name=ID "{" ("splash=" splash=STRING)? buttons+=TabbarButton* "}";
  *
  **/
 
-// "tabbarApplication" name=ID "{" buttons+=TabbarButton* "}"
+// ("tabbarApplication" | "application") name=ID "{" ("splash=" splash=STRING)? buttons+=TabbarButton* "}"
 protected class TabBarApplication_Group extends GroupToken {
 	
 	public TabBarApplication_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2783,7 +2783,7 @@ protected class TabBarApplication_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new TabBarApplication_RightCurlyBracketKeyword_4(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new TabBarApplication_RightCurlyBracketKeyword_5(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2797,16 +2797,38 @@ protected class TabBarApplication_Group extends GroupToken {
 
 }
 
-// "tabbarApplication"
-protected class TabBarApplication_TabbarApplicationKeyword_0 extends KeywordToken  {
+// "tabbarApplication" | "application"
+protected class TabBarApplication_Alternatives_0 extends AlternativesToken {
+
+	public TabBarApplication_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
 	
-	public TabBarApplication_TabbarApplicationKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getTabBarApplicationAccess().getAlternatives_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TabBarApplication_TabbarApplicationKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "tabbarApplication"
+protected class TabBarApplication_TabbarApplicationKeyword_0_0 extends KeywordToken  {
+	
+	public TabBarApplication_TabbarApplicationKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0();
+		return grammarAccess.getTabBarApplicationAccess().getTabbarApplicationKeyword_0_0();
 	}
 
     @Override
@@ -2817,6 +2839,7 @@ protected class TabBarApplication_TabbarApplicationKeyword_0 extends KeywordToke
 	}
 
 }
+
 
 // name=ID
 protected class TabBarApplication_NameAssignment_1 extends AssignmentToken  {
@@ -2833,7 +2856,7 @@ protected class TabBarApplication_NameAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new TabBarApplication_TabbarApplicationKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new TabBarApplication_Alternatives_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2874,16 +2897,95 @@ protected class TabBarApplication_LeftCurlyBracketKeyword_2 extends KeywordToken
 
 }
 
-// buttons+=TabbarButton*
-protected class TabBarApplication_ButtonsAssignment_3 extends AssignmentToken  {
+// ("splash=" splash=STRING)?
+protected class TabBarApplication_Group_3 extends GroupToken {
 	
-	public TabBarApplication_ButtonsAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public TabBarApplication_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getTabBarApplicationAccess().getGroup_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TabBarApplication_SplashAssignment_3_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "splash="
+protected class TabBarApplication_SplashKeyword_3_0 extends KeywordToken  {
+	
+	public TabBarApplication_SplashKeyword_3_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getTabBarApplicationAccess().getSplashKeyword_3_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TabBarApplication_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// splash=STRING
+protected class TabBarApplication_SplashAssignment_3_1 extends AssignmentToken  {
+	
+	public TabBarApplication_SplashAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_3();
+		return grammarAccess.getTabBarApplicationAccess().getSplashAssignment_3_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new TabBarApplication_SplashKeyword_3_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("splash",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("splash");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTabBarApplicationAccess().getSplashSTRINGTerminalRuleCall_3_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getTabBarApplicationAccess().getSplashSTRINGTerminalRuleCall_3_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+// buttons+=TabbarButton*
+protected class TabBarApplication_ButtonsAssignment_4 extends AssignmentToken  {
+	
+	public TabBarApplication_ButtonsAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getTabBarApplicationAccess().getButtonsAssignment_4();
 	}
 
     @Override
@@ -2902,7 +3004,7 @@ protected class TabBarApplication_ButtonsAssignment_3 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getTabbarButtonRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_3_0(); 
+				element = grammarAccess.getTabBarApplicationAccess().getButtonsTabbarButtonParserRuleCall_4_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -2914,30 +3016,32 @@ protected class TabBarApplication_ButtonsAssignment_3 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new TabBarApplication_ButtonsAssignment_3(lastRuleCallOrigin, next, actIndex, consumed);
-			case 1: return new TabBarApplication_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new TabBarApplication_ButtonsAssignment_4(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new TabBarApplication_Group_3(lastRuleCallOrigin, next, actIndex, consumed);
+			case 2: return new TabBarApplication_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
 }
 
 // "}"
-protected class TabBarApplication_RightCurlyBracketKeyword_4 extends KeywordToken  {
+protected class TabBarApplication_RightCurlyBracketKeyword_5 extends KeywordToken  {
 	
-	public TabBarApplication_RightCurlyBracketKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public TabBarApplication_RightCurlyBracketKeyword_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_4();
+		return grammarAccess.getTabBarApplicationAccess().getRightCurlyBracketKeyword_5();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new TabBarApplication_ButtonsAssignment_3(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new TabBarApplication_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new TabBarApplication_ButtonsAssignment_4(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new TabBarApplication_Group_3(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new TabBarApplication_LeftCurlyBracketKeyword_2(lastRuleCallOrigin, this, 2, inst);
 			default: return null;
 		}	
 	}

@@ -22,6 +22,7 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Application">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Application/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Application/splash"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Application/buttons"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ModelElement">
