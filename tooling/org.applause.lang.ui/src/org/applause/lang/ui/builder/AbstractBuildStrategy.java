@@ -3,6 +3,7 @@ package org.applause.lang.ui.builder;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.regex.Pattern;
 
 import org.applause.lang.applauseDsl.Application;
 import org.eclipse.core.resources.IContainer;
@@ -64,9 +65,7 @@ public abstract class AbstractBuildStrategy {
 		this.platformProject = platformProject;
 	}
 	
-	protected boolean canBuildProject() {
-		return true;
-	}
+	protected abstract boolean canBuildProject();
 
 	public void build(IProgressMonitor monitor) throws CoreException {
 		if (canBuildProject()) {
@@ -163,16 +162,17 @@ public abstract class AbstractBuildStrategy {
 	
 	protected abstract String getMainTemplateName();
 
-	protected IFile findFile(IContainer container, String fileName) {
-		IResource[] members;
+	protected IFile findFile(IContainer container, String fileSpec) {
+		Pattern pattern = Pattern.compile(fileSpec);
 		try {
-			members = container.members();
+			IResource[] members = container.members();
 			for (IResource resource : members) {
-				if (resource.getType() == IResource.FILE) {
-					if (resource.getName().matches(fileName)) {
-						return (IFile) resource.getAdapter(IFile.class);
+				if (resource instanceof IFile) {
+					IFile file = (IFile) resource;
+					if (pattern.matcher(file.getName()).matches()) {
+						return file;
 					}
-				}
+				}				
 			}			
 		} catch (CoreException e) {
 			e.printStackTrace();
