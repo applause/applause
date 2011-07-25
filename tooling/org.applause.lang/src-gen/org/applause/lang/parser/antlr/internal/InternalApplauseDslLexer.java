@@ -25,6 +25,8 @@ public class InternalApplauseDslLexer extends Lexer {
     public static final int T22=22;
     public static final int T21=21;
     public static final int T20=20;
+    public static final int T62=62;
+    public static final int T63=63;
     public static final int RULE_INT=6;
     public static final int T38=38;
     public static final int T37=37;
@@ -41,7 +43,7 @@ public class InternalApplauseDslLexer extends Lexer {
     public static final int T49=49;
     public static final int T48=48;
     public static final int T43=43;
-    public static final int Tokens=62;
+    public static final int Tokens=64;
     public static final int RULE_SL_COMMENT=8;
     public static final int T42=42;
     public static final int T41=41;
@@ -910,10 +912,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT55() throws RecognitionException {
         try {
             int _type = T55;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:54:5: ( 'action=' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:54:7: 'action='
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:54:5: ( 'query=' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:54:7: 'query='
             {
-            match("action="); 
+            match("query="); 
 
 
             }
@@ -929,10 +931,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT56() throws RecognitionException {
         try {
             int _type = T56;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:55:5: ( 'as' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:55:7: 'as'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:55:5: ( 'action=' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:55:7: 'action='
             {
-            match("as"); 
+            match("action="); 
 
 
             }
@@ -948,10 +950,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT57() throws RecognitionException {
         try {
             int _type = T57;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:56:5: ( 'Default' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:56:7: 'Default'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:56:5: ( 'as' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:56:7: 'as'
             {
-            match("Default"); 
+            match("as"); 
 
 
             }
@@ -967,10 +969,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT58() throws RecognitionException {
         try {
             int _type = T58;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:57:5: ( 'DefaultWithDisclosure' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:57:7: 'DefaultWithDisclosure'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:57:5: ( 'Default' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:57:7: 'Default'
             {
-            match("DefaultWithDisclosure"); 
+            match("Default"); 
 
 
             }
@@ -986,10 +988,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT59() throws RecognitionException {
         try {
             int _type = T59;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:58:5: ( 'Value2' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:58:7: 'Value2'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:58:5: ( 'DefaultWithDisclosure' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:58:7: 'DefaultWithDisclosure'
             {
-            match("Value2"); 
+            match("DefaultWithDisclosure"); 
 
 
             }
@@ -1005,10 +1007,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT60() throws RecognitionException {
         try {
             int _type = T60;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:59:5: ( 'Double' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:59:7: 'Double'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:59:5: ( 'Value2' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:59:7: 'Value2'
             {
-            match("Double"); 
+            match("Value2"); 
 
 
             }
@@ -1024,10 +1026,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mT61() throws RecognitionException {
         try {
             int _type = T61;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:60:5: ( 'Subtitle' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:60:7: 'Subtitle'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:60:5: ( 'Double' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:60:7: 'Double'
             {
-            match("Subtitle"); 
+            match("Double"); 
 
 
             }
@@ -1039,14 +1041,52 @@ public class InternalApplauseDslLexer extends Lexer {
     }
     // $ANTLR end T61
 
+    // $ANTLR start T62
+    public final void mT62() throws RecognitionException {
+        try {
+            int _type = T62;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:61:5: ( 'Subtitle' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:61:7: 'Subtitle'
+            {
+            match("Subtitle"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T62
+
+    // $ANTLR start T63
+    public final void mT63() throws RecognitionException {
+        try {
+            int _type = T63;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:62:5: ( 'Map' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:62:7: 'Map'
+            {
+            match("Map"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T63
+
     // $ANTLR start RULE_ID
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3289:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3289:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3323:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3323:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3289:11: ( '^' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3323:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -1055,7 +1095,7 @@ public class InternalApplauseDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3289:11: '^'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3323:11: '^'
                     {
                     match('^'); 
 
@@ -1074,7 +1114,7 @@ public class InternalApplauseDslLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3289:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3323:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1122,10 +1162,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3291:10: ( ( '0' .. '9' )+ )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3291:12: ( '0' .. '9' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3325:10: ( ( '0' .. '9' )+ )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3325:12: ( '0' .. '9' )+
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3291:12: ( '0' .. '9' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3325:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1139,7 +1179,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3291:13: '0' .. '9'
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3325:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1169,10 +1209,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1184,16 +1224,16 @@ public class InternalApplauseDslLexer extends Lexer {
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("3293:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
+                    new NoViableAltException("3327:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )", 6, 0, input);
 
                 throw nvae;
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1209,7 +1249,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1226,7 +1266,7 @@ public class InternalApplauseDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:62: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:62: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1252,10 +1292,10 @@ public class InternalApplauseDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:82: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:87: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1271,7 +1311,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:88: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1288,7 +1328,7 @@ public class InternalApplauseDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3293:129: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3327:129: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
                     	        input.consume();
@@ -1330,12 +1370,12 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3295:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3295:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3329:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3329:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3295:24: ( options {greedy=false; } : . )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3329:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1360,7 +1400,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3295:52: .
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3329:52: .
             	    {
             	    matchAny(); 
 
@@ -1388,12 +1428,12 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1406,7 +1446,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1427,7 +1467,7 @@ public class InternalApplauseDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:40: ( ( '\\r' )? '\\n' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1436,9 +1476,9 @@ public class InternalApplauseDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:41: ( '\\r' )? '\\n'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:41: ( '\\r' )?
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1447,7 +1487,7 @@ public class InternalApplauseDslLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3297:41: '\\r'
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1477,10 +1517,10 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3299:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3299:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3333:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3333:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3299:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3333:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1533,8 +1573,8 @@ public class InternalApplauseDslLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3301:16: ( . )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3301:18: .
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3335:16: ( . )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3335:18: .
             {
             matchAny(); 
 
@@ -1548,8 +1588,8 @@ public class InternalApplauseDslLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=58;
+        // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:8: ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | T62 | T63 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=60;
         int LA12_0 = input.LA(1);
 
         if ( (LA12_0=='[') ) {
@@ -1575,123 +1615,123 @@ public class InternalApplauseDslLexer extends Lexer {
 
             if ( (LA12_5=='e') ) {
                 switch ( input.LA(3) ) {
+                case 'p':
+                    {
+                    int LA12_86 = input.LA(4);
+
+                    if ( (LA12_86=='l') ) {
+                        int LA12_125 = input.LA(5);
+
+                        if ( (LA12_125=='a') ) {
+                            int LA12_166 = input.LA(6);
+
+                            if ( (LA12_166=='c') ) {
+                                int LA12_205 = input.LA(7);
+
+                                if ( (LA12_205=='e') ) {
+                                    int LA12_238 = input.LA(8);
+
+                                    if ( (LA12_238=='(') ) {
+                                        alt12=5;
+                                    }
+                                    else {
+                                        alt12=54;}
+                                }
+                                else {
+                                    alt12=54;}
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
+                    }
+                    else {
+                        alt12=54;}
+                    }
+                    break;
                 case 's':
                     {
-                    int LA12_82 = input.LA(4);
+                    int LA12_87 = input.LA(4);
 
-                    if ( (LA12_82=='o') ) {
-                        int LA12_119 = input.LA(5);
+                    if ( (LA12_87=='o') ) {
+                        int LA12_126 = input.LA(5);
 
-                        if ( (LA12_119=='l') ) {
-                            int LA12_158 = input.LA(6);
+                        if ( (LA12_126=='l') ) {
+                            int LA12_167 = input.LA(6);
 
-                            if ( (LA12_158=='v') ) {
-                                int LA12_196 = input.LA(7);
+                            if ( (LA12_167=='v') ) {
+                                int LA12_206 = input.LA(7);
 
-                                if ( (LA12_196=='e') ) {
-                                    int LA12_228 = input.LA(8);
+                                if ( (LA12_206=='e') ) {
+                                    int LA12_239 = input.LA(8);
 
-                                    if ( (LA12_228=='s') ) {
-                                        int LA12_256 = input.LA(9);
+                                    if ( (LA12_239=='s') ) {
+                                        int LA12_267 = input.LA(9);
 
-                                        if ( ((LA12_256>='0' && LA12_256<='9')||(LA12_256>='A' && LA12_256<='Z')||LA12_256=='_'||(LA12_256>='a' && LA12_256<='z')) ) {
-                                            alt12=52;
+                                        if ( ((LA12_267>='0' && LA12_267<='9')||(LA12_267>='A' && LA12_267<='Z')||LA12_267=='_'||(LA12_267>='a' && LA12_267<='z')) ) {
+                                            alt12=54;
                                         }
                                         else {
                                             alt12=28;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
-                    }
-                    break;
-                case 'p':
-                    {
-                    int LA12_83 = input.LA(4);
-
-                    if ( (LA12_83=='l') ) {
-                        int LA12_120 = input.LA(5);
-
-                        if ( (LA12_120=='a') ) {
-                            int LA12_159 = input.LA(6);
-
-                            if ( (LA12_159=='c') ) {
-                                int LA12_197 = input.LA(7);
-
-                                if ( (LA12_197=='e') ) {
-                                    int LA12_229 = input.LA(8);
-
-                                    if ( (LA12_229=='(') ) {
-                                        alt12=5;
-                                    }
-                                    else {
-                                        alt12=52;}
-                                }
-                                else {
-                                    alt12=52;}
-                            }
-                            else {
-                                alt12=52;}
-                        }
-                        else {
-                            alt12=52;}
-                    }
-                    else {
-                        alt12=52;}
+                        alt12=54;}
                     }
                     break;
                 case 't':
                     {
-                    int LA12_84 = input.LA(4);
+                    int LA12_88 = input.LA(4);
 
-                    if ( (LA12_84=='u') ) {
-                        int LA12_121 = input.LA(5);
+                    if ( (LA12_88=='u') ) {
+                        int LA12_127 = input.LA(5);
 
-                        if ( (LA12_121=='r') ) {
-                            int LA12_160 = input.LA(6);
+                        if ( (LA12_127=='r') ) {
+                            int LA12_168 = input.LA(6);
 
-                            if ( (LA12_160=='n') ) {
-                                int LA12_198 = input.LA(7);
+                            if ( (LA12_168=='n') ) {
+                                int LA12_207 = input.LA(7);
 
-                                if ( (LA12_198=='s') ) {
-                                    int LA12_230 = input.LA(8);
+                                if ( (LA12_207=='s') ) {
+                                    int LA12_240 = input.LA(8);
 
-                                    if ( ((LA12_230>='0' && LA12_230<='9')||(LA12_230>='A' && LA12_230<='Z')||LA12_230=='_'||(LA12_230>='a' && LA12_230<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_240>='0' && LA12_240<='9')||(LA12_240>='A' && LA12_240<='Z')||LA12_240=='_'||(LA12_240>='a' && LA12_240<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=27;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                     }
                     break;
                 default:
-                    alt12=52;}
+                    alt12=54;}
 
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0==',') ) {
             alt12=6;
@@ -1700,64 +1740,64 @@ public class InternalApplauseDslLexer extends Lexer {
             int LA12_7 = input.LA(2);
 
             if ( (LA12_7=='r') ) {
-                int LA12_43 = input.LA(3);
+                int LA12_45 = input.LA(3);
 
-                if ( (LA12_43=='l') ) {
-                    int LA12_85 = input.LA(4);
+                if ( (LA12_45=='l') ) {
+                    int LA12_89 = input.LA(4);
 
-                    if ( (LA12_85=='c') ) {
-                        int LA12_122 = input.LA(5);
+                    if ( (LA12_89=='c') ) {
+                        int LA12_128 = input.LA(5);
 
-                        if ( (LA12_122=='o') ) {
-                            int LA12_161 = input.LA(6);
+                        if ( (LA12_128=='o') ) {
+                            int LA12_169 = input.LA(6);
 
-                            if ( (LA12_161=='n') ) {
-                                int LA12_199 = input.LA(7);
+                            if ( (LA12_169=='n') ) {
+                                int LA12_208 = input.LA(7);
 
-                                if ( (LA12_199=='f') ) {
-                                    int LA12_231 = input.LA(8);
+                                if ( (LA12_208=='f') ) {
+                                    int LA12_241 = input.LA(8);
 
-                                    if ( (LA12_231=='o') ) {
-                                        int LA12_259 = input.LA(9);
+                                    if ( (LA12_241=='o') ) {
+                                        int LA12_269 = input.LA(9);
 
-                                        if ( (LA12_259=='r') ) {
-                                            int LA12_279 = input.LA(10);
+                                        if ( (LA12_269=='r') ) {
+                                            int LA12_289 = input.LA(10);
 
-                                            if ( (LA12_279=='m') ) {
-                                                int LA12_290 = input.LA(11);
+                                            if ( (LA12_289=='m') ) {
+                                                int LA12_300 = input.LA(11);
 
-                                                if ( (LA12_290=='(') ) {
+                                                if ( (LA12_300=='(') ) {
                                                     alt12=7;
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0==']') ) {
             alt12=9;
@@ -1769,524 +1809,524 @@ public class InternalApplauseDslLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 'c':
                     {
-                    int LA12_86 = input.LA(4);
+                    int LA12_90 = input.LA(4);
 
-                    if ( (LA12_86=='t') ) {
-                        int LA12_123 = input.LA(5);
+                    if ( (LA12_90=='t') ) {
+                        int LA12_129 = input.LA(5);
 
-                        if ( (LA12_123=='i') ) {
-                            int LA12_162 = input.LA(6);
+                        if ( (LA12_129=='i') ) {
+                            int LA12_170 = input.LA(6);
 
-                            if ( (LA12_162=='o') ) {
-                                int LA12_200 = input.LA(7);
+                            if ( (LA12_170=='o') ) {
+                                int LA12_209 = input.LA(7);
 
-                                if ( (LA12_200=='n') ) {
-                                    int LA12_232 = input.LA(8);
+                                if ( (LA12_209=='n') ) {
+                                    int LA12_242 = input.LA(8);
 
-                                    if ( ((LA12_232>='0' && LA12_232<='9')||(LA12_232>='A' && LA12_232<='Z')||LA12_232=='_'||(LA12_232>='a' && LA12_232<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_242>='0' && LA12_242<='9')||(LA12_242>='A' && LA12_242<='Z')||LA12_242=='_'||(LA12_242>='a' && LA12_242<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=41;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                     }
                     break;
                 case 'l':
                     {
-                    int LA12_87 = input.LA(4);
+                    int LA12_91 = input.LA(4);
 
-                    if ( (LA12_87=='e') ) {
-                        int LA12_124 = input.LA(5);
+                    if ( (LA12_91=='e') ) {
+                        int LA12_130 = input.LA(5);
 
-                        if ( (LA12_124=='c') ) {
-                            int LA12_163 = input.LA(6);
+                        if ( (LA12_130=='c') ) {
+                            int LA12_171 = input.LA(6);
 
-                            if ( (LA12_163=='t') ) {
-                                int LA12_201 = input.LA(7);
+                            if ( (LA12_171=='t') ) {
+                                int LA12_210 = input.LA(7);
 
-                                if ( (LA12_201=='s') ) {
-                                    int LA12_233 = input.LA(8);
+                                if ( (LA12_210=='s') ) {
+                                    int LA12_243 = input.LA(8);
 
-                                    if ( ((LA12_233>='0' && LA12_233<='9')||(LA12_233>='A' && LA12_233<='Z')||LA12_233=='_'||(LA12_233>='a' && LA12_233<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_243>='0' && LA12_243<='9')||(LA12_243>='A' && LA12_243<='Z')||LA12_243=='_'||(LA12_243>='a' && LA12_243<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=32;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                     }
                     break;
                 default:
-                    alt12=52;}
+                    alt12=54;}
 
                 }
                 break;
             case 'u':
                 {
-                int LA12_46 = input.LA(3);
+                int LA12_48 = input.LA(3);
 
-                if ( (LA12_46=='b') ) {
-                    int LA12_88 = input.LA(4);
+                if ( (LA12_48=='b') ) {
+                    int LA12_92 = input.LA(4);
 
-                    if ( (LA12_88=='t') ) {
-                        int LA12_125 = input.LA(5);
+                    if ( (LA12_92=='t') ) {
+                        int LA12_131 = input.LA(5);
 
-                        if ( (LA12_125=='i') ) {
-                            int LA12_164 = input.LA(6);
+                        if ( (LA12_131=='i') ) {
+                            int LA12_172 = input.LA(6);
 
-                            if ( (LA12_164=='t') ) {
-                                int LA12_202 = input.LA(7);
+                            if ( (LA12_172=='t') ) {
+                                int LA12_211 = input.LA(7);
 
-                                if ( (LA12_202=='l') ) {
-                                    int LA12_234 = input.LA(8);
+                                if ( (LA12_211=='l') ) {
+                                    int LA12_244 = input.LA(8);
 
-                                    if ( (LA12_234=='e') ) {
-                                        int LA12_262 = input.LA(9);
+                                    if ( (LA12_244=='e') ) {
+                                        int LA12_272 = input.LA(9);
 
-                                        if ( (LA12_262=='=') ) {
+                                        if ( (LA12_272=='=') ) {
                                             alt12=38;
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             case 'p':
                 {
-                int LA12_47 = input.LA(3);
+                int LA12_49 = input.LA(3);
 
-                if ( (LA12_47=='l') ) {
+                if ( (LA12_49=='l') ) {
                     switch ( input.LA(4) ) {
-                    case 'a':
-                        {
-                        int LA12_126 = input.LA(5);
-
-                        if ( (LA12_126=='s') ) {
-                            int LA12_165 = input.LA(6);
-
-                            if ( (LA12_165=='h') ) {
-                                int LA12_203 = input.LA(7);
-
-                                if ( (LA12_203=='=') ) {
-                                    alt12=14;
-                                }
-                                else {
-                                    alt12=52;}
-                            }
-                            else {
-                                alt12=52;}
-                        }
-                        else {
-                            alt12=52;}
-                        }
-                        break;
                     case 'i':
                         {
-                        int LA12_127 = input.LA(5);
+                        int LA12_132 = input.LA(5);
 
-                        if ( (LA12_127=='t') ) {
-                            int LA12_166 = input.LA(6);
+                        if ( (LA12_132=='t') ) {
+                            int LA12_173 = input.LA(6);
 
-                            if ( (LA12_166=='(') ) {
+                            if ( (LA12_173=='(') ) {
                                 alt12=10;
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
+                        }
+                        break;
+                    case 'a':
+                        {
+                        int LA12_133 = input.LA(5);
+
+                        if ( (LA12_133=='s') ) {
+                            int LA12_174 = input.LA(6);
+
+                            if ( (LA12_174=='h') ) {
+                                int LA12_213 = input.LA(7);
+
+                                if ( (LA12_213=='=') ) {
+                                    alt12=14;
+                                }
+                                else {
+                                    alt12=54;}
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
                         }
                         break;
                     default:
-                        alt12=52;}
+                        alt12=54;}
 
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='t') ) {
             switch ( input.LA(2) ) {
             case 'a':
                 {
-                int LA12_48 = input.LA(3);
+                int LA12_50 = input.LA(3);
 
-                if ( (LA12_48=='b') ) {
+                if ( (LA12_50=='b') ) {
                     switch ( input.LA(4) ) {
                     case 'b':
                         {
-                        int LA12_128 = input.LA(5);
+                        int LA12_134 = input.LA(5);
 
-                        if ( (LA12_128=='a') ) {
-                            int LA12_167 = input.LA(6);
+                        if ( (LA12_134=='a') ) {
+                            int LA12_175 = input.LA(6);
 
-                            if ( (LA12_167=='r') ) {
-                                int LA12_205 = input.LA(7);
+                            if ( (LA12_175=='r') ) {
+                                int LA12_214 = input.LA(7);
 
-                                if ( (LA12_205=='A') ) {
-                                    int LA12_236 = input.LA(8);
+                                if ( (LA12_214=='A') ) {
+                                    int LA12_246 = input.LA(8);
 
-                                    if ( (LA12_236=='p') ) {
-                                        int LA12_263 = input.LA(9);
+                                    if ( (LA12_246=='p') ) {
+                                        int LA12_273 = input.LA(9);
 
-                                        if ( (LA12_263=='p') ) {
-                                            int LA12_281 = input.LA(10);
+                                        if ( (LA12_273=='p') ) {
+                                            int LA12_291 = input.LA(10);
 
-                                            if ( (LA12_281=='l') ) {
-                                                int LA12_291 = input.LA(11);
+                                            if ( (LA12_291=='l') ) {
+                                                int LA12_301 = input.LA(11);
 
-                                                if ( (LA12_291=='i') ) {
-                                                    int LA12_300 = input.LA(12);
+                                                if ( (LA12_301=='i') ) {
+                                                    int LA12_310 = input.LA(12);
 
-                                                    if ( (LA12_300=='c') ) {
-                                                        int LA12_307 = input.LA(13);
+                                                    if ( (LA12_310=='c') ) {
+                                                        int LA12_317 = input.LA(13);
 
-                                                        if ( (LA12_307=='a') ) {
-                                                            int LA12_313 = input.LA(14);
+                                                        if ( (LA12_317=='a') ) {
+                                                            int LA12_323 = input.LA(14);
 
-                                                            if ( (LA12_313=='t') ) {
-                                                                int LA12_317 = input.LA(15);
+                                                            if ( (LA12_323=='t') ) {
+                                                                int LA12_327 = input.LA(15);
 
-                                                                if ( (LA12_317=='i') ) {
-                                                                    int LA12_321 = input.LA(16);
+                                                                if ( (LA12_327=='i') ) {
+                                                                    int LA12_331 = input.LA(16);
 
-                                                                    if ( (LA12_321=='o') ) {
-                                                                        int LA12_324 = input.LA(17);
+                                                                    if ( (LA12_331=='o') ) {
+                                                                        int LA12_334 = input.LA(17);
 
-                                                                        if ( (LA12_324=='n') ) {
-                                                                            int LA12_327 = input.LA(18);
+                                                                        if ( (LA12_334=='n') ) {
+                                                                            int LA12_337 = input.LA(18);
 
-                                                                            if ( ((LA12_327>='0' && LA12_327<='9')||(LA12_327>='A' && LA12_327<='Z')||LA12_327=='_'||(LA12_327>='a' && LA12_327<='z')) ) {
-                                                                                alt12=52;
+                                                                            if ( ((LA12_337>='0' && LA12_337<='9')||(LA12_337>='A' && LA12_337<='Z')||LA12_337=='_'||(LA12_337>='a' && LA12_337<='z')) ) {
+                                                                                alt12=54;
                                                                             }
                                                                             else {
                                                                                 alt12=11;}
                                                                         }
                                                                         else {
-                                                                            alt12=52;}
+                                                                            alt12=54;}
                                                                     }
                                                                     else {
-                                                                        alt12=52;}
+                                                                        alt12=54;}
                                                                 }
                                                                 else {
-                                                                    alt12=52;}
+                                                                    alt12=54;}
                                                             }
                                                             else {
-                                                                alt12=52;}
+                                                                alt12=54;}
                                                         }
                                                         else {
-                                                            alt12=52;}
+                                                            alt12=54;}
                                                     }
                                                     else {
-                                                        alt12=52;}
+                                                        alt12=54;}
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                         }
                         break;
                     case 'l':
                         {
-                        int LA12_129 = input.LA(5);
+                        int LA12_135 = input.LA(5);
 
-                        if ( (LA12_129=='e') ) {
-                            int LA12_168 = input.LA(6);
+                        if ( (LA12_135=='e') ) {
+                            int LA12_176 = input.LA(6);
 
-                            if ( (LA12_168=='v') ) {
-                                int LA12_206 = input.LA(7);
+                            if ( (LA12_176=='v') ) {
+                                int LA12_215 = input.LA(7);
 
-                                if ( (LA12_206=='i') ) {
-                                    int LA12_237 = input.LA(8);
+                                if ( (LA12_215=='i') ) {
+                                    int LA12_247 = input.LA(8);
 
-                                    if ( (LA12_237=='e') ) {
-                                        int LA12_264 = input.LA(9);
+                                    if ( (LA12_247=='e') ) {
+                                        int LA12_274 = input.LA(9);
 
-                                        if ( (LA12_264=='w') ) {
-                                            int LA12_282 = input.LA(10);
+                                        if ( (LA12_274=='w') ) {
+                                            int LA12_292 = input.LA(10);
 
-                                            if ( ((LA12_282>='0' && LA12_282<='9')||(LA12_282>='A' && LA12_282<='Z')||LA12_282=='_'||(LA12_282>='a' && LA12_282<='z')) ) {
-                                                alt12=52;
+                                            if ( ((LA12_292>='0' && LA12_292<='9')||(LA12_292>='A' && LA12_292<='Z')||LA12_292=='_'||(LA12_292>='a' && LA12_292<='z')) ) {
+                                                alt12=54;
                                             }
                                             else {
                                                 alt12=33;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                         }
                         break;
                     default:
-                        alt12=52;}
+                        alt12=54;}
 
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             case 'e':
                 {
-                int LA12_49 = input.LA(3);
+                int LA12_51 = input.LA(3);
 
-                if ( (LA12_49=='x') ) {
-                    int LA12_91 = input.LA(4);
+                if ( (LA12_51=='x') ) {
+                    int LA12_95 = input.LA(4);
 
-                    if ( (LA12_91=='t') ) {
-                        int LA12_130 = input.LA(5);
+                    if ( (LA12_95=='t') ) {
+                        int LA12_136 = input.LA(5);
 
-                        if ( (LA12_130=='=') ) {
+                        if ( (LA12_136=='=') ) {
                             alt12=44;
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             case 'i':
                 {
-                int LA12_50 = input.LA(3);
+                int LA12_52 = input.LA(3);
 
-                if ( (LA12_50=='t') ) {
-                    int LA12_92 = input.LA(4);
+                if ( (LA12_52=='t') ) {
+                    int LA12_96 = input.LA(4);
 
-                    if ( (LA12_92=='l') ) {
-                        int LA12_131 = input.LA(5);
+                    if ( (LA12_96=='l') ) {
+                        int LA12_137 = input.LA(5);
 
-                        if ( (LA12_131=='e') ) {
-                            int LA12_170 = input.LA(6);
+                        if ( (LA12_137=='e') ) {
+                            int LA12_178 = input.LA(6);
 
-                            if ( (LA12_170=='=') ) {
+                            if ( (LA12_178=='=') ) {
                                 alt12=17;
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             case 'y':
                 {
-                int LA12_51 = input.LA(3);
+                int LA12_53 = input.LA(3);
 
-                if ( (LA12_51=='p') ) {
-                    int LA12_93 = input.LA(4);
+                if ( (LA12_53=='p') ) {
+                    int LA12_97 = input.LA(4);
 
-                    if ( (LA12_93=='e') ) {
-                        int LA12_132 = input.LA(5);
+                    if ( (LA12_97=='e') ) {
+                        int LA12_138 = input.LA(5);
 
-                        if ( ((LA12_132>='0' && LA12_132<='9')||(LA12_132>='A' && LA12_132<='Z')||LA12_132=='_'||(LA12_132>='a' && LA12_132<='z')) ) {
-                            alt12=52;
+                        if ( ((LA12_138>='0' && LA12_138<='9')||(LA12_138>='A' && LA12_138<='Z')||LA12_138=='_'||(LA12_138>='a' && LA12_138<='z')) ) {
+                            alt12=54;
                         }
                         else {
                             alt12=21;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='a') ) {
             switch ( input.LA(2) ) {
             case 'c':
                 {
-                int LA12_52 = input.LA(3);
+                int LA12_54 = input.LA(3);
 
-                if ( (LA12_52=='t') ) {
-                    int LA12_94 = input.LA(4);
+                if ( (LA12_54=='t') ) {
+                    int LA12_98 = input.LA(4);
 
-                    if ( (LA12_94=='i') ) {
-                        int LA12_133 = input.LA(5);
+                    if ( (LA12_98=='i') ) {
+                        int LA12_139 = input.LA(5);
 
-                        if ( (LA12_133=='o') ) {
-                            int LA12_172 = input.LA(6);
+                        if ( (LA12_139=='o') ) {
+                            int LA12_180 = input.LA(6);
 
-                            if ( (LA12_172=='n') ) {
-                                int LA12_208 = input.LA(7);
+                            if ( (LA12_180=='n') ) {
+                                int LA12_217 = input.LA(7);
 
-                                if ( (LA12_208=='=') ) {
-                                    alt12=45;
+                                if ( (LA12_217=='=') ) {
+                                    alt12=46;
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
+                }
+                break;
+            case 's':
+                {
+                int LA12_55 = input.LA(3);
+
+                if ( ((LA12_55>='0' && LA12_55<='9')||(LA12_55>='A' && LA12_55<='Z')||LA12_55=='_'||(LA12_55>='a' && LA12_55<='z')) ) {
+                    alt12=54;
+                }
+                else {
+                    alt12=47;}
                 }
                 break;
             case 'p':
                 {
-                int LA12_53 = input.LA(3);
+                int LA12_56 = input.LA(3);
 
-                if ( (LA12_53=='p') ) {
-                    int LA12_95 = input.LA(4);
+                if ( (LA12_56=='p') ) {
+                    int LA12_100 = input.LA(4);
 
-                    if ( (LA12_95=='l') ) {
-                        int LA12_134 = input.LA(5);
+                    if ( (LA12_100=='l') ) {
+                        int LA12_140 = input.LA(5);
 
-                        if ( (LA12_134=='i') ) {
-                            int LA12_173 = input.LA(6);
+                        if ( (LA12_140=='i') ) {
+                            int LA12_181 = input.LA(6);
 
-                            if ( (LA12_173=='c') ) {
-                                int LA12_209 = input.LA(7);
+                            if ( (LA12_181=='c') ) {
+                                int LA12_218 = input.LA(7);
 
-                                if ( (LA12_209=='a') ) {
-                                    int LA12_239 = input.LA(8);
+                                if ( (LA12_218=='a') ) {
+                                    int LA12_249 = input.LA(8);
 
-                                    if ( (LA12_239=='t') ) {
-                                        int LA12_265 = input.LA(9);
+                                    if ( (LA12_249=='t') ) {
+                                        int LA12_275 = input.LA(9);
 
-                                        if ( (LA12_265=='i') ) {
-                                            int LA12_283 = input.LA(10);
+                                        if ( (LA12_275=='i') ) {
+                                            int LA12_293 = input.LA(10);
 
-                                            if ( (LA12_283=='o') ) {
-                                                int LA12_293 = input.LA(11);
+                                            if ( (LA12_293=='o') ) {
+                                                int LA12_303 = input.LA(11);
 
-                                                if ( (LA12_293=='n') ) {
-                                                    int LA12_301 = input.LA(12);
+                                                if ( (LA12_303=='n') ) {
+                                                    int LA12_311 = input.LA(12);
 
-                                                    if ( ((LA12_301>='0' && LA12_301<='9')||(LA12_301>='A' && LA12_301<='Z')||LA12_301=='_'||(LA12_301>='a' && LA12_301<='z')) ) {
-                                                        alt12=52;
+                                                    if ( ((LA12_311>='0' && LA12_311<='9')||(LA12_311>='A' && LA12_311<='Z')||LA12_311=='_'||(LA12_311>='a' && LA12_311<='z')) ) {
+                                                        alt12=54;
                                                     }
                                                     else {
                                                         alt12=12;}
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
-                }
-                break;
-            case 's':
-                {
-                int LA12_54 = input.LA(3);
-
-                if ( ((LA12_54>='0' && LA12_54<='9')||(LA12_54>='A' && LA12_54<='Z')||LA12_54=='_'||(LA12_54>='a' && LA12_54<='z')) ) {
-                    alt12=52;
-                }
-                else {
-                    alt12=46;}
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='{') ) {
@@ -2299,514 +2339,514 @@ public class InternalApplauseDslLexer extends Lexer {
             int LA12_14 = input.LA(2);
 
             if ( (LA12_14=='u') ) {
-                int LA12_57 = input.LA(3);
+                int LA12_59 = input.LA(3);
 
-                if ( (LA12_57=='t') ) {
-                    int LA12_97 = input.LA(4);
+                if ( (LA12_59=='t') ) {
+                    int LA12_101 = input.LA(4);
 
-                    if ( (LA12_97=='t') ) {
-                        int LA12_135 = input.LA(5);
+                    if ( (LA12_101=='t') ) {
+                        int LA12_141 = input.LA(5);
 
-                        if ( (LA12_135=='o') ) {
-                            int LA12_174 = input.LA(6);
+                        if ( (LA12_141=='o') ) {
+                            int LA12_182 = input.LA(6);
 
-                            if ( (LA12_174=='n') ) {
-                                int LA12_210 = input.LA(7);
+                            if ( (LA12_182=='n') ) {
+                                int LA12_219 = input.LA(7);
 
-                                if ( ((LA12_210>='0' && LA12_210<='9')||(LA12_210>='A' && LA12_210<='Z')||LA12_210=='_'||(LA12_210>='a' && LA12_210<='z')) ) {
-                                    alt12=52;
+                                if ( ((LA12_219>='0' && LA12_219<='9')||(LA12_219>='A' && LA12_219<='Z')||LA12_219=='_'||(LA12_219>='a' && LA12_219<='z')) ) {
+                                    alt12=54;
                                 }
                                 else {
                                     alt12=16;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0=='i') ) {
             switch ( input.LA(2) ) {
             case 'm':
                 {
                 switch ( input.LA(3) ) {
-                case 'a':
-                    {
-                    int LA12_98 = input.LA(4);
-
-                    if ( (LA12_98=='g') ) {
-                        int LA12_136 = input.LA(5);
-
-                        if ( (LA12_136=='e') ) {
-                            int LA12_175 = input.LA(6);
-
-                            if ( (LA12_175=='=') ) {
-                                alt12=40;
-                            }
-                            else {
-                                alt12=52;}
-                        }
-                        else {
-                            alt12=52;}
-                    }
-                    else {
-                        alt12=52;}
-                    }
-                    break;
                 case 'p':
                     {
-                    int LA12_99 = input.LA(4);
+                    int LA12_102 = input.LA(4);
 
-                    if ( (LA12_99=='l') ) {
-                        int LA12_137 = input.LA(5);
+                    if ( (LA12_102=='l') ) {
+                        int LA12_142 = input.LA(5);
 
-                        if ( (LA12_137=='e') ) {
-                            int LA12_176 = input.LA(6);
+                        if ( (LA12_142=='e') ) {
+                            int LA12_183 = input.LA(6);
 
-                            if ( (LA12_176=='m') ) {
-                                int LA12_212 = input.LA(7);
+                            if ( (LA12_183=='m') ) {
+                                int LA12_220 = input.LA(7);
 
-                                if ( (LA12_212=='e') ) {
-                                    int LA12_241 = input.LA(8);
+                                if ( (LA12_220=='e') ) {
+                                    int LA12_251 = input.LA(8);
 
-                                    if ( (LA12_241=='n') ) {
-                                        int LA12_266 = input.LA(9);
+                                    if ( (LA12_251=='n') ) {
+                                        int LA12_276 = input.LA(9);
 
-                                        if ( (LA12_266=='t') ) {
-                                            int LA12_284 = input.LA(10);
+                                        if ( (LA12_276=='t') ) {
+                                            int LA12_294 = input.LA(10);
 
-                                            if ( (LA12_284=='e') ) {
-                                                int LA12_294 = input.LA(11);
+                                            if ( (LA12_294=='e') ) {
+                                                int LA12_304 = input.LA(11);
 
-                                                if ( (LA12_294=='d') ) {
-                                                    int LA12_302 = input.LA(12);
+                                                if ( (LA12_304=='d') ) {
+                                                    int LA12_312 = input.LA(12);
 
-                                                    if ( (LA12_302=='B') ) {
-                                                        int LA12_309 = input.LA(13);
+                                                    if ( (LA12_312=='B') ) {
+                                                        int LA12_319 = input.LA(13);
 
-                                                        if ( (LA12_309=='y') ) {
-                                                            int LA12_314 = input.LA(14);
+                                                        if ( (LA12_319=='y') ) {
+                                                            int LA12_324 = input.LA(14);
 
-                                                            if ( ((LA12_314>='0' && LA12_314<='9')||(LA12_314>='A' && LA12_314<='Z')||LA12_314=='_'||(LA12_314>='a' && LA12_314<='z')) ) {
-                                                                alt12=52;
+                                                            if ( ((LA12_324>='0' && LA12_324<='9')||(LA12_324>='A' && LA12_324<='Z')||LA12_324=='_'||(LA12_324>='a' && LA12_324<='z')) ) {
+                                                                alt12=54;
                                                             }
                                                             else {
                                                                 alt12=36;}
                                                         }
                                                         else {
-                                                            alt12=52;}
+                                                            alt12=54;}
                                                     }
                                                     else {
-                                                        alt12=52;}
+                                                        alt12=54;}
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
+                    }
+                    break;
+                case 'a':
+                    {
+                    int LA12_103 = input.LA(4);
+
+                    if ( (LA12_103=='g') ) {
+                        int LA12_143 = input.LA(5);
+
+                        if ( (LA12_143=='e') ) {
+                            int LA12_184 = input.LA(6);
+
+                            if ( (LA12_184=='=') ) {
+                                alt12=40;
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
+                    }
+                    else {
+                        alt12=54;}
                     }
                     break;
                 default:
-                    alt12=52;}
+                    alt12=54;}
 
                 }
                 break;
             case 'c':
                 {
-                int LA12_59 = input.LA(3);
+                int LA12_61 = input.LA(3);
 
-                if ( (LA12_59=='o') ) {
-                    int LA12_100 = input.LA(4);
+                if ( (LA12_61=='o') ) {
+                    int LA12_104 = input.LA(4);
 
-                    if ( (LA12_100=='n') ) {
-                        int LA12_138 = input.LA(5);
+                    if ( (LA12_104=='n') ) {
+                        int LA12_144 = input.LA(5);
 
-                        if ( (LA12_138=='=') ) {
+                        if ( (LA12_144=='=') ) {
                             alt12=18;
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='v') ) {
             int LA12_16 = input.LA(2);
 
             if ( (LA12_16=='i') ) {
-                int LA12_60 = input.LA(3);
+                int LA12_62 = input.LA(3);
 
-                if ( (LA12_60=='e') ) {
-                    int LA12_101 = input.LA(4);
+                if ( (LA12_62=='e') ) {
+                    int LA12_105 = input.LA(4);
 
-                    if ( (LA12_101=='w') ) {
-                        int LA12_139 = input.LA(5);
+                    if ( (LA12_105=='w') ) {
+                        int LA12_145 = input.LA(5);
 
-                        if ( (LA12_139=='=') ) {
+                        if ( (LA12_145=='=') ) {
                             alt12=19;
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0=='c') ) {
             switch ( input.LA(2) ) {
-            case 'u':
-                {
-                int LA12_61 = input.LA(3);
-
-                if ( (LA12_61=='s') ) {
-                    int LA12_102 = input.LA(4);
-
-                    if ( (LA12_102=='t') ) {
-                        int LA12_140 = input.LA(5);
-
-                        if ( (LA12_140=='o') ) {
-                            int LA12_179 = input.LA(6);
-
-                            if ( (LA12_179=='m') ) {
-                                int LA12_213 = input.LA(7);
-
-                                if ( (LA12_213=='v') ) {
-                                    int LA12_242 = input.LA(8);
-
-                                    if ( (LA12_242=='i') ) {
-                                        int LA12_267 = input.LA(9);
-
-                                        if ( (LA12_267=='e') ) {
-                                            int LA12_285 = input.LA(10);
-
-                                            if ( (LA12_285=='w') ) {
-                                                int LA12_295 = input.LA(11);
-
-                                                if ( ((LA12_295>='0' && LA12_295<='9')||(LA12_295>='A' && LA12_295<='Z')||LA12_295=='_'||(LA12_295>='a' && LA12_295<='z')) ) {
-                                                    alt12=52;
-                                                }
-                                                else {
-                                                    alt12=35;}
-                                            }
-                                            else {
-                                                alt12=52;}
-                                        }
-                                        else {
-                                            alt12=52;}
-                                    }
-                                    else {
-                                        alt12=52;}
-                                }
-                                else {
-                                    alt12=52;}
-                            }
-                            else {
-                                alt12=52;}
-                        }
-                        else {
-                            alt12=52;}
-                    }
-                    else {
-                        alt12=52;}
-                }
-                else {
-                    alt12=52;}
-                }
-                break;
             case 'o':
                 {
-                int LA12_62 = input.LA(3);
+                int LA12_63 = input.LA(3);
 
-                if ( (LA12_62=='n') ) {
+                if ( (LA12_63=='n') ) {
                     switch ( input.LA(4) ) {
                     case 't':
                         {
-                        int LA12_141 = input.LA(5);
+                        int LA12_146 = input.LA(5);
 
-                        if ( (LA12_141=='e') ) {
-                            int LA12_180 = input.LA(6);
+                        if ( (LA12_146=='e') ) {
+                            int LA12_187 = input.LA(6);
 
-                            if ( (LA12_180=='n') ) {
-                                int LA12_214 = input.LA(7);
+                            if ( (LA12_187=='n') ) {
+                                int LA12_222 = input.LA(7);
 
-                                if ( (LA12_214=='t') ) {
-                                    int LA12_243 = input.LA(8);
+                                if ( (LA12_222=='t') ) {
+                                    int LA12_252 = input.LA(8);
 
-                                    if ( (LA12_243=='p') ) {
-                                        int LA12_268 = input.LA(9);
+                                    if ( (LA12_252=='p') ) {
+                                        int LA12_277 = input.LA(9);
 
-                                        if ( (LA12_268=='r') ) {
-                                            int LA12_286 = input.LA(10);
+                                        if ( (LA12_277=='r') ) {
+                                            int LA12_295 = input.LA(10);
 
-                                            if ( (LA12_286=='o') ) {
-                                                int LA12_296 = input.LA(11);
+                                            if ( (LA12_295=='o') ) {
+                                                int LA12_305 = input.LA(11);
 
-                                                if ( (LA12_296=='v') ) {
-                                                    int LA12_304 = input.LA(12);
+                                                if ( (LA12_305=='v') ) {
+                                                    int LA12_313 = input.LA(12);
 
-                                                    if ( (LA12_304=='i') ) {
-                                                        int LA12_310 = input.LA(13);
+                                                    if ( (LA12_313=='i') ) {
+                                                        int LA12_320 = input.LA(13);
 
-                                                        if ( (LA12_310=='d') ) {
-                                                            int LA12_315 = input.LA(14);
+                                                        if ( (LA12_320=='d') ) {
+                                                            int LA12_325 = input.LA(14);
 
-                                                            if ( (LA12_315=='e') ) {
-                                                                int LA12_319 = input.LA(15);
+                                                            if ( (LA12_325=='e') ) {
+                                                                int LA12_329 = input.LA(15);
 
-                                                                if ( (LA12_319=='r') ) {
-                                                                    int LA12_322 = input.LA(16);
+                                                                if ( (LA12_329=='r') ) {
+                                                                    int LA12_332 = input.LA(16);
 
-                                                                    if ( ((LA12_322>='0' && LA12_322<='9')||(LA12_322>='A' && LA12_322<='Z')||LA12_322=='_'||(LA12_322>='a' && LA12_322<='z')) ) {
-                                                                        alt12=52;
+                                                                    if ( ((LA12_332>='0' && LA12_332<='9')||(LA12_332>='A' && LA12_332<='Z')||LA12_332=='_'||(LA12_332>='a' && LA12_332<='z')) ) {
+                                                                        alt12=54;
                                                                     }
                                                                     else {
                                                                         alt12=26;}
                                                                 }
                                                                 else {
-                                                                    alt12=52;}
+                                                                    alt12=54;}
                                                             }
                                                             else {
-                                                                alt12=52;}
+                                                                alt12=54;}
                                                         }
                                                         else {
-                                                            alt12=52;}
+                                                            alt12=54;}
                                                     }
                                                     else {
-                                                        alt12=52;}
+                                                        alt12=54;}
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                     }
                                     else {
-                                        alt12=52;}
+                                        alt12=54;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                         }
                         break;
                     case 's':
                         {
-                        int LA12_142 = input.LA(5);
+                        int LA12_147 = input.LA(5);
 
-                        if ( (LA12_142=='t') ) {
-                            int LA12_181 = input.LA(6);
+                        if ( (LA12_147=='t') ) {
+                            int LA12_188 = input.LA(6);
 
-                            if ( ((LA12_181>='0' && LA12_181<='9')||(LA12_181>='A' && LA12_181<='Z')||LA12_181=='_'||(LA12_181>='a' && LA12_181<='z')) ) {
-                                alt12=52;
+                            if ( ((LA12_188>='0' && LA12_188<='9')||(LA12_188>='A' && LA12_188<='Z')||LA12_188=='_'||(LA12_188>='a' && LA12_188<='z')) ) {
+                                alt12=54;
                             }
                             else {
                                 alt12=20;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                         }
                         break;
                     default:
-                        alt12=52;}
+                        alt12=54;}
 
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             case 'e':
                 {
-                int LA12_63 = input.LA(3);
+                int LA12_64 = input.LA(3);
 
-                if ( (LA12_63=='l') ) {
-                    int LA12_104 = input.LA(4);
+                if ( (LA12_64=='l') ) {
+                    int LA12_107 = input.LA(4);
 
-                    if ( (LA12_104=='l') ) {
-                        int LA12_143 = input.LA(5);
+                    if ( (LA12_107=='l') ) {
+                        int LA12_148 = input.LA(5);
 
-                        if ( ((LA12_143>='0' && LA12_143<='9')||(LA12_143>='A' && LA12_143<='Z')||LA12_143=='_'||(LA12_143>='a' && LA12_143<='z')) ) {
-                            alt12=52;
+                        if ( ((LA12_148>='0' && LA12_148<='9')||(LA12_148>='A' && LA12_148<='Z')||LA12_148=='_'||(LA12_148>='a' && LA12_148<='z')) ) {
+                            alt12=54;
                         }
                         else {
                             alt12=42;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
+                }
+                break;
+            case 'u':
+                {
+                int LA12_65 = input.LA(3);
+
+                if ( (LA12_65=='s') ) {
+                    int LA12_108 = input.LA(4);
+
+                    if ( (LA12_108=='t') ) {
+                        int LA12_149 = input.LA(5);
+
+                        if ( (LA12_149=='o') ) {
+                            int LA12_190 = input.LA(6);
+
+                            if ( (LA12_190=='m') ) {
+                                int LA12_224 = input.LA(7);
+
+                                if ( (LA12_224=='v') ) {
+                                    int LA12_253 = input.LA(8);
+
+                                    if ( (LA12_253=='i') ) {
+                                        int LA12_278 = input.LA(9);
+
+                                        if ( (LA12_278=='e') ) {
+                                            int LA12_296 = input.LA(10);
+
+                                            if ( (LA12_296=='w') ) {
+                                                int LA12_306 = input.LA(11);
+
+                                                if ( ((LA12_306>='0' && LA12_306<='9')||(LA12_306>='A' && LA12_306<='Z')||LA12_306=='_'||(LA12_306>='a' && LA12_306<='z')) ) {
+                                                    alt12=54;
+                                                }
+                                                else {
+                                                    alt12=35;}
+                                            }
+                                            else {
+                                                alt12=54;}
+                                        }
+                                        else {
+                                            alt12=54;}
+                                    }
+                                    else {
+                                        alt12=54;}
+                                }
+                                else {
+                                    alt12=54;}
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
+                    }
+                    else {
+                        alt12=54;}
+                }
+                else {
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='m') ) {
             int LA12_18 = input.LA(2);
 
             if ( (LA12_18=='a') ) {
-                int LA12_64 = input.LA(3);
+                int LA12_66 = input.LA(3);
 
-                if ( (LA12_64=='p') ) {
-                    int LA12_105 = input.LA(4);
+                if ( (LA12_66=='p') ) {
+                    int LA12_109 = input.LA(4);
 
-                    if ( (LA12_105=='s') ) {
-                        int LA12_144 = input.LA(5);
+                    if ( (LA12_109=='s') ) {
+                        int LA12_150 = input.LA(5);
 
-                        if ( (LA12_144=='T') ) {
-                            int LA12_183 = input.LA(6);
+                        if ( (LA12_150=='T') ) {
+                            int LA12_191 = input.LA(6);
 
-                            if ( (LA12_183=='o') ) {
-                                int LA12_216 = input.LA(7);
+                            if ( (LA12_191=='o') ) {
+                                int LA12_225 = input.LA(7);
 
-                                if ( ((LA12_216>='0' && LA12_216<='9')||(LA12_216>='A' && LA12_216<='Z')||LA12_216=='_'||(LA12_216>='a' && LA12_216<='z')) ) {
-                                    alt12=52;
+                                if ( ((LA12_225>='0' && LA12_225<='9')||(LA12_225>='A' && LA12_225<='Z')||LA12_225=='_'||(LA12_225>='a' && LA12_225<='z')) ) {
+                                    alt12=54;
                                 }
                                 else {
                                     alt12=22;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0=='e') ) {
             switch ( input.LA(2) ) {
             case 'x':
                 {
-                int LA12_65 = input.LA(3);
+                int LA12_67 = input.LA(3);
 
-                if ( (LA12_65=='t') ) {
-                    int LA12_106 = input.LA(4);
+                if ( (LA12_67=='t') ) {
+                    int LA12_110 = input.LA(4);
 
-                    if ( (LA12_106=='e') ) {
-                        int LA12_145 = input.LA(5);
+                    if ( (LA12_110=='e') ) {
+                        int LA12_151 = input.LA(5);
 
-                        if ( (LA12_145=='n') ) {
-                            int LA12_184 = input.LA(6);
+                        if ( (LA12_151=='n') ) {
+                            int LA12_192 = input.LA(6);
 
-                            if ( (LA12_184=='d') ) {
-                                int LA12_217 = input.LA(7);
+                            if ( (LA12_192=='d') ) {
+                                int LA12_226 = input.LA(7);
 
-                                if ( (LA12_217=='s') ) {
-                                    int LA12_245 = input.LA(8);
+                                if ( (LA12_226=='s') ) {
+                                    int LA12_255 = input.LA(8);
 
-                                    if ( ((LA12_245>='0' && LA12_245<='9')||(LA12_245>='A' && LA12_245<='Z')||LA12_245=='_'||(LA12_245>='a' && LA12_245<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_255>='0' && LA12_255<='9')||(LA12_255>='A' && LA12_255<='Z')||LA12_255=='_'||(LA12_255>='a' && LA12_255<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=24;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             case 'n':
                 {
-                int LA12_66 = input.LA(3);
+                int LA12_68 = input.LA(3);
 
-                if ( (LA12_66=='t') ) {
-                    int LA12_107 = input.LA(4);
+                if ( (LA12_68=='t') ) {
+                    int LA12_111 = input.LA(4);
 
-                    if ( (LA12_107=='i') ) {
-                        int LA12_146 = input.LA(5);
+                    if ( (LA12_111=='i') ) {
+                        int LA12_152 = input.LA(5);
 
-                        if ( (LA12_146=='t') ) {
-                            int LA12_185 = input.LA(6);
+                        if ( (LA12_152=='t') ) {
+                            int LA12_193 = input.LA(6);
 
-                            if ( (LA12_185=='y') ) {
-                                int LA12_218 = input.LA(7);
+                            if ( (LA12_193=='y') ) {
+                                int LA12_227 = input.LA(7);
 
-                                if ( ((LA12_218>='0' && LA12_218<='9')||(LA12_218>='A' && LA12_218<='Z')||LA12_218=='_'||(LA12_218>='a' && LA12_218<='z')) ) {
-                                    alt12=52;
+                                if ( ((LA12_227>='0' && LA12_227<='9')||(LA12_227>='A' && LA12_227<='Z')||LA12_227=='_'||(LA12_227>='a' && LA12_227<='z')) ) {
+                                    alt12=54;
                                 }
                                 else {
                                     alt12=23;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='d') ) {
@@ -2816,18 +2856,18 @@ public class InternalApplauseDslLexer extends Lexer {
                 switch ( input.LA(3) ) {
                 case 't':
                     {
-                    int LA12_108 = input.LA(4);
+                    int LA12_112 = input.LA(4);
 
-                    if ( (LA12_108=='a') ) {
-                        int LA12_147 = input.LA(5);
+                    if ( (LA12_112=='a') ) {
+                        int LA12_153 = input.LA(5);
 
-                        if ( (LA12_147=='i') ) {
-                            int LA12_186 = input.LA(6);
+                        if ( (LA12_153=='i') ) {
+                            int LA12_194 = input.LA(6);
 
-                            if ( (LA12_186=='l') ) {
-                                int LA12_219 = input.LA(7);
+                            if ( (LA12_194=='l') ) {
+                                int LA12_228 = input.LA(7);
 
-                                if ( (LA12_219=='s') ) {
+                                if ( (LA12_228=='s') ) {
                                     switch ( input.LA(8) ) {
                                     case '=':
                                         {
@@ -2836,370 +2876,438 @@ public class InternalApplauseDslLexer extends Lexer {
                                         break;
                                     case 'v':
                                         {
-                                        int LA12_271 = input.LA(9);
+                                        int LA12_281 = input.LA(9);
 
-                                        if ( (LA12_271=='i') ) {
-                                            int LA12_287 = input.LA(10);
+                                        if ( (LA12_281=='i') ) {
+                                            int LA12_297 = input.LA(10);
 
-                                            if ( (LA12_287=='e') ) {
-                                                int LA12_297 = input.LA(11);
+                                            if ( (LA12_297=='e') ) {
+                                                int LA12_307 = input.LA(11);
 
-                                                if ( (LA12_297=='w') ) {
-                                                    int LA12_305 = input.LA(12);
+                                                if ( (LA12_307=='w') ) {
+                                                    int LA12_315 = input.LA(12);
 
-                                                    if ( ((LA12_305>='0' && LA12_305<='9')||(LA12_305>='A' && LA12_305<='Z')||LA12_305=='_'||(LA12_305>='a' && LA12_305<='z')) ) {
-                                                        alt12=52;
+                                                    if ( ((LA12_315>='0' && LA12_315<='9')||(LA12_315>='A' && LA12_315<='Z')||LA12_315=='_'||(LA12_315>='a' && LA12_315<='z')) ) {
+                                                        alt12=54;
                                                     }
                                                     else {
                                                         alt12=34;}
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                         }
                                         break;
                                     default:
-                                        alt12=52;}
+                                        alt12=54;}
 
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                     }
                     break;
                 case 'r':
                     {
-                    int LA12_109 = input.LA(4);
+                    int LA12_113 = input.LA(4);
 
-                    if ( (LA12_109=='i') ) {
-                        int LA12_148 = input.LA(5);
+                    if ( (LA12_113=='i') ) {
+                        int LA12_154 = input.LA(5);
 
-                        if ( (LA12_148=='v') ) {
-                            int LA12_187 = input.LA(6);
+                        if ( (LA12_154=='v') ) {
+                            int LA12_195 = input.LA(6);
 
-                            if ( (LA12_187=='e') ) {
-                                int LA12_220 = input.LA(7);
+                            if ( (LA12_195=='e') ) {
+                                int LA12_229 = input.LA(7);
 
-                                if ( (LA12_220=='d') ) {
-                                    int LA12_248 = input.LA(8);
+                                if ( (LA12_229=='d') ) {
+                                    int LA12_258 = input.LA(8);
 
-                                    if ( ((LA12_248>='0' && LA12_248<='9')||(LA12_248>='A' && LA12_248<='Z')||LA12_248=='_'||(LA12_248>='a' && LA12_248<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_258>='0' && LA12_258<='9')||(LA12_258>='A' && LA12_258<='Z')||LA12_258=='_'||(LA12_258>='a' && LA12_258<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=25;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                     }
                     break;
                 default:
-                    alt12=52;}
+                    alt12=54;}
 
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0=='f') ) {
             switch ( input.LA(2) ) {
-            case 'r':
-                {
-                int LA12_68 = input.LA(3);
-
-                if ( (LA12_68=='o') ) {
-                    int LA12_110 = input.LA(4);
-
-                    if ( (LA12_110=='m') ) {
-                        int LA12_149 = input.LA(5);
-
-                        if ( ((LA12_149>='0' && LA12_149<='9')||(LA12_149>='A' && LA12_149<='Z')||LA12_149=='_'||(LA12_149>='a' && LA12_149<='z')) ) {
-                            alt12=52;
-                        }
-                        else {
-                            alt12=31;}
-                    }
-                    else {
-                        alt12=52;}
-                }
-                else {
-                    alt12=52;}
-                }
-                break;
             case 'e':
                 {
-                int LA12_69 = input.LA(3);
+                int LA12_70 = input.LA(3);
 
-                if ( (LA12_69=='t') ) {
-                    int LA12_111 = input.LA(4);
+                if ( (LA12_70=='t') ) {
+                    int LA12_114 = input.LA(4);
 
-                    if ( (LA12_111=='c') ) {
-                        int LA12_150 = input.LA(5);
+                    if ( (LA12_114=='c') ) {
+                        int LA12_155 = input.LA(5);
 
-                        if ( (LA12_150=='h') ) {
-                            int LA12_189 = input.LA(6);
+                        if ( (LA12_155=='h') ) {
+                            int LA12_196 = input.LA(6);
 
-                            if ( (LA12_189=='e') ) {
-                                int LA12_221 = input.LA(7);
+                            if ( (LA12_196=='e') ) {
+                                int LA12_230 = input.LA(7);
 
-                                if ( (LA12_221=='s') ) {
-                                    int LA12_249 = input.LA(8);
+                                if ( (LA12_230=='s') ) {
+                                    int LA12_259 = input.LA(8);
 
-                                    if ( ((LA12_249>='0' && LA12_249<='9')||(LA12_249>='A' && LA12_249<='Z')||LA12_249=='_'||(LA12_249>='a' && LA12_249<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_259>='0' && LA12_259<='9')||(LA12_259>='A' && LA12_259<='Z')||LA12_259=='_'||(LA12_259>='a' && LA12_259<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=29;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
+                }
+                break;
+            case 'r':
+                {
+                int LA12_71 = input.LA(3);
+
+                if ( (LA12_71=='o') ) {
+                    int LA12_115 = input.LA(4);
+
+                    if ( (LA12_115=='m') ) {
+                        int LA12_156 = input.LA(5);
+
+                        if ( ((LA12_156>='0' && LA12_156<='9')||(LA12_156>='A' && LA12_156<='Z')||LA12_156=='_'||(LA12_156>='a' && LA12_156<='z')) ) {
+                            alt12=54;
+                        }
+                        else {
+                            alt12=31;}
+                    }
+                    else {
+                        alt12=54;}
+                }
+                else {
+                    alt12=54;}
                 }
                 break;
             case 'o':
                 {
-                int LA12_70 = input.LA(3);
+                int LA12_72 = input.LA(3);
 
-                if ( (LA12_70=='r') ) {
-                    int LA12_112 = input.LA(4);
+                if ( (LA12_72=='r') ) {
+                    int LA12_116 = input.LA(4);
 
-                    if ( (LA12_112=='e') ) {
-                        int LA12_151 = input.LA(5);
+                    if ( (LA12_116=='e') ) {
+                        int LA12_157 = input.LA(5);
 
-                        if ( (LA12_151=='a') ) {
-                            int LA12_190 = input.LA(6);
+                        if ( (LA12_157=='a') ) {
+                            int LA12_198 = input.LA(6);
 
-                            if ( (LA12_190=='c') ) {
-                                int LA12_222 = input.LA(7);
+                            if ( (LA12_198=='c') ) {
+                                int LA12_231 = input.LA(7);
 
-                                if ( (LA12_222=='h') ) {
-                                    int LA12_250 = input.LA(8);
+                                if ( (LA12_231=='h') ) {
+                                    int LA12_260 = input.LA(8);
 
-                                    if ( ((LA12_250>='0' && LA12_250<='9')||(LA12_250>='A' && LA12_250<='Z')||LA12_250=='_'||(LA12_250>='a' && LA12_250<='z')) ) {
-                                        alt12=52;
+                                    if ( ((LA12_260>='0' && LA12_260<='9')||(LA12_260>='A' && LA12_260<='Z')||LA12_260=='_'||(LA12_260>='a' && LA12_260<='z')) ) {
+                                        alt12=54;
                                     }
                                     else {
                                         alt12=43;}
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
             default:
-                alt12=52;}
+                alt12=54;}
 
         }
         else if ( (LA12_0=='X') ) {
             int LA12_22 = input.LA(2);
 
             if ( (LA12_22=='M') ) {
-                int LA12_71 = input.LA(3);
+                int LA12_73 = input.LA(3);
 
-                if ( (LA12_71=='L') ) {
-                    int LA12_113 = input.LA(4);
+                if ( (LA12_73=='L') ) {
+                    int LA12_117 = input.LA(4);
 
-                    if ( ((LA12_113>='0' && LA12_113<='9')||(LA12_113>='A' && LA12_113<='Z')||LA12_113=='_'||(LA12_113>='a' && LA12_113<='z')) ) {
-                        alt12=52;
+                    if ( ((LA12_117>='0' && LA12_117<='9')||(LA12_117>='A' && LA12_117<='Z')||LA12_117=='_'||(LA12_117>='a' && LA12_117<='z')) ) {
+                        alt12=54;
                     }
                     else {
                         alt12=30;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0=='h') ) {
             int LA12_23 = input.LA(2);
 
             if ( (LA12_23=='e') ) {
-                int LA12_72 = input.LA(3);
+                int LA12_74 = input.LA(3);
 
-                if ( (LA12_72=='a') ) {
-                    int LA12_114 = input.LA(4);
+                if ( (LA12_74=='a') ) {
+                    int LA12_118 = input.LA(4);
 
-                    if ( (LA12_114=='d') ) {
-                        int LA12_153 = input.LA(5);
+                    if ( (LA12_118=='d') ) {
+                        int LA12_159 = input.LA(5);
 
-                        if ( (LA12_153=='e') ) {
-                            int LA12_191 = input.LA(6);
+                        if ( (LA12_159=='e') ) {
+                            int LA12_199 = input.LA(6);
 
-                            if ( (LA12_191=='r') ) {
-                                int LA12_223 = input.LA(7);
+                            if ( (LA12_199=='r') ) {
+                                int LA12_232 = input.LA(7);
 
-                                if ( ((LA12_223>='0' && LA12_223<='9')||(LA12_223>='A' && LA12_223<='Z')||LA12_223=='_'||(LA12_223>='a' && LA12_223<='z')) ) {
-                                    alt12=52;
+                                if ( ((LA12_232>='0' && LA12_232<='9')||(LA12_232>='A' && LA12_232<='Z')||LA12_232=='_'||(LA12_232>='a' && LA12_232<='z')) ) {
+                                    alt12=54;
                                 }
                                 else {
                                     alt12=37;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
+        }
+        else if ( (LA12_0=='q') ) {
+            int LA12_24 = input.LA(2);
+
+            if ( (LA12_24=='u') ) {
+                int LA12_75 = input.LA(3);
+
+                if ( (LA12_75=='e') ) {
+                    int LA12_119 = input.LA(4);
+
+                    if ( (LA12_119=='r') ) {
+                        int LA12_160 = input.LA(5);
+
+                        if ( (LA12_160=='y') ) {
+                            int LA12_200 = input.LA(6);
+
+                            if ( (LA12_200=='=') ) {
+                                alt12=45;
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
+                    }
+                    else {
+                        alt12=54;}
+                }
+                else {
+                    alt12=54;}
+            }
+            else {
+                alt12=54;}
         }
         else if ( (LA12_0=='D') ) {
             switch ( input.LA(2) ) {
+            case 'o':
+                {
+                int LA12_76 = input.LA(3);
+
+                if ( (LA12_76=='u') ) {
+                    int LA12_120 = input.LA(4);
+
+                    if ( (LA12_120=='b') ) {
+                        int LA12_161 = input.LA(5);
+
+                        if ( (LA12_161=='l') ) {
+                            int LA12_201 = input.LA(6);
+
+                            if ( (LA12_201=='e') ) {
+                                int LA12_234 = input.LA(7);
+
+                                if ( ((LA12_234>='0' && LA12_234<='9')||(LA12_234>='A' && LA12_234<='Z')||LA12_234=='_'||(LA12_234>='a' && LA12_234<='z')) ) {
+                                    alt12=54;
+                                }
+                                else {
+                                    alt12=51;}
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
+                    }
+                    else {
+                        alt12=54;}
+                }
+                else {
+                    alt12=54;}
+                }
+                break;
             case 'e':
                 {
-                int LA12_73 = input.LA(3);
+                int LA12_77 = input.LA(3);
 
-                if ( (LA12_73=='f') ) {
-                    int LA12_115 = input.LA(4);
+                if ( (LA12_77=='f') ) {
+                    int LA12_121 = input.LA(4);
 
-                    if ( (LA12_115=='a') ) {
-                        int LA12_154 = input.LA(5);
+                    if ( (LA12_121=='a') ) {
+                        int LA12_162 = input.LA(5);
 
-                        if ( (LA12_154=='u') ) {
-                            int LA12_192 = input.LA(6);
+                        if ( (LA12_162=='u') ) {
+                            int LA12_202 = input.LA(6);
 
-                            if ( (LA12_192=='l') ) {
-                                int LA12_224 = input.LA(7);
+                            if ( (LA12_202=='l') ) {
+                                int LA12_235 = input.LA(7);
 
-                                if ( (LA12_224=='t') ) {
+                                if ( (LA12_235=='t') ) {
                                     switch ( input.LA(8) ) {
                                     case 'W':
                                         {
-                                        int LA12_275 = input.LA(9);
+                                        int LA12_285 = input.LA(9);
 
-                                        if ( (LA12_275=='i') ) {
-                                            int LA12_288 = input.LA(10);
+                                        if ( (LA12_285=='i') ) {
+                                            int LA12_298 = input.LA(10);
 
-                                            if ( (LA12_288=='t') ) {
-                                                int LA12_298 = input.LA(11);
+                                            if ( (LA12_298=='t') ) {
+                                                int LA12_308 = input.LA(11);
 
-                                                if ( (LA12_298=='h') ) {
-                                                    int LA12_306 = input.LA(12);
+                                                if ( (LA12_308=='h') ) {
+                                                    int LA12_316 = input.LA(12);
 
-                                                    if ( (LA12_306=='D') ) {
-                                                        int LA12_312 = input.LA(13);
+                                                    if ( (LA12_316=='D') ) {
+                                                        int LA12_322 = input.LA(13);
 
-                                                        if ( (LA12_312=='i') ) {
-                                                            int LA12_316 = input.LA(14);
+                                                        if ( (LA12_322=='i') ) {
+                                                            int LA12_326 = input.LA(14);
 
-                                                            if ( (LA12_316=='s') ) {
-                                                                int LA12_320 = input.LA(15);
+                                                            if ( (LA12_326=='s') ) {
+                                                                int LA12_330 = input.LA(15);
 
-                                                                if ( (LA12_320=='c') ) {
-                                                                    int LA12_323 = input.LA(16);
+                                                                if ( (LA12_330=='c') ) {
+                                                                    int LA12_333 = input.LA(16);
 
-                                                                    if ( (LA12_323=='l') ) {
-                                                                        int LA12_326 = input.LA(17);
+                                                                    if ( (LA12_333=='l') ) {
+                                                                        int LA12_336 = input.LA(17);
 
-                                                                        if ( (LA12_326=='o') ) {
-                                                                            int LA12_328 = input.LA(18);
+                                                                        if ( (LA12_336=='o') ) {
+                                                                            int LA12_338 = input.LA(18);
 
-                                                                            if ( (LA12_328=='s') ) {
-                                                                                int LA12_330 = input.LA(19);
+                                                                            if ( (LA12_338=='s') ) {
+                                                                                int LA12_340 = input.LA(19);
 
-                                                                                if ( (LA12_330=='u') ) {
-                                                                                    int LA12_331 = input.LA(20);
+                                                                                if ( (LA12_340=='u') ) {
+                                                                                    int LA12_341 = input.LA(20);
 
-                                                                                    if ( (LA12_331=='r') ) {
-                                                                                        int LA12_332 = input.LA(21);
+                                                                                    if ( (LA12_341=='r') ) {
+                                                                                        int LA12_342 = input.LA(21);
 
-                                                                                        if ( (LA12_332=='e') ) {
-                                                                                            int LA12_333 = input.LA(22);
+                                                                                        if ( (LA12_342=='e') ) {
+                                                                                            int LA12_343 = input.LA(22);
 
-                                                                                            if ( ((LA12_333>='0' && LA12_333<='9')||(LA12_333>='A' && LA12_333<='Z')||LA12_333=='_'||(LA12_333>='a' && LA12_333<='z')) ) {
-                                                                                                alt12=52;
+                                                                                            if ( ((LA12_343>='0' && LA12_343<='9')||(LA12_343>='A' && LA12_343<='Z')||LA12_343=='_'||(LA12_343>='a' && LA12_343<='z')) ) {
+                                                                                                alt12=54;
                                                                                             }
                                                                                             else {
-                                                                                                alt12=48;}
+                                                                                                alt12=49;}
                                                                                         }
                                                                                         else {
-                                                                                            alt12=52;}
+                                                                                            alt12=54;}
                                                                                     }
                                                                                     else {
-                                                                                        alt12=52;}
+                                                                                        alt12=54;}
                                                                                 }
                                                                                 else {
-                                                                                    alt12=52;}
+                                                                                    alt12=54;}
                                                                             }
                                                                             else {
-                                                                                alt12=52;}
+                                                                                alt12=54;}
                                                                         }
                                                                         else {
-                                                                            alt12=52;}
+                                                                            alt12=54;}
                                                                     }
                                                                     else {
-                                                                        alt12=52;}
+                                                                        alt12=54;}
                                                                 }
                                                                 else {
-                                                                    alt12=52;}
+                                                                    alt12=54;}
                                                             }
                                                             else {
-                                                                alt12=52;}
+                                                                alt12=54;}
                                                         }
                                                         else {
-                                                            alt12=52;}
+                                                            alt12=54;}
                                                     }
                                                     else {
-                                                        alt12=52;}
+                                                        alt12=54;}
                                                 }
                                                 else {
-                                                    alt12=52;}
+                                                    alt12=54;}
                                             }
                                             else {
-                                                alt12=52;}
+                                                alt12=54;}
                                         }
                                         else {
-                                            alt12=52;}
+                                            alt12=54;}
                                         }
                                         break;
                                     case '0':
@@ -3265,216 +3373,202 @@ public class InternalApplauseDslLexer extends Lexer {
                                     case 'y':
                                     case 'z':
                                         {
-                                        alt12=52;
+                                        alt12=54;
                                         }
                                         break;
                                     default:
-                                        alt12=47;}
+                                        alt12=48;}
 
                                 }
                                 else {
-                                    alt12=52;}
+                                    alt12=54;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
+                    alt12=54;}
                 }
                 break;
-            case 'o':
-                {
-                int LA12_74 = input.LA(3);
+            default:
+                alt12=54;}
 
-                if ( (LA12_74=='u') ) {
-                    int LA12_116 = input.LA(4);
+        }
+        else if ( (LA12_0=='V') ) {
+            int LA12_26 = input.LA(2);
 
-                    if ( (LA12_116=='b') ) {
-                        int LA12_155 = input.LA(5);
+            if ( (LA12_26=='a') ) {
+                int LA12_78 = input.LA(3);
 
-                        if ( (LA12_155=='l') ) {
-                            int LA12_193 = input.LA(6);
+                if ( (LA12_78=='l') ) {
+                    int LA12_122 = input.LA(4);
 
-                            if ( (LA12_193=='e') ) {
-                                int LA12_225 = input.LA(7);
+                    if ( (LA12_122=='u') ) {
+                        int LA12_163 = input.LA(5);
 
-                                if ( ((LA12_225>='0' && LA12_225<='9')||(LA12_225>='A' && LA12_225<='Z')||LA12_225=='_'||(LA12_225>='a' && LA12_225<='z')) ) {
-                                    alt12=52;
+                        if ( (LA12_163=='e') ) {
+                            int LA12_203 = input.LA(6);
+
+                            if ( (LA12_203=='2') ) {
+                                int LA12_236 = input.LA(7);
+
+                                if ( ((LA12_236>='0' && LA12_236<='9')||(LA12_236>='A' && LA12_236<='Z')||LA12_236=='_'||(LA12_236>='a' && LA12_236<='z')) ) {
+                                    alt12=54;
                                 }
                                 else {
                                     alt12=50;}
                             }
                             else {
-                                alt12=52;}
+                                alt12=54;}
                         }
                         else {
-                            alt12=52;}
+                            alt12=54;}
                     }
                     else {
-                        alt12=52;}
+                        alt12=54;}
                 }
                 else {
-                    alt12=52;}
-                }
-                break;
-            default:
-                alt12=52;}
-
-        }
-        else if ( (LA12_0=='V') ) {
-            int LA12_25 = input.LA(2);
-
-            if ( (LA12_25=='a') ) {
-                int LA12_75 = input.LA(3);
-
-                if ( (LA12_75=='l') ) {
-                    int LA12_117 = input.LA(4);
-
-                    if ( (LA12_117=='u') ) {
-                        int LA12_156 = input.LA(5);
-
-                        if ( (LA12_156=='e') ) {
-                            int LA12_194 = input.LA(6);
-
-                            if ( (LA12_194=='2') ) {
-                                int LA12_226 = input.LA(7);
-
-                                if ( ((LA12_226>='0' && LA12_226<='9')||(LA12_226>='A' && LA12_226<='Z')||LA12_226=='_'||(LA12_226>='a' && LA12_226<='z')) ) {
-                                    alt12=52;
-                                }
-                                else {
-                                    alt12=49;}
-                            }
-                            else {
-                                alt12=52;}
-                        }
-                        else {
-                            alt12=52;}
-                    }
-                    else {
-                        alt12=52;}
-                }
-                else {
-                    alt12=52;}
+                    alt12=54;}
             }
             else {
-                alt12=52;}
+                alt12=54;}
         }
         else if ( (LA12_0=='S') ) {
-            int LA12_26 = input.LA(2);
-
-            if ( (LA12_26=='u') ) {
-                int LA12_76 = input.LA(3);
-
-                if ( (LA12_76=='b') ) {
-                    int LA12_118 = input.LA(4);
-
-                    if ( (LA12_118=='t') ) {
-                        int LA12_157 = input.LA(5);
-
-                        if ( (LA12_157=='i') ) {
-                            int LA12_195 = input.LA(6);
-
-                            if ( (LA12_195=='t') ) {
-                                int LA12_227 = input.LA(7);
-
-                                if ( (LA12_227=='l') ) {
-                                    int LA12_255 = input.LA(8);
-
-                                    if ( (LA12_255=='e') ) {
-                                        int LA12_277 = input.LA(9);
-
-                                        if ( ((LA12_277>='0' && LA12_277<='9')||(LA12_277>='A' && LA12_277<='Z')||LA12_277=='_'||(LA12_277>='a' && LA12_277<='z')) ) {
-                                            alt12=52;
-                                        }
-                                        else {
-                                            alt12=51;}
-                                    }
-                                    else {
-                                        alt12=52;}
-                                }
-                                else {
-                                    alt12=52;}
-                            }
-                            else {
-                                alt12=52;}
-                        }
-                        else {
-                            alt12=52;}
-                    }
-                    else {
-                        alt12=52;}
-                }
-                else {
-                    alt12=52;}
-            }
-            else {
-                alt12=52;}
-        }
-        else if ( (LA12_0=='^') ) {
             int LA12_27 = input.LA(2);
 
-            if ( ((LA12_27>='A' && LA12_27<='Z')||LA12_27=='_'||(LA12_27>='a' && LA12_27<='z')) ) {
-                alt12=52;
+            if ( (LA12_27=='u') ) {
+                int LA12_79 = input.LA(3);
+
+                if ( (LA12_79=='b') ) {
+                    int LA12_123 = input.LA(4);
+
+                    if ( (LA12_123=='t') ) {
+                        int LA12_164 = input.LA(5);
+
+                        if ( (LA12_164=='i') ) {
+                            int LA12_204 = input.LA(6);
+
+                            if ( (LA12_204=='t') ) {
+                                int LA12_237 = input.LA(7);
+
+                                if ( (LA12_237=='l') ) {
+                                    int LA12_265 = input.LA(8);
+
+                                    if ( (LA12_265=='e') ) {
+                                        int LA12_287 = input.LA(9);
+
+                                        if ( ((LA12_287>='0' && LA12_287<='9')||(LA12_287>='A' && LA12_287<='Z')||LA12_287=='_'||(LA12_287>='a' && LA12_287<='z')) ) {
+                                            alt12=54;
+                                        }
+                                        else {
+                                            alt12=52;}
+                                    }
+                                    else {
+                                        alt12=54;}
+                                }
+                                else {
+                                    alt12=54;}
+                            }
+                            else {
+                                alt12=54;}
+                        }
+                        else {
+                            alt12=54;}
+                    }
+                    else {
+                        alt12=54;}
+                }
+                else {
+                    alt12=54;}
             }
             else {
-                alt12=58;}
+                alt12=54;}
         }
-        else if ( ((LA12_0>='A' && LA12_0<='C')||(LA12_0>='E' && LA12_0<='R')||(LA12_0>='T' && LA12_0<='U')||LA12_0=='W'||(LA12_0>='Y' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='g'||(LA12_0>='j' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='q')||(LA12_0>='w' && LA12_0<='z')) ) {
-            alt12=52;
+        else if ( (LA12_0=='M') ) {
+            int LA12_28 = input.LA(2);
+
+            if ( (LA12_28=='a') ) {
+                int LA12_80 = input.LA(3);
+
+                if ( (LA12_80=='p') ) {
+                    int LA12_124 = input.LA(4);
+
+                    if ( ((LA12_124>='0' && LA12_124<='9')||(LA12_124>='A' && LA12_124<='Z')||LA12_124=='_'||(LA12_124>='a' && LA12_124<='z')) ) {
+                        alt12=54;
+                    }
+                    else {
+                        alt12=53;}
+                }
+                else {
+                    alt12=54;}
+            }
+            else {
+                alt12=54;}
+        }
+        else if ( (LA12_0=='^') ) {
+            int LA12_29 = input.LA(2);
+
+            if ( ((LA12_29>='A' && LA12_29<='Z')||LA12_29=='_'||(LA12_29>='a' && LA12_29<='z')) ) {
+                alt12=54;
+            }
+            else {
+                alt12=60;}
+        }
+        else if ( ((LA12_0>='A' && LA12_0<='C')||(LA12_0>='E' && LA12_0<='L')||(LA12_0>='N' && LA12_0<='R')||(LA12_0>='T' && LA12_0<='U')||LA12_0=='W'||(LA12_0>='Y' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='g'||(LA12_0>='j' && LA12_0<='l')||(LA12_0>='n' && LA12_0<='p')||(LA12_0>='w' && LA12_0<='z')) ) {
+            alt12=54;
         }
         else if ( ((LA12_0>='0' && LA12_0<='9')) ) {
-            alt12=53;
+            alt12=55;
         }
         else if ( (LA12_0=='\"') ) {
-            int LA12_30 = input.LA(2);
+            int LA12_32 = input.LA(2);
 
-            if ( ((LA12_30>='\u0000' && LA12_30<='\uFFFE')) ) {
-                alt12=54;
+            if ( ((LA12_32>='\u0000' && LA12_32<='\uFFFE')) ) {
+                alt12=56;
             }
             else {
-                alt12=58;}
+                alt12=60;}
         }
         else if ( (LA12_0=='\'') ) {
-            int LA12_31 = input.LA(2);
+            int LA12_33 = input.LA(2);
 
-            if ( ((LA12_31>='\u0000' && LA12_31<='\uFFFE')) ) {
-                alt12=54;
+            if ( ((LA12_33>='\u0000' && LA12_33<='\uFFFE')) ) {
+                alt12=56;
             }
             else {
-                alt12=58;}
+                alt12=60;}
         }
         else if ( (LA12_0=='/') ) {
             switch ( input.LA(2) ) {
-            case '*':
-                {
-                alt12=55;
-                }
-                break;
             case '/':
                 {
-                alt12=56;
+                alt12=58;
+                }
+                break;
+            case '*':
+                {
+                alt12=57;
                 }
                 break;
             default:
-                alt12=58;}
+                alt12=60;}
 
         }
         else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {
-            alt12=57;
+            alt12=59;
         }
         else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||LA12_0=='-'||(LA12_0>=':' && LA12_0<='@')||LA12_0=='\\'||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFE')) ) {
-            alt12=58;
+            alt12=60;
         }
         else {
             NoViableAltException nvae =
-                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
+                new NoViableAltException("1:1: Tokens : ( T11 | T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | T28 | T29 | T30 | T31 | T32 | T33 | T34 | T35 | T36 | T37 | T38 | T39 | T40 | T41 | T42 | T43 | T44 | T45 | T46 | T47 | T48 | T49 | T50 | T51 | T52 | T53 | T54 | T55 | T56 | T57 | T58 | T59 | T60 | T61 | T62 | T63 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );", 12, 0, input);
 
             throw nvae;
         }
@@ -3837,49 +3931,63 @@ public class InternalApplauseDslLexer extends Lexer {
                 }
                 break;
             case 52 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:214: RULE_ID
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:214: T62
+                {
+                mT62(); 
+
+                }
+                break;
+            case 53 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:218: T63
+                {
+                mT63(); 
+
+                }
+                break;
+            case 54 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:222: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 53 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:222: RULE_INT
+            case 55 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:230: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 54 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:231: RULE_STRING
+            case 56 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:239: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 55 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:243: RULE_ML_COMMENT
+            case 57 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:251: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 56 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:259: RULE_SL_COMMENT
+            case 58 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:267: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 57 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:275: RULE_WS
+            case 59 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:283: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 58 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:283: RULE_ANY_OTHER
+            case 60 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:291: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

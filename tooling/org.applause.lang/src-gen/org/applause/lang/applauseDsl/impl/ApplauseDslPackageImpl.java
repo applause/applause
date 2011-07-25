@@ -1140,9 +1140,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSectionCell_Action()
+  public EReference getSectionCell_Query()
   {
     return (EReference)sectionCellEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSectionCell_Action()
+  {
+    return (EReference)sectionCellEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1545,6 +1555,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(sectionCellEClass, SECTION_CELL__TEXT);
     createEReference(sectionCellEClass, SECTION_CELL__DETAILS);
     createEReference(sectionCellEClass, SECTION_CELL__IMAGE);
+    createEReference(sectionCellEClass, SECTION_CELL__QUERY);
     createEReference(sectionCellEClass, SECTION_CELL__ACTION);
 
     collectionIteratorEClass = createEClass(COLLECTION_ITERATOR);
@@ -1752,6 +1763,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getSectionCell_Text(), this.getScalarExpression(), null, "text", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Details(), this.getScalarExpression(), null, "details", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Image(), this.getScalarExpression(), null, "image", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSectionCell_Query(), this.getScalarExpression(), null, "query", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Action(), this.getViewAction(), null, "action", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(collectionIteratorEClass, CollectionIterator.class, "CollectionIterator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1798,6 +1810,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     addEEnumLiteral(cellTypeEEnum, CellType.VALUE2);
     addEEnumLiteral(cellTypeEEnum, CellType.DOUBLE);
     addEEnumLiteral(cellTypeEEnum, CellType.SUBTITLE);
+    addEEnumLiteral(cellTypeEEnum, CellType.MAPS);
 
     // Create resource
     createResource(eNS_URI);

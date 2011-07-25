@@ -70,7 +70,17 @@ public enum CellType implements Enumerator
    * @generated
    * @ordered
    */
-  SUBTITLE(4, "subtitle", "Subtitle");
+  SUBTITLE(4, "subtitle", "Subtitle"),
+
+  /**
+   * The '<em><b>Maps</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #MAPS_VALUE
+   * @generated
+   * @ordered
+   */
+  MAPS(5, "maps", "Map");
 
   /**
    * The '<em><b>Default</b></em>' literal value.
@@ -148,6 +158,21 @@ public enum CellType implements Enumerator
   public static final int SUBTITLE_VALUE = 4;
 
   /**
+   * The '<em><b>Maps</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Maps</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #MAPS
+   * @model name="maps" literal="Map"
+   * @generated
+   * @ordered
+   */
+  public static final int MAPS_VALUE = 5;
+
+  /**
    * An array of all the '<em><b>Cell Type</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -161,6 +186,7 @@ public enum CellType implements Enumerator
       VALUE2,
       DOUBLE,
       SUBTITLE,
+      MAPS,
     };
 
   /**
@@ -224,6 +250,7 @@ public enum CellType implements Enumerator
       case VALUE2_VALUE: return VALUE2;
       case DOUBLE_VALUE: return DOUBLE;
       case SUBTITLE_VALUE: return SUBTITLE;
+      case MAPS_VALUE: return MAPS;
     }
     return null;
   }

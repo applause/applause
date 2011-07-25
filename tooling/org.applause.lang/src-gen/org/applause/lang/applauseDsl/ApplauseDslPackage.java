@@ -1170,13 +1170,22 @@ public interface ApplauseDslPackage extends EPackage
   int SECTION_CELL__IMAGE = 4;
 
   /**
+   * The feature id for the '<em><b>Query</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION_CELL__QUERY = 5;
+
+  /**
    * The feature id for the '<em><b>Action</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECTION_CELL__ACTION = 5;
+  int SECTION_CELL__ACTION = 6;
 
   /**
    * The number of structural features of the '<em>Section Cell</em>' class.
@@ -1185,7 +1194,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SECTION_CELL_FEATURE_COUNT = 6;
+  int SECTION_CELL_FEATURE_COUNT = 7;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.CollectionIteratorImpl <em>Collection Iterator</em>}' class.
@@ -2324,6 +2333,17 @@ public interface ApplauseDslPackage extends EPackage
   EReference getSectionCell_Image();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.SectionCell#getQuery <em>Query</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Query</em>'.
+   * @see org.applause.lang.applauseDsl.SectionCell#getQuery()
+   * @see #getSectionCell()
+   * @generated
+   */
+  EReference getSectionCell_Query();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.SectionCell#getAction <em>Action</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3275,6 +3295,14 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference SECTION_CELL__IMAGE = eINSTANCE.getSectionCell_Image();
+
+    /**
+     * The meta object literal for the '<em><b>Query</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SECTION_CELL__QUERY = eINSTANCE.getSectionCell_Query();
 
     /**
      * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.

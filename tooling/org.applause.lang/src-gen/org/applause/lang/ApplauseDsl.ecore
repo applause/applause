@@ -122,6 +122,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="image" eType="#//ScalarExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="query" eType="#//ScalarExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//ViewAction"
         containment="true"/>
   </eClassifiers>
@@ -131,6 +133,7 @@
     <eLiterals name="value2" value="2" literal="Value2"/>
     <eLiterals name="double" value="3" literal="Double"/>
     <eLiterals name="subtitle" value="4" literal="Subtitle"/>
+    <eLiterals name="maps" value="5" literal="Map"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionIterator" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="collection" eType="#//CollectionExpression"

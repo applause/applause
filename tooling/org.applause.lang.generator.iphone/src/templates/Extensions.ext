@@ -23,7 +23,12 @@ filenameCentralProvidersModule(Application this):
 	
 applicationDelegateClassname(Application this):
 	this.name + "AppDelegate";
-
+	
+tableCellClassname(SectionCell this):
+	this.type == CellType::MAPS
+		? "IPTableViewCellMap"
+		: "UITableViewCell";
+		
 filenameApplicationDelegateHeader(Application this):
 	applicationDelegateClassname() + '.h';
 
@@ -130,8 +135,24 @@ contentProvider(ComplexProviderConstruction this, String providers, String kvcTa
 		(argument == null ? '' : ': ' + argument.expression(kvcTarget, kvcPrefix) )
 	+ ']';
 	
+queryImage(SectionCell this, String kvcTarget):
+	this.type == CellType::MAPS
+		? kvcTarget + ".imageUrl"
+		: null;	
+	
 rowCount(SectionCell this):
-	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]'; 
+	iterator == null ? 1 : '[[' + iterator.collection.expression('contentProvider', 'content') +' asArray] count]';
+
+anySpecificRowHeight(SectionedView this):
+	sections.anySpecificRowHeight().exists(e|e);
+	
+private anySpecificRowHeight(ViewSection this):
+	cells.specificRowHeight().exists(e|e>0);
+
+specificRowHeight(SectionCell this):
+	this.type == CellType::MAPS
+		? 88
+		: 0;
 	
 methodSignature(ContentProvider p):
 	"-(IPContentProvider*)providerFor" + p.name + (

@@ -28,6 +28,15 @@
 }
 
 
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+	if(indexPath.section == 1 && indexPath.row == 0)
+		return 88;
+
+
+	return self.tableView.rowHeight;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
 
@@ -48,10 +57,12 @@
 	if(indexPath.section == 1 && indexPath.row == 0) {
 	
 	
-    UITableViewCell *cell = [self cellValue2ForTableView:tableView];
-	cell.textLabel.text = @"";
-	cell.detailTextLabel.text = @"Show on Map";
+    IPTableViewCellMap *cell = [self cellMapForTableView:tableView];
+	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.address"];
 	
+	cell.queryString = [contentProvider valueForKeyPath:@"content.address"];
+	NSString *imageURL = cell.imageUrl;
+	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	return cell;
 
 	

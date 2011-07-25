@@ -15,6 +15,7 @@
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/value2"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/double"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/subtitle"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//CellType/maps"/>
     </genEnums>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/application"/>
@@ -107,6 +108,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/text"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/details"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/image"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/query"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//SectionCell/action"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//CollectionIterator">
