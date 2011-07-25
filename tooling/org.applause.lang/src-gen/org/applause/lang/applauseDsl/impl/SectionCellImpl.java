@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getDetails <em>Details</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getImage <em>Image</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getQuery <em>Query</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
@@ -100,6 +101,16 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * @ordered
    */
   protected ScalarExpression image;
+
+  /**
+   * The cached value of the '{@link #getQuery() <em>Query</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQuery()
+   * @generated
+   * @ordered
+   */
+  protected ScalarExpression query;
 
   /**
    * The cached value of the '{@link #getAction() <em>Action</em>}' containment reference.
@@ -352,6 +363,54 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * <!-- end-user-doc -->
    * @generated
    */
+  public ScalarExpression getQuery()
+  {
+    return query;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetQuery(ScalarExpression newQuery, NotificationChain msgs)
+  {
+    ScalarExpression oldQuery = query;
+    query = newQuery;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__QUERY, oldQuery, newQuery);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQuery(ScalarExpression newQuery)
+  {
+    if (newQuery != query)
+    {
+      NotificationChain msgs = null;
+      if (query != null)
+        msgs = ((InternalEObject)query).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__QUERY, null, msgs);
+      if (newQuery != null)
+        msgs = ((InternalEObject)newQuery).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__QUERY, null, msgs);
+      msgs = basicSetQuery(newQuery, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__QUERY, newQuery, newQuery));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ViewAction getAction()
   {
     return action;
@@ -413,6 +472,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return basicSetDetails(null, msgs);
       case ApplauseDslPackage.SECTION_CELL__IMAGE:
         return basicSetImage(null, msgs);
+      case ApplauseDslPackage.SECTION_CELL__QUERY:
+        return basicSetQuery(null, msgs);
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return basicSetAction(null, msgs);
     }
@@ -439,6 +500,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return getDetails();
       case ApplauseDslPackage.SECTION_CELL__IMAGE:
         return getImage();
+      case ApplauseDslPackage.SECTION_CELL__QUERY:
+        return getQuery();
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return getAction();
     }
@@ -469,6 +532,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return;
       case ApplauseDslPackage.SECTION_CELL__IMAGE:
         setImage((ScalarExpression)newValue);
+        return;
+      case ApplauseDslPackage.SECTION_CELL__QUERY:
+        setQuery((ScalarExpression)newValue);
         return;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         setAction((ViewAction)newValue);
@@ -502,6 +568,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
       case ApplauseDslPackage.SECTION_CELL__IMAGE:
         setImage((ScalarExpression)null);
         return;
+      case ApplauseDslPackage.SECTION_CELL__QUERY:
+        setQuery((ScalarExpression)null);
+        return;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         setAction((ViewAction)null);
         return;
@@ -529,6 +598,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return details != null;
       case ApplauseDslPackage.SECTION_CELL__IMAGE:
         return image != null;
+      case ApplauseDslPackage.SECTION_CELL__QUERY:
+        return query != null;
       case ApplauseDslPackage.SECTION_CELL__ACTION:
         return action != null;
     }

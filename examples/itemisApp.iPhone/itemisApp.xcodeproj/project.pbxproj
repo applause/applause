@@ -24,6 +24,8 @@
 		CB33065C13AFF65E007A4AFD /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065B13AFF65E007A4AFD /* PersonDetailsViewController.m */; };
 		CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */; };
 		CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33066113AFF65E007A4AFD /* itemisAppProviders.m */; };
+		CB5C2E3713DD53AE00D14D0A /* IPTableViewCellMap.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5C2E3613DD53AE00D14D0A /* IPTableViewCellMap.m */; };
+		CB5C2E8E13DD5BAC00D14D0A /* mapsPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5C2E8D13DD5BAC00D14D0A /* mapsPlaceholder.png */; };
 		CB70CD1C110C574400291EA3 /* IPContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD1B110C574400291EA3 /* IPContentProvider.m */; };
 		CB70CD58110C586000291EA3 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD2F110C586000291EA3 /* Reachability.m */; };
 		CB70CD59110C586000291EA3 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD32110C586000291EA3 /* ASIAuthenticationDialog.m */; };
@@ -98,6 +100,9 @@
 		CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppAppDelegate.m; path = Generated/itemisAppAppDelegate.m; sourceTree = "<group>"; };
 		CB33066013AFF65E007A4AFD /* itemisAppProviders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = itemisAppProviders.h; path = Generated/itemisAppProviders.h; sourceTree = "<group>"; };
 		CB33066113AFF65E007A4AFD /* itemisAppProviders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppProviders.m; path = Generated/itemisAppProviders.m; sourceTree = "<group>"; };
+		CB5C2E3513DD53AE00D14D0A /* IPTableViewCellMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPTableViewCellMap.h; sourceTree = "<group>"; };
+		CB5C2E3613DD53AE00D14D0A /* IPTableViewCellMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPTableViewCellMap.m; sourceTree = "<group>"; };
+		CB5C2E8D13DD5BAC00D14D0A /* mapsPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapsPlaceholder.png; sourceTree = "<group>"; };
 		CB70CD1A110C574400291EA3 /* IPContentProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPContentProvider.h; sourceTree = "<group>"; };
 		CB70CD1B110C574400291EA3 /* IPContentProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPContentProvider.m; sourceTree = "<group>"; };
 		CB70CD2E110C586000291EA3 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -301,6 +306,7 @@
 		CB70CD19110C56F200291EA3 /* iPhonical */ = {
 			isa = PBXGroup;
 			children = (
+				CB5C2E8D13DD5BAC00D14D0A /* mapsPlaceholder.png */,
 				CBAA4BCB110DA764006C9290 /* IPLoadingView.h */,
 				CBAA4BCC110DA764006C9290 /* IPLoadingView.m */,
 				CB70CD1A110C574400291EA3 /* IPContentProvider.h */,
@@ -322,6 +328,8 @@
 				CBB393BD110CDB7300FD6BCC /* NSObject+iPhonical.m */,
 				CBAA4CB5110DB6EF006C9290 /* IPCache.h */,
 				CBAA4CB6110DB6EF006C9290 /* IPCache.m */,
+				CB5C2E3513DD53AE00D14D0A /* IPTableViewCellMap.h */,
+				CB5C2E3613DD53AE00D14D0A /* IPTableViewCellMap.m */,
 			);
 			path = iPhonical;
 			sourceTree = "<group>";
@@ -471,6 +479,7 @@
 				CBB8140011E6830D0047596D /* calendar.png in Resources */,
 				CBB8140111E6830D0047596D /* chat.png in Resources */,
 				CBB8140211E6830D0047596D /* microphone.png in Resources */,
+				CB5C2E8E13DD5BAC00D14D0A /* mapsPlaceholder.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +545,7 @@
 				CB33065C13AFF65E007A4AFD /* PersonDetailsViewController.m in Sources */,
 				CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */,
 				CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */,
+				CB5C2E3713DD53AE00D14D0A /* IPTableViewCellMap.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

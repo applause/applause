@@ -61,10 +61,13 @@ String expression(Constant this, String target):
 String expression(ObjectReference this, String target):
 	Constant.isInstance(object)
 		? expression(object, target)
-		: "{{" + _expression(target) + "|safe}}";
+		: "{{" + _expression(target) + "|safe|linebreaksbr}}";
 		
 tplPrepareUrl(ViewAction this, String target, String var):
 	"";
+	
+tplPreparedUrl(ViewAction this, String target, String var):
+	"data"; // nothing prepared
 	
 private String urlConform(String value):
 	value + "|urlencode";	
@@ -79,6 +82,9 @@ parameterValues(SimpleProviderConstruction this, String target):
 	
 tplPrepareUrl(ViewCall this, String target, String var):	
 	"{% url views." + defViewName() + " " + provider.parameterValues(target) + " as " + var + " %}";
+	
+tplPreparedUrl(ViewCall this, String target, String var):
+	var;
 	
 tplUrl(ViewAction this, String var):
 	"";

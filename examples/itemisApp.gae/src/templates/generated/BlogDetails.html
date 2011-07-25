@@ -5,9 +5,9 @@
 
 
 <div class="header">
-  <div class="header_title">{{data.title|safe}}</div>
+  <div class="header_title">{{data.title|safe|linebreaksbr}}</div>
   
-  <div class="header_details">{{data.description|safe}}</div>
+  <div class="header_details">{{data.description|safe|linebreaksbr}}</div>
 </div>
 
 
@@ -16,14 +16,14 @@
 <li>
   {% url views.PersonDetailsByPersonByName data.creator|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{data.creator|safe}}</div>
+  <div class="cell_text">{{data.creator|safe|linebreaksbr}}</div>
   
   </a>
   
 </li>
 <li>
   
-  <a href="{{url.link|safe}}">
+  <a href="{{data.link|safe|linebreaksbr}}">
   <div class="cell_text">Open in Browser</div>
   
   </a>

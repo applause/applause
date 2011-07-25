@@ -36,6 +36,7 @@
 «EXPAND sectionCount»
 «EXPAND sectionTitleHeader»
 «EXPAND rowCounts»
+«EXPAND rowHeights-»
 «EXPAND cellDescriptions»
 «EXPAND cellSelections»
 «EXPAND staticData»
@@ -80,6 +81,20 @@
 }
 «ENDDEFINE»
 
+«DEFINE rowHeights FOR SectionedView»«IF this.anySpecificRowHeight()»
+-(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+«FOREACH sections AS s ITERATOR is-»
+«FOREACH s.cells AS c ITERATOR ic-»
+«IF c.specificRowHeight()>0-»
+	if(indexPath.section == «is.counter0» && indexPath.row == «ic.counter0»)
+		return «c.specificRowHeight()»;
+«ENDIF-»
+«ENDFOREACH»
+«ENDFOREACH»
+	return self.tableView.rowHeight;
+}
+«ENDIF»«ENDDEFINE»
+
 «DEFINE cellDescriptions FOR View»«ENDDEFINE»
 
 «DEFINE cellDescriptions FOR TableView»
@@ -117,11 +132,15 @@
 «ENDDEFINE»
 
 «DEFINE cellContent(String kvcTarget, String kvcPrefix) FOR SectionCell»
-    UITableViewCell *cell = [self cell«type()»ForTableView:tableView];
+    «tableCellClassname()» *cell = [self cell«type()»ForTableView:tableView];
 	«IF text!=null»cell.textLabel.text = «text.expression(kvcTarget, kvcPrefix)»;«ENDIF»
 	«IF details!=null»cell.detailTextLabel.text = «details.expression(kvcTarget, kvcPrefix)»;«ENDIF»
-	«IF image!=null»NSString *imageURL = «image.expression(kvcTarget, kvcPrefix)»;
-	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];«ENDIF»
+	«IF query!=null»cell.queryString = «query.expression(kvcTarget, kvcPrefix)»;«ENDIF»
+	«IF image!=null || queryImage("cell")!=null-»
+	«IF image!=null»NSString *imageURL = «image.expression(kvcTarget, kvcPrefix)»;«ELSE-»
+	NSString *imageURL = «queryImage("cell")»;«ENDIF»
+	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
+	«ENDIF-»
 	return cell;
 «ENDDEFINE»
 

@@ -157,15 +157,17 @@ SectionCell:
 		('text=' text=ScalarExpression)?
 		('details=' details=ScalarExpression)?
 		('image=' image=ScalarExpression)?
+		('query=' query=ScalarExpression)?
 		('action=' action=ViewAction)?
-	'}';
+	'}';	
 	
 enum CellType:
 	default = 'Default' |
 	defaultWithDisclosure = 'DefaultWithDisclosure' |
 	value2 = 'Value2' |
 	double = 'Double' |
-	subtitle = 'Subtitle';
+	subtitle = 'Subtitle' |
+	maps = 'Map';
 	
 CollectionIterator:
 	collection=CollectionExpression 'as' name=ID;

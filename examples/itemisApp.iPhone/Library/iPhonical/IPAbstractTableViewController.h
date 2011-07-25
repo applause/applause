@@ -10,6 +10,7 @@
 #import "IPContentProvider.h"
 #import "IPUIView.h"
 #import "IPLoadingView.h"
+#import "IPTableViewCellMap.h"
 
 @interface IPAbstractTableViewController : UITableViewController<IPUIView> {
 	
@@ -29,6 +30,7 @@
 -(UITableViewCell*)cellSubtitleForTableView:(UITableView *)tableView;
 -(UITableViewCell*)cellDefaultWithDisclosureForTableView:(UITableView *)tableView;
 -(UITableViewCell*)cellValue2ForTableView:(UITableView *)tableView;
+-(IPTableViewCellMap*)cellMapForTableView:(UITableView *)tableView;
 
 @property(nonatomic, retain) IPContentProvider *contentProvider;
 @property(nonatomic, retain) IPLoadingView *loadingView;

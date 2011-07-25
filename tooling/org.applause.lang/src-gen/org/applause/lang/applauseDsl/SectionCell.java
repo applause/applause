@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getText <em>Text</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getDetails <em>Details</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getImage <em>Image</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getQuery <em>Query</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getAction <em>Action</em>}</li>
  * </ul>
  * </p>
@@ -162,6 +163,32 @@ public interface SectionCell extends EObject
    * @generated
    */
   void setImage(ScalarExpression value);
+
+  /**
+   * Returns the value of the '<em><b>Query</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Query</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Query</em>' containment reference.
+   * @see #setQuery(ScalarExpression)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getSectionCell_Query()
+   * @model containment="true"
+   * @generated
+   */
+  ScalarExpression getQuery();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.SectionCell#getQuery <em>Query</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Query</em>' containment reference.
+   * @see #getQuery()
+   * @generated
+   */
+  void setQuery(ScalarExpression value);
 
   /**
    * Returns the value of the '<em><b>Action</b></em>' containment reference.

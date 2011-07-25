@@ -647,6 +647,12 @@
           </elements>
         </elements>
         <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" value="query="/>
+          <elements xsi:type="xtext:Assignment" feature="query" operator="=">
+            <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+          </elements>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
           <elements xsi:type="xtext:Keyword" value="action="/>
           <elements xsi:type="xtext:Assignment" feature="action" operator="=">
             <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.34"/>
@@ -679,6 +685,10 @@
         <elements xsi:type="xtext:EnumLiteralDeclaration">
           <enumLiteral href="http://www.applause.org/lang/ApplauseDsl#//CellType/subtitle"/>
           <literal value="Subtitle"/>
+        </elements>
+        <elements xsi:type="xtext:EnumLiteralDeclaration">
+          <enumLiteral href="http://www.applause.org/lang/ApplauseDsl#//CellType/maps"/>
+          <literal value="Map"/>
         </elements>
       </alternatives>
     </rules>

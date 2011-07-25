@@ -101,9 +101,9 @@ tableview OfficeList(Office[] offices) {
 			text= o.location
 			action= OfficeDetails(o)
 		}
-	}
+	} 
 }
-
+ 
 detailsview OfficeDetails(Office office) {
 	title= "Office"
 	header {
@@ -116,16 +116,16 @@ detailsview OfficeDetails(Office office) {
 		cell Default {
 			text= office.contact
 			action= PersonDetails( PersonByName(office.contact) )
-		}
+		} 
 	}
 
 	section {
-		cell Value2 {
-			text= ""
-			details= "Show on Map"
+		cell Map {
+			text= office.address
+			query= office.address
 			action= ("http://maps.google.de/maps?q=" urlconform(office.address) )
 		} 
-		
+		  
 		cell Value2 {
 			text= "phone"
 			details= office.phone

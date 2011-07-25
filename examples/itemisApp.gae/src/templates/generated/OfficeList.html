@@ -8,7 +8,7 @@
 <li>
   {% url views.OfficeDetailsByOfficeResolver o.location|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{o.location|safe}}</div>
+  <div class="cell_text">{{o.location|safe|linebreaksbr}}</div>
   
   </a>
   

@@ -103,6 +103,7 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 				«IF this.iterator!=null»«javaType()» «this.iterator.name» = getItem();«ENDIF»
 				«IF text!=null»setText(«text.expression("")»);«ENDIF»
 				«IF details!=null»setDetails(«details.expression("")»);«ENDIF»
+				«IF query!=null»setQuery(«query.expression("")»);«ENDIF»
 				«IF image!=null»setImageURL(«image.expression("")»);«ENDIF»
 			}
 	

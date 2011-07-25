@@ -8,8 +8,8 @@
 <li>
   {% url views.EventDetailsByEventById e.id|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{e.title|safe}}</div>
-  <div class="cell_details">{{e.date|safe}}</div>
+  <div class="cell_text">{{e.title|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{e.date|safe|linebreaksbr}}</div>
   </a>
   
 </li>

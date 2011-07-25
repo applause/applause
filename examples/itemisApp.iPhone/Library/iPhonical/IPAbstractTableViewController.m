@@ -88,9 +88,9 @@
 		[self requestFailed:request];
 	else {	
 		UIImage *orignalImage = [UIImage imageWithData: request.responseData];
-		UIImage *image = [self.class scale:orignalImage toSize: CGSizeMake(45, 60)];
+		//UIImage *image = [self.class scale:orignalImage toSize: CGSizeMake(45, 60)];
 		[IPCache cacheObject:request.responseData forURL:request.url.absoluteString];
-		[self updateImage:image forKey: request.url.absoluteString];
+		[self updateImage:orignalImage forKey: request.url.absoluteString];
 	}
 }
 
@@ -187,6 +187,16 @@
 	return cell;
 }
 
+-(IPTableViewCellMap*)cellMapForTableView:(UITableView*)tableView {
+	static NSString *CellIdentifier = @"CellMap";
+    
+    IPTableViewCellMap *cell = (IPTableViewCellMap*)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[IPTableViewCellMap alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    }
+	return cell;
+}
+
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
@@ -233,7 +243,6 @@
 	else
     	return 1;
 }
-
 
 // Customize the number of rows in the table view.
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

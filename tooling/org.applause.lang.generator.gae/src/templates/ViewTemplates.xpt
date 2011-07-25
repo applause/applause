@@ -44,7 +44,7 @@
 «tplCellForLoop()-»
 <li>
   «IF action!=null»«action.tplPrepareUrl(cellContextVar(), "url")»
-  <a href="«action.tplUrl("url")»">
+  <a href="«action.tplUrl(action.tplPreparedUrl(cellContextVar(), "url"))»">
   «IF text!=null»<div class="cell_text">«text.expression(cellContextVar())»</div>«ENDIF»
   «IF details!=null»<div class="cell_details">«details.expression(cellContextVar())»</div>«ENDIF»
   </a>
