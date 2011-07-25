@@ -5,9 +5,9 @@
 
 
 <div class="header">
-  <div class="header_title">{{data.location|safe}}</div>
-  <div class="header_subtitle">{{data.address|safe}}</div>
-  <div class="header_details">{{data.summary|safe}}</div>
+  <div class="header_title">{{data.location|safe|linebreaksbr}}</div>
+  <div class="header_subtitle">{{data.address|safe|linebreaksbr}}</div>
+  <div class="header_details">{{data.summary|safe|linebreaksbr}}</div>
 </div>
 
 
@@ -16,7 +16,7 @@
 <li>
   {% url views.PersonDetailsByPersonByName data.contact|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{data.contact|safe}}</div>
+  <div class="cell_text">{{data.contact|safe|linebreaksbr}}</div>
   
   </a>
   
@@ -28,25 +28,25 @@
 <ul>
 <li>
   
-  <a href="http://maps.google.de/maps?q={{url.address|urlencode}}">
-  <div class="cell_text"></div>
-  <div class="cell_details">Show on Map</div>
+  <a href="http://maps.google.de/maps?q={{data.address|urlencode}}">
+  <div class="cell_text">{{data.address|safe|linebreaksbr}}</div>
+  
   </a>
   
 </li>
 <li>
   
-  <a href="tel:{{url.phone|safe}}">
+  <a href="tel:{{data.phone|safe|linebreaksbr}}">
   <div class="cell_text">phone</div>
-  <div class="cell_details">{{data.phone|safe}}</div>
+  <div class="cell_details">{{data.phone|safe|linebreaksbr}}</div>
   </a>
   
 </li>
 <li>
   
-  <a href="mailto:{{url.mail|safe}}">
+  <a href="mailto:{{data.mail|safe|linebreaksbr}}">
   <div class="cell_text">mail</div>
-  <div class="cell_details">{{data.mail|safe}}</div>
+  <div class="cell_details">{{data.mail|safe|linebreaksbr}}</div>
   </a>
   
 </li>

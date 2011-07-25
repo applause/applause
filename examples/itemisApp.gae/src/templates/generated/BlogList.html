@@ -8,8 +8,8 @@
 <li>
   {% url views.BlogDetailsByBlogItemById item.guid|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{item.creator|safe}}</div>
-  <div class="cell_details">{{item.title|safe}}</div>
+  <div class="cell_text">{{item.creator|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{item.title|safe|linebreaksbr}}</div>
   </a>
   
 </li>
