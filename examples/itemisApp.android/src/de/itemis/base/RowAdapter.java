@@ -89,6 +89,19 @@ public abstract class RowAdapter<T> extends AbstractRowAdapter {
 		}
 		return detailsView;
 	}
+	
+	public void setQuery(String query) {
+		// TODO: find a more generic way to determine dimensions of image
+		int width = 120;
+		int height = 120;
+		if(query==null)
+			query = "";
+		String url = "http://maps.google.com/maps/api/staticmap?"
+			+ "center=" + StringUtils.urlconform(query) + "&"
+			+ "maptype=roadmap&sensor=false&"
+			+ "size=" + width + "x" + height + "&zoom=15";
+		setImageURL(url); 
+	}
 
 	public abstract static class Default<T> extends RowAdapter<T> {
 
@@ -131,6 +144,17 @@ public abstract class RowAdapter<T> extends AbstractRowAdapter {
 			return R.layout.value2_item;
 		}
 		
+	}
+	
+	public abstract static class Map<T> extends RowAdapter<T> {
+		public Map(T item) {
+			super(item);
+		}
+		
+		@Override
+		public int getViewResourceID() {
+			return R.layout.map_item;
+		}	 
 	}
 
 	

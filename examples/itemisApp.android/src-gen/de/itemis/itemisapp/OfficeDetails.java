@@ -74,7 +74,7 @@ public class OfficeDetails extends DetailsActivity<Office> {
 
 	}
 
-	private class Cell2 extends RowAdapter.Value2<Void> {
+	private class Cell2 extends RowAdapter.Map<Void> {
 
 		public Cell2(Void item) {
 			super(item);
@@ -83,8 +83,9 @@ public class OfficeDetails extends DetailsActivity<Office> {
 		@Override
 		public void populateRowView() {
 
-			setText("");
-			setDetails("Show on Map");
+			setText(office.getAddress());
+
+			setQuery(office.getAddress());
 
 		}
 
