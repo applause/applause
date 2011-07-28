@@ -63,6 +63,10 @@
 		CBAA4BEC110DAC03006C9290 /* itemis-App-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA4BEB110DAC03006C9290 /* itemis-App-Icon.png */; };
 		CBAA4BEE110DAC0A006C9290 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA4BED110DAC0A006C9290 /* Default.png */; };
 		CBAA4CB7110DB6EF006C9290 /* IPCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4CB6110DB6EF006C9290 /* IPCache.m */; };
+		CBAE263E13E1A42300561D08 /* itemis.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE263D13E1A42300561D08 /* itemis.png */; };
+		CBAE264D13E1A4BD00561D08 /* 85-trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE264A13E1A4BD00561D08 /* 85-trophy.png */; };
+		CBAE264E13E1A4BD00561D08 /* 85-trophy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE264B13E1A4BD00561D08 /* 85-trophy@2x.png */; };
+		CBAE264F13E1A4BD00561D08 /* itemis@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE264C13E1A4BD00561D08 /* itemis@2x.png */; };
 		CBB393BE110CDB7300FD6BCC /* NSObject+iPhonical.m in Sources */ = {isa = PBXBuildFile; fileRef = CBB393BD110CDB7300FD6BCC /* NSObject+iPhonical.m */; };
 		CBB3961A110DA3F500FD6BCC /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB39619110DA3F500FD6BCC /* person.png */; };
 		CBB8140011E6830D0047596D /* calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB813FD11E6830D0047596D /* calendar.png */; };
@@ -172,6 +176,10 @@
 		CBAA4BED110DAC0A006C9290 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CBAA4CB5110DB6EF006C9290 /* IPCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPCache.h; sourceTree = "<group>"; };
 		CBAA4CB6110DB6EF006C9290 /* IPCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPCache.m; sourceTree = "<group>"; };
+		CBAE263D13E1A42300561D08 /* itemis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = itemis.png; sourceTree = "<group>"; };
+		CBAE264A13E1A4BD00561D08 /* 85-trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "85-trophy.png"; sourceTree = "<group>"; };
+		CBAE264B13E1A4BD00561D08 /* 85-trophy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "85-trophy@2x.png"; sourceTree = "<group>"; };
+		CBAE264C13E1A4BD00561D08 /* itemis@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "itemis@2x.png"; sourceTree = "<group>"; };
 		CBB3929A110CC85D00FD6BCC /* IPUIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPUIView.h; sourceTree = "<group>"; };
 		CBB393BC110CDB7300FD6BCC /* NSObject+iPhonical.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+iPhonical.h"; sourceTree = "<group>"; };
 		CBB393BD110CDB7300FD6BCC /* NSObject+iPhonical.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+iPhonical.m"; sourceTree = "<group>"; };
@@ -289,6 +297,10 @@
 		CB70CCD6110C516400291EA3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CBAE264A13E1A4BD00561D08 /* 85-trophy.png */,
+				CBAE264B13E1A4BD00561D08 /* 85-trophy@2x.png */,
+				CBAE263D13E1A42300561D08 /* itemis.png */,
+				CBAE264C13E1A4BD00561D08 /* itemis@2x.png */,
 				CBB813FD11E6830D0047596D /* calendar.png */,
 				CBB813FE11E6830D0047596D /* chat.png */,
 				CBB813FF11E6830D0047596D /* microphone.png */,
@@ -490,6 +502,10 @@
 				CBB8140111E6830D0047596D /* chat.png in Resources */,
 				CBB8140211E6830D0047596D /* microphone.png in Resources */,
 				CB5C2E8E13DD5BAC00D14D0A /* mapsPlaceholder.png in Resources */,
+				CBAE263E13E1A42300561D08 /* itemis.png in Resources */,
+				CBAE264D13E1A4BD00561D08 /* 85-trophy.png in Resources */,
+				CBAE264E13E1A4BD00561D08 /* 85-trophy@2x.png in Resources */,
+				CBAE264F13E1A4BD00561D08 /* itemis@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

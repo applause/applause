@@ -1,8 +1,8 @@
 tabbarApplication itemisApp {
 
 	button { 
-		title= "Company"
-		icon= "microphone.png"  
+		title= "itemis"
+		icon= "itemis.png"  
 		view= OfficeList(CompanyDescription())
 	}
 	
@@ -20,7 +20,7 @@ tabbarApplication itemisApp {
 	
 	button {
 		title= "Carreer"
-		icon= "chat.png"
+		icon= "85-trophy.png"
 		view= CarreerView(CarreerData())
 	} 
 	
@@ -376,7 +376,7 @@ contentprovider SpeakerByName(String name)
  */		
 
 tableview BlogList(BlogItem[] items) {
-	title= "News"
+	title= "Blog"
 	section {
 		cell Subtitle foreach items as item {
 			text= item.creator

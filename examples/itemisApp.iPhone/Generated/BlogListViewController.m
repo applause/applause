@@ -54,7 +54,7 @@
 }
 
 -(void)updateData {
-	self.navigationItem.title = @"News";
+	self.navigationItem.title = @"Blog";
 	
 	[super updateData];
 }

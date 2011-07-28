@@ -23,13 +23,13 @@
 
 
 	
-	// controller for @"Company"
+	// controller for @"itemis"
 	contentProvider = [providers providerForCompanyDescription];
 	
 	controller = [[OfficeListViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Company";
-	controller.tabBarItem.image = [UIImage imageNamed:@"microphone.png"];
+	controller.tabBarItem.title = @"itemis";
+	controller.tabBarItem.image = [UIImage imageNamed:@"itemis.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];
@@ -68,7 +68,7 @@
 	controller = [[CarreerViewViewController alloc] init];
 	[controller setContentProvider: contentProvider];
 	controller.tabBarItem.title = @"Carreer";
-	controller.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
+	controller.tabBarItem.image = [UIImage imageNamed:@"85-trophy.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];
