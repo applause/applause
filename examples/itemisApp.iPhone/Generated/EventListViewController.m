@@ -50,27 +50,90 @@ else
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	id item = [self.items objectAtIndex: indexPath.row];
+
+
+	if(indexPath.section == 0) {
+	id item = [[[contentProvider valueForKeyPath:@"content.news"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = @"t";
-	cell.detailTextLabel.text = @"d";
+	cell.textLabel.text = [item valueForKeyPath:@"title"];
+	cell.detailTextLabel.text = [item valueForKeyPath:@"date"];
 	
 	return cell;
+
+
+	} else
+
+
+	if(indexPath.section == 1) {
+	id item = [[[contentProvider valueForKeyPath:@"content.activity"] asArray] objectAtIndex: indexPath.row];
 	
-	    
+    UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
+	cell.textLabel.text = [item valueForKeyPath:@"title"];
+	cell.detailTextLabel.text = [item valueForKeyPath:@"date"];
+	
+	return cell;
+
+
+	} else
+
+
+	if(indexPath.section == 2) {
+	id item = [[[contentProvider valueForKeyPath:@"content.workshop"] asArray] objectAtIndex: indexPath.row];
+	
+    UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
+	cell.textLabel.text = [item valueForKeyPath:@"title"];
+	cell.detailTextLabel.text = [item valueForKeyPath:@"date"];
+	
+	return cell;
+
+
+	} else
+		return nil;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	id item = [self.items objectAtIndex: indexPath.row];
+
+
+	if(indexPath.section == 0) {
+	
+	id item = [[[contentProvider valueForKeyPath:@"content.news"]asArray] objectAtIndex: indexPath.row];
 		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
 		EventDetailsViewController *controller = [[EventDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
 		[controller release];
 
+	
+	} else
+
+
+	if(indexPath.section == 1) {
+	
+	id item = [[[contentProvider valueForKeyPath:@"content.activity"]asArray] objectAtIndex: indexPath.row];
+		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
+		EventDetailsViewController *controller = [[EventDetailsViewController alloc] init];
+		controller.contentProvider = provider;
+		[self.navigationController pushViewController: controller animated: TRUE];
+		[controller release];
+
+	
+	} else
+
+
+	if(indexPath.section == 2) {
+	
+	id item = [[[contentProvider valueForKeyPath:@"content.workshop"]asArray] objectAtIndex: indexPath.row];
+		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
+		EventDetailsViewController *controller = [[EventDetailsViewController alloc] init];
+		controller.contentProvider = provider;
+		[self.navigationController pushViewController: controller animated: TRUE];
+		[controller release];
+
+	
+	} else
+		return;
 }
 
 -(void)updateData {

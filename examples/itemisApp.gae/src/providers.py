@@ -37,7 +37,7 @@ def EventById(id):
 
 
 def PersonByName(name):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'contacts/', quote((name).encode("utf8")), '.xml') #foo
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'people/', quote((name).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
     return xml.contact
 

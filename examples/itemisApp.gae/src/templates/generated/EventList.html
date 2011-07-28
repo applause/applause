@@ -8,8 +8,8 @@
 <li>
   {% url views.EventDetailsByEventById n.id|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">t</div>
-  <div class="cell_details">d</div>
+  <div class="cell_text">{{n.title|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{n.date|safe|linebreaksbr}}</div>
   </a>
   
 </li>
@@ -20,8 +20,8 @@
 <li>
   {% url views.EventDetailsByEventById a.id|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">t</div>
-  <div class="cell_details">a</div>
+  <div class="cell_text">{{a.title|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{a.date|safe|linebreaksbr}}</div>
   </a>
   
 </li>
@@ -32,8 +32,8 @@
 <li>
   {% url views.EventDetailsByEventById w.id|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">t</div>
-  <div class="cell_details">d</div>
+  <div class="cell_text">{{w.title|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{w.date|safe|linebreaksbr}}</div>
   </a>
   
 </li>

@@ -79,7 +79,7 @@
 
 
 -(IPContentProvider*)providerForPersonByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"contacts/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"people/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil

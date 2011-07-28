@@ -97,21 +97,12 @@
 
 «DEFINE cellDescriptions FOR View»«ENDDEFINE»
 
-«DEFINE cellDescriptions FOR TableView»
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	«LET firstCell() AS c»
-	id item = [self.items objectAtIndex: indexPath.row];
-	«EXPAND cellContent('item', '') FOR c»	
-	«ENDLET»    
-}
-«ENDDEFINE»
-
 «DEFINE cellConstraint(Integer section, Integer row) FOR SectionCell-»
 «IF iterator==null»indexPath.section == «section» && indexPath.row == «row-»
 «ELSE»indexPath.section == «section»«ENDIF-»
 «ENDDEFINE»
 
-«DEFINE cellDescriptions FOR DetailsView»
+«DEFINE cellDescriptions FOR SectionedView»
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 «FOREACH sections AS s ITERATOR si»
 «FOREACH s.cells AS c ITERATOR ci»
@@ -145,12 +136,6 @@
 «ENDDEFINE»
 
 «DEFINE cellSelections FOR View»«ENDDEFINE»
-«DEFINE cellSelections FOR TableView»
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	id item = [self.items objectAtIndex: indexPath.row];
-	«EXPAND cellAction('item', '') FOR firstCell().action»
-}
-«ENDDEFINE»
 
 «DEFINE cellAction FOR SectionCell»
 	«IF iterator!=null»id item = [[«iterator.collection.expression('contentProvider', 'content')»asArray] objectAtIndex: indexPath.row];
@@ -160,7 +145,7 @@
 «ENDDEFINE»
 
 
-«DEFINE cellSelections FOR DetailsView»
+«DEFINE cellSelections FOR SectionedView»
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 «FOREACH sections AS s ITERATOR si»
 «FOREACH s.cells AS c ITERATOR ci»

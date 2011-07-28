@@ -19,27 +19,38 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	
-	id item = [self.items objectAtIndex: indexPath.row];
+
+
+	if(indexPath.section == 0) {
+	id item = [[[contentProvider valueForKeyPath:@"content"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
 	cell.textLabel.text = [item valueForKeyPath:@"creator"];
 	cell.detailTextLabel.text = [item valueForKeyPath:@"title"];
 	
 	return cell;
-	
-	    
+
+
+	} else
+		return nil;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	id item = [self.items objectAtIndex: indexPath.row];
+
+
+	if(indexPath.section == 0) {
+	
+	id item = [[[contentProvider valueForKeyPath:@"content"]asArray] objectAtIndex: indexPath.row];
 		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
 		BlogDetailsViewController *controller = [[BlogDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
 		[controller release];
 
+	
+	} else
+		return;
 }
 
 -(void)updateData {
