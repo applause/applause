@@ -6,10 +6,6 @@ def OfficeListByCompanyDescription(request):
     data = providers.CompanyDescription()
     return render_to_response('generated/OfficeList.html', {'data': data})
 
-def EventDetailsBy__EventById(request, id):
-    data = providers.__EventById(id)
-    return render_to_response('generated/EventDetails.html', {'data': data})
-
 def EventListByCurrentTimeline(request):
     data = providers.CurrentTimeline()
     return render_to_response('generated/EventList.html', {'data': data})
@@ -30,8 +26,8 @@ def PersonDetailsByPersonByName(request, name):
     data = providers.PersonByName(name)
     return render_to_response('generated/PersonDetails.html', {'data': data})
 
-def OfficeDetailsByOfficeResolver(request, location):
-    data = providers.OfficeResolver(location)
+def OfficeDetailsByOfficeById(request, id):
+    data = providers.OfficeById(id)
     return render_to_response('generated/OfficeDetails.html', {'data': data})
 
 def BlogDetailsByBlogItemById(request, guid):

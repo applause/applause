@@ -7,12 +7,6 @@ tabbarApplication itemisApp {
 	}
 	
 	button {
-		title= "event"
-		icon= "calendar.png"
-		view= EventDetails(__EventById("2"))
-	}
-	
-	button {
 		title="News"
 		icon="calendar.png"
 		view=EventList( CurrentTimeline() )
@@ -61,6 +55,7 @@ entity Event {
 }
 
 entity Office {
+	String id
 	String location
 	String summary
 	String pictureurl
@@ -122,19 +117,19 @@ contentprovider CompanyDescription
 	fetches XML from (DROPBOX "company.xml")
 	selects "data.company"
 
-contentprovider AllOffices
-	returns Office[]
-	fetches XML from (DROPBOX "offices/all.xml")
-	selects "offices.office"
+//contentprovider AllOffices
+//	returns Office[]
+//	fetches XML from (DROPBOX "offices/all.xml")
+//	selects "offices.office"
 
 //contentprovider OfficeResolver(Office o)
 //	resolves Office
 //	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D" urlconform(o.location) )
 //	selects "feed.entry"
 
-contentprovider OfficeResolver(Office o)
-	resolves Office
-	fetches XML from (DROPBOX "offices/" urlconform(o.location) ".xml")
+contentprovider OfficeById(String id)
+	returns Office
+	fetches XML from (DROPBOX "offices/" urlconform(id) ".xml")
 	selects "offices.office"
 	
 contentprovider CarreerData
@@ -210,7 +205,7 @@ detailsview OfficeList(Company company) {
 		title= "Offices"
 		cell Default foreach company.office as o {
 			text= o.location
-			action= OfficeDetails(o)
+			action= OfficeDetails(OfficeById(o.id))
 		}
 	} 
 }
@@ -274,11 +269,6 @@ contentprovider CurrentTimeline
 	fetches XML from (DROPBOX "timeline.xml")
 	selects "data.events"
 	
-contentprovider __EventById(String id)
-	returns Event
-	fetches XML from (DROPBOX "events/" urlconform(id) ".xml")
-	selects "events.event"	
-
 contentprovider EventById(Event e)
 	resolves Event
 	fetches XML from (DROPBOX "events/" urlconform(e.id) ".xml")

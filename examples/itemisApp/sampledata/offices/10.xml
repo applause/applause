@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <offices>
 	<office>
+		<id>10</id>
 		<location>Windisch (Switzerland)</location>
 		<summary></summary>
 		<contact>

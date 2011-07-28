@@ -1,7 +1,7 @@
 
 #import "OfficeListViewController.h"
 #import "NSObject+iPhonical.h"
-#import "IPContentProvider.h"
+#import "itemisAppProviders.h"
 #import "OfficeDetailsViewController.h"
  
 
@@ -50,7 +50,7 @@
 	if(indexPath.section == 0) {
 	
 	id item = [[[contentProvider valueForKeyPath:@"content.office"]asArray] objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForOfficeById: [item valueForKeyPath:@"id"]];
 		OfficeDetailsViewController *controller = [[OfficeDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];

@@ -5,14 +5,12 @@
 <ul>
 {% url views.OfficeListByCompanyDescription  as url1 %}
 <li><a href="{{ url1 }}">Company</a></li>
-{% url views.EventDetailsBy__EventById '2'|urlencode as url2 %}
-<li><a href="{{ url2 }}">event</a></li>
-{% url views.EventListByCurrentTimeline  as url3 %}
-<li><a href="{{ url3 }}">News</a></li>
-{% url views.BlogListByBlogposts  as url4 %}
-<li><a href="{{ url4 }}">Blog</a></li>
-{% url views.CarreerViewByCarreerData  as url5 %}
-<li><a href="{{ url5 }}">Carreer</a></li>
+{% url views.EventListByCurrentTimeline  as url2 %}
+<li><a href="{{ url2 }}">News</a></li>
+{% url views.BlogListByBlogposts  as url3 %}
+<li><a href="{{ url3 }}">Blog</a></li>
+{% url views.CarreerViewByCarreerData  as url4 %}
+<li><a href="{{ url4 }}">Carreer</a></li>
 
 </ul>
 <br style="clear: left" />

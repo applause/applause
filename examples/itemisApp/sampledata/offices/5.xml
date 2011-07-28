@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <offices>
 <office>
+	<id>5</id>
     <location>Kiel</location>
     <summary>Our Kiel office specializes in model-driven software development and Eclipse-based tool chains for enterprise applications and embedded systems.</summary>
     <contact>

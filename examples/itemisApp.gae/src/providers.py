@@ -12,12 +12,6 @@ def CompanyDescription():
     return xml.company
 
 
-def __EventById(id):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'events/', quote((id).encode("utf8")), '.xml') #foo
-    xml = plainxml(url)
-    return xml.event
-
-
 def CurrentTimeline():
     url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'timeline.xml') #foo
     xml = plainxml(url)
@@ -48,8 +42,8 @@ def PersonByName(name):
     return xml.contact
 
 
-def OfficeResolver(location):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'offices/', quote((location).encode("utf8")), '.xml') #foo
+def OfficeById(id):
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'offices/', quote((id).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
     return xml.office
 

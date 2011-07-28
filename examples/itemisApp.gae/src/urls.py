@@ -8,8 +8,6 @@ urlpatterns = patterns('',
 	
     (r'^OfficeList/CompanyDescription/$', 'views.OfficeListByCompanyDescription'),
 
-    (r'^EventDetails/__EventById/(?P<id>.+?)/$', 'views.EventDetailsBy__EventById'),
-
     (r'^EventList/CurrentTimeline/$', 'views.EventListByCurrentTimeline'),
 
     (r'^BlogList/Blogposts/$', 'views.BlogListByBlogposts'),
@@ -20,7 +18,7 @@ urlpatterns = patterns('',
 
     (r'^PersonDetails/PersonByName/(?P<name>.+?)/$', 'views.PersonDetailsByPersonByName'),
 
-    (r'^OfficeDetails/OfficeResolver/(?P<location>.+?)/$', 'views.OfficeDetailsByOfficeResolver'),
+    (r'^OfficeDetails/OfficeById/(?P<id>.+?)/$', 'views.OfficeDetailsByOfficeById'),
 
     (r'^BlogDetails/BlogItemById/(?P<guid>.+?)/$', 'views.BlogDetailsByBlogItemById'),
 

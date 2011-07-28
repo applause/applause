@@ -15,7 +15,7 @@
 <ul>
 {% for o in data.office|to_list %}
 <li>
-  {% url views.OfficeDetailsByOfficeResolver o.location|urlencode as url %}
+  {% url views.OfficeDetailsByOfficeById o.id|urlencode as url %}
   <a href="{{ url }}">
   <div class="cell_text">{{o.location|safe|linebreaksbr}}</div>
   

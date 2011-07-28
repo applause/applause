@@ -18,20 +18,8 @@
 
 
 
--(IPContentProvider*)providerForAllOffices {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/all.xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"offices.office"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
--(IPContentProvider*)providerForOfficeResolver:(id)o {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/", [[o valueForKeyPath:@"location"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+-(IPContentProvider*)providerForOfficeById:(id)id {
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -72,18 +60,6 @@
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
 								  keyPathToContent: @"data.events"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
--(IPContentProvider*)providerFor__EventById:(id)id {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"events/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"events.event"
 								  andProviders:self] autorelease];
 	return result;
 }
