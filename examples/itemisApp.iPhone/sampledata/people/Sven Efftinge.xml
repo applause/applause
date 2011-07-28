@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<name>Sven Efftinge</name>
+	<role>Xtext project lead</role>
+    <bio>Sven Efftinge works as consultant, coach and developer. He leads the itemis lab in Kiel which focuses on language development and Eclipse technologies. He is project lead of the Xtext framework at eclipse.org and the original architect of the Xpand language family (a.k.a. openArchitectureWare 4). Sven is also a speaker at software conferences, co-author of a book and writes articles for magazines.</bio>
+    <pictureurl>http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/Sven%20Efftinge.jpg</pictureurl>
+    <mail>Sven.Efftinge@itemis.de</mail>
+    <phone>+49-431-5606335</phone>
+    <webaddresses>
+    	<title>Blog</title>
+    	<url>http://blog.efftinge.de/</url>    
+    </webaddresses>
+    <webaddresses>
+    	<title>Xing</title>
+    	<url>https://www.xing.com/profile/Sven_Efftinge/</url>    
+    </webaddresses>
+</contact>
+</contacts>

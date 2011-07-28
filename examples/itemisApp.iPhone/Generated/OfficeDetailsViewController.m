@@ -43,9 +43,9 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-    UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.contact"];
-	
+    UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
+	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.contact.name"];
+	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.contact.role"];
 	
 	return cell;
 
@@ -60,7 +60,7 @@
     IPTableViewCellMap *cell = [self cellMapForTableView:tableView];
 	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.address"];
 	
-	cell.queryString = [contentProvider valueForKeyPath:@"content.address"];
+	cell.queryString = [contentProvider valueForKeyPath:@"content.geo"];
 	NSString *imageURL = cell.imageUrl;
 	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	return cell;
@@ -104,7 +104,7 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.contact"]];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.contact.name"]];
 		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -118,7 +118,7 @@
 	if(indexPath.section == 1 && indexPath.row == 0) {
 	
 	
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"http://maps.google.de/maps?q=", [[contentProvider valueForKeyPath:@"content.address"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"http://maps.google.de/maps?q=", [[contentProvider valueForKeyPath:@"content.geo"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -152,7 +152,7 @@
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.location"];
-		self.headerView.subtitleLabel.text = [contentProvider valueForKeyPath:@"content.address"];
+		
 		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.summary"];
 		
 	}	

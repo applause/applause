@@ -5,9 +5,13 @@
 
 }
 
+-(IPContentProvider*)providerForCompanyDescription;
 -(IPContentProvider*)providerForAllOffices;
 -(IPContentProvider*)providerForOfficeResolver:(id)o;
+-(IPContentProvider*)providerForCarreerData;
+-(IPContentProvider*)providerForJobById:(id)id;
 -(IPContentProvider*)providerForCurrentTimeline;
+-(IPContentProvider*)providerFor__EventById:(id)id;
 -(IPContentProvider*)providerForEventById:(id)e;
 -(IPContentProvider*)providerForPersonByName:(id)name;
 -(IPContentProvider*)providerForBlogposts;

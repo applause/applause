@@ -2,6 +2,14 @@ from django.shortcuts import render_to_response
 import providers
 
 
+def OfficeListByCompanyDescription(request):
+    data = providers.CompanyDescription()
+    return render_to_response('generated/OfficeList.html', {'data': data})
+
+def EventDetailsBy__EventById(request, id):
+    data = providers.__EventById(id)
+    return render_to_response('generated/EventDetails.html', {'data': data})
+
 def EventListByCurrentTimeline(request):
     data = providers.CurrentTimeline()
     return render_to_response('generated/EventList.html', {'data': data})
@@ -10,9 +18,9 @@ def BlogListByBlogposts(request):
     data = providers.Blogposts()
     return render_to_response('generated/BlogList.html', {'data': data})
 
-def OfficeListByAllOffices(request):
-    data = providers.AllOffices()
-    return render_to_response('generated/OfficeList.html', {'data': data})
+def CarreerViewByCarreerData(request):
+    data = providers.CarreerData()
+    return render_to_response('generated/CarreerView.html', {'data': data})
 
 def EventDetailsByEventById(request, id):
     data = providers.EventById(id)
@@ -29,4 +37,8 @@ def OfficeDetailsByOfficeResolver(request, location):
 def BlogDetailsByBlogItemById(request, guid):
     data = providers.BlogItemById(guid)
     return render_to_response('generated/BlogDetails.html', {'data': data})
+
+def JobOfferDetailsByJobById(request, id):
+    data = providers.JobById(id)
+    return render_to_response('generated/JobOfferDetails.html', {'data': data})
 

@@ -1,5 +1,17 @@
 tabbarApplication itemisApp {
 
+	button { 
+		title= "Company"
+		icon= "microphone.png"  
+		view= OfficeList(CompanyDescription())
+	}
+	
+	button {
+		title= "event"
+		icon= "calendar.png"
+		view= EventDetails(__EventById("2"))
+	}
+	
 	button {
 		title="News"
 		icon="calendar.png"
@@ -11,12 +23,14 @@ tabbarApplication itemisApp {
 		icon= "chat.png"
 		view= BlogList(Blogposts())
 	} 
+	
+	button {
+		title= "Carreer"
+		icon= "chat.png"
+		view= CarreerView(CarreerData())
+	} 
+	
  
-	button { 
-		title= "Contact"
-		icon= "microphone.png"  
-		view= OfficeList(AllOffices())
-	}
 }
 
 /*
@@ -26,6 +40,13 @@ tabbarApplication itemisApp {
 type String mapsTo "NSString"
 
 const SANITIZE_SHEET "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
+const DROPBOX "http://dl.dropbox.com/u/232067/applause-sampledata/"
+
+entity AllEvents {
+	Event[] news
+	Event[] activity
+	Event[] workshop
+}
 
 entity Event {
 	String id
@@ -36,37 +57,120 @@ entity Event {
 	String description
 	String contact
 	String link
-	String speakers
+	Contact[] speakers
 }
 
 entity Office {
 	String location
 	String summary
 	String pictureurl
-	String contact
+	Contact contact
 	String phone
 	String mail
 	String address
+	String geo
 }
 
-contentprovider AllOffices 
+entity Contact {
+	String name
+	String role
+	String bio
+	String pictureurl
+	String mail
+	String phone
+	WebAddress[] webaddresses
+}
+
+entity WebAddress {
+	String title
+	String url
+}
+
+entity Company {
+	String description
+	Office[] office
+}
+
+entity Carreer {
+	String description
+	Link[] link
+	JobOffer[] job
+}
+
+entity Link {
+	String title
+	String url
+}
+
+entity JobOffer {
+	String id
+	String location
+	String title
+	String description
+	String contact
+}
+
+
+
+//contentprovider AllOffices 
+//	returns Office[]
+//	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values")
+//	selects "feed.entry"
+
+contentprovider CompanyDescription
+	returns Company
+	fetches XML from (DROPBOX "company.xml")
+	selects "data.company"
+
+contentprovider AllOffices
 	returns Office[]
-	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values")
-	selects "feed.entry"
+	fetches XML from (DROPBOX "offices/all.xml")
+	selects "offices.office"
+
+//contentprovider OfficeResolver(Office o)
+//	resolves Office
+//	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D" urlconform(o.location) )
+//	selects "feed.entry"
 
 contentprovider OfficeResolver(Office o)
 	resolves Office
-	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D" urlconform(o.location) )
-	selects "feed.entry"
+	fetches XML from (DROPBOX "offices/" urlconform(o.location) ".xml")
+	selects "offices.office"
 	
+contentprovider CarreerData
+	returns Carreer
+	fetches XML from (DROPBOX "carreer.xml")
+	selects "data.carreer"
+	
+contentprovider JobById(String id)
+	returns JobOffer
+	fetches XML from (DROPBOX "jobs/" urlconform(id) ".xml" )
+	selects "jobs.job"
 
-tableview EventList(Event[] events) {
+tableview EventList(AllEvents allEvents) {
 	title= "News"
 	section {
-		cell Subtitle foreach events as e {
-			text= e.title
-			details= e.date
-			action= EventDetails(e)
+		title= "News"
+		cell Subtitle foreach allEvents.news as n {
+			text= "t"//n.title
+			details= "d" //n.date
+			action= EventDetails(n)
+		}
+		}
+	section {
+		title= "Events"	
+		cell Subtitle foreach allEvents.activity as a {
+			text= "t"// a.title
+			details= "a" // a.date
+			action= EventDetails(a)
+		}
+	} 
+	section {
+		title= "Workshops"	
+		cell Subtitle foreach allEvents.workshop as w {
+			text= "t" // w.title
+			details= "d" // w.date
+			action= EventDetails(w)
 		}
 	} 
 }
@@ -80,24 +184,31 @@ detailsview EventDetails(Event event) {
 	}
 	
 	section {
-		cell Default {
+		cell Subtitle {
 			text= event.contact
+			details= "Contact"
 			action= PersonDetails(PersonByName(event.contact))
 		}
 	}
 	
 	section {
-		cell Default foreach split(event.speakers, ",") as s {
-			text= s
-			action= PersonDetails(PersonByName(s))
+		cell Subtitle foreach event.speakers as s {
+			text= s.name
+			details= s.role
+			action= PersonDetails(PersonByName(s.name))
 		}
 	}
 }
 
-tableview OfficeList(Office[] offices) {
-	title= "Offices"
+detailsview OfficeList(Company company) {
+	title= "Company"
+	header {
+		title= "itemis"
+		subtitle= company.description
+	}
 	section {
-		cell Default foreach offices as o {
+		title= "Offices"
+		cell Default foreach company.office as o {
 			text= o.location
 			action= OfficeDetails(o)
 		}
@@ -108,22 +219,23 @@ detailsview OfficeDetails(Office office) {
 	title= "Office"
 	header {
 		title= office.location
-		subtitle= office.address
+		//subtitle= office.address
 		details= office.summary
 	}
 	
 	section {
-		cell Default {
-			text= office.contact
-			action= PersonDetails( PersonByName(office.contact) )
+		cell Subtitle {
+			text=  office.contact.name
+			details= office.contact.role
+			action= PersonDetails( PersonByName(office.contact.name) )
 		} 
 	}
 
 	section {
 		cell Map {
 			text= office.address
-			query= office.address
-			action= ("http://maps.google.de/maps?q=" urlconform(office.address) )
+			query= office.geo
+			action= ("http://maps.google.de/maps?q=" urlconform(office.geo) )
 		} 
 		  
 		cell Value2 {
@@ -141,21 +253,47 @@ detailsview OfficeDetails(Office office) {
 
 }
 
-contentprovider CurrentTimeline
-	returns Event[]
-	//fetches XML from "http://heikobehrens.net/misc/jazoon11/data.php"
-	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values") 
-	selects "feed.entry"
+//contentprovider CurrentTimeline
+//	returns Event[]
+//	//fetches XML from "http://heikobehrens.net/misc/jazoon11/data.php"
+//	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values") 
+//	selects "feed.entry"
+//	
+//contentprovider EventById(Event e)
+//	resolves Event
+//	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==" e.id)))
+//	selects "feed.entry"
 	
+//contentprovider CurrentTimeline
+//	returns Event[]
+//	fetches XML from (DROPBOX "events/all.xml")
+//	selects "events.event"
+
+contentprovider CurrentTimeline
+	returns AllEvents
+	fetches XML from (DROPBOX "timeline.xml")
+	selects "data.events"
+	
+contentprovider __EventById(String id)
+	returns Event
+	fetches XML from (DROPBOX "events/" urlconform(id) ".xml")
+	selects "events.event"	
+
 contentprovider EventById(Event e)
 	resolves Event
-	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==" e.id)))
-	selects "feed.entry"
+	fetches XML from (DROPBOX "events/" urlconform(e.id) ".xml")
+	selects "events.event"	
+
+//contentprovider PersonByName(String name)
+//	returns Person
+//	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D" urlconform(replace(name, " ", "")))))
+//	selects "feed.entry"
 	
 contentprovider PersonByName(String name)
-	returns Person
-	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D" urlconform(replace(name, " ", "")))))
-	selects "feed.entry"
+	returns Contact
+	fetches XML from (DROPBOX "contacts/" urlconform(name) ".xml")
+	selects "contacts.contact"
+	
 
 entity BlogItem {
 	String guid
@@ -281,7 +419,7 @@ detailsview BlogDetails(BlogItem item) {
 //	title= "foo" 
 //}
 
-detailsview PersonDetails(Person person) {
+detailsview PersonDetails(Contact person) {
 	title= "Person" 
 	header {
 		title= person.name
@@ -293,13 +431,20 @@ detailsview PersonDetails(Person person) {
 	section {
 		cell Value2 {
 			text= "mail"
-			details= "some address"
-			//action= ("mailto:"speaker.email) 
+			details= person.mail
+			action= ("mailto:" person.mail)
 		}
 		cell Value2 {
-			text= "blog"
-			details= "blog's url"
-			// action= ("http://"speaker.blog) 
+			text= "phone"
+			details= person.phone
+			action= ("tel:" person.phone)
+		}
+	}
+	
+	section {
+		cell Default foreach person.webaddresses as w{
+			text= w.title
+			action= w.url
 		}
 	}
 	
@@ -317,3 +462,43 @@ detailsview PersonDetails(Person person) {
 //		view= BlogList(Blogposts())
 //	}
 
+detailsview CarreerView(Carreer carreer) {
+	 title= "Carreer"
+	 header {
+	 	subtitle= carreer.description
+	 }
+	 
+	 section {
+	 	title= "Links"
+	 	cell Default foreach carreer.link as l {
+	 		text= l.title
+	 		//action= l.url
+	 	}
+	 }
+	 
+	 section {
+	 	title= "Job Offers"
+	 	cell Subtitle foreach carreer.job as j {
+	 		text= j.location
+	 		details= j.title
+	 		action= JobOfferDetails(JobById(j.id))
+	 	}
+	 }
+	 
+}
+
+detailsview JobOfferDetails(JobOffer job) {
+	title= "Job Offer"
+	header {
+		title= job.title
+		details= job.description
+	}
+	
+	section {
+		cell Subtitle {
+			text= job.contact
+			details= "Contact"
+			action= PersonDetails(PersonByName(job.contact))
+		}
+	}
+}

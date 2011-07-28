@@ -1,0 +1,39 @@
+{% extends "generated/application.html" %}
+{% block title%}Carreer{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+
+
+<div class="header">
+  
+  <div class="header_subtitle">{{data.description|safe|linebreaksbr}}</div>
+  
+</div>
+
+
+<div class="table group">
+<ul>
+{% for l in data.link|to_list %}
+<li>
+  <a>{{l.title|safe|linebreaksbr}}</a>
+</li>
+{% endfor %}
+</ul>
+
+<div class="table group">
+<ul>
+{% for j in data.job|to_list %}
+<li>
+  {% url views.JobOfferDetailsByJobById j.id|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{j.location|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{j.title|safe|linebreaksbr}}</div>
+  </a>
+  
+</li>
+{% endfor %}
+</ul>
+
+</div>
+
+{% endblock %}

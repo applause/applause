@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contacts>
+<contact>
+	<name>Dr. Jan Köhnlein</name>
+	<role>Software Architect &amp; Coach</role>
+    <bio>Dr. Jan Köhnlein is working as software architect and consultant for itemis AG in Kiel (Germany). He has earned several years of experience in developing tools for model-driven software development. He leads the EMF Index project and commits to several other Eclipse Modeling Projects.</bio>
+    <pictureurl>http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/Jan%20K%C3%B6hnlein.jpg</pictureurl>
+    <mail>Jan.Koehnlein@itemis.de</mail>
+    <phone>+49-431-5606337</phone>
+    <webaddresses>
+    	<title>Blog</title>
+    	<url>http://koehnlein.blogspot.com</url>    
+    </webaddresses>
+</contact>
+</contacts>

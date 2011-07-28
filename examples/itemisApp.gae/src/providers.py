@@ -6,10 +6,22 @@ def plainxml(url):
     return parse( urlopen(url) )
 
 
-def CurrentTimeline():
-    url = '%s%s' % ('http://heikobehrens.net/misc/jazoon11/sanitize.php?url=', 'https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values') #foo
+def CompanyDescription():
+    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'company.xml') #foo
     xml = plainxml(url)
-    return xml.entry
+    return xml.company
+
+
+def __EventById(id):
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'events/', quote((id).encode("utf8")), '.xml') #foo
+    xml = plainxml(url)
+    return xml.event
+
+
+def CurrentTimeline():
+    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'timeline.xml') #foo
+    xml = plainxml(url)
+    return xml.events
 
 
 def Blogposts():
@@ -18,33 +30,39 @@ def Blogposts():
     return xml.channel.item
 
 
-def AllOffices():
-    url = '%s%s' % ('http://heikobehrens.net/misc/jazoon11/sanitize.php?url=', 'https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values') #foo
+def CarreerData():
+    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'carreer.xml') #foo
     xml = plainxml(url)
-    return xml.entry
+    return xml.carreer
 
 
 def EventById(id):
-    url = '%s%s' % ('http://heikobehrens.net/misc/jazoon11/sanitize.php?url=', quote(('%s%s' % ('https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==', id)).encode("utf8"))) #foo
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'events/', quote((id).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
-    return xml.entry
+    return xml.event
 
 
 def PersonByName(name):
-    url = '%s%s' % ('http://heikobehrens.net/misc/jazoon11/sanitize.php?url=', quote(('%s%s' % ('https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D', quote((name.replace(' ', '')).encode("utf8")))).encode("utf8"))) #foo
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'contacts/', quote((name).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
-    return xml.entry
+    return xml.contact
 
 
 def OfficeResolver(location):
-    url = '%s%s' % ('https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D', quote((location).encode("utf8"))) #foo
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'offices/', quote((location).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
-    return xml.entry
+    return xml.office
 
 
 def BlogItemById(guid):
     url = '%s%s%s' % ('http://feedsanitizer.appspot.com', '/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=', quote((guid).encode("utf8"))) #foo
     xml = plainxml(url)
     return xml.channel.item
+
+
+def JobById(id):
+    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'jobs/', quote((id).encode("utf8")), '.xml') #foo
+    xml = plainxml(url)
+    return xml.job
 
 

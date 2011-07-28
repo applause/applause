@@ -6,7 +6,7 @@
 
 <div class="header">
   <div class="header_title">{{data.location|safe|linebreaksbr}}</div>
-  <div class="header_subtitle">{{data.address|safe|linebreaksbr}}</div>
+  
   <div class="header_details">{{data.summary|safe|linebreaksbr}}</div>
 </div>
 
@@ -14,10 +14,10 @@
 <div class="table group">
 <ul>
 <li>
-  {% url views.PersonDetailsByPersonByName data.contact|urlencode as url %}
+  {% url views.PersonDetailsByPersonByName data.contact.name|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{data.contact|safe|linebreaksbr}}</div>
-  
+  <div class="cell_text">{{data.contact.name|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{data.contact.role|safe|linebreaksbr}}</div>
   </a>
   
 </li>
@@ -28,7 +28,7 @@
 <ul>
 <li>
   
-  <a href="http://maps.google.de/maps?q={{data.address|urlencode}}">
+  <a href="http://maps.google.de/maps?q={{data.geo|urlencode}}">
   <div class="cell_text">{{data.address|safe|linebreaksbr}}</div>
   
   </a>

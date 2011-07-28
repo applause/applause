@@ -1,28 +1,18 @@
 
-#import "EventDetailsViewController.h"
+#import "JobOfferDetailsViewController.h"
 #import "NSObject+iPhonical.h"
 #import "itemisAppProviders.h"
 #import "PersonDetailsViewController.h"
  
 
-@implementation EventDetailsViewController
+@implementation JobOfferDetailsViewController
 
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	if(!contentProvider || !contentProvider.content || contentProvider.loading)
-		return 0;
-	else
-    	return 2;
-}
 
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
 		return 1;
-	} else
-	if(section == 1) {
-		return [[[contentProvider valueForKeyPath:@"content.speakers"] asArray] count];
 	} else
 		return 0;
 }
@@ -41,19 +31,6 @@
 	return cell;
 
 	
-
-	} else
-
-
-	if(indexPath.section == 1) {
-	id item = [[[contentProvider valueForKeyPath:@"content.speakers"] asArray] objectAtIndex: indexPath.row];
-	
-    UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"name"];
-	cell.detailTextLabel.text = [item valueForKeyPath:@"role"];
-	
-	return cell;
-
 
 	} else
 		return nil;
@@ -75,28 +52,15 @@
 	
 	
 	} else
-
-
-	if(indexPath.section == 1) {
-	
-	id item = [[[contentProvider valueForKeyPath:@"content.speakers"]asArray] objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [item valueForKeyPath:@"name"]];
-		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
-		controller.contentProvider = provider;
-		[self.navigationController pushViewController: controller animated: TRUE];
-		[controller release];
-
-	
-	} else
 		return;
 }
 
 -(void)updateData {
-	self.navigationItem.title = @"Event";
+	self.navigationItem.title = @"Job Offer";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];
-		self.headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@%@%@", [contentProvider valueForKeyPath:@"content.date"], @" ", [contentProvider valueForKeyPath:@"content.location"]];
+		
 		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.description"];
 		
 	}	

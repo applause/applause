@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<offices>
+<office>
+    <location>Kiel</location>
+    <summary>Our Kiel office specializes in model-driven software development and Eclipse-based tool chains for enterprise applications and embedded systems.</summary>
+    <contact>
+        <name>Sven Efftinge</name>
+        <role>Branch Manager</role>
+        <pictureurl>http://www.itemis.com/binary.ashx?id=1538&amp;view=picture.fix.width</pictureurl>	
+    </contact>
+    <phone>+49 431 99026-870</phone>
+    <mail>kiel@itemis.de</mail>
+    <address>itemis AG
+Standort Kiel
+Am Germaniahafen 1
+24143 Kiel</address>
+<geo>Am Germaniahafen 1, 24143 Kiel</geo>
+</office>
+</offices>

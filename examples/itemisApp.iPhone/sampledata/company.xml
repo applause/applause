@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<company>
+	<description>itemis has been an independent IT consulting firm since 2003 and is already one of the market leaders in the field of IT-industrialization and model-driven software development. We are also successful in Eclipse Modeling, embedded systems and the development of applications for mobile devices. Research and training are our additional specialties.</description>
+	<office>
+		<location>Bonn</location>
+		<summary>Our office in the former federal capital Bonn is located close to the river Rhine and the Bonn-University.</summary>
+		<contact>
+			<name>Falko Riemenschneider</name>
+			<role>Head of the Bonn Branch</role>
+			<pictureurl>http://www.itemis.com/binary.ashx?id=747&amp;view=picture.fix.width</pictureurl>	
+		</contact>
+		<phone>+49 228 33 646 33-0</phone>
+		<mail>bonn@itemis.de</mail>
+		<address>itemis AG
+Standort Bonn
+Bonner Talweg 42
+53113 Bonn</address>
+	<geo>Bonner Talweg 42, 53113 Bonn</geo>
+	</office>
+	<office>
+		<location>Dortmund</location>
+		<summary>Our Dortmund office is located directly on the central arterial road, Bundesstraße 1, near Westfalendamm.</summary>
+		<contact>
+			<name>itemis AG</name>
+			<role></role>
+			<pictureurl></pictureurl>
+		</contact>
+		<phone>+49 231 56483-00</phone>
+		<mail>info@itemis.de</mail>
+		<address>itemis AG
+Standort Dortmund
+Westfalendamm 251
+44141 Dortmund</address>
+	<geo>Westfalendamm 251, 44141 Dortmund</geo>
+	</office>
+	
+	<office>
+		<location>Frankfurt</location>
+		<summary></summary>
+		<contact>
+			<name>Michael Kloss</name>
+			<role>Software Architekt and Coach</role>
+			<pictureurl></pictureurl>	
+		</contact>
+		<phone>+49 69 17289262</phone>
+		<mail>info@itemis.de</mail>
+		<address>itemis AG
+Standort Frankfurt
+Lyoner Straße 40
+60528 Frankfurt am Main</address>
+	<geo>Lyoner Straße 40, 60528 Frankfurt am Main</geo>
+	</office>	
+	
+	<office>
+		<location>Hamburg</location>
+		<summary>The Hamburg branch is located directly on Ring 2, north-east of the Alster. The office is located in the Hamburg Business Centre. Also situated in the same building is the Economic Center of Hamburg, which includes amongst others, all of the business support institutions in Hamburg and  Hamburg@work.</summary>
+		<contact>
+			<name>Asaf Ikram</name>
+			<role>Branch Manager</role>
+			<pictureurl>http://www.itemis.com/binary.ashx?id=17224&amp;view=picture.fix.width</pictureurl>	
+		</contact>
+		<phone>+49 40 6505293-10</phone>
+		<mail>hamburg@itemis.de</mail>
+		<address>itemis AG
+Standort Hamburg
+Dorotheenstr. 48
+22301 Hamburg</address>
+	<geo>Dorotheenstr. 48, 22301 Hamburg</geo>
+	</office>		
+	
+	<office>
+		<location>Kiel</location>
+		<summary>Our Kiel office specializes in model-driven software development and Eclipse-based tool chains for enterprise applications and embedded systems.</summary>
+		<contact>
+			<name>Sven Efftinge</name>
+			<role>Branch Manager</role>
+			<pictureurl>http://www.itemis.com/binary.ashx?id=1538&amp;view=picture.fix.width</pictureurl>	
+		</contact>
+		<phone>+49 431 99026-870</phone>
+		<mail>kiel@itemis.de</mail>
+		<address>itemis AG
+Standort Kiel
+Am Germaniahafen 1
+24143 Kiel</address>
+		<geo>Am Germaniahafen 1, 24143 Kiel</geo>
+	</office>
+	
+	<office>
+		<location>Leipzig</location>
+		<summary>Our Leipzig office serves the central German region. It is located on Listbogen near the main train station.</summary>
+		<contact>
+			<name>Steffen Stunzig</name>
+			<role>Branch Manager</role>
+			<pictureurl>http://www.itemis.com/binary.ashx?id=817&amp;view=picture.fix.width</pictureurl>	
+		</contact>
+		<phone>+49 341 2310183-0</phone>
+		<mail>leipzig@itemis.de</mail>
+		<address>itemis AG
+Standort Leipzig
+Ludwig-Erhard-Straße 51
+04103 Leipzig</address>
+		<geo>Ludwig-Erhard-Straße 51, 04103 Leipzig</geo>
+	</office>
+
+	<office>
+		<location>Lünen</location>
+		<summary>Our main office is located in Lünen an der Lippe, directly north of Dortmund. We have been in the Lünen Technology Center on the premises of the former mine of Achenbach since 2003.</summary>
+		<contact>
+			<name>itemis AG</name>
+			<role></role>
+			<pictureurl></pictureurl>	
+		</contact>
+		<phone>+49 231 9860-210</phone>
+		<mail>info@itemis.de</mail>
+		<address>itemis AG
+Am Brambusch 15–24
+44536 Lünen</address>
+		<geo>Am Brambusch 15–24, 44536 Lünen</geo>
+	</office>
+	
+	<office>
+		<location>Stuttgart</location>
+		<summary></summary>
+		<contact>
+			<name>Michael Krauter</name>
+			<role></role>
+			<pictureurl>http://www.itemis.com/binary.ashx?id=19565&amp;view=picture.fix.width</pictureurl>	
+		</contact>
+		<phone>+49 711 342191-0</phone>
+		<mail>stuttgart@itemis.de</mail>
+		<address>itemis GmbH
+Standort Stuttgart
+Meitnerstraße 10
+70563 Stuttgart</address>
+		<geo>Meitnerstraße 10, 70563 Stuttgart</geo>
+	</office>	
+		
+	<office>
+		<location>Montpellier (France)</location>
+		<summary></summary>
+		<contact>
+			<name>Abdelghani EL-Kacimi</name>
+			<role>Manager</role>
+			<pictureurl></pictureurl>	
+		</contact>
+		<phone>+33 678 99 4854</phone>
+		<mail>Abdelghani.El-Kacimi@itemis.de</mail>
+		<address>itemis France SARL
+Rond point Benjamin Franklin CS 39521
+34960 Montpellier Cedex 2
+France</address>
+		<geo>Rond point Benjamin Franklin CS 39521, 34960 Montpellier Cedex 2</geo>
+	</office>	
+			
+	<office>
+		<location>Windisch (Switzerland)</location>
+		<summary></summary>
+		<contact>
+			<name>Serano Colameo</name>
+			<role>Manager</role>
+			<pictureurl></pictureurl>	
+		</contact>
+		<phone>+41 56 4426863</phone>
+		<mail>info@itemis-schweiz.ch</mail>
+		<address>itemis Schweiz GmbH
+TECHNOPARK® Aargau
+Dorfstrasse 69
+5210 Windisch
+Switzerland</address>
+		<geo>Dorfstrasse 69, 5210 Windisch</geo>
+	</office>	
+		
+</company>
+</data>

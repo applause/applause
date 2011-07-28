@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<offices>
+	<office>
+		<location>Windisch (Switzerland)</location>
+		<summary></summary>
+		<contact>
+			<name>Serano Colameo</name>
+			<role>Manager</role>
+			<pictureurl></pictureurl>	
+		</contact>
+		<phone>+41 56 4426863</phone>
+		<mail>info@itemis-schweiz.ch</mail>
+		<address>itemis Schweiz GmbH
+TECHNOPARK® Aargau
+Dorfstrasse 69
+5210 Windisch
+Switzerland</address>
+		<geo>Dorfstrasse 69, 5210 Windisch</geo>
+	</office>	
+		
+</offices>

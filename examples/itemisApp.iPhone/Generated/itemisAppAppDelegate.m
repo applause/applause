@@ -3,9 +3,11 @@
 #import "IPUIView.h"
 #import "itemisAppProviders.h"
 
+#import "OfficeListViewController.h"
+#import "EventDetailsViewController.h"
 #import "EventListViewController.h"
 #import "BlogListViewController.h"
-#import "OfficeListViewController.h"
+#import "CarreerViewViewController.h"
 
 @implementation itemisAppAppDelegate
 
@@ -20,6 +22,32 @@
 	UINavigationController *navController;
 	IPContentProvider *contentProvider;
 
+
+	
+	// controller for @"Company"
+	contentProvider = [providers providerForCompanyDescription];
+	
+	controller = [[OfficeListViewController alloc] init];
+	[controller setContentProvider: contentProvider];
+	controller.tabBarItem.title = @"Company";
+	controller.tabBarItem.image = [UIImage imageNamed:@"microphone.png"];
+	navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	[controllers addObject: navController];
+	[controller release];
+	[navController release];
+
+	
+	// controller for @"event"
+	contentProvider = [providers providerFor__EventById: @"2"];
+	
+	controller = [[EventDetailsViewController alloc] init];
+	[controller setContentProvider: contentProvider];
+	controller.tabBarItem.title = @"event";
+	controller.tabBarItem.image = [UIImage imageNamed:@"calendar.png"];
+	navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	[controllers addObject: navController];
+	[controller release];
+	[navController release];
 
 	
 	// controller for @"News"
@@ -48,13 +76,13 @@
 	[navController release];
 
 	
-	// controller for @"Contact"
-	contentProvider = [providers providerForAllOffices];
+	// controller for @"Carreer"
+	contentProvider = [providers providerForCarreerData];
 	
-	controller = [[OfficeListViewController alloc] init];
+	controller = [[CarreerViewViewController alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"Contact";
-	controller.tabBarItem.image = [UIImage imageNamed:@"microphone.png"];
+	controller.tabBarItem.title = @"Carreer";
+	controller.tabBarItem.image = [UIImage imageNamed:@"chat.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];

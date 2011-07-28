@@ -1,10 +1,19 @@
 {% extends "generated/application.html" %}
-{% block title%}Offices{% endblock %}
-{% block content_class %}table list{% endblock %}
+{% block title%}Company{% endblock %}
+{% block content_class %}details{% endblock %}
 {% block content %}
 
+
+<div class="header">
+  <div class="header_title">itemis</div>
+  <div class="header_subtitle">{{data.description|safe|linebreaksbr}}</div>
+  
+</div>
+
+
+<div class="table group">
 <ul>
-{% for o in data|to_list %}
+{% for o in data.office|to_list %}
 <li>
   {% url views.OfficeDetailsByOfficeResolver o.location|urlencode as url %}
   <a href="{{ url }}">
@@ -16,5 +25,6 @@
 {% endfor %}
 </ul>
 
+</div>
 
 {% endblock %}

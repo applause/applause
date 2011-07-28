@@ -1,12 +1,12 @@
 {% extends "generated/application.html" %}
-{% block title%}Event{% endblock %}
+{% block title%}Job Offer{% endblock %}
 {% block content_class %}details{% endblock %}
 {% block content %}
 
 
 <div class="header">
   <div class="header_title">{{data.title|safe|linebreaksbr}}</div>
-  <div class="header_subtitle">{{data.date|safe|linebreaksbr}} {{data.location|safe|linebreaksbr}}</div>
+  
   <div class="header_details">{{data.description|safe|linebreaksbr}}</div>
 </div>
 
@@ -22,20 +22,6 @@
   
 </li>
 
-</ul>
-
-<div class="table group">
-<ul>
-{% for s in data.speakers|to_list %}
-<li>
-  {% url views.PersonDetailsByPersonByName s.name|urlencode as url %}
-  <a href="{{ url }}">
-  <div class="cell_text">{{s.name|safe|linebreaksbr}}</div>
-  <div class="cell_details">{{s.role|safe|linebreaksbr}}</div>
-  </a>
-  
-</li>
-{% endfor %}
 </ul>
 
 </div>

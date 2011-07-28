@@ -8,11 +8,42 @@
 @implementation EventListViewController
 
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	if(!contentProvider || !contentProvider.content || contentProvider.loading)
+		return 0;
+	else
+    	return 3;
+}
+
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+
+	if(section == 0) {
+		return @"News";
+	}
+
+else
+	if(section == 1) {
+		return @"Events";
+	}
+
+else
+	if(section == 2) {
+		return @"Workshops";
+	}
+
+}
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
-		return [[[contentProvider valueForKeyPath:@"content"] asArray] count];
+		return [[[contentProvider valueForKeyPath:@"content.news"] asArray] count];
+	} else
+	if(section == 1) {
+		return [[[contentProvider valueForKeyPath:@"content.activity"] asArray] count];
+	} else
+	if(section == 2) {
+		return [[[contentProvider valueForKeyPath:@"content.workshop"] asArray] count];
 	} else
 		return 0;
 }
@@ -23,8 +54,8 @@
 	id item = [self.items objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"title"];
-	cell.detailTextLabel.text = [item valueForKeyPath:@"date"];
+	cell.textLabel.text = @"t";
+	cell.detailTextLabel.text = @"d";
 	
 	return cell;
 	

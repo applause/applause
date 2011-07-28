@@ -6,12 +6,24 @@
 
 
 
--(IPContentProvider*)providerForAllOffices {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values"];
+-(IPContentProvider*)providerForCompanyDescription {
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"company.xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"feed.entry"
+								  keyPathToContent: @"data.company"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForAllOffices {
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/all.xml"];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"offices.office"
 								  andProviders:self] autorelease];
 	return result;
 }
@@ -19,11 +31,35 @@
 
 
 -(IPContentProvider*)providerForOfficeResolver:(id)o {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D", [[o valueForKeyPath:@"location"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/", [[o valueForKeyPath:@"location"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"feed.entry"
+								  keyPathToContent: @"offices.office"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForCarreerData {
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"carreer.xml"];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"data.carreer"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerForJobById:(id)id {
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"jobs/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"jobs.job"
 								  andProviders:self] autorelease];
 	return result;
 }
@@ -31,11 +67,23 @@
 
 
 -(IPContentProvider*)providerForCurrentTimeline {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values"];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"timeline.xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"feed.entry"
+								  keyPathToContent: @"data.events"
+								  andProviders:self] autorelease];
+	return result;
+}
+
+
+
+-(IPContentProvider*)providerFor__EventById:(id)id {
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"events/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
+								  initWithURL: [NSURL URLWithString:url] 
+								  initialContent: nil
+								  keyPathToContent: @"events.event"
 								  andProviders:self] autorelease];
 	return result;
 }
@@ -43,11 +91,11 @@
 
 
 -(IPContentProvider*)providerForEventById:(id)e {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", [[NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==", [e valueForKeyPath:@"id"]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"events/", [[e valueForKeyPath:@"id"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"feed.entry"
+								  keyPathToContent: @"events.event"
 								  andProviders:self] autorelease];
 	return result;
 }
@@ -55,11 +103,11 @@
 
 
 -(IPContentProvider*)providerForPersonByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://heikobehrens.net/misc/jazoon11/sanitize.php?url=", [[NSString stringWithFormat:@"%@%@", @"https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D", [[name stringByReplacingOccurrencesOfString:@" " withString:@""] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"contacts/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: @"feed.entry"
+								  keyPathToContent: @"contacts.contact"
 								  andProviders:self] autorelease];
 	return result;
 }

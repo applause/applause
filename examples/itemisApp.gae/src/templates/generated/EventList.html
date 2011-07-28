@@ -4,12 +4,36 @@
 {% block content %}
 
 <ul>
-{% for e in data|to_list %}
+{% for n in data.news|to_list %}
 <li>
-  {% url views.EventDetailsByEventById e.id|urlencode as url %}
+  {% url views.EventDetailsByEventById n.id|urlencode as url %}
   <a href="{{ url }}">
-  <div class="cell_text">{{e.title|safe|linebreaksbr}}</div>
-  <div class="cell_details">{{e.date|safe|linebreaksbr}}</div>
+  <div class="cell_text">t</div>
+  <div class="cell_details">d</div>
+  </a>
+  
+</li>
+{% endfor %}
+</ul>
+<ul>
+{% for a in data.activity|to_list %}
+<li>
+  {% url views.EventDetailsByEventById a.id|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">t</div>
+  <div class="cell_details">a</div>
+  </a>
+  
+</li>
+{% endfor %}
+</ul>
+<ul>
+{% for w in data.workshop|to_list %}
+<li>
+  {% url views.EventDetailsByEventById w.id|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">t</div>
+  <div class="cell_details">d</div>
   </a>
   
 </li>
