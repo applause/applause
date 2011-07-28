@@ -10,9 +10,11 @@ import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
-import de.itemis.base.GenericListContentProvider;
+import de.itemis.base.GenericItemContentProvider;
 
-public class CurrentTimelineProvider extends GenericListContentProvider<Event> {
+public class CurrentTimelineProvider
+		extends
+			GenericItemContentProvider<AllEvents> {
 
 	private static final long serialVersionUID = 1L;
 
@@ -21,22 +23,21 @@ public class CurrentTimelineProvider extends GenericListContentProvider<Event> {
 	}
 
 	@Root(strict = false)
-	public static class Feed {
+	public static class Data {
 
-		@ElementList(inline = true, entry = "entry")
-		private List<Event> events = new ArrayList<Event>();
+		@Element(required = false, name = "events")
+		private AllEvents allEvents;
 
-		public List<Event> getEvents() {
-			return events;
+		public AllEvents getAllEvents() {
+			return allEvents;
 		}
 
 	}
 
-	@Override
-	protected List<Event> extractItems(Reader reader) throws Exception {
+	protected AllEvents extractItem(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Feed root = serializer.read(Feed.class, reader);
-		return root.getEvents();
+		Data root = serializer.read(Data.class, reader);
+		return root.getAllEvents();
 	}
 
 }

@@ -75,7 +75,7 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 «DEFINE header FOR DetailsView»
 «IF this.header!=null»
 «IF header.title!=null»setHeaderTitle(«header.title.expression("")»);«ENDIF»
-«IF header.details!=null»setHeaderDetails(«header.details.expression("")»);«ENDIF»
+«IF header.detailsOrSubtitle()!=null»setHeaderDetails(«header.detailsOrSubtitle().expression("")»);«ENDIF»
 «IF header.image!=null»setHeaderImageURL(«header.image.expression("")»);«ENDIF»
 «ENDIF»
 «ENDDEFINE»

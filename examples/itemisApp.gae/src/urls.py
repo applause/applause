@@ -3,14 +3,14 @@ from django.conf.urls.defaults import patterns
 
 urlpatterns = patterns('',
 	
-    (r'^$', 'views.OfficeListByCompanyDescription', {}),
+    (r'^$', 'views.EventListByCurrentTimeline', {}),
     
 	
-    (r'^OfficeList/CompanyDescription/$', 'views.OfficeListByCompanyDescription'),
-
     (r'^EventList/CurrentTimeline/$', 'views.EventListByCurrentTimeline'),
 
     (r'^BlogList/Blogposts/$', 'views.BlogListByBlogposts'),
+
+    (r'^OfficeList/CompanyDescription/$', 'views.OfficeListByCompanyDescription'),
 
     (r'^CarreerView/CarreerData/$', 'views.CarreerViewByCarreerData'),
 

@@ -3,12 +3,12 @@
 {% block navigation %}
 <div class="menu">
 <ul>
-{% url views.OfficeListByCompanyDescription  as url1 %}
-<li><a href="{{ url1 }}">itemis</a></li>
-{% url views.EventListByCurrentTimeline  as url2 %}
-<li><a href="{{ url2 }}">News</a></li>
-{% url views.BlogListByBlogposts  as url3 %}
-<li><a href="{{ url3 }}">Blog</a></li>
+{% url views.EventListByCurrentTimeline  as url1 %}
+<li><a href="{{ url1 }}">News</a></li>
+{% url views.BlogListByBlogposts  as url2 %}
+<li><a href="{{ url2 }}">Blog</a></li>
+{% url views.OfficeListByCompanyDescription  as url3 %}
+<li><a href="{{ url3 }}">itemis</a></li>
 {% url views.CarreerViewByCarreerData  as url4 %}
 <li><a href="{{ url4 }}">Carreer</a></li>
 

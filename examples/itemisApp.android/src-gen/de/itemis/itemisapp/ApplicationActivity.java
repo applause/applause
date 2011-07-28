@@ -41,16 +41,29 @@ public class ApplicationActivity extends TabActivity {
 
 		TabSpec tab3 = tabHost.newTabSpec("tab3");
 		// , getResources().getDrawable(R.drawable.microphone)
-		tab3.setIndicator("Contact",
-				getResources().getDrawable(R.drawable.microphone));
+		tab3.setIndicator("itemis",
+				getResources().getDrawable(R.drawable.itemis));
 
 		Intent tab3Intent = new Intent(this, OfficeList.class);
-		AllOfficesProvider tab3IntentProvider = ProviderFactory
-				.getAllOfficesProvider();
+		CompanyDescriptionProvider tab3IntentProvider = ProviderFactory
+				.getCompanyDescriptionProvider();
 		tab3Intent.putExtra("provider", tab3IntentProvider);
 		tab3.setContent(tab3Intent);
 
 		tabHost.addTab(tab3);
+
+		TabSpec tab4 = tabHost.newTabSpec("tab4");
+		// , getResources().getDrawable(R.drawable.microphone)
+		tab4.setIndicator("Carreer",
+				getResources().getDrawable(R.drawable.trophy));
+
+		Intent tab4Intent = new Intent(this, CarreerView.class);
+		CarreerDataProvider tab4IntentProvider = ProviderFactory
+				.getCarreerDataProvider();
+		tab4Intent.putExtra("provider", tab4IntentProvider);
+		tab4.setContent(tab4Intent);
+
+		tabHost.addTab(tab4);
 
 	}
 

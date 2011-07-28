@@ -21,9 +21,9 @@ public class EventByIdProvider extends GenericItemContentProvider<Event> {
 	}
 
 	@Root(strict = false)
-	public static class Feed {
+	public static class Events {
 
-		@Element(required = false, name = "entry")
+		@Element(required = false, name = "event")
 		private Event event;
 
 		public Event getEvent() {
@@ -34,7 +34,7 @@ public class EventByIdProvider extends GenericItemContentProvider<Event> {
 
 	protected Event extractItem(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Feed root = serializer.read(Feed.class, reader);
+		Events root = serializer.read(Events.class, reader);
 		return root.getEvent();
 	}
 

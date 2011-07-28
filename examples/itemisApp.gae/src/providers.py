@@ -6,12 +6,6 @@ def plainxml(url):
     return parse( urlopen(url) )
 
 
-def CompanyDescription():
-    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'company.xml') #foo
-    xml = plainxml(url)
-    return xml.company
-
-
 def CurrentTimeline():
     url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'timeline.xml') #foo
     xml = plainxml(url)
@@ -22,6 +16,12 @@ def Blogposts():
     url = '%s%s' % ('http://feedsanitizer.appspot.com', '/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss') #foo
     xml = plainxml(url)
     return xml.channel.item
+
+
+def CompanyDescription():
+    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'company.xml') #foo
+    xml = plainxml(url)
+    return xml.company
 
 
 def CarreerData():

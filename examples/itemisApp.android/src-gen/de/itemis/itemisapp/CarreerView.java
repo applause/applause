@@ -18,52 +18,77 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class OfficeList extends DetailsActivity<Company> {
+public class CarreerView extends DetailsActivity<Carreer> {
 
-	Company company;
+	Carreer carreer;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Company");
+		setTitle("Carreer");
 
-		company = getItemFromProvider();
+		carreer = getItemFromProvider();
 
-		setHeaderTitle("itemis");
-		setHeaderDetails(company.getDescription());
+		setHeaderDetails(carreer.getDescription());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
-		Iterable<Office> items1 = company.getOffice();
-		for (Office i : items1)
+		Iterable<Link> items1 = carreer.getLink();
+		for (Link i : items1)
 			rowAdapters.add(new Cell1(i));
+
+		Iterable<JobOffer> items2 = carreer.getJob();
+		for (JobOffer i : items2)
+			rowAdapters.add(new Cell2(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Office> {
+	private class Cell1 extends RowAdapter.Default<Link> {
 
-		public Cell1(Office item) {
+		public Cell1(Link item) {
 			super(item);
 		}
 
 		@Override
 		public void populateRowView() {
-			Office o = getItem();
-			setText(o.getLocation());
+			Link l = getItem();
+			setText(l.getTitle());
 
 		}
 
 		@Override
 		public void handleClick() {
-			Office o = getItem();
+			Link l = getItem();
 
-			Intent intent = new Intent(OfficeList.this, OfficeDetails.class);
-			Serializable contentProvider = ProviderFactory
-					.getOfficeByIdProvider(o.getId());
+		}
+
+	}
+
+	private class Cell2 extends RowAdapter.Subtitle<JobOffer> {
+
+		public Cell2(JobOffer item) {
+			super(item);
+		}
+
+		@Override
+		public void populateRowView() {
+			JobOffer j = getItem();
+			setText(j.getLocation());
+			setDetails(j.getTitle());
+
+		}
+
+		@Override
+		public void handleClick() {
+			JobOffer j = getItem();
+
+			Intent intent = new Intent(CarreerView.this, JobOfferDetails.class);
+			Serializable contentProvider = ProviderFactory.getJobByIdProvider(j
+					.getId());
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 

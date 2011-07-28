@@ -12,6 +12,17 @@ import org.simpleframework.xml.Root;
 public class Office implements Serializable {
 
 	@Element(required = false)
+	private String id;
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	@Element(required = false)
 	private String location;
 
 	public String getLocation() {
@@ -45,13 +56,13 @@ public class Office implements Serializable {
 	}
 
 	@Element(required = false)
-	private String contact;
+	private Contact contact;
 
-	public String getContact() {
+	public Contact getContact() {
 		return contact;
 	}
 
-	public void setContact(String contact) {
+	public void setContact(Contact contact) {
 		this.contact = contact;
 	}
 
@@ -86,6 +97,17 @@ public class Office implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Element(required = false)
+	private String geo;
+
+	public String getGeo() {
+		return geo;
+	}
+
+	public void setGeo(String geo) {
+		this.geo = geo;
 	}
 
 }

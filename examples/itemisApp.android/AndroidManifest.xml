@@ -19,5 +19,7 @@
     <activity android:name=".BlogList"></activity>
     <activity android:name=".BlogDetails"></activity>
     <activity android:name=".PersonDetails"></activity>
+    <activity android:name=".CarreerView"></activity>
+    <activity android:name=".JobOfferDetails"></activity>
 </application>
 </manifest>

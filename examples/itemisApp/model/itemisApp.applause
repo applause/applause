@@ -1,29 +1,29 @@
 tabbarApplication itemisApp {
 
-	button { 
-		title= "itemis"
-		icon= "itemis.png"  
-		view= OfficeList(CompanyDescription())
-	}
 	
 	button {
 		title="News"
 		icon="calendar.png"
 		view=EventList( CurrentTimeline() )
 	}
-	
+
 	button {
 		title= "Blog"
 		icon= "chat.png"
 		view= BlogList(Blogposts())
 	} 
-	
+
+	button { 
+		title= "itemis"
+		icon= "itemis.png"  
+		view= OfficeList(CompanyDescription())
+	}
+
 	button {
 		title= "Carreer"
-		icon= "85-trophy.png"
+		icon= "trophy.png"
 		view= CarreerView(CarreerData())
 	} 
-	
  
 }
 
@@ -197,7 +197,7 @@ detailsview EventDetails(Event event) {
 
 detailsview OfficeList(Company company) {
 	title= "Company"
-	header {
+	header {  
 		title= "itemis"
 		subtitle= company.description
 	}

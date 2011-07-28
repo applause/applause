@@ -18,52 +18,51 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class OfficeList extends DetailsActivity<Company> {
+public class JobOfferDetails extends DetailsActivity<JobOffer> {
 
-	Company company;
+	JobOffer job;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("Company");
+		setTitle("Job Offer");
 
-		company = getItemFromProvider();
+		job = getItemFromProvider();
 
-		setHeaderTitle("itemis");
-		setHeaderDetails(company.getDescription());
+		setHeaderTitle(job.getTitle());
+		setHeaderDetails(job.getDescription());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
-		Iterable<Office> items1 = company.getOffice();
-		for (Office i : items1)
-			rowAdapters.add(new Cell1(i));
+		rowAdapters.add(new Cell1(null));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Office> {
+	private class Cell1 extends RowAdapter.Subtitle<Void> {
 
-		public Cell1(Office item) {
+		public Cell1(Void item) {
 			super(item);
 		}
 
 		@Override
 		public void populateRowView() {
-			Office o = getItem();
-			setText(o.getLocation());
+
+			setText(job.getContact());
+			setDetails("Contact");
 
 		}
 
 		@Override
 		public void handleClick() {
-			Office o = getItem();
 
-			Intent intent = new Intent(OfficeList.this, OfficeDetails.class);
+			Intent intent = new Intent(JobOfferDetails.this,
+					PersonDetails.class);
 			Serializable contentProvider = ProviderFactory
-					.getOfficeByIdProvider(o.getId());
+					.getPersonByNameProvider(job.getContact());
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 

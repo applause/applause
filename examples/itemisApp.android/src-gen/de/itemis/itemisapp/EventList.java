@@ -18,9 +18,9 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class EventList extends GenericListActivity<Event> {
+public class EventList extends GenericListActivity<AllEvents> {
 
-	List<Event> events;
+	AllEvents allEvents;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -28,13 +28,21 @@ public class EventList extends GenericListActivity<Event> {
 
 		setTitle("News");
 
-		events = getItemsFromProvider();
+		allEvents = getItemFromProvider();
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
-		Iterable<Event> items1 = events;
+		Iterable<Event> items1 = allEvents.getNews();
 		for (Event i : items1)
 			rowAdapters.add(new Cell1(i));
+
+		Iterable<Event> items2 = allEvents.getActivity();
+		for (Event i : items2)
+			rowAdapters.add(new Cell2(i));
+
+		Iterable<Event> items3 = allEvents.getWorkshop();
+		for (Event i : items3)
+			rowAdapters.add(new Cell3(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
@@ -49,19 +57,75 @@ public class EventList extends GenericListActivity<Event> {
 
 		@Override
 		public void populateRowView() {
-			Event e = getItem();
-			setText(e.getTitle());
-			setDetails(e.getDate());
+			Event n = getItem();
+			setText(n.getTitle());
+			setDetails(n.getDate());
 
 		}
 
 		@Override
 		public void handleClick() {
-			Event e = getItem();
+			Event n = getItem();
 
 			Intent intent = new Intent(EventList.this, EventDetails.class);
 			Serializable contentProvider = new SimpleItemContentProvider<Object>(
-					e);
+					n);
+			intent.putExtra("provider", contentProvider);
+			startActivity(intent);
+
+		}
+
+	}
+
+	private class Cell2 extends RowAdapter.Subtitle<Event> {
+
+		public Cell2(Event item) {
+			super(item);
+		}
+
+		@Override
+		public void populateRowView() {
+			Event a = getItem();
+			setText(a.getTitle());
+			setDetails(a.getDate());
+
+		}
+
+		@Override
+		public void handleClick() {
+			Event a = getItem();
+
+			Intent intent = new Intent(EventList.this, EventDetails.class);
+			Serializable contentProvider = new SimpleItemContentProvider<Object>(
+					a);
+			intent.putExtra("provider", contentProvider);
+			startActivity(intent);
+
+		}
+
+	}
+
+	private class Cell3 extends RowAdapter.Subtitle<Event> {
+
+		public Cell3(Event item) {
+			super(item);
+		}
+
+		@Override
+		public void populateRowView() {
+			Event w = getItem();
+			setText(w.getTitle());
+			setDetails(w.getDate());
+
+		}
+
+		@Override
+		public void handleClick() {
+			Event w = getItem();
+
+			Intent intent = new Intent(EventList.this, EventDetails.class);
+			Serializable contentProvider = new SimpleItemContentProvider<Object>(
+					w);
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 

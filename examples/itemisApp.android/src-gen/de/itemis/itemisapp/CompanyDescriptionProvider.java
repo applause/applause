@@ -12,30 +12,32 @@ import org.simpleframework.xml.core.Persister;
 
 import de.itemis.base.GenericItemContentProvider;
 
-public class PersonByNameProvider extends GenericItemContentProvider<Contact> {
+public class CompanyDescriptionProvider
+		extends
+			GenericItemContentProvider<Company> {
 
 	private static final long serialVersionUID = 1L;
 
-	public PersonByNameProvider(String feedUrl) {
+	public CompanyDescriptionProvider(String feedUrl) {
 		super(feedUrl);
 	}
 
 	@Root(strict = false)
-	public static class Contacts {
+	public static class Data {
 
-		@Element(required = false, name = "contact")
-		private Contact contact;
+		@Element(required = false, name = "company")
+		private Company company;
 
-		public Contact getContact() {
-			return contact;
+		public Company getCompany() {
+			return company;
 		}
 
 	}
 
-	protected Contact extractItem(Reader reader) throws Exception {
+	protected Company extractItem(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Contacts root = serializer.read(Contacts.class, reader);
-		return root.getContact();
+		Data root = serializer.read(Data.class, reader);
+		return root.getCompany();
 	}
 
 }

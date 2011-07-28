@@ -18,9 +18,9 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class PersonDetails extends DetailsActivity<Person> {
+public class PersonDetails extends DetailsActivity<Contact> {
 
-	Person person;
+	Contact person;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -40,6 +40,10 @@ public class PersonDetails extends DetailsActivity<Person> {
 
 		rowAdapters.add(new Cell2(null));
 
+		Iterable<WebAddress> items3 = person.getWebaddresses();
+		for (WebAddress i : items3)
+			rowAdapters.add(new Cell3(i));
+
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
 
@@ -55,12 +59,16 @@ public class PersonDetails extends DetailsActivity<Person> {
 		public void populateRowView() {
 
 			setText("mail");
-			setDetails("some address");
+			setDetails(person.getMail());
 
 		}
 
 		@Override
 		public void handleClick() {
+
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
+					Uri.parse("mailto:" + person.getMail()));
+			startActivity(intent);
 
 		}
 
@@ -75,13 +83,42 @@ public class PersonDetails extends DetailsActivity<Person> {
 		@Override
 		public void populateRowView() {
 
-			setText("blog");
-			setDetails("blog's url");
+			setText("phone");
+			setDetails(person.getPhone());
 
 		}
 
 		@Override
 		public void handleClick() {
+
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
+					Uri.parse("tel:" + person.getPhone()));
+			startActivity(intent);
+
+		}
+
+	}
+
+	private class Cell3 extends RowAdapter.Default<WebAddress> {
+
+		public Cell3(WebAddress item) {
+			super(item);
+		}
+
+		@Override
+		public void populateRowView() {
+			WebAddress w = getItem();
+			setText(w.getTitle());
+
+		}
+
+		@Override
+		public void handleClick() {
+			WebAddress w = getItem();
+
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW, Uri.parse(w
+					.getUrl()));
+			startActivity(intent);
 
 		}
 

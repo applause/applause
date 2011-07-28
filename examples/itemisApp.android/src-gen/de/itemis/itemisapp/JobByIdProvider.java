@@ -12,30 +12,30 @@ import org.simpleframework.xml.core.Persister;
 
 import de.itemis.base.GenericItemContentProvider;
 
-public class PersonByNameProvider extends GenericItemContentProvider<Contact> {
+public class JobByIdProvider extends GenericItemContentProvider<JobOffer> {
 
 	private static final long serialVersionUID = 1L;
 
-	public PersonByNameProvider(String feedUrl) {
+	public JobByIdProvider(String feedUrl) {
 		super(feedUrl);
 	}
 
 	@Root(strict = false)
-	public static class Contacts {
+	public static class Jobs {
 
-		@Element(required = false, name = "contact")
-		private Contact contact;
+		@Element(required = false, name = "job")
+		private JobOffer jobOffer;
 
-		public Contact getContact() {
-			return contact;
+		public JobOffer getJobOffer() {
+			return jobOffer;
 		}
 
 	}
 
-	protected Contact extractItem(Reader reader) throws Exception {
+	protected JobOffer extractItem(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		Contacts root = serializer.read(Contacts.class, reader);
-		return root.getContact();
+		Jobs root = serializer.read(Jobs.class, reader);
+		return root.getJobOffer();
 	}
 
 }

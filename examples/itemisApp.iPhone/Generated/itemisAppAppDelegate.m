@@ -3,9 +3,9 @@
 #import "IPUIView.h"
 #import "itemisAppProviders.h"
 
-#import "OfficeListViewController.h"
 #import "EventListViewController.h"
 #import "BlogListViewController.h"
+#import "OfficeListViewController.h"
 #import "CarreerViewViewController.h"
 
 @implementation itemisAppAppDelegate
@@ -21,19 +21,6 @@
 	UINavigationController *navController;
 	IPContentProvider *contentProvider;
 
-
-	
-	// controller for @"itemis"
-	contentProvider = [providers providerForCompanyDescription];
-	
-	controller = [[OfficeListViewController alloc] init];
-	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = @"itemis";
-	controller.tabBarItem.image = [UIImage imageNamed:@"itemis.png"];
-	navController = [[UINavigationController alloc] initWithRootViewController:controller];
-	[controllers addObject: navController];
-	[controller release];
-	[navController release];
 
 	
 	// controller for @"News"
@@ -62,13 +49,26 @@
 	[navController release];
 
 	
+	// controller for @"itemis"
+	contentProvider = [providers providerForCompanyDescription];
+	
+	controller = [[OfficeListViewController alloc] init];
+	[controller setContentProvider: contentProvider];
+	controller.tabBarItem.title = @"itemis";
+	controller.tabBarItem.image = [UIImage imageNamed:@"itemis.png"];
+	navController = [[UINavigationController alloc] initWithRootViewController:controller];
+	[controllers addObject: navController];
+	[controller release];
+	[navController release];
+
+	
 	// controller for @"Carreer"
 	contentProvider = [providers providerForCarreerData];
 	
 	controller = [[CarreerViewViewController alloc] init];
 	[controller setContentProvider: contentProvider];
 	controller.tabBarItem.title = @"Carreer";
-	controller.tabBarItem.image = [UIImage imageNamed:@"85-trophy.png"];
+	controller.tabBarItem.image = [UIImage imageNamed:@"trophy.png"];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];

@@ -37,8 +37,8 @@ public class EventDetails extends DetailsActivity<Event> {
 
 		rowAdapters.add(new Cell1(null));
 
-		Iterable<String> items2 = Splitter.on(",").split(event.getSpeakers());
-		for (String i : items2)
+		Iterable<Contact> items2 = event.getSpeakers();
+		for (Contact i : items2)
 			rowAdapters.add(new Cell2(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
@@ -46,7 +46,7 @@ public class EventDetails extends DetailsActivity<Event> {
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Void> {
+	private class Cell1 extends RowAdapter.Subtitle<Void> {
 
 		public Cell1(Void item) {
 			super(item);
@@ -56,6 +56,7 @@ public class EventDetails extends DetailsActivity<Event> {
 		public void populateRowView() {
 
 			setText(event.getContact());
+			setDetails("Contact");
 
 		}
 
@@ -72,26 +73,27 @@ public class EventDetails extends DetailsActivity<Event> {
 
 	}
 
-	private class Cell2 extends RowAdapter.Default<String> {
+	private class Cell2 extends RowAdapter.Subtitle<Contact> {
 
-		public Cell2(String item) {
+		public Cell2(Contact item) {
 			super(item);
 		}
 
 		@Override
 		public void populateRowView() {
-			String s = getItem();
-			setText(s);
+			Contact s = getItem();
+			setText(s.getName());
+			setDetails(s.getRole());
 
 		}
 
 		@Override
 		public void handleClick() {
-			String s = getItem();
+			Contact s = getItem();
 
 			Intent intent = new Intent(EventDetails.this, PersonDetails.class);
 			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(s);
+					.getPersonByNameProvider(s.getName());
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 

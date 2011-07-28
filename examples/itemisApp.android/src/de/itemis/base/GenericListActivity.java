@@ -23,6 +23,14 @@ public class GenericListActivity<T> extends ListActivity {
 		return provider.getAllItems();
 	}
 
+	@SuppressWarnings("unchecked")
+	protected T getItemFromProvider() {
+		Serializable serializable = getIntent().getSerializableExtra("provider");
+		Serializable serializableExtra = serializable;
+		ItemContentProvider<T> provider = (ItemContentProvider<T>) serializableExtra; 
+		return provider.getItem();
+	}
+
 	protected void finishCreation() {
 		
 		getListView().setOnItemClickListener(new OnItemClickListener() {

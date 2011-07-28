@@ -26,7 +26,7 @@ public class BlogList extends GenericListActivity<BlogItem> {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle("News");
+		setTitle("Blog");
 
 		items = getItemsFromProvider();
 

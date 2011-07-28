@@ -153,3 +153,5 @@ String expression(ObjectReference this, String prefix):
 		? expression(object, prefix)
 		: this.object.name + (tail==null?"":tail.getterPath());
 	
+detailsOrSubtitle(ViewHeader this):
+	details!=null ? details : subtitle; 	

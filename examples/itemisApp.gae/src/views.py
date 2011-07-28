@@ -2,10 +2,6 @@ from django.shortcuts import render_to_response
 import providers
 
 
-def OfficeListByCompanyDescription(request):
-    data = providers.CompanyDescription()
-    return render_to_response('generated/OfficeList.html', {'data': data})
-
 def EventListByCurrentTimeline(request):
     data = providers.CurrentTimeline()
     return render_to_response('generated/EventList.html', {'data': data})
@@ -13,6 +9,10 @@ def EventListByCurrentTimeline(request):
 def BlogListByBlogposts(request):
     data = providers.Blogposts()
     return render_to_response('generated/BlogList.html', {'data': data})
+
+def OfficeListByCompanyDescription(request):
+    data = providers.CompanyDescription()
+    return render_to_response('generated/OfficeList.html', {'data': data})
 
 def CarreerViewByCarreerData(request):
     data = providers.CarreerData()

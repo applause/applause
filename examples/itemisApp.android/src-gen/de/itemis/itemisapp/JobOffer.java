@@ -9,7 +9,7 @@ import org.simpleframework.xml.Root;
 
 @SuppressWarnings("serial")
 @Root(strict = false)
-public class Event implements Serializable {
+public class JobOffer implements Serializable {
 
 	@Element(required = false)
 	private String id;
@@ -23,14 +23,14 @@ public class Event implements Serializable {
 	}
 
 	@Element(required = false)
-	private String kind;
+	private String location;
 
-	public String getKind() {
-		return kind;
+	public String getLocation() {
+		return location;
 	}
 
-	public void setKind(String kind) {
-		this.kind = kind;
+	public void setLocation(String location) {
+		this.location = location;
 	}
 
 	@Element(required = false)
@@ -42,28 +42,6 @@ public class Event implements Serializable {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	@Element(required = false)
-	private String date;
-
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
-
-	@Element(required = false)
-	private String location;
-
-	public String getLocation() {
-		return location;
-	}
-
-	public void setLocation(String location) {
-		this.location = location;
 	}
 
 	@Element(required = false)
@@ -86,28 +64,6 @@ public class Event implements Serializable {
 
 	public void setContact(String contact) {
 		this.contact = contact;
-	}
-
-	@Element(required = false)
-	private String link;
-
-	public String getLink() {
-		return link;
-	}
-
-	public void setLink(String link) {
-		this.link = link;
-	}
-
-	@ElementList(required = false, inline = true, entry = "speakers")
-	private ArrayList<Contact> speakers;
-
-	public ArrayList<Contact> getSpeakers() {
-		return speakers;
-	}
-
-	public void setSpeakers(ArrayList<Contact> speakers) {
-		this.speakers = speakers;
 	}
 
 }

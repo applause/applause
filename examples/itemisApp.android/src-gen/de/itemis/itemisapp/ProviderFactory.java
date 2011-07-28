@@ -4,35 +4,45 @@ import static de.itemis.base.StringUtils.*;
 
 public class ProviderFactory {
 
-	public static AllOfficesProvider getAllOfficesProvider() {
-		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
-				+ "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values";
-		return new AllOfficesProvider(feedUrl);
+	public static CompanyDescriptionProvider getCompanyDescriptionProvider() {
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "company.xml";
+		return new CompanyDescriptionProvider(feedUrl);
 	}
 
-	public static OfficeResolverProvider getOfficeResolverProvider(Office o) {
-		String feedUrl = "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D"
-				+ urlconform(o.getLocation());
-		return new OfficeResolverProvider(feedUrl);
+	public static OfficeByIdProvider getOfficeByIdProvider(String id) {
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "offices/" + urlconform(id) + ".xml";
+		return new OfficeByIdProvider(feedUrl);
+	}
+
+	public static CarreerDataProvider getCarreerDataProvider() {
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "carreer.xml";
+		return new CarreerDataProvider(feedUrl);
+	}
+
+	public static JobByIdProvider getJobByIdProvider(String id) {
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "jobs/" + urlconform(id) + ".xml";
+		return new JobByIdProvider(feedUrl);
 	}
 
 	public static CurrentTimelineProvider getCurrentTimelineProvider() {
-		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
-				+ "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values";
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "timeline.xml";
 		return new CurrentTimelineProvider(feedUrl);
 	}
 
 	public static EventByIdProvider getEventByIdProvider(Event e) {
-		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
-				+ urlconform("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id=="
-						+ e.getId());
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "events/" + urlconform(e.getId()) + ".xml";
 		return new EventByIdProvider(feedUrl);
 	}
 
 	public static PersonByNameProvider getPersonByNameProvider(String name) {
-		String feedUrl = "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
-				+ urlconform("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D"
-						+ urlconform(replace(name, " ", "")));
+		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
+				+ "people/" + urlconform(name) + ".xml";
 		return new PersonByNameProvider(feedUrl);
 	}
 

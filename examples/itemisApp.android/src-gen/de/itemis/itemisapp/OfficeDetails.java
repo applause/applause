@@ -48,7 +48,7 @@ public class OfficeDetails extends DetailsActivity<Office> {
 
 	}
 
-	private class Cell1 extends RowAdapter.Default<Void> {
+	private class Cell1 extends RowAdapter.Subtitle<Void> {
 
 		public Cell1(Void item) {
 			super(item);
@@ -57,7 +57,8 @@ public class OfficeDetails extends DetailsActivity<Office> {
 		@Override
 		public void populateRowView() {
 
-			setText(office.getContact());
+			setText(office.getContact().getName());
+			setDetails(office.getContact().getRole());
 
 		}
 
@@ -66,7 +67,7 @@ public class OfficeDetails extends DetailsActivity<Office> {
 
 			Intent intent = new Intent(OfficeDetails.this, PersonDetails.class);
 			Serializable contentProvider = ProviderFactory
-					.getPersonByNameProvider(office.getContact());
+					.getPersonByNameProvider(office.getContact().getName());
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
 
@@ -85,7 +86,7 @@ public class OfficeDetails extends DetailsActivity<Office> {
 
 			setText(office.getAddress());
 
-			setQuery(office.getAddress());
+			setQuery(office.getGeo());
 
 		}
 
@@ -94,7 +95,7 @@ public class OfficeDetails extends DetailsActivity<Office> {
 
 			Intent intent = new LabeledIntent(Intent.ACTION_VIEW,
 					Uri.parse("http://maps.google.de/maps?q="
-							+ urlconform(office.getAddress())));
+							+ urlconform(office.getGeo())));
 			startActivity(intent);
 
 		}
