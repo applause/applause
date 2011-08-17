@@ -7,7 +7,7 @@ def plainxml(url):
 
 
 def CurrentTimeline():
-    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'timeline.xml') #foo
+    url = 'http://www.itemis.de/language=de/~xml.timeline/37606' #foo
     xml = plainxml(url)
     return xml.events
 
@@ -19,7 +19,7 @@ def Blogposts():
 
 
 def CompanyDescription():
-    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'company.xml') #foo
+    url = 'http://www.itemis.de/language=de/~xml.company/37606' #foo
     xml = plainxml(url)
     return xml.company
 
@@ -37,13 +37,13 @@ def EventById(id):
 
 
 def PersonByName(name):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'people/', quote((name).encode("utf8")), '.xml') #foo
+    url = '%s%s%s' % ('http://www.itemis.de/applause/people/language=de/~xml.applause/1538/', quote((name).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
     return xml.contact
 
 
 def OfficeById(id):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'offices/', quote((id).encode("utf8")), '.xml') #foo
+    url = '%s%s' % ('http://www.itemis.de/language=de/~xml.applause/', id) #foo
     xml = plainxml(url)
     return xml.office
 

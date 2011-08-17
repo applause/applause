@@ -5,14 +5,12 @@ import static de.itemis.base.StringUtils.*;
 public class ProviderFactory {
 
 	public static CompanyDescriptionProvider getCompanyDescriptionProvider() {
-		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
-				+ "company.xml";
+		String feedUrl = "http://www.itemis.de/language=de/~xml.company/37606";
 		return new CompanyDescriptionProvider(feedUrl);
 	}
 
 	public static OfficeByIdProvider getOfficeByIdProvider(String id) {
-		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
-				+ "offices/" + urlconform(id) + ".xml";
+		String feedUrl = "http://www.itemis.de/language=de/~xml.applause/" + id;
 		return new OfficeByIdProvider(feedUrl);
 	}
 
@@ -29,8 +27,7 @@ public class ProviderFactory {
 	}
 
 	public static CurrentTimelineProvider getCurrentTimelineProvider() {
-		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
-				+ "timeline.xml";
+		String feedUrl = "http://www.itemis.de/language=de/~xml.timeline/37606";
 		return new CurrentTimelineProvider(feedUrl);
 	}
 
@@ -41,8 +38,8 @@ public class ProviderFactory {
 	}
 
 	public static PersonByNameProvider getPersonByNameProvider(String name) {
-		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
-				+ "people/" + urlconform(name) + ".xml";
+		String feedUrl = "http://www.itemis.de/applause/people/language=de/~xml.applause/1538/"
+				+ urlconform(name) + ".xml";
 		return new PersonByNameProvider(feedUrl);
 	}
 

@@ -114,7 +114,7 @@ entity JobOffer {
 
 contentprovider CompanyDescription
 	returns Company
-	fetches XML from (DROPBOX "company.xml")
+	fetches XML from "http://www.itemis.de/language=de/~xml.company/37606"
 	selects "data.company"
 
 //contentprovider AllOffices
@@ -129,7 +129,7 @@ contentprovider CompanyDescription
 
 contentprovider OfficeById(String id)
 	returns Office
-	fetches XML from (DROPBOX "offices/" urlconform(id) ".xml")
+	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" id)
 	selects "offices.office"
 	
 contentprovider CarreerData
@@ -266,7 +266,7 @@ detailsview OfficeDetails(Office office) {
 
 contentprovider CurrentTimeline
 	returns AllEvents
-	fetches XML from (DROPBOX "timeline.xml")
+	fetches XML from "http://www.itemis.de/language=de/~xml.timeline/37606"
 	selects "data.events"
 	
 contentprovider EventById(Event e)
@@ -281,7 +281,7 @@ contentprovider EventById(Event e)
 	
 contentprovider PersonByName(String name)
 	returns Contact
-	fetches XML from (DROPBOX "people/" urlconform(name) ".xml")
+	fetches XML from ("http://www.itemis.de/applause/people/language=de/~xml.applause/1538/" urlconform(name) ".xml")
 	selects "contacts.contact"
 	
 

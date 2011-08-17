@@ -7,7 +7,7 @@
 
 
 -(IPContentProvider*)providerForCompanyDescription {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"company.xml"];
+	NSString* url = @"http://www.itemis.de/language=de/~xml.company/37606";
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -19,7 +19,7 @@
 
 
 -(IPContentProvider*)providerForOfficeById:(id)id {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://www.itemis.de/language=de/~xml.applause/", id];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -55,7 +55,7 @@
 
 
 -(IPContentProvider*)providerForCurrentTimeline {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"timeline.xml"];
+	NSString* url = @"http://www.itemis.de/language=de/~xml.timeline/37606";
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -79,7 +79,7 @@
 
 
 -(IPContentProvider*)providerForPersonByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"people/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://www.itemis.de/applause/people/language=de/~xml.applause/1538/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
