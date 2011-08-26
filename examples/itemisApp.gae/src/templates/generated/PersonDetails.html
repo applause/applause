@@ -37,7 +37,7 @@
 {% for w in data.webaddresses|to_list %}
 <li>
   
-  <a href="{{data.url|safe|linebreaksbr}}">
+  <a href="{{w.url|safe|linebreaksbr}}">
   <div class="cell_text">{{w.title|safe|linebreaksbr}}</div>
   
   </a>
