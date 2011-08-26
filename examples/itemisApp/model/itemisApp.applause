@@ -34,7 +34,6 @@ tabbarApplication itemisApp {
 type String mapsTo "NSString"
 
 const SANITIZE_SHEET "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
-const DROPBOX "http://dl.dropbox.com/u/232067/applause-sampledata/"
 
 entity AllEvents {
 	Event[] news
@@ -106,26 +105,10 @@ entity JobOffer {
 }
 
 
-
-//contentprovider AllOffices 
-//	returns Office[]
-//	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values")
-//	selects "feed.entry"
-
 contentprovider CompanyDescription
 	returns Company
 	fetches XML from "http://www.itemis.de/language=de/~xml.company/37606"
 	selects "data.company"
-
-//contentprovider AllOffices
-//	returns Office[]
-//	fetches XML from (DROPBOX "offices/all.xml")
-//	selects "offices.office"
-
-//contentprovider OfficeResolver(Office o)
-//	resolves Office
-//	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D" urlconform(o.location) )
-//	selects "feed.entry"
 
 contentprovider OfficeById(String id)
 	returns Office
@@ -134,13 +117,11 @@ contentprovider OfficeById(String id)
 	
 contentprovider CarreerData
 	returns Carreer
-	//fetches XML from (DROPBOX "carreer.xml")
 	fetches XML from "http://www.itemis.de/language=de/~xml.carreer/37606"
 	selects "data.carreer"
 	
 contentprovider JobById(String id)
 	returns JobOffer
-	//fetches XML from (DROPBOX "jobs/" urlconform(id) ".xml" )
 	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" id)
 	selects "jobs.job" 
 
@@ -250,21 +231,6 @@ detailsview OfficeDetails(Office office) {
 
 }
 
-//contentprovider CurrentTimeline
-//	returns Event[]
-//	//fetches XML from "http://heikobehrens.net/misc/jazoon11/data.php"
-//	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values") 
-//	selects "feed.entry"
-//	
-//contentprovider EventById(Event e)
-//	resolves Event
-//	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==" e.id)))
-//	selects "feed.entry"
-	
-//contentprovider CurrentTimeline
-//	returns Event[]
-//	fetches XML from (DROPBOX "events/all.xml")
-//	selects "events.event"
 
 contentprovider CurrentTimeline
 	returns AllEvents
@@ -273,13 +239,8 @@ contentprovider CurrentTimeline
 	
 contentprovider EventById(Event e)
 	resolves Event
-	fetches XML from (DROPBOX "events/" urlconform(e.id) ".xml")
+	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" e.id)
 	selects "events.event"	
-
-//contentprovider PersonByName(String name)
-//	returns Person
-//	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D" urlconform(replace(name, " ", "")))))
-//	selects "feed.entry"
 	
 contentprovider PersonByName(String name)
 	returns Contact
@@ -324,8 +285,6 @@ entity Session {
  * FETCHING DATA
  */
 
-//const DATA_SERVER_URL "http://localhost:3000"
-const DATA_SERVER_URL "http://eclipsecon2011-data.webbyapp.com"
 const FEEDSANITIZER_URL "http://feedsanitizer.appspot.com"
 
 contentprovider Blogposts
@@ -334,44 +293,11 @@ contentprovider Blogposts
 		from (FEEDSANITIZER_URL "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss")
 		selects "rss.channel.item"
 		
-contentprovider SessionsByDay(String day)
-	returns Session[]
-	fetches XML
-		//from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
-		from (DATA_SERVER_URL "/sessions/day/" day ".xml")
-		selects "sessions.session"
-		 
-contentprovider SessionById(Session s) 
-	resolves Session
-	fetches XML
-	from (DATA_SERVER_URL "/sessions/id/" s.id ".xml" )
-	selects "result.session"
-	
-contentprovider SpeakerById(Speaker s) 
-	resolves Speaker
-	fetches XML
-	from (DATA_SERVER_URL "/speakers/id/" s.id ".xml")
-	selects "result.speaker"
-	
-
 contentprovider BlogItemById(BlogItem b)
 	resolves BlogItem
 	fetches XML
 		from (FEEDSANITIZER_URL "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=" urlconform(b.guid) )
 		selects "rss.channel.item"
-
-		
-contentprovider AllSpeakers
-	returns Speaker[]
-	fetches XML
-		from (DATA_SERVER_URL "/speakers.xml")
-		selects "speakers.speaker"
-
-contentprovider SpeakerByName(String name)
-	returns Speaker
-	fetches XML
-		from (DATA_SERVER_URL "/speakers/name/" urlconform(name) ".xml")
-		selects "result.speaker"
 		
 /*
  * DESCRIBING VIEWS

@@ -31,7 +31,7 @@ def CarreerData():
 
 
 def EventById(id):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'events/', quote((id).encode("utf8")), '.xml') #foo
+    url = '%s%s' % ('http://www.itemis.de/language=de/~xml.applause/', id) #foo
     xml = plainxml(url)
     return xml.event
 
