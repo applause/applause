@@ -24,7 +24,7 @@ def CompanyDescription():
     return xml.company
 
 
-def CarreerData():
+def CareerData():
     url = 'http://www.itemis.de/language=de/~xml.carreer/37606' #foo
     xml = plainxml(url)
     return xml.carreer

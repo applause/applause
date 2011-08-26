@@ -6,7 +6,7 @@
 #import "EventListViewController.h"
 #import "BlogListViewController.h"
 #import "OfficeListViewController.h"
-#import "CarreerViewViewController.h"
+#import "CareerViewViewController.h"
 
 @implementation itemisAppAppDelegate
 
@@ -63,9 +63,9 @@
 
 	
 	// controller for @"Carreer"
-	contentProvider = [providers providerForCarreerData];
+	contentProvider = [providers providerForCareerData];
 	
-	controller = [[CarreerViewViewController alloc] init];
+	controller = [[CareerViewViewController alloc] init];
 	[controller setContentProvider: contentProvider];
 	controller.tabBarItem.title = @"Carreer";
 	controller.tabBarItem.image = [UIImage imageNamed:@"trophy.png"];

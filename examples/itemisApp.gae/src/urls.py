@@ -12,7 +12,7 @@ urlpatterns = patterns('',
 
     (r'^OfficeList/CompanyDescription/$', 'views.OfficeListByCompanyDescription'),
 
-    (r'^CarreerView/CarreerData/$', 'views.CarreerViewByCarreerData'),
+    (r'^CareerView/CareerData/$', 'views.CareerViewByCareerData'),
 
     (r'^EventDetails/EventById/(?P<id>.+?)/$', 'views.EventDetailsByEventById'),
 

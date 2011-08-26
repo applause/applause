@@ -14,9 +14,9 @@ public class ProviderFactory {
 		return new OfficeByIdProvider(feedUrl);
 	}
 
-	public static CarreerDataProvider getCarreerDataProvider() {
+	public static CareerDataProvider getCareerDataProvider() {
 		String feedUrl = "http://www.itemis.de/language=de/~xml.carreer/37606";
-		return new CarreerDataProvider(feedUrl);
+		return new CareerDataProvider(feedUrl);
 	}
 
 	public static JobByIdProvider getJobByIdProvider(String id) {

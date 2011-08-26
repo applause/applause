@@ -22,7 +22,7 @@ tabbarApplication itemisApp {
 	button {
 		title= "Carreer"
 		icon= "trophy.png"
-		view= CarreerView(CarreerData())
+		view= CareerView(CareerData())
 	} 
  
 }
@@ -85,7 +85,7 @@ entity Company {
 	Office[] office
 }
 
-entity Carreer {
+entity Career {
 	String description
 	Link[] link
 	JobOffer[] job
@@ -115,8 +115,8 @@ contentprovider OfficeById(String id)
 	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" id)
 	selects "offices.office"
 	
-contentprovider CarreerData
-	returns Carreer
+contentprovider CareerData
+	returns Career
 	fetches XML from "http://www.itemis.de/language=de/~xml.carreer/37606"
 	selects "data.carreer"
 	
@@ -380,15 +380,15 @@ detailsview PersonDetails(Contact person) {
 //		view= BlogList(Blogposts())
 //	}
 
-detailsview CarreerView(Carreer carreer) {
+detailsview CareerView(Career career) {
 	 title= "Carreer"
 	 header {
-	 	subtitle= carreer.description
+	 	subtitle= career.description
 	 }
 	 
 	 section {
 	 	title= "Links"
-	 	cell Default foreach carreer.link as l {
+	 	cell Default foreach career.link as l {
 	 		text= l.title
 	 		action= l.url
 	 	}
@@ -396,7 +396,7 @@ detailsview CarreerView(Carreer carreer) {
 	 
 	 section {
 	 	title= "Job Offers"
-	 	cell Subtitle foreach carreer.job as j {
+	 	cell Subtitle foreach career.job as j {
 	 		text= j.location
 	 		details= j.title
 	 		action= JobOfferDetails(JobById(j.id))

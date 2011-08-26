@@ -57,9 +57,9 @@ public class ApplicationActivity extends TabActivity {
 		tab4.setIndicator("Carreer",
 				getResources().getDrawable(R.drawable.trophy));
 
-		Intent tab4Intent = new Intent(this, CarreerView.class);
-		CarreerDataProvider tab4IntentProvider = ProviderFactory
-				.getCarreerDataProvider();
+		Intent tab4Intent = new Intent(this, CareerView.class);
+		CareerDataProvider tab4IntentProvider = ProviderFactory
+				.getCareerDataProvider();
 		tab4Intent.putExtra("provider", tab4IntentProvider);
 		tab4.setContent(tab4Intent);
 

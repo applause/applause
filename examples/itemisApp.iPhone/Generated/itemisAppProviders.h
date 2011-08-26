@@ -7,7 +7,7 @@
 
 -(IPContentProvider*)providerForCompanyDescription;
 -(IPContentProvider*)providerForOfficeById:(id)id;
--(IPContentProvider*)providerForCarreerData;
+-(IPContentProvider*)providerForCareerData;
 -(IPContentProvider*)providerForJobById:(id)id;
 -(IPContentProvider*)providerForCurrentTimeline;
 -(IPContentProvider*)providerForEventById:(id)e;

@@ -1,11 +1,11 @@
 
-#import "CarreerViewViewController.h"
+#import "CareerViewViewController.h"
 #import "NSObject+iPhonical.h"
 #import "itemisAppProviders.h"
 #import "JobOfferDetailsViewController.h"
  
 
-@implementation CarreerViewViewController
+@implementation CareerViewViewController
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

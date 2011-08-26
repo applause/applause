@@ -30,7 +30,7 @@
 
 
 
--(IPContentProvider*)providerForCarreerData {
+-(IPContentProvider*)providerForCareerData {
 	NSString* url = @"http://www.itemis.de/language=de/~xml.carreer/37606";
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
