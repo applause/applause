@@ -64,6 +64,10 @@ public class CarreerView extends DetailsActivity<Carreer> {
 		public void handleClick() {
 			Link l = getItem();
 
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW, Uri.parse(l
+					.getUrl()));
+			startActivity(intent);
+
 		}
 
 	}

@@ -25,7 +25,7 @@ def CompanyDescription():
 
 
 def CarreerData():
-    url = '%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'carreer.xml') #foo
+    url = 'http://www.itemis.de/language=de/~xml.carreer/37606' #foo
     xml = plainxml(url)
     return xml.carreer
 
@@ -37,7 +37,7 @@ def EventById(id):
 
 
 def PersonByName(name):
-    url = '%s%s%s' % ('http://www.itemis.de/applause/people/language=de/~xml.applause/1538/', quote((name).encode("utf8")), '.xml') #foo
+    url = '%s%s%s' % ('http://www.itemis.de/applause/people/de/', quote((name).encode("utf8")), '.xml') #foo
     xml = plainxml(url)
     return xml.contact
 
@@ -55,7 +55,7 @@ def BlogItemById(guid):
 
 
 def JobById(id):
-    url = '%s%s%s%s' % ('http://dl.dropbox.com/u/232067/applause-sampledata/', 'jobs/', quote((id).encode("utf8")), '.xml') #foo
+    url = '%s%s' % ('http://www.itemis.de/language=de/~xml.applause/', id) #foo
     xml = plainxml(url)
     return xml.job
 

@@ -15,14 +15,12 @@ public class ProviderFactory {
 	}
 
 	public static CarreerDataProvider getCarreerDataProvider() {
-		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
-				+ "carreer.xml";
+		String feedUrl = "http://www.itemis.de/language=de/~xml.carreer/37606";
 		return new CarreerDataProvider(feedUrl);
 	}
 
 	public static JobByIdProvider getJobByIdProvider(String id) {
-		String feedUrl = "http://dl.dropbox.com/u/232067/applause-sampledata/"
-				+ "jobs/" + urlconform(id) + ".xml";
+		String feedUrl = "http://www.itemis.de/language=de/~xml.applause/" + id;
 		return new JobByIdProvider(feedUrl);
 	}
 
@@ -38,7 +36,7 @@ public class ProviderFactory {
 	}
 
 	public static PersonByNameProvider getPersonByNameProvider(String name) {
-		String feedUrl = "http://www.itemis.de/applause/people/language=de/~xml.applause/1538/"
+		String feedUrl = "http://www.itemis.de/applause/people/de/"
 				+ urlconform(name) + ".xml";
 		return new PersonByNameProvider(feedUrl);
 	}

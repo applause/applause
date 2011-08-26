@@ -78,7 +78,9 @@ else
 	if(indexPath.section == 0) {
 	
 	id item = [[[contentProvider valueForKeyPath:@"content.link"]asArray] objectAtIndex: indexPath.row];
-	
+		NSString *urlString = [item valueForKeyPath:@"url"];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+
 	
 	} else
 

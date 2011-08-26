@@ -15,7 +15,12 @@
 <ul>
 {% for l in data.link|to_list %}
 <li>
-  <a>{{l.title|safe|linebreaksbr}}</a>
+  
+  <a href="{{data.url|safe|linebreaksbr}}">
+  <div class="cell_text">{{l.title|safe|linebreaksbr}}</div>
+  
+  </a>
+  
 </li>
 {% endfor %}
 </ul>

@@ -134,12 +134,14 @@ contentprovider OfficeById(String id)
 	
 contentprovider CarreerData
 	returns Carreer
-	fetches XML from (DROPBOX "carreer.xml")
+	//fetches XML from (DROPBOX "carreer.xml")
+	fetches XML from "http://www.itemis.de/language=de/~xml.carreer/37606"
 	selects "data.carreer"
 	
 contentprovider JobById(String id)
 	returns JobOffer
-	fetches XML from (DROPBOX "jobs/" urlconform(id) ".xml" )
+	//fetches XML from (DROPBOX "jobs/" urlconform(id) ".xml" )
+	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" id)
 	selects "jobs.job" 
 
 tableview EventList(AllEvents allEvents) {
@@ -281,7 +283,7 @@ contentprovider EventById(Event e)
 	
 contentprovider PersonByName(String name)
 	returns Contact
-	fetches XML from ("http://www.itemis.de/applause/people/language=de/~xml.applause/1538/" urlconform(name) ".xml")
+	fetches XML from ("http://www.itemis.de/applause/people/de/" urlconform(name) ".xml")
 	selects "contacts.contact"
 	
 
@@ -462,7 +464,7 @@ detailsview CarreerView(Carreer carreer) {
 	 	title= "Links"
 	 	cell Default foreach carreer.link as l {
 	 		text= l.title
-	 		//action= l.url
+	 		action= l.url
 	 	}
 	 }
 	 
