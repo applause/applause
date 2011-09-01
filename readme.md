@@ -52,7 +52,7 @@ The following people are the major contributors to Applause:
 
 We welcome contributions. If you want to contribute, please:
 
-1. Have a look at our [issue tracker](https://github.com/applause/applause/issues) issue tracker for open, unassigned issues and pick one.
+1. Have a look at our [issue tracker](https://github.com/applause/applause/issues) for open, unassigned issues and pick one.
 2. Clone a local working copy Applause and do your thing.
 3. Send us a pull request.
 
