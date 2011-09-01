@@ -25,7 +25,7 @@
 	
 	
     UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.creator"];
+	cell.textLabel.text = [contentProvider safeValueForKeyPath:@"content.creator"];
 	
 	
 	return cell;
@@ -56,7 +56,7 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.creator"]];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider safeValueForKeyPath:@"content.creator"]];
 		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -69,7 +69,7 @@
 	if(indexPath.section == 0 && indexPath.row == 1) {
 	
 	
-		NSString *urlString = [contentProvider valueForKeyPath:@"content.link"];
+		NSString *urlString = [contentProvider safeValueForKeyPath:@"content.link"];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -82,9 +82,9 @@
 	self.navigationItem.title = @"Post";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];
+		self.headerView.titleLabel.text = [contentProvider safeValueForKeyPath:@"content.title"];
 		
-		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.description"];
+		self.headerView.detailsLabel.text = [contentProvider safeValueForKeyPath:@"content.description"];
 		
 	}	
 

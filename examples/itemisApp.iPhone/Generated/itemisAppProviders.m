@@ -67,7 +67,7 @@
 
 
 -(IPContentProvider*)providerForEventById:(id)e {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://www.itemis.de/language=de/~xml.applause/", [e valueForKeyPath:@"id"]];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://www.itemis.de/language=de/~xml.applause/", [e safeValueForKeyPath:@"id"]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -103,7 +103,7 @@
 
 
 -(IPContentProvider*)providerForBlogItemById:(id)b {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=", [[b valueForKeyPath:@"guid"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=", [[b safeValueForKeyPath:@"guid"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil

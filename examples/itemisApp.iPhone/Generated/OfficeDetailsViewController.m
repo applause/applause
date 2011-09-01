@@ -44,8 +44,8 @@
 	
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.contact.name"];
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.contact.role"];
+	cell.textLabel.text = [contentProvider safeValueForKeyPath:@"content.contact.name"];
+	cell.detailTextLabel.text = [contentProvider safeValueForKeyPath:@"content.contact.role"];
 	
 	return cell;
 
@@ -58,9 +58,9 @@
 	
 	
     IPTableViewCellMap *cell = [self cellMapForTableView:tableView];
-	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.address"];
+	cell.textLabel.text = [contentProvider safeValueForKeyPath:@"content.address"];
 	
-	cell.queryString = [contentProvider valueForKeyPath:@"content.geo"];
+	cell.queryString = [contentProvider safeValueForKeyPath:@"content.geo"];
 	NSString *imageURL = cell.imageUrl;
 	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	return cell;
@@ -74,7 +74,7 @@
 	
     UITableViewCell *cell = [self cellValue2ForTableView:tableView];
 	cell.textLabel.text = @"phone";
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.phone"];
+	cell.detailTextLabel.text = [contentProvider safeValueForKeyPath:@"content.phone"];
 	
 	return cell;
 
@@ -87,7 +87,7 @@
 	
     UITableViewCell *cell = [self cellValue2ForTableView:tableView];
 	cell.textLabel.text = @"mail";
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.mail"];
+	cell.detailTextLabel.text = [contentProvider safeValueForKeyPath:@"content.mail"];
 	
 	return cell;
 
@@ -104,7 +104,7 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.contact.name"]];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider safeValueForKeyPath:@"content.contact.name"]];
 		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -118,7 +118,7 @@
 	if(indexPath.section == 1 && indexPath.row == 0) {
 	
 	
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"http://maps.google.de/maps?q=", [[contentProvider valueForKeyPath:@"content.geo"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"http://maps.google.de/maps?q=", [[contentProvider safeValueForKeyPath:@"content.geo"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -128,7 +128,7 @@
 	if(indexPath.section == 1 && indexPath.row == 1) {
 	
 	
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"tel:", [contentProvider valueForKeyPath:@"content.phone"]];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"tel:", [contentProvider safeValueForKeyPath:@"content.phone"]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -138,7 +138,7 @@
 	if(indexPath.section == 1 && indexPath.row == 2) {
 	
 	
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"mailto:", [contentProvider valueForKeyPath:@"content.mail"]];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"mailto:", [contentProvider safeValueForKeyPath:@"content.mail"]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -151,9 +151,9 @@
 	self.navigationItem.title = @"Office";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.location"];
+		self.headerView.titleLabel.text = [contentProvider safeValueForKeyPath:@"content.location"];
 		
-		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.summary"];
+		self.headerView.detailsLabel.text = [contentProvider safeValueForKeyPath:@"content.summary"];
 		
 	}	
 
