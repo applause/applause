@@ -15,3 +15,5 @@ bin
 /examples/itemisApp.iPhone/build/
 /examples/itemisApp.iPhone/itemisApp.xcodeproj/xcuserdata/
 /examples/itemisApp.wp7/obj/
+/reference/WP7/ItemisApp/ItemisApp/obj/
+*.suo
