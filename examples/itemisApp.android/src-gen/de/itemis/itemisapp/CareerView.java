@@ -18,9 +18,9 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class CarreerView extends DetailsActivity<Carreer> {
+public class CareerView extends DetailsActivity<Career> {
 
-	Carreer carreer;
+	Career career;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -28,17 +28,17 @@ public class CarreerView extends DetailsActivity<Carreer> {
 
 		setTitle("Carreer");
 
-		carreer = getItemFromProvider();
+		career = getItemFromProvider();
 
-		setHeaderDetails(carreer.getDescription());
+		setHeaderDetails(career.getDescription());
 
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
-		Iterable<Link> items1 = carreer.getLink();
+		Iterable<Link> items1 = career.getLink();
 		for (Link i : items1)
 			rowAdapters.add(new Cell1(i));
 
-		Iterable<JobOffer> items2 = carreer.getJob();
+		Iterable<JobOffer> items2 = career.getJob();
 		for (JobOffer i : items2)
 			rowAdapters.add(new Cell2(i));
 
@@ -64,6 +64,10 @@ public class CarreerView extends DetailsActivity<Carreer> {
 		public void handleClick() {
 			Link l = getItem();
 
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW, Uri.parse(l
+					.getUrl()));
+			startActivity(intent);
+
 		}
 
 	}
@@ -86,7 +90,7 @@ public class CarreerView extends DetailsActivity<Carreer> {
 		public void handleClick() {
 			JobOffer j = getItem();
 
-			Intent intent = new Intent(CarreerView.this, JobOfferDetails.class);
+			Intent intent = new Intent(CareerView.this, JobOfferDetails.class);
 			Serializable contentProvider = ProviderFactory.getJobByIdProvider(j
 					.getId());
 			intent.putExtra("provider", contentProvider);

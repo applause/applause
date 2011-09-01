@@ -67,7 +67,7 @@ tplPrepareUrl(ViewAction this, String target, String var):
 	"";
 	
 tplPreparedUrl(ViewAction this, String target, String var):
-	"data"; // nothing prepared
+	target; // nothing prepared
 	
 private String urlConform(String value):
 	value + "|urlencode";	

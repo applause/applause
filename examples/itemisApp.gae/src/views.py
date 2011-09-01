@@ -14,9 +14,9 @@ def OfficeListByCompanyDescription(request):
     data = providers.CompanyDescription()
     return render_to_response('generated/OfficeList.html', {'data': data})
 
-def CarreerViewByCarreerData(request):
-    data = providers.CarreerData()
-    return render_to_response('generated/CarreerView.html', {'data': data})
+def CareerViewByCareerData(request):
+    data = providers.CareerData()
+    return render_to_response('generated/CareerView.html', {'data': data})
 
 def EventDetailsByEventById(request, id):
     data = providers.EventById(id)
