@@ -42,8 +42,11 @@ private String _expression(ObjectReference this, String target):
 private String _collection_expression(Expression this, String target):
 	_expression(target) + "|to_list";
 	
+private String _collection_expression(CollectionExpression this, String target):
+	_expression(target) + "|to_list";
+	
 private String _collection_expression(ObjectReference this, String target):
-	let path = {target}.addAll(toList().withoutFirst()):
+	let path = {target}.addAll(toList().withoutFirst()).toList():
 		path.size > 1
 			? path.withoutLast().toString(".") + '|to_list:"' + path.last() + '"'
 			: path.toString(".") + "|to_list"
