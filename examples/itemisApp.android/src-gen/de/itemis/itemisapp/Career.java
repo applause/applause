@@ -9,7 +9,7 @@ import org.simpleframework.xml.Root;
 
 @SuppressWarnings("serial")
 @Root(strict = false)
-public class Carreer implements Serializable {
+public class Career implements Serializable {
 
 	@Element(required = false)
 	private String description;

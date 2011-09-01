@@ -38,8 +38,9 @@ public class EventDetails extends DetailsActivity<Event> {
 		rowAdapters.add(new Cell1(null));
 
 		Iterable<Contact> items2 = event.getSpeakers();
-		for (Contact i : items2)
-			rowAdapters.add(new Cell2(i));
+		if (items2 != null)
+			for (Contact i : items2)
+				rowAdapters.add(new Cell2(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();

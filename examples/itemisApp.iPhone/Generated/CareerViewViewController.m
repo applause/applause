@@ -1,11 +1,11 @@
 
-#import "CarreerViewViewController.h"
+#import "CareerViewViewController.h"
 #import "NSObject+iPhonical.h"
 #import "itemisAppProviders.h"
 #import "JobOfferDetailsViewController.h"
  
 
-@implementation CarreerViewViewController
+@implementation CareerViewViewController
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -32,10 +32,10 @@ else
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
-		return [[[contentProvider valueForKeyPath:@"content.link"] asArray] count];
+		return [[[contentProvider safeValueForKeyPath:@"content.link"] asArray] count];
 	} else
 	if(section == 1) {
-		return [[[contentProvider valueForKeyPath:@"content.job"] asArray] count];
+		return [[[contentProvider safeValueForKeyPath:@"content.job"] asArray] count];
 	} else
 		return 0;
 }
@@ -45,10 +45,10 @@ else
 
 
 	if(indexPath.section == 0) {
-	id item = [[[contentProvider valueForKeyPath:@"content.link"] asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.link"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"title"];
+	cell.textLabel.text = [item safeValueForKeyPath:@"title"];
 	
 	
 	return cell;
@@ -58,11 +58,11 @@ else
 
 
 	if(indexPath.section == 1) {
-	id item = [[[contentProvider valueForKeyPath:@"content.job"] asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.job"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"location"];
-	cell.detailTextLabel.text = [item valueForKeyPath:@"title"];
+	cell.textLabel.text = [item safeValueForKeyPath:@"location"];
+	cell.detailTextLabel.text = [item safeValueForKeyPath:@"title"];
 	
 	return cell;
 
@@ -77,16 +77,18 @@ else
 
 	if(indexPath.section == 0) {
 	
-	id item = [[[contentProvider valueForKeyPath:@"content.link"]asArray] objectAtIndex: indexPath.row];
-	
+	id item = [[[contentProvider safeValueForKeyPath:@"content.link"]asArray] objectAtIndex: indexPath.row];
+		NSString *urlString = [item safeValueForKeyPath:@"url"];
+		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
+
 	
 	} else
 
 
 	if(indexPath.section == 1) {
 	
-	id item = [[[contentProvider valueForKeyPath:@"content.job"]asArray] objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForJobById: [item valueForKeyPath:@"id"]];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.job"]asArray] objectAtIndex: indexPath.row];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForJobById: [item safeValueForKeyPath:@"id"]];
 		JobOfferDetailsViewController *controller = [[JobOfferDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -102,7 +104,7 @@ else
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		
-		self.headerView.subtitleLabel.text = [contentProvider valueForKeyPath:@"content.description"];
+		self.headerView.subtitleLabel.text = [contentProvider safeValueForKeyPath:@"content.description"];
 		
 		
 	}	

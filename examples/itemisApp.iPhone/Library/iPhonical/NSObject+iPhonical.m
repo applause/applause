@@ -18,4 +18,13 @@
 		return [NSArray arrayWithObject: self];
 }
 
+-(id)safeFalueForKeyPath:(NSString *)keyPath {
+	@try {
+		return [self valueForKeyPath:keyPath];
+	}
+	@catch (NSException * e) {
+		return nil;
+	}
+}
+
 @end

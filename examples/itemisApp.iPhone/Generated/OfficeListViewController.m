@@ -20,7 +20,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
-		return [[[contentProvider valueForKeyPath:@"content.office"] asArray] count];
+		return [[[contentProvider safeValueForKeyPath:@"content.office"] asArray] count];
 	} else
 		return 0;
 }
@@ -30,10 +30,10 @@
 
 
 	if(indexPath.section == 0) {
-	id item = [[[contentProvider valueForKeyPath:@"content.office"] asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.office"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"location"];
+	cell.textLabel.text = [item safeValueForKeyPath:@"location"];
 	
 	
 	return cell;
@@ -49,8 +49,8 @@
 
 	if(indexPath.section == 0) {
 	
-	id item = [[[contentProvider valueForKeyPath:@"content.office"]asArray] objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForOfficeById: [item valueForKeyPath:@"id"]];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.office"]asArray] objectAtIndex: indexPath.row];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForOfficeById: [item safeValueForKeyPath:@"id"]];
 		OfficeDetailsViewController *controller = [[OfficeDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -66,7 +66,7 @@
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
 		self.headerView.titleLabel.text = @"itemis";
-		self.headerView.subtitleLabel.text = [contentProvider valueForKeyPath:@"content.description"];
+		self.headerView.subtitleLabel.text = [contentProvider safeValueForKeyPath:@"content.description"];
 		
 		
 	}	

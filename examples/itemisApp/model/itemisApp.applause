@@ -22,7 +22,7 @@ tabbarApplication itemisApp {
 	button {
 		title= "Carreer"
 		icon= "trophy.png"
-		view= CarreerView(CarreerData())
+		view= CareerView(CareerData())
 	} 
  
 }
@@ -34,7 +34,6 @@ tabbarApplication itemisApp {
 type String mapsTo "NSString"
 
 const SANITIZE_SHEET "http://heikobehrens.net/misc/jazoon11/sanitize.php?url="
-const DROPBOX "http://dl.dropbox.com/u/232067/applause-sampledata/"
 
 entity AllEvents {
 	Event[] news
@@ -86,7 +85,7 @@ entity Company {
 	Office[] office
 }
 
-entity Carreer {
+entity Career {
 	String description
 	Link[] link
 	JobOffer[] job
@@ -106,40 +105,24 @@ entity JobOffer {
 }
 
 
-
-//contentprovider AllOffices 
-//	returns Office[]
-//	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values")
-//	selects "feed.entry"
-
 contentprovider CompanyDescription
 	returns Company
-	fetches XML from (DROPBOX "company.xml")
+	fetches XML from "http://www.itemis.de/language=de/~xml.company/37606"
 	selects "data.company"
-
-//contentprovider AllOffices
-//	returns Office[]
-//	fetches XML from (DROPBOX "offices/all.xml")
-//	selects "offices.office"
-
-//contentprovider OfficeResolver(Office o)
-//	resolves Office
-//	fetches XML from ("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/3/public/values?sq=location%3D" urlconform(o.location) )
-//	selects "feed.entry"
 
 contentprovider OfficeById(String id)
 	returns Office
-	fetches XML from (DROPBOX "offices/" urlconform(id) ".xml")
+	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" id)
 	selects "offices.office"
 	
-contentprovider CarreerData
-	returns Carreer
-	fetches XML from (DROPBOX "carreer.xml")
+contentprovider CareerData
+	returns Career
+	fetches XML from "http://www.itemis.de/language=de/~xml.carreer/37606"
 	selects "data.carreer"
 	
 contentprovider JobById(String id)
 	returns JobOffer
-	fetches XML from (DROPBOX "jobs/" urlconform(id) ".xml" )
+	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" id)
 	selects "jobs.job" 
 
 tableview EventList(AllEvents allEvents) {
@@ -248,40 +231,20 @@ detailsview OfficeDetails(Office office) {
 
 }
 
-//contentprovider CurrentTimeline
-//	returns Event[]
-//	//fetches XML from "http://heikobehrens.net/misc/jazoon11/data.php"
-//	fetches XML from (SANITIZE_SHEET "https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values") 
-//	selects "feed.entry"
-//	
-//contentprovider EventById(Event e)
-//	resolves Event
-//	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=id==" e.id)))
-//	selects "feed.entry"
-	
-//contentprovider CurrentTimeline
-//	returns Event[]
-//	fetches XML from (DROPBOX "events/all.xml")
-//	selects "events.event"
 
 contentprovider CurrentTimeline
 	returns AllEvents
-	fetches XML from (DROPBOX "timeline.xml")
+	fetches XML from "http://www.itemis.de/language=de/~xml.timeline/37606"
 	selects "data.events"
 	
 contentprovider EventById(Event e)
 	resolves Event
-	fetches XML from (DROPBOX "events/" urlconform(e.id) ".xml")
+	fetches XML from ("http://www.itemis.de/language=de/~xml.applause/" e.id)
 	selects "events.event"	
-
-//contentprovider PersonByName(String name)
-//	returns Person
-//	fetches XML from (SANITIZE_SHEET urlconform(("https://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=id%3D" urlconform(replace(name, " ", "")))))
-//	selects "feed.entry"
 	
 contentprovider PersonByName(String name)
 	returns Contact
-	fetches XML from (DROPBOX "people/" urlconform(name) ".xml")
+	fetches XML from ("http://www.itemis.de/applause/people/de/" urlconform(name) ".xml")
 	selects "contacts.contact"
 	
 
@@ -322,8 +285,6 @@ entity Session {
  * FETCHING DATA
  */
 
-//const DATA_SERVER_URL "http://localhost:3000"
-const DATA_SERVER_URL "http://eclipsecon2011-data.webbyapp.com"
 const FEEDSANITIZER_URL "http://feedsanitizer.appspot.com"
 
 contentprovider Blogposts
@@ -332,44 +293,11 @@ contentprovider Blogposts
 		from (FEEDSANITIZER_URL "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss")
 		selects "rss.channel.item"
 		
-contentprovider SessionsByDay(String day)
-	returns Session[]
-	fetches XML
-		//from ("http://eclipsesummit2010.appspot.com/sessions/day/" day "/?format=xml")
-		from (DATA_SERVER_URL "/sessions/day/" day ".xml")
-		selects "sessions.session"
-		 
-contentprovider SessionById(Session s) 
-	resolves Session
-	fetches XML
-	from (DATA_SERVER_URL "/sessions/id/" s.id ".xml" )
-	selects "result.session"
-	
-contentprovider SpeakerById(Speaker s) 
-	resolves Speaker
-	fetches XML
-	from (DATA_SERVER_URL "/speakers/id/" s.id ".xml")
-	selects "result.speaker"
-	
-
 contentprovider BlogItemById(BlogItem b)
 	resolves BlogItem
 	fetches XML
 		from (FEEDSANITIZER_URL "/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=" urlconform(b.guid) )
 		selects "rss.channel.item"
-
-		
-contentprovider AllSpeakers
-	returns Speaker[]
-	fetches XML
-		from (DATA_SERVER_URL "/speakers.xml")
-		selects "speakers.speaker"
-
-contentprovider SpeakerByName(String name)
-	returns Speaker
-	fetches XML
-		from (DATA_SERVER_URL "/speakers/name/" urlconform(name) ".xml")
-		selects "result.speaker"
 		
 /*
  * DESCRIBING VIEWS
@@ -452,23 +380,23 @@ detailsview PersonDetails(Contact person) {
 //		view= BlogList(Blogposts())
 //	}
 
-detailsview CarreerView(Carreer carreer) {
+detailsview CareerView(Career career) {
 	 title= "Carreer"
 	 header {
-	 	subtitle= carreer.description
+	 	subtitle= career.description
 	 }
 	 
 	 section {
 	 	title= "Links"
-	 	cell Default foreach carreer.link as l {
+	 	cell Default foreach career.link as l {
 	 		text= l.title
-	 		//action= l.url
+	 		action= l.url
 	 	}
 	 }
 	 
 	 section {
 	 	title= "Job Offers"
-	 	cell Subtitle foreach carreer.job as j {
+	 	cell Subtitle foreach career.job as j {
 	 		text= j.location
 	 		details= j.title
 	 		action= JobOfferDetails(JobById(j.id))

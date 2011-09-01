@@ -26,7 +26,7 @@
 
 <div class="table group">
 <ul>
-{% for s in data.speakers|to_list %}
+{% for s in data|to_list:"speakers" %}
 <li>
   {% url views.PersonDetailsByPersonByName s.name|urlencode as url %}
   <a href="{{ url }}">

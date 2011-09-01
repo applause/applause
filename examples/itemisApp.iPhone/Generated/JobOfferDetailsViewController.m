@@ -25,7 +25,7 @@
 	
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.contact"];
+	cell.textLabel.text = [contentProvider safeValueForKeyPath:@"content.contact"];
 	cell.detailTextLabel.text = @"Contact";
 	
 	return cell;
@@ -43,7 +43,7 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.contact"]];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider safeValueForKeyPath:@"content.contact"]];
 		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -59,9 +59,9 @@
 	self.navigationItem.title = @"Job Offer";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];
+		self.headerView.titleLabel.text = [contentProvider safeValueForKeyPath:@"content.title"];
 		
-		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.description"];
+		self.headerView.detailsLabel.text = [contentProvider safeValueForKeyPath:@"content.description"];
 		
 	}	
 

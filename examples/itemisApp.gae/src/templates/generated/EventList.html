@@ -4,7 +4,7 @@
 {% block content %}
 
 <ul>
-{% for n in data.news|to_list %}
+{% for n in data|to_list:"news" %}
 <li>
   {% url views.EventDetailsByEventById n.id|urlencode as url %}
   <a href="{{ url }}">
@@ -16,7 +16,7 @@
 {% endfor %}
 </ul>
 <ul>
-{% for a in data.activity|to_list %}
+{% for a in data|to_list:"activity" %}
 <li>
   {% url views.EventDetailsByEventById a.id|urlencode as url %}
   <a href="{{ url }}">
@@ -28,7 +28,7 @@
 {% endfor %}
 </ul>
 <ul>
-{% for w in data.workshop|to_list %}
+{% for w in data|to_list:"workshop" %}
 <li>
   {% url views.EventDetailsByEventById w.id|urlencode as url %}
   <a href="{{ url }}">

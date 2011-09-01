@@ -7,7 +7,7 @@
 
 
 -(IPContentProvider*)providerForCompanyDescription {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"company.xml"];
+	NSString* url = @"http://www.itemis.de/language=de/~xml.company/37606";
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -19,7 +19,7 @@
 
 
 -(IPContentProvider*)providerForOfficeById:(id)id {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"offices/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://www.itemis.de/language=de/~xml.applause/", id];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -30,8 +30,8 @@
 
 
 
--(IPContentProvider*)providerForCarreerData {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"carreer.xml"];
+-(IPContentProvider*)providerForCareerData {
+	NSString* url = @"http://www.itemis.de/language=de/~xml.carreer/37606";
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -43,7 +43,7 @@
 
 
 -(IPContentProvider*)providerForJobById:(id)id {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"jobs/", [id stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://www.itemis.de/language=de/~xml.applause/", id];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -55,7 +55,7 @@
 
 
 -(IPContentProvider*)providerForCurrentTimeline {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"timeline.xml"];
+	NSString* url = @"http://www.itemis.de/language=de/~xml.timeline/37606";
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -67,7 +67,7 @@
 
 
 -(IPContentProvider*)providerForEventById:(id)e {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"events/", [[e valueForKeyPath:@"id"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://www.itemis.de/language=de/~xml.applause/", [e safeValueForKeyPath:@"id"]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -79,7 +79,7 @@
 
 
 -(IPContentProvider*)providerForPersonByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://dl.dropbox.com/u/232067/applause-sampledata/", @"people/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://www.itemis.de/applause/people/de/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
@@ -102,72 +102,12 @@
 
 
 
--(IPContentProvider*)providerForSessionsByDay:(id)day {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/sessions/day/", day, @".xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"sessions.session"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
--(IPContentProvider*)providerForSessionById:(id)s {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/sessions/id/", [s valueForKeyPath:@"id"], @".xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"result.session"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
--(IPContentProvider*)providerForSpeakerById:(id)s {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers/id/", [s valueForKeyPath:@"id"], @".xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"result.speaker"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
 -(IPContentProvider*)providerForBlogItemById:(id)b {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=", [[b valueForKeyPath:@"guid"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+	NSString* url = [NSString stringWithFormat:@"%@%@%@", @"http://feedsanitizer.appspot.com", @"/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss&id=", [[b safeValueForKeyPath:@"guid"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
 								  keyPathToContent: @"rss.channel.item"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
--(IPContentProvider*)providerForAllSpeakers {
-	NSString* url = [NSString stringWithFormat:@"%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers.xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"speakers.speaker"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
-
--(IPContentProvider*)providerForSpeakerByName:(id)name {
-	NSString* url = [NSString stringWithFormat:@"%@%@%@%@", @"http://eclipsecon2011-data.webbyapp.com", @"/speakers/name/", [name stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding], @".xml"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"result.speaker"
 								  andProviders:self] autorelease];
 	return result;
 }

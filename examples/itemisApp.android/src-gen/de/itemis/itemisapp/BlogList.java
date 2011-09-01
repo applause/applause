@@ -33,8 +33,9 @@ public class BlogList extends GenericListActivity<BlogItem> {
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
 		Iterable<BlogItem> items1 = items;
-		for (BlogItem i : items1)
-			rowAdapters.add(new Cell1(i));
+		if (items1 != null)
+			for (BlogItem i : items1)
+				rowAdapters.add(new Cell1(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();

@@ -12,7 +12,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	if(section == 0) {
-		return [[[contentProvider valueForKeyPath:@"content"] asArray] count];
+		return [[[contentProvider safeValueForKeyPath:@"content"] asArray] count];
 	} else
 		return 0;
 }
@@ -22,11 +22,11 @@
 
 
 	if(indexPath.section == 0) {
-	id item = [[[contentProvider valueForKeyPath:@"content"] asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"creator"];
-	cell.detailTextLabel.text = [item valueForKeyPath:@"title"];
+	cell.textLabel.text = [item safeValueForKeyPath:@"creator"];
+	cell.detailTextLabel.text = [item safeValueForKeyPath:@"title"];
 	
 	return cell;
 
@@ -41,7 +41,7 @@
 
 	if(indexPath.section == 0) {
 	
-	id item = [[[contentProvider valueForKeyPath:@"content"]asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content"]asArray] objectAtIndex: indexPath.row];
 		IPContentProvider *provider = [IPSimpleContentProvider providerWithContent:item andProviders:self.contentProvider.providers];
 		BlogDetailsViewController *controller = [[BlogDetailsViewController alloc] init];
 		controller.contentProvider = provider;

@@ -24,7 +24,6 @@
 		CB33065C13AFF65E007A4AFD /* PersonDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065B13AFF65E007A4AFD /* PersonDetailsViewController.m */; };
 		CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */; };
 		CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33066113AFF65E007A4AFD /* itemisAppProviders.m */; };
-		CB37265413E180F700973689 /* CarreerViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB37265313E180F700973689 /* CarreerViewViewController.m */; };
 		CB37265713E180F700973689 /* JobOfferDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB37265613E180F700973689 /* JobOfferDetailsViewController.m */; };
 		CB5C2E3713DD53AE00D14D0A /* IPTableViewCellMap.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5C2E3613DD53AE00D14D0A /* IPTableViewCellMap.m */; };
 		CB5C2E8E13DD5BAC00D14D0A /* mapsPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5C2E8D13DD5BAC00D14D0A /* mapsPlaceholder.png */; };
@@ -73,6 +72,7 @@
 		CBB8140111E6830D0047596D /* chat.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB813FE11E6830D0047596D /* chat.png */; };
 		CBB8140211E6830D0047596D /* microphone.png in Resources */ = {isa = PBXBuildFile; fileRef = CBB813FF11E6830D0047596D /* microphone.png */; };
 		CBE93B78115123AA004D8075 /* itemisBlog.xml in Resources */ = {isa = PBXBuildFile; fileRef = CBE93B77115123AA004D8075 /* itemisBlog.xml */; };
+		CBF09BA6140F83BC00F64863 /* CareerViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CBF09BA5140F83BC00F64863 /* CareerViewViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,8 +106,6 @@
 		CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppAppDelegate.m; path = Generated/itemisAppAppDelegate.m; sourceTree = "<group>"; };
 		CB33066013AFF65E007A4AFD /* itemisAppProviders.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = itemisAppProviders.h; path = Generated/itemisAppProviders.h; sourceTree = "<group>"; };
 		CB33066113AFF65E007A4AFD /* itemisAppProviders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppProviders.m; path = Generated/itemisAppProviders.m; sourceTree = "<group>"; };
-		CB37265213E180F700973689 /* CarreerViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CarreerViewViewController.h; path = Generated/CarreerViewViewController.h; sourceTree = "<group>"; };
-		CB37265313E180F700973689 /* CarreerViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CarreerViewViewController.m; path = Generated/CarreerViewViewController.m; sourceTree = "<group>"; };
 		CB37265513E180F700973689 /* JobOfferDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JobOfferDetailsViewController.h; path = Generated/JobOfferDetailsViewController.h; sourceTree = "<group>"; };
 		CB37265613E180F700973689 /* JobOfferDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JobOfferDetailsViewController.m; path = Generated/JobOfferDetailsViewController.m; sourceTree = "<group>"; };
 		CB5C2E3513DD53AE00D14D0A /* IPTableViewCellMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPTableViewCellMap.h; sourceTree = "<group>"; };
@@ -188,6 +186,8 @@
 		CBB813FE11E6830D0047596D /* chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chat.png; sourceTree = "<group>"; };
 		CBB813FF11E6830D0047596D /* microphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = microphone.png; sourceTree = "<group>"; };
 		CBE93B77115123AA004D8075 /* itemisBlog.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = itemisBlog.xml; sourceTree = "<group>"; };
+		CBF09BA4140F83BC00F64863 /* CareerViewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CareerViewViewController.h; path = Generated/CareerViewViewController.h; sourceTree = "<group>"; };
+		CBF09BA5140F83BC00F64863 /* CareerViewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CareerViewViewController.m; path = Generated/CareerViewViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,10 +286,10 @@
 				CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */,
 				CB33066013AFF65E007A4AFD /* itemisAppProviders.h */,
 				CB33066113AFF65E007A4AFD /* itemisAppProviders.m */,
-				CB37265213E180F700973689 /* CarreerViewViewController.h */,
-				CB37265313E180F700973689 /* CarreerViewViewController.m */,
 				CB37265513E180F700973689 /* JobOfferDetailsViewController.h */,
 				CB37265613E180F700973689 /* JobOfferDetailsViewController.m */,
+				CBF09BA4140F83BC00F64863 /* CareerViewViewController.h */,
+				CBF09BA5140F83BC00F64863 /* CareerViewViewController.m */,
 			);
 			name = Generated;
 			sourceTree = "<group>";
@@ -572,8 +572,8 @@
 				CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */,
 				CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */,
 				CB5C2E3713DD53AE00D14D0A /* IPTableViewCellMap.m in Sources */,
-				CB37265413E180F700973689 /* CarreerViewViewController.m in Sources */,
 				CB37265713E180F700973689 /* JobOfferDetailsViewController.m in Sources */,
+				CBF09BA6140F83BC00F64863 /* CareerViewViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
