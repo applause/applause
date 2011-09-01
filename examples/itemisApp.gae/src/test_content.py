@@ -4,7 +4,7 @@ Created on Mar 19, 2011
 @author: behrens
 '''
 import unittest
-import content
+import providers as content
 
 import lib.custom_filters
 
@@ -84,5 +84,5 @@ class Test(unittest.TestCase):
         self.assertEqual("2075", str(session['id']))
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testAllSpeakers']
+    import sys;sys.argv = ['', 'Test.testList']
     unittest.main()

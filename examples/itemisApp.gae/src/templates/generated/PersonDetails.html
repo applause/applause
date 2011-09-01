@@ -34,7 +34,7 @@
 
 <div class="table group">
 <ul>
-{% for w in data.webaddresses|to_list %}
+{% for w in data|to_list:"webaddresses" %}
 <li>
   
   <a href="{{w.url|safe|linebreaksbr}}">

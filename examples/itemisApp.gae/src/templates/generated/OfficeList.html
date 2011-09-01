@@ -13,7 +13,7 @@
 
 <div class="table group">
 <ul>
-{% for o in data.office|to_list %}
+{% for o in data|to_list:"office" %}
 <li>
   {% url views.OfficeDetailsByOfficeById o.id|urlencode as url %}
   <a href="{{ url }}">

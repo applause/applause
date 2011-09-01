@@ -20,7 +20,7 @@
 		return 1 + 1;
 	} else
 	if(section == 1) {
-		return [[[contentProvider valueForKeyPath:@"content.webaddresses"] asArray] count];
+		return [[[contentProvider safeValueForKeyPath:@"content.webaddresses"] asArray] count];
 	} else
 		return 0;
 }
@@ -34,7 +34,7 @@
 	
     UITableViewCell *cell = [self cellValue2ForTableView:tableView];
 	cell.textLabel.text = @"mail";
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.mail"];
+	cell.detailTextLabel.text = [contentProvider safeValueForKeyPath:@"content.mail"];
 	
 	return cell;
 
@@ -47,7 +47,7 @@
 	
     UITableViewCell *cell = [self cellValue2ForTableView:tableView];
 	cell.textLabel.text = @"phone";
-	cell.detailTextLabel.text = [contentProvider valueForKeyPath:@"content.phone"];
+	cell.detailTextLabel.text = [contentProvider safeValueForKeyPath:@"content.phone"];
 	
 	return cell;
 
@@ -57,10 +57,10 @@
 
 
 	if(indexPath.section == 1) {
-	id item = [[[contentProvider valueForKeyPath:@"content.webaddresses"] asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.webaddresses"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellDefaultForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"title"];
+	cell.textLabel.text = [item safeValueForKeyPath:@"title"];
 	
 	
 	return cell;
@@ -77,7 +77,7 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"mailto:", [contentProvider valueForKeyPath:@"content.mail"]];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"mailto:", [contentProvider safeValueForKeyPath:@"content.mail"]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -87,7 +87,7 @@
 	if(indexPath.section == 0 && indexPath.row == 1) {
 	
 	
-		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"tel:", [contentProvider valueForKeyPath:@"content.phone"]];
+		NSString *urlString = [NSString stringWithFormat:@"%@%@", @"tel:", [contentProvider safeValueForKeyPath:@"content.phone"]];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -97,8 +97,8 @@
 
 	if(indexPath.section == 1) {
 	
-	id item = [[[contentProvider valueForKeyPath:@"content.webaddresses"]asArray] objectAtIndex: indexPath.row];
-		NSString *urlString = [item valueForKeyPath:@"url"];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.webaddresses"]asArray] objectAtIndex: indexPath.row];
+		NSString *urlString = [item safeValueForKeyPath:@"url"];
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
 
 	
@@ -110,10 +110,10 @@
 	self.navigationItem.title = @"Person";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.name"];
+		self.headerView.titleLabel.text = [contentProvider safeValueForKeyPath:@"content.name"];
 		
-		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.bio"];
-		NSString *imageURL = [contentProvider valueForKeyPath:@"content.pictureurl"];
+		self.headerView.detailsLabel.text = [contentProvider safeValueForKeyPath:@"content.bio"];
+		NSString *imageURL = [contentProvider safeValueForKeyPath:@"content.pictureurl"];
 		self.headerView.image.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
 	}	
 

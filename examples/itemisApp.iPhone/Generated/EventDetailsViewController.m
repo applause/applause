@@ -22,7 +22,7 @@
 		return 1;
 	} else
 	if(section == 1) {
-		return [[[contentProvider valueForKeyPath:@"content.speakers"] asArray] count];
+		return [[[contentProvider safeValueForKeyPath:@"content.speakers"] asArray] count];
 	} else
 		return 0;
 }
@@ -35,7 +35,7 @@
 	
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [contentProvider valueForKeyPath:@"content.contact"];
+	cell.textLabel.text = [contentProvider safeValueForKeyPath:@"content.contact"];
 	cell.detailTextLabel.text = @"Contact";
 	
 	return cell;
@@ -46,11 +46,11 @@
 
 
 	if(indexPath.section == 1) {
-	id item = [[[contentProvider valueForKeyPath:@"content.speakers"] asArray] objectAtIndex: indexPath.row];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.speakers"] asArray] objectAtIndex: indexPath.row];
 	
     UITableViewCell *cell = [self cellSubtitleForTableView:tableView];
-	cell.textLabel.text = [item valueForKeyPath:@"name"];
-	cell.detailTextLabel.text = [item valueForKeyPath:@"role"];
+	cell.textLabel.text = [item safeValueForKeyPath:@"name"];
+	cell.detailTextLabel.text = [item safeValueForKeyPath:@"role"];
 	
 	return cell;
 
@@ -66,7 +66,7 @@
 	if(indexPath.section == 0 && indexPath.row == 0) {
 	
 	
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider valueForKeyPath:@"content.contact"]];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [contentProvider safeValueForKeyPath:@"content.contact"]];
 		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -79,8 +79,8 @@
 
 	if(indexPath.section == 1) {
 	
-	id item = [[[contentProvider valueForKeyPath:@"content.speakers"]asArray] objectAtIndex: indexPath.row];
-		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [item valueForKeyPath:@"name"]];
+	id item = [[[contentProvider safeValueForKeyPath:@"content.speakers"]asArray] objectAtIndex: indexPath.row];
+		IPContentProvider *provider = [(itemisAppProviders*)contentProvider.providers providerForPersonByName: [item safeValueForKeyPath:@"name"]];
 		PersonDetailsViewController *controller = [[PersonDetailsViewController alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
@@ -95,9 +95,9 @@
 	self.navigationItem.title = @"Event";
 	
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		self.headerView.titleLabel.text = [contentProvider valueForKeyPath:@"content.title"];
-		self.headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@%@%@", [contentProvider valueForKeyPath:@"content.date"], @" ", [contentProvider valueForKeyPath:@"content.location"]];
-		self.headerView.detailsLabel.text = [contentProvider valueForKeyPath:@"content.description"];
+		self.headerView.titleLabel.text = [contentProvider safeValueForKeyPath:@"content.title"];
+		self.headerView.subtitleLabel.text = [NSString stringWithFormat:@"%@%@%@", [contentProvider safeValueForKeyPath:@"content.date"], @" ", [contentProvider safeValueForKeyPath:@"content.location"]];
+		self.headerView.detailsLabel.text = [contentProvider safeValueForKeyPath:@"content.description"];
 		
 	}	
 

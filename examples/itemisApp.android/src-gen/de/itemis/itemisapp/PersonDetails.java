@@ -41,8 +41,9 @@ public class PersonDetails extends DetailsActivity<Contact> {
 		rowAdapters.add(new Cell2(null));
 
 		Iterable<WebAddress> items3 = person.getWebaddresses();
-		for (WebAddress i : items3)
-			rowAdapters.add(new Cell3(i));
+		if (items3 != null)
+			for (WebAddress i : items3)
+				rowAdapters.add(new Cell3(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
