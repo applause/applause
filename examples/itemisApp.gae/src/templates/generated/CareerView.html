@@ -13,7 +13,7 @@
 
 <div class="table group">
 <ul>
-{% for l in data.link|to_list %}
+{% for l in data|to_list:"link" %}
 <li>
   
   <a href="{{l.url|safe|linebreaksbr}}">
@@ -27,7 +27,7 @@
 
 <div class="table group">
 <ul>
-{% for j in data.job|to_list %}
+{% for j in data|to_list:"job" %}
 <li>
   {% url views.JobOfferDetailsByJobById j.id|urlencode as url %}
   <a href="{{ url }}">

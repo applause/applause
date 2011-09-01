@@ -16,29 +16,38 @@ viewCssClasses(DetailsView this):
 tplCellForLoop(SectionCell this):
 	iterator == null 
 		? ""
-		: "{% for " + iterator.name + " in " + iterator.collection._expression("data") + "|to_list %}\n";
+		: "{% for " + iterator.name + " in " + iterator.collection._collection_expression("data") +" %}\n";
 
-String _expression(CollectionExpression this, String target):
+private String _expression(CollectionExpression this, String target):
 	"!_expression-" + this.metaType;
 	
-String _expression(Expression this, String target):
+private String _expression(Expression this, String target):
 	"!_expression-" + this.metaType;
 	
-String _expression(ScalarExpression this, String target):
+private String _expression(ScalarExpression this, String target):
 	"!_expression-" + this.metaType;
 
-String _expression(StringLiteral this, String target):
+private String _expression(StringLiteral this, String target):
 	"'" + value + "'";
 	
-String _expression(StringReplace this, String target): // TODO
+private String _expression(StringReplace this, String target): // TODO
 	"##replace" + target;
 	
-String _expression(StringSplit this, String target): // TODO
+private String _expression(StringSplit this, String target): // TODO
 	this.value._expression(target) + '|split:' + this.delimiter._expression(target); 
 		
-
-String _expression(ObjectReference this, String target):
+private String _expression(ObjectReference this, String target):
 	{target}.addAll(toList().withoutFirst()).toString(".");
+	
+private String _collection_expression(Expression this, String target):
+	_expression(target) + "|to_list";
+	
+private String _collection_expression(ObjectReference this, String target):
+	let path = {target}.addAll(toList().withoutFirst()):
+		path.size > 1
+			? path.withoutLast().toString(".") + '|to_list:"' + path.last() + '"'
+			: path.toString(".") + "|to_list"
+	;
 
 String expression(ScalarExpression this, String target):
 	"!expression-" + this.metaType;
