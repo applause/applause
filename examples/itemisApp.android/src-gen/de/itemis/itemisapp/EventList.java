@@ -33,16 +33,19 @@ public class EventList extends GenericListActivity<AllEvents> {
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
 		Iterable<Event> items1 = allEvents.getNews();
-		for (Event i : items1)
-			rowAdapters.add(new Cell1(i));
+		if (items1 != null)
+			for (Event i : items1)
+				rowAdapters.add(new Cell1(i));
 
 		Iterable<Event> items2 = allEvents.getActivity();
-		for (Event i : items2)
-			rowAdapters.add(new Cell2(i));
+		if (items2 != null)
+			for (Event i : items2)
+				rowAdapters.add(new Cell2(i));
 
 		Iterable<Event> items3 = allEvents.getWorkshop();
-		for (Event i : items3)
-			rowAdapters.add(new Cell3(i));
+		if (items3 != null)
+			for (Event i : items3)
+				rowAdapters.add(new Cell3(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();

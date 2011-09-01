@@ -83,8 +83,9 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 «DEFINE cell(Integer i) FOR SectionCell»
 «IF this.iterator!=null»
 	Iterable<«iterator.collection.javaType()»> items«i» = «iterator.collection.expression("")»;
-	for(«iterator.collection.javaType()» i : items«i»)
-		rowAdapters.add(new Cell«i»(i));
+	if(items«i» != null)
+		for(«iterator.collection.javaType()» i : items«i»)
+			rowAdapters.add(new Cell«i»(i));
 «ELSE»
 	rowAdapters.add(new Cell«i»(null));
 «ENDIF»

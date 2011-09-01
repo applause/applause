@@ -35,12 +35,14 @@ public class CareerView extends DetailsActivity<Career> {
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
 		Iterable<Link> items1 = career.getLink();
-		for (Link i : items1)
-			rowAdapters.add(new Cell1(i));
+		if (items1 != null)
+			for (Link i : items1)
+				rowAdapters.add(new Cell1(i));
 
 		Iterable<JobOffer> items2 = career.getJob();
-		for (JobOffer i : items2)
-			rowAdapters.add(new Cell2(i));
+		if (items2 != null)
+			for (JobOffer i : items2)
+				rowAdapters.add(new Cell2(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();

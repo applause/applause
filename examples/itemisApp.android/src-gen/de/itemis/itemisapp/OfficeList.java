@@ -36,8 +36,9 @@ public class OfficeList extends DetailsActivity<Company> {
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
 
 		Iterable<Office> items1 = company.getOffice();
-		for (Office i : items1)
-			rowAdapters.add(new Cell1(i));
+		if (items1 != null)
+			for (Office i : items1)
+				rowAdapters.add(new Cell1(i));
 
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
