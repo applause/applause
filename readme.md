@@ -37,11 +37,11 @@ Even though you can build simple mobile applications with this open-source versi
 
 ## License ##
 
-Licensed under the [EPL](http://www.eclipse.org/legal/epl-v10.html).
+As long as not otherwise noted (e.g. third-party libraries), all files of the Applauce project are licensed under the [EPL](http://www.eclipse.org/legal/epl-v10.html).
 
 ## Code of Conduct / Development Guidelines ##
 
-The Applause project follows the development practices of the [Eclipse Development Process](http://www.eclipse.org/projects/dev_process/development_process_2010.php)
+The Applause project follows the development practices of the [Eclipse Development Process](http://www.eclipse.org/projects/dev_process/development_process_2010.php).
 
 ## Contributors ##
 
@@ -52,7 +52,7 @@ The following people are the major contributors to Applause:
 
 We welcome contributions. If you want to contribute, please:
 
-1. Have a look at our issue tracker for open, unassigned issues and pick one.
+1. Have a look at our [issue tracker](issues) issue tracker for open, unassigned issues and pick one.
 2. Clone a local working copy Applause and do your thing.
 3. Send us a pull request.
 
