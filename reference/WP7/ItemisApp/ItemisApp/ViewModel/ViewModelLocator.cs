@@ -29,14 +29,16 @@ public class ViewModelLocator
         /// </summary>
         public ViewModelLocator()
         {
-            ////if (ViewModelBase.IsInDesignModeStatic)
-            ////{
-            ////    // Create design time view models
-            ////}
-            ////else
-            ////{
-            ////    // Create run time view models
-            ////}
+            if (ViewModelBase.IsInDesignModeStatic)
+            {
+                // Create design time view models
+            }
+            else
+            {
+                // Create run time view models
+                CreateBlogpostsViewModel();
+                CreateAllEventsViewModel();
+            }
 
             CreateMain();
         }
@@ -143,6 +145,58 @@ public class ViewModelLocator
             }
         }
 
+        private static AllEventsViewModel _allEventsViewModel;
+
+        /// <summary>
+        /// Gets the  AllEventsViewModel property.
+        /// </summary>
+        public static AllEventsViewModel AllEventsViewModelStatic
+        {
+            get
+            {
+                if (_allEventsViewModel == null)
+                {
+                    CreateAllEventsViewModel();
+                }
+
+                return _allEventsViewModel;
+            }
+        }
+
+        /// <summary>
+        /// Gets the AllEventsViewModel property.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public AllEventsViewModel AllEventsViewModel
+        {
+            get
+            {
+                return AllEventsViewModelStatic;
+            }
+        }
+
+        /// <summary>
+        /// Provides a deterministic way to delete the ViewModelPropertyName property.
+        /// </summary>
+        public static void ClearAllEventsViewModel()
+        {
+            _allEventsViewModel.Cleanup();
+            _allEventsViewModel = null;
+        }
+
+        /// <summary>
+        /// Provides a deterministic way to create the ViewModelPropertyName property.
+        /// </summary>
+        public static void CreateAllEventsViewModel()
+        {
+            if (_allEventsViewModel == null)
+            {
+                _allEventsViewModel = new AllEventsViewModel();
+            }
+        }
+
         /// <summary>
         /// Cleans up all the resources.
         /// </summary>
@@ -150,6 +204,7 @@ public class ViewModelLocator
         {
             ClearMain();
             ClearBlogpostsViewModel();
+            ClearAllEventsViewModel();
         }
     }
 }

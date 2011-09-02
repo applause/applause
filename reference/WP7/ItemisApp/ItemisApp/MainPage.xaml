@@ -19,13 +19,14 @@
         <!--Pivot Control-->
         <controls:Pivot Title="itemis">
             <!--Pivot item one-->
-            <controls:PivotItem Header="News">
-                <ListBox x:Name="FirstListBox" Margin="0,0,-12,0" ItemsSource="{Binding}">
+            <controls:PivotItem Header="News"
+                                DataContext="{Binding AllEventsViewModel, Source={StaticResource Locator}}">
+                <ListBox x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEvents.Workshop}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432" Height="78">
-                              <TextBlock Text="{Binding LineOne}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}"/>
-                              <TextBlock Text="{Binding LineTwo}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                              <TextBlock Text="{Binding Path=Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Path=Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
