@@ -12,7 +12,7 @@
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True">
+    shell:SystemTray.IsVisible="True" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -21,16 +21,17 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="News"
                                 DataContext="{Binding AllEventsViewModel, Source={StaticResource Locator}}">
-                <ListBox x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEvents.Workshop}">
-                    <ListBox.ItemTemplate>
+                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEvents.Workshop}" IsFlatList="True">
+                    <toolkit:LongListSelector.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17" Width="432" Height="78">
                               <TextBlock Text="{Binding Path=Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
                               <TextBlock Text="{Binding Path=Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+                    </toolkit:LongListSelector.ItemTemplate>
+                </toolkit:LongListSelector>
+                
             </controls:PivotItem>
  
             <!-- Pivot item Bloglist -->
