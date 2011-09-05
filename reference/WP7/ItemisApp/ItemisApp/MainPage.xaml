@@ -21,17 +21,23 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="News"
                                 DataContext="{Binding AllEventsViewModel, Source={StaticResource Locator}}">
-                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEvents.Workshop}" IsFlatList="True">
+                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEventsGrouped}" IsFlatList="False">
+                    <toolkit:LongListSelector.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
+                                <TextBlock Text="{Binding Key}"/>
+                            </Border>
+                        </DataTemplate>
+                    </toolkit:LongListSelector.GroupHeaderTemplate>
                     <toolkit:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                          <StackPanel Margin="0,0,0,17" Width="432" Height="78">
+                          <StackPanel Margin="0,0,0,17">
                               <TextBlock Text="{Binding Path=Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
                               <TextBlock Text="{Binding Path=Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
                     </toolkit:LongListSelector.ItemTemplate>
                 </toolkit:LongListSelector>
-                
             </controls:PivotItem>
  
             <!-- Pivot item Bloglist -->
@@ -41,8 +47,8 @@
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Margin="0,0,0,17">
-                                <TextBlock Text="{Binding Title}" TextWrapping="NoWrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                <TextBlock Text="{Binding Creator}" TextWrapping="NoWrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextLargeStyle}"/>
+                                <TextBlock Text="{Binding Creator}" TextWrapping="Wrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

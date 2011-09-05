@@ -87,6 +87,7 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModel\AllEventsViewModel.cs" />
     <Compile Include="ViewModel\BlogpostsViewModel.cs" />
+    <Compile Include="ViewModel\GroupingLayer.cs" />
     <Compile Include="ViewModel\LinqXmlExtensions.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
