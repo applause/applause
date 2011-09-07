@@ -7,6 +7,10 @@ using GalaSoft.MvvmLight;
 using ItemisApp.Model;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using GalaSoft.MvvmLight.Command;
+using System.Windows.Navigation;
+using ItemisApp.Views;
+using GalaSoft.MvvmLight.Messaging;
 
 namespace ItemisApp.ViewModel
 {
@@ -170,5 +174,23 @@ namespace ItemisApp.ViewModel
             }
         }
 
+        private RelayCommand<Event> _gotoEventDetailsCommand;
+
+        /// <summary>
+        /// Gets the TestCommand.
+        /// </summary>
+        public RelayCommand<Event> GotoEventDetailsCommand
+        {
+            get
+            {
+                return _gotoEventDetailsCommand ?? (_gotoEventDetailsCommand = new RelayCommand<Event>(
+                    (theEvent) =>
+                    {
+                        var msg = new GotoPageWithEventMessage() { PageName = "EventDetailsPage" + ".xaml", Event = theEvent };
+                        Messenger.Default.Send<GotoPageWithEventMessage>(msg);
+                    }));
+            }
+        }
+        
     }
 }

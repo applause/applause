@@ -12,11 +12,25 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using ItemisApp.Views;
 
 namespace ItemisApp
 {
     public partial class App : Application
     {
+        public static Stack<GotoPageMessage> NavigationStack
+        {
+            get
+            {
+                if (!PhoneApplicationService.Current.State.ContainsKey("NavigationStack"))
+                {
+                    PhoneApplicationService.Current.State["NavigationStack"] = new Stack<GotoPageMessage>();
+                }
+                Stack<GotoPageMessage> stack = (Stack<GotoPageMessage>)PhoneApplicationService.Current.State["NavigationStack"];
+                return stack;
+            }
+        }
+
         private static MainViewModel viewModel = null;
 
         /// <summary>

@@ -43,8 +43,8 @@ namespace ItemisApp.ViewModel
             else
             {
                 // Code runs "for real": Connect to service, etc...
-                //LoadData("http://feeds.feedburner.com/FormFollowsFunction");
-                LoadData("http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss");
+                LoadData("http://feeds.feedburner.com/FormFollowsFunction");
+                //LoadData("http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss");
             }
         }
 

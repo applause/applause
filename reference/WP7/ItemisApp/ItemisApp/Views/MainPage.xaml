@@ -1,5 +1,4 @@
-﻿<phone:PhoneApplicationPage 
-    x:Class="ItemisApp.MainPage"
+﻿<phone:PhoneApplicationPage
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -7,12 +6,14 @@
     xmlns:controls="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" 
+    x:Class="ItemisApp.MainPage" 
     mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait"  Orientation="Portrait"
-    shell:SystemTray.IsVisible="True" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+    shell:SystemTray.IsVisible="True">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -21,7 +22,7 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="News"
                                 DataContext="{Binding AllEventsViewModel, Source={StaticResource Locator}}">
-                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEventsGrouped}" IsFlatList="False">
+                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding AllEventsGrouped}" IsFlatList="False">
                     <toolkit:LongListSelector.GroupHeaderTemplate>
                         <DataTemplate>
                             <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
@@ -32,11 +33,16 @@
                     <toolkit:LongListSelector.ItemTemplate>
                         <DataTemplate>
                           <StackPanel Margin="0,0,0,17">
-                              <TextBlock Text="{Binding Path=Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                              <TextBlock Text="{Binding Path=Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                              <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
+                              <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
                         </DataTemplate>
                     </toolkit:LongListSelector.ItemTemplate>
+                	<i:Interaction.Triggers>
+                		<i:EventTrigger EventName="SelectionChanged">
+                			<GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding GotoEventDetailsCommand, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=EventListListBox}"/>
+                		</i:EventTrigger>
+                	</i:Interaction.Triggers>
                 </toolkit:LongListSelector>
             </controls:PivotItem>
  
