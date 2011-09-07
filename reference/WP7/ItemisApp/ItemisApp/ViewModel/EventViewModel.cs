@@ -23,6 +23,21 @@ namespace ItemisApp.ViewModel
                     Title = "This is the dummy title.",
                     Contact = "John Doe",
                     Link = "http://demo.com",
+                    Speakers = new List<Contact>()
+                    {
+                        new Contact() {
+                            Name = "Peter Friese",
+                            Bio = "A really nice and alround together guy.",
+                            Mail = "peter@peterfriese.de",
+                            Role = "Software Architect"
+                        },
+                        new Contact() {
+                            Name = "Heiko Behrens",
+                            Bio = "CEO of BeamApp",
+                            Mail = "heikobehrens@gmx.net",
+                            Role = "CEO"
+                        }
+                    }
                 };
             }
             else
@@ -54,6 +69,7 @@ namespace ItemisApp.ViewModel
 
                 var oldValue = _event;
                 _event = value;
+                PrepareData();
 
                 RaisePropertyChanged(EventPropertyName);
             }
@@ -71,7 +87,7 @@ namespace ItemisApp.ViewModel
 		            }
 	            }
              */
-            GroupingLayer<string, string> section1 = new GroupingLayer<string, string>("", new List<string>() {Event.Contact });
+            GroupingLayer<string, string> section1 = new GroupingLayer<string, string>("Contact", new List<string>() {Event.Contact });
 
             /**
 	            section {
@@ -82,7 +98,7 @@ namespace ItemisApp.ViewModel
 		            }
 	            }             
              */
-            GroupingLayer<string, Contact> section2 = new GroupingLayer<string, Contact>("", Event.Speakers);
+            GroupingLayer<string, Contact> section2 = new GroupingLayer<string, Contact>("Speakers", Event.Speakers);
 
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
