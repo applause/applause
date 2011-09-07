@@ -12,7 +12,7 @@ namespace ItemisApp.ViewModel
         public GroupingLayer(TKey key, IEnumerable<TElement> collection)
         {
             Key = key;
-            Collection = collection;
+            Collection = collection ?? new List<TElement>();
         }
 
         public IEnumerator<TElement> GetEnumerator()
