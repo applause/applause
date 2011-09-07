@@ -13,11 +13,11 @@ namespace ItemisApp.Model
 {
     public class Contact
     {
-        public string name { get; set; }
-	    public string role { get; set; }
-        public string bio { get; set; }
-	    public string pictureurl { get; set; }
-	    public string mail { get; set; }
-        public string phone { get; set; }
+        public string Name { get; set; }
+	    public string Role { get; set; }
+        public string Bio { get; set; }
+	    public string Pictureurl { get; set; }
+	    public string Mail { get; set; }
+        public string Phone { get; set; }
     }
 }

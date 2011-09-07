@@ -79,7 +79,13 @@ namespace ItemisApp.ViewModel
                                                    Location = workshop.ElementAnyNS("location").Value,
                                                    Description = workshop.ElementAnyNS("description").Value,
                                                    Contact = workshop.ElementAnyNS("contact").Value,
-                                                   Link = workshop.ElementAnyNS("url").Value
+                                                   Link = workshop.ElementAnyNS("url").Value,
+                                                   Speakers = (from speakers in workshop.Descendants("speakers")
+                                                               select new Contact()
+                                                               {
+                                                                   Name = speakers.Element("name").Value,
+                                                                   Role = speakers.Element("role").Value
+                                                               }).ToList()
                                                }).ToList()
                                });
             Deployment.Current.Dispatcher.BeginInvoke(() =>
