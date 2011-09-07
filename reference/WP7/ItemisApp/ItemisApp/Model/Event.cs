@@ -9,34 +9,21 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using System.Runtime.Serialization;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ItemisApp.Model
 {
-    [DataContract]
     public class Event
     {
-        [DataMember]
         public string Id { get; set; }
-
-        [DataMember]
         public string Kind { get; set; }
-
-        [DataMember]
         public string Title { get; set; }
-
-        [DataMember]
         public string Date { get; set; }
-
-        [DataMember]
         public string Location { get; set; }
-
-        [DataMember]
         public string Description { get; set; }
-
-        [DataMember]
         public string Contact { get; set; }
-
-        [DataMember]
         public string Link { get; set; }
+        public List<Contact> Speakers { get; set; }
     }
 }

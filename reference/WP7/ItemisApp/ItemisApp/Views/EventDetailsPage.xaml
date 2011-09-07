@@ -12,7 +12,8 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     xmlns:local="clr-namespace:ItemisApp.ViewModel"
-    shell:SystemTray.IsVisible="True" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+    shell:SystemTray.IsVisible="True" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    DataContext="{Binding Source={StaticResource Locator}, Path=EventViewModel}">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -30,9 +31,9 @@
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
             <StackPanel>
-                <TextBlock x:Name="HeaderTitle" Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                <TextBlock x:Name="HeaderSubTitle" Text="{Binding Date}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                <TextBlock x:Name="HeaderDetails" Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}"/>
+                <TextBlock x:Name="HeaderTitle" Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=Event}" />
+                <TextBlock x:Name="HeaderSubTitle" Text="{Binding Date}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=Event}" />
+                <TextBlock x:Name="HeaderDetails" Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=Event}" />
             </StackPanel>
             <toolkit:LongListSelector x:Name="EventDetailListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEventsGrouped}" IsFlatList="False">
                 <toolkit:LongListSelector.GroupHeaderTemplate>

@@ -13,10 +13,8 @@ using System.Runtime.Serialization;
 
 namespace ItemisApp.Views
 {
-    [DataContract]
     public class GotoPageWithEventMessage: GotoPageMessage
     {
-        [DataMember]
         public Event Event { get; set; }
     }
 }

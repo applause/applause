@@ -22,16 +22,16 @@ namespace ItemisApp.Views
             InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
-        {
-            GotoPageMessage msg = (GotoPageMessage) PhoneApplicationService.Current.State["navigation"]; // App.NavigationStack.Peek();
-            if (msg is GotoPageWithEventMessage)
-            {
-                GotoPageWithEventMessage msgWithEvent = (GotoPageWithEventMessage)msg;
-                Event data = msgWithEvent.Event;
-                this.DataContext = data;
-            }
-            base.OnNavigatedTo(e);
-        }
+        //protected override void OnNavigatedTo(System.Windows.Navigation.NavigationEventArgs e)
+        //{
+        //    GotoPageMessage msg = (GotoPageMessage)PhoneApplicationService.Current.State["navigation"]; // App.NavigationStack.Peek();
+        //    if (msg is GotoPageWithEventMessage)
+        //    {
+        //        GotoPageWithEventMessage msgWithEvent = (GotoPageWithEventMessage)msg;
+        //        Event data = msgWithEvent.Event;
+        //        this.DataContext = data;
+        //    }
+        //    base.OnNavigatedTo(e);
+        //}
     }
 }

@@ -22,7 +22,7 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="News"
                                 DataContext="{Binding AllEventsViewModel, Source={StaticResource Locator}}">
-                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding AllEventsGrouped}" IsFlatList="False">
+                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding AllEventsGrouped}" IsFlatList="False" SelectedItem="{Binding Path=SelectedEvent, Mode=TwoWay}">
                     <toolkit:LongListSelector.GroupHeaderTemplate>
                         <DataTemplate>
                             <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">

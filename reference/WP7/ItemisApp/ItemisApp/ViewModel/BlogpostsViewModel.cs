@@ -4,29 +4,13 @@ using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Xml.Linq;
-using ItemisApp.Model;
 using GalaSoft.MvvmLight;
-using System.Collections.Generic;
+using ItemisApp.Model;
 
 namespace ItemisApp.ViewModel
 {
-    /// <summary>
-    /// This class contains properties that a View can data bind to.
-    /// <para>
-    /// Use the <strong>mvvminpc</strong> snippet to add bindable properties to this ViewModel.
-    /// </para>
-    /// <para>
-    /// You can also use Blend to data bind with the tool's support.
-    /// </para>
-    /// <para>
-    /// See http://www.galasoft.ch/mvvm/getstarted
-    /// </para>
-    /// </summary>
     public class BlogpostsViewModel : ViewModelBase
     {
-        /// <summary>
-        /// Initializes a new instance of the BlogpostsViewModel class.
-        /// </summary>
         public BlogpostsViewModel()
         {
             if (IsInDesignMode)
@@ -42,11 +26,12 @@ namespace ItemisApp.ViewModel
             }
             else
             {
-                // Code runs "for real": Connect to service, etc...
                 LoadData("http://feeds.feedburner.com/FormFollowsFunction");
                 //LoadData("http://feedsanitizer.appspot.com/sanitize?url=http%3A%2F%2Fblogs.itemis.de%2F%3Fshowfeed%3D1&format=rss");
             }
         }
+
+        #region Data Access
 
         private HttpWebRequest httpWebRequest;
 
@@ -80,28 +65,14 @@ namespace ItemisApp.ViewModel
             });
 
         }
+        #endregion
 
+        #region Blogposts Property
 
-        ////public override void Cleanup()
-        ////{
-        ////    // Clean own resources if needed
-
-        ////    base.Cleanup();
-        ////}
-
-        /// <summary>
-        /// The <see cref="Blogposts" /> property's name.
-        /// </summary>
         public const string BlogpostsPropertyName = "Blogposts";
 
         private ObservableCollection<BlogItem> _blogposts = new ObservableCollection<BlogItem>();
 
-        /// <summary>
-        /// Gets the Blogposts property.
-        /// TODO Update documentation:
-        /// Changes to that property's value raise the PropertyChanged event. 
-        /// This property's value is broadcasted by the Messenger's default instance when it changes.
-        /// </summary>
         public ObservableCollection<BlogItem> Blogposts
         {
             get
@@ -119,9 +90,9 @@ namespace ItemisApp.ViewModel
                 var oldValue = _blogposts;
                 _blogposts = value;
 
-                // Update bindings, no broadcast
                 RaisePropertyChanged(BlogpostsPropertyName);
             }
         }
+        #endregion
     }
 }

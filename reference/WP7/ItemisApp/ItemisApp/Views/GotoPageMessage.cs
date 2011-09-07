@@ -12,10 +12,8 @@ using System.Runtime.Serialization;
 
 namespace ItemisApp.Views
 {
-    [DataContract]
     public class GotoPageMessage
     {
-        [DataMember]
         public string PageName { get; set; }
     }
 }

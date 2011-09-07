@@ -11,13 +11,13 @@ using System.Windows.Shapes;
 
 namespace ItemisApp.Model
 {
-    public class BlogItem
+    public class Contact
     {
-        public string Guid { get; set; }
-        public string Title { get; set; }
-        public string Link { get; set; }
-        public string Description { get; set; }
-        public string Creator { get; set; }
-        public string PubDate { get; set; }
+        public string name { get; set; }
+	    public string role { get; set; }
+        public string bio { get; set; }
+	    public string pictureurl { get; set; }
+	    public string mail { get; set; }
+        public string phone { get; set; }
     }
 }

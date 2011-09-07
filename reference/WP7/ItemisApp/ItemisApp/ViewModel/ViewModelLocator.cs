@@ -24,9 +24,6 @@ public class ViewModelLocator
     {
         private static MainViewModel _main;
 
-        /// <summary>
-        /// Initializes a new instance of the ViewModelLocator class.
-        /// </summary>
         public ViewModelLocator()
         {
             if (ViewModelBase.IsInDesignModeStatic)
@@ -38,14 +35,14 @@ public class ViewModelLocator
                 // Create run time view models
                 CreateBlogpostsViewModel();
                 CreateAllEventsViewModel();
+                CreateEventViewModel();
             }
 
             CreateMain();
         }
 
-        /// <summary>
-        /// Gets the Main property.
-        /// </summary>
+        #region Main Property
+
         public static MainViewModel MainStatic
         {
             get
@@ -59,9 +56,6 @@ public class ViewModelLocator
             }
         }
 
-        /// <summary>
-        /// Gets the Main property.
-        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
@@ -73,18 +67,12 @@ public class ViewModelLocator
             }
         }
 
-        /// <summary>
-        /// Provides a deterministic way to delete the Main property.
-        /// </summary>
         public static void ClearMain()
         {
             _main.Cleanup();
             _main = null;
         }
 
-        /// <summary>
-        /// Provides a deterministic way to create the Main property.
-        /// </summary>
         public static void CreateMain()
         {
             if (_main == null)
@@ -92,12 +80,11 @@ public class ViewModelLocator
                 _main = new MainViewModel();
             }
         }
+        #endregion
+
+        #region Blogposts Property
 
         private static BlogpostsViewModel _blogpostsViewModel;
-
-        /// <summary>
-        /// Gets the ViewModelPropertyName property.
-        /// </summary>
         public static BlogpostsViewModel BlogpostsViewModelStatic
         {
             get
@@ -111,9 +98,6 @@ public class ViewModelLocator
             }
         }
 
-        /// <summary>
-        /// Gets the BlogpostsViewModel property.
-        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
@@ -125,18 +109,12 @@ public class ViewModelLocator
             }
         }
 
-        /// <summary>
-        /// Provides a deterministic way to delete the ViewModelPropertyName property.
-        /// </summary>
         public static void ClearBlogpostsViewModel()
         {
             _blogpostsViewModel.Cleanup();
             _blogpostsViewModel = null;
         }
 
-        /// <summary>
-        /// Provides a deterministic way to create the ViewModelPropertyName property.
-        /// </summary>
         public static void CreateBlogpostsViewModel()
         {
             if (_blogpostsViewModel == null)
@@ -144,12 +122,12 @@ public class ViewModelLocator
                 _blogpostsViewModel = new BlogpostsViewModel();
             }
         }
+        #endregion
+
+        #region AllEvents Property
 
         private static AllEventsViewModel _allEventsViewModel;
 
-        /// <summary>
-        /// Gets the  AllEventsViewModel property.
-        /// </summary>
         public static AllEventsViewModel AllEventsViewModelStatic
         {
             get
@@ -163,9 +141,6 @@ public class ViewModelLocator
             }
         }
 
-        /// <summary>
-        /// Gets the AllEventsViewModel property.
-        /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
@@ -177,18 +152,12 @@ public class ViewModelLocator
             }
         }
 
-        /// <summary>
-        /// Provides a deterministic way to delete the ViewModelPropertyName property.
-        /// </summary>
         public static void ClearAllEventsViewModel()
         {
             _allEventsViewModel.Cleanup();
             _allEventsViewModel = null;
         }
 
-        /// <summary>
-        /// Provides a deterministic way to create the ViewModelPropertyName property.
-        /// </summary>
         public static void CreateAllEventsViewModel()
         {
             if (_allEventsViewModel == null)
@@ -196,15 +165,56 @@ public class ViewModelLocator
                 _allEventsViewModel = new AllEventsViewModel();
             }
         }
+        #endregion
 
-        /// <summary>
-        /// Cleans up all the resources.
-        /// </summary>
+        #region Event Property
+        private static EventViewModel _eventViewModel;
+
+        public static EventViewModel EventViewModelStatic
+        {
+            get
+            {
+                if (_eventViewModel == null)
+                {
+                    CreateEventViewModel();
+                }
+
+                return _eventViewModel;
+            }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public EventViewModel EventViewModel
+        {
+            get
+            {
+                return EventViewModelStatic;
+            }
+        }
+
+        public static void ClearEventViewModel()
+        {
+            _eventViewModel.Cleanup();
+            _eventViewModel = null;
+        }
+
+        public static void CreateEventViewModel()
+        {
+            if (_eventViewModel == null)
+            {
+                _eventViewModel = new EventViewModel();
+            }
+        }
+        #endregion
+
         public static void Cleanup()
         {
             ClearMain();
             ClearBlogpostsViewModel();
             ClearAllEventsViewModel();
+            ClearEventViewModel();
         }
     }
 }

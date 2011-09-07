@@ -13,14 +13,13 @@ namespace ItemisApp.ViewModel
 {
     public class EventDetailsTemplateSelector: DataTemplateSelector
     {
-
         public DataTemplate Section1Template { get; set; }
 
         public DataTemplate Section2Template { get; set; }
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-
+            // TODO select template based on data type.
             return base.SelectTemplate(item, container);
         }
 

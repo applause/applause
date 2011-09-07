@@ -25,10 +25,9 @@ namespace ItemisApp
         private object ReceiveMessage(GotoPageWithEventMessage action)
         {
             //App.NavigationStack.Push(action);
-            DataContractSerializer mySerializer = new DataContractSerializer(typeof(Stack<Event>));
-
             /*
              * Following code can be used to test serialization of collections (at least Stack cannot be serialized)...
+            DataContractSerializer mySerializer = new DataContractSerializer(typeof(Stack<Event>));
             Stack<GotoPageWithEventMessage> stack = new Stack<GotoPageWithEventMessage>();
             stack.Push(action);
             MemoryStream memoryStream = new MemoryStream();

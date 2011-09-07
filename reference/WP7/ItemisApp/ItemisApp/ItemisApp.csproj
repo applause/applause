@@ -77,8 +77,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Contact.cs" />
     <Compile Include="ViewModel\DataTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsTemplateSelector.cs" />
+    <Compile Include="ViewModel\EventViewModel.cs" />
     <Compile Include="Views\EventDetailsPage.xaml.cs">
       <DependentUpon>EventDetailsPage.xaml</DependentUpon>
     </Compile>
