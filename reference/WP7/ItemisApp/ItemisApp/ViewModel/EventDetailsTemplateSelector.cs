@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using ItemisApp.Model;
 
 namespace ItemisApp.ViewModel
 {
@@ -19,7 +20,14 @@ namespace ItemisApp.ViewModel
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            // TODO select template based on data type.
+            if (item is string)
+            {
+                return Section1Template;
+            }
+            else if (item is Contact)
+            {
+                return Section2Template;
+            }
             return base.SelectTemplate(item, container);
         }
 
