@@ -30,42 +30,50 @@
 
         <!--ContentPanel - place additional content here-->
         <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <StackPanel>
-                <TextBlock x:Name="HeaderTitle" Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=Event}" />
-                <TextBlock x:Name="HeaderSubTitle" Text="{Binding Date}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=Event}" />
-                <TextBlock x:Name="HeaderDetails" Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=Event}" />
-            </StackPanel>
-            <toolkit:LongListSelector x:Name="EventDetailListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=AllEventsGrouped}" IsFlatList="False">
-                <toolkit:LongListSelector.GroupHeaderTemplate>
-                    <DataTemplate>
-                        <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
-                            <TextBlock Text="{Binding Key}"/>
-                        </Border>
-                    </DataTemplate>
-                </toolkit:LongListSelector.GroupHeaderTemplate>
-                <toolkit:LongListSelector.ItemTemplate>
-                    <DataTemplate>
-                        <local:EventDetailsTemplateSelector Content="{Binding}">
-                            <local:EventDetailsTemplateSelector.Section1Template>
-                                <DataTemplate>
-                                    <StackPanel Margin="0,0,0,17">
-                                        <TextBlock Text="{Binding Path=Contact}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                        <TextBlock Text="Contact" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </local:EventDetailsTemplateSelector.Section1Template>
-                            <local:EventDetailsTemplateSelector.Section2Template>
-                                <DataTemplate>
-                                    <StackPanel Margin="0,0,0,17">
-                                        <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
-                                        <TextBlock Text="{Binding Path=Role}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </local:EventDetailsTemplateSelector.Section2Template>
-                        </local:EventDetailsTemplateSelector>
-                    </DataTemplate>
-                </toolkit:LongListSelector.ItemTemplate>
-            </toolkit:LongListSelector>
+            <ScrollViewer>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="300" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0">
+                        <TextBlock x:Name="HeaderTitle" Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=Event}" />
+                        <TextBlock x:Name="HeaderSubTitle" Text="{Binding Date}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=Event}" />
+                        <TextBlock x:Name="HeaderDetails" Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=Event}" />
+                    </StackPanel>
+                    <toolkit:LongListSelector Grid.Row="1" x:Name="EventDetailListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False">
+                        <toolkit:LongListSelector.GroupHeaderTemplate>
+                            <DataTemplate>
+                                <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
+                                    <TextBlock Text="{Binding Key}"/>
+                                </Border>
+                            </DataTemplate>
+                        </toolkit:LongListSelector.GroupHeaderTemplate>
+                        <toolkit:LongListSelector.ItemTemplate>
+                            <DataTemplate>
+                        <local:EventDetailsTemplateSelector Content="{Binding}" HorizontalContentAlignment="Left">
+                                    <local:EventDetailsTemplateSelector.Section1Template>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,17">
+                                                <TextBlock Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                                                <TextBlock Text="Contact" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </local:EventDetailsTemplateSelector.Section1Template>
+                                    <local:EventDetailsTemplateSelector.Section2Template>
+                                        <DataTemplate>
+                                            <StackPanel Margin="0,0,0,17">
+                                                <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                                                <TextBlock Text="{Binding Path=Role}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </local:EventDetailsTemplateSelector.Section2Template>
+                                </local:EventDetailsTemplateSelector>
+                            </DataTemplate>
+                        </toolkit:LongListSelector.ItemTemplate>
+                    </toolkit:LongListSelector>
+                </Grid>
+            </ScrollViewer>
         </Grid>
     </Grid>
  
