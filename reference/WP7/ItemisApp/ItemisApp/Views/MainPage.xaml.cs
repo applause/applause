@@ -22,7 +22,7 @@ namespace ItemisApp
     public partial class MainPage : PhoneApplicationPage
     {
 
-        private object ReceiveMessage(GotoPageWithEventMessage action)
+        private object ReceiveMessage(GotoPageMessage action)
         {
             //App.NavigationStack.Push(action);
             /*
@@ -51,6 +51,7 @@ namespace ItemisApp
             this.Loaded += new RoutedEventHandler(MainPage_Loaded);
 
             Messenger.Default.Register<GotoPageWithEventMessage>(this, (action) => ReceiveMessage(action));
+            Messenger.Default.Register<GotoPageWithContactMessage>(this, (action) => ReceiveMessage(action));
         }
 
         // Load data for the ViewModel Items

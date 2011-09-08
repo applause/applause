@@ -4,6 +4,8 @@ using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using ItemisApp.Model;
+using GalaSoft.MvvmLight.Command;
+using ItemisApp.Views;
 
 namespace ItemisApp.ViewModel
 {
@@ -136,5 +138,53 @@ namespace ItemisApp.ViewModel
             }
         }
         #endregion
+
+
+        #region Selected Contact Property
+
+        public const string SelectedContactPropertyName = "SelectedContact";
+        private Contact _selectedContact = null;
+
+        public Contact SelectedContact
+        {
+            get
+            {
+                return _selectedContact;
+            }
+
+            set
+            {
+                if (_selectedContact == value)
+                {
+                    return;
+                }
+
+                var oldValue = _selectedContact;
+                _selectedContact = value;
+
+                RaisePropertyChanged(SelectedContactPropertyName, oldValue, value, true);
+            }
+        }
+        #endregion
+
+
+        #region Goto Contact Details Page Property
+
+        private RelayCommand<Contact> _gotoContactDetailsCommand;
+
+        public RelayCommand<Contact> GotoContactDetailsCommand
+        {
+            get
+            {
+                return _gotoContactDetailsCommand ?? (_gotoContactDetailsCommand = new RelayCommand<Contact>(
+                    (theContact) =>
+                    {
+                        var msg = new GotoPageWithContactMessage() { PageName = "PersonDetailsPage" + ".xaml", Contact = theContact };
+                        Messenger.Default.Send<GotoPageWithContactMessage>(msg);
+                    }));
+            }
+        }
+        #endregion
+
     }
 }

@@ -36,6 +36,7 @@ public class ViewModelLocator
                 CreateBlogpostsViewModel();
                 CreateAllEventsViewModel();
                 CreateEventViewModel();
+                CreateContactViewModel();
             }
 
             CreateMain();
@@ -209,12 +210,55 @@ public class ViewModelLocator
         }
         #endregion
 
+        #region Contact Property
+        private static ContactViewModel _contactViewModel;
+
+        public static ContactViewModel ContactViewModelStatic
+        {
+            get
+            {
+                if (_contactViewModel == null)
+                {
+                    CreateContactViewModel();
+                }
+
+                return _contactViewModel;
+            }
+        }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
+            "CA1822:MarkMembersAsStatic",
+            Justification = "This non-static member is needed for data binding purposes.")]
+        public ContactViewModel ContactViewModel
+        {
+            get
+            {
+                return ContactViewModelStatic;
+            }
+        }
+
+        public static void ClearContactViewModel()
+        {
+            _contactViewModel.Cleanup();
+            _contactViewModel = null;
+        }
+
+        public static void CreateContactViewModel()
+        {
+            if (_contactViewModel == null)
+            {
+                _contactViewModel = new ContactViewModel();
+            }
+        }
+        #endregion
+
         public static void Cleanup()
         {
             ClearMain();
             ClearBlogpostsViewModel();
             ClearAllEventsViewModel();
             ClearEventViewModel();
+            ClearContactViewModel();
         }
     }
 }

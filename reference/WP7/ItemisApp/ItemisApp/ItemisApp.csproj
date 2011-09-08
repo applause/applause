@@ -81,9 +81,12 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Contact.cs" />
+    <Compile Include="ViewModel\ContactViewModel.cs" />
+    <Compile Include="ViewModel\PersonDetailsTemplateSelector.cs" />
     <Compile Include="ViewModel\DataTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsTemplateSelector.cs" />
     <Compile Include="ViewModel\EventViewModel.cs" />
+    <Compile Include="Views\GotoPageWithContactMessage.cs" />
     <Compile Include="Views\EventDetailsPage.xaml.cs">
       <DependentUpon>EventDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -104,6 +107,9 @@
     <Compile Include="ViewModel\LinqXmlExtensions.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\PersonDetailsPage.xaml.cs">
+      <DependentUpon>PersonDetailsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -122,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </DesignData>
+    <Page Include="Views\PersonDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

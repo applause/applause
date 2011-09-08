@@ -6,13 +6,16 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
+    xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     xmlns:local="clr-namespace:ItemisApp.ViewModel"
-    shell:SystemTray.IsVisible="True" xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    shell:SystemTray.IsVisible="True" 
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
     DataContext="{Binding Source={StaticResource Locator}, Path=EventViewModel}">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -41,7 +44,7 @@
                         <TextBlock x:Name="HeaderSubTitle" Text="{Binding Date}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=Event}" />
                         <TextBlock x:Name="HeaderDetails" Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=Event}" />
                     </StackPanel>
-                    <toolkit:LongListSelector Grid.Row="1" x:Name="EventDetailListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False">
+                    <toolkit:LongListSelector Grid.Row="1" x:Name="EventDetailListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False" SelectedItem="{Binding Path=SelectedContact, Mode=TwoWay}">
                         <toolkit:LongListSelector.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
@@ -71,22 +74,14 @@
                                 </local:EventDetailsTemplateSelector>
                             </DataTemplate>
                         </toolkit:LongListSelector.ItemTemplate>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="SelectionChanged" SourceName="EventDetailListBox">
+                                <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding GotoContactDetailsCommand, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=EventDetailListBox}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
                     </toolkit:LongListSelector>
                 </Grid>
             </ScrollViewer>
         </Grid>
     </Grid>
- 
-    <!--Sample code showing usage of ApplicationBar-->
-    <!--<phone:PhoneApplicationPage.ApplicationBar>
-        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
-            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
-            <shell:ApplicationBar.MenuItems>
-                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
-                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
-            </shell:ApplicationBar.MenuItems>
-        </shell:ApplicationBar>
-    </phone:PhoneApplicationPage.ApplicationBar>-->
-
 </phone:PhoneApplicationPage>
