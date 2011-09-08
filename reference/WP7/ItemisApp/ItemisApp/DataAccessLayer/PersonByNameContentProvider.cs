@@ -28,24 +28,35 @@ namespace ItemisApp.DataAccessLayer
 
         void FetchData(IAsyncResult result)
         {
-            HttpWebResponse response = (HttpWebResponse)httpWebRequest.EndGetResponse(result);
-            XDocument xdoc = XDocument.Load(response.GetResponseStream());
-
-            var fetchResult = (from item in xdoc.Descendants("contact")
-                               select new Contact()
-                               {
-                                   Name = item.ElementAnyNS("name").Value,
-                                   Role = item.ElementAnyNS("role").Value,
-                                   Bio = item.ElementAnyNS("bio").Value,
-                                   Pictureurl = item.ElementAnyNS("pictureurl").Value,
-                                   Mail = item.ElementAnyNS("mail").Value,
-                                   Phone = item.ElementAnyNS("phone").Value                                   
-                               });
-            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            try
             {
-                ContentProviderResultCallback callback = (ContentProviderResultCallback) result.AsyncState;
-                callback(fetchResult.First());
-            });
+
+                HttpWebResponse response = (HttpWebResponse)httpWebRequest.EndGetResponse(result);
+                XDocument xdoc = XDocument.Load(response.GetResponseStream());
+
+                var fetchResult = (from item in xdoc.Descendants("contact")
+                                   select new Contact()
+                                   {
+                                       Name = item.ElementAnyNS("name").Value,
+                                       Role = item.ElementAnyNS("role").Value,
+                                       Bio = item.ElementAnyNS("bio").Value,
+                                       Pictureurl = item.ElementAnyNS("pictureurl").Value,
+                                       Mail = item.ElementAnyNS("mail").Value,
+                                       Phone = item.ElementAnyNS("phone").Value
+                                   });
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    ContentProviderResultCallback callback = (ContentProviderResultCallback)result.AsyncState;
+                    callback(fetchResult.First());
+                });
+            }
+            catch (WebException)
+            {
+                Deployment.Current.Dispatcher.BeginInvoke(() =>
+                {
+                    System.Windows.MessageBox.Show("Sorry - couldn't load data.");
+                });
+            }
 
         }
     }
