@@ -177,25 +177,6 @@ namespace ItemisApp.ViewModel
         }
         #endregion
 
-
-        #region Goto Contact Details Page Property
-
-        private RelayCommand<Contact> _gotoContactDetailsCommand;
-
-        public RelayCommand<Contact> GotoContactDetailsCommand
-        {
-            get
-            {
-                return _gotoContactDetailsCommand ?? (_gotoContactDetailsCommand = new RelayCommand<Contact>(
-                    (theContact) =>
-                    {
-                        var msg = new GotoPageWithContactMessage() { PageName = "PersonDetailsPage" + ".xaml", Contact = theContact };
-                        Messenger.Default.Send<GotoPageWithContactMessage>(msg);
-                    }));
-            }
-        }
-        #endregion
-
         #region Navigation
         public RelayCommand<string> Section1NavigationCommand
         {

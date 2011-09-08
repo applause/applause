@@ -18,19 +18,6 @@ namespace ItemisApp
 {
     public partial class App : Application
     {
-        public static Stack<GotoPageMessage> NavigationStack
-        {
-            get
-            {
-                if (!PhoneApplicationService.Current.State.ContainsKey("NavigationStack"))
-                {
-                    PhoneApplicationService.Current.State["NavigationStack"] = new Stack<GotoPageMessage>();
-                }
-                Stack<GotoPageMessage> stack = (Stack<GotoPageMessage>)PhoneApplicationService.Current.State["NavigationStack"];
-                return stack;
-            }
-        }
-
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>

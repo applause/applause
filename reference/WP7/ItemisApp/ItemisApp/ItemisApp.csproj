@@ -90,12 +90,9 @@
     <Compile Include="ViewModel\DataTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsViewModel.cs" />
-    <Compile Include="Views\GotoPageWithContactMessage.cs" />
     <Compile Include="Views\EventDetailsPage.xaml.cs">
       <DependentUpon>EventDetailsPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\GotoPageMessage.cs" />
-    <Compile Include="Views\GotoPageWithEventMessage.cs" />
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
