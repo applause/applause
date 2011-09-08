@@ -80,12 +80,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataAccessLayer\ContentProviderCallback.cs" />
+    <Compile Include="DataAccessLayer\PersonByNameContentProvider.cs" />
+    <Compile Include="DataAccessLayer\CurrentTimelineContentProvider.cs" />
+    <Compile Include="DataAccessLayer\StringExtensions.cs" />
     <Compile Include="Model\Contact.cs" />
-    <Compile Include="ViewModel\ContactViewModel.cs" />
+    <Compile Include="ViewModel\PersonDetailsViewModel.cs" />
     <Compile Include="ViewModel\PersonDetailsTemplateSelector.cs" />
     <Compile Include="ViewModel\DataTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsTemplateSelector.cs" />
-    <Compile Include="ViewModel\EventViewModel.cs" />
+    <Compile Include="ViewModel\EventDetailsViewModel.cs" />
     <Compile Include="Views\GotoPageWithContactMessage.cs" />
     <Compile Include="Views\EventDetailsPage.xaml.cs">
       <DependentUpon>EventDetailsPage.xaml</DependentUpon>
@@ -99,14 +103,13 @@
     <Compile Include="Model\BlogItem.cs" />
     <Compile Include="Model\Event.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\ItemViewModel.cs" />
-    <Compile Include="ViewModels\MainViewModel.cs" />
-    <Compile Include="ViewModel\AllEventsViewModel.cs" />
+    <Compile Include="ViewModel\EventListViewModel.cs" />
     <Compile Include="ViewModel\BlogpostsViewModel.cs" />
     <Compile Include="ViewModel\GroupingLayer.cs" />
-    <Compile Include="ViewModel\LinqXmlExtensions.cs" />
+    <Compile Include="DataAccessLayer\LinqXmlExtensions.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Views\NavigationMessage.cs" />
     <Compile Include="Views\PersonDetailsPage.xaml.cs">
       <DependentUpon>PersonDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -124,10 +127,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </DesignData>
     <Page Include="Views\PersonDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

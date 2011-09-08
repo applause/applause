@@ -6,6 +6,7 @@ using System.Windows;
 using System.Xml.Linq;
 using GalaSoft.MvvmLight;
 using ItemisApp.Model;
+using ItemisApp.DataAccessLayer;
 
 namespace ItemisApp.ViewModel
 {

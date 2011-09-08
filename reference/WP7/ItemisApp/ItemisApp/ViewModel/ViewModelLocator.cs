@@ -34,12 +34,21 @@ public class ViewModelLocator
             {
                 // Create run time view models
                 CreateBlogpostsViewModel();
-                CreateAllEventsViewModel();
-                CreateEventViewModel();
-                CreateContactViewModel();
+                CreateEventListViewModel();
+                CreateEventDetailsViewModel();
+                CreatePersonDetailsViewModel();
             }
 
             CreateMain();
+        }
+
+        public static void Cleanup()
+        {
+            ClearMain();
+            ClearBlogpostsViewModel();
+            ClearEventListViewModel();
+            ClearEventDetailsViewModel();
+            ClearPersonDetailsViewModel();
         }
 
         #region Main Property
@@ -125,140 +134,132 @@ public class ViewModelLocator
         }
         #endregion
 
-        #region AllEvents Property
+        #region EventListViewModel Property
 
-        private static AllEventsViewModel _allEventsViewModel;
+        private static EventListViewModel _eventListViewModel;
 
-        public static AllEventsViewModel AllEventsViewModelStatic
+        public static EventListViewModel EventListViewModelStatic
         {
             get
             {
-                if (_allEventsViewModel == null)
+                if (_eventListViewModel == null)
                 {
-                    CreateAllEventsViewModel();
+                    CreateEventListViewModel();
                 }
 
-                return _allEventsViewModel;
+                return _eventListViewModel;
             }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public AllEventsViewModel AllEventsViewModel
+        public EventListViewModel EventListViewModel
         {
             get
             {
-                return AllEventsViewModelStatic;
+                return EventListViewModelStatic;
             }
         }
 
-        public static void ClearAllEventsViewModel()
+        public static void ClearEventListViewModel()
         {
-            _allEventsViewModel.Cleanup();
-            _allEventsViewModel = null;
+            _eventListViewModel.Cleanup();
+            _eventListViewModel = null;
         }
 
-        public static void CreateAllEventsViewModel()
+        public static void CreateEventListViewModel()
         {
-            if (_allEventsViewModel == null)
+            if (_eventListViewModel == null)
             {
-                _allEventsViewModel = new AllEventsViewModel();
+                _eventListViewModel = new EventListViewModel();
             }
         }
         #endregion
 
-        #region Event Property
-        private static EventViewModel _eventViewModel;
+        #region EventDetailsViewModel Property
+        private static EventDetailsViewModel _eventDetailsViewModel;
 
-        public static EventViewModel EventViewModelStatic
+        public static EventDetailsViewModel EventDetailsViewModelStatic
         {
             get
             {
-                if (_eventViewModel == null)
+                if (_eventDetailsViewModel == null)
                 {
-                    CreateEventViewModel();
+                    CreateEventDetailsViewModel();
                 }
 
-                return _eventViewModel;
+                return _eventDetailsViewModel;
             }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public EventViewModel EventViewModel
+        public EventDetailsViewModel EventDetailsViewModel
         {
             get
             {
-                return EventViewModelStatic;
+                return EventDetailsViewModelStatic;
             }
         }
 
-        public static void ClearEventViewModel()
+        public static void ClearEventDetailsViewModel()
         {
-            _eventViewModel.Cleanup();
-            _eventViewModel = null;
+            _eventDetailsViewModel.Cleanup();
+            _eventDetailsViewModel = null;
         }
 
-        public static void CreateEventViewModel()
+        public static void CreateEventDetailsViewModel()
         {
-            if (_eventViewModel == null)
+            if (_eventDetailsViewModel == null)
             {
-                _eventViewModel = new EventViewModel();
+                _eventDetailsViewModel = new EventDetailsViewModel();
             }
         }
         #endregion
 
-        #region Contact Property
-        private static ContactViewModel _contactViewModel;
+        #region PersonDetailsViewModel Property
+        private static PersonDetailsViewModel _personDetailsViewModel;
 
-        public static ContactViewModel ContactViewModelStatic
+        public static PersonDetailsViewModel PersonDetailsViewModelStatic
         {
             get
             {
-                if (_contactViewModel == null)
+                if (_personDetailsViewModel == null)
                 {
-                    CreateContactViewModel();
+                    CreatePersonDetailsViewModel();
                 }
 
-                return _contactViewModel;
+                return _personDetailsViewModel;
             }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public ContactViewModel ContactViewModel
+        public PersonDetailsViewModel PersonDetailsViewModel
         {
             get
             {
-                return ContactViewModelStatic;
+                return PersonDetailsViewModelStatic;
             }
         }
 
-        public static void ClearContactViewModel()
+        public static void ClearPersonDetailsViewModel()
         {
-            _contactViewModel.Cleanup();
-            _contactViewModel = null;
+            _personDetailsViewModel.Cleanup();
+            _personDetailsViewModel = null;
         }
 
-        public static void CreateContactViewModel()
+        public static void CreatePersonDetailsViewModel()
         {
-            if (_contactViewModel == null)
+            if (_personDetailsViewModel == null)
             {
-                _contactViewModel = new ContactViewModel();
+                _personDetailsViewModel = new PersonDetailsViewModel();
             }
         }
         #endregion
 
-        public static void Cleanup()
-        {
-            ClearMain();
-            ClearBlogpostsViewModel();
-            ClearAllEventsViewModel();
-            ClearEventViewModel();
-            ClearContactViewModel();
-        }
     }
 }

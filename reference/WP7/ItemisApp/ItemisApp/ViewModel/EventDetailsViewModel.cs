@@ -6,12 +6,13 @@ using GalaSoft.MvvmLight.Messaging;
 using ItemisApp.Model;
 using GalaSoft.MvvmLight.Command;
 using ItemisApp.Views;
+using Microsoft.Phone.Controls;
 
 namespace ItemisApp.ViewModel
 {
-    public class EventViewModel : ViewModelBase
+    public class EventDetailsViewModel : ViewModelBase
     {
-        public EventViewModel()
+        public EventDetailsViewModel()
         {
             if (IsInDesignMode)
             {
@@ -46,8 +47,17 @@ namespace ItemisApp.ViewModel
             {
             }
 
-            //Messenger.Default.Register<PropertyChangedMessage<Event>>(this, (action) => DispatcherHelper.CheckBeginInvokeOnUI( () => this.Event = action.NewValue ));
-            Messenger.Default.Register<PropertyChangedMessage<Event>>(this, (action) => this.Event = action.NewValue);
+            // this message handler will update the view model during navigation events
+            Messenger.Default.Register<NavigationMessage>(this,
+                (action) =>
+                {
+                    if (action.ViewModelName.Equals("EventDetailsViewModel"))
+                    {
+                        Event _event = (Event) action.Payload["event"];
+                        this.Event = _event;
+                    }
+                }
+            );
         }
 
         #region Event Property
@@ -182,6 +192,45 @@ namespace ItemisApp.ViewModel
                         var msg = new GotoPageWithContactMessage() { PageName = "PersonDetailsPage" + ".xaml", Contact = theContact };
                         Messenger.Default.Send<GotoPageWithContactMessage>(msg);
                     }));
+            }
+        }
+        #endregion
+
+        #region Navigation
+        public RelayCommand<string> Section1NavigationCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(
+                    (name) =>
+                    {
+                        NavigationMessage msg = new NavigationMessage()
+                        {
+                            PageName = "PersonDetailsPage",
+                            ViewModelName = "PersonDetailsViewModel"
+                        };
+                        // TODO: improve syntax by using dictionary literal
+                        msg.Payload.Add("name", name);
+                        Messenger.Default.Send<NavigationMessage>(msg);
+                    });
+            }
+        }
+
+        public RelayCommand<string> Section2NavigationCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(
+                    (name) =>
+                    {
+                        NavigationMessage msg = new NavigationMessage() { 
+                            PageName = "PersonDetailsPage",
+                            ViewModelName = "PersonDetailsViewModel"
+                        };
+                        // TODO: improve syntax by using dictionary literal
+                        msg.Payload.Add("name", name);
+                        Messenger.Default.Send<NavigationMessage>(msg);
+                    });
             }
         }
         #endregion

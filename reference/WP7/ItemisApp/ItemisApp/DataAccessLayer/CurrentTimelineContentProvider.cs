@@ -5,36 +5,20 @@ using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Xml.Linq;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using GalaSoft.MvvmLight.Messaging;
 using ItemisApp.Model;
-using ItemisApp.Views;
 
-namespace ItemisApp.ViewModel
+namespace ItemisApp.DataAccessLayer
 {
-    public class AllEventsViewModel : ViewModelBase
+    public class CurrentTimelineContentProvider
     {
-
-        public AllEventsViewModel()
-        {
-            if (IsInDesignMode)
-            {
-            }
-            else
-            {
-                LoadData("http://www.itemis.de/language=de/~xml.timeline/37606");
-            }
-        }
-
-        #region Data Source
+        private static string DATA_URL = "http://www.itemis.de/language=de/~xml.timeline/37606";
 
         private HttpWebRequest httpWebRequest;
 
-        private void LoadData(string url)
+        public void LoadData(ContentProviderResultCallback resultCallback)
         {
-            httpWebRequest = HttpWebRequest.CreateHttp(url);
-            httpWebRequest.BeginGetResponse(new AsyncCallback(FetchData), null);
+            httpWebRequest = HttpWebRequest.CreateHttp(DATA_URL);
+            httpWebRequest.BeginGetResponse(new AsyncCallback(FetchData), resultCallback);
         }
 
         void FetchData(IAsyncResult result)
@@ -90,116 +74,10 @@ namespace ItemisApp.ViewModel
                                });
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
-                AllEvents = fetchResult.First();
-                var grouped = new List<IEnumerable>();
-                grouped.Add(new GroupingLayer<string, Event>("News", AllEvents.News));
-                grouped.Add(new GroupingLayer<string, Event>("Events", AllEvents.Activity));
-                grouped.Add(new GroupingLayer<string, Event>("Workshops", AllEvents.Workshop));
-                AllEventsGrouped = grouped;
+                ContentProviderResultCallback callback = (ContentProviderResultCallback) result.AsyncState;
+                callback(fetchResult.First());
             });
 
         }
-        #endregion
-
-        #region AllEvents Property
-
-        public const string AllEventsPropertyName = "AllEvents";
-        private AllEvents _allEvents = null;
-        public AllEvents AllEvents
-        {
-            get
-            {
-                return _allEvents;
-            }
-
-            set
-            {
-                if (_allEvents == value)
-                {
-                    return;
-                }
-
-                var oldValue = _allEvents;
-                _allEvents = value;
-
-                RaisePropertyChanged(AllEventsPropertyName);
-            }
-        }
-        #endregion
-
-
-        #region Sections Property
-
-        public const string AllEventsGroupedProperyName = "AllEventsGrouped";
-        List<IEnumerable> _grouped = null;
-
-        public List<IEnumerable> AllEventsGrouped
-        {
-            get
-            {
-                return _grouped;
-            }
-            set
-            {
-                if (_grouped == value)
-                {
-                    return;
-                }
-
-                var oldValue = _grouped;
-                _grouped = value;
-
-                RaisePropertyChanged(AllEventsGroupedProperyName);
-            }
-        }
-        #endregion
-
-
-        #region Selected Event Property
-
-        public const string SelectedEventPropertyName = "SelectedEvent";
-        private Event _selectedEvent = null;
-
-        public Event SelectedEvent
-        {
-            get
-            {
-                return _selectedEvent;
-            }
-
-            set
-            {
-                if (_selectedEvent == value)
-                {
-                    return;
-                }
-
-                var oldValue = _selectedEvent;
-                _selectedEvent = value;
-
-                RaisePropertyChanged(SelectedEventPropertyName, oldValue, value, true);
-            }
-        }
-        #endregion
-
-
-        #region Goto Event Details Page Property
-
-        private RelayCommand<Event> _gotoEventDetailsCommand;
-
-        public RelayCommand<Event> GotoEventDetailsCommand
-        {
-            get
-            {
-                return _gotoEventDetailsCommand ?? (_gotoEventDetailsCommand = new RelayCommand<Event>(
-                    (theEvent) =>
-                    {
-                        var msg = new GotoPageWithEventMessage() { PageName = "EventDetailsPage" + ".xaml", Event = theEvent };
-                        Messenger.Default.Send<GotoPageWithEventMessage>(msg);
-                    }));
-            }
-        }
-        #endregion
-
     }
 }

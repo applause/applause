@@ -4,12 +4,14 @@ using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Messaging;
 using ItemisApp.Model;
+using ItemisApp.DataAccessLayer;
+using ItemisApp.Views;
 
 namespace ItemisApp.ViewModel
 {
-    public class ContactViewModel : ViewModelBase
+    public class PersonDetailsViewModel : ViewModelBase
     {
-        public ContactViewModel()
+        public PersonDetailsViewModel()
         {
             if (IsInDesignMode)
             {
@@ -26,10 +28,36 @@ namespace ItemisApp.ViewModel
             else
             {
             }
-
-            //Messenger.Default.Register<PropertyChangedMessage<Event>>(this, (action) => DispatcherHelper.CheckBeginInvokeOnUI( () => this.Event = action.NewValue ));
-            Messenger.Default.Register<PropertyChangedMessage<Contact>>(this, (action) => this.Contact = action.NewValue);
+            Messenger.Default.Register<NavigationMessage>(this,
+                (action) =>
+                {
+                    if (action.ViewModelName.Equals("PersonDetailsViewModel"))
+                    {
+                        string name = (string)action.Payload["name"];
+                        LoadData(name);
+                    }
+                }
+            );
         }
+
+        #region Data Source
+
+        // needs to be invoked externally during navigation or view composition
+        public void LoadData(string name)
+        {
+            PersonByNameContentProvider provider = new PersonByNameContentProvider();
+            provider.LoadData(name, AcceptData);
+        }
+
+        public void AcceptData(object result)
+        {
+            if (result is Contact)
+            {
+                Contact = (Contact)result;
+            }
+        }
+
+        #endregion
 
         #region Contact Property
 

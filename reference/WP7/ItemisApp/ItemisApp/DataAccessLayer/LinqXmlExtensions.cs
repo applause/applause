@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.ViewModel
+namespace ItemisApp.DataAccessLayer
 {
     public static class LinqXmlExtensions
     {
