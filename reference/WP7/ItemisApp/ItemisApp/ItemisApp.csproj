@@ -84,9 +84,6 @@
     <Compile Include="DataAccessLayer\PersonByNameContentProvider.cs" />
     <Compile Include="DataAccessLayer\CurrentTimelineContentProvider.cs" />
     <Compile Include="DataAccessLayer\StringExtensions.cs" />
-    <Compile Include="Interactivity\GestureBehaviour.cs" />
-    <Compile Include="Interactivity\GestureTrigger.cs" />
-    <Compile Include="Interactivity\TapTrigger.cs" />
     <Compile Include="Model\Contact.cs" />
     <Compile Include="ViewModel\PersonDetailsViewModel.cs" />
     <Compile Include="ViewModel\PersonDetailsTemplateSelector.cs" />
