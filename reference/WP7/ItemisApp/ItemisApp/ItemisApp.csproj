@@ -104,7 +104,6 @@
     <Compile Include="ViewModel\BlogpostsViewModel.cs" />
     <Compile Include="ViewModel\GroupingLayer.cs" />
     <Compile Include="DataAccessLayer\LinqXmlExtensions.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Views\NavigationMessage.cs" />
     <Compile Include="Views\PersonDetailsPage.xaml.cs">

@@ -22,8 +22,6 @@ namespace ItemisApp.ViewModel
     /// </summary>
 public class ViewModelLocator
     {
-        private static MainViewModel _main;
-
         public ViewModelLocator()
         {
             if (ViewModelBase.IsInDesignModeStatic)
@@ -38,59 +36,15 @@ public class ViewModelLocator
                 CreateEventDetailsViewModel();
                 CreatePersonDetailsViewModel();
             }
-
-            CreateMain();
         }
 
         public static void Cleanup()
         {
-            ClearMain();
             ClearBlogpostsViewModel();
             ClearEventListViewModel();
             ClearEventDetailsViewModel();
             ClearPersonDetailsViewModel();
         }
-
-        #region Main Property
-
-        public static MainViewModel MainStatic
-        {
-            get
-            {
-                if (_main == null)
-                {
-                    CreateMain();
-                }
-
-                return _main;
-            }
-        }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
-            "CA1822:MarkMembersAsStatic",
-            Justification = "This non-static member is needed for data binding purposes.")]
-        public MainViewModel Main
-        {
-            get
-            {
-                return MainStatic;
-            }
-        }
-
-        public static void ClearMain()
-        {
-            _main.Cleanup();
-            _main = null;
-        }
-
-        public static void CreateMain()
-        {
-            if (_main == null)
-            {
-                _main = new MainViewModel();
-            }
-        }
-        #endregion
 
         #region Blogposts Property
 
