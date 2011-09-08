@@ -6,6 +6,7 @@
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:li="clr-namespace:ItemisApp.Interactivity"
     xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
     xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
@@ -61,9 +62,14 @@
                                                 <TextBlock Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 <TextBlock Text="Contact" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                                 <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="Tap">
-                                                        <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding}"/>
+                                                    <li:TapTrigger>
+                                                        <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding}"/>                                                        
+                                                    </li:TapTrigger>
+                                                    <!--
+                                                    <i:EventTrigger EventName="MouseEnter">
+                                                        
                                                     </i:EventTrigger>
+                                                    -->
                                                 </i:Interaction.Triggers>
                                             </StackPanel>
                                         </DataTemplate>
@@ -74,7 +80,7 @@
                                                 <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 <TextBlock Text="{Binding Path=Role}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                                 <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="Tap">
+                                                    <i:EventTrigger EventName="MouseEnter">
                                                         <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section2NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Name}"/>
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>

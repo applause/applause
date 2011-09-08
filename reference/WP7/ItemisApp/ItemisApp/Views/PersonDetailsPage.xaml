@@ -42,7 +42,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="{Binding Path=Pictureurl}" Stretch="None" DataContext="{Binding Path=Contact}" Width="60" VerticalAlignment="Top" Height="60" HorizontalAlignment="Left" />
+                        <Image Grid.Column="0" Source="{Binding Path=Pictureurl}" Stretch="None" DataContext="{Binding Path=Contact}" VerticalAlignment="Top" HorizontalAlignment="Left" />
                         <StackPanel Grid.Column="1">
                             <TextBlock x:Name="HeaderTitle" Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=Contact}" />
                             <!--
