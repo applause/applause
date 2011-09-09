@@ -1,0 +1,46 @@
+«IMPORT org::applause::lang::applauseDsl»
+«EXTENSION extensions::MetamodelExtensions»
+«EXTENSION extensions::GeneratorExtensions»
+«EXTENSION templates::viewmodels::GeneratorExtensions»
+
+«DEFINE main FOR Model-»
+«EXPAND view FOREACH this.views()-»
+«ENDDEFINE»
+
+«DEFINE view FOR View»
+«FILE this.classFileFQN()-»
+using System.Collections;
+using System.Collections.Generic;
+using Applause.ViewModel;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using «rootNamespace()».DataAccessLayer;
+using «rootNamespace()».Model;
+using «rootNamespace()».Views;
+
+namespace «this.namespace()»
+{
+    public class «this.className()» : ViewModelBase
+    {
+		public «constructorName()»()
+		{
+			if (IsInDesignMode)
+			{
+			}
+			else {
+				LoadData();
+			}
+		}
+		
+		#region Data Source
+		
+		private void LoadData()
+		{
+		}
+		
+		#endregion
+    }
+}
+«ENDFILE-»
+«ENDDEFINE»

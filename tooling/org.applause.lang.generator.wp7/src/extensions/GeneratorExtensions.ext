@@ -1,0 +1,84 @@
+import org::applause::lang::applauseDsl;
+import org::eclipse::emf::ecore;
+
+extension extensions::MetamodelExtensions; 
+
+rootNamespace(EObject this):
+	model().application.name.toFirstUpper();
+
+/**
+ * Types
+ */
+typeName(TypeDescription this):
+	this.many 
+		? 'List<' + this.type.typeName() + '>'
+		: this.type.typeName();
+	
+// we can use this extension to map Applause types to platform types.
+typeName(Type this):
+	this.name;
+	
+/**
+ * Parameters
+ */
+parameterName(Parameter this):
+	this.name.toFirstLower();
+	
+parameterType(Parameter this):
+	this.description.typeName();	
+	
+/**
+ * Properties
+ */	
+propertyName(Property this):
+	this.name.toFirstUpper();
+	
+propertyType(Property this):
+	this.description.typeName();	
+	
+/**
+ * Expressions
+ */
+expression(Expression s):
+	"<!ERROR!" + s.metaType + ">";
+	
+expression(CollectionExpression s):
+	"<!ERROR!" + s.metaType + ">";
+	
+expression(StringSplit s):
+	"<!ERROR!" + s.metaType + ">";
+
+expression(ScalarExpression s):
+	"<!ERROR!" + s.metaType + ">";
+	
+expression(StringLiteral s):
+	'"' + s.value + '"';
+	
+expression(StringConcat s):
+	s.values.expression().toString(" + ");
+		
+expression(StringUrlConform s):
+	s.value.expression() + ".URLEncode()";
+	
+expression(StringReplace s):
+	"<!ERROR!" + s.metaType + ">";
+	
+String expression(VariableDeclaration this):
+	"!" + this.metaType;
+	
+expression(Constant this):
+	value.expression(); 	
+	
+String expression(ObjectReference this):
+	Constant.isInstance(object)
+		? expression(object)
+		: this.object.name + (tail==null ? "" : tail.propertyPath());
+		
+asPropertyName(String this):
+	this.toFirstUpper();
+		
+private String propertyPath(ObjectReference this):
+	"." + this.object.name.asPropertyName() + (tail==null ? "" : tail.propertyPath());
+		
+	
+ 

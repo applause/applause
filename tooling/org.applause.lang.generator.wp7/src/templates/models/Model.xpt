@@ -1,0 +1,24 @@
+«IMPORT org::applause::lang::applauseDsl»
+«EXTENSION extensions::MetamodelExtensions»
+«EXTENSION extensions::GeneratorExtensions»
+«EXTENSION templates::models::GeneratorExtensions»
+
+«DEFINE main FOR Model-»
+«EXPAND entity FOREACH this.entities()-»
+«ENDDEFINE»
+
+«DEFINE entity FOR Entity»
+«FILE this.classFileFQN()-»
+using System.Collections.Generic;
+
+namespace «this.namespace()»
+{
+    public class «this.className()»
+    {
+		«FOREACH this.properties AS property-»
+		public «property.propertyType()» «property.propertyName()» { get; set; }
+		«ENDFOREACH-»
+    }
+}
+«ENDFILE-»
+«ENDDEFINE»

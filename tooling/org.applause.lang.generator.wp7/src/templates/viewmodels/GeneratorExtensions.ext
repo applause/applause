@@ -1,0 +1,38 @@
+import org::eclipse::emf::ecore;
+import org::applause::lang::applauseDsl;
+
+extension extensions::MetamodelExtensions; 
+extension extensions::GeneratorExtensions;
+
+/**
+ * ViewModel
+ */
+namespace(View this):
+	rootNamespace(this) + ".ViewModel";
+	
+constructorName(View this):
+	this.name.toFirstUpper() + ".ViewModel";
+		
+className(View this):
+	this.name.toFirstUpper() + "ViewModel";
+	
+classFilename(String this):
+	this + ".cs";
+	
+classFilename(View this):
+	className().classFilename();
+	
+classFileFQN(View this):
+	"ViewModel/" + classFilename();
+	
+contentProviderClassname(ViewCall this):
+	this.provider.contentProviderClassname();
+	
+contentProviderClassname(ProviderConstruction this):
+	"ERROR, should not occurr.";
+	
+contentProviderClassname(SimpleProviderConstruction this):
+	this.expression.expression();
+	
+contentProviderClassname(ComplexProviderConstruction this):
+	this.provider.name + "(" + this.argument.expression() + ")";

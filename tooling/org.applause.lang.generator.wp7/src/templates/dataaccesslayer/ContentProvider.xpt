@@ -1,0 +1,82 @@
+«IMPORT org::applause::lang::applauseDsl»
+«EXTENSION extensions::MetamodelExtensions»
+«EXTENSION extensions::GeneratorExtensions»
+«EXTENSION templates::dataaccesslayer::GeneratorExtensions»
+
+«DEFINE main FOR Model-»
+«EXPAND contentProvider FOREACH this.contentProviders()-»
+«ENDDEFINE»
+
+«DEFINE contentProvider FOR ContentProvider»
+«FILE this.classFileFQN()-»
+using System;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Xml.Linq;
+using Applause.DataAccessLayer;
+using Applause.Extensions;
+using «rootNamespace()».Model;
+
+namespace «this.namespace()»    
+{
+    public class «this.className()»
+    {
+    	private HttpWebRequest httpWebRequest;
+    	
+    	public void LoadData(ContentProviderResultCallback resultCallback«IF this.parameter != null», «this.parameter.parameterType()» «this.parameter.parameterName()»«ENDIF»)
+    	{
+    		httpWebRequest = HttpWebRequest.CreateHttp(«this.url.expression()»);
+    		httpWebRequest.BeginGetResponse(new AsyncCallback(FetchData), resultCallback);
+    	}
+    	
+		void FetchData(IAsyncResult result)
+        {
+            HttpWebResponse response = (HttpWebResponse)httpWebRequest.EndGetResponse(result);
+            XDocument xdoc = XDocument.Load(response.GetResponseStream());
+
+			«LET this.type.name.toFirstLower() AS elementName-»
+            var fetchResult = «EXPAND fromBlock(elementName, this.selection.mappingPath(), this.many, 1, ";") FOR this.type-»
+			«ENDLET-»
+            				
+            Deployment.Current.Dispatcher.BeginInvoke(() =>
+            {
+                ContentProviderResultCallback callback = (ContentProviderResultCallback) result.AsyncState;
+                callback(fetchResult.First());
+            });
+        }
+    	
+    }
+}
+«ENDFILE-»
+«ENDDEFINE»
+
+«DEFINE fromBlock(String elementName, String mappingPath, boolean isList, int indent, String terminator) FOR Type»
+	«d(indent)»(from «elementName» in xdoc.Descendants(«mappingPath»)
+	«d(indent)»select new «this.typeName()»()
+	«d(indent)»{
+	«d(indent)»«EXPAND propertyMappings(elementName, indent) FOR this-»
+	«d(indent)»})«IF isList».ToList()«ENDIF»«terminator-»
+«ENDDEFINE»
+
+«DEFINE propertyMappings(String elementName, int indent) FOR Type»
+// cannot map type «this.typeName()»
+«ENDDEFINE»
+
+«DEFINE propertyMappings(String elementName, int indent) FOR Entity-»
+«FOREACH this.properties AS property ITERATOR i-»
+«EXPAND propertyMapping(elementName, i.lastIteration, indent) FOR property-»
+«ENDFOREACH-»
+«ENDDEFINE»
+
+«DEFINE propertyMapping(String elementName, boolean last, int indent) FOR Property-»
+	«IF !Entity.isInstance(this.description.type)-»
+		«d(indent)»«this.propertyName()» = «elementName».ElementAnyNS("«this.name»").Value«IF !last»,«ENDIF»
+	«ELSE-»
+		«LET this.name.toFirstLower() AS elementName-»
+		«LET '"' + elementName + '"' AS mappingPath-»
+		«d(indent)»«this.propertyName()» = «EXPAND fromBlock(elementName, mappingPath, this.description.many, indent + 1, last ? "" : ",") FOR this.description.type»
+		«ENDLET-»
+		«ENDLET-»		
+	«ENDIF-»
+«ENDDEFINE»
