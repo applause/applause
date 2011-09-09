@@ -57,11 +57,11 @@
                                 <local:EventDetailsTemplateSelector Content="{Binding}" HorizontalContentAlignment="Left">
                                     <local:EventDetailsTemplateSelector.Section1Template>
                                         <DataTemplate>
-                                            <StackPanel Margin="0,0,0,17">
+                                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                 <TextBlock Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 <TextBlock Text="Contact" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                                 <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseEnter">
+                                                    <i:EventTrigger EventName="MouseLeave">
                                                         <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding}"/>                                                                                                                
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
@@ -70,11 +70,11 @@
                                     </local:EventDetailsTemplateSelector.Section1Template>
                                     <local:EventDetailsTemplateSelector.Section2Template>
                                         <DataTemplate>
-                                            <StackPanel Margin="0,0,0,17">
+                                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                 <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 <TextBlock Text="{Binding Path=Role}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                                 <i:Interaction.Triggers>
-                                                    <i:EventTrigger EventName="MouseEnter">
+                                                    <i:EventTrigger EventName="MouseLeave">
                                                         <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section2NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Name}"/>
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>

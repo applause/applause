@@ -24,6 +24,7 @@ namespace ItemisApp
         public MainPage()
         {
             InitializeComponent();
+            TiltEffect.TiltableItems.Add(typeof(StackPanel));
             Messenger.Default.Register<NavigationMessage>(this, (action) => NavigationService.Navigate(new Uri(action.PageFQN, UriKind.Relative)));
         }
     }

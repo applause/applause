@@ -24,7 +24,7 @@
             <!--Pivot item one-->
             <controls:PivotItem Header="News"
                                 DataContext="{Binding EventListViewModel, Source={StaticResource Locator}}">
-                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sections}" IsFlatList="False">
+                <toolkit:LongListSelector x:Name="EventListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Sections}" IsFlatList="False" toolkit:TiltEffect.IsTiltEnabled="True">
                     <toolkit:LongListSelector.GroupHeaderTemplate>
                         <DataTemplate>
                             <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
@@ -34,7 +34,7 @@
                     </toolkit:LongListSelector.GroupHeaderTemplate>
                     <toolkit:LongListSelector.ItemTemplate>
                         <DataTemplate>
-                          <StackPanel Margin="0,0,0,17">
+                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                               <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}"/>
                               <TextBlock Text="{Binding Date}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                           </StackPanel>
@@ -54,7 +54,7 @@
                 <ListBox x:Name="BlogListListBox" Margin="0,0,-12,0" ItemsSource="{Binding Blogposts}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Margin="0,0,0,17">
+                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                 <TextBlock Text="{Binding Title}" TextWrapping="Wrap" Margin="12,0,0,0" Style="{StaticResource PhoneTextLargeStyle}"/>
                                 <TextBlock Text="{Binding Creator}" TextWrapping="Wrap" Margin="12,-6,0,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                             </StackPanel>
