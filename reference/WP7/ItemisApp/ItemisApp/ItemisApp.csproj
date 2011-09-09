@@ -90,6 +90,7 @@
     <Compile Include="ViewModel\DataTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsTemplateSelector.cs" />
     <Compile Include="ViewModel\EventDetailsViewModel.cs" />
+    <Compile Include="Converters\StringFormatConverter.cs" />
     <Compile Include="Views\EventDetailsPage.xaml.cs">
       <DependentUpon>EventDetailsPage.xaml</DependentUpon>
     </Compile>
