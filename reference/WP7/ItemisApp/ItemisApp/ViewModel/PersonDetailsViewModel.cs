@@ -6,6 +6,8 @@ using GalaSoft.MvvmLight.Messaging;
 using ItemisApp.Model;
 using ItemisApp.DataAccessLayer;
 using ItemisApp.Views;
+using GalaSoft.MvvmLight.Command;
+using Microsoft.Phone.Tasks;
 
 namespace ItemisApp.ViewModel
 {
@@ -140,5 +142,42 @@ namespace ItemisApp.ViewModel
             }
         }
         #endregion
+
+        #region Navigation
+        public RelayCommand<string> Section1NavigationCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(
+                    (action) =>
+                    {
+                        if (action.IndexOf("tel:") == 0)
+                        {
+                            PhoneCallTask task = new PhoneCallTask();
+                            task.PhoneNumber = action.Substring("tel:".Length);
+                            task.Show();
+                        }
+                        else if (action.IndexOf("mailto:") == 0)
+                        {
+                            EmailComposeTask task = new EmailComposeTask();
+                            task.To = action.Substring("mailto:".Length);
+                            task.Show();
+                        }
+                    });
+            }
+        }
+
+        public RelayCommand<string> Section2NavigationCommand
+        {
+            get
+            {
+                return new RelayCommand<string>(
+                    (name) =>
+                    {
+                    });
+            }
+        }
+        #endregion
+
     }
 }

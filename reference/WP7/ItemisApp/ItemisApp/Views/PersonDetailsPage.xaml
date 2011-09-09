@@ -5,6 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"     
+    xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"    
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -69,10 +71,20 @@
                                                 <StackPanel Margin="0,0,0,17">
                                                     <TextBlock Text="{Binding Path=Mail}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                     <TextBlock Text="mail" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseEnter">
+                                                            <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=PersonDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Mail, Converter={StaticResource StringFormatConverter}, ConverterParameter='mailto:{0}'}"/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
                                                 </StackPanel>
                                                 <StackPanel Margin="0,0,0,17">
                                                     <TextBlock Text="{Binding Path=Phone}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                     <TextBlock Text="phone" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseEnter">
+                                                            <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=PersonDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Phone, Converter={StaticResource StringFormatConverter}, ConverterParameter='tel:{0}'}"/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
