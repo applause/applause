@@ -18,37 +18,6 @@ namespace ItemisApp
 {
     public partial class App : Application
     {
-        public static Stack<GotoPageMessage> NavigationStack
-        {
-            get
-            {
-                if (!PhoneApplicationService.Current.State.ContainsKey("NavigationStack"))
-                {
-                    PhoneApplicationService.Current.State["NavigationStack"] = new Stack<GotoPageMessage>();
-                }
-                Stack<GotoPageMessage> stack = (Stack<GotoPageMessage>)PhoneApplicationService.Current.State["NavigationStack"];
-                return stack;
-            }
-        }
-
-        private static MainViewModel viewModel = null;
-
-        /// <summary>
-        /// A static ViewModel used by the views to bind against.
-        /// </summary>
-        /// <returns>The MainViewModel object.</returns>
-        public static MainViewModel ViewModel
-        {
-            get
-            {
-                // Delay creation of the view model until necessary
-                if (viewModel == null)
-                    viewModel = new MainViewModel();
-
-                return viewModel;
-            }
-        }
-
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -100,11 +69,6 @@ namespace ItemisApp
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            // Ensure that application state is restored appropriately
-            if (!App.ViewModel.IsDataLoaded)
-            {
-                App.ViewModel.LoadData();
-            }
         }
 
         // Code to execute when the application is deactivated (sent to background)
@@ -153,7 +117,7 @@ namespace ItemisApp
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new PhoneApplicationFrame();
+            RootFrame = new TransitionFrame(); // new PhoneApplicationFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures

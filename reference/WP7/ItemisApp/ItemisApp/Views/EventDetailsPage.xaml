@@ -16,7 +16,8 @@
     xmlns:local="clr-namespace:ItemisApp.ViewModel"
     shell:SystemTray.IsVisible="True" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    DataContext="{Binding Source={StaticResource Locator}, Path=EventViewModel}">
+    DataContext="{Binding Source={StaticResource Locator}, Path=EventDetailsViewModel}"
+    Style="{StaticResource PageStyle}">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -44,7 +45,7 @@
                         <TextBlock x:Name="HeaderSubTitle" Text="{Binding Date}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=Event}" />
                         <TextBlock x:Name="HeaderDetails" Text="{Binding Description}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=Event}" />
                     </StackPanel>
-                    <toolkit:LongListSelector Grid.Row="1" x:Name="EventDetailListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False" SelectedItem="{Binding Path=SelectedContact, Mode=TwoWay}">
+                    <toolkit:LongListSelector Grid.Row="1" x:Name="EventDetailsListBox" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False">
                         <toolkit:LongListSelector.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
@@ -54,31 +55,36 @@
                         </toolkit:LongListSelector.GroupHeaderTemplate>
                         <toolkit:LongListSelector.ItemTemplate>
                             <DataTemplate>
-                        <local:EventDetailsTemplateSelector Content="{Binding}" HorizontalContentAlignment="Left">
+                                <local:EventDetailsTemplateSelector Content="{Binding}" HorizontalContentAlignment="Left">
                                     <local:EventDetailsTemplateSelector.Section1Template>
                                         <DataTemplate>
-                                            <StackPanel Margin="0,0,0,17">
+                                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                 <TextBlock Text="{Binding}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 <TextBlock Text="Contact" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeave">
+                                                        <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding}"/>                                                                                                                
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
                                             </StackPanel>
                                         </DataTemplate>
                                     </local:EventDetailsTemplateSelector.Section1Template>
                                     <local:EventDetailsTemplateSelector.Section2Template>
                                         <DataTemplate>
-                                            <StackPanel Margin="0,0,0,17">
+                                            <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                 <TextBlock Text="{Binding Path=Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 <TextBlock Text="{Binding Path=Role}" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                <i:Interaction.Triggers>
+                                                    <i:EventTrigger EventName="MouseLeave">
+                                                        <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=EventDetailsViewModel.Section2NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Name}"/>
+                                                    </i:EventTrigger>
+                                                </i:Interaction.Triggers>
                                             </StackPanel>
                                         </DataTemplate>
                                     </local:EventDetailsTemplateSelector.Section2Template>
                                 </local:EventDetailsTemplateSelector>
                             </DataTemplate>
                         </toolkit:LongListSelector.ItemTemplate>
-                        <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="SelectionChanged" SourceName="EventDetailListBox">
-                                <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding GotoContactDetailsCommand, Mode=OneWay}" CommandParameter="{Binding SelectedItem, ElementName=EventDetailListBox}"/>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
                     </toolkit:LongListSelector>
                 </Grid>
             </ScrollViewer>

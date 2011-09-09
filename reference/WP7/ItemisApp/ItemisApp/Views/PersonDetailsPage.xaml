@@ -5,6 +5,8 @@
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"     
+    xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7"    
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -14,7 +16,8 @@
     shell:SystemTray.IsVisible="True"
     xmlns:local="clr-namespace:ItemisApp.ViewModel"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    DataContext="{Binding Source={StaticResource Locator}, Path=ContactViewModel}">
+    DataContext="{Binding Source={StaticResource Locator}, Path=PersonDetailsViewModel}"
+    Style="{StaticResource PageStyle}">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -42,7 +45,7 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Image Grid.Column="0" Source="{Binding Path=Pictureurl}" Stretch="None" DataContext="{Binding Path=Contact}" Width="60" VerticalAlignment="Top" Height="60" HorizontalAlignment="Left" />
+                        <Image Grid.Column="0" Source="{Binding Path=Pictureurl}" Stretch="None" DataContext="{Binding Path=Contact}" VerticalAlignment="Top" HorizontalAlignment="Left" />
                         <StackPanel Grid.Column="1">
                             <TextBlock x:Name="HeaderTitle" Text="{Binding Name}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=Contact}" />
                             <!--
@@ -66,13 +69,23 @@
                                     <local:PersonDetailsTemplateSelector.Section1Template>
                                         <DataTemplate>
                                             <StackPanel>
-                                                <StackPanel Margin="0,0,0,17">
+                                                <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                     <TextBlock Text="{Binding Path=Mail}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                     <TextBlock Text="mail" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeave">
+                                                            <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=PersonDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Mail, Converter={StaticResource StringFormatConverter}, ConverterParameter='mailto:{0}'}"/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
                                                 </StackPanel>
-                                                <StackPanel Margin="0,0,0,17">
+                                                <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                     <TextBlock Text="{Binding Path=Phone}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                     <TextBlock Text="phone" TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                    <i:Interaction.Triggers>
+                                                        <i:EventTrigger EventName="MouseLeave">
+                                                            <GalaSoft_MvvmLight_Command:EventToCommand Command="{Binding Path=PersonDetailsViewModel.Section1NavigationCommand, Source={StaticResource Locator}}" CommandParameter="{Binding Path=Phone, Converter={StaticResource StringFormatConverter}, ConverterParameter='tel:{0}'}"/>
+                                                        </i:EventTrigger>
+                                                    </i:Interaction.Triggers>
                                                 </StackPanel>
                                             </StackPanel>
                                         </DataTemplate>
