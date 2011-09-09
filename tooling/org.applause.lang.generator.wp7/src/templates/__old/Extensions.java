@@ -1,4 +1,4 @@
-package templates;
+package templates.__old;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.EcoreUtil2;
