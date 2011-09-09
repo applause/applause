@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Xml.Linq;
 
-namespace ItemisApp.DataAccessLayer
+namespace Applause.Extensions
 {
     public static class LinqXmlExtensions
     {

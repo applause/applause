@@ -11,7 +11,7 @@ using System.Windows.Shapes;
 using System.Collections.Generic;
 using GalaSoft.MvvmLight;
 
-namespace ItemisApp.Views
+namespace Applause.ViewModel
 {
     public class NavigationMessage
     {

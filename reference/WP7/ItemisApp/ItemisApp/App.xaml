@@ -8,7 +8,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:vm="clr-namespace:ItemisApp.ViewModel" 
-    xmlns:c="clr-namespace:ItemisApp.Converters"
+    xmlns:c="clr-namespace:Applause.Converters"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
     mc:Ignorable="d">
     <!--Application Resources-->
@@ -19,7 +19,11 @@
     <Application.Resources>
         <!--Global View Model Locator-->
         <vm:ViewModelLocator x:Key="Locator" d:IsDataSource="True" />
+
+        <!-- StringFormat Converter -->
         <c:StringFormatConverter x:Key="StringFormatConverter"/>
+
+        <!-- Page Transition Configuration -->
         <Style x:Key="PageStyle" TargetType="phone:PhoneApplicationPage">
             <Setter Property="toolkit:TransitionService.NavigationInTransition">
                 <Setter.Value>

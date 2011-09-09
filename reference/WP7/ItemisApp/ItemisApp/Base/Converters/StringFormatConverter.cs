@@ -2,7 +2,7 @@
 using System;
 using System.Globalization;
 
-namespace ItemisApp.Converters
+namespace Applause.Converters
 {
     public class StringFormatConverter : IValueConverter
     {

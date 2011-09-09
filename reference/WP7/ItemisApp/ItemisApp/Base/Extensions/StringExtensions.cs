@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace ItemisApp.DataAccessLayer
+namespace Applause.Extensions
 {
     public static class StringExtensions
     {

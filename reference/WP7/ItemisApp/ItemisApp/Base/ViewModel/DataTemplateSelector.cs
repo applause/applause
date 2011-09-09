@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace ItemisApp.ViewModel
+namespace Applause.ViewModel
 {
     public abstract class DataTemplateSelector : ContentControl
     {

@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
+using Applause.ViewModel;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using ItemisApp.Model;
-using GalaSoft.MvvmLight.Command;
 using ItemisApp.Views;
-using Microsoft.Phone.Controls;
 
 namespace ItemisApp.ViewModel
 {

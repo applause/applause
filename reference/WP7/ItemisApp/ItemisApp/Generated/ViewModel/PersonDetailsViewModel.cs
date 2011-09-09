@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
+using Applause.ViewModel;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Messaging;
-using ItemisApp.Model;
-using ItemisApp.DataAccessLayer;
-using ItemisApp.Views;
 using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.Messaging;
+using ItemisApp.DataAccessLayer;
+using ItemisApp.Model;
+using ItemisApp.Views;
 using Microsoft.Phone.Tasks;
 
 namespace ItemisApp.ViewModel

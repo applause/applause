@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Windows;
-using System.Xml.Linq;
+using Applause.ViewModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
+using ItemisApp.DataAccessLayer;
 using ItemisApp.Model;
 using ItemisApp.Views;
-using ItemisApp.DataAccessLayer;
 
 namespace ItemisApp.ViewModel
 {

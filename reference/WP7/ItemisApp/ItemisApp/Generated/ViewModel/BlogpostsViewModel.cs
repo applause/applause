@@ -4,9 +4,9 @@ using System.Linq;
 using System.Net;
 using System.Windows;
 using System.Xml.Linq;
+using Applause.Extensions;
 using GalaSoft.MvvmLight;
 using ItemisApp.Model;
-using ItemisApp.DataAccessLayer;
 
 namespace ItemisApp.ViewModel
 {

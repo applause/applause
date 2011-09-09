@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ItemisApp.ViewModel
+namespace Applause.ViewModel
 {
     public class GroupingLayer<TKey, TElement> : IGrouping<TKey, TElement>
     {
