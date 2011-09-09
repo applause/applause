@@ -16,7 +16,8 @@
     shell:SystemTray.IsVisible="True"
     xmlns:local="clr-namespace:ItemisApp.ViewModel"
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    DataContext="{Binding Source={StaticResource Locator}, Path=PersonDetailsViewModel}">
+    DataContext="{Binding Source={StaticResource Locator}, Path=PersonDetailsViewModel}"
+    Style="{StaticResource PageStyle}">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
