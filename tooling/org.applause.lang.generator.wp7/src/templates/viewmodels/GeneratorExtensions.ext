@@ -8,7 +8,7 @@ extension extensions::GeneratorExtensions;
  * ViewModel
  */
 namespace(View this):
-	rootNamespace(this) + ".ViewModel";
+	rootNamespace() + ".ViewModel";
 	
 constructorName(View this):
 	this.name.toFirstUpper() + ".ViewModel";
