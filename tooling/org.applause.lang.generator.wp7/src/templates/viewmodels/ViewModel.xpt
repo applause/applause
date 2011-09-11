@@ -4,10 +4,10 @@
 «EXTENSION templates::viewmodels::GeneratorExtensions»
 
 «DEFINE main FOR Model-»
-«EXPAND view FOREACH this.views()-»
+«EXPAND view FOREACH this.views().typeSelect(SectionedView)-»
 «ENDDEFINE»
 
-«DEFINE view FOR View»
+«DEFINE view FOR SectionedView»
 «FILE this.classFileFQN()-»
 using System.Collections;
 using System.Collections.Generic;
@@ -19,9 +19,9 @@ using «rootNamespace()».DataAccessLayer;
 using «rootNamespace()».Model;
 using «rootNamespace()».Views;
 
-namespace «this.namespace()»
+namespace «namespace()»
 {
-    public class «this.className()» : ViewModelBase
+    public class «className()» : ViewModelBase
     {
 		public «constructorName()»()
 		{
@@ -34,13 +34,119 @@ namespace «this.namespace()»
 		}
 		
 		#region Data Source
-		
 		private void LoadData()
 		{
+			// find a smart way to instantiate the content provider or use DI		
 		}
+
+        public void AcceptData(object result) 
+        {
+            if (result is «content.description.typeName()») 
+            {
+                «contentPropertyname()» = («contentTypename()»)result;
+            }
+        }
+		#endregion
 		
+		#region «contentPropertyname()» Property
+		public const string «contentPropertyPropertyname()» = "«this.contentPropertyname()»";
+		private «contentPropertyFieldname()» = null;
+		public «contentTypename()» «contentPropertyname()»
+		{
+			get 
+			{ 
+				return «this.contentPropertyFieldname()»;
+			}
+			
+			set
+			{
+				if («contentPropertyFieldname()» == value)
+				{
+					return;
+				}
+				«contentPropertyFieldname()» = value;
+				RaisePropertyChanged(«contentPropertyPropertyname()»);
+			}
+		}
+		#endregion
+		
+		#region Sections Property
+        public const string SectionsProperyName = "Sections";
+        List<IEnumerable> _sections = null;
+
+        public List<IEnumerable> Sections
+        {
+            get
+            {
+                return _sections;
+            }
+            set
+            {
+                if (_sections == value)
+                {
+                    return;
+                }
+
+                var oldValue = _sections;
+                _sections = value;
+
+                RaisePropertyChanged(SectionsProperyName);
+            }
+        }
+		#endregion
+		
+		#region Navigation
+        public RelayCommand<object> NavigationCommand
+        {
+            get
+            {
+                return new RelayCommand<object>(
+                	(selection) =>
+                	{
+					«EXPAND action FOREACH this.sections.cells.action.typeSelect(ViewCall).uniqueViewCalls()»
+                	«EXPAND action FOR this.sections.cells.action.typeSelect(ExternalOpen).first()-»
+                	}
+				);
+            }
+        }
 		#endregion
     }
 }
 «ENDFILE-»
+«ENDDEFINE»
+
+«DEFINE action FOR ViewCall»
+						if (selection is «this.provider.providerTypename()»)
+						{
+							NavigationMessage msg = new NavigationMessage()
+							{
+								PageName = "«this.view.name»Page",
+								ViewModelName = "«this.view.name»ViewModel"
+							};
+							msg.Payload.Add("«this.provider.providerPayloadSlotname()»", («this.provider.providerTypename()»)selection);
+							Messenger.Default.Send<NavigationMessage>(msg);
+						}
+«ENDDEFINE»
+
+«DEFINE action FOR ExternalOpen-»
+						if (selection is string)
+						{
+							string url = (string)selection
+                        	if (url.IndexOf("tel:") == 0)
+                        	{
+                            	PhoneCallTask task = new PhoneCallTask();
+                            	task.PhoneNumber = url.Substring("tel:".Length);
+                            	task.Show();
+                        	}
+                        	else if (url.IndexOf("mailto:") == 0)
+                        	{
+                            	EmailComposeTask task = new EmailComposeTask();
+                            	task.To = url.Substring("mailto:".Length);
+                            	task.Show();
+                        	}
+                        	else
+                        	{
+                        		// open browser
+                        	}
+						}
 «ENDDEFINE»

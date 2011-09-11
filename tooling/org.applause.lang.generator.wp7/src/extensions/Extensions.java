@@ -9,4 +9,5 @@ public class Extensions {
 		EObject result = EcoreUtil2.getRootContainer(obj);
 		return result;
 	}
+	
 }

@@ -15,3 +15,6 @@ views(Model this):
 	
 contentProviders(Model this):
 	this.elements.typeSelect(ContentProvider);
+	
+TypeDescription typeDescription(ProviderConstruction this):
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.ProviderConstruction);	
