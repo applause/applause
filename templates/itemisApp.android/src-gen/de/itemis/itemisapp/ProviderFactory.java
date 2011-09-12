@@ -22,10 +22,4 @@ public class ProviderFactory {
 		return new allRepositoriesByUserProvider(feedUrl);
 	}
 
-	public static allFollowersByUserProvider getAllFollowersByUserProvider(
-			String login) {
-		String feedUrl = "sdf";
-		return new allFollowersByUserProvider(feedUrl);
-	}
-
 }

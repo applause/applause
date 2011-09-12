@@ -14,5 +14,6 @@
         </activity>
     <activity android:name=".CommitList"></activity>
     <activity android:name=".UserDetails"></activity>
+    <activity android:name=".RepositoryList"></activity>
 </application>
 </manifest>

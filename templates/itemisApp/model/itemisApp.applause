@@ -10,14 +10,14 @@ tabbarApplication itemisApp {
 		title= "Peter"
 		icon= "person.png"
 		view= UserDetails(userData("peterfriese"))
-	}
+	} 
  
 	button {
 		title= "Heiko"
 		icon= "person.png"
 		view= UserDetails(userData("hbehrens"))
 	}
-}
+} 
 
 /*
  * DESCRIBING DATA
@@ -77,11 +77,6 @@ contentprovider allRepositoriesByUser(String login) returns Repository[]
 	fetches XML
 	from ("http://github.com/api/v2/xml/repos/show/" login)
 	selects "repositories.repository"
-	
-contentprovider allFollowersByUser(String login) returns User[]
-	fetches XML
-	from ("sdf")
-	selects "followers"		
 	
 /*
  * Views

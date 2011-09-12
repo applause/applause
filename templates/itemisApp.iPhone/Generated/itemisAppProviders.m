@@ -41,16 +41,4 @@
 }
 
 
-
--(IPContentProvider*)providerForallFollowersByUser:(id)login {
-	NSString* url = [NSString stringWithFormat:@"%@", @"sdf"];
-	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
-								  initWithURL: [NSURL URLWithString:url] 
-								  initialContent: nil
-								  keyPathToContent: @"followers"
-								  andProviders:self] autorelease];
-	return result;
-}
-
-
 @end
