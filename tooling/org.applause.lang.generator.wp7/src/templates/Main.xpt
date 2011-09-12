@@ -2,6 +2,7 @@
 «EXTENSION extensions::MetamodelExtensions»
 
 «DEFINE main FOR Application»
+«EXPAND csproj::main FOR this»
 «EXPAND models::Model::main FOR this.model()»
 «EXPAND viewmodels::ViewModel::main FOR this.model()»
 «EXPAND viewmodels::ViewTemplateSelector::main FOR this.model()»

@@ -5,6 +5,9 @@ extension extensions::MetamodelExtensions;
 
 rootNamespace(EObject this):
 	model().application.name.toFirstUpper();
+	
+assemblyName(Application this):
+	this.name.toFirstUpper();
 
 /**
  * Types
