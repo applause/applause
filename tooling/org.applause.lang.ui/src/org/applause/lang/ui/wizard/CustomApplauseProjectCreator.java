@@ -89,17 +89,9 @@ public class CustomApplauseProjectCreator extends AbstractProjectCreator {
 		return modelProject;
 	}	
 	
-	private void createModel(final IProject project, final IProgressMonitor monitor) throws CoreException {
-		try {
-			InputStream contents = this.getClass().getClassLoader().getResourceAsStream("/templates/template.applause");
-			String content = replaceTemplate(IOUtils.toString(contents));
-
-			project.getFolder("/model").create(true, true, monitor);
-			IFile file = project.getFile("/model/" + getProjectInfo().getProjectName() + ".applause");
-			file.create(IOUtils.toInputStream(content), true, monitor);
-		} catch (IOException e) {
-			throw new RuntimeException(e);
-		}
+	private void createModel(final IProject project, final SubMonitor monitor) throws CoreException {
+		InputStream contents = this.getClass().getClassLoader().getResourceAsStream("/templateproject/project.zip");
+		enhancePlatformProject(project, contents, monitor);
 	}
 	
 	protected ProjectFactory configureProjectFactoryForPlatformProject(ProjectFactory factory, MobilePlatform platform) {
@@ -118,20 +110,27 @@ public class CustomApplauseProjectCreator extends AbstractProjectCreator {
 		enhancePlatformProject(platformProject, platform, monitor);
 		return platformProject;
 	}
-	
 	private void enhancePlatformProject(IProject project, MobilePlatform platform, SubMonitor monitor) {
-		InputStream stream = null;
+		ExtensibleURIConverterImpl uriConverter = new ExtensibleURIConverterImpl();
 		try {
-			ExtensibleURIConverterImpl uriConverter = new ExtensibleURIConverterImpl();
-			stream = uriConverter.createInputStream(platform.getTemplateProjectURI());
-			
-			// stream = getClass().getResourceAsStream("newproject/project.zip"); 
+			InputStream stream = uriConverter.createInputStream(platform.getTemplateProjectURI());
+			enhancePlatformProject(project, stream, monitor);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	private void enhancePlatformProject(IProject project, InputStream stream, SubMonitor monitor) {
+		try {
 			ZipInputStream zipStream = new ZipInputStream(stream);
 			ZipEntry entry;
 			while ((entry = zipStream.getNextEntry()) != null) {
 				String name = entry.getName();
+				if(name.contains("__MACOSX/"))
+					continue;
+				
 				name = replaceTemplate(name);
-//				name = name.substring(name.indexOf(File.separator));
 				if (entry.isDirectory()) {
 					IFolder folder = project.getFolder(name);
 					if (!folder.exists()) {
