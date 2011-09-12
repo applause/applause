@@ -10,11 +10,11 @@
 	</target>
 
 	<target name="zip" depends="clean">
-		<zip destfile="../tooling/org.applause.lang.ui/templateproject/project.zip" basedir="." includes="itemisApp/model/*" excludes="dont*.*" />
-		<zip destfile="../tooling/org.applause.lang.generator.iphone/templateproject/project.zip" basedir="." includes="itemisApp.iPhone/**" excludes="itemisApp.iPhone/build/**" />
-		<zip destfile="../tooling/org.applause.lang.generator.android/templateproject/project.zip" basedir="." includes="itemisApp.android/**" excludes="itemisApp.iPhone/bin/**" />
-		<zip destfile="../tooling/org.applause.lang.generator.gae/templateproject/project.zip" basedir="." includes="itemisApp.gae/**" excludes="**/**.pyc" />
-		<zip destfile="../tooling/org.applause.lang.generator.wp7/templateproject/project.zip" basedir="." includes="itemisApp.wp7/**" excludes="itemisApp.wp7/obj/**" />
+		<zip destfile="../tooling/org.applause.lang.ui/templateproject/project.zip" basedir="itemisApp" includes="model/*, Images/*" />
+		<zip destfile="../tooling/org.applause.lang.generator.iphone/templateproject/project.zip" basedir="itemisApp.iPhone" includes="**" excludes="build/**" />
+		<zip destfile="../tooling/org.applause.lang.generator.android/templateproject/project.zip" basedir="itemisApp.android" includes="**" excludes="bin/**" />
+		<zip destfile="../tooling/org.applause.lang.generator.gae/templateproject/project.zip" basedir="itemisApp.gae" includes="**" excludes="**/**.pyc" />
+		<zip destfile="../tooling/org.applause.lang.generator.wp7/templateproject/project.zip" basedir="itemisApp.wp7" includes="**" excludes="obj/**" />
 	</target>
 
 </project>
