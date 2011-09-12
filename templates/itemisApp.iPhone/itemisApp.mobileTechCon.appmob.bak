@@ -1,0 +1,192 @@
+tabbarApplication itemisApp {
+
+button {
+	title= "Blog"
+	icon="chat.png"
+	view= BlogList( Blogposts() )
+}
+	
+	button {
+		title= "Dienstag"
+		icon= "microphone.png"
+		view= VortragListe( VortragItemsByTag("Dienstag") )
+	}
+
+	button { 
+		title= "Mittwoch"
+		icon= "microphone.png"
+		view= VortragListe (VortragItemsByTag ( "Mittwoch" ) )
+	}
+	
+	button {
+		title= "speakers"
+		icon= "person.png"
+		view= SprecherListe( AllSprecherItems() )
+	} 
+}
+
+type String mapsTo "NSString"
+
+entity BlogItem {
+	String title
+	String author
+	String link
+	String description
+	String pubDate
+}
+
+entity Sprecher {
+	String name
+	String beschreibung
+	String email
+	String blog
+	String fotourl
+	String vortraege
+}
+
+entity Vortrag {
+	String titel
+	String untertitel
+	String sprecher
+	String beschreibung
+	String tag
+	String zeit
+}
+
+contentprovider Blogposts
+	returns BlogItem[]
+	fetches XML
+		from "http://mobiletechcon.de/blog/?feed=rss2"
+		selects "rss.channel.item"
+	
+contentprovider AllVortragItems
+	returns Vortrag[]
+	fetches XML
+		//from "http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values"
+		from "http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdFdnejA4bnduak1MOW1aVXFZSklvSVE/1/public/values"
+		selects "feed.entry"
+		
+contentprovider VortragByTitel(String titel)
+	returns Vortrag
+	fetches XML
+		//from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/1/public/values?sq=vortragid%3D" urlconform(replace(titel, " ", "")))
+		from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdFdnejA4bnduak1MOW1aVXFZSklvSVE/1/public/values?sq=vortragid%3D" urlconform(replace(titel, " ", "")))
+		selects "feed.entry"
+		
+contentprovider VortragItemsByTag(String tag)
+	returns Vortrag
+	fetches XML
+		from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdFdnejA4bnduak1MOW1aVXFZSklvSVE/1/public/values?sq=tag%3D" urlconform(tag))
+		selects "feed.entry"
+		
+contentprovider AllSprecherItems
+	returns Sprecher[]
+	fetches XML
+//		from "http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values"
+		from "http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdFdnejA4bnduak1MOW1aVXFZSklvSVE/2/public/values"
+		selects "feed.entry"
+
+contentprovider SprecherByName(String name)
+	returns Sprecher
+	fetches XML
+//		from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdEpRQWxpZnJyX2JCNUdtT1Z4M1B4SkE/2/public/values?sq=sprecherid%3D" urlconform(replace(name, " ", "")))
+		from ("http://spreadsheets.google.com/feeds/list/0Au3-oaNYhfPIdFdnejA4bnduak1MOW1aVXFZSklvSVE/2/public/values?sq=sprecherid%3D" urlconform(replace(name, " ", "")))
+		selects "feed.entry"
+		
+
+
+tableview BlogList(BlogItem[] items) {
+	title= "blog"
+	section {
+		cell Subtitle foreach items as i {
+			text= i.title
+			action= i.link
+		}
+	}
+}
+
+detailsview BlogDetails(BlogItem item) {
+	title= "blog post" 
+	header {
+		title= item.title
+		details= item.description
+		image= ("http://blogs.itemis.de/wp-content/themes/itemis-WP-Theme/photos/"urlconform(item.author)".jpg")
+	}
+	section {
+		cell Default {
+			text= item.author
+			action= SprecherDetails(SprecherByName(item.author))
+		}		
+		cell Default {
+			text= "Open in Browser"
+			action= item.link   
+		}
+	}
+} 
+
+tableview VortragListe(Vortrag[] items) {
+	title= "sessions"
+	section {
+		cell Subtitle foreach items as i {
+			text= i.titel
+			details= (i.zeit " " i.sprecher)
+			action= VortragDetailsView( i )   
+		}
+	}
+}
+
+detailsview VortragDetailsView(Vortrag vortrag) {
+	title= "session"
+	header {
+		title= vortrag.titel
+		subtitle= (vortrag.zeit "\\n" vortrag.untertitel)
+		details= vortrag.beschreibung
+	}
+	
+	section {
+		cell DefaultWithDisclosure foreach split(vortrag.sprecher, ", ") as s {
+			text= s
+			action= SprecherDetails(SprecherByName(s))		
+		}
+		
+	}
+	
+}
+
+tableview SprecherListe(Sprecher[] sprecher) {
+	title= "speakers"
+	section {
+		cell Default foreach sprecher as s {
+			text= s.name
+			image= s.fotourl
+			action= SprecherDetails(s)   
+		}
+	}
+}
+
+detailsview SprecherDetails(Sprecher sprecher) {
+	title= "speaker"
+	header {
+		title= sprecher.name
+		details= sprecher.beschreibung
+		image= sprecher.fotourl
+	}
+	
+	
+	section {
+		cell Default foreach split(sprecher.vortraege, ", ") as titel {
+			text= titel
+			action= VortragDetailsView(VortragByTitel(titel))
+		}
+	}
+	
+	section {
+		cell Value2 {
+			text= "mail"
+			details= sprecher.email
+			action= ("mailto:" sprecher.email)
+		}
+	}
+	
+}
+

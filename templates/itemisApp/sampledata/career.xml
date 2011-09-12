@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+<carreer>
+	<description>Itemis offers a research-near environment and excellent perspectives to implement your ideas into concrete projects. Expect a collegial working climate in a young team that puts great emphasis on frankness and honesty with each other.</description>
+	<link>
+		<title>Freedoms</title>
+		<url>http://www.itemis.com/itemis-ag/career/language=en/2648/freedoms</url>
+	</link>
+	<link>
+		<title>4+1 Working Model</title>
+		<url>http://www.itemis.com/itemis-ag/career/language=en/15730/4-plus-1</url>
+	</link>
+	<job>
+		<id>1</id>
+		<location>All Offices</location>
+		<title>IT-Berater, Software-Entwickler, Software-Architekt (m/w)</title>
+	</job>
+	<job>
+		<id>2</id>
+		<location>All Offices</location>
+		<title>Entwickler für Apps (m/w)</title>
+	</job>
+	<job>
+		<id>3</id>
+		<location>Standort Lünen</location>
+		<title>Praktikant(in) Marketing &amp; Sales</title>
+	</job>
+</carreer>
+</data>
