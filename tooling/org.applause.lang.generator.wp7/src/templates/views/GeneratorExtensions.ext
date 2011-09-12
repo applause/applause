@@ -33,6 +33,27 @@ classFilename(DetailsView this):
 	
 bindingPath(ScalarExpression this):
 	this.expression().split('\\.').last();
+	
+listboxName(View this):
+	this.name.toFirstUpper() + "Listbox";
+	
+/**
+ * MainView
+ */
+namespace(Application this):
+	rootNamespace() + ".Views";
+	
+xamlFilename(Application this):
+	className().xamlFilename();
+	
+classFilename(Application this):
+	className().classFilename();
+	
+className(Application this):
+	"MainPage";
+	
+List[SectionCell] uniqueSectionCells(List[SectionCell] this):
+	JAVA templates.views.Extensions.uniqueSectionCells(java.util.List);
 
 /**
  * ViewModel

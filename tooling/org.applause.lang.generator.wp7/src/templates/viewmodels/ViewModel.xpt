@@ -44,8 +44,26 @@ namespace «namespace()»
             if (result is «content.description.typeName()») 
             {
                 «contentPropertyname()» = («contentTypename()»)result;
+                «IF sections.size > 0-»
+                MapSections(result);
+                «ENDIF»
             }
         }
+        
+        «IF sections.size > 0-»
+        private void MapSections(object result)
+        {
+			var grouped = new List<IEnumerable>();
+			«FOREACH this.sections AS section-»
+			«FOREACH section.cells AS cell-»
+			«IF cell.iterator != null-»
+			grouped.Add(new GroupingLayer<string, «cell.cellTypename()»>(«section.sectionTitle()», «cell.sectionCollection()»));
+			«ENDIF-»
+			«ENDFOREACH-»
+			«ENDFOREACH-»
+			Sections = grouped;        
+        }
+        «ENDIF»
 		#endregion
 		
 		#region «contentPropertyname()» Property

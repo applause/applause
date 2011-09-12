@@ -58,6 +58,31 @@ providerTypename(ProviderConstruction this):
 List[ViewCall] uniqueViewCalls(List[ViewCall] this):
 	JAVA templates.viewmodels.Extensions.withoutConceptionalDuplicates(java.util.List);
 	
-// List[ViewCall] withoutConceptionalDuplicates(Object calls):
-//	JAVA templates.Extensions2.withoutConceptionalDuplicates(java.util.List);
+/**
+ * ViewModel Sections
+ */
+sectionCollection(SectionCell this):
+	this.iterator.collection.collectionExpression();
 	
+cellTypename(SectionCell this):
+	this.iterator.typeDescription().typeName();
+	
+sectionTitle(ViewSection this):
+	title != null
+		? title.expression()
+		: '""';
+	
+/**
+ * Model
+ */
+modelNamespace(SectionedView this):
+	rootNamespace(this) + ".Model"; 
+	
+templateSelectorClassName(View this):
+	this.name.toFirstUpper() + "TemplateSelector";
+	
+templateSelectorClassFilename(View this):
+	templateSelectorClassName().classFilename();
+		
+templateSelectorClassFileFQN(View this):
+	"ViewModel/" + templateSelectorClassFilename();

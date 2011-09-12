@@ -1,0 +1,32 @@
+«IMPORT org::applause::lang::applauseDsl»
+«EXTENSION extensions::MetamodelExtensions»
+«EXTENSION extensions::GeneratorExtensions»
+«EXTENSION templates::viewmodels::GeneratorExtensions»
+
+«DEFINE main FOR Model-»
+«EXPAND viewTemplateSelector FOREACH this.views().typeSelect(SectionedView)-»
+«ENDDEFINE»
+
+«DEFINE viewTemplateSelector FOR SectionedView»
+«FILE this.templateSelectorClassFileFQN()-»
+using System.Windows;
+using Applause.ViewModel;
+using «modelNamespace()»;
+
+namespace «namespace()»
+{
+    public class «templateSelectorClassName()»: DataTemplateSelector
+    {
+    	«FOREACH this.sections AS section ITERATOR i-»
+        public DataTemplate Section«i.counter1»Template { get; set; }
+    	«ENDFOREACH-»
+
+        public override DataTemplate SelectTemplate(object item, DependencyObject container)
+        {
+            return base.SelectTemplate(item, container);
+        }
+
+    }
+}
+«ENDFILE»
+«ENDDEFINE»

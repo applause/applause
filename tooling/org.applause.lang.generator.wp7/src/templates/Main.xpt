@@ -4,6 +4,7 @@
 «DEFINE main FOR Application»
 «EXPAND models::Model::main FOR this.model()»
 «EXPAND viewmodels::ViewModel::main FOR this.model()»
+«EXPAND viewmodels::ViewTemplateSelector::main FOR this.model()»
 «EXPAND dataaccesslayer::ContentProvider::main FOR this.model()»
 «EXPAND views::Views::main FOR this.model()»
 «ENDDEFINE»
