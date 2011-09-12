@@ -17,3 +17,4 @@ bin
 /examples/itemisApp.wp7/obj/
 /reference/WP7/ItemisApp/ItemisApp/obj/
 *.suo
+/templates/itemisApp.iPhone/build/

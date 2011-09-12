@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="create-templates" default="zip" basedir=".">
+
+	<target name="clean">
+		<delete file="../tooling/org.applause.lang.ui/templateproject/project.zip" />
+		<delete file="../tooling/org.applause.lang.generator.iphone/templateproject/project.zip" />
+		<delete file="../tooling/org.applause.lang.generator.android/templateproject/project.zip" />
+		<delete file="../tooling/org.applause.lang.generator.gae/templateproject/project.zip" />
+		<delete file="../tooling/org.applause.lang.generator.wp7/templateproject/project.zip" />
+	</target>
+
+	<target name="zip" depends="clean">
+		<zip destfile="../tooling/org.applause.lang.ui/templateproject/project.zip" basedir="itemisApp" includes="model/*, Images/*" />
+		<zip destfile="../tooling/org.applause.lang.generator.iphone/templateproject/project.zip" basedir="itemisApp.iPhone" includes="**" excludes="build/**" />
+		<zip destfile="../tooling/org.applause.lang.generator.android/templateproject/project.zip" basedir="itemisApp.android" includes="**" excludes="bin/**" />
+		<zip destfile="../tooling/org.applause.lang.generator.gae/templateproject/project.zip" basedir="itemisApp.gae" includes="**" excludes="**/**.pyc" />
+		<zip destfile="../tooling/org.applause.lang.generator.wp7/templateproject/project.zip" basedir="itemisApp.wp7" includes="**" excludes="obj/**" />
+	</target>
+
+</project>

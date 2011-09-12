@@ -1,0 +1,148 @@
+body {
+    background-color: #ddd;
+    color: #222;
+    font-family: Helvetica;
+    font-size: 12pt;
+/*        font-size: 14px; */
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+  margin: 0;
+}
+
+.menu {
+  width: 100%;
+  background-color: #333;
+}
+
+.menu ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+.menu ul li {
+  display: inline;
+}
+
+.menu ul li a {
+  float: left;
+  text-decoration: none;
+
+  padding: 0.6em;
+  margin-right: 0.2em;
+  
+  color: white;
+  background-color: none;
+  
+  text-shadow: 
+}
+
+/* general selection */
+
+ul li a:active *, ul li a:hover *, ul li.selected a *{
+    color:white;
+}
+
+.table ul {
+  list-style: none;
+  padding: 0;
+}
+
+.group ul {
+    margin: 0.5em;
+}
+
+.table ul li {
+  font-size: 12pt;
+}
+
+
+.table ul li a {
+  background-color: #FFF;
+  border: 1px solid #999;
+  color: #222;
+  display: block;
+  font-weight: bold;
+  margin-bottom: -1px;
+  padding: 0.6em 0.5em;
+  text-decoration: none;
+}
+
+.list ul li a {
+  border-left: none;
+  border-right: none;
+}
+
+.group ul li:first-child a {
+    -webkit-border-top-left-radius: 8px;
+    -webkit-border-top-right-radius: 8px;
+}
+
+.group ul li:last-child a {
+    -webkit-border-bottom-left-radius: 8px;
+    -webkit-border-bottom-right-radius: 8px;
+}
+
+.header {
+  background-color: green;
+  color: white;
+}
+
+.header .header_title {
+  margin:0;
+  padding: 0.6em;
+  font-weight: bold;
+}
+
+.header .header_subtitle {
+  padding: 0 0.3em 0.3em 0.6em;
+  font-weight: lighter;
+}
+
+.header .header_actions {
+  padding: 1.6em 0.6em 1.2em 0.6em;
+}
+
+.header .header_actions a {
+  color: black;
+  background-color: white;
+  border: 1px solid #996;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.6em
+  
+}
+
+.header .header_details {
+  background-color: #DDD;
+  color: #222;
+  padding: 0.6em;
+}
+
+.cell_details {
+  color: #555;
+  font-weight: normal;
+  margin-top: 0.2em;
+}
+
+.cell_details, .cell_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+p {
+  margin: 0 0 0.5em 0;
+}
+
+.list ul li div.section {
+  background-color: green;
+  padding: 0.2em 0.6em;
+  font-weight: bold;
+  color: white;
+}
