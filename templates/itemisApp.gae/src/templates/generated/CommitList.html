@@ -1,0 +1,20 @@
+{% extends "generated/application.html" %}
+{% block title%}Commits{% endblock %}
+{% block content_class %}table list{% endblock %}
+{% block content %}
+
+<ul>
+{% for c in data|to_list %}
+<li>
+  {% url views.UserDetailsByUserData c.committer.login|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{c.committer.name|safe|linebreaksbr}}</div>
+  <div class="cell_details">{{c.message|safe|linebreaksbr}}</div>
+  </a>
+  
+</li>
+{% endfor %}
+</ul>
+
+
+{% endblock %}

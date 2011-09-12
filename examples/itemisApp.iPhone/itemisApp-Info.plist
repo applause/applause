@@ -5,11 +5,9 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
-	<string>itemis</string>
+	<string>Applause</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
-	<key>CFBundleIconFile</key>
-	<string>itemis-App-Icon.png</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.yourcompany.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
@@ -28,5 +26,10 @@
 	<string>MainWindow</string>
 	<key>UIApplicationExitsOnSuspend</key>
 	<true/>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>AppIcon.png</string>
+		<string>AppIcon@2x.png</string>
+	</array>
 </dict>
 </plist>

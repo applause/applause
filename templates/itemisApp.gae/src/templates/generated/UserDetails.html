@@ -1,0 +1,29 @@
+{% extends "generated/application.html" %}
+{% block title%}{{data.name|safe|linebreaksbr}}{% endblock %}
+{% block content_class %}details{% endblock %}
+{% block content %}
+
+
+<div class="header">
+  <div class="header_title">{{data.name|safe|linebreaksbr}}</div>
+  <div class="header_subtitle">{{data.location|safe|linebreaksbr}}</div>
+  <div class="header_details">{{data.followers|safe|linebreaksbr}} followers</div>
+</div>
+
+
+<div class="table group">
+<ul>
+<li>
+  {% url views.RepositoryListByAllRepositoriesByUser data.login|urlencode as url %}
+  <a href="{{ url }}">
+  <div class="cell_text">{{data.repos|safe|linebreaksbr}} public repositories</div>
+  
+  </a>
+  
+</li>
+
+</ul>
+
+</div>
+
+{% endblock %}

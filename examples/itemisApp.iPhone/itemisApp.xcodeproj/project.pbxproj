@@ -25,6 +25,9 @@
 		CB33065F13AFF65E007A4AFD /* itemisAppAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33065E13AFF65E007A4AFD /* itemisAppAppDelegate.m */; };
 		CB33066213AFF65E007A4AFD /* itemisAppProviders.m in Sources */ = {isa = PBXBuildFile; fileRef = CB33066113AFF65E007A4AFD /* itemisAppProviders.m */; };
 		CB37265713E180F700973689 /* JobOfferDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB37265613E180F700973689 /* JobOfferDetailsViewController.m */; };
+		CB4D95FF141DF2E70011C3C6 /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4D95FD141DF2E70011C3C6 /* AppIcon.png */; };
+		CB4D9600141DF2E70011C3C6 /* AppIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4D95FE141DF2E70011C3C6 /* AppIcon@2x.png */; };
+		CB4D960A141DF3900011C3C6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CB4D9609141DF3900011C3C6 /* Default@2x.png */; };
 		CB5C2E3713DD53AE00D14D0A /* IPTableViewCellMap.m in Sources */ = {isa = PBXBuildFile; fileRef = CB5C2E3613DD53AE00D14D0A /* IPTableViewCellMap.m */; };
 		CB5C2E8E13DD5BAC00D14D0A /* mapsPlaceholder.png in Resources */ = {isa = PBXBuildFile; fileRef = CB5C2E8D13DD5BAC00D14D0A /* mapsPlaceholder.png */; };
 		CB70CD1C110C574400291EA3 /* IPContentProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CD1B110C574400291EA3 /* IPContentProvider.m */; };
@@ -59,7 +62,6 @@
 		CB70CFA6110C7B9A00291EA3 /* IPDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CB70CFA5110C7B9A00291EA3 /* IPDetailsViewController.m */; };
 		CBAA4BB9110DA678006C9290 /* TTGlobalNetwork.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4BB8110DA678006C9290 /* TTGlobalNetwork.m */; };
 		CBAA4BCD110DA764006C9290 /* IPLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4BCC110DA764006C9290 /* IPLoadingView.m */; };
-		CBAA4BEC110DAC03006C9290 /* itemis-App-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA4BEB110DAC03006C9290 /* itemis-App-Icon.png */; };
 		CBAA4BEE110DAC0A006C9290 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAA4BED110DAC0A006C9290 /* Default.png */; };
 		CBAA4CB7110DB6EF006C9290 /* IPCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CBAA4CB6110DB6EF006C9290 /* IPCache.m */; };
 		CBAE263E13E1A42300561D08 /* itemis.png in Resources */ = {isa = PBXBuildFile; fileRef = CBAE263D13E1A42300561D08 /* itemis.png */; };
@@ -108,6 +110,9 @@
 		CB33066113AFF65E007A4AFD /* itemisAppProviders.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = itemisAppProviders.m; path = Generated/itemisAppProviders.m; sourceTree = "<group>"; };
 		CB37265513E180F700973689 /* JobOfferDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = JobOfferDetailsViewController.h; path = Generated/JobOfferDetailsViewController.h; sourceTree = "<group>"; };
 		CB37265613E180F700973689 /* JobOfferDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = JobOfferDetailsViewController.m; path = Generated/JobOfferDetailsViewController.m; sourceTree = "<group>"; };
+		CB4D95FD141DF2E70011C3C6 /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		CB4D95FE141DF2E70011C3C6 /* AppIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AppIcon@2x.png"; sourceTree = "<group>"; };
+		CB4D9609141DF3900011C3C6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		CB5C2E3513DD53AE00D14D0A /* IPTableViewCellMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPTableViewCellMap.h; sourceTree = "<group>"; };
 		CB5C2E3613DD53AE00D14D0A /* IPTableViewCellMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPTableViewCellMap.m; sourceTree = "<group>"; };
 		CB5C2E8D13DD5BAC00D14D0A /* mapsPlaceholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mapsPlaceholder.png; sourceTree = "<group>"; };
@@ -170,7 +175,6 @@
 		CBAA4BBA110DA688006C9290 /* TTGlobalNetwork.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTGlobalNetwork.h; sourceTree = "<group>"; };
 		CBAA4BCB110DA764006C9290 /* IPLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPLoadingView.h; sourceTree = "<group>"; };
 		CBAA4BCC110DA764006C9290 /* IPLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPLoadingView.m; sourceTree = "<group>"; };
-		CBAA4BEB110DAC03006C9290 /* itemis-App-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "itemis-App-Icon.png"; sourceTree = "<group>"; };
 		CBAA4BED110DAC0A006C9290 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		CBAA4CB5110DB6EF006C9290 /* IPCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IPCache.h; sourceTree = "<group>"; };
 		CBAA4CB6110DB6EF006C9290 /* IPCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IPCache.m; sourceTree = "<group>"; };
@@ -297,6 +301,8 @@
 		CB70CCD6110C516400291EA3 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CB4D95FD141DF2E70011C3C6 /* AppIcon.png */,
+				CB4D95FE141DF2E70011C3C6 /* AppIcon@2x.png */,
 				CBAE266313E1A76700561D08 /* trophy.png */,
 				CBAE266413E1A76700561D08 /* trophy@2x.png */,
 				CBAE263D13E1A42300561D08 /* itemis.png */,
@@ -304,8 +310,8 @@
 				CBB813FD11E6830D0047596D /* calendar.png */,
 				CBB813FE11E6830D0047596D /* chat.png */,
 				CBB813FF11E6830D0047596D /* microphone.png */,
-				CBAA4BEB110DAC03006C9290 /* itemis-App-Icon.png */,
 				CBAA4BED110DAC0A006C9290 /* Default.png */,
+				CB4D9609141DF3900011C3C6 /* Default@2x.png */,
 				CBB39619110DA3F500FD6BCC /* person.png */,
 				CB70CE84110C689D00291EA3 /* personLoading.png */,
 				CB70CE85110C689D00291EA3 /* personUnknown.png */,
@@ -495,7 +501,6 @@
 				CB70CE87110C689D00291EA3 /* personUnknown.png in Resources */,
 				CB289381110C9C0D00FDC6A5 /* IPDetailsHeaderView.xib in Resources */,
 				CBB3961A110DA3F500FD6BCC /* person.png in Resources */,
-				CBAA4BEC110DAC03006C9290 /* itemis-App-Icon.png in Resources */,
 				CBAA4BEE110DAC0A006C9290 /* Default.png in Resources */,
 				CBE93B78115123AA004D8075 /* itemisBlog.xml in Resources */,
 				CBB8140011E6830D0047596D /* calendar.png in Resources */,
@@ -506,6 +511,9 @@
 				CBAE264F13E1A4BD00561D08 /* itemis@2x.png in Resources */,
 				CBAE266513E1A76700561D08 /* trophy.png in Resources */,
 				CBAE266613E1A76700561D08 /* trophy@2x.png in Resources */,
+				CB4D95FF141DF2E70011C3C6 /* AppIcon.png in Resources */,
+				CB4D9600141DF2E70011C3C6 /* AppIcon@2x.png in Resources */,
+				CB4D960A141DF3900011C3C6 /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

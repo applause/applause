@@ -3,39 +3,39 @@
  */ 
  
 body {
-  background-color: #d3d9e9;
-  color: #002468;
+  background-color: #a2e298;
+  color: #333333;
 }
 
 .header .header_details {
-  background-color: #d3d9e9;
-  color: #002468;
+  background-color: #a2e298;
+  color: #333333;
 }
 
 ul li a:active, ul li a:hover, ul li.selected a {
-  background-color: #504392;
+  background-color: #3a9726;
 }
 
 .menu {
-  background-color: #2a385d;
+  background-color: #096429;
 }
 
 .header {
-  background-color: #504392;
+  background-color: #318b26;
 }
 
 .list ul li div.section {
-  background-color: #504392;
+  background-color: #379c2b;
 }
 
 .list ul li div.section.note {
   background-color: #d3d9e9;
-  color: #002468;
+  color: #333333;
 }
 
 div.submenu {
   padding-top: 4px;
-  background-color: #504392;
+  background-color: #379c2b;
 }
 
 div.submenu ul li a {

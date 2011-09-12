@@ -21,11 +21,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
-import org.eclipse.xpand2.XpandExecutionContextImpl;
-import org.eclipse.xpand2.XpandFacade;
-import org.eclipse.xpand2.output.Outlet;
-import org.eclipse.xpand2.output.OutputImpl;
-import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
 import org.eclipse.xtext.ui.util.PluginProjectFactory;
 import org.eclipse.xtext.ui.util.ProjectFactory;
 import org.eclipse.xtext.ui.wizard.AbstractProjectCreator;
@@ -94,18 +89,9 @@ public class CustomApplauseProjectCreator extends AbstractProjectCreator {
 		return modelProject;
 	}	
 	
-	private void createModel(final IProject project, final IProgressMonitor monitor) throws CoreException {
-		OutputImpl output = new OutputImpl();
-		output.addOutlet(new Outlet(false, getEncoding(), null, true, project.getLocation().makeAbsolute().toOSString()));
-
-		XpandExecutionContextImpl execCtx = new XpandExecutionContextImpl(output, null);
-		execCtx.getResourceManager().setFileEncoding("ISO-8859-1");
-		execCtx.registerMetaModel(new JavaBeansMetaModel());
-
-		XpandFacade facade = XpandFacade.create(execCtx);
-		facade.evaluate("org::applause::lang::ui::wizard::ApplauseDslNewProject::main", getProjectInfo());
-
-		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+	private void createModel(final IProject project, final SubMonitor monitor) throws CoreException {
+		InputStream contents = this.getClass().getClassLoader().getResourceAsStream("/templateproject/project.zip");
+		enhancePlatformProject(project, contents, monitor);
 	}
 	
 	protected ProjectFactory configureProjectFactoryForPlatformProject(ProjectFactory factory, MobilePlatform platform) {
@@ -124,20 +110,27 @@ public class CustomApplauseProjectCreator extends AbstractProjectCreator {
 		enhancePlatformProject(platformProject, platform, monitor);
 		return platformProject;
 	}
-	
 	private void enhancePlatformProject(IProject project, MobilePlatform platform, SubMonitor monitor) {
-		InputStream stream = null;
+		ExtensibleURIConverterImpl uriConverter = new ExtensibleURIConverterImpl();
 		try {
-			ExtensibleURIConverterImpl uriConverter = new ExtensibleURIConverterImpl();
-			stream = uriConverter.createInputStream(platform.getTemplateProjectURI());
-			
-			// stream = getClass().getResourceAsStream("newproject/project.zip"); 
+			InputStream stream = uriConverter.createInputStream(platform.getTemplateProjectURI());
+			enhancePlatformProject(project, stream, monitor);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+		
+	}
+	
+	private void enhancePlatformProject(IProject project, InputStream stream, SubMonitor monitor) {
+		try {
 			ZipInputStream zipStream = new ZipInputStream(stream);
 			ZipEntry entry;
 			while ((entry = zipStream.getNextEntry()) != null) {
 				String name = entry.getName();
+				if(name.contains("__MACOSX/"))
+					continue;
+				
 				name = replaceTemplate(name);
-//				name = name.substring(name.indexOf(File.separator));
 				if (entry.isDirectory()) {
 					IFolder folder = project.getFolder(name);
 					if (!folder.exists()) {
