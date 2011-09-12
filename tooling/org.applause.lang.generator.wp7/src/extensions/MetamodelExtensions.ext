@@ -17,7 +17,16 @@ contentProviders(Model this):
 	this.elements.typeSelect(ContentProvider);
 	
 TypeDescription typeDescription(ProviderConstruction this):
-	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.ProviderConstruction);	
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.ProviderConstruction);
+	
+TypeDescription typeDescription(Expression this):
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.Expression);
+
+TypeDescription typeDescription(VariableDeclaration this):
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.VariableDeclaration);		
 	
 application(View this):
 	model().application;
+	
+section(SectionCell this):
+	(ViewSection)this.eContainer();
