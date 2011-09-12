@@ -21,11 +21,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.SubMonitor;
 import org.eclipse.emf.ecore.resource.impl.ExtensibleURIConverterImpl;
-import org.eclipse.xpand2.XpandExecutionContextImpl;
-import org.eclipse.xpand2.XpandFacade;
-import org.eclipse.xpand2.output.Outlet;
-import org.eclipse.xpand2.output.OutputImpl;
-import org.eclipse.xtend.type.impl.java.JavaBeansMetaModel;
 import org.eclipse.xtext.ui.util.PluginProjectFactory;
 import org.eclipse.xtext.ui.util.ProjectFactory;
 import org.eclipse.xtext.ui.wizard.AbstractProjectCreator;
@@ -95,17 +90,16 @@ public class CustomApplauseProjectCreator extends AbstractProjectCreator {
 	}	
 	
 	private void createModel(final IProject project, final IProgressMonitor monitor) throws CoreException {
-		OutputImpl output = new OutputImpl();
-		output.addOutlet(new Outlet(false, getEncoding(), null, true, project.getLocation().makeAbsolute().toOSString()));
+		try {
+			InputStream contents = this.getClass().getClassLoader().getResourceAsStream("/templates/template.applause");
+			String content = replaceTemplate(IOUtils.toString(contents));
 
-		XpandExecutionContextImpl execCtx = new XpandExecutionContextImpl(output, null);
-		execCtx.getResourceManager().setFileEncoding("ISO-8859-1");
-		execCtx.registerMetaModel(new JavaBeansMetaModel());
-
-		XpandFacade facade = XpandFacade.create(execCtx);
-		facade.evaluate("org::applause::lang::ui::wizard::ApplauseDslNewProject::main", getProjectInfo());
-
-		project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
+			project.getFolder("/model").create(true, true, monitor);
+			IFile file = project.getFile("/model/" + getProjectInfo().getProjectName() + ".applause");
+			file.create(IOUtils.toInputStream(content), true, monitor);
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
 	}
 	
 	protected ProjectFactory configureProjectFactoryForPlatformProject(ProjectFactory factory, MobilePlatform platform) {
