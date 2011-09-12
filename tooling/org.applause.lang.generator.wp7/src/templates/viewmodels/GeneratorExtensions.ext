@@ -11,7 +11,7 @@ namespace(View this):
 	rootNamespace() + ".ViewModel";
 	
 constructorName(View this):
-	this.name.toFirstUpper() + ".ViewModel";
+	this.name.toFirstUpper() + "ViewModel";
 		
 className(View this):
 	this.name.toFirstUpper() + "ViewModel";

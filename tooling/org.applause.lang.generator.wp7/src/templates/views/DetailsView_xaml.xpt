@@ -94,8 +94,9 @@
                                             </StackPanel>
                                         «ENDFOREACH-»
                                         </DataTemplate>
-                                    </local:«sectionListboxSemplateSelectorClassname()».Section1Template>
+                                    </local:«sectionListboxSemplateSelectorClassname()».«this.sectionListboxSectionName(i.counter1)»>
                                 «ENDFOREACH-»
+                                </local:«sectionListboxSemplateSelectorClassname()»>
                             </DataTemplate>
                         </toolkit:LongListSelector.ItemTemplate>
                     </toolkit:LongListSelector>

@@ -68,7 +68,7 @@ namespace «namespace()»
 		
 		#region «contentPropertyname()» Property
 		public const string «contentPropertyPropertyname()» = "«this.contentPropertyname()»";
-		private «contentPropertyFieldname()» = null;
+		private «contentTypename()» «contentPropertyFieldname()» = null;
 		public «contentTypename()» «contentPropertyname()»
 		{
 			get 

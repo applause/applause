@@ -36,6 +36,7 @@
 			«FOREACH this.buttons AS button-»
 				«EXPAND pivotItem(button) FOR button.view.view-»
 			«ENDFOREACH-»
+		</controls:Pivot>
 	</Grid>
 </phone:PhoneApplicationPage>
 «ENDFILE»
