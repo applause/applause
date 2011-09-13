@@ -1,0 +1,23 @@
+import org::eclipse::emf::ecore;
+import org::applause::lang::applauseDsl;
+
+extension extensions::MetamodelExtensions; 
+extension extensions::GeneratorExtensions;
+
+/**
+ * Entity
+ */
+namespace(Entity this):
+	rootNamespace(this) + ".Model";
+	
+className(Entity this):
+	this.name.toFirstUpper();
+	
+classFilename(String this):
+	this + ".cs";
+	
+classFilename(Entity this):
+	className().classFilename();
+	
+classFileFQN(Entity this):
+	"Model/" + classFilename();

@@ -1,0 +1,36 @@
+«IMPORT org::applause::lang::applauseDsl»
+«EXTENSION extensions::MetamodelExtensions»
+«EXTENSION extensions::GeneratorExtensions»
+«EXTENSION templates::views::GeneratorExtensions»
+
+«DEFINE main FOR Model-»
+«EXPAND view FOREACH this.views().typeSelect(DetailsView)-»
+«ENDDEFINE»
+
+«DEFINE view FOR DetailsView»
+«FILE this.classFilename()-»
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Animation;
+using System.Windows.Shapes;
+using Microsoft.Phone.Controls;
+
+namespace «this.namespace()»
+{
+    public partial class «this.className()» : PhoneApplicationPage
+    {
+        public «this.constructorName()»()
+        {
+            InitializeComponent();
+        }
+    }
+}
+«ENDFILE»
+«ENDDEFINE»

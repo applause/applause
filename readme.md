@@ -4,7 +4,7 @@ Applause is a domain-specific language and a set of code-generators to produce m
 
 Applause is not a web framework, a cross-compiler nor is it an interpreter. Instead, it uses a simple input language explicitly designed for data-driven mobile applications to produce human-readable source code in Objective-C, Java, C# or Python.
 
-Have a look at this [screencast](http://vimeo.com/15018235) to see it in action.
+Have a look at this [screencast](http://vimeo.com/15018235) or [try out a generated live-demo (minimal website)](http://applause-dsl.appspot.com) to see it in action.
 
 ## A word of caution ##
 
