@@ -23,6 +23,16 @@
 		[self requestContent];
 }
 
+-(id)safeValueForKeyPath:(NSString *)keyPath {
+	@try {
+		return [self valueForKeyPath:keyPath];
+	}
+	@catch (NSException * e) {
+		return nil;
+	}
+}
+
+
 -(id) initWithContent:(id)aContent andProviders:(id)aProviders{
 	self = [super init];
 	if(self) {

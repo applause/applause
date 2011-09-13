@@ -18,6 +18,8 @@
 -(void)requestContent;
 -(void)requestContentIfEmpty;
 
+-(id)safeValueForKeyPath:(NSString *)keyPath;
+
 -(id) initWithContent:(id)aContent andProviders:(id)aProviders;
 +(id) providerWithContent: (id)aContent andProviders:(id)aProviders;
 

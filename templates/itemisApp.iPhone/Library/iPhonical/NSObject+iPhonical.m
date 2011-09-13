@@ -18,7 +18,7 @@
 		return [NSArray arrayWithObject: self];
 }
 
--(id)safeFalueForKeyPath:(NSString *)keyPath {
+ -(id)safeValueForKeyPath:(NSString *)keyPath {
 	@try {
 		return [self valueForKeyPath:keyPath];
 	}

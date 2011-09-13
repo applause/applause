@@ -10,6 +10,6 @@
 @interface NSObject(iPhonical)
 	
 -(NSArray*)asArray;
--(id)safeFalueForKeyPath:(NSString *)keyPath;
+//-(id)safeValueForKeyPath:(NSString *)keyPath;
 
 @end
