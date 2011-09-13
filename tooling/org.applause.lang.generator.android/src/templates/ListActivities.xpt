@@ -41,7 +41,6 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		setTitle(«this.title.expression("")»);
 		
 		«IF this.content!=null»
 		«IF this.content.description.many»
@@ -51,6 +50,7 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 		«ENDIF»
 		«ENDIF»
 
+		setTitle(«this.title.expression("")»);
 		«EXPAND header»		
 		
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();

@@ -1,0 +1,32 @@
+import org::eclipse::emf::ecore;
+import org::applause::lang::applauseDsl;
+
+org::eclipse::emf::ecore::EObject eRootContainer(org::eclipse::emf::ecore::EObject this):
+	JAVA extensions.Extensions.getRootContainer(org.eclipse.emf.ecore.EObject);
+
+model(org::eclipse::emf::ecore::EObject this):
+	(Model)this.eRootContainer();
+
+entities(Model this):
+	this.elements.typeSelect(Entity);
+	
+views(Model this):
+	this.elements.typeSelect(View);	
+	
+contentProviders(Model this):
+	this.elements.typeSelect(ContentProvider);
+	
+TypeDescription typeDescription(ProviderConstruction this):
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.ProviderConstruction);
+	
+TypeDescription typeDescription(Expression this):
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.Expression);
+
+TypeDescription typeDescription(VariableDeclaration this):
+	JAVA org.applause.lang.scoping.TypeUtil.getTypeOf(org.applause.lang.applauseDsl.VariableDeclaration);		
+	
+application(View this):
+	model().application;
+	
+section(SectionCell this):
+	(ViewSection)this.eContainer();

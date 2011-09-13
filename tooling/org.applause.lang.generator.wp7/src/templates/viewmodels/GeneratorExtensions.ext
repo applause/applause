@@ -1,0 +1,115 @@
+import org::eclipse::emf::ecore;
+import org::applause::lang::applauseDsl;
+
+extension extensions::MetamodelExtensions; 
+extension extensions::GeneratorExtensions;
+
+/**
+ * ViewModel
+ */
+namespace(View this):
+	rootNamespace() + ".ViewModel";
+	
+constructorName(View this):
+	this.name.toFirstUpper() + "ViewModel";
+		
+className(View this):
+	this.name.toFirstUpper() + "ViewModel";
+	
+classFilename(String this):
+	this + ".cs";
+	
+classFilename(View this):
+	className().classFilename();
+	
+classFileFQN(View this):
+	"ViewModel/" + classFilename();
+	
+contentProviderClassname(ViewCall this):
+	this.provider.contentProviderClassname();
+	
+contentProviderClassname(ProviderConstruction this):
+	"ERROR, should not occurr.";
+	
+contentProviderClassname(SimpleProviderConstruction this):
+	this.expression != null
+		? this.expression.expression() + "ContentProvider"
+		: "NULL";
+		
+boolean isNull(Expression this):
+	((this == null) || (Void.isInstance(this)));
+	
+contentProviderClassname(ComplexProviderConstruction this):
+	this.provider.name + "ContentProvider";
+
+OLDcontentProviderClassname(ComplexProviderConstruction this):
+	this.provider.name + "ContentProvider" + "(" + (!isNull(this.argument) ? this.argument.expression() : "") + ")";
+	
+contentTypename(SectionedView this):
+	this.content.description.typeName();
+	
+contentPropertyname(SectionedView this):
+	this.content.description.type.name;
+	
+contentPropertyPropertyname(SectionedView this):
+	this.contentPropertyname() + "PropertyName";
+	
+contentPropertyFieldname(SectionedView this):
+	"_" + this.contentPropertyname().toFirstLower();
+	
+providerPayloadSlotname(ProviderConstruction this):
+	this.typeDescription().type.name.toFirstLower();
+	
+providerTypename(ProviderConstruction this):
+	this.typeDescription().typeName();
+	
+List[ViewCall] uniqueViewCalls(List[ViewCall] this):
+	JAVA templates.viewmodels.Extensions.withoutConceptionalDuplicates(java.util.List);
+	
+/**
+ * ViewModel Sections
+ */
+sectionCollection(SectionCell this):
+	this.iterator.collection.collectionExpression();
+	
+cellTypename(SectionCell this):
+	this.iterator.typeDescription().typeName();
+	
+sectionTitle(ViewSection this):
+	title != null
+		? title.expression()
+		: '""';
+	
+/**
+ * Model
+ */
+modelNamespace(SectionedView this):
+	rootNamespace(this) + ".Model"; 
+	
+templateSelectorClassName(View this):
+	this.name.toFirstUpper() + "TemplateSelector";
+	
+templateSelectorClassFilename(View this):
+	templateSelectorClassName().classFilename();
+		
+templateSelectorClassFileFQN(View this):
+	"ViewModel/" + templateSelectorClassFilename();
+	
+/**
+ * ViewModelLocator
+ */
+hasContentProvider(View this):
+	(bestMatchingViewCallContentProviderName() != "");
+	
+bestMatchingViewCallContentProviderName(View this):
+	this.bestMatchingViewCall() != null
+		? this.bestMatchingViewCall().provider.contentProviderClassname()
+		: "";
+	 
+bestMatchingViewCallContentProviderInstantiation(View this):
+	this.bestMatchingViewCall() != null
+		? "new " + this.bestMatchingViewCall().provider.contentProviderClassname() + "()"
+		: "";
+	
+bestMatchingViewCall(View this):
+	this.application().buttons.view.select(e|e.view == this).first();

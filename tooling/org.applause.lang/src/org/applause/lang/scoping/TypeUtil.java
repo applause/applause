@@ -145,6 +145,10 @@ public class TypeUtil {
 		return result;
 	}
 	
+	public static TypeDescription getTypeOf(ScalarExpression expression) {
+		return doGetTypeOf(expression);
+	}
+	
 	public static TypeDescription getTypeOf(VariableDeclaration declaration) {
 		return doGetTypeOf(declaration);
 	}

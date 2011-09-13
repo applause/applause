@@ -34,7 +34,10 @@ private String _expression(StringReplace this, String target): // TODO
 	"##replace" + target;
 	
 private String _expression(StringSplit this, String target): // TODO
-	this.value._expression(target) + '|split:' + this.delimiter._expression(target); 
+	this.value._expression(target) + '|split:' + this.delimiter._expression(target);
+	
+private String _expression(StringConcat this, String target): // TODO
+	this.values._expression(target).toString(",");
 		
 private String _expression(ObjectReference this, String target):
 	{target}.addAll(toList().withoutFirst()).toString(".");
