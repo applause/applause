@@ -32,10 +32,18 @@ contentProviderClassname(ProviderConstruction this):
 	"ERROR, should not occurr.";
 	
 contentProviderClassname(SimpleProviderConstruction this):
-	this.expression.expression();
+	this.expression != null
+		? this.expression.expression() + "ContentProvider"
+		: "NULL";
+		
+boolean isNull(Expression this):
+	((this == null) || (Void.isInstance(this)));
 	
 contentProviderClassname(ComplexProviderConstruction this):
-	this.provider.name + "(" + this.argument.expression() + ")";
+	this.provider.name + "ContentProvider";
+
+OLDcontentProviderClassname(ComplexProviderConstruction this):
+	this.provider.name + "ContentProvider" + "(" + (!isNull(this.argument) ? this.argument.expression() : "") + ")";
 	
 contentTypename(SectionedView this):
 	this.content.description.typeName();
@@ -86,3 +94,22 @@ templateSelectorClassFilename(View this):
 		
 templateSelectorClassFileFQN(View this):
 	"ViewModel/" + templateSelectorClassFilename();
+	
+/**
+ * ViewModelLocator
+ */
+hasContentProvider(View this):
+	(bestMatchingViewCallContentProviderName() != "");
+	
+bestMatchingViewCallContentProviderName(View this):
+	this.bestMatchingViewCall() != null
+		? this.bestMatchingViewCall().provider.contentProviderClassname()
+		: "";
+	 
+bestMatchingViewCallContentProviderInstantiation(View this):
+	this.bestMatchingViewCall() != null
+		? "new " + this.bestMatchingViewCall().provider.contentProviderClassname() + "()"
+		: "";
+	
+bestMatchingViewCall(View this):
+	this.application().buttons.view.select(e|e.view == this).first();

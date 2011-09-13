@@ -53,13 +53,13 @@
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0">
                     	«IF this.header.title != null-»
-                        <TextBlock x:Name="HeaderTitle" Text="{Binding «this.header.title.bindingPath()»}" TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
+                        <TextBlock x:Name="HeaderTitle" Text=«this.header.title.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
                     	«ENDIF-»
                     	«IF this.header.subtitle != null-»
-                        <TextBlock x:Name="HeaderSubTitle" Text="{Binding «this.header.subtitle.bindingPath()»}" TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
+                        <TextBlock x:Name="HeaderSubTitle" Text=«this.header.subtitle.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
                     	«ENDIF-»
                     	«IF this.header.details != null-»
-                        <TextBlock x:Name="HeaderDetails" Text="{Binding «this.header.details.bindingPath()»}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
+                        <TextBlock x:Name="HeaderDetails" Text=«this.header.details.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
                     	«ENDIF-»
                     </StackPanel>
                     <toolkit:LongListSelector Grid.Row="1" x:Name="«sectionListboxName()»" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False">
@@ -79,10 +79,10 @@
                                         «FOREACH section.cells AS cell-»
                                             <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
                                                 «IF cell.text != null-»
-                                                <TextBlock Text=«cell.text.expression()» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                                                <TextBlock Text=«cell.text.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
                                                 «ENDIF-»
                                                 «IF cell.details != null-»
-                                                <TextBlock Text=«cell.details.expression()» TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                <TextBlock Text=«cell.details.binding()» TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
                                                 «ENDIF-»
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeave">

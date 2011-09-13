@@ -107,7 +107,11 @@
 	«FOREACH this.model().views().typeSelect(SectionedView) AS viewModel-»
 	<Compile Include="Generated\ViewModel\«viewModel.name.toFirstUpper()»ViewModel.cs" />
 	«ENDFOREACH-»
-
+	<Compile Include="Generated\ViewModel\ViewModelLocator.cs" />
+	«FOREACH this.model().views().typeSelect(SectionedView) AS sectionedView-»
+	<Compile Include="Generated\ViewModel\«sectionedView.name.toFirstUpper()»TemplateSelector.cs" />
+	«ENDFOREACH»
+	
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -2,4 +2,5 @@
 
 «DEFINE main FOR Model»
 «EXPAND MainView_xaml::main FOR this»
+«EXPAND MainView_cs::main FOR this»
 «ENDDEFINE»

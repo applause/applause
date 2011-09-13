@@ -31,8 +31,17 @@ xamlFileName(DetailsView this):
 classFilename(DetailsView this):
 	className().classFilename();
 	
-bindingPath(ScalarExpression this):
-	this.expression().split('\\.').last();
+binding(ScalarExpression this):
+	"!toot" + this;
+	
+binding(ObjectReference this):
+	'"{Binding ' + this.expression().split('\\.').last() + '}"';
+	
+binding(StringLiteral this):
+	this.expression();
+	
+binding(StringConcat this):
+	'"TODO: StringConcat"';// this.expression();	
 	
 listboxName(View this):
 	this.name.toFirstUpper() + "Listbox";

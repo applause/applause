@@ -19,7 +19,9 @@ typeName(TypeDescription this):
 	
 // we can use this extension to map Applause types to platform types.
 typeName(Type this):
-	this.name;
+	this.name == 'String' 
+		? "string"
+		: this.name;
 	
 /**
  * Parameters
@@ -120,6 +122,6 @@ collectionExpression(Constant this):
 String collectionExpression(ObjectReference this):
 	Constant.isInstance(object)
 		? expression(object)
-		: this.object.typeDescription().typeName() + (tail==null ? "" : tail.propertyPath());
+		: this.object.typeDescription().type.name + (tail==null ? "" : tail.propertyPath());
  	
  

@@ -67,11 +67,11 @@
 						«IF cell.iterator != null-»
 							<StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
 								<TextBlock 
-									Text="{Binding «cell.text.bindingPath()»}" 
+									Text=«cell.text.binding()» 
 									TextWrapping="Wrap" 
 									Style="{StaticResource PhoneTextLargeStyle}"/>
 								<TextBlock 
-									Text="{Binding «cell.details.bindingPath()»}" 
+									Text=«cell.details.binding()» 
 									TextWrapping="Wrap" 
 									Margin="12,-6,12,0" 
 									Style="{StaticResource PhoneTextSubtleStyle}"/>

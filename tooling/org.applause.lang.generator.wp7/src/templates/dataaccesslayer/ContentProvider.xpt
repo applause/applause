@@ -42,7 +42,7 @@ namespace «this.namespace()»
             Deployment.Current.Dispatcher.BeginInvoke(() =>
             {
                 ContentProviderResultCallback callback = (ContentProviderResultCallback) result.AsyncState;
-                callback(fetchResult.First());
+                callback(fetchResult«IF !this.many».First()«ENDIF»);
             });
         }
     	
@@ -52,11 +52,11 @@ namespace «this.namespace()»
 «ENDDEFINE»
 
 «DEFINE fromBlock(String elementName, String mappingPath, boolean isList, int indent, String terminator) FOR Type»
-	«d(indent)»(from «elementName» in xdoc.Descendants(«mappingPath»)
+	«d(indent)»(from _«elementName» in xdoc.Descendants(«mappingPath»)
 	«d(indent)»select new «this.typeName()»()
 	«d(indent)»{
 	«d(indent)»«EXPAND propertyMappings(elementName, indent) FOR this-»
-	«d(indent)»})«IF isList».ToList()«ENDIF»«terminator-»
+	«d(indent)»})«IF isList».ToList()«ELSEIF indent > 1».First()«ENDIF»«terminator-»
 «ENDDEFINE»
 
 «DEFINE propertyMappings(String elementName, int indent) FOR Type»
@@ -71,7 +71,7 @@ namespace «this.namespace()»
 
 «DEFINE propertyMapping(String elementName, boolean last, int indent) FOR Property-»
 	«IF !Entity.isInstance(this.description.type)-»
-		«d(indent)»«this.propertyName()» = «elementName».ElementAnyNS("«this.name»").Value«IF !last»,«ENDIF»
+		«d(indent)»«this.propertyName()» = _«elementName».ElementAnyNS("«this.name»") != null ? _«elementName».ElementAnyNS("«this.name»").Value : ""«IF !last»,«ENDIF»
 	«ELSE-»
 		«LET this.name.toFirstLower() AS elementName-»
 		«LET '"' + elementName + '"' AS mappingPath-»
