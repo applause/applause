@@ -6,8 +6,10 @@ import org.applause.lang.ui.builder.BuildStrategyRegistry;
 import org.applause.lang.ui.builder.MobilePlatform;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
+import org.eclipse.jface.viewers.ISelectionChangedListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
+import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -60,6 +62,13 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		checkboxTableViewer.setLabelProvider(new TableLabelProvider());
 		checkboxTableViewer.setContentProvider(new ArrayContentProvider());
 		checkboxTableViewer.setInput(BuildStrategyRegistry.getSupportedMobilePlatforms());
+		
+		checkboxTableViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+			@Override
+			public void selectionChanged(SelectionChangedEvent event) {
+				getWizard().getContainer().updateButtons();		
+			}
+		});
 	}
 	
 	public MobilePlatform[] getSelectedPlatforms() {

@@ -39,6 +39,11 @@ public class CustomApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 		generatorFragmentSelectionWizardPage.setImageDescriptor(ImageDescriptor.createFromImage(imageHelper.getImage("applause-wizard-top.png")));		
 		addPage(generatorFragmentSelectionWizardPage);
 	}
+	
+	@Override
+	public boolean canFinish() {
+		return generatorFragmentSelectionWizardPage.getSelectedPlatforms().length > 0 ? true : false;
+	}
 
 	/**
 	 * Use this method to read the project settings from the wizard pages and feed them into the project info class.
