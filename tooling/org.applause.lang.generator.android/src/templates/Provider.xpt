@@ -1,37 +1,37 @@
-«IMPORT org::applause::lang::applauseDsl»
-«IMPORT java::lang»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«IMPORT java::langÂ»
 
-«EXTENSION templates::GeneratorExtensions»
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::ProviderExtension»
+Â«EXTENSION templates::GeneratorExtensionsÂ»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ProviderExtensionÂ»
 
-«DEFINE main FOR Application-»
-«EXPAND providerFactory FOR this»
-«EXPAND providerClass FOREACH this.providersWithImplementation()»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND providerFactory FOR thisÂ»
+Â«EXPAND providerClass FOREACH this.providersWithImplementation()Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE providerFactory FOR Application»
-«FILE providerFactoryFileName()»
-package «packageName()»;
+Â«DEFINE providerFactory FOR ApplicationÂ»
+Â«FILE providerFactoryFileName()Â»
+package Â«packageName()Â»;
 
 import static de.itemis.base.StringUtils.*;
 
-public class «providerFactoryClassName()» {
-«EXPAND providerFactoryMethod FOREACH providersWithImplementation()»
+public class Â«providerFactoryClassName()Â» {
+Â«EXPAND providerFactoryMethod FOREACH providersWithImplementation()Â»
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE providerFactoryMethod FOR ContentProvider»
-	public static «providerClassName()» «providerClassName().getterName()»(«parameter==null?"":parameter.description.type.name + " " + parameter.name») {
-		String feedUrl = «this.url.expression("")»;
-		return new «providerClassName()»(feedUrl);
+Â«DEFINE providerFactoryMethod FOR ContentProviderÂ»
+	public static Â«providerClassName()Â» Â«providerClassName().getterName()Â»(Â«parameter==null?"":parameter.description.type.name + " " + parameter.nameÂ») {
+		String feedUrl = Â«this.url.expression("")Â»;
+		return new Â«providerClassName()Â»(feedUrl);
 	} 
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE providerClass FOR ContentProvider»
-«FILE this.providerFileName()»
-package «packageName()»;
+Â«DEFINE providerClass FOR ContentProviderÂ»
+Â«FILE this.providerFileName()Â»
+package Â«packageName()Â»;
 
 import java.io.Reader;
 import java.util.ArrayList;
@@ -43,64 +43,64 @@ import org.simpleframework.xml.Root;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
-import de.itemis.base.«this.providerBaseClassName()»;
+import de.itemis.base.Â«this.providerBaseClassName()Â»;
 
-public class «this.providerClassName()» extends «this.providerBaseClassName()»<«this.providerType()»> {
+public class Â«this.providerClassName()Â» extends Â«this.providerBaseClassName()Â»<Â«this.providerType()Â»> {
 	
 	private static final long serialVersionUID = 1L;
 
-	public «this.providerClassName()»(String feedUrl) {
+	public Â«this.providerClassName()Â»(String feedUrl) {
 		super(feedUrl);
 	}
 	
-	«EXPAND selection(this) FOR this.selection»
+	Â«EXPAND selection(this) FOR this.selectionÂ»
 	
-	«IF many»
+	Â«IF manyÂ»
 	@Override
-	protected List<«this.providerType()»> extractItems(Reader reader) throws Exception {
+	protected List<Â«this.providerType()Â»> extractItems(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		«topLevelClass()» root = serializer.read(«topLevelClass()».class, reader);
-		return root.«selectionToGetters()»;
+		Â«topLevelClass()Â» root = serializer.read(Â«topLevelClass()Â».class, reader);
+		return root.Â«selectionToGetters()Â»;
 	}
-	«ELSE»
-	protected «this.providerType()» extractItem(Reader reader) throws Exception {
+	Â«ELSEÂ»
+	protected Â«this.providerType()Â» extractItem(Reader reader) throws Exception {
 		Serializer serializer = new Persister();
-		«topLevelClass()» root = serializer.read(«topLevelClass()».class, reader);
-		return root.«selectionToGetters()»;
+		Â«topLevelClass()Â» root = serializer.read(Â«topLevelClass()Â».class, reader);
+		return root.Â«selectionToGetters()Â»;
 	}
-	«ENDIF»
+	Â«ENDIFÂ»
 	
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE selection(ContentProvider provider)  FOR ScalarExpression»
-«ENDDEFINE»
+Â«DEFINE selection(ContentProvider provider)  FOR ScalarExpressionÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE selection(ContentProvider provider) FOR StringLiteral»
-	«EXPAND interimClass(this.value.split("\\.")) FOR provider»
-«ENDDEFINE»
+Â«DEFINE selection(ContentProvider provider) FOR StringLiteralÂ»
+	Â«EXPAND interimClass(this.value.split("\\.")) FOR providerÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE interimClass(List[String] path) FOR ContentProvider»
+Â«DEFINE interimClass(List[String] path) FOR ContentProviderÂ»
 	@Root(strict=false)
-	public static class «path.self().className()» {
-		«IF path.isChildList(this)»
-			@ElementList(inline=true, entry="«path.childTagName()»")
-			private List<«path.childClassName(this)»> «path.childFieldName(this)»s = new ArrayList<«path.childClassName(this)»>();
+	public static class Â«path.self().className()Â» {
+		Â«IF path.isChildList(this)Â»
+			@ElementList(inline=true, entry="Â«path.childTagName()Â»")
+			private List<Â«path.childClassName(this)Â»> Â«path.childFieldName(this)Â»s = new ArrayList<Â«path.childClassName(this)Â»>();
 			
-			public List<«path.childClassName(this)»> «path.childGetterName(this)»s() {
-				return «path.childFieldName(this)»s;
+			public List<Â«path.childClassName(this)Â»> Â«path.childGetterName(this)Â»s() {
+				return Â«path.childFieldName(this)Â»s;
 			}
-		«ELSE»
-			@Element(required=false, name="«path.childTagName()»")
-			private «path.childClassName(this)» «path.childFieldName(this)»;
+		Â«ELSEÂ»
+			@Element(required=false, name="Â«path.childTagName()Â»")
+			private Â«path.childClassName(this)Â» Â«path.childFieldName(this)Â»;
 			
-			public «path.childClassName(this)» «path.childGetterName(this)»() {
-				return «path.childFieldName(this)»;
+			public Â«path.childClassName(this)Â» Â«path.childGetterName(this)Â»() {
+				return Â«path.childFieldName(this)Â»;
 			}
-		«ENDIF»
+		Â«ENDIFÂ»
 	}
-	«IF path.size > 2»
-		«EXPAND interimClass(path.withoutFirst()) FOR this»
-	«ENDIF»
-«ENDDEFINE»
+	Â«IF path.size > 2Â»
+		Â«EXPAND interimClass(path.withoutFirst()) FOR thisÂ»
+	Â«ENDIFÂ»
+Â«ENDDEFINEÂ»

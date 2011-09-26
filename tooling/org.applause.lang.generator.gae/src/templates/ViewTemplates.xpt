@@ -1,62 +1,62 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::Extensions»
-«EXTENSION templates::TemplateExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ExtensionsÂ»
+Â«EXTENSION templates::TemplateExtensionsÂ»
 
-«DEFINE main FOR Application»
-	«EXPAND viewTemplate FOREACH model().elements.typeSelect(View)»
-«ENDDEFINE»
+Â«DEFINE main FOR ApplicationÂ»
+	Â«EXPAND viewTemplate FOREACH model().elements.typeSelect(View)Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE viewTemplate FOR View»«ENDDEFINE»
+Â«DEFINE viewTemplate FOR ViewÂ»Â«ENDDEFINEÂ»
 
-«DEFINE viewTemplate FOR SectionedView»
-«FILE "templates/"+viewTemplateFilename()-»
+Â«DEFINE viewTemplate FOR SectionedViewÂ»
+Â«FILE "templates/"+viewTemplateFilename()-Â»
 {% extends "generated/application.html" %}
-{% block title%}«title.expression("data")»{% endblock %}
-{% block content_class %}«viewCssClasses()»{% endblock %}
+{% block title%}Â«title.expression("data")Â»{% endblock %}
+{% block content_class %}Â«viewCssClasses()Â»{% endblock %}
 {% block content %}
-«EXPAND content»
+Â«EXPAND contentÂ»
 {% endblock %}
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE content FOR SectionedView»«ENDDEFINE»
+Â«DEFINE content FOR SectionedViewÂ»Â«ENDDEFINEÂ»
 
-«DEFINE content FOR DetailsView»
-«IF header!=null»
+Â«DEFINE content FOR DetailsViewÂ»
+Â«IF header!=nullÂ»
 <div class="header">
-  «IF header.title!=null»<div class="header_title">«header.title.expression("data")»</div>«ENDIF»
-  «IF header.subtitle!=null»<div class="header_subtitle">«header.subtitle.expression("data")»</div>«ENDIF»
-  «IF header.details!=null»<div class="header_details">«header.details.expression("data")»</div>«ENDIF»
+  Â«IF header.title!=nullÂ»<div class="header_title">Â«header.title.expression("data")Â»</div>Â«ENDIFÂ»
+  Â«IF header.subtitle!=nullÂ»<div class="header_subtitle">Â«header.subtitle.expression("data")Â»</div>Â«ENDIFÂ»
+  Â«IF header.details!=nullÂ»<div class="header_details">Â«header.details.expression("data")Â»</div>Â«ENDIFÂ»
 </div>
-«ENDIF»
-«FOREACH sections AS section»
+Â«ENDIFÂ»
+Â«FOREACH sections AS sectionÂ»
 <div class="table group">
 <ul>
-«EXPAND cell FOREACH section.cells»
+Â«EXPAND cell FOREACH section.cellsÂ»
 </ul>
-«ENDFOREACH»
+Â«ENDFOREACHÂ»
 </div>
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE cell FOR SectionCell-»
-«tplCellForLoop()-»
+Â«DEFINE cell FOR SectionCell-Â»
+Â«tplCellForLoop()-Â»
 <li>
-  «IF action!=null»«action.tplPrepareUrl(cellContextVar(), "url")»
-  <a href="«action.tplUrl(action.tplPreparedUrl(cellContextVar(), "url"))»">
-  «IF text!=null»<div class="cell_text">«text.expression(cellContextVar())»</div>«ENDIF»
-  «IF details!=null»<div class="cell_details">«details.expression(cellContextVar())»</div>«ENDIF»
+  Â«IF action!=nullÂ»Â«action.tplPrepareUrl(cellContextVar(), "url")Â»
+  <a href="Â«action.tplUrl(action.tplPreparedUrl(cellContextVar(), "url"))Â»">
+  Â«IF text!=nullÂ»<div class="cell_text">Â«text.expression(cellContextVar())Â»</div>Â«ENDIFÂ»
+  Â«IF details!=nullÂ»<div class="cell_details">Â«details.expression(cellContextVar())Â»</div>Â«ENDIFÂ»
   </a>
-  «ELSE»<a>«text.expression(cellContextVar())»</a>«ENDIF»
+  Â«ELSEÂ»<a>Â«text.expression(cellContextVar())Â»</a>Â«ENDIFÂ»
 </li>
-«IF iterator!=null»{% endfor %}«ENDIF-»
-«ENDDEFINE»
+Â«IF iterator!=nullÂ»{% endfor %}Â«ENDIF-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE content FOR TableView»
-«FOREACH sections AS section-» 
+Â«DEFINE content FOR TableViewÂ»
+Â«FOREACH sections AS section-Â» 
 <ul>
-«EXPAND cell FOREACH section.cells»
+Â«EXPAND cell FOREACH section.cellsÂ»
 </ul>
-«ENDFOREACH»
-«ENDDEFINE»
+Â«ENDFOREACHÂ»
+Â«ENDDEFINEÂ»

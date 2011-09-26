@@ -1,17 +1,17 @@
-«IMPORT org::applause::lang::applauseDsl»
-«IMPORT java::lang»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«IMPORT java::langÂ»
 
-«EXTENSION templates::GeneratorExtensions»
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::ProviderExtension»
+Â«EXTENSION templates::GeneratorExtensionsÂ»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ProviderExtensionÂ»
 
-«DEFINE main FOR Application-»
-«EXPAND entity FOREACH this.entities()»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND entity FOREACH this.entities()Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE entity FOR Entity»
-«FILE this.entityFileName()»
-package «packageName()»;
+Â«DEFINE entity FOR EntityÂ»
+Â«FILE this.entityFileName()Â»
+package Â«packageName()Â»;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -22,22 +22,22 @@ import org.simpleframework.xml.Root;
 
 @SuppressWarnings("serial")
 @Root(strict = false)
-public class «this.entityClassName()» implements Serializable {
-	«EXPAND property FOREACH this.properties»
+public class Â«this.entityClassName()Â» implements Serializable {
+	Â«EXPAND property FOREACH this.propertiesÂ»
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE property FOR Property»
-	«IF this.description.many»@ElementList(required=false, inline=true, entry="«this.name.fieldName()»")
-	«ELSE»@Element(required=false)«ENDIF-»
-	private «this.returnType()» «this.name.fieldName()»;
+Â«DEFINE property FOR PropertyÂ»
+	Â«IF this.description.manyÂ»@ElementList(required=false, inline=true, entry="Â«this.name.fieldName()Â»")
+	Â«ELSEÂ»@Element(required=false)Â«ENDIF-Â»
+	private Â«this.returnType()Â» Â«this.name.fieldName()Â»;
 
-	public «this.returnType()» «this.name.getterName()»() {
-		return «this.name.fieldName()»;
+	public Â«this.returnType()Â» Â«this.name.getterName()Â»() {
+		return Â«this.name.fieldName()Â»;
 	}
 	
-	public void «this.name.setterName()»(«this.returnType()» «this.name.fieldName()») {
-		this.«this.name.fieldName()» = «this.name.fieldName()»;
+	public void Â«this.name.setterName()Â»(Â«this.returnType()Â» Â«this.name.fieldName()Â») {
+		this.Â«this.name.fieldName()Â» = Â«this.name.fieldName()Â»;
 	}
-«ENDDEFINE»
+Â«ENDDEFINEÂ»

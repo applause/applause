@@ -1,14 +1,14 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::views::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::views::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND view FOR this.application»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND view FOR this.applicationÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR Application»
-«FILE xamlFilename()-»
+Â«DEFINE view FOR ApplicationÂ»
+Â«FILE xamlFilename()-Â»
 <phone:PhoneApplicationPage
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -20,7 +20,7 @@
 	xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit" 
 	xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity" 
 	xmlns:GalaSoft_MvvmLight_Command="clr-namespace:GalaSoft.MvvmLight.Command;assembly=GalaSoft.MvvmLight.Extras.WP7" 
-	x:Class="«namespace()».MainPage" 
+	x:Class="Â«namespace()Â».MainPage" 
 	mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768" 
 	FontFamily="{StaticResource PhoneFontFamilyNormal}"
 	FontSize="{StaticResource PhoneFontSizeNormal}"
@@ -32,23 +32,23 @@
 	<!--LayoutRoot is the root grid where all page content is placed-->
 	<Grid x:Name="LayoutRoot" Background="Transparent">
 		<!--Pivot Control-->
-		<controls:Pivot Title="«this.name»">
-			«FOREACH this.buttons AS button-»
-				«EXPAND pivotItem(button) FOR button.view.view-»
-			«ENDFOREACH-»
+		<controls:Pivot Title="Â«this.nameÂ»">
+			Â«FOREACH this.buttons AS button-Â»
+				Â«EXPAND pivotItem(button) FOR button.view.view-Â»
+			Â«ENDFOREACH-Â»
 		</controls:Pivot>
 	</Grid>
 </phone:PhoneApplicationPage>
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE pivotItem(TabbarButton button) FOR View»
-«ENDDEFINE»
-«DEFINE pivotItem(TabbarButton button) FOR TableView»
-			<controls:PivotItem Header=«button.title.expression()»
-								DataContext="{Binding «viewModelClassName()», Source={StaticResource Locator}}">
+Â«DEFINE pivotItem(TabbarButton button) FOR ViewÂ»
+Â«ENDDEFINEÂ»
+Â«DEFINE pivotItem(TabbarButton button) FOR TableViewÂ»
+			<controls:PivotItem Header=Â«button.title.expression()Â»
+								DataContext="{Binding Â«viewModelClassName()Â», Source={StaticResource Locator}}">
 				<toolkit:LongListSelector 
-						x:Name="«this.listboxName()»" Margin="0,0,-12,0" 
+						x:Name="Â«this.listboxName()Â»" Margin="0,0,-12,0" 
 						ItemsSource="{Binding Sections}" IsFlatList="False" 
 						toolkit:TiltEffect.IsTiltEnabled="True">
 					<toolkit:LongListSelector.GroupHeaderTemplate>
@@ -63,32 +63,32 @@
 					</toolkit:LongListSelector.GroupHeaderTemplate>
 					<toolkit:LongListSelector.ItemTemplate>
 						<DataTemplate>
-						«FOREACH this.sections.cells.uniqueSectionCells() AS cell-»
-						«IF cell.iterator != null-»
+						Â«FOREACH this.sections.cells.uniqueSectionCells() AS cell-Â»
+						Â«IF cell.iterator != null-Â»
 							<StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
 								<TextBlock 
-									Text=«cell.text.binding()» 
+									Text=Â«cell.text.binding()Â» 
 									TextWrapping="Wrap" 
 									Style="{StaticResource PhoneTextLargeStyle}"/>
 								<TextBlock 
-									Text=«cell.details.binding()» 
+									Text=Â«cell.details.binding()Â» 
 									TextWrapping="Wrap" 
 									Margin="12,-6,12,0" 
 									Style="{StaticResource PhoneTextSubtleStyle}"/>
 							</StackPanel>
-						«ENDIF-»
-						«ENDFOREACH-»
+						Â«ENDIF-Â»
+						Â«ENDFOREACH-Â»
 						</DataTemplate>
 					</toolkit:LongListSelector.ItemTemplate>
 					<i:Interaction.Triggers>
 						<i:EventTrigger EventName="SelectionChanged">
 							<GalaSoft_MvvmLight_Command:EventToCommand 
 								Command="{Binding NavigationCommand}" 
-								CommandParameter="{Binding SelectedItem, ElementName=«this.listboxName()»}"/>
+								CommandParameter="{Binding SelectedItem, ElementName=Â«this.listboxName()Â»}"/>
 						</i:EventTrigger>
 					</i:Interaction.Triggers>
 				</toolkit:LongListSelector>
 			</controls:PivotItem>
-«ENDDEFINE»
-«DEFINE pivotItem(TabbarButton button) FOR DetailsView»
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
+Â«DEFINE pivotItem(TabbarButton button) FOR DetailsViewÂ»
+Â«ENDDEFINEÂ»

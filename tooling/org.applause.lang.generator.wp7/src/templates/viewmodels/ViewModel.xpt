@@ -1,14 +1,14 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::viewmodels::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::viewmodels::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND view FOREACH this.views().typeSelect(SectionedView)-»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND view FOREACH this.views().typeSelect(SectionedView)-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR SectionedView»
-«FILE this.classFileFQN()-»
+Â«DEFINE view FOR SectionedViewÂ»
+Â«FILE this.classFileFQN()-Â»
 using System.Collections;
 using System.Collections.Generic;
 using Applause.ViewModel;
@@ -16,22 +16,22 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Phone.Tasks;
-using «rootNamespace()».DataAccessLayer;
-using «rootNamespace()».Model;
-using «rootNamespace()».Views;
+using Â«rootNamespace()Â».DataAccessLayer;
+using Â«rootNamespace()Â».Model;
+using Â«rootNamespace()Â».Views;
 
-namespace «namespace()»
+namespace Â«namespace()Â»
 {
-    public class «className()» : ViewModelBase
+    public class Â«className()Â» : ViewModelBase
     {
-    	«IF this.hasContentProvider()-»
-    	«this.bestMatchingViewCallContentProviderName()» _provider;
-    	«ENDIF»
-		public «constructorName()»(«IF this.hasContentProvider()»«this.bestMatchingViewCallContentProviderName()» provider«ENDIF»)
+    	Â«IF this.hasContentProvider()-Â»
+    	Â«this.bestMatchingViewCallContentProviderName()Â» _provider;
+    	Â«ENDIFÂ»
+		public Â«constructorName()Â»(Â«IF this.hasContentProvider()Â»Â«this.bestMatchingViewCallContentProviderName()Â» providerÂ«ENDIFÂ»)
 		{
-			«IF this.hasContentProvider()»
+			Â«IF this.hasContentProvider()Â»
 			_provider = provider;
-			«ENDIF-»
+			Â«ENDIF-Â»
 			if (IsInDesignMode)
 			{
 			}
@@ -43,56 +43,56 @@ namespace «namespace()»
 		#region Data Source
 		private void LoadData()
 		{
-    	«IF this.hasContentProvider()-»
+    	Â«IF this.hasContentProvider()-Â»
     		_provider.LoadData(AcceptData);
-    	«ENDIF»
+    	Â«ENDIFÂ»
 		}
 
         public void AcceptData(object result) 
         {
-            if (result is «content.description.typeName()») 
+            if (result is Â«content.description.typeName()Â») 
             {
-                «contentPropertyname()» = («contentTypename()»)result;
-                «IF sections.size > 0-»
+                Â«contentPropertyname()Â» = (Â«contentTypename()Â»)result;
+                Â«IF sections.size > 0-Â»
                 MapSections(result);
-                «ENDIF»
+                Â«ENDIFÂ»
             }
         }
         
-        «IF sections.size > 0-»
+        Â«IF sections.size > 0-Â»
         private void MapSections(object result)
         {
 			var grouped = new List<IEnumerable>();
-			«FOREACH this.sections AS section-»
-			«FOREACH section.cells AS cell-»
-			«IF cell.iterator != null-»
-			grouped.Add(new GroupingLayer<string, «cell.cellTypename()»>(«section.sectionTitle()», «cell.sectionCollection()»));
-			«ENDIF-»
-			«ENDFOREACH-»
-			«ENDFOREACH-»
+			Â«FOREACH this.sections AS section-Â»
+			Â«FOREACH section.cells AS cell-Â»
+			Â«IF cell.iterator != null-Â»
+			grouped.Add(new GroupingLayer<string, Â«cell.cellTypename()Â»>(Â«section.sectionTitle()Â», Â«cell.sectionCollection()Â»));
+			Â«ENDIF-Â»
+			Â«ENDFOREACH-Â»
+			Â«ENDFOREACH-Â»
 			Sections = grouped;        
         }
-        «ENDIF»
+        Â«ENDIFÂ»
 		#endregion
 		
-		#region «contentPropertyname()» Property
-		public const string «contentPropertyPropertyname()» = "«this.contentPropertyname()»";
-		private «contentTypename()» «contentPropertyFieldname()» = null;
-		public «contentTypename()» «contentPropertyname()»
+		#region Â«contentPropertyname()Â» Property
+		public const string Â«contentPropertyPropertyname()Â» = "Â«this.contentPropertyname()Â»";
+		private Â«contentTypename()Â» Â«contentPropertyFieldname()Â» = null;
+		public Â«contentTypename()Â» Â«contentPropertyname()Â»
 		{
 			get 
 			{ 
-				return «this.contentPropertyFieldname()»;
+				return Â«this.contentPropertyFieldname()Â»;
 			}
 			
 			set
 			{
-				if («contentPropertyFieldname()» == value)
+				if (Â«contentPropertyFieldname()Â» == value)
 				{
 					return;
 				}
-				«contentPropertyFieldname()» = value;
-				RaisePropertyChanged(«contentPropertyPropertyname()»);
+				Â«contentPropertyFieldname()Â» = value;
+				RaisePropertyChanged(Â«contentPropertyPropertyname()Â»);
 			}
 		}
 		#endregion
@@ -130,8 +130,8 @@ namespace «namespace()»
                 return new RelayCommand<object>(
                 	(selection) =>
                 	{
-					«EXPAND action FOREACH this.sections.cells.action.typeSelect(ViewCall).uniqueViewCalls()»
-                	«EXPAND action FOR this.sections.cells.action.typeSelect(ExternalOpen).first()-»
+					Â«EXPAND action FOREACH this.sections.cells.action.typeSelect(ViewCall).uniqueViewCalls()Â»
+                	Â«EXPAND action FOR this.sections.cells.action.typeSelect(ExternalOpen).first()-Â»
                 	}
 				);
             }
@@ -139,23 +139,23 @@ namespace «namespace()»
 		#endregion
     }
 }
-«ENDFILE-»
-«ENDDEFINE»
+Â«ENDFILE-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE action FOR ViewCall»
-						if (selection is «this.provider.providerTypename()»)
+Â«DEFINE action FOR ViewCallÂ»
+						if (selection is Â«this.provider.providerTypename()Â»)
 						{
 							NavigationMessage msg = new NavigationMessage()
 							{
-								PageName = "«this.view.name»Page",
-								ViewModelName = "«this.view.name»ViewModel"
+								PageName = "Â«this.view.nameÂ»Page",
+								ViewModelName = "Â«this.view.nameÂ»ViewModel"
 							};
-							msg.Payload.Add("«this.provider.providerPayloadSlotname()»", («this.provider.providerTypename()»)selection);
+							msg.Payload.Add("Â«this.provider.providerPayloadSlotname()Â»", (Â«this.provider.providerTypename()Â»)selection);
 							Messenger.Default.Send<NavigationMessage>(msg);
 						}
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE action FOR ExternalOpen-»
+Â«DEFINE action FOR ExternalOpen-Â»
 						if (selection is string)
 						{
 							string url = (string)selection;
@@ -176,4 +176,4 @@ namespace «namespace()»
                         		// open browser
                         	}
 						}
-«ENDDEFINE»
+Â«ENDDEFINEÂ»

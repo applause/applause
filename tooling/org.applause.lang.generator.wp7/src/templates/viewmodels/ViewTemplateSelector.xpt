@@ -1,25 +1,25 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::viewmodels::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::viewmodels::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND viewTemplateSelector FOREACH this.views().typeSelect(SectionedView)-»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND viewTemplateSelector FOREACH this.views().typeSelect(SectionedView)-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE viewTemplateSelector FOR SectionedView»
-«FILE this.templateSelectorClassFileFQN()-»
+Â«DEFINE viewTemplateSelector FOR SectionedViewÂ»
+Â«FILE this.templateSelectorClassFileFQN()-Â»
 using System.Windows;
 using Applause.ViewModel;
-using «modelNamespace()»;
+using Â«modelNamespace()Â»;
 
-namespace «namespace()»
+namespace Â«namespace()Â»
 {
-    public class «templateSelectorClassName()»: DataTemplateSelector
+    public class Â«templateSelectorClassName()Â»: DataTemplateSelector
     {
-    	«FOREACH this.sections AS section ITERATOR i-»
-        public DataTemplate Section«i.counter1»Template { get; set; }
-    	«ENDFOREACH-»
+    	Â«FOREACH this.sections AS section ITERATOR i-Â»
+        public DataTemplate SectionÂ«i.counter1Â»Template { get; set; }
+    	Â«ENDFOREACH-Â»
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
@@ -28,5 +28,5 @@ namespace «namespace()»
 
     }
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

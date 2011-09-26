@@ -1,29 +1,29 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::Extensions»
-«EXTENSION templates::CodeExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ExtensionsÂ»
+Â«EXTENSION templates::CodeExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«FILE "providers.py"»
+Â«DEFINE main FOR Application-Â»
+Â«FILE "providers.py"Â»
 from lib.simplexml import parse
 from urllib import urlopen, quote
 
 def plainxml(url):
     return parse( urlopen(url) )
 
-«EXPAND provider FOREACH uniqueViewCalls()»
-«ENDFILE»
-«ENDDEFINE»
+Â«EXPAND provider FOREACH uniqueViewCalls()Â»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE provider FOR ViewCall»
-def «this.defProviderName()»(«this.defProviderParam()»):«"" -»
-«EXPAND providerImplementation FOR this.provider.contentProvider()»
-«ENDDEFINE»
+Â«DEFINE provider FOR ViewCallÂ»
+def Â«this.defProviderName()Â»(Â«this.defProviderParam()Â»):Â«"" -Â»
+Â«EXPAND providerImplementation FOR this.provider.contentProvider()Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE providerImplementation FOR ContentProvider»
-    url = «url.expression(true)» #foo
+Â«DEFINE providerImplementation FOR ContentProviderÂ»
+    url = Â«url.expression(true)Â» #foo
     xml = plainxml(url)
-    return xml.«(((StringLiteral)selection).value.split('\\.').withoutFirst()).toString('.')»
-«ENDDEFINE»
+    return xml.Â«(((StringLiteral)selection).value.split('\\.').withoutFirst()).toString('.')Â»
+Â«ENDDEFINEÂ»
 

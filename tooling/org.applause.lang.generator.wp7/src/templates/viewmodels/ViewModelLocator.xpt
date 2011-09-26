@@ -1,18 +1,18 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::viewmodels::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::viewmodels::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND viewModelLocator FOR this-»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND viewModelLocator FOR this-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE viewModelLocator FOR Model»
-«FILE "ViewModel/ViewModelLocator.cs"-»
+Â«DEFINE viewModelLocator FOR ModelÂ»
+Â«FILE "ViewModel/ViewModelLocator.cs"-Â»
 using GalaSoft.MvvmLight;
-using «this.rootNamespace()».DataAccessLayer;
+using Â«this.rootNamespace()Â».DataAccessLayer;
 
-namespace «rootNamespace()».ViewModel
+namespace Â«rootNamespace()Â».ViewModel
 {
 public class ViewModelLocator
     {
@@ -25,62 +25,62 @@ public class ViewModelLocator
             else
             {
                 // Create run time view models
-                «FOREACH this.views().typeSelect(SectionedView) AS view-»
-                Create«view.name.toFirstUpper()»ViewModel();
-                «ENDFOREACH»
+                Â«FOREACH this.views().typeSelect(SectionedView) AS view-Â»
+                CreateÂ«view.name.toFirstUpper()Â»ViewModel();
+                Â«ENDFOREACHÂ»
             }
         }
 
         public static void Cleanup()
         {
-            «FOREACH this.views().typeSelect(SectionedView) AS view-»
-            Clear«view.name.toFirstUpper()»ViewModel();
-            «ENDFOREACH»        
+            Â«FOREACH this.views().typeSelect(SectionedView) AS view-Â»
+            ClearÂ«view.name.toFirstUpper()Â»ViewModel();
+            Â«ENDFOREACHÂ»        
         }
         
-        «FOREACH this.views().typeSelect(SectionedView) AS view-»
-        #region «view.name.toFirstUpper()» Property
+        Â«FOREACH this.views().typeSelect(SectionedView) AS view-Â»
+        #region Â«view.name.toFirstUpper()Â» Property
 
-        private static «view.name.toFirstUpper()»ViewModel _«view.name.toFirstLower()»ViewModel;
-        public static «view.name.toFirstUpper()»ViewModel «view.name.toFirstUpper()»ViewModelStatic
+        private static Â«view.name.toFirstUpper()Â»ViewModel _Â«view.name.toFirstLower()Â»ViewModel;
+        public static Â«view.name.toFirstUpper()Â»ViewModel Â«view.name.toFirstUpper()Â»ViewModelStatic
         {
             get
             {
-                if (_«view.name.toFirstLower()»ViewModel == null)
+                if (_Â«view.name.toFirstLower()Â»ViewModel == null)
                 {
-                    Create«view.name.toFirstUpper()»ViewModel();
+                    CreateÂ«view.name.toFirstUpper()Â»ViewModel();
                 }
-                return _«view.name.toFirstLower()»ViewModel;
+                return _Â«view.name.toFirstLower()Â»ViewModel;
             }
         }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance",
             "CA1822:MarkMembersAsStatic",
             Justification = "This non-static member is needed for data binding purposes.")]
-        public «view.name.toFirstUpper()»ViewModel «view.name.toFirstUpper()»ViewModel
+        public Â«view.name.toFirstUpper()Â»ViewModel Â«view.name.toFirstUpper()Â»ViewModel
         {
             get
             {
-                return «view.name.toFirstUpper()»ViewModelStatic;
+                return Â«view.name.toFirstUpper()Â»ViewModelStatic;
             }
         }
 
-        public static void Clear«view.name.toFirstUpper()»ViewModel()
+        public static void ClearÂ«view.name.toFirstUpper()Â»ViewModel()
         {
-            _«view.name.toFirstLower()»ViewModel.Cleanup();
-            _«view.name.toFirstLower()»ViewModel = null;
+            _Â«view.name.toFirstLower()Â»ViewModel.Cleanup();
+            _Â«view.name.toFirstLower()Â»ViewModel = null;
         }
 
-        public static void Create«view.name.toFirstUpper()»ViewModel()
+        public static void CreateÂ«view.name.toFirstUpper()Â»ViewModel()
         {
-            if (_«view.name.toFirstLower()»ViewModel == null)
+            if (_Â«view.name.toFirstLower()Â»ViewModel == null)
             {
-                _«view.name.toFirstLower()»ViewModel = new «view.name.toFirstUpper()»ViewModel(«view.bestMatchingViewCallContentProviderInstantiation()»);
+                _Â«view.name.toFirstLower()Â»ViewModel = new Â«view.name.toFirstUpper()Â»ViewModel(Â«view.bestMatchingViewCallContentProviderInstantiation()Â»);
             }
         }
         #endregion
-        «ENDFOREACH»
+        Â«ENDFOREACHÂ»
     }
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

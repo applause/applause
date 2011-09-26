@@ -1,6 +1,6 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«DEFINE main FOR Model»
-«EXPAND MainView::main FOR this»
-«EXPAND DetailsView::main FOR this»
-«ENDDEFINE»
+Â«DEFINE main FOR ModelÂ»
+Â«EXPAND MainView::main FOR thisÂ»
+Â«EXPAND DetailsView::main FOR thisÂ»
+Â«ENDDEFINEÂ»

@@ -1,14 +1,14 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::views::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::views::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND view FOREACH this.views().typeSelect(DetailsView)-»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND view FOREACH this.views().typeSelect(DetailsView)-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR DetailsView»
-«FILE this.classFilename()-»
+Â«DEFINE view FOR DetailsViewÂ»
+Â«FILE this.classFilename()-Â»
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,15 +22,15 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 
-namespace «this.namespace()»
+namespace Â«this.namespace()Â»
 {
-    public partial class «this.className()» : PhoneApplicationPage
+    public partial class Â«this.className()Â» : PhoneApplicationPage
     {
-        public «this.constructorName()»()
+        public Â«this.constructorName()Â»()
         {
             InitializeComponent();
         }
     }
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

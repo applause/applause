@@ -1,13 +1,13 @@
-«IMPORT org::applause::lang::applauseDsl»
-«IMPORT java::lang»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«IMPORT java::langÂ»
 
-«EXTENSION templates::GeneratorExtensions»
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::ProviderExtension»
+Â«EXTENSION templates::GeneratorExtensionsÂ»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ProviderExtensionÂ»
 
-«DEFINE main FOR SectionedView-»
-«FILE activityFileName()»
-package «packageName()»;
+Â«DEFINE main FOR SectionedView-Â»
+Â«FILE activityFileName()Â»
+package Â«packageName()Â»;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -27,108 +27,108 @@ import de.itemis.base.LabeledIntent;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
-public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> {
+public class Â«activityClassName()Â» extends Â«javaBaseClassName()Â»<Â«this.type()Â»> {
 
-	«IF this.content!=null»
-	«IF this.content.description.many»
-	List<«this.type()»> «this.content.name»;
-	«ELSE»
-	«this.type()» «this.content.name»;
-	«ENDIF»
-	«ENDIF»
+	Â«IF this.content!=nullÂ»
+	Â«IF this.content.description.manyÂ»
+	List<Â«this.type()Â»> Â«this.content.nameÂ»;
+	Â«ELSEÂ»
+	Â«this.type()Â» Â«this.content.nameÂ»;
+	Â«ENDIFÂ»
+	Â«ENDIFÂ»
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		
-		«IF this.content!=null»
-		«IF this.content.description.many»
-		«this.content.name» = getItemsFromProvider();
-		«ELSE»
-		«this.content.name» = getItemFromProvider();
-		«ENDIF»
-		«ENDIF»
+		Â«IF this.content!=nullÂ»
+		Â«IF this.content.description.manyÂ»
+		Â«this.content.nameÂ» = getItemsFromProvider();
+		Â«ELSEÂ»
+		Â«this.content.nameÂ» = getItemFromProvider();
+		Â«ENDIFÂ»
+		Â«ENDIFÂ»
 
-		setTitle(«this.title.expression("")»);
-		«EXPAND header»		
+		setTitle(Â«this.title.expression("")Â»);
+		Â«EXPAND headerÂ»		
 		
 		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
-		«FOREACH this.sections.cells AS cell ITERATOR iter»
-			«EXPAND cell(iter.counter1) FOR cell»
-		«ENDFOREACH»
+		Â«FOREACH this.sections.cells AS cell ITERATOR iterÂ»
+			Â«EXPAND cell(iter.counter1) FOR cellÂ»
+		Â«ENDFOREACHÂ»
 		
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
 		finishCreation();
 		
 	}
 	
-	«FOREACH this.sections.cells AS cell ITERATOR iter»
-		«EXPAND cellClass(this, iter.counter1) FOR cell»
-	«ENDFOREACH»
+	Â«FOREACH this.sections.cells AS cell ITERATOR iterÂ»
+		Â«EXPAND cellClass(this, iter.counter1) FOR cellÂ»
+	Â«ENDFOREACHÂ»
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE header FOR SectionedView»«ENDDEFINE»
+Â«DEFINE header FOR SectionedViewÂ»Â«ENDDEFINEÂ»
 
-«DEFINE header FOR DetailsView»
-«IF this.header!=null»
-«IF header.title!=null»setHeaderTitle(«header.title.expression("")»);«ENDIF»
-«IF header.detailsOrSubtitle()!=null»setHeaderDetails(«header.detailsOrSubtitle().expression("")»);«ENDIF»
-«IF header.image!=null»setHeaderImageURL(«header.image.expression("")»);«ENDIF»
-«ENDIF»
-«ENDDEFINE»
+Â«DEFINE header FOR DetailsViewÂ»
+Â«IF this.header!=nullÂ»
+Â«IF header.title!=nullÂ»setHeaderTitle(Â«header.title.expression("")Â»);Â«ENDIFÂ»
+Â«IF header.detailsOrSubtitle()!=nullÂ»setHeaderDetails(Â«header.detailsOrSubtitle().expression("")Â»);Â«ENDIFÂ»
+Â«IF header.image!=nullÂ»setHeaderImageURL(Â«header.image.expression("")Â»);Â«ENDIFÂ»
+Â«ENDIFÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE cell(Integer i) FOR SectionCell»
-«IF this.iterator!=null»
-	Iterable<«iterator.collection.javaType()»> items«i» = «iterator.collection.expression("")»;
-	if(items«i» != null)
-		for(«iterator.collection.javaType()» i : items«i»)
-			rowAdapters.add(new Cell«i»(i));
-«ELSE»
-	rowAdapters.add(new Cell«i»(null));
-«ENDIF»
-«ENDDEFINE»
+Â«DEFINE cell(Integer i) FOR SectionCellÂ»
+Â«IF this.iterator!=nullÂ»
+	Iterable<Â«iterator.collection.javaType()Â»> itemsÂ«iÂ» = Â«iterator.collection.expression("")Â»;
+	if(itemsÂ«iÂ» != null)
+		for(Â«iterator.collection.javaType()Â» i : itemsÂ«iÂ»)
+			rowAdapters.add(new CellÂ«iÂ»(i));
+Â«ELSEÂ»
+	rowAdapters.add(new CellÂ«iÂ»(null));
+Â«ENDIFÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellClass(SectionedView view, Integer i) FOR SectionCell»
-	«LET "Cell" + i AS className»
-		private class «className» extends RowAdapter.«this.type.literal»<«javaType()»> {
+Â«DEFINE cellClass(SectionedView view, Integer i) FOR SectionCellÂ»
+	Â«LET "Cell" + i AS classNameÂ»
+		private class Â«classNameÂ» extends RowAdapter.Â«this.type.literalÂ»<Â«javaType()Â»> {
 	
-			public «className»(«javaType()» item) {
+			public Â«classNameÂ»(Â«javaType()Â» item) {
 				super(item);
 			}
 			
 			@Override
 			public void populateRowView() {
-				«IF this.iterator!=null»«javaType()» «this.iterator.name» = getItem();«ENDIF»
-				«IF text!=null»setText(«text.expression("")»);«ENDIF»
-				«IF details!=null»setDetails(«details.expression("")»);«ENDIF»
-				«IF query!=null»setQuery(«query.expression("")»);«ENDIF»
-				«IF image!=null»setImageURL(«image.expression("")»);«ENDIF»
+				Â«IF this.iterator!=nullÂ»Â«javaType()Â» Â«this.iterator.nameÂ» = getItem();Â«ENDIFÂ»
+				Â«IF text!=nullÂ»setText(Â«text.expression("")Â»);Â«ENDIFÂ»
+				Â«IF details!=nullÂ»setDetails(Â«details.expression("")Â»);Â«ENDIFÂ»
+				Â«IF query!=nullÂ»setQuery(Â«query.expression("")Â»);Â«ENDIFÂ»
+				Â«IF image!=nullÂ»setImageURL(Â«image.expression("")Â»);Â«ENDIFÂ»
 			}
 	
 			@Override
 			public void handleClick() {
-				«IF iterator!=null»«javaType()» «iterator.name» = getItem();«ENDIF»
-			«EXPAND cellAction(this) FOR action»
+				Â«IF iterator!=nullÂ»Â«javaType()Â» Â«iterator.nameÂ» = getItem();Â«ENDIFÂ»
+			Â«EXPAND cellAction(this) FOR actionÂ»
 			}
 			
 		}
-	«ENDLET»
-«ENDDEFINE»
+	Â«ENDLETÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellAction(SectionCell cell) FOR ViewAction»ERROR «this.metaType»«ENDDEFINE»
+Â«DEFINE cellAction(SectionCell cell) FOR ViewActionÂ»ERROR Â«this.metaTypeÂ»Â«ENDDEFINEÂ»
 
-«DEFINE cellAction(SectionCell cell) FOR ViewCall»
-			Intent intent = new Intent(«cell.listActivityClassName()».this, «this.view.activityClassName()».class);
-			Serializable contentProvider = «contentProvider(this.provider, "")»;
+Â«DEFINE cellAction(SectionCell cell) FOR ViewCallÂ»
+			Intent intent = new Intent(Â«cell.listActivityClassName()Â».this, Â«this.view.activityClassName()Â».class);
+			Serializable contentProvider = Â«contentProvider(this.provider, "")Â»;
 			intent.putExtra("provider", contentProvider);
 			startActivity(intent);
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellAction(SectionCell cell) FOR ExternalOpen»
-			Intent intent = new LabeledIntent(Intent.ACTION_VIEW, Uri.parse(«this.url.expression("")»));
+Â«DEFINE cellAction(SectionCell cell) FOR ExternalOpenÂ»
+			Intent intent = new LabeledIntent(Intent.ACTION_VIEW, Uri.parse(Â«this.url.expression("")Â»));
 			startActivity(intent);
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
