@@ -5,11 +5,11 @@ import java.util.Arrays;
 import org.applause.lang.ui.builder.BuildStrategyRegistry;
 import org.applause.lang.ui.builder.MobilePlatform;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
-import org.eclipse.jface.viewers.ISelectionChangedListener;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.viewers.SelectionChangedEvent;
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Image;
@@ -41,6 +41,7 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		super("platformSelectionPage");
 		setTitle("Target Platform Selection");
 		setDescription("Choose one or more target platforms for your project.");
+		setPageComplete(false);
 	}
 
 	/**
@@ -63,12 +64,13 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		checkboxTableViewer.setContentProvider(new ArrayContentProvider());
 		checkboxTableViewer.setInput(BuildStrategyRegistry.getSupportedMobilePlatforms());
 		
-		checkboxTableViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+		checkboxTableViewer.addCheckStateListener((new ICheckStateListener() {
+			
 			@Override
-			public void selectionChanged(SelectionChangedEvent event) {
-				getWizard().getContainer().updateButtons();		
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				setPageComplete(getSelectedPlatforms().length > 0 ? true : false);	
 			}
-		});
+		}));
 	}
 	
 	public MobilePlatform[] getSelectedPlatforms() {
