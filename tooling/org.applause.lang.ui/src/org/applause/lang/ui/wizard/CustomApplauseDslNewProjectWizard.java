@@ -32,14 +32,15 @@ public class CustomApplauseDslNewProjectWizard extends XtextNewProjectWizard {
 		mainPage = new WizardNewProjectCreationPage("basicNewProjectPage");
 		mainPage.setTitle("APPlause Project");
 		mainPage.setDescription("Create a new APPlause project.");
-		mainPage.setImageDescriptor(ImageDescriptor.createFromImage(imageHelper.getImage("applause-wizard-top.png")));		
+		mainPage.setImageDescriptor(ImageDescriptor.createFromImage(imageHelper.getImage("applause-wizard-top.png")));
+		mainPage.setPageComplete(false);
 		addPage(mainPage);
 		
 		generatorFragmentSelectionWizardPage = new GeneratorFragmentSelectionWizardPage();
 		generatorFragmentSelectionWizardPage.setImageDescriptor(ImageDescriptor.createFromImage(imageHelper.getImage("applause-wizard-top.png")));		
 		addPage(generatorFragmentSelectionWizardPage);
 	}
-
+	
 	/**
 	 * Use this method to read the project settings from the wizard pages and feed them into the project info class.
 	 */

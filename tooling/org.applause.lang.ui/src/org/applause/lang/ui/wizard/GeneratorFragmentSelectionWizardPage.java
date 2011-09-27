@@ -5,7 +5,9 @@ import java.util.Arrays;
 import org.applause.lang.ui.builder.BuildStrategyRegistry;
 import org.applause.lang.ui.builder.MobilePlatform;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.wizard.WizardPage;
@@ -39,6 +41,18 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		super("platformSelectionPage");
 		setTitle("Target Platform Selection");
 		setDescription("Choose one or more target platforms for your project.");
+		validatePage();
+	}
+	
+	private void validatePage() {
+		if (getSelectedPlatforms().length > 0) {
+			setPageComplete(true);
+			setErrorMessage(null);
+		}
+		else {
+			setPageComplete(false);
+			setErrorMessage("Please select one or more target platforms");
+		}
 	}
 
 	/**
@@ -60,12 +74,24 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		checkboxTableViewer.setLabelProvider(new TableLabelProvider());
 		checkboxTableViewer.setContentProvider(new ArrayContentProvider());
 		checkboxTableViewer.setInput(BuildStrategyRegistry.getSupportedMobilePlatforms());
+		
+		checkboxTableViewer.addCheckStateListener((new ICheckStateListener() {
+			@Override
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				validatePage();	
+			}
+		}));
 	}
 	
 	public MobilePlatform[] getSelectedPlatforms() {
-		Object[] checkedElements = checkboxTableViewer.getCheckedElements();
-		MobilePlatform[] platforms = Arrays.asList(checkedElements).toArray(new MobilePlatform[checkedElements.length]);
-		return platforms;
+		if (isControlCreated() ) {
+			Object[] checkedElements = checkboxTableViewer.getCheckedElements();
+			MobilePlatform[] platforms = Arrays.asList(checkedElements).toArray(new MobilePlatform[checkedElements.length]);
+			return platforms;
+		}
+		else {
+			return new MobilePlatform[0];
+		}
 	}
 	
 }
