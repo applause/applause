@@ -18,8 +18,6 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
-import com.google.common.collect.Sets;
-
 public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 	private class TableLabelProvider extends LabelProvider implements ITableLabelProvider {
 		public Image getColumnImage(Object element, int columnIndex) {
@@ -43,19 +41,18 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		super("platformSelectionPage");
 		setTitle("Target Platform Selection");
 		setDescription("Choose one or more target platforms for your project.");
-		setPageComplete(false);
+		validatePage();
 	}
-
 	
-	
-	public void setPageComplete(boolean completed) {
-		super.setPageComplete(completed);
-		if(completed){
-			setMessage("", NONE);	
-		} else{
-			setMessage("Please select one or more target platforms", ERROR);
+	private void validatePage() {
+		if (getSelectedPlatforms().length > 0) {
+			setPageComplete(true);
+			setErrorMessage(null);
 		}
-		
+		else {
+			setPageComplete(false);
+			setErrorMessage("Please select one or more target platforms");
+		}
 	}
 
 	/**
@@ -79,18 +76,22 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		checkboxTableViewer.setInput(BuildStrategyRegistry.getSupportedMobilePlatforms());
 		
 		checkboxTableViewer.addCheckStateListener((new ICheckStateListener() {
-			
 			@Override
 			public void checkStateChanged(CheckStateChangedEvent event) {
-				setPageComplete(getSelectedPlatforms().length > 0 ? true : false);	
+				validatePage();	
 			}
 		}));
 	}
 	
 	public MobilePlatform[] getSelectedPlatforms() {
-		Object[] checkedElements = checkboxTableViewer.getCheckedElements();
-		MobilePlatform[] platforms = Arrays.asList(checkedElements).toArray(new MobilePlatform[checkedElements.length]);
-		return platforms;
+		if (isControlCreated() ) {
+			Object[] checkedElements = checkboxTableViewer.getCheckedElements();
+			MobilePlatform[] platforms = Arrays.asList(checkedElements).toArray(new MobilePlatform[checkedElements.length]);
+			return platforms;
+		}
+		else {
+			return new MobilePlatform[0];
+		}
 	}
 	
 }
