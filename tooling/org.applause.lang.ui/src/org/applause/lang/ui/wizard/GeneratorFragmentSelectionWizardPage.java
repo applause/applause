@@ -5,7 +5,9 @@ import java.util.Arrays;
 import org.applause.lang.ui.builder.BuildStrategyRegistry;
 import org.applause.lang.ui.builder.MobilePlatform;
 import org.eclipse.jface.viewers.ArrayContentProvider;
+import org.eclipse.jface.viewers.CheckStateChangedEvent;
 import org.eclipse.jface.viewers.CheckboxTableViewer;
+import org.eclipse.jface.viewers.ICheckStateListener;
 import org.eclipse.jface.viewers.ITableLabelProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.wizard.WizardPage;
@@ -15,6 +17,8 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
+
+import com.google.common.collect.Sets;
 
 public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 	private class TableLabelProvider extends LabelProvider implements ITableLabelProvider {
@@ -39,6 +43,19 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		super("platformSelectionPage");
 		setTitle("Target Platform Selection");
 		setDescription("Choose one or more target platforms for your project.");
+		setPageComplete(false);
+	}
+
+	
+	
+	public void setPageComplete(boolean completed) {
+		super.setPageComplete(completed);
+		if(completed){
+			setMessage("", NONE);	
+		} else{
+			setMessage("Please select one or more target platforms", ERROR);
+		}
+		
 	}
 
 	/**
@@ -60,6 +77,14 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		checkboxTableViewer.setLabelProvider(new TableLabelProvider());
 		checkboxTableViewer.setContentProvider(new ArrayContentProvider());
 		checkboxTableViewer.setInput(BuildStrategyRegistry.getSupportedMobilePlatforms());
+		
+		checkboxTableViewer.addCheckStateListener((new ICheckStateListener() {
+			
+			@Override
+			public void checkStateChanged(CheckStateChangedEvent event) {
+				setPageComplete(getSelectedPlatforms().length > 0 ? true : false);	
+			}
+		}));
 	}
 	
 	public MobilePlatform[] getSelectedPlatforms() {
