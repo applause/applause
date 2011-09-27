@@ -51,7 +51,7 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		}
 		else {
 			setPageComplete(false);
-			setErrorMessage("Please select one or more target platforms");
+			setErrorMessage("Please choose one or more target platforms for your project.");
 		}
 	}
 
