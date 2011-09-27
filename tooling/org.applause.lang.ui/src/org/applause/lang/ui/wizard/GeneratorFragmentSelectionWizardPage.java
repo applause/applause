@@ -18,6 +18,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Table;
 
+import com.google.common.collect.Sets;
+
 public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 	private class TableLabelProvider extends LabelProvider implements ITableLabelProvider {
 		public Image getColumnImage(Object element, int columnIndex) {
@@ -42,6 +44,18 @@ public class GeneratorFragmentSelectionWizardPage extends WizardPage {
 		setTitle("Target Platform Selection");
 		setDescription("Choose one or more target platforms for your project.");
 		setPageComplete(false);
+	}
+
+	
+	
+	public void setPageComplete(boolean completed) {
+		super.setPageComplete(completed);
+		if(completed){
+			setMessage("", NONE);	
+		} else{
+			setMessage("Please select one or more target platforms", ERROR);
+		}
+		
 	}
 
 	/**
