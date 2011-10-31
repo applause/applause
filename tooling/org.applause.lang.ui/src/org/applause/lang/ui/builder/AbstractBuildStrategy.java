@@ -1,11 +1,13 @@
 package org.applause.lang.ui.builder;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.lang.ArrayUtils;
 import org.applause.lang.applauseDsl.Application;
@@ -170,9 +172,11 @@ public abstract class AbstractBuildStrategy {
 			IFolder destinationFolder = getHighResImageDestinationFolder(file);
 			String imageFileName = getHighResImageFileName(getNormalizedFileName(file));
 			if ( (destinationFolder != null) && (imageFileName != null)) {
-				IFile targetFile = destinationFolder.getFile(imageFileName);
-				if (!targetFile.exists()) {
-					file.copy(targetFile.getFullPath(), true, null);
+				if (isValidFilename(FilenameUtils.getBaseName(imageFileName))) {
+					IFile targetFile = destinationFolder.getFile(imageFileName);
+					if (!targetFile.exists()) {
+						file.copy(targetFile.getFullPath(), true, null);
+					}
 				}
 			}
 		}
@@ -183,9 +187,11 @@ public abstract class AbstractBuildStrategy {
 			IFolder destinationFolder = getImageDestinationFolder(file);
 			String imageFileName = getImageFileName(getNormalizedFileName(file));
 			if ( (destinationFolder != null) && (imageFileName != null)) {
-				IFile targetFile = destinationFolder.getFile(imageFileName);
-				if (!targetFile.exists()) {
-					file.copy(targetFile.getFullPath(), true, null);
+				if (isValidFilename(FilenameUtils.getBaseName(imageFileName))) {
+					IFile targetFile = destinationFolder.getFile(imageFileName);
+					if (!targetFile.exists()) {
+						file.copy(targetFile.getFullPath(), true, null);
+					}
 				}
 			}
 		}
@@ -195,6 +201,10 @@ public abstract class AbstractBuildStrategy {
 	
 	protected boolean isImageFile(IFile file) {
 		return (ArrayUtils.contains(IMAGE_FILE_EXTS, file.getFileExtension()));
+	}
+	
+	protected boolean isValidFilename(String filename) {
+		return true;
 	}
 	
 	protected Collection<IFile> collectAllImageFiles(IFolder sourceFolder) throws CoreException {

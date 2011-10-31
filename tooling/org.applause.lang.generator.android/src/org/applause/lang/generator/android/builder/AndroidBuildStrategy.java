@@ -1,5 +1,7 @@
 package org.applause.lang.generator.android.builder;
 
+import java.util.regex.Pattern;
+
 import org.applause.lang.applauseDsl.Application;
 import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;
@@ -42,6 +44,14 @@ public class AndroidBuildStrategy extends AbstractBuildStrategy {
 	protected void copySplash(Application app, IFolder folder)
 			throws CoreException {
 		// TODO Auto-generated method stub
+	}
+	
+	private static final Pattern LEGAL_FILENAMES_PATTERN = Pattern.compile("[a-z0-9_.]*");
+	
+	@Override
+	protected boolean isValidFilename(String filename) {
+		boolean result = LEGAL_FILENAMES_PATTERN.matcher(filename).matches();
+		return result;
 	}
 
 	@Override
