@@ -43,7 +43,7 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 		}
 	}
 	
-	private static final Pattern LEGAL_FILENAMES_PATTERN = Pattern.compile("[a-z0-9_.]");
+	private static final Pattern LEGAL_FILENAMES_PATTERN = Pattern.compile("[a-z0-9_.]*");
 	
 	@Check
 	void validIconFilename(TabbarButton button) {
@@ -58,7 +58,7 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 			}
 			else {
 				if (!LEGAL_FILENAMES_PATTERN.matcher(filename).matches()) {
-					warning("Icon file '" + filename + "' is not a valid filename. " +
+					error("Icon file '" + filename + "' is not a valid filename. " +
 							"Make sure icon files only contain lowercase letters, numbers and the underscore.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
 				}
 			}
