@@ -1,10 +1,13 @@
 package org.applause.lang.ui.builder;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.lang.ArrayUtils;
 import org.applause.lang.applauseDsl.Application;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -31,6 +34,8 @@ import org.eclipse.xtext.builder.IXtextBuilderParticipant.IBuildContext;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
 
+import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 import com.google.common.collect.Iterables;
 
 public abstract class AbstractBuildStrategy {
@@ -106,14 +111,108 @@ public abstract class AbstractBuildStrategy {
 //				output.addOutlet(projectRootOutlet);
 
 				generate(app, output);
-				copyResources(app, folder);
+				copyResources(app, getModelProject().getFolder("/Images"));
 				getPlatformProject().build(IncrementalProjectBuilder.CLEAN_BUILD, monitor);
 				return;
 			}
 		}
 	}
+	
+	protected boolean isFileInHighResFolder(IFile file) {
+		String[] segments = file.getFullPath().segments();
+		return ArrayUtils.contains(segments, "highres");
+	}
 
-	protected abstract void copyResources(Application app, IFolder folder) throws CoreException;
+	protected void copyResources(Application app, IFolder sourceFolder) throws CoreException {
+		Collection<IFile> allImageFiles = collectAllImageFiles(sourceFolder);
+		Predicate<IFile> highresPredicate = new Predicate<IFile>() {
+			@Override
+			public boolean apply(IFile input) {
+				if (input.getName().contains("@2x")) {
+					return true;
+				}
+				else if (isFileInHighResFolder(input)) {
+					return true;
+				}
+				return false;
+			}
+		};
+		Iterable<IFile> highresImages = Iterables.filter(allImageFiles, highresPredicate);
+		
+		Predicate<IFile> lowresPredicate = Predicates.not(highresPredicate);
+		Iterable<IFile> lowresImages = Iterables.filter(allImageFiles, lowresPredicate);
+		
+		copyLowResImages(lowresImages);
+		copyHighResImages(highresImages);
+		
+		copySplash(app, sourceFolder);
+	}
+	
+	protected abstract void copySplash(Application app, IFolder folder) throws CoreException;
+	
+	protected abstract IFolder getHighResImageDestinationFolder(IFile file);
+	protected abstract String getHighResImageFileName(String normalizedFileName);
+	protected abstract IFolder getImageDestinationFolder(IFile file);
+	protected abstract String getImageFileName(String normalizedFileName);
+	
+	private String getNormalizedFileName(IFile file) {
+		String baseName = FilenameUtils.getBaseName(file.getName());
+		if (baseName.endsWith("@2x")) {
+			return baseName.substring(0, baseName.lastIndexOf("@2x")) + "." + file.getFileExtension(); 
+		}
+		else {
+			return file.getName();
+		}
+	}
+	
+	private void copyHighResImages(Iterable<IFile> highresImages) throws CoreException {
+		for (IFile file : highresImages) {
+			IFolder destinationFolder = getHighResImageDestinationFolder(file);
+			String imageFileName = getHighResImageFileName(getNormalizedFileName(file));
+			if ( (destinationFolder != null) && (imageFileName != null)) {
+				IFile targetFile = destinationFolder.getFile(imageFileName);
+				if (!targetFile.exists()) {
+					file.copy(targetFile.getFullPath(), true, null);
+				}
+			}
+		}
+	}
+
+	private void copyLowResImages(Iterable<IFile> lowresImages) throws CoreException {
+		for (IFile file : lowresImages) {
+			IFolder destinationFolder = getImageDestinationFolder(file);
+			String imageFileName = getImageFileName(getNormalizedFileName(file));
+			if ( (destinationFolder != null) && (imageFileName != null)) {
+				IFile targetFile = destinationFolder.getFile(imageFileName);
+				if (!targetFile.exists()) {
+					file.copy(targetFile.getFullPath(), true, null);
+				}
+			}
+		}
+	}
+
+	protected static final String[] IMAGE_FILE_EXTS = {"png", "jpg"};
+	
+	protected boolean isImageFile(IFile file) {
+		return (ArrayUtils.contains(IMAGE_FILE_EXTS, file.getFileExtension()));
+	}
+	
+	protected Collection<IFile> collectAllImageFiles(IFolder sourceFolder) throws CoreException {
+		Collection<IFile> files = new ArrayList<IFile>();
+		IResource[] members = sourceFolder.members();
+		for (IResource resource : members) {
+			if (resource instanceof IFile) {
+				IFile file = (IFile)resource;
+				if (isImageFile(file)) {
+					files.add(file);
+				}
+			}
+			else if (resource instanceof IFolder) {
+				files.addAll(collectAllImageFiles((IFolder)resource));
+			}
+		}
+		return files;
+	}
 
 	private Outlet createOutlet(final IFolder folder) {
 		Outlet outlet = new Outlet() {

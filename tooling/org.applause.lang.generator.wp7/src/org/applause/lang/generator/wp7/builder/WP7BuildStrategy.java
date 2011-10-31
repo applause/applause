@@ -38,10 +38,30 @@ public class WP7BuildStrategy extends AbstractBuildStrategy {
 	}
 
 	@Override
-	protected void copyResources(Application app, IFolder folder)
+	protected void copySplash(Application app, IFolder folder)
 			throws CoreException {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	protected IFolder getHighResImageDestinationFolder(IFile file) {
+		return null;
+	}
+
+	@Override
+	protected String getHighResImageFileName(String normalizedFileName) {
+		return null;
+	}
+
+	@Override
+	protected IFolder getImageDestinationFolder(IFile file) {
+		return null;
+	}
+
+	@Override
+	protected String getImageFileName(String normalizedFileName) {
+		return null;
 	}
 
 }

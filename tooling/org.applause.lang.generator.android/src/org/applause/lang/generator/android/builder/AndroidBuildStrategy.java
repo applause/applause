@@ -39,10 +39,29 @@ public class AndroidBuildStrategy extends AbstractBuildStrategy {
 	}
 
 	@Override
-	protected void copyResources(Application app, IFolder folder)
+	protected void copySplash(Application app, IFolder folder)
 			throws CoreException {
 		// TODO Auto-generated method stub
-		
+	}
+
+	@Override
+	protected IFolder getHighResImageDestinationFolder(IFile file) {
+		return getPlatformProject().getFolder("res/drawable-hdpi");
+	}
+
+	@Override
+	protected String getHighResImageFileName(String normalizedFileName) {
+		return normalizedFileName;
+	}
+
+	@Override
+	protected IFolder getImageDestinationFolder(IFile file) {
+		return getPlatformProject().getFolder("res/drawable");
+	}
+
+	@Override
+	protected String getImageFileName(String normalizedFileName) {
+		return normalizedFileName;
 	}
 
 }

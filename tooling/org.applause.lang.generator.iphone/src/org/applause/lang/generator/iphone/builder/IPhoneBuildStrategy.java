@@ -1,5 +1,6 @@
 package org.applause.lang.generator.iphone.builder;
 
+import org.apache.commons.io.FilenameUtils;
 import org.applause.lang.applauseDsl.Application;
 import org.applause.lang.ui.builder.AbstractBuildStrategy;
 import org.eclipse.core.resources.IFile;
@@ -40,11 +41,39 @@ public class IPhoneBuildStrategy extends AbstractBuildStrategy {
 	}
 
 	@Override
-	protected void copyResources(Application app, IFolder folder) throws CoreException {
+	protected void copySplash(Application app, IFolder folder) throws CoreException {
 		String splash = app.getSplash();
 		IFile splashFile = getModelProject().getFile("Images/" + splash);
-		IPath targetPath = folder.getFullPath().append("Default.png");
-		splashFile.copy(targetPath, true, null);
+		if (splashFile.exists()) {
+			IPath targetPath = getPlatformProject().getFullPath().append("Default.png");
+			splashFile.copy(targetPath, true, null);
+		}
+	}
+
+	@Override
+	protected IFolder getHighResImageDestinationFolder(IFile file) {
+		return getPlatformProject().getFolder("Images/");
+	}
+
+	@Override
+	protected String getHighResImageFileName(String normalizedFileName) {
+		String baseName = FilenameUtils.getBaseName(normalizedFileName);
+		if (!baseName.endsWith("@2x")) {
+			return baseName + "@2x" + "." + FilenameUtils.getExtension(normalizedFileName);
+		}
+		else {
+			return normalizedFileName;
+		}
+	}
+
+	@Override
+	protected IFolder getImageDestinationFolder(IFile file) {
+		return getPlatformProject().getFolder("Images/");
+	}
+
+	@Override
+	protected String getImageFileName(String normalizedFileName) {
+		return normalizedFileName;
 	}
 
 }
