@@ -2,6 +2,7 @@ package org.applause.lang.validation;
 
 import java.util.NoSuchElementException;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.ComplexProviderConstruction;
@@ -42,16 +43,25 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 		}
 	}
 	
+	private static final Pattern LEGAL_FILENAMES_PATTERN = Pattern.compile("[a-z0-9_.]");
+	
 	@Check
-	void iconExists(TabbarButton button) {
+	void validIconFilename(TabbarButton button) {
 		if (button.getIcon() instanceof StringLiteral) {
 			String filename = ((StringLiteral) button.getIcon()).getValue();
 			Resource res = button.eResource();
 			
 			URI uri = res.getURI().appendSegment("..").appendSegment("..").appendSegment("Images").appendSegment(filename);
 			boolean exists = (res.getResourceSet().getURIConverter().exists(uri, null));
-			if(!exists)
-				error("File does not exist.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
+			if(!exists) {
+				error("Icon file '" + filename + "' does not exist.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
+			}
+			else {
+				if (!LEGAL_FILENAMES_PATTERN.matcher(filename).matches()) {
+					warning("Icon file '" + filename + "' is not a valid filename. " +
+							"Make sure icon files only contain lowercase letters, numbers and the underscore.", ApplauseDslPackage.TABBAR_BUTTON__ICON);
+				}
+			}
 		}
 	}
 	
