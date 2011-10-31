@@ -140,7 +140,7 @@ public class ApplauseDslJavaValidator extends AbstractApplauseDslJavaValidator {
 		TypeDescription typeDescription = TypeUtil.getTypeOf(construction.getExpression());
 		if (typeDescription.getType() instanceof Entity) {
 				if(findResolver(construction) == null)
-					error("No matching resolver found for " + typeDescription.getType().getName(), ApplauseDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
+					warning("No matching resolver found for " + typeDescription.getType().getName(), ApplauseDslPackage.SIMPLE_PROVIDER_CONSTRUCTION__EXPRESSION);
 		}
 	}
 	
