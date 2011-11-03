@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F6109A05-B147-489F-AE36-C1A8C8D6E11C}</ProjectGuid>
+    <ProjectGuid>{6BCF883C-5D51-48E2-8A8B-5CF01EB78897}</ProjectGuid>
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -25,12 +25,14 @@
     <SilverlightAppEntry>ItemisApp.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <Utf8Output>true</Utf8Output>
+    <ExpressionBlendVersion>4.0.30701.0</ExpressionBlendVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>C:\tmp\build\</OutputPath>
+    <OutputPath>Bin\Debug</OutputPath>
     <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -40,7 +42,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>C:\tmp\build\</OutputPath>
+    <OutputPath>Bin\Release</OutputPath>
     <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
     <NoStdLib>true</NoStdLib>
     <NoConfig>true</NoConfig>
@@ -48,13 +50,27 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GalaSoft.MvvmLight.Extras.WP7, Version=3.0.0.32269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLight.3.0.3\lib\sl3-wp\GalaSoft.MvvmLight.Extras.WP7.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.WP7, Version=3.0.0.32269, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLight.3.0.3\lib\sl3-wp\GalaSoft.MvvmLight.WP7.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions" />
     <Reference Include="Microsoft.Phone" />
     <Reference Include="Microsoft.Phone.Controls" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL">
+      <HintPath>packages\SilverlightToolkitWP.4.2011.8.17\lib\sl3-wp\Microsoft.Phone.Controls.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Windows" />
     <Reference Include="system" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net" />
+    <Reference Include="System.Windows.Interactivity, Version=3.7.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\MvvmLight.3.0.3\lib\sl3-wp\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
@@ -62,46 +78,60 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Generated\AllSpeakersModelProvider.cs" />
-    <Compile Include="Generated\BlogItem.cs" />
-    <Compile Include="Generated\BlogItemByIdModelProvider.cs" />
-    <Compile Include="Generated\BlogpostsModelProvider.cs" />
-    <Compile Include="Generated\MainPage.xaml.cs">
+    <Compile Include="Base\DataAccessLayer\ContentProviderCallback.cs" />
+    <Compile Include="Generated\DataAccessLayer\PersonByNameContentProvider.cs" />
+    <Compile Include="Generated\DataAccessLayer\CurrentTimelineContentProvider.cs" />
+    <Compile Include="Base\Extensions\StringExtensions.cs" />
+    <Compile Include="Generated\Model\Contact.cs" />
+    <Compile Include="Generated\ViewModel\PersonDetailsViewModel.cs" />
+    <Compile Include="Generated\ViewModel\PersonDetailsTemplateSelector.cs" />
+    <Compile Include="Base\ViewModel\DataTemplateSelector.cs" />
+    <Compile Include="Generated\ViewModel\EventDetailsTemplateSelector.cs" />
+    <Compile Include="Generated\ViewModel\EventDetailsViewModel.cs" />
+    <Compile Include="Base\Converters\StringFormatConverter.cs" />
+    <Compile Include="Views\EventDetailsPage.xaml.cs">
+      <DependentUpon>EventDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Generated\RootViewModelProvider.cs" />
-    <Compile Include="Generated\Session.cs" />
-    <Compile Include="Generated\SessionByIdModelProvider.cs" />
-    <Compile Include="Generated\SessionsByDayModelProvider.cs" />
-    <Compile Include="Generated\Speaker.cs" />
-    <Compile Include="Generated\SpeakerByIdModelProvider.cs" />
-    <Compile Include="Generated\SpeakerByNameModelProvider.cs" />
-    <Compile Include="DetailsPage.xaml.cs">
-      <DependentUpon>DetailsPage.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Generated\Model\AllEvents.cs" />
+    <Compile Include="Generated\Model\BlogItem.cs" />
+    <Compile Include="Generated\Model\Event.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Generated\ViewModel\EventListViewModel.cs" />
+    <Compile Include="Generated\ViewModel\BlogpostsViewModel.cs" />
+    <Compile Include="Base\ViewModel\GroupingLayer.cs" />
+    <Compile Include="Base\Extensions\LinqXmlExtensions.cs" />
+    <Compile Include="Generated\ViewModel\ViewModelLocator.cs" />
+    <Compile Include="Base\ViewModel\NavigationMessage.cs" />
+    <Compile Include="Views\PersonDetailsPage.xaml.cs">
+      <DependentUpon>PersonDetailsPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="Generated\MainPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\EventDetailsPage.xaml">
       <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
-    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
-      <Generator>MSBuild:Compile</Generator>
+    <Page Include="Views\MainPage.xaml">
       <SubType>Designer</SubType>
-    </DesignData>
-    <Page Include="DetailsPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PersonDetailsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\WMAppManifest.xml" />
+    <None Include="Toolkit.Content\Thumbs.db" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApplicationIcon.png">
@@ -110,7 +140,12 @@
     <Content Include="Background.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="README_FIRST.txt" />
     <Content Include="SplashScreenImage.jpg" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Delete.png" />
+    <Resource Include="Toolkit.Content\ApplicationBar.Select.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />

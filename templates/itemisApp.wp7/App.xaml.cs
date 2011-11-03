@@ -12,29 +12,12 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Phone.Controls;
 using Microsoft.Phone.Shell;
+using ItemisApp.Views;
 
 namespace ItemisApp
 {
     public partial class App : Application
     {
-        private static RootViewModelProvider rootViewModelProvider = null;
-
-        /// <summary>
-        /// A static ViewModel used by the views to bind against.
-        /// </summary>
-        /// <returns>The MainViewModel object.</returns>
-        public static RootViewModelProvider RootViewModelProvider
-        {
-            get
-            {
-                // Delay creation of the view model until necessary
-                if (rootViewModelProvider == null)
-                    rootViewModelProvider = new RootViewModelProvider();
-
-                return rootViewModelProvider;
-            }
-        }
-
         /// <summary>
         /// Provides easy access to the root frame of the Phone Application.
         /// </summary>
@@ -49,6 +32,12 @@ namespace ItemisApp
             // Global handler for uncaught exceptions. 
             UnhandledException += Application_UnhandledException;
 
+            // Standard Silverlight initialization
+            InitializeComponent();
+
+            // Phone-specific initialization
+            InitializePhoneApplication();
+
             // Show graphics profiling information while debugging.
             if (System.Diagnostics.Debugger.IsAttached)
             {
@@ -59,15 +48,15 @@ namespace ItemisApp
                 //Application.Current.Host.Settings.EnableRedrawRegions = true;
 
                 // Enable non-production analysis visualization mode, 
-                // which shows areas of a page that are being GPU accelerated with a colored overlay.
+                // which shows areas of a page that are handed off to GPU with a colored overlay.
                 //Application.Current.Host.Settings.EnableCacheVisualization = true;
+
+                // Disable the application idle detection by setting the UserIdleDetectionMode property of the
+                // application's PhoneApplicationService object to Disabled.
+                // Caution:- Use this under debug mode only. Application that disables user idle detection will continue to run
+                // and consume battery power when the user is not using the phone.
+                PhoneApplicationService.Current.UserIdleDetectionMode = IdleDetectionMode.Disabled;
             }
-
-            // Standard Silverlight initialization
-            InitializeComponent();
-
-            // Phone-specific initialization
-            InitializePhoneApplication();
         }
 
         // Code to execute when the application is launching (eg, from Start)
@@ -80,11 +69,6 @@ namespace ItemisApp
         // This code will not execute when the application is first launched
         private void Application_Activated(object sender, ActivatedEventArgs e)
         {
-            // Ensure that application state is restored appropriately
-            if (!App.RootViewModelProvider.IsDataLoaded)
-            {
-                App.RootViewModelProvider.LoadData();
-            }
         }
 
         // Code to execute when the application is deactivated (sent to background)
@@ -133,7 +117,7 @@ namespace ItemisApp
 
             // Create the frame but don't set it as RootVisual yet; this allows the splash
             // screen to remain active until the application is ready to render.
-            RootFrame = new PhoneApplicationFrame();
+            RootFrame = new TransitionFrame(); // new PhoneApplicationFrame();
             RootFrame.Navigated += CompleteInitializePhoneApplication;
 
             // Handle navigation failures
