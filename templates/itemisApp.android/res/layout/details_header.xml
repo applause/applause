@@ -39,7 +39,7 @@
 
 	<TextView 
 		android:id="@+id/bodyText"
-		android:text="Body dfg dxfg s gd ds gsdf gdsg dsg dsgsdfgkjdsoifgjdos ijgodsif jdsoifgjsodifgj dfg dxfg s gd ds gsdf gdsg dsg dsgsdfgkjdsoifgjdos ijgodsif jdsoifgjsodifgjdfg dxfg s gd ds gsdf gdsg dsg dsgsdfgkjdsoifgjdos ijgodsif jdsoifgjsodifgjdfg dxfg s gd ds gsdf gdsg dsg dsgsdfgkjdsoifgjdos ijgodsif jdsoifgjsodifgjdfg dxfg s gd ds gsdf gdsg dsg dsgsdfgkjdsoifgjdos ijgodsif jdsoifgjsodifgjdfg dxfg s gd ds gsdf gdsg dsg dsgsdfgkjdsoifgjdos ijgodsif jdsoifgjsodifgj"
+		android:text=""
 		android:textSize="14sp"
 		android:layout_width="fill_parent"
 		android:layout_height="fill_parent"></TextView>
