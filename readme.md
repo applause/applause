@@ -37,7 +37,7 @@ Even though you can build simple mobile applications with this open-source versi
 
 ## License ##
 
-As long as not otherwise noted (e.g. third-party libraries), all files of the Applauce project are licensed under the [EPL](http://www.eclipse.org/legal/epl-v10.html).
+As long as not otherwise noted (e.g. third-party libraries), all files of the Applause project are licensed under the [EPL](http://www.eclipse.org/legal/epl-v10.html).
 
 ## Code of Conduct / Development Guidelines ##
 
