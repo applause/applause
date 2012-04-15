@@ -1,9 +1,0 @@
-«IMPORT org::applause::lang::applauseDsl»
-
-«DEFINE main FOR Application»
-«EXPAND Provider::main»
-«EXPAND Urls::main»
-«EXPAND Views::main»
-«EXPAND ViewTemplates::main»
-«EXPAND ApplicationTemplate::main»
-«ENDDEFINE»
