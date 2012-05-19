@@ -97,6 +97,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.VIEW_HEADER: return createViewHeader();
       case ApplauseDslPackage.VIEW_SECTION: return createViewSection();
       case ApplauseDslPackage.SECTION_CELL: return createSectionCell();
+      case ApplauseDslPackage.COLLECTION_FILTER: return createCollectionFilter();
       case ApplauseDslPackage.COLLECTION_ITERATOR: return createCollectionIterator();
       case ApplauseDslPackage.VIEW_ACTION: return createViewAction();
       case ApplauseDslPackage.EXTERNAL_OPEN: return createExternalOpen();
@@ -464,6 +465,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     SectionCellImpl sectionCell = new SectionCellImpl();
     return sectionCell;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CollectionFilter createCollectionFilter()
+  {
+    CollectionFilterImpl collectionFilter = new CollectionFilterImpl();
+    return collectionFilter;
   }
 
   /**

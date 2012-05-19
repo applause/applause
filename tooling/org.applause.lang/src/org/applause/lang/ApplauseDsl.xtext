@@ -153,7 +153,7 @@ ViewSection:
 	'}';
 	
 SectionCell:
-	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'
+	'cell' type=CellType ('foreach' iterator=CollectionIterator ('where' filter=CollectionFilter)? )? '{'
 		('text=' text=ScalarExpression)?
 		('details=' details=ScalarExpression)?
 		('image=' image=ScalarExpression)?
@@ -168,6 +168,9 @@ enum CellType:
 	double = 'Double' |
 	subtitle = 'Subtitle' |
 	maps = 'Map';
+	
+CollectionFilter:
+	'distanceFrom' '(''[' longitude=ScalarExpression ',' latitude=ScalarExpression ']'')' '<' distance=INT;
 	
 CollectionIterator:
 	collection=CollectionExpression 'as' name=ID;

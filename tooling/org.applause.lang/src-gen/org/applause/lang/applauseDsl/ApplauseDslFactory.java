@@ -287,6 +287,15 @@ public interface ApplauseDslFactory extends EFactory
   SectionCell createSectionCell();
 
   /**
+   * Returns a new object of class '<em>Collection Filter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Collection Filter</em>'.
+   * @generated
+   */
+  CollectionFilter createCollectionFilter();
+
+  /**
    * Returns a new object of class '<em>Collection Iterator</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

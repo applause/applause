@@ -116,6 +116,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CellType"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" eType="#//CollectionIterator"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" eType="#//CollectionFilter"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="text" eType="#//ScalarExpression"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="details" eType="#//ScalarExpression"
@@ -134,6 +136,13 @@
     <eLiterals name="double" value="3" literal="Double"/>
     <eLiterals name="subtitle" value="4" literal="Subtitle"/>
     <eLiterals name="maps" value="5" literal="Map"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CollectionFilter">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="longitude" eType="#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="latitude" eType="#//ScalarExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="distance" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="CollectionIterator" eSuperTypes="#//VariableDeclaration">
     <eStructuralFeatures xsi:type="ecore:EReference" name="collection" eType="#//CollectionExpression"

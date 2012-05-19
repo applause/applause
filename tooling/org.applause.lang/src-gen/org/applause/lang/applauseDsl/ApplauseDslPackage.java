@@ -1143,13 +1143,22 @@ public interface ApplauseDslPackage extends EPackage
   int SECTION_CELL__ITERATOR = 1;
 
   /**
+   * The feature id for the '<em><b>Filter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SECTION_CELL__FILTER = 2;
+
+  /**
    * The feature id for the '<em><b>Text</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SECTION_CELL__TEXT = 2;
+  int SECTION_CELL__TEXT = 3;
 
   /**
    * The feature id for the '<em><b>Details</b></em>' containment reference.
@@ -1158,7 +1167,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SECTION_CELL__DETAILS = 3;
+  int SECTION_CELL__DETAILS = 4;
 
   /**
    * The feature id for the '<em><b>Image</b></em>' containment reference.
@@ -1167,7 +1176,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SECTION_CELL__IMAGE = 4;
+  int SECTION_CELL__IMAGE = 5;
 
   /**
    * The feature id for the '<em><b>Query</b></em>' containment reference.
@@ -1176,7 +1185,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SECTION_CELL__QUERY = 5;
+  int SECTION_CELL__QUERY = 6;
 
   /**
    * The feature id for the '<em><b>Action</b></em>' containment reference.
@@ -1185,7 +1194,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SECTION_CELL__ACTION = 6;
+  int SECTION_CELL__ACTION = 7;
 
   /**
    * The number of structural features of the '<em>Section Cell</em>' class.
@@ -1194,7 +1203,53 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SECTION_CELL_FEATURE_COUNT = 7;
+  int SECTION_CELL_FEATURE_COUNT = 8;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.CollectionFilterImpl <em>Collection Filter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.CollectionFilterImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionFilter()
+   * @generated
+   */
+  int COLLECTION_FILTER = 29;
+
+  /**
+   * The feature id for the '<em><b>Longitude</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_FILTER__LONGITUDE = 0;
+
+  /**
+   * The feature id for the '<em><b>Latitude</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_FILTER__LATITUDE = 1;
+
+  /**
+   * The feature id for the '<em><b>Distance</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_FILTER__DISTANCE = 2;
+
+  /**
+   * The number of structural features of the '<em>Collection Filter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int COLLECTION_FILTER_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.CollectionIteratorImpl <em>Collection Iterator</em>}' class.
@@ -1204,7 +1259,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionIterator()
    * @generated
    */
-  int COLLECTION_ITERATOR = 29;
+  int COLLECTION_ITERATOR = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1241,7 +1296,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getViewAction()
    * @generated
    */
-  int VIEW_ACTION = 30;
+  int VIEW_ACTION = 31;
 
   /**
    * The number of structural features of the '<em>View Action</em>' class.
@@ -1260,7 +1315,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getExternalOpen()
    * @generated
    */
-  int EXTERNAL_OPEN = 31;
+  int EXTERNAL_OPEN = 32;
 
   /**
    * The feature id for the '<em><b>Url</b></em>' containment reference.
@@ -1288,7 +1343,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getViewCall()
    * @generated
    */
-  int VIEW_CALL = 32;
+  int VIEW_CALL = 33;
 
   /**
    * The feature id for the '<em><b>View</b></em>' reference.
@@ -1325,7 +1380,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringConcat()
    * @generated
    */
-  int STRING_CONCAT = 33;
+  int STRING_CONCAT = 34;
 
   /**
    * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -1353,7 +1408,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringReplace()
    * @generated
    */
-  int STRING_REPLACE = 34;
+  int STRING_REPLACE = 35;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1399,7 +1454,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringUrlConform()
    * @generated
    */
-  int STRING_URL_CONFORM = 35;
+  int STRING_URL_CONFORM = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1427,7 +1482,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringSplit()
    * @generated
    */
-  int STRING_SPLIT = 36;
+  int STRING_SPLIT = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1464,7 +1519,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getConstant()
    * @generated
    */
-  int CONSTANT = 37;
+  int CONSTANT = 38;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1501,7 +1556,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getComplexProviderConstruction()
    * @generated
    */
-  int COMPLEX_PROVIDER_CONSTRUCTION = 38;
+  int COMPLEX_PROVIDER_CONSTRUCTION = 39;
 
   /**
    * The feature id for the '<em><b>Provider</b></em>' reference.
@@ -1538,7 +1593,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getSimpleProviderConstruction()
    * @generated
    */
-  int SIMPLE_PROVIDER_CONSTRUCTION = 39;
+  int SIMPLE_PROVIDER_CONSTRUCTION = 40;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1566,7 +1621,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getCellType()
    * @generated
    */
-  int CELL_TYPE = 40;
+  int CELL_TYPE = 41;
 
 
   /**
@@ -2300,6 +2355,17 @@ public interface ApplauseDslPackage extends EPackage
   EReference getSectionCell_Iterator();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.SectionCell#getFilter <em>Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Filter</em>'.
+   * @see org.applause.lang.applauseDsl.SectionCell#getFilter()
+   * @see #getSectionCell()
+   * @generated
+   */
+  EReference getSectionCell_Filter();
+
+  /**
    * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.SectionCell#getText <em>Text</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2353,6 +2419,49 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EReference getSectionCell_Action();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.CollectionFilter <em>Collection Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Collection Filter</em>'.
+   * @see org.applause.lang.applauseDsl.CollectionFilter
+   * @generated
+   */
+  EClass getCollectionFilter();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.CollectionFilter#getLongitude <em>Longitude</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Longitude</em>'.
+   * @see org.applause.lang.applauseDsl.CollectionFilter#getLongitude()
+   * @see #getCollectionFilter()
+   * @generated
+   */
+  EReference getCollectionFilter_Longitude();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.CollectionFilter#getLatitude <em>Latitude</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Latitude</em>'.
+   * @see org.applause.lang.applauseDsl.CollectionFilter#getLatitude()
+   * @see #getCollectionFilter()
+   * @generated
+   */
+  EReference getCollectionFilter_Latitude();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.CollectionFilter#getDistance <em>Distance</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Distance</em>'.
+   * @see org.applause.lang.applauseDsl.CollectionFilter#getDistance()
+   * @see #getCollectionFilter()
+   * @generated
+   */
+  EAttribute getCollectionFilter_Distance();
 
   /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.CollectionIterator <em>Collection Iterator</em>}'.
@@ -3273,6 +3382,14 @@ public interface ApplauseDslPackage extends EPackage
     EReference SECTION_CELL__ITERATOR = eINSTANCE.getSectionCell_Iterator();
 
     /**
+     * The meta object literal for the '<em><b>Filter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SECTION_CELL__FILTER = eINSTANCE.getSectionCell_Filter();
+
+    /**
      * The meta object literal for the '<em><b>Text</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3311,6 +3428,40 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference SECTION_CELL__ACTION = eINSTANCE.getSectionCell_Action();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.CollectionFilterImpl <em>Collection Filter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.CollectionFilterImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getCollectionFilter()
+     * @generated
+     */
+    EClass COLLECTION_FILTER = eINSTANCE.getCollectionFilter();
+
+    /**
+     * The meta object literal for the '<em><b>Longitude</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_FILTER__LONGITUDE = eINSTANCE.getCollectionFilter_Longitude();
+
+    /**
+     * The meta object literal for the '<em><b>Latitude</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference COLLECTION_FILTER__LATITUDE = eINSTANCE.getCollectionFilter_Latitude();
+
+    /**
+     * The meta object literal for the '<em><b>Distance</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute COLLECTION_FILTER__DISTANCE = eINSTANCE.getCollectionFilter_Distance();
 
     /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.CollectionIteratorImpl <em>Collection Iterator</em>}' class.

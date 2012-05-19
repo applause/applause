@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getType <em>Type</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getIterator <em>Iterator</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getText <em>Text</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getDetails <em>Details</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.SectionCell#getImage <em>Image</em>}</li>
@@ -85,6 +86,32 @@ public interface SectionCell extends EObject
    * @generated
    */
   void setIterator(CollectionIterator value);
+
+  /**
+   * Returns the value of the '<em><b>Filter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Filter</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Filter</em>' containment reference.
+   * @see #setFilter(CollectionFilter)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getSectionCell_Filter()
+   * @model containment="true"
+   * @generated
+   */
+  CollectionFilter getFilter();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.SectionCell#getFilter <em>Filter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Filter</em>' containment reference.
+   * @see #getFilter()
+   * @generated
+   */
+  void setFilter(CollectionFilter value);
 
   /**
    * Returns the value of the '<em><b>Text</b></em>' containment reference.

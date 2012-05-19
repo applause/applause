@@ -63,10 +63,11 @@ protected class ThisRootNode extends RootToken {
 			case 29: return new ViewHeader_Group(this, this, 29, inst);
 			case 30: return new ViewSection_Group(this, this, 30, inst);
 			case 31: return new SectionCell_Group(this, this, 31, inst);
-			case 32: return new CollectionIterator_Group(this, this, 32, inst);
-			case 33: return new ViewAction_Alternatives(this, this, 33, inst);
-			case 34: return new ExternalOpen_UrlAssignment(this, this, 34, inst);
-			case 35: return new ViewCall_Group(this, this, 35, inst);
+			case 32: return new CollectionFilter_Group(this, this, 32, inst);
+			case 33: return new CollectionIterator_Group(this, this, 33, inst);
+			case 34: return new ViewAction_Alternatives(this, this, 34, inst);
+			case 35: return new ExternalOpen_UrlAssignment(this, this, 35, inst);
+			case 36: return new ViewCall_Group(this, this, 36, inst);
 			default: return null;
 		}	
 	}	
@@ -7135,15 +7136,15 @@ protected class ViewSection_RightCurlyBracketKeyword_4 extends KeywordToken  {
 /************ begin Rule SectionCell ****************
  *
  * SectionCell:
- * 	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
- * 	details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query=" query=ScalarExpression)? ("action="
- * 	action=ViewAction)? "}";
+ * 	"cell" type=CellType ("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)? "{" ("text="
+ * 	text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query="
+ * 	query=ScalarExpression)? ("action=" action=ViewAction)? "}";
  *
  **/
 
-// "cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
-// details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query=" query=ScalarExpression)? ("action="
-// action=ViewAction)? "}"
+// "cell" type=CellType ("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)? "{" ("text="
+// text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query="
+// query=ScalarExpression)? ("action=" action=ViewAction)? "}"
 protected class SectionCell_Group extends GroupToken {
 	
 	public SectionCell_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7227,7 +7228,7 @@ protected class SectionCell_TypeAssignment_1 extends AssignmentToken  {
 
 }
 
-// ("foreach" iterator=CollectionIterator)?
+// ("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)?
 protected class SectionCell_Group_2 extends GroupToken {
 	
 	public SectionCell_Group_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7242,7 +7243,8 @@ protected class SectionCell_Group_2 extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SectionCell_IteratorAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SectionCell_Group_2_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new SectionCell_IteratorAssignment_2_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -7293,7 +7295,7 @@ protected class SectionCell_IteratorAssignment_2_1 extends AssignmentToken  {
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("iterator",false)) == null) return null;
+		if((value = eObjectConsumer.getConsumable("iterator",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("iterator");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
@@ -7316,6 +7318,97 @@ protected class SectionCell_IteratorAssignment_2_1 extends AssignmentToken  {
 		}	
 	}	
 }
+
+// ("where" filter=CollectionFilter)?
+protected class SectionCell_Group_2_2 extends GroupToken {
+	
+	public SectionCell_Group_2_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSectionCellAccess().getGroup_2_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SectionCell_FilterAssignment_2_2_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "where"
+protected class SectionCell_WhereKeyword_2_2_0 extends KeywordToken  {
+	
+	public SectionCell_WhereKeyword_2_2_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSectionCellAccess().getWhereKeyword_2_2_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SectionCell_IteratorAssignment_2_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// filter=CollectionFilter
+protected class SectionCell_FilterAssignment_2_2_1 extends AssignmentToken  {
+	
+	public SectionCell_FilterAssignment_2_2_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSectionCellAccess().getFilterAssignment_2_2_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("filter",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("filter");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getCollectionFilterRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getSectionCellAccess().getFilterCollectionFilterParserRuleCall_2_2_1_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new SectionCell_WhereKeyword_2_2_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
 
 
 // "{"
@@ -7835,6 +7928,325 @@ protected class SectionCell_RightCurlyBracketKeyword_9 extends KeywordToken  {
 
 
 /************ end Rule SectionCell ****************/
+
+
+/************ begin Rule CollectionFilter ****************
+ *
+ * CollectionFilter:
+ * 	"distanceFrom" "(" "[" longitude=ScalarExpression "," latitude=ScalarExpression "]" ")" "<" distance=INT;
+ *
+ **/
+
+// "distanceFrom" "(" "[" longitude=ScalarExpression "," latitude=ScalarExpression "]" ")" "<" distance=INT
+protected class CollectionFilter_Group extends GroupToken {
+	
+	public CollectionFilter_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_DistanceAssignment_9(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getCollectionFilterRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "distanceFrom"
+protected class CollectionFilter_DistanceFromKeyword_0 extends KeywordToken  {
+	
+	public CollectionFilter_DistanceFromKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getDistanceFromKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// "("
+protected class CollectionFilter_LeftParenthesisKeyword_1 extends KeywordToken  {
+	
+	public CollectionFilter_LeftParenthesisKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getLeftParenthesisKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_DistanceFromKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "["
+protected class CollectionFilter_LeftSquareBracketKeyword_2 extends KeywordToken  {
+	
+	public CollectionFilter_LeftSquareBracketKeyword_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getLeftSquareBracketKeyword_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_LeftParenthesisKeyword_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// longitude=ScalarExpression
+protected class CollectionFilter_LongitudeAssignment_3 extends AssignmentToken  {
+	
+	public CollectionFilter_LongitudeAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getLongitudeAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new ScalarExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("longitude",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("longitude");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getCollectionFilterAccess().getLongitudeScalarExpressionParserRuleCall_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CollectionFilter_LeftSquareBracketKeyword_2(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// ","
+protected class CollectionFilter_CommaKeyword_4 extends KeywordToken  {
+	
+	public CollectionFilter_CommaKeyword_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getCommaKeyword_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_LongitudeAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// latitude=ScalarExpression
+protected class CollectionFilter_LatitudeAssignment_5 extends AssignmentToken  {
+	
+	public CollectionFilter_LatitudeAssignment_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getLatitudeAssignment_5();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new ScalarExpression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("latitude",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("latitude");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getScalarExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getCollectionFilterAccess().getLatitudeScalarExpressionParserRuleCall_5_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new CollectionFilter_CommaKeyword_4(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// "]"
+protected class CollectionFilter_RightSquareBracketKeyword_6 extends KeywordToken  {
+	
+	public CollectionFilter_RightSquareBracketKeyword_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getRightSquareBracketKeyword_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_LatitudeAssignment_5(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// ")"
+protected class CollectionFilter_RightParenthesisKeyword_7 extends KeywordToken  {
+	
+	public CollectionFilter_RightParenthesisKeyword_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getRightParenthesisKeyword_7();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_RightSquareBracketKeyword_6(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "<"
+protected class CollectionFilter_LessThanSignKeyword_8 extends KeywordToken  {
+	
+	public CollectionFilter_LessThanSignKeyword_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getLessThanSignKeyword_8();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_RightParenthesisKeyword_7(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// distance=INT
+protected class CollectionFilter_DistanceAssignment_9 extends AssignmentToken  {
+	
+	public CollectionFilter_DistanceAssignment_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getCollectionFilterAccess().getDistanceAssignment_9();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new CollectionFilter_LessThanSignKeyword_8(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("distance",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("distance");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getCollectionFilterAccess().getDistanceINTTerminalRuleCall_9_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getCollectionFilterAccess().getDistanceINTTerminalRuleCall_9_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule CollectionFilter ****************/
 
 
 /************ begin Rule CollectionIterator ****************

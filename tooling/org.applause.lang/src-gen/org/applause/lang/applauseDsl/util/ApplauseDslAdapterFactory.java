@@ -223,6 +223,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createSectionCellAdapter();
       }
       @Override
+      public Adapter caseCollectionFilter(CollectionFilter object)
+      {
+        return createCollectionFilterAdapter();
+      }
+      @Override
       public Adapter caseCollectionIterator(CollectionIterator object)
       {
         return createCollectionIteratorAdapter();
@@ -730,6 +735,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSectionCellAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.CollectionFilter <em>Collection Filter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.CollectionFilter
+   * @generated
+   */
+  public Adapter createCollectionFilterAdapter()
   {
     return null;
   }

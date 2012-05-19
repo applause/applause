@@ -1442,6 +1442,10 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cForeachKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
 		private final Assignment cIteratorAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
 		private final RuleCall cIteratorCollectionIteratorParserRuleCall_2_1_0 = (RuleCall)cIteratorAssignment_2_1.eContents().get(0);
+		private final Group cGroup_2_2 = (Group)cGroup_2.eContents().get(2);
+		private final Keyword cWhereKeyword_2_2_0 = (Keyword)cGroup_2_2.eContents().get(0);
+		private final Assignment cFilterAssignment_2_2_1 = (Assignment)cGroup_2_2.eContents().get(1);
+		private final RuleCall cFilterCollectionFilterParserRuleCall_2_2_1_0 = (RuleCall)cFilterAssignment_2_2_1.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
 		private final Keyword cTextKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
@@ -1466,14 +1470,14 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//SectionCell:
-		//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
-		//	details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query=" query=ScalarExpression)? ("action="
-		//	action=ViewAction)? "}";
+		//	"cell" type=CellType ("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)? "{" ("text="
+		//	text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query="
+		//	query=ScalarExpression)? ("action=" action=ViewAction)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
-		//details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query=" query=ScalarExpression)? ("action="
-		//action=ViewAction)? "}"
+		//"cell" type=CellType ("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)? "{" ("text="
+		//text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query="
+		//query=ScalarExpression)? ("action=" action=ViewAction)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"cell"
@@ -1485,7 +1489,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//CellType
 		public RuleCall getTypeCellTypeEnumRuleCall_1_0() { return cTypeCellTypeEnumRuleCall_1_0; }
 
-		//("foreach" iterator=CollectionIterator)?
+		//("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)?
 		public Group getGroup_2() { return cGroup_2; }
 
 		//"foreach"
@@ -1496,6 +1500,18 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//CollectionIterator
 		public RuleCall getIteratorCollectionIteratorParserRuleCall_2_1_0() { return cIteratorCollectionIteratorParserRuleCall_2_1_0; }
+
+		//("where" filter=CollectionFilter)?
+		public Group getGroup_2_2() { return cGroup_2_2; }
+
+		//"where"
+		public Keyword getWhereKeyword_2_2_0() { return cWhereKeyword_2_2_0; }
+
+		//filter=CollectionFilter
+		public Assignment getFilterAssignment_2_2_1() { return cFilterAssignment_2_2_1; }
+
+		//CollectionFilter
+		public RuleCall getFilterCollectionFilterParserRuleCall_2_2_1_0() { return cFilterCollectionFilterParserRuleCall_2_2_1_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
@@ -1562,6 +1578,70 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
+	}
+
+	public class CollectionFilterElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CollectionFilter");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDistanceFromKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cLongitudeAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cLongitudeScalarExpressionParserRuleCall_3_0 = (RuleCall)cLongitudeAssignment_3.eContents().get(0);
+		private final Keyword cCommaKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cLatitudeAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cLatitudeScalarExpressionParserRuleCall_5_0 = (RuleCall)cLatitudeAssignment_5.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		private final Keyword cRightParenthesisKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Keyword cLessThanSignKeyword_8 = (Keyword)cGroup.eContents().get(8);
+		private final Assignment cDistanceAssignment_9 = (Assignment)cGroup.eContents().get(9);
+		private final RuleCall cDistanceINTTerminalRuleCall_9_0 = (RuleCall)cDistanceAssignment_9.eContents().get(0);
+		
+		//CollectionFilter:
+		//	"distanceFrom" "(" "[" longitude=ScalarExpression "," latitude=ScalarExpression "]" ")" "<" distance=INT;
+		public ParserRule getRule() { return rule; }
+
+		//"distanceFrom" "(" "[" longitude=ScalarExpression "," latitude=ScalarExpression "]" ")" "<" distance=INT
+		public Group getGroup() { return cGroup; }
+
+		//"distanceFrom"
+		public Keyword getDistanceFromKeyword_0() { return cDistanceFromKeyword_0; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//"["
+		public Keyword getLeftSquareBracketKeyword_2() { return cLeftSquareBracketKeyword_2; }
+
+		//longitude=ScalarExpression
+		public Assignment getLongitudeAssignment_3() { return cLongitudeAssignment_3; }
+
+		//ScalarExpression
+		public RuleCall getLongitudeScalarExpressionParserRuleCall_3_0() { return cLongitudeScalarExpressionParserRuleCall_3_0; }
+
+		//","
+		public Keyword getCommaKeyword_4() { return cCommaKeyword_4; }
+
+		//latitude=ScalarExpression
+		public Assignment getLatitudeAssignment_5() { return cLatitudeAssignment_5; }
+
+		//ScalarExpression
+		public RuleCall getLatitudeScalarExpressionParserRuleCall_5_0() { return cLatitudeScalarExpressionParserRuleCall_5_0; }
+
+		//"]"
+		public Keyword getRightSquareBracketKeyword_6() { return cRightSquareBracketKeyword_6; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_7() { return cRightParenthesisKeyword_7; }
+
+		//"<"
+		public Keyword getLessThanSignKeyword_8() { return cLessThanSignKeyword_8; }
+
+		//distance=INT
+		public Assignment getDistanceAssignment_9() { return cDistanceAssignment_9; }
+
+		//INT
+		public RuleCall getDistanceINTTerminalRuleCall_9_0() { return cDistanceINTTerminalRuleCall_9_0; }
 	}
 
 	public class CollectionIteratorElements extends AbstractParserRuleElementFinder {
@@ -1768,6 +1848,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ViewSectionElements pViewSection;
 	private SectionCellElements pSectionCell;
 	private CellTypeElements unknownRuleCellType;
+	private CollectionFilterElements pCollectionFilter;
 	private CollectionIteratorElements pCollectionIterator;
 	private ViewActionElements pViewAction;
 	private ExternalOpenElements pExternalOpen;
@@ -2126,9 +2207,9 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SectionCell:
-	//	"cell" type=CellType ("foreach" iterator=CollectionIterator)? "{" ("text=" text=ScalarExpression)? ("details="
-	//	details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query=" query=ScalarExpression)? ("action="
-	//	action=ViewAction)? "}";
+	//	"cell" type=CellType ("foreach" iterator=CollectionIterator ("where" filter=CollectionFilter)?)? "{" ("text="
+	//	text=ScalarExpression)? ("details=" details=ScalarExpression)? ("image=" image=ScalarExpression)? ("query="
+	//	query=ScalarExpression)? ("action=" action=ViewAction)? "}";
 	public SectionCellElements getSectionCellAccess() {
 		return (pSectionCell != null) ? pSectionCell : (pSectionCell = new SectionCellElements());
 	}
@@ -2146,6 +2227,16 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public EnumRule getCellTypeRule() {
 		return getCellTypeAccess().getRule();
+	}
+
+	//CollectionFilter:
+	//	"distanceFrom" "(" "[" longitude=ScalarExpression "," latitude=ScalarExpression "]" ")" "<" distance=INT;
+	public CollectionFilterElements getCollectionFilterAccess() {
+		return (pCollectionFilter != null) ? pCollectionFilter : (pCollectionFilter = new CollectionFilterElements());
+	}
+	
+	public ParserRule getCollectionFilterRule() {
+		return getCollectionFilterAccess().getRule();
 	}
 
 	//CollectionIterator:

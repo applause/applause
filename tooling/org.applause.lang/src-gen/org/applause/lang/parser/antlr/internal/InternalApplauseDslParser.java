@@ -25,7 +25,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'[]'", "'.'", "'('", "')'", "'replace('", "','", "'urlconform('", "'['", "']'", "'split('", "'tabbarApplication'", "'application'", "'{'", "'splash='", "'}'", "'button'", "'title='", "'icon='", "'view='", "'const'", "'type'", "'mapsTo'", "'entity'", "'extends'", "'derived'", "'contentprovider'", "'returns'", "'resolves'", "'fetches'", "'XML'", "'from'", "'selects'", "'tableview'", "'detailsview'", "'customview'", "'implementedBy'", "'header'", "'subtitle='", "'details='", "'image='", "'section'", "'cell'", "'foreach'", "'text='", "'query='", "'action='", "'as'", "'Default'", "'DefaultWithDisclosure'", "'Value2'", "'Double'", "'Subtitle'", "'Map'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'[]'", "'.'", "'('", "')'", "'replace('", "','", "'urlconform('", "'['", "']'", "'split('", "'tabbarApplication'", "'application'", "'{'", "'splash='", "'}'", "'button'", "'title='", "'icon='", "'view='", "'const'", "'type'", "'mapsTo'", "'entity'", "'extends'", "'derived'", "'contentprovider'", "'returns'", "'resolves'", "'fetches'", "'XML'", "'from'", "'selects'", "'tableview'", "'detailsview'", "'customview'", "'implementedBy'", "'header'", "'subtitle='", "'details='", "'image='", "'section'", "'cell'", "'foreach'", "'where'", "'text='", "'query='", "'action='", "'distanceFrom'", "'<'", "'as'", "'Default'", "'DefaultWithDisclosure'", "'Value2'", "'Double'", "'Subtitle'", "'Map'"
     };
     public static final int RULE_ID=4;
     public static final int RULE_STRING=5;
@@ -6079,7 +6079,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSectionCell
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2828:1: ruleSectionCell returns [EObject current=null] : ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) )? '{' ( 'text=' ( (lv_text_6_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_8_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_10_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_12_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_14_0= ruleViewAction ) ) )? '}' ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2828:1: ruleSectionCell returns [EObject current=null] : ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )? )? '{' ( 'text=' ( (lv_text_8_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_10_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_12_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_14_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_16_0= ruleViewAction ) ) )? '}' ) ;
     public final EObject ruleSectionCell() throws RecognitionException {
         EObject current = null;
 
@@ -6087,25 +6087,27 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
         EObject lv_iterator_3_0 = null;
 
-        EObject lv_text_6_0 = null;
+        EObject lv_filter_5_0 = null;
 
-        EObject lv_details_8_0 = null;
+        EObject lv_text_8_0 = null;
 
-        EObject lv_image_10_0 = null;
+        EObject lv_details_10_0 = null;
 
-        EObject lv_query_12_0 = null;
+        EObject lv_image_12_0 = null;
 
-        EObject lv_action_14_0 = null;
+        EObject lv_query_14_0 = null;
+
+        EObject lv_action_16_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2833:6: ( ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) )? '{' ( 'text=' ( (lv_text_6_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_8_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_10_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_12_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_14_0= ruleViewAction ) ) )? '}' ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2834:1: ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) )? '{' ( 'text=' ( (lv_text_6_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_8_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_10_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_12_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_14_0= ruleViewAction ) ) )? '}' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2833:6: ( ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )? )? '{' ( 'text=' ( (lv_text_8_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_10_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_12_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_14_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_16_0= ruleViewAction ) ) )? '}' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2834:1: ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )? )? '{' ( 'text=' ( (lv_text_8_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_10_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_12_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_14_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_16_0= ruleViewAction ) ) )? '}' )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2834:1: ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) )? '{' ( 'text=' ( (lv_text_6_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_8_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_10_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_12_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_14_0= ruleViewAction ) ) )? '}' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2834:3: 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) )? '{' ( 'text=' ( (lv_text_6_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_8_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_10_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_12_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_14_0= ruleViewAction ) ) )? '}'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2834:1: ( 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )? )? '{' ( 'text=' ( (lv_text_8_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_10_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_12_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_14_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_16_0= ruleViewAction ) ) )? '}' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2834:3: 'cell' ( (lv_type_1_0= ruleCellType ) ) ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )? )? '{' ( 'text=' ( (lv_text_8_0= ruleScalarExpression ) ) )? ( 'details=' ( (lv_details_10_0= ruleScalarExpression ) ) )? ( 'image=' ( (lv_image_12_0= ruleScalarExpression ) ) )? ( 'query=' ( (lv_query_14_0= ruleScalarExpression ) ) )? ( 'action=' ( (lv_action_16_0= ruleViewAction ) ) )? '}'
             {
             match(input,52,FOLLOW_52_in_ruleSectionCell5040); 
 
@@ -6147,16 +6149,16 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2862:2: ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2862:2: ( 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )? )?
+            int alt39=2;
+            int LA39_0 = input.LA(1);
 
-            if ( (LA38_0==53) ) {
-                alt38=1;
+            if ( (LA39_0==53) ) {
+                alt39=1;
             }
-            switch (alt38) {
+            switch (alt39) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2862:4: 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2862:4: 'foreach' ( (lv_iterator_3_0= ruleCollectionIterator ) ) ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )?
                     {
                     match(input,53,FOLLOW_53_in_ruleSectionCell5072); 
 
@@ -6198,42 +6200,99 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:2: ( 'where' ( (lv_filter_5_0= ruleCollectionFilter ) ) )?
+                    int alt38=2;
+                    int LA38_0 = input.LA(1);
+
+                    if ( (LA38_0==54) ) {
+                        alt38=1;
+                    }
+                    switch (alt38) {
+                        case 1 :
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:4: 'where' ( (lv_filter_5_0= ruleCollectionFilter ) )
+                            {
+                            match(input,54,FOLLOW_54_in_ruleSectionCell5104); 
+
+                                    createLeafNode(grammarAccess.getSectionCellAccess().getWhereKeyword_2_2_0(), null); 
+                                
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:1: ( (lv_filter_5_0= ruleCollectionFilter ) )
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2895:1: (lv_filter_5_0= ruleCollectionFilter )
+                            {
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2895:1: (lv_filter_5_0= ruleCollectionFilter )
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2896:3: lv_filter_5_0= ruleCollectionFilter
+                            {
+                             
+                            	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getFilterCollectionFilterParserRuleCall_2_2_1_0(), currentNode); 
+                            	    
+                            pushFollow(FOLLOW_ruleCollectionFilter_in_ruleSectionCell5125);
+                            lv_filter_5_0=ruleCollectionFilter();
+                            _fsp--;
+
+
+                            	        if (current==null) {
+                            	            current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
+                            	            associateNodeWithAstElement(currentNode.getParent(), current);
+                            	        }
+                            	        try {
+                            	       		set(
+                            	       			current, 
+                            	       			"filter",
+                            	        		lv_filter_5_0, 
+                            	        		"CollectionFilter", 
+                            	        		currentNode);
+                            	        } catch (ValueConverterException vce) {
+                            				handleValueConverterException(vce);
+                            	        }
+                            	        currentNode = currentNode.getParent();
+                            	    
+
+                            }
+
+
+                            }
+
+
+                            }
+                            break;
+
+                    }
+
 
                     }
                     break;
 
             }
 
-            match(input,23,FOLLOW_23_in_ruleSectionCell5105); 
+            match(input,23,FOLLOW_23_in_ruleSectionCell5139); 
 
                     createLeafNode(grammarAccess.getSectionCellAccess().getLeftCurlyBracketKeyword_3(), null); 
                 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:1: ( 'text=' ( (lv_text_6_0= ruleScalarExpression ) ) )?
-            int alt39=2;
-            int LA39_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2922:1: ( 'text=' ( (lv_text_8_0= ruleScalarExpression ) ) )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( (LA39_0==54) ) {
-                alt39=1;
+            if ( (LA40_0==55) ) {
+                alt40=1;
             }
-            switch (alt39) {
+            switch (alt40) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:3: 'text=' ( (lv_text_6_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2922:3: 'text=' ( (lv_text_8_0= ruleScalarExpression ) )
                     {
-                    match(input,54,FOLLOW_54_in_ruleSectionCell5116); 
+                    match(input,55,FOLLOW_55_in_ruleSectionCell5150); 
 
                             createLeafNode(grammarAccess.getSectionCellAccess().getTextKeyword_4_0(), null); 
                         
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2898:1: ( (lv_text_6_0= ruleScalarExpression ) )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2899:1: (lv_text_6_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2926:1: ( (lv_text_8_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2927:1: (lv_text_8_0= ruleScalarExpression )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2899:1: (lv_text_6_0= ruleScalarExpression )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2900:3: lv_text_6_0= ruleScalarExpression
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2927:1: (lv_text_8_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2928:3: lv_text_8_0= ruleScalarExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getTextScalarExpressionParserRuleCall_4_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5137);
-                    lv_text_6_0=ruleScalarExpression();
+                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5171);
+                    lv_text_8_0=ruleScalarExpression();
                     _fsp--;
 
 
@@ -6245,7 +6304,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	       		set(
                     	       			current, 
                     	       			"text",
-                    	        		lv_text_6_0, 
+                    	        		lv_text_8_0, 
                     	        		"ScalarExpression", 
                     	        		currentNode);
                     	        } catch (ValueConverterException vce) {
@@ -6265,32 +6324,32 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2922:4: ( 'details=' ( (lv_details_8_0= ruleScalarExpression ) ) )?
-            int alt40=2;
-            int LA40_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2950:4: ( 'details=' ( (lv_details_10_0= ruleScalarExpression ) ) )?
+            int alt41=2;
+            int LA41_0 = input.LA(1);
 
-            if ( (LA40_0==49) ) {
-                alt40=1;
+            if ( (LA41_0==49) ) {
+                alt41=1;
             }
-            switch (alt40) {
+            switch (alt41) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2922:6: 'details=' ( (lv_details_8_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2950:6: 'details=' ( (lv_details_10_0= ruleScalarExpression ) )
                     {
-                    match(input,49,FOLLOW_49_in_ruleSectionCell5150); 
+                    match(input,49,FOLLOW_49_in_ruleSectionCell5184); 
 
                             createLeafNode(grammarAccess.getSectionCellAccess().getDetailsKeyword_5_0(), null); 
                         
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2926:1: ( (lv_details_8_0= ruleScalarExpression ) )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2927:1: (lv_details_8_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2954:1: ( (lv_details_10_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2955:1: (lv_details_10_0= ruleScalarExpression )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2927:1: (lv_details_8_0= ruleScalarExpression )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2928:3: lv_details_8_0= ruleScalarExpression
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2955:1: (lv_details_10_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2956:3: lv_details_10_0= ruleScalarExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getDetailsScalarExpressionParserRuleCall_5_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5171);
-                    lv_details_8_0=ruleScalarExpression();
+                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5205);
+                    lv_details_10_0=ruleScalarExpression();
                     _fsp--;
 
 
@@ -6302,7 +6361,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	       		set(
                     	       			current, 
                     	       			"details",
-                    	        		lv_details_8_0, 
+                    	        		lv_details_10_0, 
                     	        		"ScalarExpression", 
                     	        		currentNode);
                     	        } catch (ValueConverterException vce) {
@@ -6322,32 +6381,32 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2950:4: ( 'image=' ( (lv_image_10_0= ruleScalarExpression ) ) )?
-            int alt41=2;
-            int LA41_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2978:4: ( 'image=' ( (lv_image_12_0= ruleScalarExpression ) ) )?
+            int alt42=2;
+            int LA42_0 = input.LA(1);
 
-            if ( (LA41_0==50) ) {
-                alt41=1;
+            if ( (LA42_0==50) ) {
+                alt42=1;
             }
-            switch (alt41) {
+            switch (alt42) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2950:6: 'image=' ( (lv_image_10_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2978:6: 'image=' ( (lv_image_12_0= ruleScalarExpression ) )
                     {
-                    match(input,50,FOLLOW_50_in_ruleSectionCell5184); 
+                    match(input,50,FOLLOW_50_in_ruleSectionCell5218); 
 
                             createLeafNode(grammarAccess.getSectionCellAccess().getImageKeyword_6_0(), null); 
                         
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2954:1: ( (lv_image_10_0= ruleScalarExpression ) )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2955:1: (lv_image_10_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2982:1: ( (lv_image_12_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2983:1: (lv_image_12_0= ruleScalarExpression )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2955:1: (lv_image_10_0= ruleScalarExpression )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2956:3: lv_image_10_0= ruleScalarExpression
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2983:1: (lv_image_12_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2984:3: lv_image_12_0= ruleScalarExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getImageScalarExpressionParserRuleCall_6_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5205);
-                    lv_image_10_0=ruleScalarExpression();
+                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5239);
+                    lv_image_12_0=ruleScalarExpression();
                     _fsp--;
 
 
@@ -6359,7 +6418,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	       		set(
                     	       			current, 
                     	       			"image",
-                    	        		lv_image_10_0, 
+                    	        		lv_image_12_0, 
                     	        		"ScalarExpression", 
                     	        		currentNode);
                     	        } catch (ValueConverterException vce) {
@@ -6379,32 +6438,32 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2978:4: ( 'query=' ( (lv_query_12_0= ruleScalarExpression ) ) )?
-            int alt42=2;
-            int LA42_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3006:4: ( 'query=' ( (lv_query_14_0= ruleScalarExpression ) ) )?
+            int alt43=2;
+            int LA43_0 = input.LA(1);
 
-            if ( (LA42_0==55) ) {
-                alt42=1;
+            if ( (LA43_0==56) ) {
+                alt43=1;
             }
-            switch (alt42) {
+            switch (alt43) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2978:6: 'query=' ( (lv_query_12_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3006:6: 'query=' ( (lv_query_14_0= ruleScalarExpression ) )
                     {
-                    match(input,55,FOLLOW_55_in_ruleSectionCell5218); 
+                    match(input,56,FOLLOW_56_in_ruleSectionCell5252); 
 
                             createLeafNode(grammarAccess.getSectionCellAccess().getQueryKeyword_7_0(), null); 
                         
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2982:1: ( (lv_query_12_0= ruleScalarExpression ) )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2983:1: (lv_query_12_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3010:1: ( (lv_query_14_0= ruleScalarExpression ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3011:1: (lv_query_14_0= ruleScalarExpression )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2983:1: (lv_query_12_0= ruleScalarExpression )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2984:3: lv_query_12_0= ruleScalarExpression
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3011:1: (lv_query_14_0= ruleScalarExpression )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3012:3: lv_query_14_0= ruleScalarExpression
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getQueryScalarExpressionParserRuleCall_7_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5239);
-                    lv_query_12_0=ruleScalarExpression();
+                    pushFollow(FOLLOW_ruleScalarExpression_in_ruleSectionCell5273);
+                    lv_query_14_0=ruleScalarExpression();
                     _fsp--;
 
 
@@ -6416,7 +6475,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	       		set(
                     	       			current, 
                     	       			"query",
-                    	        		lv_query_12_0, 
+                    	        		lv_query_14_0, 
                     	        		"ScalarExpression", 
                     	        		currentNode);
                     	        } catch (ValueConverterException vce) {
@@ -6436,32 +6495,32 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3006:4: ( 'action=' ( (lv_action_14_0= ruleViewAction ) ) )?
-            int alt43=2;
-            int LA43_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3034:4: ( 'action=' ( (lv_action_16_0= ruleViewAction ) ) )?
+            int alt44=2;
+            int LA44_0 = input.LA(1);
 
-            if ( (LA43_0==56) ) {
-                alt43=1;
+            if ( (LA44_0==57) ) {
+                alt44=1;
             }
-            switch (alt43) {
+            switch (alt44) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3006:6: 'action=' ( (lv_action_14_0= ruleViewAction ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3034:6: 'action=' ( (lv_action_16_0= ruleViewAction ) )
                     {
-                    match(input,56,FOLLOW_56_in_ruleSectionCell5252); 
+                    match(input,57,FOLLOW_57_in_ruleSectionCell5286); 
 
                             createLeafNode(grammarAccess.getSectionCellAccess().getActionKeyword_8_0(), null); 
                         
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3010:1: ( (lv_action_14_0= ruleViewAction ) )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3011:1: (lv_action_14_0= ruleViewAction )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3038:1: ( (lv_action_16_0= ruleViewAction ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3039:1: (lv_action_16_0= ruleViewAction )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3011:1: (lv_action_14_0= ruleViewAction )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3012:3: lv_action_14_0= ruleViewAction
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3039:1: (lv_action_16_0= ruleViewAction )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3040:3: lv_action_16_0= ruleViewAction
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getActionViewActionParserRuleCall_8_1_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleViewAction_in_ruleSectionCell5273);
-                    lv_action_14_0=ruleViewAction();
+                    pushFollow(FOLLOW_ruleViewAction_in_ruleSectionCell5307);
+                    lv_action_16_0=ruleViewAction();
                     _fsp--;
 
 
@@ -6473,7 +6532,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	       		set(
                     	       			current, 
                     	       			"action",
-                    	        		lv_action_14_0, 
+                    	        		lv_action_16_0, 
                     	        		"ViewAction", 
                     	        		currentNode);
                     	        } catch (ValueConverterException vce) {
@@ -6493,7 +6552,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,25,FOLLOW_25_in_ruleSectionCell5285); 
+            match(input,25,FOLLOW_25_in_ruleSectionCell5319); 
 
                     createLeafNode(grammarAccess.getSectionCellAccess().getRightCurlyBracketKeyword_9(), null); 
                 
@@ -6519,8 +6578,218 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleSectionCell
 
 
+    // $ANTLR start entryRuleCollectionFilter
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3074:1: entryRuleCollectionFilter returns [EObject current=null] : iv_ruleCollectionFilter= ruleCollectionFilter EOF ;
+    public final EObject entryRuleCollectionFilter() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCollectionFilter = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3075:2: (iv_ruleCollectionFilter= ruleCollectionFilter EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3076:2: iv_ruleCollectionFilter= ruleCollectionFilter EOF
+            {
+             currentNode = createCompositeNode(grammarAccess.getCollectionFilterRule(), currentNode); 
+            pushFollow(FOLLOW_ruleCollectionFilter_in_entryRuleCollectionFilter5355);
+            iv_ruleCollectionFilter=ruleCollectionFilter();
+            _fsp--;
+
+             current =iv_ruleCollectionFilter; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionFilter5365); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleCollectionFilter
+
+
+    // $ANTLR start ruleCollectionFilter
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3083:1: ruleCollectionFilter returns [EObject current=null] : ( 'distanceFrom' '(' '[' ( (lv_longitude_3_0= ruleScalarExpression ) ) ',' ( (lv_latitude_5_0= ruleScalarExpression ) ) ']' ')' '<' ( (lv_distance_9_0= RULE_INT ) ) ) ;
+    public final EObject ruleCollectionFilter() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_distance_9_0=null;
+        EObject lv_longitude_3_0 = null;
+
+        EObject lv_latitude_5_0 = null;
+
+
+         EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3088:6: ( ( 'distanceFrom' '(' '[' ( (lv_longitude_3_0= ruleScalarExpression ) ) ',' ( (lv_latitude_5_0= ruleScalarExpression ) ) ']' ')' '<' ( (lv_distance_9_0= RULE_INT ) ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3089:1: ( 'distanceFrom' '(' '[' ( (lv_longitude_3_0= ruleScalarExpression ) ) ',' ( (lv_latitude_5_0= ruleScalarExpression ) ) ']' ')' '<' ( (lv_distance_9_0= RULE_INT ) ) )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3089:1: ( 'distanceFrom' '(' '[' ( (lv_longitude_3_0= ruleScalarExpression ) ) ',' ( (lv_latitude_5_0= ruleScalarExpression ) ) ']' ')' '<' ( (lv_distance_9_0= RULE_INT ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3089:3: 'distanceFrom' '(' '[' ( (lv_longitude_3_0= ruleScalarExpression ) ) ',' ( (lv_latitude_5_0= ruleScalarExpression ) ) ']' ')' '<' ( (lv_distance_9_0= RULE_INT ) )
+            {
+            match(input,58,FOLLOW_58_in_ruleCollectionFilter5400); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getDistanceFromKeyword_0(), null); 
+                
+            match(input,13,FOLLOW_13_in_ruleCollectionFilter5410); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getLeftParenthesisKeyword_1(), null); 
+                
+            match(input,18,FOLLOW_18_in_ruleCollectionFilter5420); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getLeftSquareBracketKeyword_2(), null); 
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3101:1: ( (lv_longitude_3_0= ruleScalarExpression ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3102:1: (lv_longitude_3_0= ruleScalarExpression )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3102:1: (lv_longitude_3_0= ruleScalarExpression )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3103:3: lv_longitude_3_0= ruleScalarExpression
+            {
+             
+            	        currentNode=createCompositeNode(grammarAccess.getCollectionFilterAccess().getLongitudeScalarExpressionParserRuleCall_3_0(), currentNode); 
+            	    
+            pushFollow(FOLLOW_ruleScalarExpression_in_ruleCollectionFilter5441);
+            lv_longitude_3_0=ruleScalarExpression();
+            _fsp--;
+
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getCollectionFilterRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode.getParent(), current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"longitude",
+            	        		lv_longitude_3_0, 
+            	        		"ScalarExpression", 
+            	        		currentNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	        currentNode = currentNode.getParent();
+            	    
+
+            }
+
+
+            }
+
+            match(input,16,FOLLOW_16_in_ruleCollectionFilter5451); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getCommaKeyword_4(), null); 
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3129:1: ( (lv_latitude_5_0= ruleScalarExpression ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3130:1: (lv_latitude_5_0= ruleScalarExpression )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3130:1: (lv_latitude_5_0= ruleScalarExpression )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3131:3: lv_latitude_5_0= ruleScalarExpression
+            {
+             
+            	        currentNode=createCompositeNode(grammarAccess.getCollectionFilterAccess().getLatitudeScalarExpressionParserRuleCall_5_0(), currentNode); 
+            	    
+            pushFollow(FOLLOW_ruleScalarExpression_in_ruleCollectionFilter5472);
+            lv_latitude_5_0=ruleScalarExpression();
+            _fsp--;
+
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getCollectionFilterRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode.getParent(), current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"latitude",
+            	        		lv_latitude_5_0, 
+            	        		"ScalarExpression", 
+            	        		currentNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	        currentNode = currentNode.getParent();
+            	    
+
+            }
+
+
+            }
+
+            match(input,19,FOLLOW_19_in_ruleCollectionFilter5482); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getRightSquareBracketKeyword_6(), null); 
+                
+            match(input,14,FOLLOW_14_in_ruleCollectionFilter5492); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getRightParenthesisKeyword_7(), null); 
+                
+            match(input,59,FOLLOW_59_in_ruleCollectionFilter5502); 
+
+                    createLeafNode(grammarAccess.getCollectionFilterAccess().getLessThanSignKeyword_8(), null); 
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3165:1: ( (lv_distance_9_0= RULE_INT ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3166:1: (lv_distance_9_0= RULE_INT )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3166:1: (lv_distance_9_0= RULE_INT )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3167:3: lv_distance_9_0= RULE_INT
+            {
+            lv_distance_9_0=(Token)input.LT(1);
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleCollectionFilter5519); 
+
+            			createLeafNode(grammarAccess.getCollectionFilterAccess().getDistanceINTTerminalRuleCall_9_0(), "distance"); 
+            		
+
+            	        if (current==null) {
+            	            current = factory.create(grammarAccess.getCollectionFilterRule().getType().getClassifier());
+            	            associateNodeWithAstElement(currentNode, current);
+            	        }
+            	        try {
+            	       		set(
+            	       			current, 
+            	       			"distance",
+            	        		lv_distance_9_0, 
+            	        		"INT", 
+            	        		lastConsumedNode);
+            	        } catch (ValueConverterException vce) {
+            				handleValueConverterException(vce);
+            	        }
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             resetLookahead(); 
+                	lastConsumedNode = currentNode;
+                
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleCollectionFilter
+
+
     // $ANTLR start entryRuleCollectionIterator
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3046:1: entryRuleCollectionIterator returns [EObject current=null] : iv_ruleCollectionIterator= ruleCollectionIterator EOF ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3197:1: entryRuleCollectionIterator returns [EObject current=null] : iv_ruleCollectionIterator= ruleCollectionIterator EOF ;
     public final EObject entryRuleCollectionIterator() throws RecognitionException {
         EObject current = null;
 
@@ -6528,16 +6797,16 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3047:2: (iv_ruleCollectionIterator= ruleCollectionIterator EOF )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3048:2: iv_ruleCollectionIterator= ruleCollectionIterator EOF
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3198:2: (iv_ruleCollectionIterator= ruleCollectionIterator EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3199:2: iv_ruleCollectionIterator= ruleCollectionIterator EOF
             {
              currentNode = createCompositeNode(grammarAccess.getCollectionIteratorRule(), currentNode); 
-            pushFollow(FOLLOW_ruleCollectionIterator_in_entryRuleCollectionIterator5321);
+            pushFollow(FOLLOW_ruleCollectionIterator_in_entryRuleCollectionIterator5560);
             iv_ruleCollectionIterator=ruleCollectionIterator();
             _fsp--;
 
              current =iv_ruleCollectionIterator; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionIterator5331); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCollectionIterator5570); 
 
             }
 
@@ -6555,7 +6824,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCollectionIterator
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3055:1: ruleCollectionIterator returns [EObject current=null] : ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3206:1: ruleCollectionIterator returns [EObject current=null] : ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) ) ;
     public final EObject ruleCollectionIterator() throws RecognitionException {
         EObject current = null;
 
@@ -6566,22 +6835,22 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3060:6: ( ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3061:1: ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3211:6: ( ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3212:1: ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3061:1: ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3061:2: ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3212:1: ( ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3212:2: ( (lv_collection_0_0= ruleCollectionExpression ) ) 'as' ( (lv_name_2_0= RULE_ID ) )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3061:2: ( (lv_collection_0_0= ruleCollectionExpression ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3062:1: (lv_collection_0_0= ruleCollectionExpression )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3212:2: ( (lv_collection_0_0= ruleCollectionExpression ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3213:1: (lv_collection_0_0= ruleCollectionExpression )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3062:1: (lv_collection_0_0= ruleCollectionExpression )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3063:3: lv_collection_0_0= ruleCollectionExpression
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3213:1: (lv_collection_0_0= ruleCollectionExpression )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3214:3: lv_collection_0_0= ruleCollectionExpression
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getCollectionIteratorAccess().getCollectionCollectionExpressionParserRuleCall_0_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleCollectionExpression_in_ruleCollectionIterator5377);
+            pushFollow(FOLLOW_ruleCollectionExpression_in_ruleCollectionIterator5616);
             lv_collection_0_0=ruleCollectionExpression();
             _fsp--;
 
@@ -6608,18 +6877,18 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,57,FOLLOW_57_in_ruleCollectionIterator5387); 
+            match(input,60,FOLLOW_60_in_ruleCollectionIterator5626); 
 
                     createLeafNode(grammarAccess.getCollectionIteratorAccess().getAsKeyword_1(), null); 
                 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3089:1: ( (lv_name_2_0= RULE_ID ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3090:1: (lv_name_2_0= RULE_ID )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3240:1: ( (lv_name_2_0= RULE_ID ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3241:1: (lv_name_2_0= RULE_ID )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3090:1: (lv_name_2_0= RULE_ID )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3091:3: lv_name_2_0= RULE_ID
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3241:1: (lv_name_2_0= RULE_ID )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3242:3: lv_name_2_0= RULE_ID
             {
             lv_name_2_0=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCollectionIterator5404); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleCollectionIterator5643); 
 
             			createLeafNode(grammarAccess.getCollectionIteratorAccess().getNameIDTerminalRuleCall_2_0(), "name"); 
             		
@@ -6668,7 +6937,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleViewAction
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3121:1: entryRuleViewAction returns [EObject current=null] : iv_ruleViewAction= ruleViewAction EOF ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3272:1: entryRuleViewAction returns [EObject current=null] : iv_ruleViewAction= ruleViewAction EOF ;
     public final EObject entryRuleViewAction() throws RecognitionException {
         EObject current = null;
 
@@ -6676,16 +6945,16 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3122:2: (iv_ruleViewAction= ruleViewAction EOF )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3123:2: iv_ruleViewAction= ruleViewAction EOF
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3273:2: (iv_ruleViewAction= ruleViewAction EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3274:2: iv_ruleViewAction= ruleViewAction EOF
             {
              currentNode = createCompositeNode(grammarAccess.getViewActionRule(), currentNode); 
-            pushFollow(FOLLOW_ruleViewAction_in_entryRuleViewAction5445);
+            pushFollow(FOLLOW_ruleViewAction_in_entryRuleViewAction5684);
             iv_ruleViewAction=ruleViewAction();
             _fsp--;
 
              current =iv_ruleViewAction; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleViewAction5455); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleViewAction5694); 
 
             }
 
@@ -6703,7 +6972,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleViewAction
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3130:1: ruleViewAction returns [EObject current=null] : (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3281:1: ruleViewAction returns [EObject current=null] : (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen ) ;
     public final EObject ruleViewAction() throws RecognitionException {
         EObject current = null;
 
@@ -6715,46 +6984,46 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3135:6: ( (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3136:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3286:6: ( (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3287:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3136:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )
-            int alt44=2;
-            int LA44_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3287:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )
+            int alt45=2;
+            int LA45_0 = input.LA(1);
 
-            if ( (LA44_0==RULE_ID) ) {
-                int LA44_1 = input.LA(2);
+            if ( (LA45_0==RULE_ID) ) {
+                int LA45_1 = input.LA(2);
 
-                if ( (LA44_1==13) ) {
-                    alt44=1;
+                if ( (LA45_1==13) ) {
+                    alt45=1;
                 }
-                else if ( (LA44_1==EOF||LA44_1==12||LA44_1==25) ) {
-                    alt44=2;
+                else if ( (LA45_1==EOF||LA45_1==12||LA45_1==25) ) {
+                    alt45=2;
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("3136:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )", 44, 1, input);
+                        new NoViableAltException("3287:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )", 45, 1, input);
 
                     throw nvae;
                 }
             }
-            else if ( (LA44_0==RULE_STRING||LA44_0==13||LA44_0==15||LA44_0==17) ) {
-                alt44=2;
+            else if ( (LA45_0==RULE_STRING||LA45_0==13||LA45_0==15||LA45_0==17) ) {
+                alt45=2;
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("3136:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )", 44, 0, input);
+                    new NoViableAltException("3287:1: (this_ViewCall_0= ruleViewCall | this_ExternalOpen_1= ruleExternalOpen )", 45, 0, input);
 
                 throw nvae;
             }
-            switch (alt44) {
+            switch (alt45) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3137:5: this_ViewCall_0= ruleViewCall
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3288:5: this_ViewCall_0= ruleViewCall
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getViewActionAccess().getViewCallParserRuleCall_0(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleViewCall_in_ruleViewAction5502);
+                    pushFollow(FOLLOW_ruleViewCall_in_ruleViewAction5741);
                     this_ViewCall_0=ruleViewCall();
                     _fsp--;
 
@@ -6766,12 +7035,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3147:5: this_ExternalOpen_1= ruleExternalOpen
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3298:5: this_ExternalOpen_1= ruleExternalOpen
                     {
                      
                             currentNode=createCompositeNode(grammarAccess.getViewActionAccess().getExternalOpenParserRuleCall_1(), currentNode); 
                         
-                    pushFollow(FOLLOW_ruleExternalOpen_in_ruleViewAction5529);
+                    pushFollow(FOLLOW_ruleExternalOpen_in_ruleViewAction5768);
                     this_ExternalOpen_1=ruleExternalOpen();
                     _fsp--;
 
@@ -6805,7 +7074,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleExternalOpen
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3163:1: entryRuleExternalOpen returns [EObject current=null] : iv_ruleExternalOpen= ruleExternalOpen EOF ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3314:1: entryRuleExternalOpen returns [EObject current=null] : iv_ruleExternalOpen= ruleExternalOpen EOF ;
     public final EObject entryRuleExternalOpen() throws RecognitionException {
         EObject current = null;
 
@@ -6813,16 +7082,16 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3164:2: (iv_ruleExternalOpen= ruleExternalOpen EOF )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3165:2: iv_ruleExternalOpen= ruleExternalOpen EOF
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3315:2: (iv_ruleExternalOpen= ruleExternalOpen EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3316:2: iv_ruleExternalOpen= ruleExternalOpen EOF
             {
              currentNode = createCompositeNode(grammarAccess.getExternalOpenRule(), currentNode); 
-            pushFollow(FOLLOW_ruleExternalOpen_in_entryRuleExternalOpen5564);
+            pushFollow(FOLLOW_ruleExternalOpen_in_entryRuleExternalOpen5803);
             iv_ruleExternalOpen=ruleExternalOpen();
             _fsp--;
 
              current =iv_ruleExternalOpen; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalOpen5574); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExternalOpen5813); 
 
             }
 
@@ -6840,7 +7109,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleExternalOpen
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3172:1: ruleExternalOpen returns [EObject current=null] : ( (lv_url_0_0= ruleScalarExpression ) ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3323:1: ruleExternalOpen returns [EObject current=null] : ( (lv_url_0_0= ruleScalarExpression ) ) ;
     public final EObject ruleExternalOpen() throws RecognitionException {
         EObject current = null;
 
@@ -6850,19 +7119,19 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3177:6: ( ( (lv_url_0_0= ruleScalarExpression ) ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3178:1: ( (lv_url_0_0= ruleScalarExpression ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3328:6: ( ( (lv_url_0_0= ruleScalarExpression ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3329:1: ( (lv_url_0_0= ruleScalarExpression ) )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3178:1: ( (lv_url_0_0= ruleScalarExpression ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3179:1: (lv_url_0_0= ruleScalarExpression )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3329:1: ( (lv_url_0_0= ruleScalarExpression ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3330:1: (lv_url_0_0= ruleScalarExpression )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3179:1: (lv_url_0_0= ruleScalarExpression )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3180:3: lv_url_0_0= ruleScalarExpression
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3330:1: (lv_url_0_0= ruleScalarExpression )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3331:3: lv_url_0_0= ruleScalarExpression
             {
              
             	        currentNode=createCompositeNode(grammarAccess.getExternalOpenAccess().getUrlScalarExpressionParserRuleCall_0(), currentNode); 
             	    
-            pushFollow(FOLLOW_ruleScalarExpression_in_ruleExternalOpen5619);
+            pushFollow(FOLLOW_ruleScalarExpression_in_ruleExternalOpen5858);
             lv_url_0_0=ruleScalarExpression();
             _fsp--;
 
@@ -6909,7 +7178,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleViewCall
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3210:1: entryRuleViewCall returns [EObject current=null] : iv_ruleViewCall= ruleViewCall EOF ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3361:1: entryRuleViewCall returns [EObject current=null] : iv_ruleViewCall= ruleViewCall EOF ;
     public final EObject entryRuleViewCall() throws RecognitionException {
         EObject current = null;
 
@@ -6917,16 +7186,16 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3211:2: (iv_ruleViewCall= ruleViewCall EOF )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3212:2: iv_ruleViewCall= ruleViewCall EOF
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3362:2: (iv_ruleViewCall= ruleViewCall EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3363:2: iv_ruleViewCall= ruleViewCall EOF
             {
              currentNode = createCompositeNode(grammarAccess.getViewCallRule(), currentNode); 
-            pushFollow(FOLLOW_ruleViewCall_in_entryRuleViewCall5654);
+            pushFollow(FOLLOW_ruleViewCall_in_entryRuleViewCall5893);
             iv_ruleViewCall=ruleViewCall();
             _fsp--;
 
              current =iv_ruleViewCall; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleViewCall5664); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleViewCall5903); 
 
             }
 
@@ -6944,7 +7213,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleViewCall
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3219:1: ruleViewCall returns [EObject current=null] : ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3370:1: ruleViewCall returns [EObject current=null] : ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' ) ;
     public final EObject ruleViewCall() throws RecognitionException {
         EObject current = null;
 
@@ -6954,17 +7223,17 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3224:6: ( ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3225:1: ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3375:6: ( ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3376:1: ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3225:1: ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3225:2: ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3376:1: ( ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3376:2: ( ( RULE_ID ) ) '(' ( (lv_provider_2_0= ruleProviderConstruction ) )? ')'
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3225:2: ( ( RULE_ID ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3226:1: ( RULE_ID )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3376:2: ( ( RULE_ID ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3377:1: ( RULE_ID )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3226:1: ( RULE_ID )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3227:3: RULE_ID
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3377:1: ( RULE_ID )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3378:3: RULE_ID
             {
 
             			if (current==null) {
@@ -6972,7 +7241,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             	            associateNodeWithAstElement(currentNode, current);
             	        }
                     
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleViewCall5707); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleViewCall5946); 
 
             		createLeafNode(grammarAccess.getViewCallAccess().getViewViewCrossReference_0_0(), "view"); 
             	
@@ -6982,28 +7251,28 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,13,FOLLOW_13_in_ruleViewCall5717); 
+            match(input,13,FOLLOW_13_in_ruleViewCall5956); 
 
                     createLeafNode(grammarAccess.getViewCallAccess().getLeftParenthesisKeyword_1(), null); 
                 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3243:1: ( (lv_provider_2_0= ruleProviderConstruction ) )?
-            int alt45=2;
-            int LA45_0 = input.LA(1);
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3394:1: ( (lv_provider_2_0= ruleProviderConstruction ) )?
+            int alt46=2;
+            int LA46_0 = input.LA(1);
 
-            if ( ((LA45_0>=RULE_ID && LA45_0<=RULE_STRING)||LA45_0==13||LA45_0==15||(LA45_0>=17 && LA45_0<=18)||LA45_0==20) ) {
-                alt45=1;
+            if ( ((LA46_0>=RULE_ID && LA46_0<=RULE_STRING)||LA46_0==13||LA46_0==15||(LA46_0>=17 && LA46_0<=18)||LA46_0==20) ) {
+                alt46=1;
             }
-            switch (alt45) {
+            switch (alt46) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3244:1: (lv_provider_2_0= ruleProviderConstruction )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3395:1: (lv_provider_2_0= ruleProviderConstruction )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3244:1: (lv_provider_2_0= ruleProviderConstruction )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3245:3: lv_provider_2_0= ruleProviderConstruction
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3395:1: (lv_provider_2_0= ruleProviderConstruction )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3396:3: lv_provider_2_0= ruleProviderConstruction
                     {
                      
                     	        currentNode=createCompositeNode(grammarAccess.getViewCallAccess().getProviderProviderConstructionParserRuleCall_2_0(), currentNode); 
                     	    
-                    pushFollow(FOLLOW_ruleProviderConstruction_in_ruleViewCall5738);
+                    pushFollow(FOLLOW_ruleProviderConstruction_in_ruleViewCall5977);
                     lv_provider_2_0=ruleProviderConstruction();
                     _fsp--;
 
@@ -7033,7 +7302,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            match(input,14,FOLLOW_14_in_ruleViewCall5749); 
+            match(input,14,FOLLOW_14_in_ruleViewCall5988); 
 
                     createLeafNode(grammarAccess.getViewCallAccess().getRightParenthesisKeyword_3(), null); 
                 
@@ -7060,63 +7329,63 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleCellType
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3279:1: ruleCellType returns [Enumerator current=null] : ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3430:1: ruleCellType returns [Enumerator current=null] : ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) ) ;
     public final Enumerator ruleCellType() throws RecognitionException {
         Enumerator current = null;
 
          setCurrentLookahead(); resetLookahead(); 
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3283:6: ( ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3284:1: ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3434:6: ( ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3435:1: ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3284:1: ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) )
-            int alt46=6;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3435:1: ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) )
+            int alt47=6;
             switch ( input.LA(1) ) {
-            case 58:
-                {
-                alt46=1;
-                }
-                break;
-            case 59:
-                {
-                alt46=2;
-                }
-                break;
-            case 60:
-                {
-                alt46=3;
-                }
-                break;
             case 61:
                 {
-                alt46=4;
+                alt47=1;
                 }
                 break;
             case 62:
                 {
-                alt46=5;
+                alt47=2;
                 }
                 break;
             case 63:
                 {
-                alt46=6;
+                alt47=3;
+                }
+                break;
+            case 64:
+                {
+                alt47=4;
+                }
+                break;
+            case 65:
+                {
+                alt47=5;
+                }
+                break;
+            case 66:
+                {
+                alt47=6;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("3284:1: ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) )", 46, 0, input);
+                    new NoViableAltException("3435:1: ( ( 'Default' ) | ( 'DefaultWithDisclosure' ) | ( 'Value2' ) | ( 'Double' ) | ( 'Subtitle' ) | ( 'Map' ) )", 47, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt46) {
+            switch (alt47) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3284:2: ( 'Default' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3435:2: ( 'Default' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3284:2: ( 'Default' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3284:4: 'Default'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3435:2: ( 'Default' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3435:4: 'Default'
                     {
-                    match(input,58,FOLLOW_58_in_ruleCellType5797); 
+                    match(input,61,FOLLOW_61_in_ruleCellType6036); 
 
                             current = grammarAccess.getCellTypeAccess().getDefaultEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getCellTypeAccess().getDefaultEnumLiteralDeclaration_0(), null); 
@@ -7128,12 +7397,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3290:6: ( 'DefaultWithDisclosure' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3441:6: ( 'DefaultWithDisclosure' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3290:6: ( 'DefaultWithDisclosure' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3290:8: 'DefaultWithDisclosure'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3441:6: ( 'DefaultWithDisclosure' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3441:8: 'DefaultWithDisclosure'
                     {
-                    match(input,59,FOLLOW_59_in_ruleCellType5812); 
+                    match(input,62,FOLLOW_62_in_ruleCellType6051); 
 
                             current = grammarAccess.getCellTypeAccess().getDefaultWithDisclosureEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getCellTypeAccess().getDefaultWithDisclosureEnumLiteralDeclaration_1(), null); 
@@ -7145,12 +7414,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3296:6: ( 'Value2' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3447:6: ( 'Value2' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3296:6: ( 'Value2' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3296:8: 'Value2'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3447:6: ( 'Value2' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3447:8: 'Value2'
                     {
-                    match(input,60,FOLLOW_60_in_ruleCellType5827); 
+                    match(input,63,FOLLOW_63_in_ruleCellType6066); 
 
                             current = grammarAccess.getCellTypeAccess().getValue2EnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getCellTypeAccess().getValue2EnumLiteralDeclaration_2(), null); 
@@ -7162,12 +7431,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3302:6: ( 'Double' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3453:6: ( 'Double' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3302:6: ( 'Double' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3302:8: 'Double'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3453:6: ( 'Double' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3453:8: 'Double'
                     {
-                    match(input,61,FOLLOW_61_in_ruleCellType5842); 
+                    match(input,64,FOLLOW_64_in_ruleCellType6081); 
 
                             current = grammarAccess.getCellTypeAccess().getDoubleEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getCellTypeAccess().getDoubleEnumLiteralDeclaration_3(), null); 
@@ -7179,12 +7448,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3308:6: ( 'Subtitle' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3459:6: ( 'Subtitle' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3308:6: ( 'Subtitle' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3308:8: 'Subtitle'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3459:6: ( 'Subtitle' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3459:8: 'Subtitle'
                     {
-                    match(input,62,FOLLOW_62_in_ruleCellType5857); 
+                    match(input,65,FOLLOW_65_in_ruleCellType6096); 
 
                             current = grammarAccess.getCellTypeAccess().getSubtitleEnumLiteralDeclaration_4().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getCellTypeAccess().getSubtitleEnumLiteralDeclaration_4(), null); 
@@ -7196,12 +7465,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3314:6: ( 'Map' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3465:6: ( 'Map' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3314:6: ( 'Map' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3314:8: 'Map'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3465:6: ( 'Map' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3465:8: 'Map'
                     {
-                    match(input,63,FOLLOW_63_in_ruleCellType5872); 
+                    match(input,66,FOLLOW_66_in_ruleCellType6111); 
 
                             current = grammarAccess.getCellTypeAccess().getMapsEnumLiteralDeclaration_5().getEnumLiteral().getInstance();
                             createLeafNode(grammarAccess.getCellTypeAccess().getMapsEnumLiteralDeclaration_5(), null); 
@@ -7454,45 +7723,59 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_25_in_ruleViewSection4959 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSectionCell_in_entryRuleSectionCell4995 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSectionCell5005 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleSectionCell5040 = new BitSet(new long[]{0xFC00000000000000L});
+    public static final BitSet FOLLOW_52_in_ruleSectionCell5040 = new BitSet(new long[]{0xE000000000000000L,0x0000000000000007L});
     public static final BitSet FOLLOW_ruleCellType_in_ruleSectionCell5061 = new BitSet(new long[]{0x0020000000800000L});
     public static final BitSet FOLLOW_53_in_ruleSectionCell5072 = new BitSet(new long[]{0x0000000000140010L});
-    public static final BitSet FOLLOW_ruleCollectionIterator_in_ruleSectionCell5093 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleSectionCell5105 = new BitSet(new long[]{0x01C6000002000000L});
-    public static final BitSet FOLLOW_54_in_ruleSectionCell5116 = new BitSet(new long[]{0x000000000002A030L});
-    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5137 = new BitSet(new long[]{0x0186000002000000L});
-    public static final BitSet FOLLOW_49_in_ruleSectionCell5150 = new BitSet(new long[]{0x000000000002A030L});
-    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5171 = new BitSet(new long[]{0x0184000002000000L});
-    public static final BitSet FOLLOW_50_in_ruleSectionCell5184 = new BitSet(new long[]{0x000000000002A030L});
-    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5205 = new BitSet(new long[]{0x0180000002000000L});
-    public static final BitSet FOLLOW_55_in_ruleSectionCell5218 = new BitSet(new long[]{0x000000000002A030L});
-    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5239 = new BitSet(new long[]{0x0100000002000000L});
+    public static final BitSet FOLLOW_ruleCollectionIterator_in_ruleSectionCell5093 = new BitSet(new long[]{0x0040000000800000L});
+    public static final BitSet FOLLOW_54_in_ruleSectionCell5104 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_ruleCollectionFilter_in_ruleSectionCell5125 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleSectionCell5139 = new BitSet(new long[]{0x0386000002000000L});
+    public static final BitSet FOLLOW_55_in_ruleSectionCell5150 = new BitSet(new long[]{0x000000000002A030L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5171 = new BitSet(new long[]{0x0306000002000000L});
+    public static final BitSet FOLLOW_49_in_ruleSectionCell5184 = new BitSet(new long[]{0x000000000002A030L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5205 = new BitSet(new long[]{0x0304000002000000L});
+    public static final BitSet FOLLOW_50_in_ruleSectionCell5218 = new BitSet(new long[]{0x000000000002A030L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5239 = new BitSet(new long[]{0x0300000002000000L});
     public static final BitSet FOLLOW_56_in_ruleSectionCell5252 = new BitSet(new long[]{0x000000000002A030L});
-    public static final BitSet FOLLOW_ruleViewAction_in_ruleSectionCell5273 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleSectionCell5285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCollectionIterator_in_entryRuleCollectionIterator5321 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCollectionIterator5331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCollectionExpression_in_ruleCollectionIterator5377 = new BitSet(new long[]{0x0200000000000000L});
-    public static final BitSet FOLLOW_57_in_ruleCollectionIterator5387 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleCollectionIterator5404 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleViewAction_in_entryRuleViewAction5445 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleViewAction5455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleViewCall_in_ruleViewAction5502 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalOpen_in_ruleViewAction5529 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExternalOpen_in_entryRuleExternalOpen5564 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExternalOpen5574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleExternalOpen5619 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleViewCall_in_entryRuleViewCall5654 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleViewCall5664 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleViewCall5707 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_13_in_ruleViewCall5717 = new BitSet(new long[]{0x000000000016E030L});
-    public static final BitSet FOLLOW_ruleProviderConstruction_in_ruleViewCall5738 = new BitSet(new long[]{0x0000000000004000L});
-    public static final BitSet FOLLOW_14_in_ruleViewCall5749 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_ruleCellType5797 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_ruleCellType5812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_ruleCellType5827 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_61_in_ruleCellType5842 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_ruleCellType5857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_ruleCellType5872 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleSectionCell5273 = new BitSet(new long[]{0x0200000002000000L});
+    public static final BitSet FOLLOW_57_in_ruleSectionCell5286 = new BitSet(new long[]{0x000000000002A030L});
+    public static final BitSet FOLLOW_ruleViewAction_in_ruleSectionCell5307 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleSectionCell5319 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCollectionFilter_in_entryRuleCollectionFilter5355 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCollectionFilter5365 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_ruleCollectionFilter5400 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleCollectionFilter5410 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleCollectionFilter5420 = new BitSet(new long[]{0x000000000002A030L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleCollectionFilter5441 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleCollectionFilter5451 = new BitSet(new long[]{0x000000000002A030L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleCollectionFilter5472 = new BitSet(new long[]{0x0000000000080000L});
+    public static final BitSet FOLLOW_19_in_ruleCollectionFilter5482 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleCollectionFilter5492 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_59_in_ruleCollectionFilter5502 = new BitSet(new long[]{0x0000000000000040L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleCollectionFilter5519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCollectionIterator_in_entryRuleCollectionIterator5560 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCollectionIterator5570 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCollectionExpression_in_ruleCollectionIterator5616 = new BitSet(new long[]{0x1000000000000000L});
+    public static final BitSet FOLLOW_60_in_ruleCollectionIterator5626 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleCollectionIterator5643 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleViewAction_in_entryRuleViewAction5684 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleViewAction5694 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleViewCall_in_ruleViewAction5741 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalOpen_in_ruleViewAction5768 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExternalOpen_in_entryRuleExternalOpen5803 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExternalOpen5813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleScalarExpression_in_ruleExternalOpen5858 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleViewCall_in_entryRuleViewCall5893 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleViewCall5903 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleViewCall5946 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_13_in_ruleViewCall5956 = new BitSet(new long[]{0x000000000016E030L});
+    public static final BitSet FOLLOW_ruleProviderConstruction_in_ruleViewCall5977 = new BitSet(new long[]{0x0000000000004000L});
+    public static final BitSet FOLLOW_14_in_ruleViewCall5988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_ruleCellType6036 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_62_in_ruleCellType6051 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_ruleCellType6066 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_ruleCellType6081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_ruleCellType6096 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_ruleCellType6111 = new BitSet(new long[]{0x0000000000000002L});
 
 }

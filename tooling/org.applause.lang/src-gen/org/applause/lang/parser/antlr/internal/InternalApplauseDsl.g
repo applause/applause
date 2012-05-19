@@ -2887,7 +2887,35 @@ ruleSectionCell returns [EObject current=null]
 	    }
 
 )
-))?	'{' 
+)(	'where' 
+    {
+        createLeafNode(grammarAccess.getSectionCellAccess().getWhereKeyword_2_2_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getFilterCollectionFilterParserRuleCall_2_2_1_0(), currentNode); 
+	    }
+		lv_filter_5_0=ruleCollectionFilter		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"filter",
+	        		lv_filter_5_0, 
+	        		"CollectionFilter", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))?)?	'{' 
     {
         createLeafNode(grammarAccess.getSectionCellAccess().getLeftCurlyBracketKeyword_3(), null); 
     }
@@ -2900,7 +2928,7 @@ ruleSectionCell returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getTextScalarExpressionParserRuleCall_4_1_0(), currentNode); 
 	    }
-		lv_text_6_0=ruleScalarExpression		{
+		lv_text_8_0=ruleScalarExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2909,7 +2937,7 @@ ruleSectionCell returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"text",
-	        		lv_text_6_0, 
+	        		lv_text_8_0, 
 	        		"ScalarExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2928,7 +2956,7 @@ ruleSectionCell returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getDetailsScalarExpressionParserRuleCall_5_1_0(), currentNode); 
 	    }
-		lv_details_8_0=ruleScalarExpression		{
+		lv_details_10_0=ruleScalarExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2937,7 +2965,7 @@ ruleSectionCell returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"details",
-	        		lv_details_8_0, 
+	        		lv_details_10_0, 
 	        		"ScalarExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2956,7 +2984,7 @@ ruleSectionCell returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getImageScalarExpressionParserRuleCall_6_1_0(), currentNode); 
 	    }
-		lv_image_10_0=ruleScalarExpression		{
+		lv_image_12_0=ruleScalarExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2965,7 +2993,7 @@ ruleSectionCell returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"image",
-	        		lv_image_10_0, 
+	        		lv_image_12_0, 
 	        		"ScalarExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -2984,7 +3012,7 @@ ruleSectionCell returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getQueryScalarExpressionParserRuleCall_7_1_0(), currentNode); 
 	    }
-		lv_query_12_0=ruleScalarExpression		{
+		lv_query_14_0=ruleScalarExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2993,7 +3021,7 @@ ruleSectionCell returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"query",
-	        		lv_query_12_0, 
+	        		lv_query_14_0, 
 	        		"ScalarExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -3012,7 +3040,7 @@ ruleSectionCell returns [EObject current=null]
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSectionCellAccess().getActionViewActionParserRuleCall_8_1_0(), currentNode); 
 	    }
-		lv_action_14_0=ruleViewAction		{
+		lv_action_16_0=ruleViewAction		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSectionCellRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -3021,7 +3049,7 @@ ruleSectionCell returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"action",
-	        		lv_action_14_0, 
+	        		lv_action_16_0, 
 	        		"ViewAction", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -3036,6 +3064,129 @@ ruleSectionCell returns [EObject current=null]
         createLeafNode(grammarAccess.getSectionCellAccess().getRightCurlyBracketKeyword_9(), null); 
     }
 )
+;
+
+
+
+
+
+// Entry rule entryRuleCollectionFilter
+entryRuleCollectionFilter returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getCollectionFilterRule(), currentNode); }
+	 iv_ruleCollectionFilter=ruleCollectionFilter 
+	 { $current=$iv_ruleCollectionFilter.current; } 
+	 EOF 
+;
+
+// Rule CollectionFilter
+ruleCollectionFilter returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'distanceFrom' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getDistanceFromKeyword_0(), null); 
+    }
+	'(' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getLeftParenthesisKeyword_1(), null); 
+    }
+	'[' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getLeftSquareBracketKeyword_2(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getCollectionFilterAccess().getLongitudeScalarExpressionParserRuleCall_3_0(), currentNode); 
+	    }
+		lv_longitude_3_0=ruleScalarExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getCollectionFilterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"longitude",
+	        		lv_longitude_3_0, 
+	        		"ScalarExpression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	',' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getCommaKeyword_4(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getCollectionFilterAccess().getLatitudeScalarExpressionParserRuleCall_5_0(), currentNode); 
+	    }
+		lv_latitude_5_0=ruleScalarExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getCollectionFilterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"latitude",
+	        		lv_latitude_5_0, 
+	        		"ScalarExpression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)	']' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getRightSquareBracketKeyword_6(), null); 
+    }
+	')' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getRightParenthesisKeyword_7(), null); 
+    }
+	'<' 
+    {
+        createLeafNode(grammarAccess.getCollectionFilterAccess().getLessThanSignKeyword_8(), null); 
+    }
+(
+(
+		lv_distance_9_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getCollectionFilterAccess().getDistanceINTTerminalRuleCall_9_0(), "distance"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getCollectionFilterRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"distance",
+	        		lv_distance_9_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
 ;
 
 

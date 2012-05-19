@@ -331,6 +331,13 @@ public class ApplauseDslSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.COLLECTION_FILTER:
+      {
+        CollectionFilter collectionFilter = (CollectionFilter)theEObject;
+        T result = caseCollectionFilter(collectionFilter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.COLLECTION_ITERATOR:
       {
         CollectionIterator collectionIterator = (CollectionIterator)theEObject;
@@ -892,6 +899,22 @@ public class ApplauseDslSwitch<T>
    * @generated
    */
   public T caseSectionCell(SectionCell object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Collection Filter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Collection Filter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCollectionFilter(CollectionFilter object)
   {
     return null;
   }

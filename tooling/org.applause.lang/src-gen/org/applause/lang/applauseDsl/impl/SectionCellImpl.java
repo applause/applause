@@ -7,6 +7,7 @@ package org.applause.lang.applauseDsl.impl;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.CellType;
+import org.applause.lang.applauseDsl.CollectionFilter;
 import org.applause.lang.applauseDsl.CollectionIterator;
 import org.applause.lang.applauseDsl.ScalarExpression;
 import org.applause.lang.applauseDsl.SectionCell;
@@ -30,6 +31,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getType <em>Type</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getIterator <em>Iterator</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getFilter <em>Filter</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getText <em>Text</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getDetails <em>Details</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.SectionCellImpl#getImage <em>Image</em>}</li>
@@ -71,6 +73,16 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
    * @ordered
    */
   protected CollectionIterator iterator;
+
+  /**
+   * The cached value of the '{@link #getFilter() <em>Filter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getFilter()
+   * @generated
+   * @ordered
+   */
+  protected CollectionFilter filter;
 
   /**
    * The cached value of the '{@link #getText() <em>Text</em>}' containment reference.
@@ -212,6 +224,54 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     }
     else if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__ITERATOR, newIterator, newIterator));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CollectionFilter getFilter()
+  {
+    return filter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetFilter(CollectionFilter newFilter, NotificationChain msgs)
+  {
+    CollectionFilter oldFilter = filter;
+    filter = newFilter;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__FILTER, oldFilter, newFilter);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setFilter(CollectionFilter newFilter)
+  {
+    if (newFilter != filter)
+    {
+      NotificationChain msgs = null;
+      if (filter != null)
+        msgs = ((InternalEObject)filter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__FILTER, null, msgs);
+      if (newFilter != null)
+        msgs = ((InternalEObject)newFilter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SECTION_CELL__FILTER, null, msgs);
+      msgs = basicSetFilter(newFilter, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SECTION_CELL__FILTER, newFilter, newFilter));
   }
 
   /**
@@ -466,6 +526,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
     {
       case ApplauseDslPackage.SECTION_CELL__ITERATOR:
         return basicSetIterator(null, msgs);
+      case ApplauseDslPackage.SECTION_CELL__FILTER:
+        return basicSetFilter(null, msgs);
       case ApplauseDslPackage.SECTION_CELL__TEXT:
         return basicSetText(null, msgs);
       case ApplauseDslPackage.SECTION_CELL__DETAILS:
@@ -494,6 +556,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return getType();
       case ApplauseDslPackage.SECTION_CELL__ITERATOR:
         return getIterator();
+      case ApplauseDslPackage.SECTION_CELL__FILTER:
+        return getFilter();
       case ApplauseDslPackage.SECTION_CELL__TEXT:
         return getText();
       case ApplauseDslPackage.SECTION_CELL__DETAILS:
@@ -523,6 +587,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return;
       case ApplauseDslPackage.SECTION_CELL__ITERATOR:
         setIterator((CollectionIterator)newValue);
+        return;
+      case ApplauseDslPackage.SECTION_CELL__FILTER:
+        setFilter((CollectionFilter)newValue);
         return;
       case ApplauseDslPackage.SECTION_CELL__TEXT:
         setText((ScalarExpression)newValue);
@@ -559,6 +626,9 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
       case ApplauseDslPackage.SECTION_CELL__ITERATOR:
         setIterator((CollectionIterator)null);
         return;
+      case ApplauseDslPackage.SECTION_CELL__FILTER:
+        setFilter((CollectionFilter)null);
+        return;
       case ApplauseDslPackage.SECTION_CELL__TEXT:
         setText((ScalarExpression)null);
         return;
@@ -592,6 +662,8 @@ public class SectionCellImpl extends MinimalEObjectImpl.Container implements Sec
         return type != TYPE_EDEFAULT;
       case ApplauseDslPackage.SECTION_CELL__ITERATOR:
         return iterator != null;
+      case ApplauseDslPackage.SECTION_CELL__FILTER:
+        return filter != null;
       case ApplauseDslPackage.SECTION_CELL__TEXT:
         return text != null;
       case ApplauseDslPackage.SECTION_CELL__DETAILS:

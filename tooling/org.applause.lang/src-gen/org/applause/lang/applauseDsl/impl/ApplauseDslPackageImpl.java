@@ -10,6 +10,7 @@ import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Application;
 import org.applause.lang.applauseDsl.CellType;
 import org.applause.lang.applauseDsl.CollectionExpression;
+import org.applause.lang.applauseDsl.CollectionFilter;
 import org.applause.lang.applauseDsl.CollectionFunction;
 import org.applause.lang.applauseDsl.CollectionIterator;
 import org.applause.lang.applauseDsl.CollectionLiteral;
@@ -267,6 +268,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EClass sectionCellEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass collectionFilterEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1110,7 +1118,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSectionCell_Text()
+  public EReference getSectionCell_Filter()
   {
     return (EReference)sectionCellEClass.getEStructuralFeatures().get(2);
   }
@@ -1120,7 +1128,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSectionCell_Details()
+  public EReference getSectionCell_Text()
   {
     return (EReference)sectionCellEClass.getEStructuralFeatures().get(3);
   }
@@ -1130,7 +1138,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSectionCell_Image()
+  public EReference getSectionCell_Details()
   {
     return (EReference)sectionCellEClass.getEStructuralFeatures().get(4);
   }
@@ -1140,7 +1148,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSectionCell_Query()
+  public EReference getSectionCell_Image()
   {
     return (EReference)sectionCellEClass.getEStructuralFeatures().get(5);
   }
@@ -1150,9 +1158,59 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getSectionCell_Action()
+  public EReference getSectionCell_Query()
   {
     return (EReference)sectionCellEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSectionCell_Action()
+  {
+    return (EReference)sectionCellEClass.getEStructuralFeatures().get(7);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCollectionFilter()
+  {
+    return collectionFilterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCollectionFilter_Longitude()
+  {
+    return (EReference)collectionFilterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCollectionFilter_Latitude()
+  {
+    return (EReference)collectionFilterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getCollectionFilter_Distance()
+  {
+    return (EAttribute)collectionFilterEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1552,11 +1610,17 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     sectionCellEClass = createEClass(SECTION_CELL);
     createEAttribute(sectionCellEClass, SECTION_CELL__TYPE);
     createEReference(sectionCellEClass, SECTION_CELL__ITERATOR);
+    createEReference(sectionCellEClass, SECTION_CELL__FILTER);
     createEReference(sectionCellEClass, SECTION_CELL__TEXT);
     createEReference(sectionCellEClass, SECTION_CELL__DETAILS);
     createEReference(sectionCellEClass, SECTION_CELL__IMAGE);
     createEReference(sectionCellEClass, SECTION_CELL__QUERY);
     createEReference(sectionCellEClass, SECTION_CELL__ACTION);
+
+    collectionFilterEClass = createEClass(COLLECTION_FILTER);
+    createEReference(collectionFilterEClass, COLLECTION_FILTER__LONGITUDE);
+    createEReference(collectionFilterEClass, COLLECTION_FILTER__LATITUDE);
+    createEAttribute(collectionFilterEClass, COLLECTION_FILTER__DISTANCE);
 
     collectionIteratorEClass = createEClass(COLLECTION_ITERATOR);
     createEReference(collectionIteratorEClass, COLLECTION_ITERATOR__COLLECTION);
@@ -1760,11 +1824,17 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEClass(sectionCellEClass, SectionCell.class, "SectionCell", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSectionCell_Type(), this.getCellType(), "type", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Iterator(), this.getCollectionIterator(), null, "iterator", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSectionCell_Filter(), this.getCollectionFilter(), null, "filter", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Text(), this.getScalarExpression(), null, "text", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Details(), this.getScalarExpression(), null, "details", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Image(), this.getScalarExpression(), null, "image", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Query(), this.getScalarExpression(), null, "query", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSectionCell_Action(), this.getViewAction(), null, "action", null, 0, 1, SectionCell.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(collectionFilterEClass, CollectionFilter.class, "CollectionFilter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCollectionFilter_Longitude(), this.getScalarExpression(), null, "longitude", null, 0, 1, CollectionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCollectionFilter_Latitude(), this.getScalarExpression(), null, "latitude", null, 0, 1, CollectionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCollectionFilter_Distance(), ecorePackage.getEInt(), "distance", null, 0, 1, CollectionFilter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(collectionIteratorEClass, CollectionIterator.class, "CollectionIterator", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCollectionIterator_Collection(), this.getCollectionExpression(), null, "collection", null, 0, 1, CollectionIterator.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
