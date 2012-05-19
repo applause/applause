@@ -1,24 +1,24 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::Extensions»
-«EXTENSION templates::TemplateExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ExtensionsÂ»
+Â«EXTENSION templates::TemplateExtensionsÂ»
 
-«DEFINE main FOR Application»
-«FILE "templates/generated/application.html"-»
+Â«DEFINE main FOR ApplicationÂ»
+Â«FILE "templates/generated/application.html"-Â»
 {% extends "template_master.html" %}
 
 {% block navigation %}
 <div class="menu">
 <ul>
-«FOREACH buttons AS button ITERATOR i-»
-«button.view.tplPrepareUrl("data", "url"+i.counter1)»
-<li><a href="«button.view.tplUrl("url"+i.counter1)»">«button.title.expression("data")»</a></li>
-«ENDFOREACH»
+Â«FOREACH buttons AS button ITERATOR i-Â»
+Â«button.view.tplPrepareUrl("data", "url"+i.counter1)Â»
+<li><a href="Â«button.view.tplUrl("url"+i.counter1)Â»">Â«button.title.expression("data")Â»</a></li>
+Â«ENDFOREACHÂ»
 </ul>
 <br style="clear: left" />
 </div>
 {% endblock %}
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 

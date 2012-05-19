@@ -1,21 +1,21 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::MetamodelExtensions»
-«EXTENSION templates::Extensions»
-«EXTENSION templates::CodeExtensions»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
+Â«EXTENSION templates::ExtensionsÂ»
+Â«EXTENSION templates::CodeExtensionsÂ»
 
-«DEFINE main FOR Application»
-«FILE "views.py"-»
+Â«DEFINE main FOR ApplicationÂ»
+Â«FILE "views.py"-Â»
 from django.shortcuts import render_to_response
 import providers
 
-«EXPAND view FOREACH uniqueViewCalls()»
-«ENDFILE»
-«ENDDEFINE»
+Â«EXPAND view FOREACH uniqueViewCalls()Â»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR ViewCall»
-def «defViewName()»(request«defViewParam()!=""?", ":""»«defViewParam()»):
-    data = providers.«defProviderName()»(«defViewParam()»)
-    return render_to_response('«viewTemplateFilename()»', {'data': data})
-«ENDDEFINE»
+Â«DEFINE view FOR ViewCallÂ»
+def Â«defViewName()Â»(requestÂ«defViewParam()!=""?", ":""Â»Â«defViewParam()Â»):
+    data = providers.Â«defProviderName()Â»(Â«defViewParam()Â»)
+    return render_to_response('Â«viewTemplateFilename()Â»', {'data': data})
+Â«ENDDEFINEÂ»
 

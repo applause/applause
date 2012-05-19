@@ -1,21 +1,21 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::views::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::views::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND view FOR this.application»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND view FOR this.applicationÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR Application»
-«FILE classFilename()-»
+Â«DEFINE view FOR ApplicationÂ»
+Â«FILE classFilename()-Â»
 using System;
 using System.Windows.Controls;
 using Applause.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
 using Microsoft.Phone.Controls;
 
-namespace «rootNamespace()».Views
+namespace Â«rootNamespace()Â».Views
 {
     public partial class MainPage : PhoneApplicationPage
     {
@@ -27,5 +27,5 @@ namespace «rootNamespace()».Views
         }
     }
 }
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

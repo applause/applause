@@ -1,11 +1,11 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::views::GeneratorExtensions»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::views::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«FILE "../" + assemblyName() + ".csproj"-»
+Â«DEFINE main FOR Application-Â»
+Â«FILE "../" + assemblyName() + ".csproj"-Â»
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
@@ -17,8 +17,8 @@
     <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>«rootNamespace()»</RootNamespace>
-    <AssemblyName>«assemblyName()»</AssemblyName>
+    <RootNamespace>Â«rootNamespace()Â»</RootNamespace>
+    <AssemblyName>Â«assemblyName()Â»</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
     <TargetFrameworkProfile>WindowsPhone</TargetFrameworkProfile>
@@ -28,7 +28,7 @@
     </SupportedCultures>
     <XapOutputs>true</XapOutputs>
     <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
-    <XapFilename>«assemblyName()».xap</XapFilename>
+    <XapFilename>Â«assemblyName()Â».xap</XapFilename>
     <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
     <SilverlightAppEntry>ItemisApp.App</SilverlightAppEntry>
     <ValidateXaml>true</ValidateXaml>
@@ -98,28 +98,28 @@
 
     <Compile Include="Properties\AssemblyInfo.cs" />
 
-	«FOREACH this.model().contentProviders() AS contentProvider-»
-	<Compile Include="Generated\DataAccessLayer\«contentProvider.name.toFirstUpper()»ContentProvider.cs" />
-	«ENDFOREACH-»
-	«FOREACH this.model().entities() AS model-»
-	<Compile Include="Generated\Model\«model.name.toFirstUpper()».cs" />
-	«ENDFOREACH-»
-	«FOREACH this.model().views().typeSelect(SectionedView) AS viewModel-»
-	<Compile Include="Generated\ViewModel\«viewModel.name.toFirstUpper()»ViewModel.cs" />
-	«ENDFOREACH-»
+	Â«FOREACH this.model().contentProviders() AS contentProvider-Â»
+	<Compile Include="Generated\DataAccessLayer\Â«contentProvider.name.toFirstUpper()Â»ContentProvider.cs" />
+	Â«ENDFOREACH-Â»
+	Â«FOREACH this.model().entities() AS model-Â»
+	<Compile Include="Generated\Model\Â«model.name.toFirstUpper()Â».cs" />
+	Â«ENDFOREACH-Â»
+	Â«FOREACH this.model().views().typeSelect(SectionedView) AS viewModel-Â»
+	<Compile Include="Generated\ViewModel\Â«viewModel.name.toFirstUpper()Â»ViewModel.cs" />
+	Â«ENDFOREACH-Â»
 	<Compile Include="Generated\ViewModel\ViewModelLocator.cs" />
-	«FOREACH this.model().views().typeSelect(SectionedView) AS sectionedView-»
-	<Compile Include="Generated\ViewModel\«sectionedView.name.toFirstUpper()»TemplateSelector.cs" />
-	«ENDFOREACH»
+	Â«FOREACH this.model().views().typeSelect(SectionedView) AS sectionedView-Â»
+	<Compile Include="Generated\ViewModel\Â«sectionedView.name.toFirstUpper()Â»TemplateSelector.cs" />
+	Â«ENDFOREACHÂ»
 	
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-	«FOREACH this.model().views().typeSelect(DetailsView) AS view-»
-    <Compile Include="Views\«view.name.toFirstUpper()»Page.xaml.cs">
-      <DependentUpon>«view.name.toFirstUpper()»Page.xaml</DependentUpon>
+	Â«FOREACH this.model().views().typeSelect(DetailsView) AS view-Â»
+    <Compile Include="Views\Â«view.name.toFirstUpper()Â»Page.xaml.cs">
+      <DependentUpon>Â«view.name.toFirstUpper()Â»Page.xaml</DependentUpon>
     </Compile>
-	«ENDFOREACH-»
+	Â«ENDFOREACH-Â»
   </ItemGroup>
   
   <ItemGroup>
@@ -133,12 +133,12 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
 
-	«FOREACH this.model().views().typeSelect(DetailsView) AS view-»
-    <Page Include="Views\«view.name.toFirstUpper()»Page.xaml">
+	Â«FOREACH this.model().views().typeSelect(DetailsView) AS view-Â»
+    <Page Include="Views\Â«view.name.toFirstUpper()Â»Page.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	«ENDFOREACH-»
+	Â«ENDFOREACH-Â»
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -166,5 +166,5 @@
   -->
   <ProjectExtensions />
 </Project>
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

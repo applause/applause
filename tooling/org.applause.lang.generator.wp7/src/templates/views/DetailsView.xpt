@@ -1,6 +1,6 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«DEFINE main FOR Model»
-«EXPAND DetailsView_xaml::main FOR this»
-«EXPAND DetailsView_cs::main FOR this»
-«ENDDEFINE»
+Â«DEFINE main FOR ModelÂ»
+Â«EXPAND DetailsView_xaml::main FOR thisÂ»
+Â«EXPAND DetailsView_cs::main FOR thisÂ»
+Â«ENDDEFINEÂ»

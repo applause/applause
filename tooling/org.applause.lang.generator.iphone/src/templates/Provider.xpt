@@ -1,49 +1,49 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::Extensions»
+Â«EXTENSION templates::ExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«EXPAND headerFile»
-«EXPAND moduleFile»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND headerFileÂ»
+Â«EXPAND moduleFileÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE headerFile FOR Application»
-«FILE filenameCentralProvidersHeader()»
+Â«DEFINE headerFile FOR ApplicationÂ»
+Â«FILE filenameCentralProvidersHeader()Â»
 #import "IPContentProvider.h"
 
-@interface «centralProvidersClassName()» : NSObject {
+@interface Â«centralProvidersClassName()Â» : NSObject {
 
 }
 
-«FOREACH providersWithImplementation() AS p-»
-«p.methodSignature()»;
-«ENDFOREACH»
+Â«FOREACH providersWithImplementation() AS p-Â»
+Â«p.methodSignature()Â»;
+Â«ENDFOREACHÂ»
 @end
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE moduleFile FOR Application»
-«FILE filenameCentralProvidersModule()»
-#import "«filenameCentralProvidersHeader()»"
+Â«DEFINE moduleFile FOR ApplicationÂ»
+Â«FILE filenameCentralProvidersModule()Â»
+#import "Â«filenameCentralProvidersHeader()Â»"
 #import "IPXMLContentProvider.h"
 
-@implementation «centralProvidersClassName()»
+@implementation Â«centralProvidersClassName()Â»
 
-«EXPAND providerMethodImplementation FOREACH providersWithImplementation()»
+Â«EXPAND providerMethodImplementation FOREACH providersWithImplementation()Â»
 @end
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE providerMethodImplementation FOR ContentProvider»
-«LET parameter.name != null ? parameter.name : '' AS kvcTarget»
-«methodSignature()» {
-	NSString* url = «url.expression(kvcTarget, '')»;
+Â«DEFINE providerMethodImplementation FOR ContentProviderÂ»
+Â«LET parameter.name != null ? parameter.name : '' AS kvcTargetÂ»
+Â«methodSignature()Â» {
+	NSString* url = Â«url.expression(kvcTarget, '')Â»;
 	IPContentProvider *result = [[[IPXMLContentProvider alloc] 
 								  initWithURL: [NSURL URLWithString:url] 
 								  initialContent: nil
-								  keyPathToContent: «selection.expression(kvcTarget, '')»
+								  keyPathToContent: Â«selection.expression(kvcTarget, '')Â»
 								  andProviders:self] autorelease];
 	return result;
 }
-«ENDLET»
-«ENDDEFINE»
+Â«ENDLETÂ»
+Â«ENDDEFINEÂ»

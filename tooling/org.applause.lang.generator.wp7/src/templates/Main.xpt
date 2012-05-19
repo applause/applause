@@ -1,12 +1,12 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
 
-«DEFINE main FOR Application»
-«EXPAND csproj::main FOR this»
-«EXPAND models::Model::main FOR this.model()»
-«EXPAND viewmodels::ViewModel::main FOR this.model()»
-«EXPAND viewmodels::ViewModelLocator::main FOR this.model()»
-«EXPAND viewmodels::ViewTemplateSelector::main FOR this.model()»
-«EXPAND dataaccesslayer::ContentProvider::main FOR this.model()»
-«EXPAND views::Views::main FOR this.model()»
-«ENDDEFINE»
+Â«DEFINE main FOR ApplicationÂ»
+Â«EXPAND csproj::main FOR thisÂ»
+Â«EXPAND models::Model::main FOR this.model()Â»
+Â«EXPAND viewmodels::ViewModel::main FOR this.model()Â»
+Â«EXPAND viewmodels::ViewModelLocator::main FOR this.model()Â»
+Â«EXPAND viewmodels::ViewTemplateSelector::main FOR this.model()Â»
+Â«EXPAND dataaccesslayer::ContentProvider::main FOR this.model()Â»
+Â«EXPAND views::Views::main FOR this.model()Â»
+Â«ENDDEFINEÂ»

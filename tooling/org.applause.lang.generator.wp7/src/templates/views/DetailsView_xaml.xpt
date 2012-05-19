@@ -1,16 +1,16 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::views::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::views::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND view FOREACH this.views().typeSelect(DetailsView)-»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND view FOREACH this.views().typeSelect(DetailsView)-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR DetailsView»
-«FILE xamlFileName()-»
+Â«DEFINE view FOR DetailsViewÂ»
+Â«FILE xamlFileName()-Â»
 <phone:PhoneApplicationPage 
-    x:Class="«this.classFQN()»"
+    x:Class="Â«this.classFQN()Â»"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
@@ -26,8 +26,8 @@
     mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
     shell:SystemTray.IsVisible="True" 
     xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
-    xmlns:local="clr-namespace:«viewModelNamespace()»"
-    DataContext="{Binding Source={StaticResource Locator}, Path=«viewModelClassName()»}"
+    xmlns:local="clr-namespace:Â«viewModelNamespace()Â»"
+    DataContext="{Binding Source={StaticResource Locator}, Path=Â«viewModelClassName()Â»}"
     Style="{StaticResource PageStyle}">
 
     <!--LayoutRoot is the root grid where all page content is placed-->
@@ -39,8 +39,8 @@
 
         <!--TitlePanel contains the name of the application and page title-->
         <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="ApplicationTitle" Text="«this.application().name»" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock x:Name="PageTitle" Text=«this.title.expression()» Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+            <TextBlock x:Name="ApplicationTitle" Text="Â«this.application().nameÂ»" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text=Â«this.title.expression()Â» Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
@@ -52,17 +52,17 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     <StackPanel Grid.Row="0">
-                    	«IF this.header.title != null-»
-                        <TextBlock x:Name="HeaderTitle" Text=«this.header.title.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
-                    	«ENDIF-»
-                    	«IF this.header.subtitle != null-»
-                        <TextBlock x:Name="HeaderSubTitle" Text=«this.header.subtitle.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
-                    	«ENDIF-»
-                    	«IF this.header.details != null-»
-                        <TextBlock x:Name="HeaderDetails" Text=«this.header.details.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=«contentPropertyname()»}" />
-                    	«ENDIF-»
+                    	Â«IF this.header.title != null-Â»
+                        <TextBlock x:Name="HeaderTitle" Text=Â«this.header.title.binding()Â» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" DataContext="{Binding Path=Â«contentPropertyname()Â»}" />
+                    	Â«ENDIF-Â»
+                    	Â«IF this.header.subtitle != null-Â»
+                        <TextBlock x:Name="HeaderSubTitle" Text=Â«this.header.subtitle.binding()Â» TextWrapping="Wrap" Style="{StaticResource PhoneTextSubtleStyle}" DataContext="{Binding Path=Â«contentPropertyname()Â»}" />
+                    	Â«ENDIF-Â»
+                    	Â«IF this.header.details != null-Â»
+                        <TextBlock x:Name="HeaderDetails" Text=Â«this.header.details.binding()Â» TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" DataContext="{Binding Path=Â«contentPropertyname()Â»}" />
+                    	Â«ENDIF-Â»
                     </StackPanel>
-                    <toolkit:LongListSelector Grid.Row="1" x:Name="«sectionListboxName()»" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False">
+                    <toolkit:LongListSelector Grid.Row="1" x:Name="Â«sectionListboxName()Â»" Margin="0,0,-12,0" ItemsSource="{Binding Path=Sections}" IsFlatList="False" IsBouncy="False">
                         <toolkit:LongListSelector.GroupHeaderTemplate>
                             <DataTemplate>
                                 <Border Background="{StaticResource PhoneAccentBrush}" Margin="{StaticResource PhoneTouchTargetOverhang}" Padding="{StaticResource PhoneTouchTargetOverhang}">
@@ -72,31 +72,31 @@
                         </toolkit:LongListSelector.GroupHeaderTemplate>
                         <toolkit:LongListSelector.ItemTemplate>
                             <DataTemplate>
-                                <local:«sectionListboxSemplateSelectorClassname()» Content="{Binding}" HorizontalContentAlignment="Left">
-                                «FOREACH this.sections AS section ITERATOR i-»
-                                    <local:«sectionListboxSemplateSelectorClassname()».«this.sectionListboxSectionName(i.counter1)»>
+                                <local:Â«sectionListboxSemplateSelectorClassname()Â» Content="{Binding}" HorizontalContentAlignment="Left">
+                                Â«FOREACH this.sections AS section ITERATOR i-Â»
+                                    <local:Â«sectionListboxSemplateSelectorClassname()Â».Â«this.sectionListboxSectionName(i.counter1)Â»>
                                         <DataTemplate>
-                                        «FOREACH section.cells AS cell-»
+                                        Â«FOREACH section.cells AS cell-Â»
                                             <StackPanel Margin="0,0,0,17" toolkit:TiltEffect.IsTiltEnabled="True">
-                                                «IF cell.text != null-»
-                                                <TextBlock Text=«cell.text.binding()» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
-                                                «ENDIF-»
-                                                «IF cell.details != null-»
-                                                <TextBlock Text=«cell.details.binding()» TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
-                                                «ENDIF-»
+                                                Â«IF cell.text != null-Â»
+                                                <TextBlock Text=Â«cell.text.binding()Â» TextWrapping="Wrap" Style="{StaticResource PhoneTextLargeStyle}" />
+                                                Â«ENDIF-Â»
+                                                Â«IF cell.details != null-Â»
+                                                <TextBlock Text=Â«cell.details.binding()Â» TextWrapping="Wrap" Margin="12,-6,12,0" Style="{StaticResource PhoneTextSubtleStyle}"/>
+                                                Â«ENDIF-Â»
                                                 <i:Interaction.Triggers>
                                                     <i:EventTrigger EventName="MouseLeave">
                                                         <GalaSoft_MvvmLight_Command:EventToCommand 
-                                                        	Command="{Binding Path=«viewModelClassName()».«sectionListboxSectionNavigationCommandname(i.counter1)», Source={StaticResource Locator}}" 
+                                                        	Command="{Binding Path=Â«viewModelClassName()Â».Â«sectionListboxSectionNavigationCommandname(i.counter1)Â», Source={StaticResource Locator}}" 
                                                         	CommandParameter="{Binding}"/>                                                                                                                
                                                     </i:EventTrigger>
                                                 </i:Interaction.Triggers>
                                             </StackPanel>
-                                        «ENDFOREACH-»
+                                        Â«ENDFOREACH-Â»
                                         </DataTemplate>
-                                    </local:«sectionListboxSemplateSelectorClassname()».«this.sectionListboxSectionName(i.counter1)»>
-                                «ENDFOREACH-»
-                                </local:«sectionListboxSemplateSelectorClassname()»>
+                                    </local:Â«sectionListboxSemplateSelectorClassname()Â».Â«this.sectionListboxSectionName(i.counter1)Â»>
+                                Â«ENDFOREACH-Â»
+                                </local:Â«sectionListboxSemplateSelectorClassname()Â»>
                             </DataTemplate>
                         </toolkit:LongListSelector.ItemTemplate>
                     </toolkit:LongListSelector>
@@ -105,5 +105,5 @@
         </Grid>
     </Grid>
 </phone:PhoneApplicationPage>
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»

@@ -1,21 +1,21 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::Extensions»
+Â«EXTENSION templates::ExtensionsÂ»
 
-«DEFINE main FOR Model»
-«EXPAND main FOR elements.typeSelect(Application).first()»
-«ENDDEFINE»
+Â«DEFINE main FOR ModelÂ»
+Â«EXPAND main FOR elements.typeSelect(Application).first()Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE main FOR Application»
-«EXPAND headerFile»
-«EXPAND moduleFile»
-«ENDDEFINE»
+Â«DEFINE main FOR ApplicationÂ»
+Â«EXPAND headerFileÂ»
+Â«EXPAND moduleFileÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE headerFile FOR Application»
-«FILE filenameApplicationDelegateHeader()»
+Â«DEFINE headerFile FOR ApplicationÂ»
+Â«FILE filenameApplicationDelegateHeader()Â»
 #import <UIKit/UIKit.h>
 
-@interface «applicationDelegateClassname()» : NSObject <UIApplicationDelegate> {
+@interface Â«applicationDelegateClassname()Â» : NSObject <UIApplicationDelegate> {
     UIWindow *window;
 	UIViewController *rootController;
 }
@@ -24,31 +24,31 @@
 @property (nonatomic, retain) UIViewController *rootController;
 
 @end
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE importStatements FOR Application-»
-«EXPAND importStatement FOREACH buttons-»
-«ENDDEFINE»
+Â«DEFINE importStatements FOR Application-Â»
+Â«EXPAND importStatement FOREACH buttons-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE importStatement FOR TabbarButton-»
-#import "«view.view.filenameHeader()»"
-«ENDDEFINE»
+Â«DEFINE importStatement FOR TabbarButton-Â»
+#import "Â«view.view.filenameHeader()Â»"
+Â«ENDDEFINEÂ»
 
-«DEFINE moduleFile FOR Application»
-«FILE filenameApplicationDelegateModule()»
-#import "«filenameApplicationDelegateHeader()»"
+Â«DEFINE moduleFile FOR ApplicationÂ»
+Â«FILE filenameApplicationDelegateModule()Â»
+#import "Â«filenameApplicationDelegateHeader()Â»"
 #import "IPUIView.h"
-#import "«filenameCentralProvidersHeader()»"
+#import "Â«filenameCentralProvidersHeader()Â»"
 
-«EXPAND importStatements-»
+Â«EXPAND importStatements-Â»
 
-@implementation «applicationDelegateClassname()»
+@implementation Â«applicationDelegateClassname()Â»
 
 @synthesize window, rootController;
 
 -(UIViewController*)createController {
-	«centralProvidersClassName()» *providers = [[[«centralProvidersClassName()» alloc] init] autorelease];
+	Â«centralProvidersClassName()Â» *providers = [[[Â«centralProvidersClassName()Â» alloc] init] autorelease];
 	UITabBarController *result = [[UITabBarController alloc] init];
 	NSMutableArray *controllers = [NSMutableArray array];
 	
@@ -56,7 +56,7 @@
 	UINavigationController *navController;
 	IPContentProvider *contentProvider;
 
-«EXPAND barControllerInstance FOREACH buttons»
+Â«EXPAND barControllerInstance FOREACH buttonsÂ»
 
 	result.viewControllers = controllers;
 	return result;
@@ -76,23 +76,23 @@
 
 
 @end
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE barControllerInstance FOR TabbarButton»
-	«IF view.provider != null»
-	// controller for «this.title.expression('', '')»
-	contentProvider = «view.provider.contentProvider('providers', '', '')»;
-	«ENDIF»
-	controller = [[«view.view.className()» alloc] init];
+Â«DEFINE barControllerInstance FOR TabbarButtonÂ»
+	Â«IF view.provider != nullÂ»
+	// controller for Â«this.title.expression('', '')Â»
+	contentProvider = Â«view.provider.contentProvider('providers', '', '')Â»;
+	Â«ENDIFÂ»
+	controller = [[Â«view.view.className()Â» alloc] init];
 	[controller setContentProvider: contentProvider];
-	controller.tabBarItem.title = «title.expression('', '')»;
-	controller.tabBarItem.image = [UIImage imageNamed:«this.icon.expression('','')»];
+	controller.tabBarItem.title = Â«title.expression('', '')Â»;
+	controller.tabBarItem.image = [UIImage imageNamed:Â«this.icon.expression('','')Â»];
 	navController = [[UINavigationController alloc] initWithRootViewController:controller];
 	[controllers addObject: navController];
 	[controller release];
 	[navController release];
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
 
 

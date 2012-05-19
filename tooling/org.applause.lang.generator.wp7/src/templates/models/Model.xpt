@@ -1,24 +1,24 @@
-«IMPORT org::applause::lang::applauseDsl»
-«EXTENSION extensions::MetamodelExtensions»
-«EXTENSION extensions::GeneratorExtensions»
-«EXTENSION templates::models::GeneratorExtensions»
+Â«IMPORT org::applause::lang::applauseDslÂ»
+Â«EXTENSION extensions::MetamodelExtensionsÂ»
+Â«EXTENSION extensions::GeneratorExtensionsÂ»
+Â«EXTENSION templates::models::GeneratorExtensionsÂ»
 
-«DEFINE main FOR Model-»
-«EXPAND entity FOREACH this.entities()-»
-«ENDDEFINE»
+Â«DEFINE main FOR Model-Â»
+Â«EXPAND entity FOREACH this.entities()-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE entity FOR Entity»
-«FILE this.classFileFQN()-»
+Â«DEFINE entity FOR EntityÂ»
+Â«FILE this.classFileFQN()-Â»
 using System.Collections.Generic;
 
-namespace «this.namespace()»
+namespace Â«this.namespace()Â»
 {
-    public class «this.className()»
+    public class Â«this.className()Â»
     {
-		«FOREACH this.properties AS property-»
-		public «property.propertyType()» «property.propertyName()» { get; set; }
-		«ENDFOREACH-»
+		Â«FOREACH this.properties AS property-Â»
+		public Â«property.propertyType()Â» Â«property.propertyName()Â» { get; set; }
+		Â«ENDFOREACH-Â»
     }
 }
-«ENDFILE-»
-«ENDDEFINE»
+Â«ENDFILE-Â»
+Â«ENDDEFINEÂ»

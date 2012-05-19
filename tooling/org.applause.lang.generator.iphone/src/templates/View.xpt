@@ -1,193 +1,193 @@
-«IMPORT org::applause::lang::applauseDsl»
+Â«IMPORT org::applause::lang::applauseDslÂ»
 
-«EXTENSION templates::Extensions»
-«EXTENSION templates::MetamodelExtensions»
+Â«EXTENSION templates::ExtensionsÂ»
+Â«EXTENSION templates::MetamodelExtensionsÂ»
 
-«DEFINE main FOR Application-»
-«EXPAND view FOREACH model().elements.typeSelect(SectionedView)»
-«ENDDEFINE»
+Â«DEFINE main FOR Application-Â»
+Â«EXPAND view FOREACH model().elements.typeSelect(SectionedView)Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE view FOR SectionedView»
-«EXPAND viewHeader»
-«EXPAND viewModule»
-«ENDDEFINE»
+Â«DEFINE view FOR SectionedViewÂ»
+Â«EXPAND viewHeaderÂ»
+Â«EXPAND viewModuleÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE viewHeader FOR View»
-«FILE filenameHeader()»
+Â«DEFINE viewHeader FOR ViewÂ»
+Â«FILE filenameHeader()Â»
 #import <UIKit/UIKit.h>
-#import "«baseClassFilenameHeader()»"
+#import "Â«baseClassFilenameHeader()Â»"
 
-@interface «className()» : «baseClassName()» {
+@interface Â«className()Â» : Â«baseClassName()Â» {
 
 }
 
 @end
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE viewModule FOR SectionedView»
-«FILE filenameModule()»
-#import "«filenameHeader()»"
+Â«DEFINE viewModule FOR SectionedViewÂ»
+Â«FILE filenameModule()Â»
+#import "Â«filenameHeader()Â»"
 #import "NSObject+iPhonical.h"
-«EXPAND imports» 
+Â«EXPAND importsÂ» 
 
-@implementation «className()»
+@implementation Â«className()Â»
 
-«EXPAND sectionCount»
-«EXPAND sectionTitleHeader»
-«EXPAND rowCounts»
-«EXPAND rowHeights-»
-«EXPAND cellDescriptions»
-«EXPAND cellSelections»
-«EXPAND staticData»
+Â«EXPAND sectionCountÂ»
+Â«EXPAND sectionTitleHeaderÂ»
+Â«EXPAND rowCountsÂ»
+Â«EXPAND rowHeights-Â»
+Â«EXPAND cellDescriptionsÂ»
+Â«EXPAND cellSelectionsÂ»
+Â«EXPAND staticDataÂ»
 @end
-«ENDFILE»
-«ENDDEFINE»
+Â«ENDFILEÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE imports FOR SectionedView-»
-«FOREACH neededImports() AS i»#import "«i»"
-«ENDFOREACH-»
-«ENDDEFINE»
+Â«DEFINE imports FOR SectionedView-Â»
+Â«FOREACH neededImports() AS iÂ»#import "Â«iÂ»"
+Â«ENDFOREACH-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE sectionCount FOR SectionedView»«IF sections.size != 1»
+Â«DEFINE sectionCount FOR SectionedViewÂ»Â«IF sections.size != 1Â»
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	if(!contentProvider || !contentProvider.content || contentProvider.loading)
 		return 0;
 	else
-    	return «sections.size»;
+    	return Â«sections.sizeÂ»;
 }
-«ENDIF»«ENDDEFINE»
+Â«ENDIFÂ»Â«ENDDEFINEÂ»
 
-«DEFINE sectionTitleHeader FOR SectionedView»«IF sections.reject(e|e.title == null).size > 0»
+Â«DEFINE sectionTitleHeader FOR SectionedViewÂ»Â«IF sections.reject(e|e.title == null).size > 0Â»
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-«FOREACH sections AS s ITERATOR i SEPARATOR  "else" -»
-«IF s.title != null»
-	if(section == «i.counter0») {
-		return «s.title.expression('', '')»;
+Â«FOREACH sections AS s ITERATOR i SEPARATOR  "else" -Â»
+Â«IF s.title != nullÂ»
+	if(section == Â«i.counter0Â») {
+		return Â«s.title.expression('', '')Â»;
 	}
-«ENDIF»
-«ENDFOREACH-»
+Â«ENDIFÂ»
+Â«ENDFOREACH-Â»
 }
-«ENDIF»«ENDDEFINE»
+Â«ENDIFÂ»Â«ENDDEFINEÂ»
 
-«DEFINE rowCounts FOR SectionedView»
+Â«DEFINE rowCounts FOR SectionedViewÂ»
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-«FOREACH sections AS s ITERATOR i-»
-	if(section == «i.counter0») {
-		return «s.cells.rowCount().toString(" + ")»;
+Â«FOREACH sections AS s ITERATOR i-Â»
+	if(section == Â«i.counter0Â») {
+		return Â«s.cells.rowCount().toString(" + ")Â»;
 	} else
-«ENDFOREACH-»
+Â«ENDFOREACH-Â»
 		return 0;
 }
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE rowHeights FOR SectionedView»«IF this.anySpecificRowHeight()»
+Â«DEFINE rowHeights FOR SectionedViewÂ»Â«IF this.anySpecificRowHeight()Â»
 -(CGFloat) tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-«FOREACH sections AS s ITERATOR is-»
-«FOREACH s.cells AS c ITERATOR ic-»
-«IF c.specificRowHeight()>0-»
-	if(indexPath.section == «is.counter0» && indexPath.row == «ic.counter0»)
-		return «c.specificRowHeight()»;
-«ENDIF-»
-«ENDFOREACH»
-«ENDFOREACH»
+Â«FOREACH sections AS s ITERATOR is-Â»
+Â«FOREACH s.cells AS c ITERATOR ic-Â»
+Â«IF c.specificRowHeight()>0-Â»
+	if(indexPath.section == Â«is.counter0Â» && indexPath.row == Â«ic.counter0Â»)
+		return Â«c.specificRowHeight()Â»;
+Â«ENDIF-Â»
+Â«ENDFOREACHÂ»
+Â«ENDFOREACHÂ»
 	return self.tableView.rowHeight;
 }
-«ENDIF»«ENDDEFINE»
+Â«ENDIFÂ»Â«ENDDEFINEÂ»
 
-«DEFINE cellDescriptions FOR View»«ENDDEFINE»
+Â«DEFINE cellDescriptions FOR ViewÂ»Â«ENDDEFINEÂ»
 
-«DEFINE cellConstraint(Integer section, Integer row) FOR SectionCell-»
-«IF iterator==null»indexPath.section == «section» && indexPath.row == «row-»
-«ELSE»indexPath.section == «section»«ENDIF-»
-«ENDDEFINE»
+Â«DEFINE cellConstraint(Integer section, Integer row) FOR SectionCell-Â»
+Â«IF iterator==nullÂ»indexPath.section == Â«sectionÂ» && indexPath.row == Â«row-Â»
+Â«ELSEÂ»indexPath.section == Â«sectionÂ»Â«ENDIF-Â»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellDescriptions FOR SectionedView»
+Â«DEFINE cellDescriptions FOR SectionedViewÂ»
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-«FOREACH sections AS s ITERATOR si»
-«FOREACH s.cells AS c ITERATOR ci»
-	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
-	«EXPAND cellContent FOR c»
+Â«FOREACH sections AS s ITERATOR siÂ»
+Â«FOREACH s.cells AS c ITERATOR ciÂ»
+	if(Â«EXPAND cellConstraint(si.counter0, ci.counter0) FOR cÂ») {
+	Â«EXPAND cellContent FOR cÂ»
 	} else
-«ENDFOREACH-»
-«ENDFOREACH-»
+Â«ENDFOREACH-Â»
+Â«ENDFOREACH-Â»
 		return nil;
 }
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellContent FOR SectionCell-»
-	«IF iterator!=null»id item = [[«iterator.collection.expression('contentProvider', 'content')» asArray] objectAtIndex: indexPath.row];
-	«EXPAND cellContent('item', '')»«ELSE»
-	«EXPAND cellContent('contentProvider', 'content')»
-	«ENDIF»
-«ENDDEFINE»
+Â«DEFINE cellContent FOR SectionCell-Â»
+	Â«IF iterator!=nullÂ»id item = [[Â«iterator.collection.expression('contentProvider', 'content')Â» asArray] objectAtIndex: indexPath.row];
+	Â«EXPAND cellContent('item', '')Â»Â«ELSEÂ»
+	Â«EXPAND cellContent('contentProvider', 'content')Â»
+	Â«ENDIFÂ»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellContent(String kvcTarget, String kvcPrefix) FOR SectionCell»
-    «tableCellClassname()» *cell = [self cell«type()»ForTableView:tableView];
-	«IF text!=null»cell.textLabel.text = «text.expression(kvcTarget, kvcPrefix)»;«ENDIF»
-	«IF details!=null»cell.detailTextLabel.text = «details.expression(kvcTarget, kvcPrefix)»;«ENDIF»
-	«IF query!=null»cell.queryString = «query.expression(kvcTarget, kvcPrefix)»;«ENDIF»
-	«IF image!=null || queryImage("cell")!=null-»
-	«IF image!=null»NSString *imageURL = «image.expression(kvcTarget, kvcPrefix)»;«ELSE-»
-	NSString *imageURL = «queryImage("cell")»;«ENDIF»
+Â«DEFINE cellContent(String kvcTarget, String kvcPrefix) FOR SectionCellÂ»
+    Â«tableCellClassname()Â» *cell = [self cellÂ«type()Â»ForTableView:tableView];
+	Â«IF text!=nullÂ»cell.textLabel.text = Â«text.expression(kvcTarget, kvcPrefix)Â»;Â«ENDIFÂ»
+	Â«IF details!=nullÂ»cell.detailTextLabel.text = Â«details.expression(kvcTarget, kvcPrefix)Â»;Â«ENDIFÂ»
+	Â«IF query!=nullÂ»cell.queryString = Â«query.expression(kvcTarget, kvcPrefix)Â»;Â«ENDIFÂ»
+	Â«IF image!=null || queryImage("cell")!=null-Â»
+	Â«IF image!=nullÂ»NSString *imageURL = Â«image.expression(kvcTarget, kvcPrefix)Â»;Â«ELSE-Â»
+	NSString *imageURL = Â«queryImage("cell")Â»;Â«ENDIFÂ»
 	cell.imageView.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];
-	«ENDIF-»
+	Â«ENDIF-Â»
 	return cell;
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellSelections FOR View»«ENDDEFINE»
+Â«DEFINE cellSelections FOR ViewÂ»Â«ENDDEFINEÂ»
 
-«DEFINE cellAction FOR SectionCell»
-	«IF iterator!=null»id item = [[«iterator.collection.expression('contentProvider', 'content')»asArray] objectAtIndex: indexPath.row];
-	«EXPAND cellAction('item', '') FOR action»«ELSE»
-	«EXPAND cellAction('contentProvider', 'content') FOR action»
-	«ENDIF»
-«ENDDEFINE»
+Â«DEFINE cellAction FOR SectionCellÂ»
+	Â«IF iterator!=nullÂ»id item = [[Â«iterator.collection.expression('contentProvider', 'content')Â»asArray] objectAtIndex: indexPath.row];
+	Â«EXPAND cellAction('item', '') FOR actionÂ»Â«ELSEÂ»
+	Â«EXPAND cellAction('contentProvider', 'content') FOR actionÂ»
+	Â«ENDIFÂ»
+Â«ENDDEFINEÂ»
 
 
-«DEFINE cellSelections FOR SectionedView»
+Â«DEFINE cellSelections FOR SectionedViewÂ»
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-«FOREACH sections AS s ITERATOR si»
-«FOREACH s.cells AS c ITERATOR ci»
-	if(«EXPAND cellConstraint(si.counter0, ci.counter0) FOR c») {
-	«EXPAND cellAction FOR c»	
+Â«FOREACH sections AS s ITERATOR siÂ»
+Â«FOREACH s.cells AS c ITERATOR ciÂ»
+	if(Â«EXPAND cellConstraint(si.counter0, ci.counter0) FOR cÂ») {
+	Â«EXPAND cellAction FOR cÂ»	
 	} else
-«ENDFOREACH-»
-«ENDFOREACH-»
+Â«ENDFOREACH-Â»
+Â«ENDFOREACH-Â»
 		return;
 }
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewAction»«this.metaType»«ENDDEFINE»
+Â«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewActionÂ»Â«this.metaTypeÂ»Â«ENDDEFINEÂ»
 
-«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewCall-»
-		IPContentProvider *provider = «provider.contentProvider('(' + application().centralProvidersClassName() + '*)contentProvider.providers', kvcTarget, kvcPrefix)»;
-		«view.className()» *controller = [[«view.className()» alloc] init];
+Â«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ViewCall-Â»
+		IPContentProvider *provider = Â«provider.contentProvider('(' + application().centralProvidersClassName() + '*)contentProvider.providers', kvcTarget, kvcPrefix)Â»;
+		Â«view.className()Â» *controller = [[Â«view.className()Â» alloc] init];
 		controller.contentProvider = provider;
 		[self.navigationController pushViewController: controller animated: TRUE];
 		[controller release];
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ExternalOpen-»
-		NSString *urlString = «url.expression(kvcTarget, kvcPrefix)»;
+Â«DEFINE cellAction(String kvcTarget, String kvcPrefix) FOR ExternalOpen-Â»
+		NSString *urlString = Â«url.expression(kvcTarget, kvcPrefix)Â»;
 		[[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlString]];
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE staticData FOR SectionedView-»
+Â«DEFINE staticData FOR SectionedView-Â»
 -(void)updateData {
-	«IF title!=null»self.navigationItem.title = «title.expression('contentProvider', 'content')»;«ENDIF»
-	«EXPAND staticData2»
+	Â«IF title!=nullÂ»self.navigationItem.title = Â«title.expression('contentProvider', 'content')Â»;Â«ENDIFÂ»
+	Â«EXPAND staticData2Â»
 	[super updateData];
 }
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
 
-«DEFINE staticData2 FOR View»«ENDDEFINE»
-«DEFINE staticData2 FOR DetailsView»
+Â«DEFINE staticData2 FOR ViewÂ»Â«ENDDEFINEÂ»
+Â«DEFINE staticData2 FOR DetailsViewÂ»
 	if(contentProvider && contentProvider.content && !contentProvider.loading) {
-		«IF header!=null && header.title!=null»self.headerView.titleLabel.text = «header.title.expression('contentProvider', 'content')»;«ENDIF»
-		«IF header!=null && header.subtitle!=null»self.headerView.subtitleLabel.text = «header.subtitle.expression('contentProvider', 'content')»;«ENDIF»
-		«IF header!=null && header.details!=null»self.headerView.detailsLabel.text = «header.details.expression('contentProvider', 'content')»;«ENDIF»
-		«IF header!=null && header.image!=null»NSString *imageURL = «header.image.expression('contentProvider', 'content')»;
-		self.headerView.image.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];«ENDIF»
+		Â«IF header!=null && header.title!=nullÂ»self.headerView.titleLabel.text = Â«header.title.expression('contentProvider', 'content')Â»;Â«ENDIFÂ»
+		Â«IF header!=null && header.subtitle!=nullÂ»self.headerView.subtitleLabel.text = Â«header.subtitle.expression('contentProvider', 'content')Â»;Â«ENDIFÂ»
+		Â«IF header!=null && header.details!=nullÂ»self.headerView.detailsLabel.text = Â«header.details.expression('contentProvider', 'content')Â»;Â«ENDIFÂ»
+		Â«IF header!=null && header.image!=nullÂ»NSString *imageURL = Â«header.image.expression('contentProvider', 'content')Â»;
+		self.headerView.image.image = [self getImage: imageURL withLoadingImage:@"personLoading.png" andErrorImage:@"personUnknown.png"];Â«ENDIFÂ»
 	}	
-«ENDDEFINE»
+Â«ENDDEFINEÂ»
