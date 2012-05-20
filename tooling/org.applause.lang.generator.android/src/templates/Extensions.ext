@@ -63,6 +63,9 @@ type(SectionCell this):
 firstCell(TableView this):
 	sections.first().cells.first();
 	
+firstCell(SectionedView this):
+	sections.first().cells.first();		
+	
 expression(Expression s, String kvcTarget, String kvcPrefix):
 	"<!ERROR!" + s.metaType + ">";
 	
@@ -140,3 +143,7 @@ methodSignature(ContentProvider p):
 	
 providersWithImplementation(Application this):
 	model().elements.typeSelect(ContentProvider);
+	
+	
+hasGPS(SectionedView this):
+	this.firstCell().filter != null;

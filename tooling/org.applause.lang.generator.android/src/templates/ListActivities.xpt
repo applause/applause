@@ -1,6 +1,7 @@
 «IMPORT org::applause::lang::applauseDsl»
 «IMPORT java::lang»
 
+«EXTENSION templates::Extensions»
 «EXTENSION templates::GeneratorExtensions»
 «EXTENSION templates::MetamodelExtensions»
 «EXTENSION templates::ProviderExtension»
@@ -14,6 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import de.itemis.base.AbstractRowAdapter;
@@ -24,6 +28,7 @@ import de.itemis.base.RowAdapter;
 import de.itemis.base.SimpleItemContentProvider;
 import de.itemis.base.LabeledIntent;
 
+import com.google.common.base.Predicate;
 import com.google.common.base.Splitter;
 import static de.itemis.base.StringUtils.*;
 
@@ -36,12 +41,72 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 	«this.type()» «this.content.name»;
 	«ENDIF»
 	«ENDIF»
+	
+	«IF this.hasGPS()-»
+	// GPS stuff
+	private Location location;	
+	
+	@Override
+	protected Predicate<Aanbieding> filterPredicate() {
+		return new Predicate<Aanbieding>() {
+			@Override
+			public boolean apply(Aanbieding item) {
+				if («activityClassName()».this.location != null) {
+					Location currentLocation = new Location("");
+					
+					currentLocation.setLongitude(Double.parseDouble(item.getLocatieX()));
+					currentLocation.setLatitude(Double.parseDouble(item.getLocatieY()));
+					float distanceTo = currentLocation.distanceTo(«activityClassName()».this.location);
+					System.out.println(String.format("Distance: %f", distanceTo));
+					return (distanceTo < «this.firstCell().filter.distance»);
+				}
+				return false;
+			}
+		};
+	}
+	
+	private void startGPSUpdates() {
+		LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+		LocationListener locationListener = new LocationListener() {
+			@Override
+			public void onStatusChanged(String provider, int status, Bundle extras) {
+			}
+			
+			@Override
+			public void onProviderEnabled(String provider) {
+			}
+			
+			@Override
+			public void onProviderDisabled(String provider) {
+			}
+			
+			@Override
+			public void onLocationChanged(Location location) {
+				«activityClassName()».this.location = location;
+				updateData();
+			}
+		};
+		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+	}
+	«ENDIF-»
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
+		setTitle(«this.title.expression("")»);
+		«EXPAND header»
 		
+		«IF this.hasGPS()-»
+		startGPSUpdates();
+		«ELSE»
+		updateData();
+		«ENDIF-»
+				
+		finishCreation();
+	}
+	
+	private void updateData() {
 		«IF this.content!=null»
 		«IF this.content.description.many»
 		«this.content.name» = getItemsFromProvider();
@@ -50,18 +115,14 @@ public class «activityClassName()» extends «javaBaseClassName()»<«this.type()»> 
 		«ENDIF»
 		«ENDIF»
 
-		setTitle(«this.title.expression("")»);
-		«EXPAND header»		
-		
-		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();
+		ArrayList<AbstractRowAdapter> rowAdapters = new ArrayList<AbstractRowAdapter>();		
 		«FOREACH this.sections.cells AS cell ITERATOR iter»
 			«EXPAND cell(iter.counter1) FOR cell»
 		«ENDFOREACH»
 		
 		setListAdapter(new GenericItemAdapter(this, rowAdapters));
-		finishCreation();
-		
 	}
+	
 	
 	«FOREACH this.sections.cells AS cell ITERATOR iter»
 		«EXPAND cellClass(this, iter.counter1) FOR cell»
