@@ -4,7 +4,9 @@
 package org.applause.lang.ui;
 
 import org.applause.lang.ui.builder.ApplauseBuilderParticipant;
+import org.applause.lang.ui.builder.EclipseOutputConfigurationProviderExt;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.builder.EclipseOutputConfigurationProvider;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 
 /**
@@ -23,5 +25,9 @@ public class ApplauseDslUiModule extends org.applause.lang.ui.AbstractApplauseDs
 	@Override
 	public Class<? extends IXtextBuilderParticipant> bindIXtextBuilderParticipant() {
 		return ApplauseBuilderParticipant.class;
+	}
+	
+	public Class<? extends EclipseOutputConfigurationProvider> bindEclipseOutputConfigurationProvider() {
+		return EclipseOutputConfigurationProviderExt.class;
 	}
 }

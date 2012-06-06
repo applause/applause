@@ -1,4 +1,4 @@
-package org.applause.lang.generator.wp7
+package org.applause.lang.generator.wp7.model
 
 import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Entity
