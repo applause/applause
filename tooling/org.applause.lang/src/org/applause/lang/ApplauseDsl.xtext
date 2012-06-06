@@ -1,0 +1,28 @@
+grammar org.applause.lang.ApplauseDsl with org.eclipse.xtext.common.Terminals
+
+generate applauseDsl "http://www.applause.org/lang/ApplauseDsl"
+
+Model:
+	types += Type*;
+	
+// -----------------------------------------
+// Entities
+// -----------------------------------------
+	
+Type:
+	DataType | Entity
+;
+
+DataType:
+	'datatype' name=ID
+;
+
+Entity:
+	(abstract ?= 'abstract')? 'entity' name=ID ('extends' superEntity = [Entity])? '{'
+		attributes += Attribute*
+	'}'
+;
+
+Attribute:
+	type=[Type] name=ID
+;

@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Applause Generator Plug-in for iOS UI
+Bundle-SymbolicName: org.applause.lang.generator.ios.ui;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: org.applause.lang.generator.ios.ui.IosGeneratorActivator
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.applause.lang;bundle-version="1.0.0",
+ org.eclipse.xtext.ui;bundle-version="2.3.0",
+ org.eclipse.xtext.builder;bundle-version="2.3.0",
+ org.applause.lang.ui;bundle-version="1.0.0",
+ org.eclipse.xtext.ui.shared;bundle-version="2.3.0",
+ org.applause.lang.generator.ios;bundle-version="1.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Import-Package: org.apache.log4j;version="1.2.15"
