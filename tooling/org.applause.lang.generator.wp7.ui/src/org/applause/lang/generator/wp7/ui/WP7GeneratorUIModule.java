@@ -1,8 +1,8 @@
 
 package org.applause.lang.generator.wp7.ui;
 
-import org.applause.lang.ui.builder.IProjectTypeDetector;
-import org.applause.lang.ui.builder.ProjectTypeAwareBuilderParticipant;
+import org.applause.lang.ui.builder.AbstractBuildStrategy;
+import org.applause.lang.ui.builder.IBuildStrategy;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ui.DefaultUiModule;
 
@@ -13,12 +13,8 @@ public class WP7GeneratorUIModule extends DefaultUiModule {
 		super(plugin);
 	}
 	
-	public Class<? extends IProjectTypeDetector> bindIProjectTypeDetector() {
-		return WP7ProjectTypeDetector.class;
-	}
-
-	public Class<? extends org.eclipse.xtext.builder.IXtextBuilderParticipant> bindIXtextBuilderParticipant() {
-		return ProjectTypeAwareBuilderParticipant.class;
+	public Class<? extends IBuildStrategy> bindIBuildStrategy() {
+		return WP7BuildStrategy.class;
 	}
 	
 }

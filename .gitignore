@@ -18,3 +18,5 @@ bin
 /reference/WP7/ItemisApp/ItemisApp/obj/
 *.suo
 /templates/itemisApp.iPhone/build/
+src-gen
+xtend-gen

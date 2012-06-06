@@ -30,4 +30,5 @@ Export-Package: org.applause.lang,
  org.applause.lang.scoping,
  org.applause.lang.serializer,
  org.applause.lang.services,
- org.applause.lang.validation
+ org.applause.lang.validation,
+ org.applause.lang.generator

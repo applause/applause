@@ -3,7 +3,9 @@
  */
 package org.applause.lang.ui;
 
+import org.applause.lang.ui.builder.ApplauseBuilderParticipant;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -12,8 +14,14 @@ public class ApplauseDslUiModule extends org.applause.lang.ui.AbstractApplauseDs
 	public ApplauseDslUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
-	
+
+	// TODO is this needed? still from Karsten's blog
 	public org.eclipse.core.resources.IWorkspaceRoot bindIWorkspaceRootToInstance() {
 		return org.eclipse.core.resources.ResourcesPlugin.getWorkspace().getRoot();
+	}
+	
+	@Override
+	public Class<? extends IXtextBuilderParticipant> bindIXtextBuilderParticipant() {
+		return ApplauseBuilderParticipant.class;
 	}
 }

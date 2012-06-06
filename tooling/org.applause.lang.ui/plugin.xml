@@ -2,6 +2,8 @@
 <?eclipse version="3.0"?>
 
 <plugin>
+   <extension-point id="mobileplatform" name="Applause Mobile Platform" schema="schema/mobileplatform.exsd"/>
+   <extension-point id="buildstrategy" name="Applause Build Strategy" schema="schema/buildstrategy.exsd"/>
 
     <extension
             point="org.eclipse.ui.editors">
@@ -173,14 +175,13 @@
         <super type="org.eclipse.xtext.ui.check.expensive"/>
         <persistent value="true"/>
     </extension>
-<!--
+    
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
--->
    <extension
             point="org.eclipse.ui.preferencePages">
         <page

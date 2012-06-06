@@ -83,13 +83,10 @@ Workflow {
                 fragment = builder.BuilderIntegrationFragment {}
     
                 // generator API
-                // extracted as per http://kthoms.wordpress.com/2011/09/28/moving-an-xtend-generator-into-its-own-plugin/
-                /*
                 fragment = generator.GeneratorFragment {
                     generateMwe = false
                     generateJavaMain = false
                 }
-                */
     
                 // formatter API
                 fragment = formatting.FormatterFragment {}
