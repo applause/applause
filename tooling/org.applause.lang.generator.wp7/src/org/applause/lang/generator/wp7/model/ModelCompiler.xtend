@@ -18,7 +18,7 @@ class ModelCompiler {
 		«fileHeader()»
 		using System;
 		
-		public class «entity.typeName»{
+		public class «entity.typeName» {
 			«FOR attribute:entity.attributes»
 				«compile(attribute)»
 			«ENDFOR»
@@ -26,6 +26,7 @@ class ModelCompiler {
 	'''
 	
 	def compile(Attribute attribute) '''
-		public «attribute.typeName» «attribute.name» { get; set; }
+		public «attribute.typeName» «attribute.attributeName» { get; set; }
 	'''
+
 }

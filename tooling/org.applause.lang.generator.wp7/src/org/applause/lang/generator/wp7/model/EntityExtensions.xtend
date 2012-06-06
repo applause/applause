@@ -17,4 +17,9 @@ class EntityExtensions {
 		attribute.type.name
 	}
 	
+	def attributeName(Attribute attribute) { 
+		attribute.name.toFirstUpper
+	}
+	
+	
 }
