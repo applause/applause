@@ -2,9 +2,9 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.eclipse.xtext.builder.participant">
-      <participant
-            class="org.applause.lang.generator.ios.ui.IosGeneratorExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
-      </participant>
+         point="org.applause.lang.ui.buildstrategy">
+      <buildstrategy
+            class="org.applause.lang.generator.ios.ui.IosGeneratorExecutableExtensionFactory:org.applause.lang.ui.builder.IBuildStrategy">
+      </buildstrategy>
    </extension>
 </plugin>

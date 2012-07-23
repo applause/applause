@@ -1,4 +1,4 @@
-package org.applause.lang.generator.ios
+package org.applause.lang.generator.ios.model
 
 import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Entity

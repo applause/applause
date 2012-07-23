@@ -1,6 +1,7 @@
 
 package org.applause.lang.generator.ios.ui;
 
+import org.applause.lang.ui.builder.IBuildStrategy;
 import org.eclipse.xtext.ui.DefaultUiModule;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
@@ -11,8 +12,8 @@ public class IosGeneratorUIModule extends DefaultUiModule {
 		super(plugin);
 	}
 
-	public Class<? extends org.eclipse.xtext.builder.IXtextBuilderParticipant> bindIXtextBuilderParticipant() {
-		return org.eclipse.xtext.builder.BuilderParticipant.class;
+	public Class<? extends IBuildStrategy> bindIBuildStrategy() {
+		return IosBuildStrategy.class;
 	}
 
 }
