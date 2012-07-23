@@ -14,7 +14,7 @@ class WP7BuildStrategy extends AbstractBuildStrategy {
 	
 	// true if there is a a file that ends with "*.sln" and it actually exists on disk 
 	def private Boolean isWP7Solution() {
-		platformProject.members.exists(file | file.name.matches(solutionFilePattern) && file.exists) 
+		platformProject.members.exists[name.matches(solutionFilePattern) && exists]
 	}
 	
 	override canBuildProject() {
