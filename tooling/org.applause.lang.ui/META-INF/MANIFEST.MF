@@ -15,7 +15,10 @@ Require-Bundle: org.applause.lang;visibility:=reexport,
  org.antlr.runtime,
  org.eclipse.xtext.common.types.ui,
  org.eclipse.xtext.ui.codetemplates.ui,
- org.eclipse.compare
+ org.eclipse.compare,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.applause.lang.ui,
