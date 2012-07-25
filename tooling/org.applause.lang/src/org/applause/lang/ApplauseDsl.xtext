@@ -2,8 +2,23 @@ grammar org.applause.lang.ApplauseDsl with org.eclipse.xtext.common.Terminals
 
 generate applauseDsl "http://www.applause.org/lang/ApplauseDsl"
 
+// -----------------------------------------
+// General Model Structure
+// -----------------------------------------
+
 Model:
-	types += Type*;
+	elements += AbstractElement*
+;
+
+NamespaceDeclaration:
+	'namespace' name=QualifiedName '{'
+		elements+=AbstractElement*
+	'}'
+;
+
+AbstractElement:
+	NamespaceDeclaration | Type | Platform
+;
 	
 // -----------------------------------------
 // Entities
@@ -25,4 +40,22 @@ Entity:
 
 Attribute:
 	type=[Type] name=ID
+;
+
+// -----------------------------------------
+// Platform specific mappings
+// -----------------------------------------
+
+Platform:
+	'platform' name=ID '{'
+		mappings += TypeMapping*
+	'}'
+;
+
+QualifiedName:
+	ID ('.' ID)*
+;
+
+TypeMapping:
+	'typemapping' type=[DataType] '->' name=QualifiedName 
 ;

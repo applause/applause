@@ -13,7 +13,7 @@ class AndroidOutputConfigurationProvider extends OutputConfigurationProvider {
 		modelOutput.description = "Output folder for model files."
 		modelOutput.outputDirectory = "./src"
 		modelOutput.overrideExistingResources = true
-		modelOutput.createOutputDirectory = false
+		modelOutput.createOutputDirectory = true
 		modelOutput.cleanUpDerivedResources = true
 		modelOutput.setDerivedProperty = true
 		result.add(modelOutput)

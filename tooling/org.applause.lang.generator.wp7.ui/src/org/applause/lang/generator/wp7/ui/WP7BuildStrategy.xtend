@@ -1,8 +1,8 @@
 package org.applause.lang.generator.wp7.ui
 
+import com.google.inject.Inject
 import java.util.regex.Pattern
 import org.applause.lang.ui.builder.AbstractBuildStrategy
-import com.google.inject.Inject
 import org.applause.lang.ui.builder.RegExUtils
 
 class WP7BuildStrategy extends AbstractBuildStrategy {
