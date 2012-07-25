@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.applause.lang.ui.buildstrategy">
+      <buildstrategy
+            class="org.applause.lang.generator.android.ui.AndroidGeneratorExecutableExtensionFactory:org.applause.lang.ui.builder.IBuildStrategy">
+      </buildstrategy>
+   </extension>
+</plugin>
