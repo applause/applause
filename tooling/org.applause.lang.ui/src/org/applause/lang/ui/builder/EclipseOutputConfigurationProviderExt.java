@@ -24,7 +24,14 @@ public class EclipseOutputConfigurationProviderExt extends EclipseOutputConfigur
 		Set<OutputConfiguration> outputConfigurations = Sets.newHashSetWithExpectedSize(getOutputConfigurations()
 				.size());
 		for (OutputConfiguration output : getOutputConfigurations()) {
-			OutputConfiguration configuration = createAndOverlayOutputConfiguration(store, output);
+			// HACK: Peter 2012-07-25: I had to disable the following call in order to avoid the ooutput configuration
+			// to be overridden with valuers from the preference store. Xtext has ben built wiht only ONE builder / generator 
+			// in mind, thus it only has ONE preference page and ONE preference store for letting the user modify the output 
+			// folder settings. We should either have separate property / preference pages for each individual code generators 
+			// for the individual platform projects OR remove configuration for output folder altogether.
+			// OutputConfiguration configuration = createAndOverlayOutputConfiguration(store, output);
+			OutputConfiguration configuration =  output;
+			
 			OutputConfiguration replaced = replaceVariables(configuration, project);
 			outputConfigurations.add(replaced);
 		}
