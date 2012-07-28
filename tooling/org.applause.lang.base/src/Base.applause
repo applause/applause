@@ -1,0 +1,16 @@
+datatype String
+datatype Integer
+datatype Date
+datatype Bool
+
+platform iOS {
+	typemapping String -> NSString
+	typemapping Integer -> NSNumber
+}
+
+platform Android {
+	typemapping Integer -> java.lang.Integer
+	typemapping String -> java.lang.String
+	typemapping Date -> java.util.Date
+	typemapping Bool -> boolean
+}

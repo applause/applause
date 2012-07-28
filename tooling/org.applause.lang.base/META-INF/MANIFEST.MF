@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Applause Base Types
+Bundle-SymbolicName: org.applause.lang.base
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.applause.lang;bundle-version="1.0.0"
+Export-Package: org.applause.lang.base
+

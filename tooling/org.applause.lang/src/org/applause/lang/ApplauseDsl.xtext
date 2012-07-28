@@ -12,13 +12,26 @@ Model:
 
 NamespaceDeclaration:
 	'namespace' name=QualifiedName '{'
-		elements+=AbstractElement*
+		elements+=NamespacedElement*
 	'}'
 ;
 
-AbstractElement:
-	NamespaceDeclaration | Type | Platform
+Import:
+	'uses' importedNamespace=QualifiedNameWithWildcard
 ;
+
+AbstractElement:
+	NamespaceDeclaration | NamespacedElement
+;
+
+NamespacedElement:
+	NamedElement | Import
+;
+
+NamedElement:
+	Type | Platform
+;
+
 	
 // -----------------------------------------
 // Entities
@@ -33,13 +46,13 @@ DataType:
 ;
 
 Entity:
-	(abstract ?= 'abstract')? 'entity' name=ID ('extends' superEntity = [Entity])? '{'
+	(abstract ?= 'abstract')? 'entity' name=ID ('extends' superEntity = [Entity|QualifiedName])? '{'
 		attributes += Attribute*
 	'}'
 ;
 
 Attribute:
-	type=[Type] name=ID
+	type=[Type|QualifiedName] name=ID
 ;
 
 // -----------------------------------------
@@ -56,6 +69,10 @@ QualifiedName:
 	ID ('.' ID)*
 ;
 
+QualifiedNameWithWildcard:
+	QualifiedName '.*'?
+;
+
 TypeMapping:
-	'typemapping' type=[DataType] '->' name=QualifiedName 
+	'typemapping' type=[DataType|QualifiedName] '->' name=QualifiedName 
 ;
