@@ -6,6 +6,7 @@ import org.applause.lang.applauseDsl.Type
 import org.applause.lang.applauseDsl.DataType
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Attribute
+import org.applause.lang.applauseDsl.Model
 
 abstract class TypeExtensions {
 	
@@ -21,28 +22,43 @@ abstract class TypeExtensions {
 		if(typeMapping != null)
 			typeMapping.name.substring(typeMapping.name.lastIndexOf('.') + 1)
 		else
-			type.name		
+			type.name as String		
 	}
 	
 	def dispatch typeName(Attribute it) {
 		type?.typeName
 	}
 	
+	def private dispatch name(Model it) {
+		''
+	}
+	
+	def private dispatch name(NamespaceDeclaration it) {
+		it.name
+	}
+	
 	def dispatch namespace(NamespacedElement it) {
-		(eContainer as NamespaceDeclaration).name
+		it.eContainer.name
 	}
 	
 	def dispatch namespace(DataType type) {
 		val typeMapping = type.platformConfigurations.map[mappings.findFirst[it.type.name == type.name]].head
-		var dotIndex = typeMapping.name.lastIndexOf('.')
-		if (dotIndex >= 0)
-			typeMapping.name.substring(0, dotIndex)
+		if (typeMapping != null) {
+			var dotIndex = typeMapping.name.lastIndexOf('.')
+			if (dotIndex >= 0)
+				typeMapping.name.substring(0, dotIndex)
+			else
+				''
+		}
 		else
-			typeMapping.name
+			''
 	}
 	
 	def fqn(Type it) {
-		namespace + '.' + typeName
+		if (namespace != "")
+			namespace + '.' + typeName
+		else
+			typeName + '' // HACK
 	}
 	
 	def String toFilePath(String path)	

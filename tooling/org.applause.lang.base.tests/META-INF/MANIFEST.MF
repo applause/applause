@@ -5,7 +5,6 @@ Bundle-SymbolicName: org.applause.lang.base.tests
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Peter Friese
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.applause.lang,
  org.applause.lang.ui,
  org.eclipse.core.runtime,
