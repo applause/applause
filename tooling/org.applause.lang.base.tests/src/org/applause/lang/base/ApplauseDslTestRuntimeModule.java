@@ -11,5 +11,9 @@ public class ApplauseDslTestRuntimeModule extends ApplauseDslRuntimeModule {
 	public Class<? extends PlatformExtensions> bindPlatformExtensions() {
 		return FooBarPlatformExtensions.class;
 	}
+	
+	public Class<? extends ImportManager> bindImportManager() {
+		return FooBarImportmanager.class;
+	}
 
 }
