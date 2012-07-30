@@ -140,4 +140,26 @@ class NamespaceTests {
 		assertEquals('zap', zapType.typeName)
 	}
 	
+	@Test
+	def testNamespaceMappings() {
+		val model = parseHelper.parse('''
+			datatype Foo
+			datatype Bar
+			datatype Zap
+			platform FooBar {
+				typemapping Bar -> foo.baz.BarBu
+				typemapping Zap -> zap
+				namespacemapping foo.baz -> Foo.Baz 
+			}
+			entity BooBar {
+				Bar bar
+			}
+		''')
+		val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
+		assertEquals('Bar', barType.name)
+		assertEquals('Foo.Baz', barType.namespace)
+		assertEquals('BarBu', barType.typeName)		
+		assertEquals('Foo.Baz.BarBu', barType.fqn)		
+	}
+	
 }

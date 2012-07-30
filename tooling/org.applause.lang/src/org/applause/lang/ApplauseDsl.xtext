@@ -61,7 +61,7 @@ Attribute:
 
 Platform:
 	'platform' name=ID '{'
-		mappings += TypeMapping*
+		mappings += Mapping*
 	'}'
 ;
 
@@ -73,6 +73,14 @@ QualifiedNameWithWildcard:
 	QualifiedName '.*'?
 ;
 
+Mapping:
+	TypeMapping | NamespaceMapping
+;
+
 TypeMapping:
 	'typemapping' type=[DataType|QualifiedName] '->' name=QualifiedName 
+;
+
+NamespaceMapping:
+	'namespacemapping' platformIndependentName=QualifiedName '->' name=QualifiedName
 ;

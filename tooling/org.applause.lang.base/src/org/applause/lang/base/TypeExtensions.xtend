@@ -7,6 +7,9 @@ import org.applause.lang.applauseDsl.DataType
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Model
+import org.applause.lang.applauseDsl.TypeMapping
+import org.eclipse.emf.ecore.EObject
+import org.applause.lang.applauseDsl.NamespaceMapping
 
 abstract class TypeExtensions {
 	
@@ -18,7 +21,7 @@ abstract class TypeExtensions {
 	}
 	
 	def dispatch typeName(DataType type) {
-		val typeMapping = type.platformConfigurations.map[mappings.findFirst[it.type.name == type.name]].head
+		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if(typeMapping != null)
 			typeMapping.name.substring(typeMapping.name.lastIndexOf('.') + 1)
 		else
@@ -37,12 +40,22 @@ abstract class TypeExtensions {
 		it.name
 	}
 	
+//	def private platformspecificNamespace(TypeMapping it) {
+//		val mapping = it.platformConfigurations.map[mappings.filter(typeof(NamespaceMapping)).findFirst[it.platformIndependentName == ]]
+//	}
+//	
 	def dispatch namespace(NamespacedElement it) {
-		it.eContainer.name
+		val regularNamespace = it.eContainer.name
+		val mapping = it.platformConfigurations.map[mappings.filter(typeof(NamespaceMapping)).findFirst[it.platformIndependentName == regularNamespace]].head
+		if (mapping != null)
+			mapping.name
+		else
+			regularNamespace
+		//it.eContainer.name
 	}
 	
-	def dispatch namespace(DataType type) {
-		val typeMapping = type.platformConfigurations.map[mappings.findFirst[it.type.name == type.name]].head
+	def private internalNamespace(DataType type) {
+		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if (typeMapping != null) {
 			var dotIndex = typeMapping.name.lastIndexOf('.')
 			if (dotIndex >= 0)
@@ -52,6 +65,15 @@ abstract class TypeExtensions {
 		}
 		else
 			''
+	}
+	
+	def dispatch namespace(DataType type) {
+		val ns = type.internalNamespace()
+		val mapping = type.platformConfigurations.map[mappings.filter(typeof(NamespaceMapping)).findFirst[it.platformIndependentName == ns]].head
+		if (mapping != null)
+			mapping.name
+		else
+			ns
 	}
 	
 	def fqn(Type it) {
