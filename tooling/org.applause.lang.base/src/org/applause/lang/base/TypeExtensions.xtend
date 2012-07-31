@@ -1,15 +1,14 @@
 package org.applause.lang.base
 
-import org.applause.lang.applauseDsl.NamespaceDeclaration
-import org.applause.lang.applauseDsl.NamespacedElement
-import org.applause.lang.applauseDsl.Type
-import org.applause.lang.applauseDsl.DataType
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Attribute
+import org.applause.lang.applauseDsl.DataType
 import org.applause.lang.applauseDsl.Model
-import org.applause.lang.applauseDsl.TypeMapping
-import org.eclipse.emf.ecore.EObject
+import org.applause.lang.applauseDsl.NamespaceDeclaration
 import org.applause.lang.applauseDsl.NamespaceMapping
+import org.applause.lang.applauseDsl.NamespacedElement
+import org.applause.lang.applauseDsl.Type
+import org.applause.lang.applauseDsl.TypeMapping
 
 abstract class TypeExtensions {
 	

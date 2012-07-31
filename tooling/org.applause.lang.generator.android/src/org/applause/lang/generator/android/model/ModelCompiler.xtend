@@ -21,14 +21,6 @@ class ModelCompiler {
 	// outlet name
 	public static val String MODEL_OUPUT = AndroidOutputConfigurationProvider::OUTPUT_MODEL
 	
-	def setterName(Attribute attribute) {
-		"set" + attribute.name.toFirstUpper
-	}
-	
-	def getterName(Attribute attribute) {
-		"get" + attribute.name.toFirstUpper
-	}
-	
 	def compile(Entity entity) '''
 		«fileHeader()»
 		
@@ -36,36 +28,30 @@ class ModelCompiler {
 		
 		«val importManager = importManagerProvider.get»
 		«val body = compile(entity, importManager)»
-		«IF (!importManager.empty)»
-		«FOR i: importManager.imports»
-			import «i»;
-		«ENDFOR»
-		
-		«ENDIF»
+		«importManager.imports()»
 		«body»
-		
 	'''
 	
-	def abstractness(Entity entity) {
-		if (entity.isAbstract()) 
-			"abstract " 
-	}
-	
-	def extendsClause(Entity entity, ImportManager importManager) {
-		if (entity.superEntity != null) {
-			"extends " + importManager.serialize(entity.superEntity)
-		}
-	}
-	
-	def compile(Entity entity, ImportManager importManager) '''
-		public «entity.abstractness»class «entity.typeName» «entity.extendsClause(importManager)» {
+	def private compile(Entity entity, ImportManager importManager) '''
+		public «entity.abstractClause»class «entity.typeName» «entity.extendsClause(importManager)» {
 			«FOR attribute:entity.attributes»
 				«compile(attribute, importManager)»
 			«ENDFOR»
 		}
 	'''
 	
-	def compile(Attribute attribute, ImportManager importManager) '''
+	def private abstractClause(Entity entity) {
+		if (entity.isAbstract()) 
+			"abstract " 
+	}
+	
+	def private extendsClause(Entity entity, ImportManager importManager) {
+		if (entity.superEntity != null) {
+			"extends " + importManager.serialize(entity.superEntity)
+		}
+	}
+	
+	def private compile(Attribute attribute, ImportManager importManager) '''
 		private «importManager.serialize(attribute.type)» «attribute.fieldName»;
 		
 		public «importManager.serialize(attribute.type)» «attribute.getterName»() {
@@ -75,6 +61,23 @@ class ModelCompiler {
 		public void «attribute.setterName»(«importManager.serialize(attribute.type)» «attribute.name») {
 			this.«attribute.fieldName» = «attribute.name»;
 		}
+	'''
+	
+	def private setterName(Attribute attribute) {
+		"set" + attribute.name.toFirstUpper
+	}
+	
+	def private getterName(Attribute attribute) {
+		"get" + attribute.name.toFirstUpper
+	}
+	
+	def private imports(ImportManager importManager) '''
+		«IF (!importManager.empty)»
+		«FOR i: importManager.imports»
+			import «i»;
+		«ENDFOR»
+		
+		«ENDIF»
 	'''
 	
 
