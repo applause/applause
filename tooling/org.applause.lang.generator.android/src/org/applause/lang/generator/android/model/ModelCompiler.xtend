@@ -1,14 +1,14 @@
 package org.applause.lang.generator.android.model
 
 import com.google.inject.Inject
-import com.google.inject.Provider
 import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.base.AttributeExtensions
+import org.applause.lang.base.ImportManager
+import org.applause.lang.base.ImportManagerFactory
 import org.applause.lang.base.TypeExtensions
 import org.applause.lang.generator.android.AndroidOutputConfigurationProvider
 import org.applause.lang.generator.android.BoilerplateExtensions
-import org.applause.lang.base.ImportManager
 
 class ModelCompiler {
 	
@@ -16,7 +16,7 @@ class ModelCompiler {
 	@Inject extension TypeExtensions
 	@Inject extension AttributeExtensions
 	
-	@Inject Provider<ImportManager> importManagerProvider
+	@Inject ImportManagerFactory importManagerFactory
 	
 	// outlet name
 	public static val String MODEL_OUPUT = AndroidOutputConfigurationProvider::OUTPUT_MODEL
@@ -26,7 +26,7 @@ class ModelCompiler {
 		
 		package «entity.namespace»;
 		
-		«val importManager = importManagerProvider.get»
+		«val importManager = importManagerFactory.create(entity)»
 		«val body = compile(entity, importManager)»
 		«importManager.imports()»
 		«body»

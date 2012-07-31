@@ -29,7 +29,7 @@ NamespacedElement:
 ;
 
 NamedElement:
-	Type | Platform
+	Type | Platform | Application
 ;
 
 	
@@ -83,4 +83,12 @@ TypeMapping:
 
 NamespaceMapping:
 	'namespacemapping' platformIndependentName=QualifiedName '->' name=QualifiedName
+;
+
+// -----------------------------------------
+// Application
+// -----------------------------------------
+
+Application:
+	'application' name=ID
 ;

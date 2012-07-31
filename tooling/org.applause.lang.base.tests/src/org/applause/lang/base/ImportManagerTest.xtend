@@ -191,4 +191,25 @@ class ImportManagerTest {
 		assertEquals('Foo', importManager.serialize(fooType))
 	}
 	
+	@Inject ImportManagerFactory importManagerFactory
+	
+	@Test
+	def testAddingIdenticalNamespaceIsIgnored() {
+		
+		val model = parseHelper.parse('''
+			namespace foo.bar {
+				entity Foo {}
+				entity Bar {}
+			}
+		''')
+		
+		val ns = model.elements.head as NamespaceDeclaration
+		val foo = ns.elements.filter(typeof(Entity)).findFirst[name == 'Foo']
+		val importManager = importManagerFactory.create(foo);
+		
+		val bar = ns.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+		assertEquals('Bar', importManager.serialize(bar));
+		assertTrue(importManager.empty)
+	}
+	
 }

@@ -1,14 +1,14 @@
 package org.applause.lang.generator.wp7.model
 
+import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Entity
-import com.google.inject.Inject
-import org.applause.lang.generator.wp7.BoilerplateExtensions
-import org.applause.lang.generator.wp7.WP7OutputConfigurationProvider
-import org.applause.lang.base.TypeExtensions
 import org.applause.lang.base.AttributeExtensions
 import org.applause.lang.base.ImportManager
-import com.google.inject.Provider
+import org.applause.lang.base.ImportManagerFactory
+import org.applause.lang.base.TypeExtensions
+import org.applause.lang.generator.wp7.BoilerplateExtensions
+import org.applause.lang.generator.wp7.WP7OutputConfigurationProvider
 
 class ModelCompiler {
 	
@@ -16,19 +16,19 @@ class ModelCompiler {
 	@Inject extension TypeExtensions
 	@Inject extension AttributeExtensions
 	
-	@Inject Provider<ImportManager> importManagerProvider
+	@Inject ImportManagerFactory importManagerFactory
 	
 	// outlet name
 	public String MODEL_OUPUT = WP7OutputConfigurationProvider::OUTPUT_MODEL
 	
 	def compile(Entity entity) '''
 		«fileHeader()»
+		«val importManager = importManagerFactory.create(entity)»
 		using System;
-		
+		«val body = entity.compile(importManager)»
+		«importManager.imports()»
+
 		namespace «entity.namespace» {
-			«val importManager = importManagerProvider.get»
-			«val body = entity.compile(importManager)»
-			«importManager.imports()»
 			«body»
 		}
 	'''
@@ -61,7 +61,6 @@ class ModelCompiler {
 		«FOR i: importManager.imports»
 			using «i»;
 		«ENDFOR»
-		
 		«ENDIF»
 	'''
 

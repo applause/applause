@@ -14,3 +14,9 @@ platform Android {
 	typemapping Date -> java.util.Date
 	typemapping Bool -> boolean
 }
+
+platform WP7 {
+	typemapping Integer -> int
+	typemapping String -> string
+	typemapping Bool -> bool
+}

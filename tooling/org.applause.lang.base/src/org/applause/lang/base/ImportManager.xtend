@@ -1,8 +1,8 @@
 package org.applause.lang.base
 
+import com.google.inject.Inject
 import java.util.HashSet
 import org.applause.lang.applauseDsl.Type
-import com.google.inject.Inject
 
 abstract class ImportManager {
 	
@@ -13,6 +13,11 @@ abstract class ImportManager {
 	
 	new() {
 		initWellknownNamespaces
+	}
+	
+	var Type thisType
+	def setThisType(Type type) {
+		thisType = type
 	}
 	
 	def void initWellknownNamespaces()
@@ -27,8 +32,15 @@ abstract class ImportManager {
 	
 	def boolean isPrimitiveType(Type type)
 	
+	def isIdenticalNamespace(Type type) {
+		if (thisType != null)
+			type.namespace == thisType.namespace
+		else
+			false
+	}
+	
 	def requiresImport(Type type) {
-		!(wellKnownNamespaces.contains(type.namespace) || type.isPrimitiveType)
+		!(wellKnownNamespaces.contains(type.namespace) || type.isPrimitiveType || type.identicalNamespace)
 	} 
 	
 	def void add(Type type) {

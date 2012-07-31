@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IMarker;
@@ -121,9 +122,11 @@ public abstract class  AbstractBuildStrategy implements IBuildStrategy {
 			Map<OutputConfiguration, Iterable<IMarker>> generatorMarkers = newHashMap();
 			for (OutputConfiguration config : outputConfigurations.values()) {
 				if (config.isCleanUpDerivedResources()) {
-					final IFolder outputFolder = platformProject.getFolder(config.getOutputDirectory());
-					final Iterable<IMarker> markers = derivedResourceMarkers.findDerivedResourceMarkers(outputFolder, generatorIdProvider.getGeneratorIdentifier());
-					generatorMarkers.put(config, markers);
+					final IResource outputFolder = platformProject.findMember(config.getOutputDirectory());
+					if (outputFolder != null) {
+						final Iterable<IMarker> markers = derivedResourceMarkers.findDerivedResourceMarkers(outputFolder, generatorIdProvider.getGeneratorIdentifier());
+						generatorMarkers.put(config, markers);
+					}
 				}
 			}
 			
@@ -141,10 +144,12 @@ public abstract class  AbstractBuildStrategy implements IBuildStrategy {
 				for (OutputConfiguration config : outputConfigurations.values()) {
 					if (config.isCleanUpDerivedResources()) {
 						Iterable<IMarker> markers = generatorMarkers.get(config);
-						for (IMarker marker : markers) {
-							String source = derivedResourceMarkers.getSource(marker);
-							if (source != null && source.equals(uri))
-								derivedResources.add((IFile) marker.getResource());
+						if (markers != null) {
+							for (IMarker marker : markers) {
+								String source = derivedResourceMarkers.getSource(marker);
+								if (source != null && source.equals(uri))
+									derivedResources.add((IFile) marker.getResource());
+							}
 						}
 					}
 				}
@@ -206,8 +211,11 @@ public abstract class  AbstractBuildStrategy implements IBuildStrategy {
 		SubMonitor subMonitor = SubMonitor.convert(monitor, outputConfigurations.size());
 		for (OutputConfiguration config : outputConfigurations.values()) {
 			SubMonitor child = subMonitor.newChild(1);
-			IFolder folder = platformProject.getFolder(config.getOutputDirectory());
-			folder.refreshLocal(IResource.DEPTH_INFINITE, child);
+			
+			IResource member = platformProject.findMember(config.getOutputDirectory());
+			if (member != null) {
+				member.refreshLocal(IResource.DEPTH_INFINITE, child);
+			}
 		}
 	}
 

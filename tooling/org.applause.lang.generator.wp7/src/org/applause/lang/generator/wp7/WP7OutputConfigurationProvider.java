@@ -15,7 +15,8 @@ public class WP7OutputConfigurationProvider extends OutputConfigurationProvider 
 		
 		OutputConfiguration modelOutput = new OutputConfiguration(OUTPUT_MODEL);
 		modelOutput.setDescription("Output folder for model files.");
-		modelOutput.setOutputDirectory("./$PROJECTNAME$/Application/Model");
+//		modelOutput.setOutputDirectory("./$PROJECTNAME$/Application/Model");
+		modelOutput.setOutputDirectory("./");
 		modelOutput.setOverrideExistingResources(true);
 		modelOutput.setCreateOutputDirectory(true);
 		modelOutput.setCleanUpDerivedResources(true);

@@ -2,7 +2,6 @@ package org.applause.lang.generator.wp7
 
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Type
-import org.applause.lang.base.TypeExtensions
 
 class ImportManager extends org.applause.lang.base.ImportManager {
 	
@@ -14,7 +13,11 @@ class ImportManager extends org.applause.lang.base.ImportManager {
 	
 
 	override isPrimitiveType(Type type) {
-		false
+		(
+			type.typeName == 'string' 
+			|| type.typeName == 'int'
+			|| type.typeName == 'bool'
+		)
 	}
 	
 }
