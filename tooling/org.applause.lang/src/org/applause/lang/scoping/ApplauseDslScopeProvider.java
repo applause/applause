@@ -3,7 +3,12 @@
  */
 package org.applause.lang.scoping;
 
+import org.applause.lang.applauseDsl.ListItemCell;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+
+import static org.eclipse.xtext.scoping.Scopes.*;
 
 /**
  * This class contains custom scoping description.
@@ -13,5 +18,16 @@ import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
  *
  */
 public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
-
+	
+//	IScope scope_DataSourceReference(ListItemCell ctx, EReference ref) {
+//		return null;
+//	}
+	
+	IScope scope_ListItemCell_configurations(ListItemCell ctx, EReference ref) {
+		return scopeFor(ctx.getType().getMembers());
+	}
+	
+	IScope scope_UIComponentMemberConfiguration_type(ListItemCell ctx, EReference ref) {
+		return scopeFor(ctx.getType().getMembers());
+	}
 }

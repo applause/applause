@@ -29,7 +29,7 @@ NamespacedElement:
 ;
 
 NamedElement:
-	Type | Platform | Application
+	Type | Platform | Application | DataSource | View | ListItemCellDeclaration | UIComponentDeclaration
 ;
 
 	
@@ -91,4 +91,84 @@ NamespaceMapping:
 
 Application:
 	'application' name=ID
+;
+
+
+// -----------------------------------------
+// Data Source
+// -----------------------------------------
+
+DataSource:
+	'datasource' name=ID '{'
+	'}'
+;
+
+
+// -----------------------------------------
+// UI Elements
+// -----------------------------------------
+
+View:
+	ListView
+;
+
+ListView:
+	'listview' name=ID '{'
+		('title' '=' title=STRING)?
+		('datasource' '=' datasource=DataSourceReference)?
+		'sections' '{'
+			sections += Section*
+		'}'
+	'}'	
+;
+
+Section:
+	'section' (name=ID)? '{'
+		('title' '=' title=STRING)?
+		('datasource' '=' datasource=DataSourceReference)?
+		items=SectionItems
+	'}'
+;
+
+SectionItems: {SectionItems}
+	'items' '{'
+		items+=ListItemCell*
+	'}'
+;
+
+ListItemCell:
+	'cell' type=[ListItemCellDeclaration] 'foreach' datasource=[DataSourceReference] 'as' variable=ID '{'
+		configurations+=UIComponentMemberConfiguration*
+	'}'
+;
+
+UIComponentMemberConfiguration:
+	type=[UIComponentMemberDeclaration] '=' value=STRING
+;
+
+
+// TODO: 	ListItemCellDeclaration really is just a special kind of UIComponentDeclaration. Consider merging them and using a 
+//			scope provider to make sure only listitemcells are valid in the context of a ListItemCell
+ListItemCellDeclaration:
+	'listitemcell' name=ID '{'
+		members+=UIComponentMemberDeclaration*
+	'}'
+;
+
+UIComponentDeclaration:
+	'uicomponent' name=ID '{'
+		members+=UIComponentMemberDeclaration*	
+	'}'
+;
+
+UIComponentMemberDeclaration:
+	type=[UIComponentOrDataType] name=ID
+;
+
+UIComponentOrDataType:
+	UIComponentDeclaration | DataType
+;
+
+DataSourceReference:
+	datasource=[DataSource] /* parameters */ 'as' name=ID
 ;
