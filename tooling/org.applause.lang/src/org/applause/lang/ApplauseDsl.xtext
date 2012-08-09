@@ -120,7 +120,7 @@ View:
 ListView:
 	'listview' name=ID '{'
 		('title' '=' title=STRING)?
-		('datasource' '=' datasource=DataSourceReference)?
+		('datasource' '=' datasource=DataSourceCall)?
 		'sections' '{'
 			sections += Section*
 		'}'
@@ -130,7 +130,7 @@ ListView:
 Section:
 	'section' (name=ID)? '{'
 		('title' '=' title=STRING)?
-		('datasource' '=' datasource=DataSourceReference)?
+		('datasource' '=' datasource=DataSourceCall)?
 		items=SectionItems
 	'}'
 ;
@@ -142,7 +142,7 @@ SectionItems: {SectionItems}
 ;
 
 ListItemCell:
-	'cell' type=[ListItemCellDeclaration] 'foreach' datasource=[DataSourceReference] 'as' variable=ID '{'
+	'cell' type=[ListItemCellDeclaration] 'foreach' datasource=[DataSourceCall] 'as' variable=ID '{'
 		configurations+=UIComponentMemberConfiguration*
 	'}'
 ;
@@ -177,8 +177,12 @@ UIComponentOrDataType:
 	UIComponentDeclaration | DataType
 ;
 
-DataSourceReference:
-	datasource=[DataSource] /* parameters */ 'as' name=ID
+DataSourceCall:
+	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' 'as' name=ID
+;
+
+InnerDataSourceCall returns DataSourceCall:
+	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')'
 ;
 
 // -----------------------------------------
