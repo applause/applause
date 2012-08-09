@@ -100,7 +100,12 @@ Application:
 
 DataSource:
 	'datasource' name=ID '{'
+		yields = DataSourceYieldSpecification
 	'}'
+;
+
+DataSourceYieldSpecification:
+	'yields' type=[Type|QualifiedName] (many?='[]')?
 ;
 
 
@@ -143,9 +148,12 @@ ListItemCell:
 ;
 
 UIComponentMemberConfiguration:
-	type=[UIComponentMemberDeclaration] '=' value=STRING
+	type=UIComponentMemberCall '=' value=Expression
 ;
 
+UIComponentMemberCall:
+	component=[UIComponentMemberDeclaration]('.' member=[UIComponentMemberDeclaration])?
+;
 
 // TODO: 	ListItemCellDeclaration really is just a special kind of UIComponentDeclaration. Consider merging them and using a 
 //			scope provider to make sure only listitemcells are valid in the context of a ListItemCell
@@ -171,4 +179,28 @@ UIComponentOrDataType:
 
 DataSourceReference:
 	datasource=[DataSource] /* parameters */ 'as' name=ID
+;
+
+// -----------------------------------------
+// Expressions
+// -----------------------------------------
+
+Expression:
+	StringLiteral | EntityMemberCall
+;
+
+EntityMemberCall:
+	head=[Attribute] (tail=EntityMemberCallTail)?
+;
+
+EntityMemberCallTail:
+	'.' head=[Attribute] (tail=EntityMemberCallTail)?
+;
+
+AttributeReference:
+	value=[Attribute]
+;
+
+StringLiteral:
+	value=STRING
 ;
