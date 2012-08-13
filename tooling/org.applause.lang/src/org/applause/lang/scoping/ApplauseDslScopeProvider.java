@@ -6,6 +6,7 @@ package org.applause.lang.scoping;
 import static org.eclipse.xtext.scoping.Scopes.scopeFor;
 
 import org.applause.lang.applauseDsl.DataSource;
+import org.applause.lang.applauseDsl.DataSourceCall;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.EntityMemberCall;
 import org.applause.lang.applauseDsl.ListItemCell;
@@ -88,6 +89,10 @@ public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
 			return scopeFor(entity.getAttributes());
 		}
 		return null;
+	}
+	
+	IScope scope_DataSourceOutletCall_outlet(DataSourceCall ctx, EReference ref) {
+		return scopeFor(ctx.getDatasource().getOutlets());
 	}
 	
 	IScope scope_UIComponentMemberConfiguration_value(ListItemCell ctx, EReference ref) {

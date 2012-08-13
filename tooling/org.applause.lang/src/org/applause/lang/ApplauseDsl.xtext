@@ -101,12 +101,48 @@ Application:
 DataSource:
 	'datasource' name=ID '{'
 		yields = DataSourceYieldSpecification
+		outlets+=DataSourceOutlet*
 	'}'
 ;
 
+// will become obsolete in 5 minutes
 DataSourceYieldSpecification:
 	'yields' type=[Type|QualifiedName] (many?='[]')?
 ;
+
+
+DataSourceOutlet:
+	name=ID '(' (parameters=ParametersSpecification)? ')' ':' yields=DataSourceOutletYieldSpecification '{'
+		verb=RESTVerb path=RESTURL
+	'}'
+;
+
+ParametersSpecification:
+	parameters+=Parameter (',' parameters+=Parameter)*
+;
+
+Parameter:
+	type=[Type|QualifiedName] name=ID
+;
+
+
+RESTURL:
+	{RESTURL} ('/' (QualifiedName | variables+=Variable))*
+;
+
+Variable:
+	':' parameterReference=[Parameter]
+;
+
+
+enum RESTVerb:
+	GET | PUT | POST | DELETE
+;
+
+DataSourceOutletYieldSpecification:
+	type=[Type|QualifiedName] (many?='[]')?
+;
+
 
 
 // -----------------------------------------
@@ -178,11 +214,15 @@ UIComponentOrDataType:
 ;
 
 DataSourceCall:
-	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' 'as' name=ID
+	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' '.' outlet=DataSourceOutletCall 'as' name=ID
 ;
 
 InnerDataSourceCall returns DataSourceCall:
-	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')'
+	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' '.' outlet=DataSourceOutletCall
+;
+
+DataSourceOutletCall:
+	outlet=[DataSourceOutlet] '(' /* TODO: add parameters */')'
 ;
 
 // -----------------------------------------
