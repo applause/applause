@@ -49,7 +49,6 @@ class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
 		scopeFor(entity.attributes)
 	}
 	
-	// TODO: still needed? yields correct?
 	def scope_EntityMemberCall_head(ListItemCell ctx, EReference ref) {
 		val type = ctx.datasource.outlet.yields.type
 		type.attributesScope
