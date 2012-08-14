@@ -100,16 +100,9 @@ Application:
 
 DataSource:
 	'datasource' name=ID '{'
-		yields = DataSourceYieldSpecification
 		outlets+=DataSourceOutlet*
 	'}'
 ;
-
-// will become obsolete in 5 minutes
-DataSourceYieldSpecification:
-	'yields' type=[Type|QualifiedName] (many?='[]')?
-;
-
 
 DataSourceOutlet:
 	name=ID '(' (parameters=ParametersSpecification)? ')' ':' yields=DataSourceOutletYieldSpecification '{'
@@ -177,8 +170,12 @@ SectionItems: {SectionItems}
 	'}'
 ;
 
+enum LoopKind:
+	for | foreach
+;
+
 ListItemCell:
-	'cell' type=[ListItemCellDeclaration] 'foreach' datasource=[DataSourceCall] 'as' variable=ID '{'
+	'cell' type=[ListItemCellDeclaration] loop=LoopKind datasource=DataSourceOutletCall 'as' variable=ID '{'
 		configurations+=UIComponentMemberConfiguration*
 	'}'
 ;
@@ -214,15 +211,15 @@ UIComponentOrDataType:
 ;
 
 DataSourceCall:
-	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' '.' outlet=DataSourceOutletCall 'as' name=ID
+	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' 'as' name=ID
 ;
 
 InnerDataSourceCall returns DataSourceCall:
-	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')' '.' outlet=DataSourceOutletCall
+	datasource=[DataSource] '(' (nestedDatasource=InnerDataSourceCall)? ')'
 ;
 
 DataSourceOutletCall:
-	outlet=[DataSourceOutlet] '(' /* TODO: add parameters */')'
+	datasource=[DataSourceCall] '.' outlet=[DataSourceOutlet] '(' /* TODO: add parameters */')'
 ;
 
 // -----------------------------------------

@@ -78,7 +78,9 @@ Workflow {
                 // fragment = exporting.SimpleNamesFragment {}
     
                 // scoping and exporting API
-                fragment = scoping.ImportNamespacesScopingFragment {}
+                fragment = scoping.ImportNamespacesScopingFragment {
+                	generateStub = false // do not create ApplauseDslScopeProvider.java, as we will provide an Xtend implementation
+                }
                 fragment = exporting.QualifiedNamesFragment {}
                 fragment = builder.BuilderIntegrationFragment {}
     
