@@ -6,10 +6,12 @@ package org.applause.lang.ui;
 import org.applause.lang.ui.builder.ApplauseBuilderParticipant;
 import org.applause.lang.ui.builder.EclipseOutputConfigurationProviderExt;
 import org.applause.lang.ui.builder.FixedEclipseResourceFileSystemAccess2;
+import org.applause.lang.ui.quickfix.ApplauseDslXtendQuickfixProvider;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.builder.EclipseOutputConfigurationProvider;
 import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionProvider;
 
 /**
  * Use this class to register components to be used within the IDE.
@@ -35,5 +37,10 @@ public class ApplauseDslUiModule extends org.applause.lang.ui.AbstractApplauseDs
 	
 	public Class<?extends EclipseResourceFileSystemAccess2> bindEclipseResourceFileSystemAccess2() {
 		return FixedEclipseResourceFileSystemAccess2.class;
+	}
+	
+	@Override
+	public Class<? extends IssueResolutionProvider> bindIssueResolutionProvider() {
+		return ApplauseDslXtendQuickfixProvider.class;
 	}
 }

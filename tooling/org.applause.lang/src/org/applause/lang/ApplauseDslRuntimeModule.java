@@ -3,9 +3,16 @@
  */
 package org.applause.lang;
 
+import org.applause.lang.validation.ApplauseDslXtendValidator;
+
 /**
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class ApplauseDslRuntimeModule extends org.applause.lang.AbstractApplauseDslRuntimeModule {
+	
+	@Override
+	@org.eclipse.xtext.service.SingletonBinding(eager=true)	public Class<? extends org.applause.lang.validation.ApplauseDslJavaValidator> bindApplauseDslJavaValidator() {
+		return ApplauseDslXtendValidator.class;
+	}
 
 }

@@ -4,7 +4,7 @@ package org.applause.lang.ui.quickfix;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 
 public class ApplauseDslQuickfixProvider extends DefaultQuickfixProvider {
-
+	
 //	@Fix(MyJavaValidator.INVALID_NAME)
 //	public void capitalizeName(final Issue issue, IssueResolutionAcceptor acceptor) {
 //		acceptor.accept(issue, "Capitalize name", "Capitalize the name.", "upcase.png", new IModification() {
