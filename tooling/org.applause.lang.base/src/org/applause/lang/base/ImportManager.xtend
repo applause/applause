@@ -57,4 +57,17 @@ abstract class ImportManager {
 			it.typeName
 	}
 	
+	def serialize(String type) {
+		imports.add(type)
+		type
+	}
+	
+	def String listType()
+	def String multiplicityTyped(Type it)
+	
+	def serialize(Type it, boolean many) {
+		if (many) it.multiplicityTyped
+		else it.serialize
+	}
+	
 }

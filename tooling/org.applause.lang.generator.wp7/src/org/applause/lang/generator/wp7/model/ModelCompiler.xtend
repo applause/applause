@@ -53,7 +53,7 @@ class ModelCompiler {
 	}
 
 	def private compile(Attribute attribute, ImportManager importManager) '''
-		public «importManager.serialize(attribute.type)» «attribute.fieldName» { get; set; }
+		public «importManager.serialize(attribute.type, attribute.many)» «attribute.fieldName» { get; set; }
 	'''
 
 	def private imports(ImportManager importManager) '''

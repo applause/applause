@@ -1,7 +1,7 @@
 package org.applause.lang.generator.android
 
-import org.applause.lang.applauseDsl.Type
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.Type
 
 class ImportManager extends org.applause.lang.base.ImportManager {
 	
@@ -14,6 +14,14 @@ class ImportManager extends org.applause.lang.base.ImportManager {
 
 	override isPrimitiveType(Type type) {
 		type.typeName == 'boolean'
+	}
+	
+	override listType() {
+		'java.util.List'
+	}
+	
+	override multiplicityTyped(Type it) {
+		listType + '<' + it.serialize + '>'
 	}
 	
 }

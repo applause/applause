@@ -20,4 +20,13 @@ class ImportManager extends org.applause.lang.base.ImportManager {
 		)
 	}
 	
+
+	override listType() {
+		'List'
+	}
+	
+	override multiplicityTyped(Type it) {
+		listType + '<' + it.serialize + '>'
+	}
+	
 }

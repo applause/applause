@@ -12,7 +12,7 @@ class ProjectExtensions {
 	 * The name for the C# project inside the project solution.
 	 */
 	def projectName(EObject it) {
-		it.application.name
+		it.application?.name
 	}
 	
 }

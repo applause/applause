@@ -52,7 +52,7 @@ Entity:
 ;
 
 Attribute:
-	type=[Type|QualifiedName] name=ID
+	type=[Type|QualifiedName] (many?='[]')? name=ID
 ;
 
 // -----------------------------------------

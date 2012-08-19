@@ -212,4 +212,36 @@ class ImportManagerTest {
 		assertTrue(importManager.empty)
 	}
 	
+	@Test
+	def testMultiplicity() {
+		val model = parseHelper.parse('''
+			namespace foo.bar {
+				entity Foo {}
+				entity Baz {}
+				entity Bar {
+					Baz baz
+					Foo[] foos
+					Bar[] bars
+				}
+			}
+		''')
+		
+		val ns = model.elements.head as NamespaceDeclaration
+		
+		val bar = ns.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+		val foos = bar.attributes.findFirst[name == 'foos']
+		val bars = bar.attributes.findFirst[name == 'bars']
+		val baz = bar.attributes.findFirst[name == 'baz']
+		
+		val importManager = importManagerFactory.create(bar);
+		
+		assertEquals('Baz', importManager.serialize(baz.type, baz.many))
+		assertEquals(0, importManager.imports.size)
+		
+		assertEquals('foo.util.List<Foo>', importManager.serialize(foos.type, foos.many))
+		assertEquals('foo.util.List<Bar>', importManager.serialize(bars.type, bars.many))
+		assertEquals('foo.util.List', importManager.imports.head)
+		assertEquals(1, importManager.imports.size)
+	}
+	
 }

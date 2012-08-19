@@ -16,4 +16,13 @@ class FooBarImportmanager extends ImportManager {
 		'zap'.equals(type.typeName)
 	}
 	
+
+	override listType() {
+		'foo.util.List'
+	}
+	
+	override multiplicityTyped(Type type) {
+		listType.serialize +  '<' + type.serialize + '>' 
+	}
+	
 }

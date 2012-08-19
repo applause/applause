@@ -52,13 +52,13 @@ class ModelCompiler {
 	}
 	
 	def private compile(Attribute attribute, ImportManager importManager) '''
-		private «importManager.serialize(attribute.type)» «attribute.fieldName»;
+		private «importManager.serialize(attribute.type, attribute.many)» «attribute.fieldName»;
 		
-		public «importManager.serialize(attribute.type)» «attribute.getterName»() {
+		public «importManager.serialize(attribute.type, attribute.many)» «attribute.getterName»() {
 			return «attribute.name»;
 		}
 		
-		public void «attribute.setterName»(«importManager.serialize(attribute.type)» «attribute.name») {
+		public void «attribute.setterName»(«importManager.serialize(attribute.type, attribute.many)» «attribute.name») {
 			this.«attribute.fieldName» = «attribute.name»;
 		}
 	'''
