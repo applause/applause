@@ -138,8 +138,8 @@ class ImportManagerTest {
 			datatype Foo
 			datatype Bar
 			platform FooBar {
-				typemapping Foo -> foo.base.Foo
-				typemapping Bar -> foo.baz.Bar
+				typemapping Foo -> Foo (foo.base)
+				typemapping Bar -> Bar (foo.baz)
 			}
 		''')
 		
@@ -160,7 +160,7 @@ class ImportManagerTest {
 			datatype Foo
 			datatype Zap
 			platform FooBar {
-				typemapping Foo -> foo.base.Foo
+				typemapping Foo -> Foo (foo.base)
 				typemapping Zap -> zap primitive
 			}
 		''')
@@ -179,8 +179,8 @@ class ImportManagerTest {
 			datatype Bar
 			datatype Zap
 			platform FooBar {
-				typemapping Foo -> foo.base.Foo
-				typemapping Bar -> foo.baz.Bar
+				typemapping Foo -> Foo (foo.base)
+				typemapping Bar -> Bar (foo.baz)
 				typemapping Zap -> zap
 			}
 		''')

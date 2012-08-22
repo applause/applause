@@ -30,7 +30,7 @@ abstract class TypeExtensions {
 	def dispatch String typeName(DataType type) {
 		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if(typeMapping != null)
-			typeMapping.name.substring(typeMapping.name.lastIndexOf('.') + 1)
+			typeMapping.simpleName
 		else
 			type.name as String		
 	}
@@ -64,9 +64,8 @@ abstract class TypeExtensions {
 	def private internalNamespace(DataType type) {
 		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if (typeMapping != null) {
-			var dotIndex = typeMapping.name.lastIndexOf('.')
-			if (dotIndex >= 0)
-				typeMapping.name.substring(0, dotIndex)
+			if (typeMapping.namespace != null) 
+				typeMapping.namespace
 			else
 				''
 		}

@@ -100,7 +100,7 @@ class ImportManagerTest {
 			datatype Foo
 			datatype Zap
 			platform ClassBased {
-				typemapping Foo -> foo.base.Foo
+				typemapping Foo -> Foo (foo.base)
 				typemapping Zap -> zap primitive
 			}
 		''')

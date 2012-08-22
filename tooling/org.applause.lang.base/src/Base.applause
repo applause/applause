@@ -11,15 +11,15 @@ platform iOS {
 }
 
 platform Android {
-	typemapping Integer -> java.lang.Integer
-	typemapping String -> java.lang.String
-	typemapping Date -> java.util.Date
+	typemapping Integer -> Integer (java.lang)
+	typemapping String -> String (java.lang)
+	typemapping Date -> Date (java.util)
 	typemapping Bool -> boolean primitive
 }
 
 platform WP7 {
-	typemapping String -> string
-	typemapping Integer -> int
+	typemapping String -> string (System)
+	typemapping Integer -> int primitive
 	typemapping Date -> Date
-	typemapping Bool -> bool
+	typemapping Bool -> bool primitive
 }
