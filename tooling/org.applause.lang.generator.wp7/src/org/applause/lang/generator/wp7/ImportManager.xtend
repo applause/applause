@@ -1,26 +1,14 @@
 package org.applause.lang.generator.wp7
 
-import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Type
+import org.applause.lang.base.NamespaceBasedImportManager
 
-class ImportManager extends org.applause.lang.base.ImportManager {
-	
-	@Inject extension org.applause.lang.base.TypeExtensions
+class ImportManager extends NamespaceBasedImportManager {
 	
 	override initWellknownNamespaces() {
 		wellKnownNamespaces.addAll("System")
 	}
 	
-
-	override isPrimitiveType(Type type) {
-		(
-			type.typeName == 'string' 
-			|| type.typeName == 'int'
-			|| type.typeName == 'bool'
-		)
-	}
-	
-
 	override listType() {
 		'List'
 	}
