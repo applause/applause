@@ -9,15 +9,9 @@ abstract class ImportManager {
 	@Inject extension TypeExtensions
 	
 	protected val imports = new HashSet<String>
-	protected val wellKnownNamespaces = new HashSet<String>
-	
-	new() {
-		initWellknownNamespaces
-	}
 	
 	@Property Type thisType
 	
-	def void initWellknownNamespaces()
 	
 	def getImports() {
 		return imports.unmodifiableView		

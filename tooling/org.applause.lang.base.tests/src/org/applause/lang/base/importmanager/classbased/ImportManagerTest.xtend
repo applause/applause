@@ -51,7 +51,7 @@ class ImportManagerTest {
 		var baz = model.elements.head as Entity
 		
 		importManager.add(baz)
-		assertTrue(!importManager.empty)
+		assertFalse(importManager.empty)
 	}
 
 	@Test
@@ -150,6 +150,32 @@ class ImportManagerTest {
 		assertEquals('Foo', importManager.serialize(foo))
 		assertEquals(1, importManager.imports.size)
 		
+	}
+	
+	@Test def testImportsForWellknownTypes() {
+		val model = parseHelper.parse('''
+			datatype Hubba
+			datatype Chuppa
+			platform ClassBased {
+				typemapping Hubba -> HubbaClass
+				typemapping Chuppa -> ChuppaClass
+			}
+			entity Bar {
+				Hubba bubba
+				Chuppa chups
+			}
+		''')
+		
+		val bar = model.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+		val hubba = bar.attributes.findFirst[name == 'bubba']
+		val chups = bar.attributes.findFirst[name == 'chups']
+		val importManager = importManagerFactory.create(bar)
+		
+		assertEquals('HubbaClass', importManager.serialize(hubba.type))
+		assertEquals('BaseClasses/ChewingGums', importManager.imports.head)
+		
+		assertEquals('ChuppaClass', importManager.serialize(chups.type))
+		assertEquals(1, importManager.imports.size)
 	}
 	
 }

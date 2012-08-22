@@ -5,7 +5,9 @@ import org.applause.lang.applauseDsl.Type
 
 class FooBarClassBasedImportManager extends ClassBasedImportmanager {
 
-	override initWellknownNamespaces() {
+	override initWellknownClasses() {
+		registerWellKnownClass('HubbaClass', 'BaseClasses/ChewingGums')
+		registerWellKnownClass('ChuppaClass')
 	}
 	
 	override listType() {
@@ -17,5 +19,7 @@ class FooBarClassBasedImportManager extends ClassBasedImportmanager {
 		// TODO ensure this is tested!
 		throw new UnsupportedOperationException("Auto-generated function stub")
 	}
+	
+
 	
 }

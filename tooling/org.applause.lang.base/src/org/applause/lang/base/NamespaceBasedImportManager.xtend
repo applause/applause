@@ -3,10 +3,18 @@ package org.applause.lang.base
 import org.applause.lang.base.ImportManager
 import org.applause.lang.applauseDsl.Type
 import com.google.inject.Inject
+import java.util.HashSet
 
 abstract class NamespaceBasedImportManager extends ImportManager {
 	
 	@Inject extension TypeExtensions
+	
+	@Property HashSet<String> wellKnownNamespaces = newHashSet() 
+	def void initWellknownNamespaces()
+	
+	new() {
+		initWellknownNamespaces
+	}
 	
 	def private isIdenticalNamespace(Type type) {
 		if (thisType != null)

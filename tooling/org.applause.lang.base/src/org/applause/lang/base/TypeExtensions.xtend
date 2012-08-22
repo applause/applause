@@ -23,11 +23,11 @@ abstract class TypeExtensions {
 			false
 	}
 	
-	def dispatch typeName(Type it) {
+	def dispatch String typeName(Type it) {
 		name
 	}
 	
-	def dispatch typeName(DataType type) {
+	def dispatch String typeName(DataType type) {
 		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if(typeMapping != null)
 			typeMapping.name.substring(typeMapping.name.lastIndexOf('.') + 1)
@@ -35,7 +35,7 @@ abstract class TypeExtensions {
 			type.name as String		
 	}
 	
-	def dispatch typeName(Attribute it) {
+	def dispatch String typeName(Attribute it) {
 		type?.typeName
 	}
 	
