@@ -1,4 +1,4 @@
-package org.applause.lang.base
+package org.applause.lang.base.importmanager.namespacebased
 
 import com.google.inject.Inject
 import com.google.inject.Provider
@@ -13,6 +13,10 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import static org.junit.Assert.*
+import org.applause.lang.base.ApplauseDslTestInjectorProvider
+import org.applause.lang.base.TypeExtensions
+import org.applause.lang.base.ImportManager
+import org.applause.lang.base.ImportManagerFactory
 
 @InjectWith(typeof(ApplauseDslTestInjectorProvider))
 @RunWith(typeof(XtextRunner))
@@ -134,8 +138,8 @@ class ImportManagerTest {
 			datatype Foo
 			datatype Bar
 			platform FooBar {
-				typemapping Foo -> foo.base.Foo
-				typemapping Bar -> foo.baz.Bar
+				typemapping Foo -> Foo (foo.base)
+				typemapping Bar -> Bar (foo.baz)
 			}
 		''')
 		
@@ -156,8 +160,8 @@ class ImportManagerTest {
 			datatype Foo
 			datatype Zap
 			platform FooBar {
-				typemapping Foo -> foo.base.Foo
-				typemapping Zap -> zap
+				typemapping Foo -> Foo (foo.base)
+				typemapping Zap -> zap primitive
 			}
 		''')
 		
@@ -175,8 +179,8 @@ class ImportManagerTest {
 			datatype Bar
 			datatype Zap
 			platform FooBar {
-				typemapping Foo -> foo.base.Foo
-				typemapping Bar -> foo.baz.Bar
+				typemapping Foo -> Foo (foo.base)
+				typemapping Bar -> Bar (foo.baz)
 				typemapping Zap -> zap
 			}
 		''')

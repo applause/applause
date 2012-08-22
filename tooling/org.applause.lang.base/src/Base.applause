@@ -6,17 +6,20 @@ datatype Bool
 platform iOS {
 	typemapping String -> NSString
 	typemapping Integer -> NSNumber
+	typemapping Date -> NSDate
+	typemapping Bool -> BOOL primitive
 }
 
 platform Android {
-	typemapping Integer -> java.lang.Integer
-	typemapping String -> java.lang.String
-	typemapping Date -> java.util.Date
-	typemapping Bool -> boolean
+	typemapping Integer -> Integer (java.lang)
+	typemapping String -> String (java.lang)
+	typemapping Date -> Date (java.util)
+	typemapping Bool -> boolean primitive
 }
 
 platform WP7 {
-	typemapping Integer -> int
-	typemapping String -> string
-	typemapping Bool -> bool
+	typemapping String -> string (System)
+	typemapping Integer -> int primitive
+	typemapping Date -> Date
+	typemapping Bool -> bool primitive
 }

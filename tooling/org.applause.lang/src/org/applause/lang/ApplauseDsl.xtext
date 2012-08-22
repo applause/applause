@@ -78,7 +78,7 @@ Mapping:
 ;
 
 TypeMapping:
-	'typemapping' type=[DataType|QualifiedName] '->' name=QualifiedName 
+	'typemapping' type=[DataType|QualifiedName] '->' simpleName=ID ('(' namespace=QualifiedName')')? (isPrimitive?='primitive')? 
 ;
 
 NamespaceMapping:
