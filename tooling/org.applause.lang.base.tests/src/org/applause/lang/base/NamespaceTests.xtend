@@ -91,7 +91,7 @@ class NamespaceTests {
 			datatype Foo
 			datatype Bar
 			platform FooBar {
-				typemapping Bar -> foo.baz.Bar 
+				typemapping Bar -> Bar (foo.baz) 
 			}
 			entity BooBar {
 				Bar bar
@@ -116,7 +116,7 @@ class NamespaceTests {
 			datatype Bar
 			datatype Zap
 			platform FooBar {
-				typemapping Bar -> foo.baz.BarBu
+				typemapping Bar -> BarBu (foo.baz)
 				typemapping Zap -> zap 
 			}
 			entity BooBar {
@@ -147,7 +147,7 @@ class NamespaceTests {
 			datatype Bar
 			datatype Zap
 			platform FooBar {
-				typemapping Bar -> foo.baz.BarBu
+				typemapping Bar -> BarBu (foo.baz)
 				typemapping Zap -> zap
 				namespacemapping foo.baz -> Foo.Baz 
 			}

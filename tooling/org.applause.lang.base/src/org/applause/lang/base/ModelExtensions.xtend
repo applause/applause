@@ -8,8 +8,8 @@ class ModelExtensions {
 	/**
 	 * Retrieves the main application model element.
 	 */
-	def application(EObject it) {
-		eResource.allContents.toIterable.filter(typeof(Application)).head
+	def application(EObject element) {
+		element.eResource.allContents.filter(typeof(Application)).head
 	}
 	
 }

@@ -52,7 +52,7 @@ Entity:
 ;
 
 Attribute:
-	type=[Type|QualifiedName] name=ID
+	type=[Type|QualifiedName] (many?='[]')? name=ID
 ;
 
 // -----------------------------------------
@@ -78,7 +78,7 @@ Mapping:
 ;
 
 TypeMapping:
-	'typemapping' type=[DataType|QualifiedName] '->' name=QualifiedName 
+	'typemapping' type=[DataType|QualifiedName] '->' simpleName=ID ('(' namespace=QualifiedName')')? (isPrimitive?='primitive')? 
 ;
 
 NamespaceMapping:

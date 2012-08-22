@@ -11,7 +11,7 @@ class IosOutputConfigurationProvider extends OutputConfigurationProvider {
 		var result = super.getOutputConfigurations()
 		val modelOutput = new OutputConfiguration(OUTPUT_MODEL) 
 		modelOutput.description = "Output folder for model files."
-		modelOutput.outputDirectory = "./$PROJECTNAME$"
+		modelOutput.outputDirectory = "./"
 		modelOutput.overrideExistingResources = true
 		modelOutput.createOutputDirectory = false
 		modelOutput.cleanUpDerivedResources = true

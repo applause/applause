@@ -8,19 +8,10 @@ abstract class ImportManager {
 	
 	@Inject extension TypeExtensions
 	
-	val imports = new HashSet<String>
-	protected val wellKnownNamespaces = new HashSet<String>
+	protected val imports = new HashSet<String>
 	
-	new() {
-		initWellknownNamespaces
-	}
+	@Property Type thisType
 	
-	var Type thisType
-	def setThisType(Type type) {
-		thisType = type
-	}
-	
-	def void initWellknownNamespaces()
 	
 	def getImports() {
 		return imports.unmodifiableView		
@@ -30,31 +21,36 @@ abstract class ImportManager {
 		imports.empty
 	}
 	
-	def boolean isPrimitiveType(Type type)
+	def boolean requiresImport(Type type)
 	
-	def isIdenticalNamespace(Type type) {
-		if (thisType != null)
-			type.namespace == thisType.namespace
-		else
-			false
-	}
+	// subclasses should override this to change whether to import the namespace or the classname 
+	def void addImport(Type type)
 	
-	def requiresImport(Type type) {
-		!(wellKnownNamespaces.contains(type.namespace) || type.isPrimitiveType || type.identicalNamespace)
-	} 
-	
+	def void addImport(String type)
+		
 	def void add(Type type) {
 		if (type.requiresImport)
-			imports.add(type.fqn);
+			addImport(type)
 	}
 	
-	def serialize(Type it) {
-		if (it.requiresImport) {
-			imports.add(it.fqn)
-			it.typeName
+	def serialize(Type type) {
+		if (type.requiresImport) {
+			addImport(type)
 		}
-		else 
-			it.typeName
+		type.typeName
+	}
+	
+	def serialize(String type) {
+		addImport(type)
+		type
+	}
+	
+	def String listType()
+	def String multiplicityTyped(Type it)
+	
+	def serialize(Type it, boolean many) {
+		if (many) it.multiplicityTyped
+		else it.serialize
 	}
 	
 }

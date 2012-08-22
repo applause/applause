@@ -15,19 +15,27 @@ abstract class TypeExtensions {
 	
 	@Inject extension PlatformExtensions
 	
-	def dispatch typeName(Type it) {
+	def isPrimitive(Type type) {
+		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
+		if(typeMapping != null)
+			typeMapping.isPrimitive
+		else
+			false
+	}
+	
+	def dispatch String typeName(Type it) {
 		name
 	}
 	
-	def dispatch typeName(DataType type) {
+	def dispatch String typeName(DataType type) {
 		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if(typeMapping != null)
-			typeMapping.name.substring(typeMapping.name.lastIndexOf('.') + 1)
+			typeMapping.simpleName
 		else
 			type.name as String		
 	}
 	
-	def dispatch typeName(Attribute it) {
+	def dispatch String typeName(Attribute it) {
 		type?.typeName
 	}
 	
@@ -56,9 +64,8 @@ abstract class TypeExtensions {
 	def private internalNamespace(DataType type) {
 		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
 		if (typeMapping != null) {
-			var dotIndex = typeMapping.name.lastIndexOf('.')
-			if (dotIndex >= 0)
-				typeMapping.name.substring(0, dotIndex)
+			if (typeMapping.namespace != null) 
+				typeMapping.namespace
 			else
 				''
 		}
