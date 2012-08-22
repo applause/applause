@@ -1,0 +1,21 @@
+package org.applause.lang.base.importmanager.classbased
+
+import org.applause.lang.base.ClassBasedImportmanager
+import org.applause.lang.applauseDsl.Type
+
+class FooBarClassBasedImportManager extends ClassBasedImportmanager {
+
+	override initWellknownNamespaces() {
+	}
+	
+	override listType() {
+		// TODO ensure this is tested!
+		throw new UnsupportedOperationException("Auto-generated function stub")
+	}
+	
+	override multiplicityTyped(Type it) {
+		// TODO ensure this is tested!
+		throw new UnsupportedOperationException("Auto-generated function stub")
+	}
+	
+}

@@ -1,22 +1,14 @@
-package org.applause.lang.base
+package org.applause.lang.base.importmanager.namespacebased
 
-import org.applause.lang.base.ImportManager
 import org.applause.lang.applauseDsl.Type
-import com.google.inject.Inject
+import org.applause.lang.base.NamespaceBasedImportManager
 
-class FooBarImportmanager extends ImportManager {
-	
-	@Inject extension TypeExtensions
+class FooBarImportmanager extends NamespaceBasedImportManager {
 	
 	override initWellknownNamespaces() {
 		wellKnownNamespaces.add('foo.base')
 	}
 	
-	override isPrimitiveType(Type type) {
-		'zap'.equals(type.typeName)
-	}
-	
-
 	override listType() {
 		'foo.util.List'
 	}

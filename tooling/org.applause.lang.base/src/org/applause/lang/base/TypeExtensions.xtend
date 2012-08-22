@@ -15,6 +15,14 @@ abstract class TypeExtensions {
 	
 	@Inject extension PlatformExtensions
 	
+	def isPrimitive(Type type) {
+		val typeMapping = type.platformConfigurations.map[mappings.filter(typeof(TypeMapping)).findFirst[it.type.name == type.name]].head
+		if(typeMapping != null)
+			typeMapping.isPrimitive
+		else
+			false
+	}
+	
 	def dispatch typeName(Type it) {
 		name
 	}
