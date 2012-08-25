@@ -1,0 +1,37 @@
+//!$*UTF8*$! {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+		8888BC2F15E6C80B004ED7F7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = UIKit.framework;
+			path = System/Library/Frameworks/UIKit.framework;
+			sourceTree = SDKROOT;
+		};
+		8888BC3015E6C80B004ED7F7 = {
+			isa = PBXBuildFile;
+			fileRef = 8888BC2F15E6C80B004ED7F7;
+		};
+		8888BC2215E6C80B004ED7F7 = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 288;
+				ORGANIZATIONNAME = "John Doe";
+			};
+			buildConfigurationList = 8888BC2515E6C80B004ED7F7;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = ( en , );
+			mainGroup = 8888BC2015E6C80B004ED7F7;
+			productRefGroup = 8888BC2C15E6C80B004ED7F7;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = ( 8888BC2A15E6C80B004ED7F7 , 8888BC4515E6C80B004ED7F7 , );
+		};
+	};
+	rootObject = 8888BC2215E6C80B004ED7F7;
+}

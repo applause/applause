@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.applause.util.xcode.projectfile.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.applause.util.xcode.projectfile.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.applause.util.xcode.projectfile;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.applause.util.xcode.projectfile.ui.contentassist,
+ org.applause.util.xcode.projectfile.ui.contentassist.antlr,
+ org.applause.util.xcode.projectfile.ui.internal
+Bundle-Activator: org.applause.util.xcode.projectfile.ui.internal.PbxprojActivator

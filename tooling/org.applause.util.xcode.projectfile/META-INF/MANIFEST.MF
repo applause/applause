@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.applause.util.xcode.projectfile
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.applause.util.xcode.projectfile; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
+ org.eclipse.xtext.generator;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
+ org.eclipse.emf.codegen.ecore;resolution:=optional,
+ org.eclipse.emf.mwe.utils;resolution:=optional,
+ org.eclipse.emf.mwe2.launch;resolution:=optional,
+ org.eclipse.xtext.util,
+ org.eclipse.emf.ecore,
+ org.eclipse.emf.common,
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.applause.util.xcode.projectfile,
+ org.applause.util.xcode.projectfile.services,
+ org.applause.util.xcode.projectfile.pbxproj,
+ org.applause.util.xcode.projectfile.pbxproj.impl,
+ org.applause.util.xcode.projectfile.pbxproj.util,
+ org.applause.util.xcode.projectfile.serializer,
+ org.applause.util.xcode.projectfile.parser.antlr,
+ org.applause.util.xcode.projectfile.parser.antlr.internal,
+ org.applause.util.xcode.projectfile.validation,
+ org.applause.util.xcode.projectfile.scoping,
+ org.applause.util.xcode.projectfile.generator,
+ org.applause.util.xcode.projectfile.formatting
+

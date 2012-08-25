@@ -1,0 +1,149 @@
+grammar org.applause.util.xcode.projectfile.Pbxproj hidden(WS, QUOTES, COMMENT)
+
+generate pbxproj "http://www.applause.org/util/xcode/projectfile/Pbxproj"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+ProjectModel:
+	'//' '!$*' encoding=Encoding '*$!'
+	'{'
+		'archiveVersion' '=' archiveVersion=INT ';'
+		'classes' '=' '{' '}' ';'
+		'objectVersion' '=' objectVersion=INT ';'
+		'objects' '=' '{'
+			objects+=ProjectObject*
+		'}' ';'
+		'rootObject' '=' rootObject=[ProjectObject] ';'
+	'}'
+;
+
+ProjectObject:
+	BuildFile | FileReference | Project
+;
+
+Project:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXProjectLiteral ';'
+		'attributes' '=' '{'
+			'LastUpgradeCheck' '=' lastupgradeCheck=INT ';'
+			'ORGANIZATIONNAME' '=' organisationName=STRING ';'
+		'}' ';'
+		'buildConfigurationList' '=' buildConfigurationList=UUID ';'
+		'compatibilityVersion' '=' compatibilityVersion=STRING ';'
+		'developmentRegion' '=' developmentRegion=Language ';'
+		'hasScannedForEncodings' '=' hasScannedForEncodings=INT ';'
+		'knownRegions' '=' '('
+			(knownRegions += KnownRegion ',')*
+		')' ';'
+		'mainGroup' '=' mainGroup=UUID ';' // TODO convert this into a reference!!!
+		'productRefGroup' '=' productRefGroup=UUID ';' // TODO convert this into a reference!!!
+		'projectDirPath' '=' projectDirPath=STRING ';'
+		'projectRoot' '=' projectRoot=STRING ';'
+		'targets' '=' '('
+			(targets+=UUID ',')* // TODO reference!!!
+		')' ';'
+	'}' ';'
+;
+
+enum Language:
+	English
+;
+
+enum KnownRegion:
+	en
+;
+
+
+BuildFile:
+	name=UUID '=' '{' 
+		'isa' '=' isa=PBXBuildFileLiteral ';'
+		'fileRef' '=' fileRef=[FileReference] ';'
+	 '}' ';'
+;
+
+FileReference:
+	name=UUID '=' file=File';'
+;
+
+File:
+	'{' 
+		'isa' '=' isa=PBXFileReferenceLiteral ';'
+		( ('lastKnownFileType' '=' lastKnownFileType=FileType) | ('explicitFileType' '=' explicitFileType=FileType) )';'
+		('name' '=' fileName=ID ';')?
+		'path' '=' path=Path ';'
+		'sourceTree' '=' sourceTree=SourceTree ';'
+	'}'
+;
+
+enum FileType:
+	wrapperApplication='wrapper.application' 
+	| wrapperFramework='wrapper.framework'
+	| wrapperCFBundle='wrapper.cfbundle'
+	| textPlistXml='text.plist.xml'
+	| testPlistStrings='text.plist.strings'
+	| sourcecodeCObjc='sourcecode.c.objc'
+	| sourcecodeCH='sourcecode.c.h'
+;
+
+Path:
+	{Path} '/'? fragments+=PathFragment ('/' fragments+=PathFragment)*
+;
+
+PathFragment:
+	PathVariable | PathID
+;
+
+PathVariable:
+	'$' '('? value=SourceTree ')'?
+;
+
+PathID:
+	value=ID
+;
+
+PathList:
+	{PathList}
+	'('
+		('\\"'? paths+=Path '\\"'? ',')+
+	')'
+;
+
+enum SourceTree:
+	SDKROOT | BUILT_PRODUCTS_DIR | group='<group>' | inherited | SRCROOT
+;
+
+
+PBXFileReferenceLiteral:
+	'PBXFileReference'
+;
+
+
+PBXBuildFileLiteral:
+	'PBXBuildFile'	
+;
+
+PBXProjectLiteral:
+	'PBXProject'
+;
+
+enum Encoding:
+	UTF8
+;
+
+
+UUID:
+	(INT | ID)*
+;
+
+terminal INT returns ecore::EInt: ('0'..'9')+;
+terminal ID: ('a'..'z'|'A'..'Z'|'0'..'9') ('a'..'z'|'A'..'Z'|'0'..'9'|'_'|'.' | '+' | '-' | '@')*;
+terminal STRING	: 
+			'"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|'"') )* '"' |
+			"'" ( '\\' ('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* "'"
+		; 
+
+
+terminal WS: (' '|'\t'|'\r'|'\n')+;
+terminal QUOTES: '"';
+
+terminal COMMENT	: '/*' -> '*/';
