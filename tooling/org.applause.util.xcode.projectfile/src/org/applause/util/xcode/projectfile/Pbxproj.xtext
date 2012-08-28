@@ -17,48 +17,23 @@ ProjectModel:
 	'}'
 ;
 
+enum Encoding:
+	UTF8
+;
+
 ProjectObject:
-	BuildFile | FileReference | Project
+	BuildFile | FileReference | Project | Group | ContainerItemProxy
 ;
-
-Project:
-	name=UUID '=' '{'
-		'isa' '=' isa=PBXProjectLiteral ';'
-		'attributes' '=' '{'
-			'LastUpgradeCheck' '=' lastupgradeCheck=INT ';'
-			'ORGANIZATIONNAME' '=' organisationName=STRING ';'
-		'}' ';'
-		'buildConfigurationList' '=' buildConfigurationList=UUID ';'
-		'compatibilityVersion' '=' compatibilityVersion=STRING ';'
-		'developmentRegion' '=' developmentRegion=Language ';'
-		'hasScannedForEncodings' '=' hasScannedForEncodings=INT ';'
-		'knownRegions' '=' '('
-			(knownRegions += KnownRegion ',')*
-		')' ';'
-		'mainGroup' '=' mainGroup=UUID ';' // TODO convert this into a reference!!!
-		'productRefGroup' '=' productRefGroup=UUID ';' // TODO convert this into a reference!!!
-		'projectDirPath' '=' projectDirPath=STRING ';'
-		'projectRoot' '=' projectRoot=STRING ';'
-		'targets' '=' '('
-			(targets+=UUID ',')* // TODO reference!!!
-		')' ';'
-	'}' ';'
-;
-
-enum Language:
-	English
-;
-
-enum KnownRegion:
-	en
-;
-
 
 BuildFile:
 	name=UUID '=' '{' 
 		'isa' '=' isa=PBXBuildFileLiteral ';'
 		'fileRef' '=' fileRef=[FileReference] ';'
 	 '}' ';'
+;
+
+PBXBuildFileLiteral:
+	'PBXBuildFile'	
 ;
 
 FileReference:
@@ -69,10 +44,15 @@ File:
 	'{' 
 		'isa' '=' isa=PBXFileReferenceLiteral ';'
 		( ('lastKnownFileType' '=' lastKnownFileType=FileType) | ('explicitFileType' '=' explicitFileType=FileType) )';'
+		('includeInIndex' '=' includeInIndex=INT';')?
 		('name' '=' fileName=ID ';')?
 		'path' '=' path=Path ';'
 		'sourceTree' '=' sourceTree=SourceTree ';'
 	'}'
+;
+
+PBXFileReferenceLiteral:
+	'PBXFileReference'
 ;
 
 enum FileType:
@@ -90,7 +70,7 @@ Path:
 ;
 
 PathFragment:
-	PathVariable | PathID
+	PathVariable | PathID | PathString
 ;
 
 PathVariable:
@@ -101,6 +81,10 @@ PathID:
 	value=ID
 ;
 
+PathString:
+	value=STRING
+;
+
 PathList:
 	{PathList}
 	'('
@@ -109,25 +93,69 @@ PathList:
 ;
 
 enum SourceTree:
-	SDKROOT | BUILT_PRODUCTS_DIR | group='<group>' | inherited | SRCROOT
+	SDKROOT | BUILT_PRODUCTS_DIR | group='"<group>"' | inherited | SRCROOT | DEVELOPER_DIR
 ;
 
-
-PBXFileReferenceLiteral:
-	'PBXFileReference'
+Project:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXProjectLiteral ';'
+		'attributes' '=' '{'
+			'LastUpgradeCheck' '=' lastupgradeCheck=INT ';'
+			'ORGANIZATIONNAME' '=' organisationName=STRING ';'
+		'}' ';'
+		'buildConfigurationList' '=' buildConfigurationList=UUID ';'
+		'compatibilityVersion' '=' compatibilityVersion=STRING ';'
+		'developmentRegion' '=' developmentRegion=Language ';'
+		'hasScannedForEncodings' '=' hasScannedForEncodings=INT ';'
+		'knownRegions' '=' '('
+			(knownRegions += ID ',')*
+		')' ';'
+		'mainGroup' '=' mainGroup=UUID ';' // TODO convert this into a reference!!!
+		'productRefGroup' '=' productRefGroup=UUID ';' // TODO convert this into a reference!!!
+		'projectDirPath' '=' projectDirPath=STRING ';'
+		'projectRoot' '=' projectRoot=STRING ';'
+		'targets' '=' '('
+			(targets+=UUID ',')* // TODO reference!!!
+		')' ';'
+	'}' ';'
 ;
 
-
-PBXBuildFileLiteral:
-	'PBXBuildFile'	
+enum Language:
+	English
 ;
 
 PBXProjectLiteral:
 	'PBXProject'
 ;
 
-enum Encoding:
-	UTF8
+Group:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXGroupLiteral ';'
+		'children' '=' '('
+			(children+=[ProjectObject] ',')*
+		')' ';'
+		('name' '=' groupName=(ID | STRING) ';' )?
+		('path' '=' path=Path ';')?
+		'sourceTree' '=' sourceTree=SourceTree ';'
+	'}' ';'
+;
+
+PBXGroupLiteral:
+	'PBXGroup'
+;
+
+ContainerItemProxy:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXContainerItemProxyLiteral ';'
+		'containerPortal' '=' containerPortal=[Project] ';'
+		'proxyType' '=' proxyType=INT ';'
+		'remoteGlobalIDString' '=' remoteGlobalIDString=UUID ';'
+		'remoteInfo' '=' remoteInfo=ID ';'
+	'}' ';'
+;
+
+PBXContainerItemProxyLiteral:
+	'PBXContainerItemProxy'
 ;
 
 

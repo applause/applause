@@ -93,7 +93,7 @@ class CreateTests {
 		val project = PbxprojFactory::eINSTANCE.createProject
 		project.name = '8888BC2215E6C80B004ED7F7'
 		project.isa = 'PBXProject'
-		project.lastupgradeCheck = 0440
+		project.lastupgradeCheck = 440
 		project.organisationName = 'John Doe'
 		project.buildConfigurationList = '8888BC2515E6C80B004ED7F7'
 		project.compatibilityVersion = 'Xcode 3.2'
