@@ -22,13 +22,13 @@ enum Encoding:
 ;
 
 ProjectObject:
-	BuildFile | FileReference | Project | Group | ContainerItemProxy
+	BuildFile | FileReference | Project | Group | VariantGroup | ContainerItemProxy | FrameworksBuildPhase
 ;
 
 BuildFile:
 	name=UUID '=' '{' 
 		'isa' '=' isa=PBXBuildFileLiteral ';'
-		'fileRef' '=' fileRef=[FileReference] ';'
+		'fileRef' '=' fileRef=[ProjectObject] ';'
 	 '}' ';'
 ;
 
@@ -37,18 +37,14 @@ PBXBuildFileLiteral:
 ;
 
 FileReference:
-	name=UUID '=' file=File';'
-;
-
-File:
-	'{' 
+	name=UUID '=' '{' 
 		'isa' '=' isa=PBXFileReferenceLiteral ';'
 		( ('lastKnownFileType' '=' lastKnownFileType=FileType) | ('explicitFileType' '=' explicitFileType=FileType) )';'
 		('includeInIndex' '=' includeInIndex=INT';')?
 		('name' '=' fileName=ID ';')?
 		'path' '=' path=Path ';'
 		'sourceTree' '=' sourceTree=SourceTree ';'
-	'}'
+	'}' ';'
 ;
 
 PBXFileReferenceLiteral:
@@ -144,6 +140,21 @@ PBXGroupLiteral:
 	'PBXGroup'
 ;
 
+VariantGroup:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXVariantGroupLiteral ';'
+		'children' '=' '('
+			(children+=[ProjectObject] ',')*
+		')' ';'
+		('name' '=' groupName=(ID | STRING) ';' )?		
+		'sourceTree' '=' sourceTree=SourceTree ';'		
+	'}' ';'
+;
+
+PBXVariantGroupLiteral:
+	'PBXVariantGroup'
+;
+
 ContainerItemProxy:
 	name=UUID '=' '{'
 		'isa' '=' isa=PBXContainerItemProxyLiteral ';'
@@ -156,6 +167,21 @@ ContainerItemProxy:
 
 PBXContainerItemProxyLiteral:
 	'PBXContainerItemProxy'
+;
+
+FrameworksBuildPhase:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXFrameworksBuildPhaseLiteral ';'
+		'buildActionMask' '=' buildActionMask=INT ';'
+		'files' '=' '('
+			(files+=[BuildFile] ',')*
+		')' ';'
+		'runOnlyForDeploymentPostprocessing' '=' runOnlyForDeploymentPostprocessing=INT ';'
+	'}' ';'
+;
+
+PBXFrameworksBuildPhaseLiteral:
+	'PBXFrameworksBuildPhase'
 ;
 
 
