@@ -22,7 +22,7 @@ enum Encoding:
 ;
 
 ProjectObject:
-	BuildFile | FileReference | Project | Group | VariantGroup | ContainerItemProxy | FrameworksBuildPhase
+	BuildFile | FileReference | Project | Group | VariantGroup | ContainerItemProxy | BuildPhase | NativeTarget | TargetDependency
 ;
 
 BuildFile:
@@ -169,7 +169,11 @@ PBXContainerItemProxyLiteral:
 	'PBXContainerItemProxy'
 ;
 
-FrameworksBuildPhase:
+BuildPhase:
+	FrameworksBuildPhase | SourcesBuildPhase | ResourcesBuildPhase | ShellScriptBuildPhase
+;
+
+FrameworksBuildPhase: 
 	name=UUID '=' '{'
 		'isa' '=' isa=PBXFrameworksBuildPhaseLiteral ';'
 		'buildActionMask' '=' buildActionMask=INT ';'
@@ -183,6 +187,98 @@ FrameworksBuildPhase:
 PBXFrameworksBuildPhaseLiteral:
 	'PBXFrameworksBuildPhase'
 ;
+
+SourcesBuildPhase: 
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXSourcesBuildPhaseLiteral ';'
+		'buildActionMask' '=' buildActionMask=INT ';'
+		'files' '=' '('
+			(files+=[BuildFile] ',')*
+		')' ';'
+		'runOnlyForDeploymentPostprocessing' '=' runOnlyForDeploymentPostprocessing=INT ';'
+	'}' ';'
+;
+
+PBXSourcesBuildPhaseLiteral:
+	'PBXSourcesBuildPhase'
+;
+
+ResourcesBuildPhase: 
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXResourcesBuildPhaseLiteral ';'
+		'buildActionMask' '=' buildActionMask=INT ';'
+		'files' '=' '('
+			(files+=[BuildFile] ',')*
+		')' ';'
+		'runOnlyForDeploymentPostprocessing' '=' runOnlyForDeploymentPostprocessing=INT ';'
+	'}' ';'
+;
+
+PBXResourcesBuildPhaseLiteral:
+	'PBXResourcesBuildPhase'
+;
+
+ShellScriptBuildPhase: 
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXShellScriptBuildPhaseLiteral ';'
+		'buildActionMask' '=' buildActionMask=INT ';'
+		'files' '=' '('
+			(files+=[BuildFile] ',')*
+		')' ';'
+		'inputPaths' '=' '('
+		')' ';'
+		'outputPaths' '=' '('
+		')' ';'
+		'runOnlyForDeploymentPostprocessing' '=' runOnlyForDeploymentPostprocessing=INT ';'
+		'shellPath' '=' shellPath=Path ';'
+		'shellScript' '=' shellScript=STRING ';'
+	'}' ';'
+;
+
+PBXShellScriptBuildPhaseLiteral:
+	'PBXShellScriptBuildPhase'
+;
+
+NativeTarget:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXNativeTargetLiteral ';'
+		'buildConfigurationList' '=' buildConfigurationList=UUID /*TODO: needs to be a XCConfigurationList */ ';'
+		'buildPhases' '=' '('
+			(buildPhases+=[BuildPhase] ',')*
+		')' ';'
+		'buildRules' '=' '('
+		')' ';'
+		'dependencies' '=' '('
+			(dependencies+=[TargetDependency] ',')*
+		')' ';'
+		'name' '=' targetName=ID ';'
+		'productName' '=' productName=ID ';'
+		'productReference' '=' productReference=[FileReference] ';'
+		'productType' '=' productType=ProductType ';'
+	'}' ';'
+;
+
+enum ProductType:
+	Application='"com.apple.product-type.application"' | Bundle='"com.apple.product-type.bundle"'
+;
+
+PBXNativeTargetLiteral:
+	'PBXNativeTarget'
+;
+
+TargetDependency:
+	name=UUID '=' '{'
+		'isa' '=' isa=PBXTargetDependencyLiteral ';'
+		'target' '=' target=[Project] ';'
+		'targetProxy' '=' targetProxy=[ContainerItemProxy] ';'
+	'}' ';'
+;
+
+PBXTargetDependencyLiteral:
+	'PBXTargetDependency'
+;
+
+
 
 
 UUID:
