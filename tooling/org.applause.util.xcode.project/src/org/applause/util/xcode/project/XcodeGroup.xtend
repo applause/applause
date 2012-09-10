@@ -1,74 +1,61 @@
 package org.applause.util.xcode.project
 
-import org.applause.util.xcode.projectfile.pbxproj.Group
 import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
+import org.applause.util.xcode.projectfile.pbxproj.Group
+
+import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
 import org.applause.util.xcode.projectfile.pbxproj.SourceTree
+import org.applause.util.xcode.project.XcodeProject
 
-import static org.applause.util.xcode.project.XcodeProjectUtils.*
+import static extension org.applause.util.xcode.project.XcodeFile.*
 
-class XcodeGroup extends AbstractXcodeProjectElement {
+class XcodeGroup {
 	
-	new(XcodeProject project) {
-		super(project)
+	@Property XcodeProject project
+	@Property Group pbx_group
+	
+	def static createGroup(XcodeProject project) {
+		val group = new XcodeGroup(project)
+		group
+	}
+	
+	def static createMainGroup(XcodeProject project) {
+		val group = new XcodeGroup(project)
+		group.mainGroup = true
+		group
+	}
+	
+	def createGroup(Path path) {
+		val group = new XcodeGroup(project)
+		group.pbx_group.path = path.pbx_path
+		pbx_group.children.add(group.pbx_group)
+		group
+	}
+	
+	private new(XcodeProject project) {
+		this.project = project
+		pbx_group = PbxprojFactory::eINSTANCE.createGroup
+		pbx_group.name = generateUUID
+		pbx_group.isa = 'PBXGroup'
+		pbx_group.sourceTree = SourceTree::GROUP
 		
-		group = PbxprojFactory::eINSTANCE.createGroup
-		group.name = generateUUID
-		group.isa = 'PBXGroup'
-		group.sourceTree = SourceTree::GROUP
-		
-		addToProject()
+		project.pbx_projectModel.objects.add(pbx_group)
 	}
 	
-	def group() {
-		object as Group
+	def setMainGroup(boolean value) {
+		project.pbx_project.mainGroup = pbx_group
 	}
 	
-	def setGroup(Group group) {
-		object = group
+	def isMainGroup() {
+		project.pbx_project.mainGroup == pbx_group
 	}
 	
-	def void setSourceTree(SourceTree tree) {
-		group.sourceTree = tree
+	def createHeaderFile(Path path) {
+		createHeaderFile(this, path)
 	}
 	
-	def getName() {
-		return group.groupName
-	}
-	
-	def setName(String name) {
-		group.groupName = name
-	}
-	
-	def addGroup() {
-		val xcodeGroup = new XcodeGroup(this.project)
-		group.children.add(xcodeGroup.group)
-		xcodeGroup
-	}
-	
-	def addGroup(String name) {
-		val result = addGroup
-		result.name = name;
-		result
-	}
-	
-	def isRefGroup() {
-		project.project.productRefGroup == group
-	}
-	
-	def setRefGroup(boolean value) {
-		project.project.productRefGroup = group
-	}
-	
-	def setPath(String path) {
-		group.path = makePath(path)
-	}
-	
-	def addFile(XcodeFile file) {
-		// find project
-		// add file to filerefs
-		// add file to project model objects
-		// add file to group refs
-		group.children.add(file.fileReference)
+	def createModuleFile(Path path) {
+		createModuleFile(this, path)
 	}
 	
 }
