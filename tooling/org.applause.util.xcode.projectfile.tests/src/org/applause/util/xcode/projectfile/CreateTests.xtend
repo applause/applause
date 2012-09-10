@@ -2,9 +2,8 @@ package org.applause.util.xcode.projectfile
 
 import com.google.inject.Inject
 import com.google.inject.Provider
-import org.applause.util.xcode.projectfile.pbxproj.FileType
+import org.applause.util.xcode.projectfile.pbxproj.Language
 import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
-import org.applause.util.xcode.projectfile.pbxproj.SourceTree
 import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
@@ -13,8 +12,6 @@ import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.applause.util.xcode.projectfile.pbxproj.Language
-import org.applause.util.xcode.projectfile.pbxproj.KnownRegion
 
 @InjectWith(typeof(PbxprojInjectorProvider))
 @RunWith(typeof(XtextRunner))
@@ -49,32 +46,32 @@ class CreateTests {
 
 		val fileReference = PbxprojFactory::eINSTANCE.createFileReference
 		fileReference.name = '8888BC2F15E6C80B004ED7F7'
-		fileReference.file = {
-			val file = PbxprojFactory::eINSTANCE.createFile
-			file.isa = 'PBXFileReference'
-			file.lastKnownFileType = FileType::WRAPPER_FRAMEWORK
-			file.fileName = 'UIKit.framework'
-			
-			file.path = {
-				val path = PbxprojFactory::eINSTANCE.createPath
-				val fragment1 = PbxprojFactory::eINSTANCE.createPathID
-				fragment1.value = 'System'
-				path.fragments.add(fragment1)
-				val fragment2 = PbxprojFactory::eINSTANCE.createPathID
-				fragment2.value = 'Library'
-				path.fragments.add(fragment2)
-				val fragment3 = PbxprojFactory::eINSTANCE.createPathID
-				fragment3.value = 'Frameworks'
-				path.fragments.add(fragment3)
-				val fragment4 = PbxprojFactory::eINSTANCE.createPathID
-				fragment4.value = 'UIKit.framework'
-				path.fragments.add(fragment4)
-				path
-			}
-			
-			file.sourceTree = SourceTree::SDKROOT
-			file
-		} 
+//		fileReference.file = {
+//			val file = PbxprojFactory::eINSTANCE.createFile
+//			file.isa = 'PBXFileReference'
+//			file.lastKnownFileType = FileType::WRAPPER_FRAMEWORK
+//			file.fileName = 'UIKit.framework'
+//			
+//			file.path = {
+//				val path = PbxprojFactory::eINSTANCE.createPath
+//				val fragment1 = PbxprojFactory::eINSTANCE.createPathID
+//				fragment1.value = 'System'
+//				path.fragments.add(fragment1)
+//				val fragment2 = PbxprojFactory::eINSTANCE.createPathID
+//				fragment2.value = 'Library'
+//				path.fragments.add(fragment2)
+//				val fragment3 = PbxprojFactory::eINSTANCE.createPathID
+//				fragment3.value = 'Frameworks'
+//				path.fragments.add(fragment3)
+//				val fragment4 = PbxprojFactory::eINSTANCE.createPathID
+//				fragment4.value = 'UIKit.framework'
+//				path.fragments.add(fragment4)
+//				path
+//			}
+//			
+//			file.sourceTree = SourceTree::SDKROOT
+//			file
+//		} 
 		projectModel.objects.add(fileReference)
 		
 //
@@ -95,12 +92,12 @@ class CreateTests {
 		project.isa = 'PBXProject'
 		project.lastupgradeCheck = 440
 		project.organisationName = 'John Doe'
-		project.buildConfigurationList = '8888BC2515E6C80B004ED7F7'
+//		project.buildConfigurationList = '8888BC2515E6C80B004ED7F7'
 		project.compatibilityVersion = 'Xcode 3.2'
 		project.developmentRegion = Language::ENGLISH
 		project.hasScannedForEncodings = 0
-		project.knownRegions.add(KnownRegion::EN)
-		project.mainGroup = '8888BC2015E6C80B004ED7F7'
+//		project.knownRegions.add(KnownRegion::EN)
+//		project.mainGroup = '8888BC2015E6C80B004ED7F7'
 		project.productRefGroup = '8888BC2C15E6C80B004ED7F7'
 		project.projectDirPath = ''
 		project.projectRoot = ''

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.applause.util.xcode.projectfile
-Bundle-Vendor: My Company
+Bundle-Vendor: Peter Friese / Applause.org
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.applause.util.xcode.projectfile; singleton:=true
 Bundle-ActivationPolicy: lazy

@@ -1,27 +1,26 @@
 package org.applause.util.xcode.project
 
+import org.applause.util.xcode.projectfile.PbxprojStandaloneSetup
+import org.applause.util.xcode.projectfile.pbxproj.Encoding
+import org.applause.util.xcode.projectfile.pbxproj.Language
 import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
 import org.applause.util.xcode.projectfile.pbxproj.Project
 import org.applause.util.xcode.projectfile.pbxproj.ProjectModel
-import org.applause.util.xcode.projectfile.pbxproj.SourceTree
 import org.eclipse.emf.common.util.URI
+import org.eclipse.xtend.lib.Property
 import org.eclipse.xtext.resource.SaveOptions
-import org.applause.util.xcode.projectfile.PbxprojStandaloneSetup
 import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.xtext.serializer.ISerializer
-import org.applause.util.xcode.projectfile.pbxproj.Encoding
 
 import static org.applause.util.xcode.project.XcodeProjectUtils.*
-import org.applause.util.xcode.projectfile.pbxproj.Language
 
 
-class XcodeProject {
+class XcodeProject extends AbstractXcodeProjectElement {
+
 	String projectPath
 	
-	ProjectModel projectModel 
-	Project project
-	
 	new(String path) {
+		super(null)
 		projectPath = path;
 		
 		project = PbxprojFactory::eINSTANCE.createProject
@@ -34,10 +33,8 @@ class XcodeProject {
 		project.developmentRegion = Language::ENGLISH
 		project.hasScannedForEncodings = 0
 		project.knownRegions.add('dummy')
-		project.productRefGroup = '8888BC2C15E6C80B004ED7F7'
 		project.projectDirPath = ''
 		project.projectRoot = ''
-		project.targets.add('dummy')
 		
 		projectModel = PbxprojFactory::eINSTANCE.createProjectModel
 		projectModel.archiveVersion = 1
@@ -45,7 +42,16 @@ class XcodeProject {
 		projectModel.encoding = Encoding::UTF8
 		projectModel.objects.add(project)
 		projectModel.rootObject = project 
-		
+	}
+	
+	@Property ProjectModel projectModel 
+	
+	def project() {
+		object as Project
+	}
+	
+	def setProject(Project project) {
+		object = project
 	}
 	
 	def save() {
@@ -67,13 +73,13 @@ class XcodeProject {
 
 	
 	def addMainGroup() {
-		val xcodeGroup = new XcodeGroup
-		xcodeGroup.sourceTree = SourceTree::GROUP
-		
-		project.mainGroup = xcodeGroup.group
-		projectModel.objects.add(project.mainGroup)
-		
+		val xcodeGroup = new XcodeGroup(this)
+		this.project.mainGroup = xcodeGroup.group
 		xcodeGroup
+	}
+	
+	def getMainGroup() {
+		project.mainGroup
 	}
 	
 }
