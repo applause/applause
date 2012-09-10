@@ -4,6 +4,7 @@ import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
 
 import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
 import org.applause.util.xcode.projectfile.pbxproj.FileReference
+import org.applause.util.xcode.projectfile.pbxproj.SourceTree
 
 class XcodeFile {
 	
@@ -18,6 +19,7 @@ class XcodeFile {
 		pbx_fileReference = PbxprojFactory::eINSTANCE.createFileReference
 		pbx_fileReference.isa = 'PBXFileReference'
 		pbx_fileReference.name = generateUUID
+		pbx_fileReference.sourceTree = SourceTree::GROUP
 	}
 	
 	def static createFile(XcodeGroup group) {

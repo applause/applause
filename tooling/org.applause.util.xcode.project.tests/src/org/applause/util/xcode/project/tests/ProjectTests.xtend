@@ -21,8 +21,12 @@ class ProjectTests {
 		val mainGroup = project.createMainGroup()
 		
 		val groupEmptyApplicationProject = mainGroup.createGroup("EmptyApplicationProject".toPath)
-		val fileHeaderAppDelegate = groupEmptyApplicationProject.createHeaderFile("AppDelegate.h".toPath)
-		val fileModuleAppDelegate = groupEmptyApplicationProject.createModuleFile("AppDelegate.m".toPath)
+		groupEmptyApplicationProject.createHeaderFile("AppDelegate.h".toPath)
+		groupEmptyApplicationProject.createModuleFile("AppDelegate.m".toPath)
+		
+		val groupEmptyApplicationProjectTests = mainGroup.createGroup("EmptyApplicationProjectTests".toPath)
+		groupEmptyApplicationProjectTests.createHeaderFile("EmptyApplicationProjectTests.h".toPath)
+		groupEmptyApplicationProjectTests.createModuleFile("EmptyApplicationProjectTests.m".toPath)
 //
 //		
 		project.save()
