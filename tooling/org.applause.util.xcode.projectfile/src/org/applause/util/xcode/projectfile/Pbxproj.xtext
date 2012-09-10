@@ -22,7 +22,8 @@ enum Encoding:
 ;
 
 ProjectObject:
-	BuildFile | FileReference | Project | Group | VariantGroup | ContainerItemProxy | BuildPhase | NativeTarget | TargetDependency
+	BuildFile | FileReference | Project | Group | VariantGroup | ContainerItemProxy | 
+	BuildPhase | NativeTarget | TargetDependency | BuildConfiguration | ConfigurationList
 ;
 
 BuildFile:
@@ -99,7 +100,7 @@ Project:
 			'LastUpgradeCheck' '=' lastupgradeCheck=INT ';'
 			'ORGANIZATIONNAME' '=' organisationName=STRING ';'
 		'}' ';'
-		'buildConfigurationList' '=' buildConfigurationList=UUID ';'
+		'buildConfigurationList' '=' buildConfigurationList=[ConfigurationList] ';'
 		'compatibilityVersion' '=' compatibilityVersion=STRING ';'
 		'developmentRegion' '=' developmentRegion=Language ';'
 		'hasScannedForEncodings' '=' hasScannedForEncodings=INT ';'
@@ -242,7 +243,7 @@ PBXShellScriptBuildPhaseLiteral:
 NativeTarget:
 	name=UUID '=' '{'
 		'isa' '=' isa=PBXNativeTargetLiteral ';'
-		'buildConfigurationList' '=' buildConfigurationList=UUID /*TODO: needs to be a XCConfigurationList */ ';'
+		'buildConfigurationList' '=' buildConfigurationList=[ConfigurationList] ';'
 		'buildPhases' '=' '('
 			(buildPhases+=[BuildPhase] ',')*
 		')' ';'
@@ -269,7 +270,7 @@ PBXNativeTargetLiteral:
 TargetDependency:
 	name=UUID '=' '{'
 		'isa' '=' isa=PBXTargetDependencyLiteral ';'
-		'target' '=' target=[Project] ';'
+		'target' '=' target=[NativeTarget] ';'
 		'targetProxy' '=' targetProxy=[ContainerItemProxy] ';'
 	'}' ';'
 ;
@@ -278,7 +279,58 @@ PBXTargetDependencyLiteral:
 	'PBXTargetDependency'
 ;
 
+BuildConfiguration:
+	name=UUID '=' '{'
+		'isa' '=' isa=XCBuildConfigurationLiteral ';'
+		'buildSettings' '=' '{'
+			(buildSettings+=BuildSetting)*
+		'}' ';'
+		'name' '=' configurationName=ID ';' //TODO: find out if this is an enum
+	'}' ';'
+;
 
+BuildSetting:
+	SimpleBuildsetting | ComplexBuildSetting
+;
+
+ComplexBuildSetting:
+	name=ID '=' '('
+		(values+=STRING ',')*
+	')' ';'
+;
+
+
+SimpleBuildsetting:
+	name=SettingID '=' value=BuildSettingValue ';'
+;
+
+SettingID:
+	ID | STRING | 'SDKROOT'
+;
+
+
+BuildSettingValue:
+	ID | STRING | INT
+;
+
+XCBuildConfigurationLiteral:
+	'XCBuildConfiguration'
+;
+
+ConfigurationList:
+	name=UUID '=' '{'
+		'isa' '=' isa=XCConfigurationListLiteral ';'
+		'buildConfigurations' '=' '('
+			(buildConfigurations+=[BuildConfiguration]',')*
+		')' ';'
+		'defaultConfigurationIsVisible' '=' defaultConfigurationIsVisible=INT ';'
+		('defaultConfigurationName' '=' defaultConfigurationName=ID ';')? // TODO: enum?
+	'}' ';'
+;
+
+XCConfigurationListLiteral:
+	'XCConfigurationList'
+;
 
 
 UUID:
