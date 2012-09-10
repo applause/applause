@@ -38,9 +38,18 @@ public class PbxprojFormatter extends AbstractDeclarativeFormatter {
 			c.setIndentation(pair.getFirst(), pair.getSecond());
 			c.setLinewrap(1).before(pair.getSecond());
 		}
+		for (Pair<Keyword, Keyword> pair : g.findKeywordPairs("(", ")")) {
+			c.setLinewrap(1).after(pair.getFirst());
+			c.setIndentation(pair.getFirst(), pair.getSecond());
+			c.setLinewrap(1).before(pair.getSecond());
+		}
 		for(Keyword semicolon: g.findKeywords(";")) {
 			c.setNoSpace().before(semicolon);
 			c.setLinewrap().after(semicolon);
+		}
+		for(Keyword comma: g.findKeywords(",")) {
+			c.setNoSpace().before(comma);
+			c.setLinewrap().after(comma);
 		}
 		
 		c.setNoSpace().after(g.getPathAccess().getSolidusKeyword_1());
