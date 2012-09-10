@@ -5,3 +5,9 @@ Bundle-SymbolicName: org.applause.util.xcode.project
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: Peter Friese / Applause.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.applause.util.xcode.projectfile;bundle-version="1.0.0",
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib
+Export-Package: org.applause.util.xcode.project
+
