@@ -11,7 +11,7 @@ ProjectModel:
 		'classes' '=' '{' '}' ';'
 		'objectVersion' '=' objectVersion=INT ';'
 		'objects' '=' '{'
-			objects+=ProjectObject*
+			(objects+=ProjectObject)*
 		'}' ';'
 		'rootObject' '=' rootObject=[ProjectObject] ';'
 	'}'
@@ -100,20 +100,20 @@ Project:
 			'LastUpgradeCheck' '=' lastupgradeCheck=INT ';'
 			'ORGANIZATIONNAME' '=' organisationName=STRING ';'
 		'}' ';'
-		'buildConfigurationList' '=' buildConfigurationList=[ConfigurationList] ';'
+		('buildConfigurationList' '=' buildConfigurationList=[ConfigurationList] ';')? // TODO: make this non-optional!
 		'compatibilityVersion' '=' compatibilityVersion=STRING ';'
 		'developmentRegion' '=' developmentRegion=Language ';'
 		'hasScannedForEncodings' '=' hasScannedForEncodings=INT ';'
 		'knownRegions' '=' '('
 			(knownRegions += ID ',')*
 		')' ';'
-		'mainGroup' '=' mainGroup=UUID ';' // TODO convert this into a reference!!!
-		'productRefGroup' '=' productRefGroup=UUID ';' // TODO convert this into a reference!!!
+		'mainGroup' '=' mainGroup=[Group] ';'
+		('productRefGroup' '=' productRefGroup=[Group] ';')? // TODO: make this non-optional!!
 		'projectDirPath' '=' projectDirPath=STRING ';'
 		'projectRoot' '=' projectRoot=STRING ';'
-		'targets' '=' '('
-			(targets+=UUID ',')* // TODO reference!!!
-		')' ';'
+		('targets' '=' '('
+			(targets+=[NativeTarget] ',')*
+		')' ';')? // TODO make this non-optional!
 	'}' ';'
 ;
 
