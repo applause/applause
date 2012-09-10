@@ -1,55 +1,52 @@
 package org.applause.util.xcode.project
 
-import org.applause.util.xcode.projectfile.pbxproj.FileReference
 import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
-import org.applause.util.xcode.projectfile.pbxproj.SourceTree
-import org.applause.util.xcode.project.XcodeProject
 
-import static org.applause.util.xcode.project.XcodeProjectUtils.*
+import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
+import org.applause.util.xcode.projectfile.pbxproj.FileReference
 
-class XcodeFile extends AbstractXcodeProjectElement  {
+class XcodeFile {
 	
-	new(XcodeProject project) {
-		super(project)
+	XcodeProject project
+	XcodeGroup group
+	FileReference pbx_fileReference
+	
+	private new(XcodeGroup group) {
+		this.group = group
+		this.project = group.project
 		
-		fileReference = PbxprojFactory::eINSTANCE.createFileReference
-		fileReference.isa = 'PBXFileReference'
-		fileReference.name = generateUUID
-		fileReference.sourceTree = SourceTree::GROUP
-		fileReference.addToProject
-		
-		val buildFile = PbxprojFactory::eINSTANCE.createBuildFile
-		buildFile.isa = 'PBXBuildFile'
-		buildFile.name = generateUUID
-		buildFile.fileRef = fileReference
-		buildFile.addToProject
-	}
-
-	def static createHeaderFile(XcodeProject project, String path) {
-		val result = new XcodeFile(project)
-		result.fileType = FileType::C_HEADER
-		result.path = path
-		result
+		pbx_fileReference = PbxprojFactory::eINSTANCE.createFileReference
+		pbx_fileReference.isa = 'PBXFileReference'
+		pbx_fileReference.name = generateUUID
 	}
 	
-	def static createModuleFile(XcodeProject project, String path) {
-		val result = new XcodeFile(project)
-		result.fileType = FileType::C_MODULE
-		result.path = path
-		result
+	def static createFile(XcodeGroup group) {
+		val file = new XcodeFile(group)
+		file
 	}
 	
-	def setFileReference(FileReference ref) {
-		object = ref
+	def static createHeaderFile(XcodeGroup group, Path path) {
+		val file = createFile(group)
+		file.fileType = FileType::C_HEADER
+		file.path = path
+		file.connect
+		file
 	}
 	
-	def getFileReference() {
-		return object as FileReference
+	def static createModuleFile(XcodeGroup group, Path path) {
+		val file = createFile(group)
+		file.fileType = FileType::C_MODULE
+		file.path = path
+		file.connect
+		file
 	}
 	
+	def setPath(Path path) {
+		pbx_fileReference.path = path.pbx_path
+	}
 	
 	def setFileType(FileType type) {
-		fileReference.lastKnownFileType = switch type {
+		pbx_fileReference.lastKnownFileType = switch type {
 			case FileType::C_HEADER: 
 				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH
 			case FileType::C_MODULE:
@@ -57,8 +54,27 @@ class XcodeFile extends AbstractXcodeProjectElement  {
 		}
 	}
 	
-	def setPath(String path) {
-		fileReference.path = makePath(path) 
+	def isBuildFile() {
+		switch pbx_fileReference.lastKnownFileType {
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH:
+				false
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_COBJC:
+				true	
+		}
 	}
 	
+	def private connect() {
+		// hook up the fileReference
+		project.pbx_projectModel.objects.add(pbx_fileReference)
+		group.pbx_group.children.add(pbx_fileReference)
+		
+		
+		if (buildFile) {
+			val buildFile = PbxprojFactory::eINSTANCE.createBuildFile
+			buildFile.isa = 'PBXBuildFile'
+			buildFile.name = generateUUID	
+			buildFile.fileRef = pbx_fileReference
+			project.pbx_projectModel.objects.add(buildFile)
+		}
+	}	
 }
