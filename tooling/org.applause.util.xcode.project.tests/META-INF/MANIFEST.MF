@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Xcode Project Utilities Tests
+Bundle-SymbolicName: org.applause.util.xcode.project.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Peter Friese / Applause.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
