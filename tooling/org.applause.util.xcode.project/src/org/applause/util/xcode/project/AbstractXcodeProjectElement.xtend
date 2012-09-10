@@ -13,6 +13,10 @@ class AbstractXcodeProjectElement {
 	}
 	
 	def protected addToProject() {
-		project.projectModel.objects.add(object)
+		addToProject(object)
+	}
+	
+	def protected addToProject(ProjectObject projectObject) {
+		project.projectModel.objects.add(projectObject)
 	}
 }

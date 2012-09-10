@@ -31,8 +31,10 @@ class ProjectTests {
 		applicationGroup.path = "EmptyApplicationProject"
 		
 		val appDelegateHeaderFile = project.createHeaderFile("AppDelegate.h")
-		// TODO: add appDelegateHeaderFile to applicationGroup:
-		 applicationGroup.addFile(appDelegateHeaderFile);
+		applicationGroup.addFile(appDelegateHeaderFile);
+		
+		val appDelegateModuleFile = project.createModuleFile("AppDelegate.m")
+		applicationGroup.addFile(appDelegateModuleFile);
 		
 		project.save()
 	}

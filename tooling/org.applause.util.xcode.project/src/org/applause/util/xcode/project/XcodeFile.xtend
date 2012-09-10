@@ -16,13 +16,25 @@ class XcodeFile extends AbstractXcodeProjectElement  {
 		fileReference.isa = 'PBXFileReference'
 		fileReference.name = generateUUID
 		fileReference.sourceTree = SourceTree::GROUP
+		fileReference.addToProject
 		
-		addToProject()
+		val buildFile = PbxprojFactory::eINSTANCE.createBuildFile
+		buildFile.isa = 'PBXBuildFile'
+		buildFile.name = generateUUID
+		buildFile.fileRef = fileReference
+		buildFile.addToProject
 	}
 
 	def static createHeaderFile(XcodeProject project, String path) {
 		val result = new XcodeFile(project)
 		result.fileType = FileType::C_HEADER
+		result.path = path
+		result
+	}
+	
+	def static createModuleFile(XcodeProject project, String path) {
+		val result = new XcodeFile(project)
+		result.fileType = FileType::C_MODULE
 		result.path = path
 		result
 	}
