@@ -14,6 +14,7 @@ import org.eclipse.xtext.serializer.ISerializer
 import org.eclipse.xtext.resource.SaveOptions
 
 import static extension org.applause.util.xcode.project.XcodeGroup.*
+import static extension org.applause.util.xcode.project.XcodeTarget.*
 
 class XcodeProject {
 	@Property ProjectModel pbx_projectModel
@@ -70,5 +71,16 @@ class XcodeProject {
 		createMainGroup(this)
 	}
 	
+	def createTarget(String name) {
+		createTarget(this, name)
+	}
+	
+	def createApplicationTarget(String name) {
+		createApplicationTarget(this, name)
+	}
+	
+	def createApplicationTarget(String name, XcodeFile applicationFile) {
+		createApplicationTarget(this, name, applicationFile)
+	}		
 	
 }

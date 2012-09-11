@@ -243,10 +243,10 @@ PBXShellScriptBuildPhaseLiteral:
 NativeTarget:
 	name=UUID '=' '{'
 		'isa' '=' isa=PBXNativeTargetLiteral ';'
-		'buildConfigurationList' '=' buildConfigurationList=[ConfigurationList] ';'
-		'buildPhases' '=' '('
+		('buildConfigurationList' '=' buildConfigurationList=[ConfigurationList] ';')? // TODO: make this non-optional
+		('buildPhases' '=' '('
 			(buildPhases+=[BuildPhase] ',')*
-		')' ';'
+		')' ';')? // TODO: make this non-optional
 		'buildRules' '=' '('
 		')' ';'
 		'dependencies' '=' '('
