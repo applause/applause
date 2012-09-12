@@ -53,7 +53,8 @@ PBXFileReferenceLiteral:
 ;
 
 enum FileType:
-	wrapperApplication='wrapper.application' 
+	none='none - dont use this'
+	| wrapperApplication='wrapper.application' 
 	| wrapperFramework='wrapper.framework'
 	| wrapperCFBundle='wrapper.cfbundle'
 	| textPlistXml='text.plist.xml'

@@ -15,6 +15,7 @@ import org.eclipse.xtext.resource.SaveOptions
 
 import static extension org.applause.util.xcode.project.XcodeGroup.*
 import static extension org.applause.util.xcode.project.XcodeTarget.*
+import static extension org.applause.util.xcode.project.XcodeBuildPhase.*
 
 class XcodeProject {
 	@Property ProjectModel pbx_projectModel
@@ -82,5 +83,9 @@ class XcodeProject {
 	def createApplicationTarget(String name, XcodeFile applicationFile) {
 		createApplicationTarget(this, name, applicationFile)
 	}		
+	
+	def createSourceBuildPhase() {
+		createSourceBuildPhase(this)
+	}
 	
 }

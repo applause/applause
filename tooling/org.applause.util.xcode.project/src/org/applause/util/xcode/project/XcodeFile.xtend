@@ -4,12 +4,14 @@ import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
 
 import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
 import org.applause.util.xcode.projectfile.pbxproj.FileReference
+import org.applause.util.xcode.projectfile.pbxproj.BuildFile
 
 class XcodeFile {
 	
 	XcodeProject project
 	XcodeGroup group
 	@Property FileReference pbx_fileReference
+	@Property BuildFile pbx_buildFile
 	
 	private new(XcodeGroup group) {
 		this.group = group
@@ -43,11 +45,17 @@ class XcodeFile {
 	}
 	
 	def static createAppFile(XcodeGroup group, Path path) {
-		val file = createFile(group)
+		val file = createFile(group)		
 		file.fileType = FileType::APP
 		file.path = path
+		file.sourceTree = SourceTree::BUILT_PRODUCTS_DIR
+		file.includeInIndex = false
 		file.connect
 		file
+	}
+	
+	def setIncludeInIndex(boolean include) {
+		pbx_fileReference.includeInIndex = if (include)  1 else 0
 	}
 	
 	def setPath(Path path) {
@@ -55,6 +63,9 @@ class XcodeFile {
 	}
 	
 	def setFileType(FileType type) {
+		pbx_fileReference.lastKnownFileType = null;
+		pbx_fileReference.explicitFileType = null;
+		
 		pbx_fileReference.lastKnownFileType = switch type {
 			case FileType::C_HEADER: 
 				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH
@@ -96,11 +107,11 @@ class XcodeFile {
 		group.pbx_group.children.add(pbx_fileReference)
 		
 		if (buildFile) {
-			val buildFile = PbxprojFactory::eINSTANCE.createBuildFile
-			buildFile.isa = 'PBXBuildFile'
-			buildFile.name = generateUUID	
-			buildFile.fileRef = pbx_fileReference
-			project.pbx_projectModel.objects.add(buildFile)
+			pbx_buildFile = PbxprojFactory::eINSTANCE.createBuildFile
+			pbx_buildFile.isa = 'PBXBuildFile'
+			pbx_buildFile.name = generateUUID	
+			pbx_buildFile.fileRef = pbx_fileReference
+			project.pbx_projectModel.objects.add(pbx_buildFile)
 		}
 	}	
 }

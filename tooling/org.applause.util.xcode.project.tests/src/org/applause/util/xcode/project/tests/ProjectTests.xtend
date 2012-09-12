@@ -21,8 +21,8 @@ class ProjectTests {
 		val mainGroup = project.createMainGroup()
 		
 		val groupEmptyApplicationProject = mainGroup.createGroup("EmptyApplicationProject".toPath)
-		groupEmptyApplicationProject.createHeaderFile("AppDelegate.h".toPath)
-		groupEmptyApplicationProject.createModuleFile("AppDelegate.m".toPath)
+		val appDelegeateHeaderFile = groupEmptyApplicationProject.createHeaderFile("AppDelegate.h".toPath)
+		val appDelegateModuleFile = groupEmptyApplicationProject.createModuleFile("AppDelegate.m".toPath)
 		
 		val groupEmptyApplicationProjectTests = mainGroup.createGroup("EmptyApplicationProjectTests".toPath)
 		groupEmptyApplicationProjectTests.createHeaderFile("EmptyApplicationProjectTests.h".toPath)
@@ -34,6 +34,7 @@ class ProjectTests {
 		
 		val applicationTarget = project.createApplicationTarget("EmptyApplicationProject", applicationFile)
 		applicationTarget.productName = "EmptyApplicationProject" 
+		applicationTarget.add(appDelegateModuleFile)
 		
 		project.save()
 	}
