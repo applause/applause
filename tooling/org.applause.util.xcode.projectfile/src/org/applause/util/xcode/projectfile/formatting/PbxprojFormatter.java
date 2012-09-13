@@ -51,9 +51,43 @@ public class PbxprojFormatter extends AbstractDeclarativeFormatter {
 			c.setNoSpace().before(comma);
 			c.setLinewrap().after(comma);
 		}
+		for(Keyword equalSign: g.findKeywords("=")) {
+			c.setNoLinewrap().after(equalSign);
+			c.setNoLinewrap().before(equalSign);
+		}
 		
 		c.setNoSpace().after(g.getPathAccess().getSolidusKeyword_1());
 		c.setNoSpace().after(g.getPathAccess().getSolidusKeyword_3_0());
 		c.setNoSpace().before(g.getPathAccess().getSolidusKeyword_3_0());
+		
+		// BuildFile
+		c.setNoLinewrap().after(g.getBuildFileAccess().getLeftCurlyBracketKeyword_2());
+		c.setNoSpace().after(g.getBuildFileAccess().getLeftCurlyBracketKeyword_2());
+		for (Keyword semicolon: g.getBuildFileAccess().findKeywords(";")) {
+			if (semicolon != g.getBuildFileAccess().getSemicolonKeyword_12()) {
+				c.setNoLinewrap().after(semicolon);
+				c.setNoSpace().after(semicolon);
+				c.setSpace(" ").after(semicolon);
+			}
+		}
+		c.setNoSpace().before(g.getBuildFileAccess().getRightCurlyBracketKeyword_11());
+		c.setNoLinewrap().before(g.getBuildFileAccess().getRightCurlyBracketKeyword_11());
+		
+		// FileReference
+		c.setNoLinewrap().after(g.getFileReferenceAccess().getLeftCurlyBracketKeyword_2());
+		c.setNoSpace().after(g.getFileReferenceAccess().getLeftCurlyBracketKeyword_2());
+		for (Keyword semicolon: g.getFileReferenceAccess().findKeywords(";")) {
+			if (semicolon != g.getFileReferenceAccess().getSemicolonKeyword_20()) {
+				c.setNoLinewrap().after(semicolon);
+				c.setNoSpace().after(semicolon);
+				c.setSpace(" ").after(semicolon);
+			}
+		}
+		c.setNoSpace().before(g.getFileReferenceAccess().getRightCurlyBracketKeyword_19());
+		c.setNoLinewrap().before(g.getFileReferenceAccess().getRightCurlyBracketKeyword_19());
+		
+		// BuildSetting
+		c.setNoLinewrap().before(g.getSimpleBuildsettingAccess().getEqualsSignKeyword_1());
+		c.setNoLinewrap().after(g.getSimpleBuildsettingAccess().getEqualsSignKeyword_1());
 	}
 }
