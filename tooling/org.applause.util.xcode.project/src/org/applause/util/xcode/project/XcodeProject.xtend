@@ -16,6 +16,7 @@ import org.eclipse.xtext.resource.SaveOptions
 import static extension org.applause.util.xcode.project.XcodeGroup.*
 import static extension org.applause.util.xcode.project.XcodeTarget.*
 import static extension org.applause.util.xcode.project.XcodeBuildPhase.*
+import com.google.inject.Injector
 
 class XcodeProject {
 	@Property ProjectModel pbx_projectModel
@@ -51,16 +52,31 @@ class XcodeProject {
 		pbx_projectModel.rootObject = pbx_project	
 	}
 	
+	Injector _injector
+	def getInjector() {
+		if (_injector == null) {
+			_injector = new PbxprojStandaloneSetup().createInjectorAndDoEMFRegistration();
+		}
+		_injector
+	}
+	
+	XtextResourceSet _resourceSet
+	def getResourceSet() {
+		if (_resourceSet == null) {
+			_resourceSet = injector.getInstance(typeof(XtextResourceSet))
+		}
+		_resourceSet
+	}
+	
+	override toString() {
+		val serializer = injector.getInstance(typeof(ISerializer))
+		val out = serializer.serialize(pbx_projectModel, SaveOptions::newBuilder.format.noValidation.options)
+		out
+	}
+	
 	def save() {
-		val injector = new PbxprojStandaloneSetup().createInjectorAndDoEMFRegistration();
-		val resourceSet = injector.getInstance(typeof(XtextResourceSet))
-		
 		val res = resourceSet.createResource(URI::createFileURI(pbxProjectFileName) );
 		res.contents.add(pbx_projectModel)
-		
-		val serializer = injector.getInstance(typeof(ISerializer))
-		val out = serializer.serialize(pbx_projectModel, SaveOptions::newBuilder.format.noValidation.options)		
-		System::out.println(out)
 		res.save(null);
 	}
 	

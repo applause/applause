@@ -35,6 +35,12 @@ class ProjectTests {
 		val applicationTarget = project.createApplicationTarget("EmptyApplicationProject", applicationFile)
 		applicationTarget.productName = "EmptyApplicationProject" 
 		applicationTarget.add(appDelegateModuleFile)
+		val buildConfiguration = applicationTarget.getBuildConfiguration("Release")
+		buildConfiguration.setSetting("GCC_PRECOMPILE_PREFIX_HEADER", "YES")
+		buildConfiguration.setSetting("GCC_PREFIX_HEADER", '"EmptyApplicationProject/EmptyApplicationProject-Prefix.pch"')
+		buildConfiguration.setSetting("INFOPLIST_FILE", '"EmptyApplicationProject/EmptyApplicationProject-Info.plist"')
+		buildConfiguration.setSetting("PRODUCT_NAME", '"$(TARGET_NAME)"')
+		buildConfiguration.setSetting("WRAPPER_EXTENSION", "app")
 		
 		project.save()
 	}

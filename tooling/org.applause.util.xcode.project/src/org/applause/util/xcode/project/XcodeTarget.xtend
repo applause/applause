@@ -70,4 +70,8 @@ class XcodeTarget {
 		sourceBuildPhase.add(file)
 	}
 	
+	def getBuildConfiguration(String name) {
+		buildConfigurationList.getBuildConfiguration(name)
+	}
+	
 }
