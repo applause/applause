@@ -21,15 +21,15 @@ Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.applause.util.xcode.projectfile,
- org.applause.util.xcode.projectfile.services,
+ org.applause.util.xcode.projectfile.formatting,
+ org.applause.util.xcode.projectfile.generator,
+ org.applause.util.xcode.projectfile.parser.antlr,
+ org.applause.util.xcode.projectfile.parser.antlr.internal,
  org.applause.util.xcode.projectfile.pbxproj,
  org.applause.util.xcode.projectfile.pbxproj.impl,
  org.applause.util.xcode.projectfile.pbxproj.util,
- org.applause.util.xcode.projectfile.serializer,
- org.applause.util.xcode.projectfile.parser.antlr,
- org.applause.util.xcode.projectfile.parser.antlr.internal,
- org.applause.util.xcode.projectfile.validation,
  org.applause.util.xcode.projectfile.scoping,
- org.applause.util.xcode.projectfile.generator,
- org.applause.util.xcode.projectfile.formatting
+ org.applause.util.xcode.projectfile.serializer,
+ org.applause.util.xcode.projectfile.services,
+ org.applause.util.xcode.projectfile.validation
 
