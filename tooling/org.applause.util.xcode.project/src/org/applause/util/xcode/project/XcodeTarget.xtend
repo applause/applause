@@ -31,6 +31,7 @@ class XcodeTarget {
 		buildConfigurationList.createBuildConfiguration('Release')
 		buildConfigurationList.createBuildConfiguration('Debug')
 		pbx_target.buildConfigurationList = buildConfigurationList.pbx_BuildConfigurationList
+		buildConfigurationList.defaultConfigurationName = 'Release'
 	}
 	
 	def static createTarget(XcodeProject project, String name) {

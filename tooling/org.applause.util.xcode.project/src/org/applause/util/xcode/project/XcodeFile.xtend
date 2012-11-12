@@ -54,8 +54,46 @@ class XcodeFile {
 		file
 	}
 	
+	def static createOCTestFile(XcodeGroup group, Path path) {
+		val file = createFile(group)		
+		file.fileType = FileType::OCTEST
+		file.path = path
+		file.sourceTree = SourceTree::BUILT_PRODUCTS_DIR
+		file.includeInIndex = false
+		file.connect
+		file
+	}
+	
+	def static createPlistFile(XcodeGroup group, Path path) {
+		val file = createFile(group)
+		file.fileType = FileType::PLIST
+		file.path = path
+		file.connect
+		file;
+	}
+	
+	def static createFrameworkFile(XcodeGroup group, Path path) {
+		val file = createFile(group)
+		file.fileType = FileType::FRAMEWORK
+		// 8888BC3115E6C80B004ED7F7 /* Foundation.framework */ = {
+		// isa = PBXFileReference; 
+		// lastKnownFileType = wrapper.framework; 
+		// name = Foundation.framework; 
+		// path = System/Library/Frameworks/Foundation.framework; 
+		// sourceTree = SDKROOT; };
+		file.name = path.lastSegment
+		file.path = path
+		file.sourceTree = SourceTree::SDKROOT
+		file.connect
+		file;		
+	}
+	
 	def setIncludeInIndex(boolean include) {
 		pbx_fileReference.includeInIndex = if (include)  1 else 0
+	}
+	
+	def setName(String name) {
+		pbx_fileReference.fileName = name
 	}
 	
 	def setPath(Path path) {
@@ -71,11 +109,17 @@ class XcodeFile {
 				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH
 			case FileType::C_MODULE:
 				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_COBJC
+			case FileType::PLIST:
+				org::applause::util::xcode::projectfile::pbxproj::FileType::TEXT_PLIST_XML
+			case FileType::FRAMEWORK:
+				org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_FRAMEWORK
 		}
 		
 		pbx_fileReference.explicitFileType = switch type {
 			case FileType::APP:
 				org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_APPLICATION
+			case FileType::OCTEST:
+				org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_CF_BUNDLE
 		}
 	}
 	
@@ -84,6 +128,8 @@ class XcodeFile {
 			case org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH:
 				false
 			case org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_COBJC:
+				true
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_FRAMEWORK:
 				true
 			default:
 				false

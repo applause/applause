@@ -76,4 +76,16 @@ class XcodeGroup {
 		createAppFile(this, path)
 	}
 	
+	def createPlistFile(Path path) {
+		createPlistFile(this, path)
+	}
+	
+	def createOCTestFile(Path path) {
+		createOCTestFile(this, path)
+	}
+	
+	def createFrameworkFile(Path path) {
+		createFrameworkFile(this, path)
+	}
+	
 }

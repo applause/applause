@@ -42,4 +42,8 @@ class XcodeBuildConfigurationList {
 	def getBuildConfiguration(String configurationName) {
 		buildConfigurationList.findFirst[it.name == configurationName]
 	}
+	
+	def setDefaultConfigurationName(String name) {
+		pbx_BuildConfigurationList.defaultConfigurationName = name
+	}
 }

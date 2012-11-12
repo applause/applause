@@ -10,4 +10,6 @@ Require-Bundle: org.applause.util.xcode.projectfile;bundle-version="1.0.0",
  com.google.guava,
  org.eclipse.xtext.xbase.lib
 Export-Package: org.applause.util.xcode.project
+Bundle-ClassPath: lib/commons-codec-1.6.jar,
+ .
 

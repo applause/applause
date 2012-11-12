@@ -18,10 +18,12 @@ import static extension org.applause.util.xcode.project.XcodeTarget.*
 import static extension org.applause.util.xcode.project.XcodeBuildPhase.*
 import com.google.inject.Injector
 
+import static extension org.applause.util.xcode.project.XcodeBuildConfigurationList.*
+
 class XcodeProject {
 	@Property ProjectModel pbx_projectModel
 	@Property Project pbx_project
-	
+	XcodeBuildConfigurationList buildConfigurationList
 	String projectPath
 	
 	def static createProject(String path) {
@@ -40,7 +42,7 @@ class XcodeProject {
 		pbx_project.compatibilityVersion = 'Xcode 3.2'
 		pbx_project.developmentRegion = Language::ENGLISH
 		pbx_project.hasScannedForEncodings = 0
-		pbx_project.knownRegions.add('dummy')
+		pbx_project.knownRegions.add('en')
 		pbx_project.projectDirPath = ''
 		pbx_project.projectRoot = ''
 		
@@ -50,6 +52,12 @@ class XcodeProject {
 		pbx_projectModel.encoding = Encoding::UTF8
 		pbx_projectModel.objects.add(pbx_project)
 		pbx_projectModel.rootObject = pbx_project	
+		
+		buildConfigurationList = this.createBuildConfigurationList()
+		buildConfigurationList.createBuildConfiguration('Release')
+		buildConfigurationList.createBuildConfiguration('Debug')
+		buildConfigurationList.defaultConfigurationName = 'Release'
+		pbx_project.buildConfigurationList = buildConfigurationList.pbx_BuildConfigurationList
 	}
 	
 	Injector _injector
@@ -60,6 +68,10 @@ class XcodeProject {
 		_injector
 	}
 	
+	
+	// TODO: http://www.eclipse.org/forums/index.php/m/655755/
+	// use the corresponding IProject and an XtextResourceSetProvider in order to get an XtextResuoreSet
+	// Do we need to make sure this runs in and out of Eclipse????  
 	XtextResourceSet _resourceSet
 	def getResourceSet() {
 		if (_resourceSet == null) {
@@ -69,6 +81,9 @@ class XcodeProject {
 	}
 	
 	override toString() {
+		val res = resourceSet.createResource(URI::createFileURI(pbxProjectFileName) );
+		res.contents.add(pbx_projectModel)
+		
 		val serializer = injector.getInstance(typeof(ISerializer))
 		val out = serializer.serialize(pbx_projectModel, SaveOptions::newBuilder.format.noValidation.options)
 		out
@@ -103,5 +118,10 @@ class XcodeProject {
 	def createSourceBuildPhase() {
 		createSourceBuildPhase(this)
 	}
+	
+	def getBuildConfiguration(String name) {
+		buildConfigurationList.getBuildConfiguration(name)
+	}
+	
 	
 }

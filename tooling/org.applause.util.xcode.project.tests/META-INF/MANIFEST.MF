@@ -9,8 +9,7 @@ Require-Bundle: org.eclipse.xtend.lib,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.applause.util.xcode.project;bundle-version="1.0.0",
- org.eclipse.xtext.junit4;bundle-version="2.3.1",
- org.applause.util.xcode.projectfile.tests;bundle-version="1.0.0"
+ org.eclipse.xtext.junit4;bundle-version="2.3.1"
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",

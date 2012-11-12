@@ -1,6 +1,7 @@
 package org.applause.lang.generator.ios.model
 
 import com.google.inject.Inject
+
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.base.ImportManager
 import org.applause.lang.base.ImportManagerFactory
@@ -11,6 +12,10 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.base.AttributeExtensions
+import org.applause.util.xcode.project.XcodeProject
+import static extension org.applause.util.xcode.project.Path.*
+import org.applause.util.xcode.project.XcodeGroup
+
 
 /**
  * Compiles entity headers and modules.
@@ -29,10 +34,15 @@ class EntityCompiler {
 	/**
 	 * Main entry point for the entity compiler.
 	 */
-	def compile(Resource resource, IFileSystemAccess fsa) {
+	def compile(Resource resource, IFileSystemAccess fsa, XcodeProject project, XcodeGroup mainGroup) {
+		val modelGroup = mainGroup.createGroup("Model".toPath) 
+		
 		resource.allContents.filter(typeof(Entity)).forEach[
 			fsa.generateFile(it.headerFileName, MODEL_OUPUT, it.compileHeader)
+			modelGroup.createHeaderFile(it.headerFileName.toPath)
+			
 			fsa.generateFile(it.moduleFileName, MODEL_OUPUT, it.compileModule)
+			modelGroup.createModuleFile(it.moduleFileName.toPath)
 		]
 	}
 	

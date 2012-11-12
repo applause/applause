@@ -1,6 +1,10 @@
 package org.applause.util.xcode.project
 
 import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
+import org.applause.util.xcode.projectfile.pbxproj.PathString
+import org.applause.util.xcode.projectfile.pbxproj.PathFragment
+import org.applause.util.xcode.projectfile.pbxproj.PathVariable
+import org.applause.util.xcode.projectfile.pbxproj.PathID
 
 class Path {
 	
@@ -17,18 +21,43 @@ class Path {
 	def static create(String path) {
 		val result = PbxprojFactory::eINSTANCE.createPath
 		
-		val fragment = if (path.indexOf(" ") > 0) {
-			val f = PbxprojFactory::eINSTANCE.createPathString
-			f.value = path
-			f
+		val pathSegments = path.split("/")
+		
+		for(segment: pathSegments) {
+			val fragment = if (segment.indexOf(" ") > 0) {
+				val f = PbxprojFactory::eINSTANCE.createPathString
+				f.value = segment
+				f
+			}
+			else {
+				val f = PbxprojFactory::eINSTANCE.createPathID
+				f.value = segment
+				f
+			}
+			result.fragments.add(fragment)
 		}
-		else {
-			val f = PbxprojFactory::eINSTANCE.createPathID
-			f.value = path
-			f
-		}
-		result.fragments.add(fragment)
+		
 		result
 	}
 	
+	def lastSegment() {
+		val segment = pbx_path.fragments.last
+		segment.value
+	}
+	
+	def dispatch value(PathFragment segment) {
+		""
+	}
+	
+	def dispatch value(PathString segment) {
+		segment.value
+	}
+	
+	def dispatch value(PathVariable segment) {
+		segment.value.toString
+	}
+	
+	def dispatch value(PathID segment) {
+		segment.value
+	}
 }
