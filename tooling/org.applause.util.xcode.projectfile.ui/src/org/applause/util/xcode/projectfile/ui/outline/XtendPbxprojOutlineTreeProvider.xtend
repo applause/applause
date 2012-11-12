@@ -18,6 +18,7 @@ import org.eclipse.xtext.ui.IImageHelper
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider
 import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode
+import org.applause.util.xcode.projectfile.pbxproj.FileType
 
 class XtendPbxprojOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
@@ -150,7 +151,12 @@ class XtendPbxprojOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
 	// -- FileReference
 	def Object _text(FileReference fileReference) {
-		fileReference.path()
+		if (fileReference.lastKnownFileType == FileType::WRAPPER_FRAMEWORK) {
+			fileReference.fileName
+		}
+		else {
+			fileReference.path()
+		}
 	}
 	
 	def Object _image(FileReference fileReference) {
