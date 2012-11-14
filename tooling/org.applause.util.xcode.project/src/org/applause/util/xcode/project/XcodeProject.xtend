@@ -19,6 +19,7 @@ import static extension org.applause.util.xcode.project.XcodeBuildPhase.*
 import com.google.inject.Injector
 
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationList.*
+import org.eclipse.emf.ecore.resource.Resource
 
 class XcodeProject {
 	@Property ProjectModel pbx_projectModel
@@ -51,13 +52,23 @@ class XcodeProject {
 		pbx_projectModel.objectVersion = 42
 		pbx_projectModel.encoding = Encoding::UTF8
 		pbx_projectModel.objects.add(pbx_project)
-		pbx_projectModel.rootObject = pbx_project	
+		pbx_projectModel.rootObject = pbx_project
+		resource()	
 		
 		buildConfigurationList = this.createBuildConfigurationList()
-		buildConfigurationList.createBuildConfiguration('Release')
-		buildConfigurationList.createBuildConfiguration('Debug')
+//		buildConfigurationList.createBuildConfiguration('Release')
+//		buildConfigurationList.createBuildConfiguration('Debug')
 		buildConfigurationList.defaultConfigurationName = 'Release'
 		pbx_project.buildConfigurationList = buildConfigurationList.pbx_BuildConfigurationList
+	}
+	
+	Resource resource
+	def private resource() {
+		if (resource == null) {
+			resource = resourceSet.createResource(URI::createFileURI(pbxProjectFileName) );
+			resource.contents.add(pbx_projectModel)
+		}
+		resource		
 	}
 	
 	Injector _injector
@@ -81,18 +92,14 @@ class XcodeProject {
 	}
 	
 	override toString() {
-		val res = resourceSet.createResource(URI::createFileURI(pbxProjectFileName) );
-		res.contents.add(pbx_projectModel)
-		
+		resource()
 		val serializer = injector.getInstance(typeof(ISerializer))
 		val out = serializer.serialize(pbx_projectModel, SaveOptions::newBuilder.format.noValidation.options)
 		out
 	}
 	
 	def save() {
-		val res = resourceSet.createResource(URI::createFileURI(pbxProjectFileName) );
-		res.contents.add(pbx_projectModel)
-		res.save(null);
+		resource().save(null);
 	}
 	
 	def String pbxProjectFileName() {
@@ -117,6 +124,10 @@ class XcodeProject {
 	
 	def createSourceBuildPhase() {
 		createSourceBuildPhase(this)
+	}
+	
+	def createBuildConfiguration(String name) {
+		buildConfigurationList.createBuildConfiguration(name)
 	}
 	
 	def getBuildConfiguration(String name) {
