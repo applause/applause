@@ -31,6 +31,14 @@ class XcodeProject {
 		new XcodeProject(path)
 	}
 	
+	def static createProject() {
+		new XcodeProject()
+	}
+	
+	private new() {
+		this("") 
+	}
+	
 	private new(String path) {
 		projectPath = path
 		

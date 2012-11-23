@@ -17,4 +17,12 @@ class ProjectExtensions {
 		it.application?.name + '.xcodeproj'
 	}
 	
+	def sourceGroupName(Resource it) {
+		it.application?.name
+	}
+	
+	def sourceGroupName(EObject it) {
+		it.application?.name
+	}
+	
 }
