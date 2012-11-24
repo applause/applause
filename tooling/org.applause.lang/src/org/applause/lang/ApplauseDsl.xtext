@@ -174,7 +174,7 @@ enum LoopKind:
 ;
 
 ListItemCell:
-	'cell' type=[ListItemCellDeclaration] loop=LoopKind datasource=DataSourceOutletCall 'as' variable=ID '{'
+	'cell' type=[ListItemCellDeclaration|QualifiedName] loop=LoopKind datasource=DataSourceOutletCall 'as' variable=ID '{'
 		configurations+=UIComponentMemberConfiguration*
 	'}'
 ;
