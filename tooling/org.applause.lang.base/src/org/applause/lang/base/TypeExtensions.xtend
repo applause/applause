@@ -9,6 +9,8 @@ import org.applause.lang.applauseDsl.NamespaceMapping
 import org.applause.lang.applauseDsl.NamespacedElement
 import org.applause.lang.applauseDsl.Type
 import org.applause.lang.applauseDsl.TypeMapping
+import org.applause.lang.applauseDsl.ListView
+import org.applause.lang.applauseDsl.NamedElement
 
 abstract class TypeExtensions {
 	
@@ -37,6 +39,10 @@ abstract class TypeExtensions {
 	
 	def dispatch String typeName(Attribute it) {
 		type?.typeName
+	}
+	
+	def dispatch String typeName(ListView it) {
+		it.name + 'ViewController'
 	}
 	
 	def private dispatch name(Model it) {
@@ -82,6 +88,14 @@ abstract class TypeExtensions {
 			ns
 	}
 	
+	def fqn(NamedElement it) {
+		if (namespace != "")
+			namespace + '.' + typeName
+		else
+			typeName + '' // HACK
+	}
+	
+	// TODO: can remove as we've got a more generic version above?
 	def fqn(Type it) {
 		if (namespace != "")
 			namespace + '.' + typeName

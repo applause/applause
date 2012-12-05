@@ -6,6 +6,7 @@ import org.eclipse.xtext.generator.OutputConfiguration
 class IosOutputConfigurationProvider extends OutputConfigurationProvider {
 	
 	public static val OUTPUT_MODEL = "MODEL"
+	public static val OUTPUT_UI = "UI"
 	public static val OUTPUT_XCODEPROJ = "XCODEPROJ"
 	
 	override getOutputConfigurations() {
@@ -19,6 +20,15 @@ class IosOutputConfigurationProvider extends OutputConfigurationProvider {
 		modelOutput.cleanUpDerivedResources = true
 		modelOutput.setDerivedProperty = true
 		result.add(modelOutput)
+
+		val uiOutput = new OutputConfiguration(OUTPUT_UI) 
+		uiOutput.description = "Output folder for UI files."
+		uiOutput.outputDirectory = "./"
+		uiOutput.overrideExistingResources = true
+		uiOutput.createOutputDirectory = false
+		uiOutput.cleanUpDerivedResources = true
+		uiOutput.setDerivedProperty = true
+		result.add(uiOutput)
 		
 		val xcodeprojFileOutput = new OutputConfiguration(OUTPUT_XCODEPROJ) 
 		xcodeprojFileOutput.description = "Output folder for xcodeproj files."

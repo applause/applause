@@ -1,20 +1,28 @@
 package org.applause.util.xcode.project.tests
 
+import com.google.inject.Inject
+import org.applause.util.xcode.project.CLanguageDialect
+import org.applause.util.xcode.project.CxxLanguageDialect
+import org.applause.util.xcode.project.GCCVersion
 import org.applause.util.xcode.project.IOSVersion
 import org.applause.util.xcode.project.SDKRoot
-import org.applause.util.xcode.project.XcodeProject
+import org.applause.util.xcode.project.XcodeProjectFactory
+import org.applause.util.xcode.projectfile.PbxprojInjectorProvider
+import org.eclipse.xtext.junit4.InjectWith
+import org.eclipse.xtext.junit4.XtextRunner
 import org.junit.Test
+import org.junit.runner.RunWith
 
 import static org.junit.Assert.*
 
 import static extension org.applause.util.xcode.project.Path.*
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
-import org.applause.util.xcode.project.SDK
-import org.applause.util.xcode.project.GCCVersion
-import org.applause.util.xcode.project.CLanguageDialect
-import org.applause.util.xcode.project.CxxLanguageDialect
 
+@InjectWith(typeof(PbxprojInjectorProvider))
+@RunWith(typeof(XtextRunner))
 class ProjectTests {
+	
+	@Inject XcodeProjectFactory projectFactory
 	
 	@Test
 	def failingTest() {
@@ -26,7 +34,8 @@ class ProjectTests {
 		val path = "/Users/peterfriese/Projects/peterfriese.de/Applause2/applause/tooling/org.applause.util.xcode.projectfile.sample/MyTestProject/MyTestProject.xcodeproj"
 		
 		// Project root
-		val project = XcodeProject::createProject(path)
+		// val project = XcodeProject::createProject(path)
+		val project = projectFactory.create(path)
 		val mainGroup = project.createMainGroup()
 		
 

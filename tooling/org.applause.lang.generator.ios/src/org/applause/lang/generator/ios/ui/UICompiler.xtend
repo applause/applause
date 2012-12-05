@@ -1,12 +1,15 @@
 package org.applause.lang.generator.ios.ui
 
+import com.google.inject.Inject
+import org.applause.lang.generator.ios.ProjectFileSystemAccess
 import org.eclipse.emf.ecore.resource.Resource
-import org.eclipse.xtext.generator.IFileSystemAccess
 
 class UICompiler {
 	
-	def compile(Resource resource, IFileSystemAccess fsa) {
-		
+	@Inject ListViewCompiler listViewCompiler
+	
+	def compile(Resource resource, ProjectFileSystemAccess pfsa) {
+		listViewCompiler.compile(resource, pfsa)
 	}
 	
 }

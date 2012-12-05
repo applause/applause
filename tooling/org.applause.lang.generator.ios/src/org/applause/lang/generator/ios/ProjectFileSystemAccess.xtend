@@ -1,15 +1,19 @@
 package org.applause.lang.generator.ios
 
+import com.google.inject.Inject
 import org.applause.util.xcode.project.XcodeGroup
 import org.applause.util.xcode.project.XcodeProject
+import org.applause.util.xcode.project.XcodeProjectFactory
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 
-import static extension org.applause.util.xcode.project.XcodeGroup.*
 import static extension org.applause.util.xcode.project.Path.*
-import com.google.inject.Inject
-import org.applause.lang.applauseDsl.Entity
-
+import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
+import org.applause.util.xcode.project.CLanguageDialect
+import org.applause.util.xcode.project.CxxLanguageDialect
+import org.applause.util.xcode.project.GCCVersion
+import org.applause.util.xcode.project.IOSVersion
+import org.applause.util.xcode.project.SDKRoot
 
 class ProjectFileSystemAccess {
 	IFileSystemAccess fsa
@@ -20,6 +24,7 @@ class ProjectFileSystemAccess {
 	XcodeGroup mainSourceGroup
 	
 	@Inject extension ProjectExtensions
+	@Inject XcodeProjectFactory xcodeProjectFactory
 	
 	def setFsa(IFileSystemAccess fsa) {
 		this.fsa = fsa
@@ -42,7 +47,7 @@ class ProjectFileSystemAccess {
 	
 	def project() {
 		if (project == null) {
-			project = XcodeProject::createProject
+			project = xcodeProjectFactory.create
 		}
 		project
 	}
@@ -105,63 +110,66 @@ class ProjectFileSystemAccess {
 		// MyTestProject app target
 		val applicationTarget = project.createApplicationTarget("MyTestProject", applicationFile)
 		applicationTarget.productName = "MyTestProject" 
+		applicationTarget.add(appDelegateModuleFile)
 		
 		val applicationTestTarget = project.createApplicationTarget("MyTestProjectTests", octestFile)
 		applicationTestTarget.productName = "MyTestProjectTests" 
+		applicationTestTarget.add(appDelegateModuleFile)
 		
 		// Build configuration list for PBXProject MyTestProject
 		val buildConfigurationProject = project.createBuildConfiguration("Release")
-		buildConfigurationProject.setSetting("ALWAYS_SEARCH_USER_PATHS", "NO")
-		buildConfigurationProject.setSetting("ARCHS", '"$(ARCHS_STANDARD_32_BIT)"')
-		buildConfigurationProject.setSetting("CLANG_CXX_LANGUAGE_STANDARD", '"gnu++0x"')
-		buildConfigurationProject.setSetting("CLANG_ENABLE_OBJC_ARC", "YES")
-		buildConfigurationProject.setSetting("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES")
-		buildConfigurationProject.setSetting('"CODE_SIGN_IDENTITY[sdk=iphoneos*]"', '"iPhone Developer"')
-		buildConfigurationProject.setSetting("COPY_PHASE_STRIP", "YES")
-		buildConfigurationProject.setSetting("GCC_C_LANGUAGE_STANDARD", "gnu99")
-		buildConfigurationProject.setSetting("GCC_VERSION", "com.apple.compilers.llvm.clang.1_0")
-		buildConfigurationProject.setSetting("GCC_WARN_ABOUT_RETURN_TYPE", "YES")
-		buildConfigurationProject.setSetting("GCC_WARN_UNINITIALIZED_AUTOS", "YES")
-		buildConfigurationProject.setSetting("GCC_WARN_UNUSED_VARIABLE", "YES")
-		buildConfigurationProject.setSetting("IPHONEOS_DEPLOYMENT_TARGET", "5.1")
-		buildConfigurationProject.setSetting("OTHER_CFLAGS", '"-DNS_BLOCK_ASSERTIONS=1"')
-		buildConfigurationProject.setSetting("SDKROOT", "iphoneos")
-		buildConfigurationProject.setSetting("VALIDATE_PRODUCT", "YES")
-
+		buildConfigurationProject.alwaysSearchUserPaths = false
+		buildConfigurationProject.enableArc = true
+		buildConfigurationProject.warnDuplicateMethods = true
+		buildConfigurationProject.warnAboutReturnType = true
+		buildConfigurationProject.warnUninitializedAutos = true
+		buildConfigurationProject.warnUnusedVariables = true
+		buildConfigurationProject.validateProduct = true
+		buildConfigurationProject.SDKRoot = SDKRoot::iPhoneOS
+		buildConfigurationProject.iOSDeploymentTarget = IOSVersion::iOS_51
+		buildConfigurationProject.stripDebugSymbolsDuringCopy = true
+		buildConfigurationProject.codeSigningIdentity = '"iPhone Developer"'
+		buildConfigurationProject.architectures = '"$(ARCHS_STANDARD_32_BIT)"'
+		buildConfigurationProject.gccVersion = GCCVersion::LLVM_41
+		buildConfigurationProject.cLanguageDialect = CLanguageDialect::GNU99
+		buildConfigurationProject.cxxLanguageDialect = CxxLanguageDialect::CXX_11
+		buildConfigurationProject.blockAssertions = true
+		
 		val buildConfigurationProjectDebug = project.createBuildConfiguration("Debug")
-		buildConfigurationProjectDebug.setSetting("ALWAYS_SEARCH_USER_PATHS", "NO")
-		buildConfigurationProjectDebug.setSetting("ARCHS", '"$(ARCHS_STANDARD_32_BIT)"')
-		buildConfigurationProjectDebug.setSetting("CLANG_CXX_LANGUAGE_STANDARD", '"gnu++0x"')
-		buildConfigurationProjectDebug.setSetting("CLANG_ENABLE_OBJC_ARC", "YES")
-		buildConfigurationProjectDebug.setSetting("CLANG_WARN__DUPLICATE_METHOD_MATCH", "YES")
-		buildConfigurationProjectDebug.setSetting('"CODE_SIGN_IDENTITY[sdk=iphoneos*]"', '"iPhone Developer"')
-		buildConfigurationProjectDebug.setSetting("COPY_PHASE_STRIP", "YES")
-		buildConfigurationProjectDebug.setSetting("GCC_C_LANGUAGE_STANDARD", "gnu99")
-		buildConfigurationProjectDebug.setSetting("GCC_VERSION", "com.apple.compilers.llvm.clang.1_0")
-		buildConfigurationProjectDebug.setSetting("GCC_WARN_ABOUT_RETURN_TYPE", "YES")
-		buildConfigurationProjectDebug.setSetting("GCC_WARN_UNINITIALIZED_AUTOS", "YES")
-		buildConfigurationProjectDebug.setSetting("GCC_WARN_UNUSED_VARIABLE", "YES")
-		buildConfigurationProjectDebug.setSetting("IPHONEOS_DEPLOYMENT_TARGET", "5.1")
-		buildConfigurationProjectDebug.setSetting("OTHER_CFLAGS", '"-DNS_BLOCK_ASSERTIONS=1"')
-		buildConfigurationProjectDebug.setSetting("SDKROOT", "iphoneos")
-		buildConfigurationProjectDebug.setSetting("VALIDATE_PRODUCT", "YES")
+		buildConfigurationProjectDebug.alwaysSearchUserPaths = false
+		buildConfigurationProjectDebug.enableArc = true
+		buildConfigurationProjectDebug.warnDuplicateMethods = true
+		buildConfigurationProjectDebug.warnAboutReturnType = true
+		buildConfigurationProjectDebug.warnUninitializedAutos = true
+		buildConfigurationProjectDebug.warnUnusedVariables = true
+		buildConfigurationProjectDebug.validateProduct = true
+		buildConfigurationProjectDebug.SDKRoot = SDKRoot::iPhoneOS
+		buildConfigurationProjectDebug.iOSDeploymentTarget = IOSVersion::iOS_51
+		buildConfigurationProjectDebug.stripDebugSymbolsDuringCopy = true
+		buildConfigurationProjectDebug.codeSigningIdentity = '"iPhone Developer"'
+		buildConfigurationProjectDebug.architectures = '"$(ARCHS_STANDARD_32_BIT)"'
+		buildConfigurationProjectDebug.gccVersion = GCCVersion::LLVM_41
+		buildConfigurationProjectDebug.cLanguageDialect = CLanguageDialect::GNU99
+		buildConfigurationProjectDebug.cxxLanguageDialect = CxxLanguageDialect::CXX_11
+		buildConfigurationProjectDebug.blockAssertions = true
 		
 		
 		// Build configuration list for PBXNativeTarget MyTestProject
-		val buildConfigurationRelease = applicationTarget.getBuildConfiguration("Release")
-		buildConfigurationRelease.setSetting("GCC_PRECOMPILE_PREFIX_HEADER", "YES")
-		buildConfigurationRelease.setSetting("INFOPLIST_FILE", '"MyTestProject/MyTestProject-Info.plist"')
-		buildConfigurationRelease.setSetting("PRODUCT_NAME", '"$(TARGET_NAME)"')
-		buildConfigurationRelease.setSetting("WRAPPER_EXTENSION", "app")
+		val buildConfigurationRelease = applicationTarget.createBuildConfiguration("Release")
+//		buildConfigurationRelease.precompilePrefixHeader = true
+//		buildConfigurationRelease.prefixHeaderFileName = '"MyTestProject/MyTestProject-Prefix.pch"'
+//		buildConfigurationRelease.infoPListFile = '"MyTestProject/MyTestProject-Info.plist"'
+//		buildConfigurationRelease.productName = '"$(TARGET_NAME)"'
+//		buildConfigurationRelease.wrapperExtension = "app"
+		
 		
 
-		val buildConfigurationDebug = applicationTarget.getBuildConfiguration("Debug")
+		val buildConfigurationDebug = applicationTarget.createBuildConfiguration("Debug")
 		buildConfigurationDebug.setSetting("GCC_PRECOMPILE_PREFIX_HEADER", "YES")
 		buildConfigurationDebug.setSetting("GCC_PREFIX_HEADER", '"MyTestProject/MyTestProject-Prefix.pch"')
 		buildConfigurationDebug.setSetting("INFOPLIST_FILE", '"MyTestProject/MyTestProject-Info.plist"')
 		buildConfigurationDebug.setSetting("PRODUCT_NAME", '"$(TARGET_NAME)"')
-		buildConfigurationDebug.setSetting("WRAPPER_EXTENSION", "app")
-		
+		buildConfigurationDebug.setSetting("WRAPPER_EXTENSION", "app")		
 	} 
 	
 	

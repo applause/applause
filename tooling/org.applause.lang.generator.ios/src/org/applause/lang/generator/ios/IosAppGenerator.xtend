@@ -18,7 +18,7 @@ class IosAppGenerator implements IGenerator {
 		val pfsa = projectFileSystemAccessFactory.create(fsa, resource) 
 		
 		modelCompiler.compile(resource, pfsa)
-		uiCompiler.compile(resource, fsa)
+		uiCompiler.compile(resource, pfsa)
 
 		pfsa.saveProject()
 	}

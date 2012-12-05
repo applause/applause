@@ -20,6 +20,7 @@ class TypeExtensions extends org.applause.lang.base.TypeExtensions {
 	}
 	
 	def dispatch headerFileNameFQN(NamedElement element) {
+		element.fqn.toFilePath + ".h"
 	}
 	
 	def dispatch headerFileNameFQN(Entity entity) {
@@ -27,6 +28,7 @@ class TypeExtensions extends org.applause.lang.base.TypeExtensions {
 	}
 	
 	def dispatch headerFileName(NamedElement element) {
+		element.typeName.toFilePath + ".h"
 	}
 	
 	def dispatch headerFileName(Entity entity) {

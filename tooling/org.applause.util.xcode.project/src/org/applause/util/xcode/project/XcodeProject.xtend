@@ -1,45 +1,34 @@
 package org.applause.util.xcode.project
 
+import org.applause.util.xcode.projectfile.pbxproj.Encoding
+import org.applause.util.xcode.projectfile.pbxproj.Language
 import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
 import org.applause.util.xcode.projectfile.pbxproj.Project
-
-import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
-import org.applause.util.xcode.projectfile.pbxproj.Language
 import org.applause.util.xcode.projectfile.pbxproj.ProjectModel
-import org.applause.util.xcode.projectfile.pbxproj.Encoding
-import org.applause.util.xcode.projectfile.PbxprojStandaloneSetup
-import org.eclipse.xtext.resource.XtextResourceSet
 import org.eclipse.emf.common.util.URI
-import org.eclipse.xtext.serializer.ISerializer
+import org.eclipse.emf.ecore.resource.Resource
+import org.eclipse.xtend.lib.Property
 import org.eclipse.xtext.resource.SaveOptions
+import org.eclipse.xtext.resource.XtextResourceSet
+import org.eclipse.xtext.serializer.ISerializer
 
-import static extension org.applause.util.xcode.project.XcodeGroup.*
-import static extension org.applause.util.xcode.project.XcodeTarget.*
-import static extension org.applause.util.xcode.project.XcodeBuildPhase.*
-import com.google.inject.Injector
+import static org.applause.util.xcode.project.XcodeBuildPhase.*
+import static org.applause.util.xcode.project.XcodeGroup.*
+import static org.applause.util.xcode.project.XcodeProjectUtils.*
+import static org.applause.util.xcode.project.XcodeTarget.*
 
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationList.*
-import org.eclipse.emf.ecore.resource.Resource
 
-class XcodeProject {
+class XcodeProject extends XcodeProjectBase {
 	@Property ProjectModel pbx_projectModel
 	@Property Project pbx_project
 	XcodeBuildConfigurationList buildConfigurationList
 	String projectPath
 	
-	def static createProject(String path) {
-		new XcodeProject(path)
+	new() {	
 	}
 	
-	def static createProject() {
-		new XcodeProject()
-	}
-	
-	private new() {
-		this("") 
-	}
-	
-	private new(String path) {
+	def init(String path) {
 		projectPath = path
 		
 		pbx_project = PbxprojFactory::eINSTANCE.createProject
@@ -60,14 +49,18 @@ class XcodeProject {
 		pbx_projectModel.objectVersion = 42
 		pbx_projectModel.encoding = Encoding::UTF8
 		pbx_projectModel.objects.add(pbx_project)
-		pbx_projectModel.rootObject = pbx_project
-		resource()	
+		pbx_projectModel.rootObject = pbx_project	
+		resource()		
 		
 		buildConfigurationList = this.createBuildConfigurationList()
 //		buildConfigurationList.createBuildConfiguration('Release')
 //		buildConfigurationList.createBuildConfiguration('Debug')
 		buildConfigurationList.defaultConfigurationName = 'Release'
 		pbx_project.buildConfigurationList = buildConfigurationList.pbx_BuildConfigurationList
+	}
+	
+	def resourceSet() {
+		reg.getResourceServiceProvider(URI::createFileURI(pbxProjectFileName)).get(typeof(XtextResourceSet))
 	}
 	
 	Resource resource
@@ -78,30 +71,13 @@ class XcodeProject {
 		}
 		resource		
 	}
-	
-	Injector _injector
-	def getInjector() {
-		if (_injector == null) {
-			_injector = new PbxprojStandaloneSetup().createInjectorAndDoEMFRegistration();
-		}
-		_injector
-	}
-	
-	
-	// TODO: http://www.eclipse.org/forums/index.php/m/655755/
-	// use the corresponding IProject and an XtextResourceSetProvider in order to get an XtextResuoreSet
-	// Do we need to make sure this runs in and out of Eclipse????  
-	XtextResourceSet _resourceSet
-	def getResourceSet() {
-		if (_resourceSet == null) {
-			_resourceSet = injector.getInstance(typeof(XtextResourceSet))
-		}
-		_resourceSet
+
+	def serializer() {
+		reg.getResourceServiceProvider(URI::createFileURI(pbxProjectFileName)).get(typeof(ISerializer))
 	}
 	
 	override toString() {
 		resource()
-		val serializer = injector.getInstance(typeof(ISerializer))
 		val out = serializer.serialize(pbx_projectModel, SaveOptions::newBuilder.format.noValidation.options)
 		out
 	}
