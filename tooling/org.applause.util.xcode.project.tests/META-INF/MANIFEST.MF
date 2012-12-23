@@ -13,7 +13,10 @@ Require-Bundle: org.eclipse.xtend.lib,
  com.google.inject;bundle-version="3.0.0",
  org.eclipse.ui.workbench;resolution:=optional,
  org.applause.util.xcode.projectfile;bundle-version="1.0.0",
- org.applause.util.xcode.projectfile.ui;bundle-version="1.0.0"
+ org.applause.util.xcode.projectfile.ui;bundle-version="1.0.0",
+ org.jnario.lib,
+ org.hamcrest.core,
+ org.junit
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",
@@ -22,3 +25,4 @@ Import-Package: org.apache.log4j,
  org.junit.runners;version="4.5.0",
  org.junit.runners.model;version="4.5.0",
  org.hamcrest.core
+

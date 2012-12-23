@@ -41,6 +41,7 @@ class ProjectTests {
 
 		// MyTestProject group
 		val groupEmptyApplicationProject = mainGroup.createGroup("MyTestProject".toPath)
+		
 		val appDelegeateHeaderFile = groupEmptyApplicationProject.createHeaderFile("AppDelegate.h".toPath)
 		val appDelegateModuleFile = groupEmptyApplicationProject.createModuleFile("AppDelegate.m".toPath)
 		
