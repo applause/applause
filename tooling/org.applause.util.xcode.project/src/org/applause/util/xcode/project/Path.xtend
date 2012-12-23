@@ -10,15 +10,34 @@ class Path {
 	
 	@Property org.applause.util.xcode.projectfile.pbxproj.Path pbx_path
 	
-	private new(String path) {
+	new() {
+	}
+	
+	/**
+	 * Create a new path from the string provided. Segments are separated with the / sign.
+	 * @param path the path.
+	 */
+	new(String path) {
 		pbx_path = create(path)
+	}
+	
+	/**
+	 * Create a new path using a org.applause.util.xcode.projectfile.pbxproj.Path.
+	 *  @param path the path to create the path from.
+	 */
+	new(org.applause.util.xcode.projectfile.pbxproj.Path path) {
+		pbx_path = path
 	}
 	
 	def static toPath(String path) {
 		new Path(path)
 	}
 	
-	def static create(String path) {
+	def static toPath(org.applause.util.xcode.projectfile.pbxproj.Path path) {
+		new Path(path)
+	}
+	
+	def private static create(String path) {
 		val result = PbxprojFactory::eINSTANCE.createPath
 		
 		val pathSegments = path.split("/")
@@ -41,23 +60,42 @@ class Path {
 	}
 	
 	def lastSegment() {
-		val segment = pbx_path.fragments.last
-		segment.value
+		if (pbx_path != null) {
+			val segment = pbx_path.fragments.last
+			segment.value
+		}
+		else
+			""
 	}
 	
-	def dispatch value(PathFragment segment) {
+	def leadingSegments() {
+		if (pbx_path != null) {
+			pbx_path.fragments.take(pbx_path.fragments.size - 1)
+		}
+		else 
+			newArrayList()
+	}
+	
+	def private dispatch value(PathFragment segment) {
 		""
 	}
 	
-	def dispatch value(PathString segment) {
+	def private dispatch value(PathString segment) {
 		segment.value
 	}
 	
-	def dispatch value(PathVariable segment) {
+	def private dispatch value(PathVariable segment) {
 		segment.value.toString
 	}
 	
-	def dispatch value(PathID segment) {
+	def private dispatch value(PathID segment) {
 		segment.value
+	}
+	
+	override toString() {
+		if (pbx_path != null) 
+			pbx_path.fragments.join('/', [value])
+		else
+			""
 	}
 }

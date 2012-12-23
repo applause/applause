@@ -5,11 +5,12 @@ import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
 import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
 import org.applause.util.xcode.projectfile.pbxproj.FileReference
 import org.applause.util.xcode.projectfile.pbxproj.BuildFile
+import static extension org.applause.util.xcode.project.Path.*
 
 class XcodeFile {
 	
 	XcodeProject project
-	XcodeGroup group
+	@Property XcodeGroup group
 	@Property FileReference pbx_fileReference
 	@Property BuildFile pbx_buildFile
 	
@@ -98,6 +99,10 @@ class XcodeFile {
 	
 	def setPath(Path path) {
 		pbx_fileReference.path = path.pbx_path
+	}
+	
+	def path() {
+		pbx_fileReference.path.toPath
 	}
 	
 	def setFileType(FileType type) {

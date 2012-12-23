@@ -7,10 +7,12 @@ import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
 import org.applause.util.xcode.project.XcodeProject
 
 import static extension org.applause.util.xcode.project.XcodeFile.*
+import static extension org.applause.util.xcode.project.Path.*
 
 class XcodeGroup {
 	
 	@Property XcodeProject project
+	@Property XcodeGroup parentGroup
 	@Property Group pbx_group
 	
 	def static createGroup(XcodeProject project) {
@@ -25,10 +27,11 @@ class XcodeGroup {
 	}
 	
 	def createGroup(Path path) {
-		val group = new XcodeGroup(project)
-		group.pbx_group.path = path.pbx_path
-		pbx_group.children.add(group.pbx_group)
-		group
+		val newgroup = new XcodeGroup(project)
+		newgroup.parentGroup = this
+		newgroup.pbx_group.path = path.pbx_path
+		pbx_group.children.add(newgroup.pbx_group)
+		newgroup
 	}
 	
 	def createGroup(String groupName) {
@@ -54,6 +57,10 @@ class XcodeGroup {
 	
 	def isMainGroup() {
 		project.pbx_project.mainGroup == pbx_group
+	}
+	
+	def path() {
+		pbx_group.path.toPath
 	}
 	
 	def setProductsGroup(boolean b) {
