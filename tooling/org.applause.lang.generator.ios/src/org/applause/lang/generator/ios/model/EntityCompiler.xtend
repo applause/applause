@@ -35,9 +35,8 @@ class EntityCompiler  {
 		val modelGroup = pfsa.mainSourceGroup.createGroup("Model".toPath)
 		
 		resource.allContents.filter(typeof(Entity)).forEach[
-			// TODO simplify these calls!
-			pfsa.createHeaderFile(modelGroup, MODEL_OUPUT, it.headerFileNameFQN, it.headerFileName, it.compileHeader)
-			pfsa.createModuleFile(modelGroup, MODEL_OUPUT, it.moduleFileNameFQN, it.moduleFileName, it.compileModule)
+			pfsa.createHeaderFile(modelGroup, MODEL_OUPUT, it.headerFileName, it.compileHeader)
+			pfsa.createModuleFile(modelGroup, MODEL_OUPUT, it.moduleFileName, it.compileModule)
 		]
 	}
 	
@@ -105,9 +104,6 @@ class EntityCompiler  {
 			«ENDFOR»
 		@end
 	'''
-
-
-		
 	
 	
 }

@@ -14,6 +14,9 @@ import org.applause.util.xcode.project.CxxLanguageDialect
 import org.applause.util.xcode.project.GCCVersion
 import org.applause.util.xcode.project.IOSVersion
 import org.applause.util.xcode.project.SDKRoot
+import org.applause.util.xcode.project.XcodeFile
+
+import static extension org.applause.util.xcode.project.XcodeProjectObjectExtensions.*
 
 class ProjectFileSystemAccess {
 	IFileSystemAccess fsa
@@ -66,17 +69,19 @@ class ProjectFileSystemAccess {
 		mainSourceGroup
 	}
 	
-	def createHeaderFile(XcodeGroup group, String outlet, String fqn, String name, CharSequence header) { 
-		fsa.generateFile(fqn, outlet, header)
-		group.createHeaderFile(name.toPath)			
+	def createHeaderFile(XcodeGroup group, String outlet, String name, CharSequence header) { 
+		val file = group.createHeaderFile(name.toPath)
+		val filePath = file.projectRelativePath
+		fsa.generateFile(filePath, outlet, header)
 	}
 
-	def createModuleFile(XcodeGroup group, String outlet, String fqn, String name, CharSequence header) { 
-		fsa.generateFile(fqn, outlet, header)
-		group.createModuleFile(name.toPath)			
+	def createModuleFile(XcodeGroup group, String outlet, String name, CharSequence header) { 
+		val file = group.createModuleFile(name.toPath)
+		val filePath = file.projectRelativePath
+		fsa.generateFile(filePath, outlet, header)
 	}
 	
-	def saveProject() {
+	def void saveProject() {
 		project.finishPbxFile(mainGroup)
 		
 		val projectString = project.toString

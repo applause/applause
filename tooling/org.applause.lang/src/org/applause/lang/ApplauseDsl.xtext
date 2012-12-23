@@ -25,7 +25,7 @@ AbstractElement:
 ;
 
 NamespacedElement:
-	NamedElement | Import
+	NamedElement | Import | ScreenFlow
 ;
 
 NamedElement:
@@ -135,6 +135,22 @@ DataSourceOutletYieldSpecification:
 	type=[Type|QualifiedName] (many?='[]')?
 ;
 
+
+
+// -----------------------------------------
+// Screen Flow
+// -----------------------------------------
+
+ScreenFlow:
+	{ScreenFlow}
+	'screenflow' '{'
+		startscreen=StartScreenDefinition
+	'}'
+;
+
+StartScreenDefinition:
+	'startscreen' screen=[View|QualifiedName]
+;
 
 
 // -----------------------------------------

@@ -6,6 +6,7 @@ import org.applause.lang.applauseDsl.NamedElement
 class TypeExtensions extends org.applause.lang.base.TypeExtensions {
 	
 	def dispatch moduleFileNameFQN(NamedElement element) {
+		element.fqn.toFilePath + ".m"
 	}	
 	
 	def dispatch moduleFileNameFQN(Entity entity) {
@@ -13,6 +14,7 @@ class TypeExtensions extends org.applause.lang.base.TypeExtensions {
 	}
 	
 	def dispatch moduleFileName(NamedElement element) {
+		element.typeName.toFilePath + ".m"
 	}
 	
 	def dispatch moduleFileName(Entity entity) {
