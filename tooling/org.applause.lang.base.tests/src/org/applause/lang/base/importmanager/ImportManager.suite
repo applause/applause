@@ -1,0 +1,18 @@
+package org.applause.lang.base.importmanager
+
+#Import Manager Suite
+
+The import manager is an important component for the code generators that are used in Applause. An import manager helps to 
+keep track of classes that need to be imported into a source code file. As you can imagine, import managers vary from language to 
+language: some language have a notion of _packages_ or _namespaces_ (such as Java and C\#), while others don't have any such 
+concept (such as _Objective\-C_).
+
+## Class\-Based Import Manager
+
+A class\-based import manager specification can be found in 
+- "org.applause.lang.base.importmanager.classbased.ImportManager"  
+
+## Namespace\-Based Import Manager
+
+A namespace\-based imoprt manager can be found in 
+- "org.applause.lang.base.importmanager.namespacebased.ImportManager"

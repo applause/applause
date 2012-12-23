@@ -12,7 +12,12 @@ Require-Bundle: org.applause.lang,
  org.eclipse.ui.workbench;resolution:=optional,
  org.applause.lang.tests;bundle-version="1.0.0",
  org.eclipse.xtext.xbase.lib;bundle-version="2.3.0",
- org.applause.lang.base;bundle-version="1.0.0"
+ org.applause.lang.base;bundle-version="1.0.0",
+ org.jnario.lib,
+ org.eclipse.xtend.lib,
+ org.hamcrest.core,
+ com.google.guava,
+ org.junit
 Import-Package: org.apache.log4j,
  org.junit;version="4.5.0",
  org.junit.runner;version="4.5.0",

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Namespaces</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Le styles -->
+<link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../../js/lang-jnario.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="content">
+			<div class="page-header">
+				<h1>Namespaces</h1>
+			</div>
+			<div class="row">
+				<div class="span12">
+<h2 id="Default_namespace">Default namespace</h2>
+<ul><li><p id="The_namespace_of_an_entity_without_a_namespace_is_empty"><strong>The namespace of an entity without a namespace is empty</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  entity Bar {}
+''')
+
+val entities = model.elements.filter(typeof(Entity))
+
+val barEntity = entities.findFirst[typeName == 'Bar']
+barEntity.namespace should be ''</pre>
+</li><li><p id="The_FQN_of_an_entity_without_a_namespace_is_the_plain_name_of_the_entity"><strong>The FQN of an entity without a namespace is the plain name of the entity</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  entity Bar {}
+''')
+
+val entities = model.elements.filter(typeof(Entity))
+
+val barEntity = entities.findFirst[typeName == 'Bar']
+barEntity.fqn should be 'Bar'</pre>
+</li></ul>
+<h2 id="Simple_namespace">Simple namespace</h2>
+<ul><li><p id="The_namespace_of_an_entity_in_a_simple_namespace_is_the_name_of_the_namespace"><strong>The namespace of an entity in a simple namespace is the name of the namespace</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo {
+    entity Bar
+  }
+''')
+
+val fooNamespace = model.elements.filter(typeof(NamespaceDeclaration)).head
+fooNamespace.name should be 'foo'
+
+val entities = fooNamespace.elements.filter(typeof(Entity))
+val barEntity = entities.findFirst[typeName == 'Bar']
+barEntity.namespace should be 'foo'</pre>
+</li><li><p id="The_FQN_of_an_entity_in_a_simple_namespace_is_the_name_of_the_namespace_plus_the_name_of_the_entity"><strong>The FQN of an entity in a simple namespace is the name of the namespace plus the name of the entity</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo {
+    entity Bar
+  }
+''')
+
+val fooNamespace = model.elements.filter(typeof(NamespaceDeclaration)).head
+fooNamespace.name should be 'foo'
+
+val entities = fooNamespace.elements.filter(typeof(Entity))
+val barEntity = entities.findFirst[typeName == 'Bar']
+barEntity.fqn should be 'foo.Bar'</pre>
+</li></ul>
+<h2 id="Nested_namespaces">Nested namespaces</h2>
+<ul><li><p id="The_namespace_of_an_entity_in_a_nested_namespace_is_the_qualified_name_of_the_namespace"><strong>The namespace of an entity in a nested namespace is the qualified name of the namespace</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Bar
+  }
+''')
+
+val fooNamespace = model.elements.filter(typeof(NamespaceDeclaration)).head
+fooNamespace.name should be 'foo.bar'
+
+val entities = fooNamespace.elements.filter(typeof(Entity))
+val barEntity = entities.findFirst[typeName == 'Bar']
+barEntity.namespace should be 'foo.bar'</pre>
+</li><li><p id="The_FQN_of_an_entity_in_a_nested_namespace_is_the_qualified_name_of_the_namespace_plus_the_name_of_the_entity"><strong>The FQN of an entity in a nested namespace is the qualified name of the namespace plus the name of the entity</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Bar
+  }
+''')
+
+val fooNamespace = model.elements.filter(typeof(NamespaceDeclaration)).head
+fooNamespace.name should be 'foo.bar'
+
+val entities = fooNamespace.elements.filter(typeof(Entity))
+val barEntity = entities.findFirst[typeName == 'Bar']
+barEntity.fqn should be 'foo.bar.Bar'</pre>
+</li></ul>
+<h2 id="Mapping_classes_to_namespaces">Mapping classes to namespaces</h2>
+<ul><li><p id="Types_can_be_mapped_to_namespaces"><strong>Types can be mapped to namespaces</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Bar
+  platform FooBar {
+    typemapping Bar -&gt; Bar (foo.baz) 
+  }
+''')
+val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
+barType.namespace should be 'foo.baz'</pre>
+</li><li><p id="Mapped_types_can_be_used_in_attributes"><strong>Mapped types can be used in attributes</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Bar
+  platform FooBar {
+    typemapping Bar -&gt; Bar (foo.baz) 
+  }
+  entity BooBar {
+    Bar bar
+  }
+''')
+val boobarEntity = model.elements.filter(typeof(Entity)).head
+val barAttribute = boobarEntity.attributes.head
+barAttribute.type.namespace should be 'foo.baz'
+barAttribute.typeName should be 'Bar'</pre>
+</li><li><p id="Type_mappings"><strong>Type mappings</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Foo
+  datatype Bar
+  datatype Zap
+  platform FooBar {
+    typemapping Bar -&gt; BarBu (foo.baz)
+    typemapping Zap -&gt; zap 
+  }
+  entity BooBar {
+    Bar bar
+  }
+''')
+val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
+barType.name should be 'Bar'
+barType.namespace should be 'foo.baz'
+barType.typeName should be 'BarBu'
+
+val boobarEntity = model.elements.filter(typeof(Entity)).head
+val barAttribute = boobarEntity.attributes.head
+barAttribute.type.name should be 'Bar'
+barAttribute.type.namespace should be 'foo.baz'
+barAttribute.typeName should be 'BarBu'
+
+val zapType = model.elements.filter(typeof(DataType)).findFirst[name == 'Zap']
+zapType.name = 'Zap'
+zapType.fqn should be 'zap'
+zapType.typeName should be 'zap'</pre>
+</li><li><p id="Namespaces_can_be_mapped"><strong>Namespaces can be mapped</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Foo
+  datatype Bar
+  datatype Zap
+  platform FooBar {
+    typemapping Bar -&gt; BarBu (foo.baz)
+    typemapping Zap -&gt; zap
+    namespacemapping foo.baz -&gt; Foo.Baz 
+  }
+  entity BooBar {
+    Bar bar
+  }
+''')
+val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
+barType.name should be 'Bar'
+barType.namespace should be 'Foo.Baz'
+barType.typeName should be 'BarBu'    
+barType.fqn should be 'Foo.Baz.BarBu'</pre>
+</li></ul>
+				</div>
+			</div>
+		</div> <!-- /content -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+
+	</div>
+	<!-- /container -->
+
+</body>
+</html>

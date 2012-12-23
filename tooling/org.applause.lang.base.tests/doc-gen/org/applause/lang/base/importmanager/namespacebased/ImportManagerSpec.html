@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>ImportManager</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<!-- Le styles -->
+<link rel="stylesheet" href="../../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../../../js/lang-jnario.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="content">
+			<div class="page-header">
+				<h1>ImportManager</h1>
+			</div>
+			<div class="row">
+				<div class="span12">
+<h2 id="Initialization">Initialization</h2>
+<ul><li><p id="Initially_the_import_manager_is_empty"><strong>Initially, the import manager is empty.</strong></p>
+<pre class="prettyprint lang-spec">
+subject.empty should be true</pre>
+</li></ul>
+<h2 id="Adding_elements">Adding elements</h2>
+<ul><li><p id="After_adding_an_element_the_import_manager_is_not_empty_any_more"><strong>After adding an element, the import manager is not empty any more.</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Baz {
+    }
+  }
+''')
+val namespaceFooBar = model.allNamespaces.head as NamespaceDeclaration
+var baz = namespaceFooBar.elements.head as Entity
+
+subject.add(baz)
+subject.empty should be false
+subject.imports.size should be 1</pre>
+</li><li><p id="Adding_the_same_element_multiple_times_only_yields_one_import"><strong>Adding the same element multiple times only yields one import</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Baz {
+    }
+  }
+''')
+val namespaceFooBar = model.allNamespaces.head as NamespaceDeclaration
+var baz = namespaceFooBar.elements.head as Entity
+
+subject.add(baz)
+subject.add(baz)
+subject.empty should be false
+subject.imports.size should be 1</pre>
+</li><li><p id="Adding_two_different_elements_yields_two_imports"><strong>Adding two different elements yields two imports</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Baz {
+    }
+    entity Boo {
+    }
+  }
+''')
+val namespaceFooBar = model.allNamespaces.head as NamespaceDeclaration
+var baz = namespaceFooBar.elements.filter(typeof(Entity)).findFirst[name == &quot;Baz&quot;]
+var boo= namespaceFooBar.elements.filter(typeof(Entity)).findFirst[name == &quot;Boo&quot;]
+
+subject.add(baz)
+subject.add(boo)
+subject.imports.size should be 2</pre>
+</li></ul>
+<h2 id="Types">Types</h2>
+<ul><li><p id="Primitive_types_must_not_be_imported"><strong>Primitive types must not be imported.</strong></p>
+<p>Primitive types are types that are built in to the host language, such as <code>int</code> or <code>long</code> in Java.</p><p>We do not want to import them, as this</p>
+<ul>
+  <li>unneccesary and</li>
+  <li>illegal in most cases.</li>
+</ul>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Foo
+  datatype Zap
+  platform FooBar {
+    typemapping Foo -&gt; Foo (foo.base)
+    typemapping Zap -&gt; zap primitive
+  }
+''')
+
+val zapType = model.elements.filter(typeof(DataType)).findFirst[name == 'Zap']
+subject.add(zapType)
+subject.empty should be true</pre>
+</li></ul>
+<h2 id="Type_Mapping">Type Mapping</h2>
+<p>Types can be mapped. This is needed in order to be able to use a common type system in the DSL while being able to use platform-specific types in the code generators for the individual platform.</p>
+<h2 id="Serialization">Serialization</h2>
+<p>Sometime we need to add a type to the import manager and use the type name at the same time. This process is called <em>serialization</em>.</p>
+<ul><li><p id="Serializing_a_type_will_return_its_possible_mapped_simple_name"><strong>Serializing a type will return its [possible mapped] simple name</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Foo
+  datatype Bar
+  datatype Zap
+  platform FooBar {
+    typemapping Foo -&gt; Foo (foo.base)
+    typemapping Bar -&gt; Bar (foo.baz)
+    typemapping Zap -&gt; zap
+  }
+''')
+
+val zapType = model.elements.filter(typeof(DataType)).findFirst[name == 'Zap']
+subject.serialize(zapType) should be 'zap'
+  
+val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
+subject.serialize(barType) should be 'Bar'
+  
+val fooType = model.elements.filter(typeof(DataType)).findFirst[name == 'Foo']
+subject.serialize(fooType) should be 'Foo'</pre>
+</li></ul>
+<h2 id="Scope">Scope</h2>
+<ul><li><p id=""><strong></strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Foo {}
+    entity Bar {}
+  }
+''')
+
+val ns = model.elements.head as NamespaceDeclaration
+val foo = ns.elements.filter(typeof(Entity)).findFirst[name == 'Foo']
+val importManager = importManagerFactory.create(foo);
+
+val bar = ns.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+importManager.serialize(bar) should be 'Bar'
+importManager.empty should be true</pre>
+</li></ul>
+<h2 id="Well_known_classes">Well-known classes</h2>
+<p>Well-known classes are classes that are part of the runtime and do not need to be imported, or that are part of the runtime and need to be imported using a specific, predefined import.</p>
+<ul><li><p id="Classes_from_well_known_packages_are_not_imported"><strong>Classes from well-known packages are not imported</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Foo
+  datatype Bar
+  platform FooBar {
+    typemapping Foo -&gt; Foo (foo.base)
+    typemapping Bar -&gt; Bar (foo.baz)
+  }
+''')
+
+val fooType = model.elements.filter(typeof(DataType)).findFirst[name == 'Foo']
+subject.add(fooType)
+subject.empty should be true</pre>
+</li><li><p id="Classes_from_non_well_known_packages_should_be_imported"><strong>Classes from non-well-known packages should be imported</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  datatype Foo
+  datatype Bar
+  platform FooBar {
+    typemapping Foo -&gt; Foo (foo.base)
+    typemapping Bar -&gt; Bar (foo.baz)
+  }
+''')
+
+val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
+subject.add(barType)
+subject.empty should be false</pre>
+</li></ul>
+<h2 id="Multiplicity">Multiplicity</h2>
+<ul><li><p id="If_an_attribute_has_a_cardinality_of_1_the_regular_type_will_be_returned_when_serializing"><strong>If an attribute has a cardinality of 1, the regular type will be returned when serializing</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Foo {}
+    entity Baz {}
+    entity Bar {
+      Baz baz
+      Foo[] foos
+      Bar[] bars
+    }
+  }
+''')
+
+val ns = model.elements.head as NamespaceDeclaration
+
+val bar = ns.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+val baz = bar.attributes.findFirst[name == 'baz']
+
+val importManager = importManagerFactory.create(bar);
+
+importManager.serialize(baz.type, baz.many) should be 'Baz'
+importManager.imports.size should be 0</pre>
+</li><li><p id="If_an_attribute_is_a_collection_a_typed_collection_will_be_returned_and_a_collection_type_will_be_imported"><strong>If an attribute is a collection, a typed collection will be returned and a collection type will be imported.</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Foo {}
+    entity Bar {
+      Foo[] foos
+    }
+  }
+''')
+
+val ns = model.elements.head as NamespaceDeclaration
+
+val bar = ns.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+val foos = bar.attributes.findFirst[name == 'foos']
+
+val importManager = importManagerFactory.create(bar);
+
+importManager.serialize(foos.type, foos.many) should be 'foo.util.List&lt;Foo&gt;'
+importManager.imports.head should be 'foo.util.List'
+importManager.imports.size should be 1</pre>
+</li><li><p id="If_multiple_attributes_are_collection_types_the_basic_list_type_must_only_be_imported_once"><strong>If multiple attributes are collection types, the basic list type must only be imported once.</strong></p>
+<pre class="prettyprint lang-spec">
+val model = parseHelper.parse('''
+  namespace foo.bar {
+    entity Foo {}
+    entity Bar {
+      Foo[] foos
+      Bar[] bars
+    }
+  }
+''')
+
+val ns = model.elements.head as NamespaceDeclaration
+
+val bar = ns.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
+val foos = bar.attributes.findFirst[name == 'foos']
+val bars = bar.attributes.findFirst[name == 'bars']
+
+val importManager = importManagerFactory.create(bar);
+
+importManager.serialize(foos.type, foos.many) should be 'foo.util.List&lt;Foo&gt;'
+importManager.serialize(bars.type, bars.many) should be 'foo.util.List&lt;Bar&gt;'
+importManager.imports.head should be 'foo.util.List'
+importManager.imports.size should be 1</pre>
+</li></ul>
+				</div>
+			</div>
+		</div> <!-- /content -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+
+	</div>
+	<!-- /container -->
+
+</body>
+</html>

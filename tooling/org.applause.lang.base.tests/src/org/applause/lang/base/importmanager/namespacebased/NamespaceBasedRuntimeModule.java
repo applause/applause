@@ -1,23 +1,24 @@
-package org.applause.lang.base.importmanager.classbased;
+package org.applause.lang.base.importmanager.namespacebased;
 
 import org.applause.lang.ApplauseDslRuntimeModule;
+import org.applause.lang.base.FooBarPlatformExtensions;
 import org.applause.lang.base.FooBarTypeExtensions;
 import org.applause.lang.base.ImportManager;
 import org.applause.lang.base.PlatformExtensions;
 import org.applause.lang.base.TypeExtensions;
 
-public class RuntimeModule extends ApplauseDslRuntimeModule {
-
+public class NamespaceBasedRuntimeModule extends ApplauseDslRuntimeModule {
+	
 	public Class<? extends TypeExtensions> bindTypeExtensions() {
 		return FooBarTypeExtensions.class;
 	}
 	
 	public Class<? extends PlatformExtensions> bindPlatformExtensions() {
-		return ClassBasedPlatformExtensions.class;
+		return FooBarPlatformExtensions.class;
 	}
 	
 	public Class<? extends ImportManager> bindImportManager() {
-		return FooBarClassBasedImportManager.class;
+		return FooBarImportmanager.class;
 	}
 
 }

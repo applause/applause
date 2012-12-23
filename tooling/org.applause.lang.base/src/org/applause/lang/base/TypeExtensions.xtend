@@ -11,6 +11,7 @@ import org.applause.lang.applauseDsl.Type
 import org.applause.lang.applauseDsl.TypeMapping
 import org.applause.lang.applauseDsl.ListView
 import org.applause.lang.applauseDsl.NamedElement
+import org.applause.lang.applauseDsl.View
 
 abstract class TypeExtensions {
 	
@@ -39,6 +40,9 @@ abstract class TypeExtensions {
 	
 	def dispatch String typeName(Attribute it) {
 		type?.typeName
+	}
+	
+	def dispatch String typeName(View it) {
 	}
 	
 	def dispatch String typeName(ListView it) {

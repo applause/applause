@@ -34,7 +34,10 @@ abstract class ClassBasedImportmanager extends ImportManager {
 	}
 	
 	override requiresImport(Type type) {
-		!(type.primitive || (type.wellknownClass && !type.wellknownClassHasImport))
+		!(type.primitive 
+			|| (type.wellknownClass && !type.wellknownClassHasImport) 
+			|| (type == thisType)
+		)
 	}
 	
 	override addImport(Type type) {

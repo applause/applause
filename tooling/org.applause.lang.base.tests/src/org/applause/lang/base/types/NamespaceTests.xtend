@@ -1,6 +1,7 @@
-package org.applause.lang.base
+package org.applause.lang.base.types
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.DataType
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.applauseDsl.NamespaceDeclaration
@@ -11,7 +12,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 import static org.junit.Assert.*
-import org.applause.lang.applauseDsl.DataType
+import org.applause.lang.base.ApplauseDslTestInjectorProvider
+import org.applause.lang.base.TypeExtensions
 
 @InjectWith(typeof(ApplauseDslTestInjectorProvider))
 @RunWith(typeof(XtextRunner))

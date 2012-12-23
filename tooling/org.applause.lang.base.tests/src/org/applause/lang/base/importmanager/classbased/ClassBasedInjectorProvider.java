@@ -4,11 +4,11 @@ import org.applause.lang.ApplauseDslInjectorProvider;
 
 import com.google.inject.Injector;
 
-public class InjectorProvider extends ApplauseDslInjectorProvider {
+public class ClassBasedInjectorProvider extends ApplauseDslInjectorProvider {
 
 	@Override
 	protected Injector internalCreateInjector() {
-		return new StandaloneSetup().createInjectorAndDoEMFRegistration();
+		return new ClassBasedStandaloneSetup().createInjectorAndDoEMFRegistration();
 	}
 	
 }

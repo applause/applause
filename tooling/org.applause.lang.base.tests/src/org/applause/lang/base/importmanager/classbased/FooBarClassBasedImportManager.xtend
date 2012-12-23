@@ -7,6 +7,7 @@ class FooBarClassBasedImportManager extends ClassBasedImportmanager {
 
 	override initWellknownClasses() {
 		registerWellKnownClass('HubbaClass', 'BaseClasses/ChewingGums')
+		registerWellKnownClass('BubbaClass', 'BaseClasses/ChewingGums')
 		registerWellKnownClass('ChuppaClass')
 	}
 	
