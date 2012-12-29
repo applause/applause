@@ -18,6 +18,7 @@ class XcodeTarget {
 	
 	private new(XcodeProject project, String name) {
 		this.project = project
+		project.targets.add(this)
 		
 		pbx_target = PbxprojFactory::eINSTANCE.createNativeTarget
 		pbx_target.isa = 'PBXNativeTarget'

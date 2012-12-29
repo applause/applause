@@ -1,9 +1,8 @@
-package org.applause.util.xcode.project.specs
+package org.applause.util.xcode.project
 
-import org.applause.util.xcode.project.Path
+import org.jnario.runner.CreateWith
 
 import static extension org.jnario.lib.Should.*
-import org.jnario.runner.CreateWith
 
 /**
  * Pbxproj files use `Path`s to describe absolute and relative paths inside Xcode projects.

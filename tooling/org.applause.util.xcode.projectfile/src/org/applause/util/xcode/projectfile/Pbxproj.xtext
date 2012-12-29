@@ -98,6 +98,7 @@ Project:
 	name=UUID '=' '{'
 		'isa' '=' isa=PBXProjectLiteral ';'
 		'attributes' '=' '{'
+			('CLASSPREFIX' '=' classPrefix = ID';')?
 			'LastUpgradeCheck' '=' lastupgradeCheck=INT ';'
 			'ORGANIZATIONNAME' '=' organisationName=STRING ';'
 		'}' ';'

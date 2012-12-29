@@ -15,12 +15,19 @@ class XcodeFile {
 	@Property BuildFile pbx_buildFile
 	
 	private new(XcodeGroup group) {
+		// assign file to group
 		this.group = group
-		this.project = group.project
+		this.group.files.add(this)
 		
+		// assign group to project
+		this.project = group.project
+		this.project.files.add(this)
+		
+		// create file reference
 		pbx_fileReference = PbxprojFactory::eINSTANCE.createFileReference
 		pbx_fileReference.isa = 'PBXFileReference'
 		pbx_fileReference.name = generateUUID
+		
 		sourceTree = SourceTree::GROUP
 	}
 	
@@ -141,7 +148,9 @@ class XcodeFile {
 		}
 	}
 	
+	SourceTree sourceTree
 	def setSourceTree(SourceTree tree) {
+		sourceTree = tree
 		pbx_fileReference.sourceTree = switch (tree) {
 			case SourceTree::BUILT_PRODUCTS_DIR:
 				org::applause::util::xcode::projectfile::pbxproj::SourceTree::BUILT_PRODUCTS_DIR
@@ -150,6 +159,10 @@ class XcodeFile {
 			case SourceTree::GROUP:
 				org::applause::util::xcode::projectfile::pbxproj::SourceTree::GROUP
 		}
+	}
+	
+	def sourceTree() {
+		sourceTree
 	}
 	
 	def private connect() {

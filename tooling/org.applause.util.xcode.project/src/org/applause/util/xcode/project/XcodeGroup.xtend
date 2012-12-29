@@ -8,6 +8,7 @@ import org.applause.util.xcode.project.XcodeProject
 
 import static extension org.applause.util.xcode.project.XcodeFile.*
 import static extension org.applause.util.xcode.project.Path.*
+import java.util.ArrayList
 
 class XcodeGroup {
 	
@@ -23,6 +24,12 @@ class XcodeGroup {
 	def static createMainGroup(XcodeProject project) {
 		val group = new XcodeGroup(project)
 		group.mainGroup = true
+		group
+	}
+	
+	def static createProductsGroup(XcodeProject project) {
+		val group = new XcodeGroup(project)
+		group.productsGroup = true
 		group
 	}
 	
@@ -62,13 +69,28 @@ class XcodeGroup {
 	def path() {
 		pbx_group.path.toPath
 	}
+
+	def setGroupName(String name) {
+		pbx_group.groupName = name
+	}
+		
+	def groupName() {
+		pbx_group.groupName
+	}
 	
 	def setProductsGroup(boolean b) {
+		groupName = 'Products'
 		project.pbx_project.productRefGroup = pbx_group
 	}
 	
 	def isProductsGroup() {
 		project.pbx_project.productRefGroup == pbx_group
+	}
+	
+	ArrayList<XcodeFile> files = newArrayList()
+	
+	def files() {
+		files
 	}
 	
 	def createHeaderFile(Path path) {

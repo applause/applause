@@ -1,4 +1,4 @@
-package org.applause.util.xcode.project.specs;
+package org.applause.util.xcode.project;
 
 import org.applause.util.xcode.projectfile.PbxprojInjectorProvider;
 import org.eclipse.xtext.junit4.IInjectorProvider;

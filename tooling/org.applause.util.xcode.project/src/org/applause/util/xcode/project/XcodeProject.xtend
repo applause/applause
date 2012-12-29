@@ -18,12 +18,16 @@ import static org.applause.util.xcode.project.XcodeProjectUtils.*
 import static org.applause.util.xcode.project.XcodeTarget.*
 
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationList.*
+import java.util.ArrayList
 
 class XcodeProject extends XcodeProjectBase {
 	@Property ProjectModel pbx_projectModel
 	@Property Project pbx_project
 	XcodeBuildConfigurationList buildConfigurationList
 	String projectPath
+	
+	XcodeGroup mainGroup
+	XcodeGroup productsGroup
 	
 	new() {	
 	}
@@ -35,7 +39,7 @@ class XcodeProject extends XcodeProjectBase {
 		pbx_project.name = generateUUID
 		pbx_project.isa = 'PBXProject';
 		pbx_project.lastupgradeCheck = 440
-		pbx_project.organisationName = 'John Doe'
+		pbx_project.organisationName = 'Applause'
 		// project.buildConfigurationList
 		pbx_project.compatibilityVersion = 'Xcode 3.2'
 		pbx_project.developmentRegion = Language::ENGLISH
@@ -50,7 +54,10 @@ class XcodeProject extends XcodeProjectBase {
 		pbx_projectModel.encoding = Encoding::UTF8
 		pbx_projectModel.objects.add(pbx_project)
 		pbx_projectModel.rootObject = pbx_project	
-		resource()		
+		resource()	
+		
+		createMainGroup
+		createProductsGroup
 		
 		buildConfigurationList = this.createBuildConfigurationList()
 //		buildConfigurationList.createBuildConfiguration('Release')
@@ -91,11 +98,34 @@ class XcodeProject extends XcodeProjectBase {
 	}
 	
 	def createMainGroup() {
-		createMainGroup(this)
+		mainGroup = createMainGroup(this)
+	}
+	
+	def mainGroup() {
+		mainGroup
+	}
+	
+	def createProductsGroup() {
+		productsGroup = createProductsGroup(this)
+	}
+	
+	def productsGroup() {
+		productsGroup
+	}
+	
+	ArrayList<XcodeFile> files = newArrayList()
+	
+	def files() {
+		files
 	}
 	
 	def createTarget(String name) {
 		createTarget(this, name)
+	}
+	
+	ArrayList<XcodeTarget> targets = newArrayList()
+	def targets() {
+		targets
 	}
 	
 	def createApplicationTarget(String name) {
@@ -118,5 +148,40 @@ class XcodeProject extends XcodeProjectBase {
 		buildConfigurationList.getBuildConfiguration(name)
 	}
 	
+	def setOrganizationName(String name) {
+		pbx_project.organisationName = name
+	}
+	
+	def organizationName() {
+		pbx_project.organisationName
+	}
+	
+	def setClassPrefix(String prefix) {
+		pbx_project.classPrefix = prefix
+	}
+	
+	def classPrefix() {
+		pbx_project.classPrefix
+	}
+	
+	def lastUpgradeCheck() {
+		pbx_project.lastupgradeCheck
+	}
+	
+	def compatibilityVersion() {
+		pbx_project.compatibilityVersion
+	}
+	
+	def developmentRegion() {
+		pbx_project.developmentRegion.toString
+	}
+	
+	def knownRegions() {
+		pbx_project.knownRegions
+	}
+	
+	def hasScannedForEncodings() {
+		pbx_project.hasScannedForEncodings != 0
+	}
 	
 }

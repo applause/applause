@@ -1,4 +1,4 @@
-package org.applause.util.xcode.project.specs;
+package org.applause.util.xcode.project;
 
 import org.eclipse.xtext.junit4.IInjectorProvider;
 import org.eclipse.xtext.junit4.IRegistryConfigurator;
@@ -21,6 +21,9 @@ public abstract class JnarioSpecCreator extends AbstractSpecCreator {
 	@Override
 	public void beforeSpecRun() {
 		injector = getInjectorProvider().getInjector();
+		if (getInjectorProvider() instanceof IRegistryConfigurator) {
+			((IRegistryConfigurator) getInjectorProvider()).setupRegistry();
+		}		
 	}
 	
 	@Override
@@ -31,6 +34,5 @@ public abstract class JnarioSpecCreator extends AbstractSpecCreator {
 	}
 
 	protected abstract IInjectorProvider getInjectorProvider();
-
 
 }
