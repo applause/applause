@@ -23,15 +23,34 @@ enum Encoding:
 
 ProjectObject:
 	BuildFile | FileReference | Project | Group | VariantGroup | ContainerItemProxy | 
-	BuildPhase | NativeTarget | TargetDependency | BuildConfiguration | ConfigurationList
+	BuildPhase | NativeTarget | TargetDependency | BuildConfiguration | ConfigurationList | VersionGroup
 ;
 
 BuildFile:
 	name=UUID '=' '{' 
 		'isa' '=' isa=PBXBuildFileLiteral ';'
 		'fileRef' '=' fileRef=[ProjectObject] ';'
+		(
+			'settings' '=' '{'
+				settings+=BuildFileSetting*
+			'}' ';'
+		)? 
 	 '}' ';'
 ;
+
+BuildFileSetting:
+	BuildFileSettingWithString | BuildFileSettingWithCollection
+;
+
+BuildFileSettingWithCollection:
+	name=ID '=' '(' (values+=ID ',')* ')' ';'
+;
+
+
+BuildFileSettingWithString:
+	name=ID '=' value=STRING ';'	
+;
+
 
 PBXBuildFileLiteral:
 	'PBXBuildFile'	
@@ -45,6 +64,7 @@ FileReference:
 		('name' '=' fileName=ID ';')?
 		'path' '=' path=Path ';'
 		'sourceTree' '=' sourceTree=SourceTree ';'
+		('wrapsLines' '=' wrapsLines=INT ';')?
 	'}' ';'
 ;
 
@@ -52,11 +72,17 @@ PBXFileReferenceLiteral:
 	'PBXFileReference'
 ;
 
+BuildFileSettingStringValue:
+	value=STRING
+;
+
 enum FileType:
 	none='none - dont use this'
 	| wrapperApplication='wrapper.application' 
 	| wrapperFramework='wrapper.framework'
 	| wrapperCFBundle='wrapper.cfbundle'
+	| wrapperXCDatamodel = 'wrapper.xcdatamodel'
+	| imagePNG = 'image.png'
 	| textPlistXml='text.plist.xml'
 	| testPlistStrings='text.plist.strings'
 	| sourcecodeCObjc='sourcecode.c.objc'
@@ -323,7 +349,7 @@ ConfigurationList:
 	name=UUID '=' '{'
 		'isa' '=' isa=XCConfigurationListLiteral ';'
 		'buildConfigurations' '=' '('
-			(buildConfigurations+=[BuildConfiguration]',')*
+			(buildConfigurations+=[BuildConfiguration] ',')*
 		')' ';'
 		'defaultConfigurationIsVisible' '=' defaultConfigurationIsVisible=INT ';'
 		('defaultConfigurationName' '=' defaultConfigurationName=ID ';')? // TODO: enum?
@@ -333,6 +359,29 @@ ConfigurationList:
 XCConfigurationListLiteral:
 	'XCConfigurationList'
 ;
+
+VersionGroup:
+	name=UUID '=' '{'
+		'isa' '=' isa=XCVersionGroupLiteral ';'
+		'children' '=' '('
+			(children+=[FileReference] ',')*
+		')' ';'
+		'currentVersion' '=' currentVersion=[FileReference] ';'
+		'path' '=' path=Path ';'
+		'sourceTree' '=' sourceTree=SourceTree ';'
+		'versionGroupType' '=' versionGroupType=VersionGroupType ';'
+	'}' ';'
+;
+
+XCVersionGroupLiteral:
+	'XCVersionGroup'
+;
+
+enum VersionGroupType:
+	none='none - dont use this'
+	| wrapperXCDatamodel = 'wrapper.xcdatamodel'
+;
+
 
 
 UUID:

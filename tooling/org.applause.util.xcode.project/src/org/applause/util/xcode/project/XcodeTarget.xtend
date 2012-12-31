@@ -13,7 +13,7 @@ class XcodeTarget {
 	
 	@Property XcodeProject project
 	@Property NativeTarget pbx_target
-	XcodeBuildPhase _sourceBuildPhase
+
 	XcodeBuildConfigurationList buildConfigurationList
 	
 	private new(XcodeProject project, String name) {
@@ -24,6 +24,7 @@ class XcodeTarget {
 		pbx_target.isa = 'PBXNativeTarget'
 		pbx_target.name = generateUUID
 		pbx_target.targetName = name
+		pbx_target.productName = name
 		
 		project.pbx_project.targets.add(pbx_target)
 		project.pbx_projectModel.objects.add(pbx_target)
@@ -40,15 +41,21 @@ class XcodeTarget {
 	}
 	
 	def static createApplicationTarget(XcodeProject project, String name) {
-		val proj = createTarget(project, name)
-		proj.pbx_target.productType = ProductType::APPLICATION
-		proj
+		val target = createTarget(project, name)
+		target.pbx_target.productType = ProductType::APPLICATION
+		target
 	}
 	
 	def static createApplicationTarget(XcodeProject project, String name, XcodeFile applicationFile) {
 		val target = createTarget(project, name)
 		target.pbx_target.productType = ProductType::APPLICATION
 		target.productReference = applicationFile
+		target
+	}
+	
+	def static createBundleTarget(XcodeProject project, String name) {
+		val target = createTarget(project, name)
+		target.pbx_target.productType = ProductType::BUNDLE
 		target
 	}
 	
@@ -60,12 +67,22 @@ class XcodeTarget {
 		pbx_target.productName = name
 	}
 	
-	def getSourceBuildPhase() {
-		if (_sourceBuildPhase == null) {
-			_sourceBuildPhase = project.createSourceBuildPhase()
-			pbx_target.buildPhases.add(_sourceBuildPhase.pbx_buildPhase)
+	XcodeBuildPhase sourceBuildPhase	
+	def sourceBuildPhase() {
+		if (sourceBuildPhase == null) {
+			sourceBuildPhase = project.createSourceBuildPhase()
+			pbx_target.buildPhases.add(sourceBuildPhase.pbx_buildPhase)
 		}
-		_sourceBuildPhase
+		sourceBuildPhase
+	}
+	
+	XcodeBuildPhase frameworkBuildPhase
+	def frameworkBuildPhase() {
+		if (frameworkBuildPhase == null) {
+			frameworkBuildPhase = project.createFrameworkBuildPhase()
+			pbx_target.buildPhases.add(frameworkBuildPhase.pbx_buildPhase)
+		}
+		frameworkBuildPhase
 	}
 	
 	def add(XcodeFile file) {
@@ -78,6 +95,18 @@ class XcodeTarget {
 	
 	def getBuildConfiguration(String name) {
 		buildConfigurationList.getBuildConfiguration(name)
+	}
+	
+	def name() {
+		pbx_target.targetName
+	}
+	
+	def productName() {
+		pbx_target.productName
+	}
+	
+	def productType() {
+		pbx_target.productType
 	}
 	
 }

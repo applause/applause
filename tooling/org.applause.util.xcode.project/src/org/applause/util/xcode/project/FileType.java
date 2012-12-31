@@ -6,5 +6,6 @@ public enum FileType {
 	APP,
 	OCTEST,
 	PLIST,
-	FRAMEWORK
+	FRAMEWORK,
+	XC_DATAMODEL
 }

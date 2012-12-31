@@ -237,14 +237,127 @@ frameworkWrapper.buildFile should be true</pre>
 <h2 id="Configuration_Management">Configuration Management</h2>
 <div class="level">
 <h3 id="Targets">Targets</h3>
-<ul><li><p id="A_project_has_several_targets"><strong>A project has several targets</strong></p>
+<p>A project has several targets.</p>
+<div class="level">
+<h4 id="Creating_a_target">Creating a target</h4>
+<p>Targets can be created using a number of factory methods on an <code>XcodeProject</code>.</p>
+<ul><li><p id="Creating_an_application_target"><strong>Creating an application target</strong></p>
+<p>The outcome of an application target is an app.</p>
 <pre class="prettyprint lang-spec">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
-project.targets should contain target
-
-// TODO: make sure each target has at least one sourcebuildphase</pre>
+target should not be null
+target.productType should be ProductType::APPLICATION</pre>
+</li><li><p id="Creating_a_bundle_target"><strong>Creating a bundle target</strong></p>
+<p>The outcome of a bundle target is a bundle. Bundle targets are used to create test bundles. TODO: Check if they also are used to create library bundles.</p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createBundleTarget('FooBarProjectTests')
+target should not be null
+target.productType should be ProductType::BUNDLE</pre>
 </li></ul>
+</div>
+<div class="level">
+<h4 id="Naming">Naming</h4>
+<ul><li><p id="A_target_has_a_name"><strong>A target has a name</strong></p>
+<p>The target name will be displayed in the <em>Target</em> section in the Xcode target editor.</p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+target.name should be 'FooBarProject'</pre>
+</li><li><p id="A_target_has_a_product_name"><strong>A target has a product name</strong></p>
+<p>A target has a product name, but it is not quite clear what this is intended for, as the name of the target will be displayed in the <em>Target</em> section of the target editor and the product name does not seem to have any influence on any other part of the UI.</p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+target.productName should be 'FooBarProject'</pre>
+</li></ul>
+</div>
+<div class="level">
+<h4 id="Build_phases">Build phases</h4>
+<p>A target can have several build phases.</p>
+<div class="level">
+<h4 id="Source_build_phase">Source build phase</h4>
+<p>The source build phase defines which source code files will be compiled.</p>
+<ul><li><p id="Each_target_should_have_a_source_build_phase"><strong>Each target should have a source build phase</strong></p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+target.sourceBuildPhase should not be null</pre>
+</li><li><p id="Source_code_files_will_only_be_compiled_if_they_are_listed_in_the_source_build_phase"><strong>Source code files will only be compiled if they are listed in the source build phase</strong></p>
+<p>Only source code files will be compiled. Adding non-source code files to the source build phase is prevented by the API.</p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+val sourceBuildPhase = target.sourceBuildPhase
+sourceBuildPhase should not be null
+
+val mainGroup = project.mainGroup 
+val group = mainGroup.createGroup('FooBarProject'.toPath)
+
+val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+sourceBuildPhase.add(moduleFile)
+val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+sourceBuildPhase.add(headerFile)
+val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+sourceBuildPhase.add(frameworkWrapper)
+val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+sourceBuildPhase.add(datamodelFile)
+
+sourceBuildPhase.files.size should be 2
+sourceBuildPhase.files should contain moduleFile
+sourceBuildPhase.files should contain datamodelFile
+sourceBuildPhase.files should not contain headerFile</pre>
+</li></ul>
+</div>
+<div class="level">
+<h4 id="Framework_build_phase">Framework build phase</h4>
+<p>The framework build phase defines which frameworks will be linked with the binary.</p>
+<ul><li><p id="A_target_can_have_one_frameworks_build_phase"><strong>A target can have one frameworks build phase</strong></p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+val frameworkBuildPhase = target.frameworkBuildPhase
+frameworkBuildPhase should not be null</pre>
+</li><li><p id="The_frameworks_build_phase_can_only_contain_frameworks"><strong>The frameworks build phase can only contain frameworks</strong></p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+val frameworkBuildPhase = target.frameworkBuildPhase
+
+val mainGroup = project.mainGroup 
+val group = mainGroup.createGroup('FooBarProject'.toPath)
+
+val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+frameworkBuildPhase.add(moduleFile)
+val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+frameworkBuildPhase.add(headerFile)
+val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+frameworkBuildPhase.add(frameworkWrapper)
+val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+frameworkBuildPhase.add(datamodelFile)
+
+frameworkBuildPhase.files.size should be 1
+frameworkBuildPhase.files should contain frameworkWrapper
+frameworkBuildPhase.files should not contain moduleFile</pre>
+</li><li><p id="Frameworks_are_either_required_or_optional"><strong>Frameworks are either required or optional</strong></p>
+<pre class="prettyprint lang-spec">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+val frameworkBuildPhase = target.frameworkBuildPhase
+
+val mainGroup = project.mainGroup 
+val group = mainGroup.createGroup('FooBarProject'.toPath)
+
+val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+frameworkBuildPhase.add(frameworkWrapper)
+frameworkWrapper.required should be true
+
+frameworkWrapper.required = false
+frameworkWrapper.required should be false</pre>
+</li></ul>
+</div>
+</div>
 </div>
 				</div>
 			</div>

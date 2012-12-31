@@ -27,7 +27,20 @@ class XtendPbxprojOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	
 	def _createChildren(DocumentRootNode rootNode, ProjectModel projectModel) {
 		createFileStructureNode(rootNode, projectModel)
+		createConfigManagementNode(rootNode, projectModel)
 	}
+	
+	def createConfigManagementNode(IOutlineNode parentNode, ProjectModel projectModel) { 
+		val configManagementNode = createEStructuralFeatureNode(parentNode, projectModel,
+			PbxprojPackage::eINSTANCE.projectModel_Objects,
+			imageHelper.getImage('xcodeproject.gif'), 'Configuration Management', false);
+
+		val targets = projectModel.objects.filter(typeof(NativeTarget))
+		for (target: targets) {
+			createEObjectNode(configManagementNode, target);
+		}
+	}
+
 	
 	def createFileStructureNode(IOutlineNode parentNode, ProjectModel projectModel) {
 		val fileStructureNode = createEStructuralFeatureNode(parentNode, projectModel, 

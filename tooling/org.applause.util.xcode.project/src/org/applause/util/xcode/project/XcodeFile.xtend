@@ -14,7 +14,7 @@ class XcodeFile {
 	@Property FileReference pbx_fileReference
 	@Property BuildFile pbx_buildFile
 	
-	private new(XcodeGroup group) {
+	protected new(XcodeGroup group) {
 		// assign file to group
 		this.group = group
 		this.group.files.add(this)
@@ -80,18 +80,11 @@ class XcodeFile {
 		file;
 	}
 	
-	def static createFrameworkFile(XcodeGroup group, Path path) {
+	def static createDatamodelFile(XcodeGroup group, Path path) {
 		val file = createFile(group)
-		file.fileType = FileType::FRAMEWORK
-		// 8888BC3115E6C80B004ED7F7 /* Foundation.framework */ = {
-		// isa = PBXFileReference; 
-		// lastKnownFileType = wrapper.framework; 
-		// name = Foundation.framework; 
-		// path = System/Library/Frameworks/Foundation.framework; 
-		// sourceTree = SDKROOT; };
-		file.name = path.lastSegment
+		file.fileType = FileType::XC_DATAMODEL
 		file.path = path
-		file.sourceTree = SourceTree::SDKROOT
+		file.sourceTree = SourceTree::GROUP
 		file.connect
 		file;		
 	}
@@ -125,6 +118,8 @@ class XcodeFile {
 				org::applause::util::xcode::projectfile::pbxproj::FileType::TEXT_PLIST_XML
 			case FileType::FRAMEWORK:
 				org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_FRAMEWORK
+			case FileType::XC_DATAMODEL:
+				org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_XC_DATAMODEL
 		}
 		
 		pbx_fileReference.explicitFileType = switch type {
@@ -143,9 +138,28 @@ class XcodeFile {
 				true
 			case org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_FRAMEWORK:
 				true
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_XC_DATAMODEL:
+				true
 			default:
 				false
 		}
+	}
+	
+	def isSourceBuildFile() {
+		switch pbx_fileReference.lastKnownFileType {
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH:
+				false
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_COBJC:
+				true
+			case org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_XC_DATAMODEL:
+				true
+			default:
+				false
+		}
+	}
+	
+	def isFrameworkFile() {
+		pbx_fileReference.lastKnownFileType == org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_FRAMEWORK
 	}
 	
 	SourceTree sourceTree
@@ -165,7 +179,7 @@ class XcodeFile {
 		sourceTree
 	}
 	
-	def private connect() {
+	def protected connect() {
 		// hook up the fileReference
 		project.pbx_projectModel.objects.add(pbx_fileReference)
 		group.pbx_group.children.add(pbx_fileReference)

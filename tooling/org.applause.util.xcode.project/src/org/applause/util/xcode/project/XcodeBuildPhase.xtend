@@ -6,13 +6,14 @@ import org.applause.util.xcode.projectfile.pbxproj.PbxprojFactory
 import org.applause.util.xcode.projectfile.pbxproj.BuildPhase
 
 import static extension org.applause.util.xcode.project.XcodeProjectUtils.*
+import java.util.ArrayList
 
 class XcodeBuildPhase {
 	
 	XcodeProject project
 	@Property BuildPhase pbx_buildPhase
 	
-	private new(XcodeProject project) {
+	protected new(XcodeProject project) {
 		this.project = project
 		
 		pbx_buildPhase = PbxprojFactory::eINSTANCE.createSourcesBuildPhase
@@ -23,20 +24,21 @@ class XcodeBuildPhase {
 		project.pbx_projectModel.objects.add(pbx_buildPhase)		
 	}
 	
-	def private setIsa(String isa) {
-		pbx_buildPhase.isa = isa
-	}
-	
-	def static createSourceBuildPhase(XcodeProject project) {
-		val buildPhase = new XcodeBuildPhase(project)
-		buildPhase.isa = 'PBXSourcesBuildPhase'
-		buildPhase
+	def protected shouldAddFile(XcodeFile file) {
+		file.sourceBuildFile
 	}
 	
 	def add(XcodeFile file) {
-		if(file.buildFile) {
+		if(shouldAddFile(file)) {
+			files.add(file)
 			pbx_buildPhase.files.add(file.pbx_buildFile)
 		}
+	}
+	
+	ArrayList<XcodeFile> files = newArrayList()
+	
+	def files() {
+		files
 	}
 	
 }

@@ -114,7 +114,11 @@ class XcodeGroup {
 	}
 	
 	def createFrameworkFile(Path path) {
-		createFrameworkFile(this, path)
+		new XcodeFrameworkFile(this, path)
+	}
+	
+	def createDatamodelFile(Path path) {
+		createDatamodelFile(this, path)
 	}
 	
 }

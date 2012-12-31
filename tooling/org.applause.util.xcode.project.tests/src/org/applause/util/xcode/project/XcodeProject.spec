@@ -1,6 +1,7 @@
 package org.applause.util.xcode.project
 
 import com.google.inject.Inject
+import org.applause.util.xcode.projectfile.pbxproj.ProductType
 import org.jnario.runner.CreateWith
 
 import static extension org.applause.util.xcode.project.Path.*
@@ -298,15 +299,161 @@ describe XcodeProject {
 	
 	context 'Configuration Management' {
 		
+		/**
+		 * A project has several targets.
+		 */		
 		context 'Targets' {
 			
-			fact 'A project has several targets' {
-				val project = projectFactory.create('/foo/bar')
-				val target = project.createApplicationTarget('FooBarProject')
-				project.targets should contain target
+			/**
+			 * Targets can be created using a number of factory methods on an `XcodeProject`.
+			 */
+			context 'Creating a target' {
 				
-				// TODO: make sure each target has at least one sourcebuildphase 
+				/**
+				 * The outcome of an application target is an app.
+				 */
+				fact 'Creating an application target' {
+					val project = projectFactory.create('/foo/bar')
+					val target = project.createApplicationTarget('FooBarProject')
+					target should not be null
+					target.productType should be ProductType::APPLICATION
+				}
+				
+				/**
+				 * The outcome of a bundle target is a bundle. Bundle targets are used to create test bundles.
+				 * TODO: Check if they also are used to create library bundles.
+				 */
+				fact 'Creating a bundle target' {
+					val project = projectFactory.create('/foo/bar')
+					val target = project.createBundleTarget('FooBarProjectTests')
+					target should not be null
+					target.productType should be ProductType::BUNDLE
+				}
+				
 			}
+			
+			context 'Naming' {
+				
+				/**
+				 * The target name will be displayed in the *Target* section in the Xcode target editor.
+				 */
+				fact 'A target has a name' {
+					val project = projectFactory.create('/foo/bar')
+					val target = project.createApplicationTarget('FooBarProject')
+					target.name should be 'FooBarProject'
+				}
+				
+				/**
+				 * A target has a product name, but it is not quite clear what this is intended for, as
+				 * the name of the target will be displayed in the *Target* section of the target editor
+				 * and the product name does not seem to have any influence on any other part of the UI.
+				 */
+				fact 'A target has a product name' {
+					val project = projectFactory.create('/foo/bar')
+					val target = project.createApplicationTarget('FooBarProject')
+					target.productName should be 'FooBarProject'
+				}
+			}
+			
+			/**
+			 * A target can have several build phases.
+			 */
+			context 'Build phases' {
+				
+				/**
+				 * The source build phase defines which source code files will be compiled.
+				 */
+				context 'Source build phase' {
+					
+					fact 'Each target should have a source build phase' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						target.sourceBuildPhase should not be null
+					}
+					
+					/**
+					 * Only source code files will be compiled. Adding non-source code files to the source build
+					 * phase is prevented by the API.
+					 */
+					fact 'Source code files will only be compiled if they are listed in the source build phase' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						val sourceBuildPhase = target.sourceBuildPhase
+						sourceBuildPhase should not be null
+						
+						val mainGroup = project.mainGroup 
+						val group = mainGroup.createGroup('FooBarProject'.toPath)
+						
+						val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+						sourceBuildPhase.add(moduleFile)
+						val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+						sourceBuildPhase.add(headerFile)
+						val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+						sourceBuildPhase.add(frameworkWrapper)
+						val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+						sourceBuildPhase.add(datamodelFile)
+						
+						sourceBuildPhase.files.size should be 2
+						sourceBuildPhase.files should contain moduleFile
+						sourceBuildPhase.files should contain datamodelFile
+						sourceBuildPhase.files should not contain headerFile
+					}
+					
+				}
+
+				/**
+				 * The framework build phase defines which frameworks will be linked with the binary.
+				 */
+				context 'Framework build phase' {
+					
+					fact 'A target can have one frameworks build phase' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						val frameworkBuildPhase = target.frameworkBuildPhase
+						frameworkBuildPhase should not be null
+					}
+					
+					fact 'The frameworks build phase can only contain frameworks' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						val frameworkBuildPhase = target.frameworkBuildPhase
+						
+						val mainGroup = project.mainGroup 
+						val group = mainGroup.createGroup('FooBarProject'.toPath)
+						
+						val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+						frameworkBuildPhase.add(moduleFile)
+						val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+						frameworkBuildPhase.add(headerFile)
+						val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+						frameworkBuildPhase.add(frameworkWrapper)
+						val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+						frameworkBuildPhase.add(datamodelFile)
+						
+						frameworkBuildPhase.files.size should be 1
+						frameworkBuildPhase.files should contain frameworkWrapper
+						frameworkBuildPhase.files should not contain moduleFile
+					}
+					
+					fact 'Frameworks are either required or optional' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						val frameworkBuildPhase = target.frameworkBuildPhase
+						
+						val mainGroup = project.mainGroup 
+						val group = mainGroup.createGroup('FooBarProject'.toPath)
+						
+						val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+						frameworkBuildPhase.add(frameworkWrapper)
+						frameworkWrapper.required should be true
+						
+						frameworkWrapper.required = false
+						frameworkWrapper.required should be false
+					}
+					
+				}				
+			}
+			
 		}
 		
 	}

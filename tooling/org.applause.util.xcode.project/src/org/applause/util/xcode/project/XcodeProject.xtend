@@ -134,10 +134,18 @@ class XcodeProject extends XcodeProjectBase {
 	
 	def createApplicationTarget(String name, XcodeFile applicationFile) {
 		createApplicationTarget(this, name, applicationFile)
-	}		
+	}
+	
+	def createBundleTarget(String name) {
+		createBundleTarget(this, name)
+	}
 	
 	def createSourceBuildPhase() {
-		createSourceBuildPhase(this)
+		new XcodeSourceBuildPhase(this)
+	}
+	
+	def createFrameworkBuildPhase() {
+		new XcodeFrameworkBuildPhase(this)
 	}
 	
 	def createBuildConfiguration(String name) {
