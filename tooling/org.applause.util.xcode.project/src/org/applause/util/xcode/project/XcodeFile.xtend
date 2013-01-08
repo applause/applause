@@ -32,8 +32,7 @@ class XcodeFile {
 	}
 	
 	def static createFile(XcodeGroup group) {
-		val file = new XcodeFile(group)
-		file
+		new XcodeFile(group)
 	}
 	
 	def static createHeaderFile(XcodeGroup group, Path path) {
@@ -162,9 +161,9 @@ class XcodeFile {
 		pbx_fileReference.lastKnownFileType == org::applause::util::xcode::projectfile::pbxproj::FileType::WRAPPER_FRAMEWORK
 	}
 	
-	SourceTree sourceTree
+	SourceTree _sourceTree
 	def setSourceTree(SourceTree tree) {
-		sourceTree = tree
+		_sourceTree = tree
 		pbx_fileReference.sourceTree = switch (tree) {
 			case SourceTree::BUILT_PRODUCTS_DIR:
 				org::applause::util::xcode::projectfile::pbxproj::SourceTree::BUILT_PRODUCTS_DIR
@@ -176,7 +175,7 @@ class XcodeFile {
 	}
 	
 	def sourceTree() {
-		sourceTree
+		_sourceTree
 	}
 	
 	def protected connect() {

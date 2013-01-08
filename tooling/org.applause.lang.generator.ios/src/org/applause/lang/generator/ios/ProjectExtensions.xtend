@@ -9,6 +9,10 @@ class ProjectExtensions {
 	
 	@Inject extension ModelExtensions
 	
+	def appName(Resource it) {
+		it.application?.name
+	}
+	
 	def xcodeprojName(Resource it) {
 		it.application?.name + '.xcodeproj'
 	}

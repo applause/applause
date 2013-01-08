@@ -21,7 +21,6 @@ class ProjectFileSystemAccess {
 	Resource resource
 
 	XcodeProject project
-	XcodeGroup mainGroup
 	XcodeGroup mainSourceGroup
 	
 	@Inject extension ProjectExtensions
@@ -53,10 +52,7 @@ class ProjectFileSystemAccess {
 	}
 	
 	def mainGroup() {
-		if (mainGroup == null) {
-			mainGroup = project().createMainGroup
-		}
-		mainGroup
+		project().mainGroup
 	}
 	
 	def mainSourceGroup() {
@@ -64,6 +60,10 @@ class ProjectFileSystemAccess {
 			mainSourceGroup = mainGroup().createGroup(resource.sourceGroupName.toPath)
 		}
 		mainSourceGroup
+	}
+	
+	def productsGroup() {
+		project().productsGroup	
 	}
 	
 	def mainTarget() {
@@ -107,8 +107,7 @@ class ProjectFileSystemAccess {
 		
 
 		// Products group
-		val groupProducts = mainGroup.createGroup("Products")
-		groupProducts.productsGroup = true
+		val groupProducts = project.productsGroup
 		val applicationFile = groupProducts.createAppFile("MyTestProject.app".toPath)
 		val octestFile = groupProducts.createOCTestFile("MyTestProjectTests.octest".toPath)
 		

@@ -28,7 +28,8 @@ class XcodeGroup {
 	}
 	
 	def static createProductsGroup(XcodeProject project) {
-		val group = new XcodeGroup(project)
+		val group = project.mainGroup.createGroup()
+		// val group = new XcodeGroup(project)
 		group.productsGroup = true
 		group
 	}
@@ -44,6 +45,12 @@ class XcodeGroup {
 	def createGroup(String groupName) {
 		val group = new XcodeGroup(project)
 		group.pbx_group.groupName = groupName
+		pbx_group.children.add(group.pbx_group)
+		group		
+	}
+	
+	def createGroup() {
+		val group = new XcodeGroup(project)
 		pbx_group.children.add(group.pbx_group)
 		group		
 	}

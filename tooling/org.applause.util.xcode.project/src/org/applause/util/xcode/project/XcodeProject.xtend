@@ -113,6 +113,9 @@ class XcodeProject extends XcodeProjectBase {
 	}
 	
 	def productsGroup() {
+		if (productsGroup == null) {
+			createProductsGroup
+		}
 		productsGroup
 	}
 	
