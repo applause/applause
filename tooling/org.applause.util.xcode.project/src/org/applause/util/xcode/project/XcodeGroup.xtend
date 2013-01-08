@@ -17,21 +17,19 @@ class XcodeGroup {
 	@Property Group pbx_group
 	
 	def static createGroup(XcodeProject project) {
-		val group = new XcodeGroup(project)
-		group
+		new XcodeGroup(project)
 	}
 	
 	def static createMainGroup(XcodeProject project) {
-		val group = new XcodeGroup(project)
-		group.mainGroup = true
-		group
+		new XcodeGroup(project) => [
+			mainGroup = true
+		]
 	}
 	
 	def static createProductsGroup(XcodeProject project) {
-		val group = project.mainGroup.createGroup()
-		// val group = new XcodeGroup(project)
-		group.productsGroup = true
-		group
+		project.mainGroup.createGroup() => [
+			productsGroup = true
+		]
 	}
 	
 	def createGroup(Path path) {
@@ -52,16 +50,16 @@ class XcodeGroup {
 	def createGroup() {
 		val group = new XcodeGroup(project)
 		pbx_group.children.add(group.pbx_group)
-		group		
+		group
 	}
 	
 	private new(XcodeProject project) {
 		this.project = project
-		pbx_group = PbxprojFactory::eINSTANCE.createGroup
-		pbx_group.name = generateUUID
-		pbx_group.isa = 'PBXGroup'
-		pbx_group.sourceTree = org::applause::util::xcode::projectfile::pbxproj::SourceTree::GROUP
-		
+		pbx_group = PbxprojFactory::eINSTANCE.createGroup => [
+			name = generateUUID
+			isa = 'PBXGroup'
+			sourceTree = org::applause::util::xcode::projectfile::pbxproj::SourceTree::GROUP
+		]
 		project.pbx_projectModel.objects.add(pbx_group)
 	}
 	
