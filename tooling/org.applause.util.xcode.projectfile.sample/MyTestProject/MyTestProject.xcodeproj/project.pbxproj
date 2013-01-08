@@ -1,0 +1,282 @@
+//!$*UTF8*$! {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+		7B4F772C97A366439D0FC9B2 = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 440;
+				ORGANIZATIONNAME = "John Doe";
+			};
+			buildConfigurationList = D0E32E4D0E9898BAAC478C64;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 44430EBAD988FB603676C01B;
+			productRefGroup = 3A4379BF7AB3D04F8A6CE4FC;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				80D328B005A71C6ED5A93A01,
+				CC5A0D611014E034714E599E,
+			);
+		};
+		D0E32E4D0E9898BAAC478C64 = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				68A0F5DF2510E761B9EF29EF,
+				A99ADB06762B2402140D03E1,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		44430EBAD988FB603676C01B = {
+			isa = PBXGroup;
+			children = (
+				81D599688FF86728161CAD33,
+				F352456EC59726FF83007EAD,
+				0DCD6247949013822D4EFB00,
+				3A4379BF7AB3D04F8A6CE4FC,
+			);
+			sourceTree = "<group>";
+		};
+		81D599688FF86728161CAD33 = {
+			isa = PBXGroup;
+			children = (
+				26FD85274D8C728DA1F69396,
+				0E0F97BEBED894A8186BEB4D,
+				D71A0BB57EE4972A03F8D80D,
+				389E82BC67EFC229E218378D,
+			);
+			path = MyTestProject;
+			sourceTree = "<group>";
+		};
+		26FD85274D8C728DA1F69396 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0E0F97BEBED894A8186BEB4D = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		623896CC11FF2882CCAB083C = {isa = PBXBuildFile; fileRef = 0E0F97BEBED894A8186BEB4D; };
+		D71A0BB57EE4972A03F8D80D = {
+			isa = PBXGroup;
+			children = (
+				0EB50CC6189B1D89D2C6C90F,
+				9FCAF8CE96194626B8CAAD77,
+				9FC52166216C39AA979AAEC3,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0EB50CC6189B1D89D2C6C90F = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6551F84FDC634CA8C8B7FF48 = {isa = PBXBuildFile; fileRef = 0EB50CC6189B1D89D2C6C90F; };
+		9FCAF8CE96194626B8CAAD77 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MyTestProject-Info.plist; sourceTree = "<group>"; };
+		9FC52166216C39AA979AAEC3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTestProject-Prefix.pch; sourceTree = "<group>"; };
+		389E82BC67EFC229E218378D = {
+			isa = PBXGroup;
+			children = (
+				89DEBA918AF49649B5FA3D7A,
+			);
+			path = ThisGroupHasAPhysicalFolder;
+			sourceTree = "<group>";
+		};
+		89DEBA918AF49649B5FA3D7A = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FileInASubFolder.m; sourceTree = "<group>"; };
+		79FAC3DF799683A814CB98CF = {isa = PBXBuildFile; fileRef = 89DEBA918AF49649B5FA3D7A; };
+		F352456EC59726FF83007EAD = {
+			isa = PBXGroup;
+			children = (
+				C05DAA08434B799E3E9FF465,
+				2C8721D742741C427E2565DF,
+				221706596EAA984D605A4F6E,
+			);
+			path = MyTestProjectTests;
+			sourceTree = "<group>";
+		};
+		C05DAA08434B799E3E9FF465 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyTestProjectTests.h; sourceTree = "<group>"; };
+		2C8721D742741C427E2565DF = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyTestProjectTests.m; sourceTree = "<group>"; };
+		00C2736C048C2583605D8F08 = {isa = PBXBuildFile; fileRef = 2C8721D742741C427E2565DF; };
+		221706596EAA984D605A4F6E = {
+			isa = PBXGroup;
+			children = (
+				D7D2187D8475F925E08FAC20,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D7D2187D8475F925E08FAC20 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = MyTestProjectTests-Info.plist; sourceTree = "<group>"; };
+		0DCD6247949013822D4EFB00 = {
+			isa = PBXGroup;
+			children = (
+				0FDD00B7BB5503B9574E66A7,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0FDD00B7BB5503B9574E66A7 = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		290EF3E7D952F48EEEA8B8E0 = {isa = PBXBuildFile; fileRef = 0FDD00B7BB5503B9574E66A7; };
+		3A4379BF7AB3D04F8A6CE4FC = {
+			isa = PBXGroup;
+			children = (
+				BD12F16B171D01AF581844DA,
+				B4662F709A6471BDE4D5C574,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BD12F16B171D01AF581844DA = {isa = PBXFileReference; explicitFileType = wrapper.application; path = MyTestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4662F709A6471BDE4D5C574 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MyTestProjectTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		80D328B005A71C6ED5A93A01 = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9B62E990D29104FA57B4EDDA;
+			buildPhases = (
+				6D5733FA863331EFFD7A8E84,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyTestProject;
+			productName = MyTestProject;
+			productReference = BD12F16B171D01AF581844DA;
+			productType = "com.apple.product-type.application";
+		};
+		9B62E990D29104FA57B4EDDA = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65DFA1875B0176B045FF1FD3,
+				81CF40FFD2ED5C187160579D,
+				31CAA2055EB3185A02F1A46A,
+				0310C99AEDF9C054574ED969,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65DFA1875B0176B045FF1FD3 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		81CF40FFD2ED5C187160579D = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		6D5733FA863331EFFD7A8E84 = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623896CC11FF2882CCAB083C,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CC5A0D611014E034714E599E = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1B8788F5D29621A6988108FC;
+			buildPhases = (
+				0A95DD9E3A871829A56BC03B,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MyTestProjectTests;
+			productName = MyTestProjectTests;
+			productReference = B4662F709A6471BDE4D5C574;
+			productType = "com.apple.product-type.application";
+		};
+		1B8788F5D29621A6988108FC = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C4377B46AF6016D2DF576EE,
+				7F15279D81F9D5445628B9E9,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C4377B46AF6016D2DF576EE = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		7F15279D81F9D5445628B9E9 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		0A95DD9E3A871829A56BC03B = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				623896CC11FF2882CCAB083C,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68A0F5DF2510E761B9EF29EF = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				VALIDATE_PRODUCT = YES;
+				SDKROOT = iphoneos;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				COPY_PHASE_STRIP = true;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_C_LANGUAGE_STANDARD = "gnu99";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+			};
+			name = Release;
+		};
+		A99ADB06762B2402140D03E1 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				VALIDATE_PRODUCT = YES;
+				SDKROOT = iphoneos;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				COPY_PHASE_STRIP = true;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_C_LANGUAGE_STANDARD = "gnu99";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+			};
+			name = Debug;
+		};
+		31CAA2055EB3185A02F1A46A = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		0310C99AEDF9C054574ED969 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MyTestProject/MyTestProject-Prefix.pch";
+				INFOPLIST_FILE = "MyTestProject/MyTestProject-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+	};
+	rootObject = 7B4F772C97A366439D0FC9B2;
+}

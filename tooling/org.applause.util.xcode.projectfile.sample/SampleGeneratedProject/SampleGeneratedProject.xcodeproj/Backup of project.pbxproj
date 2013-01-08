@@ -1,0 +1,74 @@
+//!$*UTF8*$! {
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+		8888BC2F15E6C80B004ED7F7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = UIKit.framework;
+			path = System/Library/Frameworks/UIKit.framework;
+			sourceTree = SDKROOT;
+		};
+		8888BC3715E6C80B004ED7F7 /* EmptyApplicationProject-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "EmptyApplicationProject-Info.plist"; sourceTree = "<group>"; };
+		8888BC3B15E6C80B004ED7F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8888BC3D15E6C80B004ED7F7 /* EmptyApplicationProject-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "EmptyApplicationProject-Prefix.pch"; sourceTree = "<group>"; };
+				
+		8888BC3E15E6C80B004ED7F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		8888BC3F15E6C80B004ED7F7 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };				
+		8888BC3015E6C80B004ED7F7 = {
+			isa = PBXBuildFile;
+			fileRef = 8888BC2F15E6C80B004ED7F7;
+		};
+		8888BC2215E6C80B004ED7F7 = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 440;
+				ORGANIZATIONNAME = "John Doe";
+			};
+			buildConfigurationList = 8888BC2515E6C80B004ED7F7;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = ( en , );
+			mainGroup = 8888BC2015E6C80B004ED7F7;
+			productRefGroup = 8888BC2C15E6C80B004ED7F7;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = ( 8888BC2A15E6C80B004ED7F7 , 8888BC4515E6C80B004ED7F7 , );
+		};
+		
+		8888BC2015E6C80B004ED7F7 = {
+			isa = PBXGroup;
+			children = (
+				8888BC3515E6C80B004ED7F7 /* EmptyApplicationProject */,
+			);
+			sourceTree = "<group>";
+		};
+		8888BC3515E6C80B004ED7F7 /* EmptyApplicationProject */ = {
+			isa = PBXGroup;
+			children = (
+				8888BC3E15E6C80B004ED7F7 /* AppDelegate.h */,
+				8888BC3F15E6C80B004ED7F7 /* AppDelegate.m */,
+				8888BC3615E6C80B004ED7F7 /* Supporting Files */,
+			);
+			path = EmptyApplicationProject;			
+			sourceTree = "<group>" ;
+		};
+		8888BC3615E6C80B004ED7F7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8888BC3715E6C80B004ED7F7 /* EmptyApplicationProject-Info.plist */,
+				8888BC3B15E6C80B004ED7F7 /* main.m */,
+				8888BC3D15E6C80B004ED7F7 /* EmptyApplicationProject-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		
+		
+		
+	};
+	rootObject = 8888BC2215E6C80B004ED7F7;
+}
