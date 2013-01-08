@@ -15,6 +15,9 @@ import static extension org.applause.util.xcode.project.Path.*
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
 import static extension org.applause.util.xcode.project.XcodeProjectObjectExtensions.*
 
+/**
+ * This is a simple test that has been superseeded by Path.spec. However, I intend to keep it as a reference for how to write a simple test.
+ */
 @InjectWith(typeof(PbxprojInjectorProvider))
 @RunWith(typeof(XtextRunner))
 class PathTests {

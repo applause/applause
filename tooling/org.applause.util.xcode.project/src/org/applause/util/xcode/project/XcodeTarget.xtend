@@ -7,6 +7,7 @@ import org.eclipse.xtend.lib.Property
 
 import static org.applause.util.xcode.project.XcodeProjectUtils.*
 import static org.applause.util.xcode.project.XcodeTarget.*
+
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationList.*
 
 class XcodeTarget {
@@ -85,8 +86,13 @@ class XcodeTarget {
 		frameworkBuildPhase
 	}
 	
-	def add(XcodeFile file) {
-		sourceBuildPhase.add(file)
+	XcodeBuildPhase copyBundleResourcesBuildPhase
+	def copyBundleResourcesBuildPhase() {
+		if (copyBundleResourcesBuildPhase == null) {
+			copyBundleResourcesBuildPhase = project.createCopyBundleResourcesBuildPhase()
+			pbx_target.buildPhases.add(copyBundleResourcesBuildPhase.pbx_buildPhase)
+		}
+		copyBundleResourcesBuildPhase
 	}
 	
 	def createBuildConfiguration(String name) {

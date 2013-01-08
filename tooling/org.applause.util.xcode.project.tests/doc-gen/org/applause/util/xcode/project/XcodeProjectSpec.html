@@ -6,99 +6,106 @@
 <meta name="description" content="">
 <meta name="author" content="Jnario">
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-<!-- Le styles -->
 <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../../../../css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="../../../../../css/custom.css">
 <link rel="stylesheet" href="../../../../../css/prettify.css">
 <script type="text/javascript" src="../../../../../js/prettify.js"></script>
 <script type="text/javascript" src="../../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../../js/bootstrap-tab.js"></script>
 </head>
 
 <body onload="prettyPrint()">
 	<div class="container">
-		<div class="content">
-			<div class="page-header">
-				<h1>XcodeProject</h1>
-			</div>
-			<div class="row">
-				<div class="span12">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header notrun">
+					<h1>XcodeProject</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
 <p><code>XcodeProject</code>s are a high-level API to create and read <code>.pbxproj</code> files. Internally, it uses the Pbxproject metamodel as defined by <code>pbxproj.xtext</code> and provides an easy-to-use high-level API for it.</p>
-<h2 id="Creating_projects">Creating projects</h2>
-<ul><li><p id="A_project_can_be_created_without_a_path"><strong>A project can be created without a path</strong></p>
-<pre class="prettyprint lang-spec">
+<h3 class="exampleGroup notrun"  id="Creating_projects">Creating projects</h3>
+<ul><li><p id="A_project_can_be_created_without_a_path" class="example notrun"><strong>A project can be created without a path</strong></p>
+<pre class="prettyprint lang-spec linenums">
 new XcodeProject() // but does this make sense?</pre>
-</li><li><p id="A_project_can_be_created_with_a_path"><strong>A project can be created with a path</strong></p>
+</li><li><p id="A_project_can_be_created_with_a_path" class="example notrun"><strong>A project can be created with a path</strong></p>
 <p>TODO can we create projects wihout using the project factory?</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.pbxProjectFileName should be '/foo/bar/project.pbxproj'</pre>
 </li></ul>
-<h2 id="Project_properties">Project properties</h2>
+<h3 class="exampleGroup notrun"  id="Project_properties">Project properties</h3>
 <div class="level">
-<h3 id="Project_attributes">Project attributes</h3>
+<h4 class="exampleGroup notrun"  id="Project_attributes">Project attributes</h4>
 <p>A project has a number of attributes that are used by Xcode and other IDEs, mainly to derive information such as the copyright string.</p>
-<ul><li><p id="Organization_name"><strong>Organization name</strong></p>
+<ul><li><p id="Organization_name" class="example notrun"><strong>Organization name</strong></p>
 <p>TODO: Do Xcode and other tools use the organization name to create the copyright string?</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.organizationName = 'Peter Friese'
 project.organizationName should be 'Peter Friese'</pre>
-</li><li><p id="Class_prefix"><strong>Class prefix</strong></p>
+</li><li><p id="Class_prefix" class="example notrun"><strong>Class prefix</strong></p>
 <p>The class prefix is used by Xcode wizards to suggest class names.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.classPrefix = 'FOO'
 project.classPrefix should be 'FOO'</pre>
-</li><li><p id="Last_update_check"><strong>Last update check</strong></p>
+</li><li><p id="Last_update_check" class="example notrun"><strong>Last update check</strong></p>
 <p>LastUpgradeCheck seems to reflect the version number of Xcode. TODO Check this.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 assert project.lastUpgradeCheck &gt;= 440</pre>
 </li></ul>
 </div>
 <div class="level">
-<h3 id="More_IDE_related_properties">More IDE-related properties</h3>
+<h4 class="exampleGroup notrun"  id="More_IDE_related_properties">More IDE-related properties</h4>
 <p>There are more IDE-related properties which are not stored in the <code>attributes</code> section of a project, but rather in the main project node.</p>
-<ul><li><p id="Xcode_compatibility_version"><strong>Xcode compatibility version</strong></p>
+<ul><li><p id="Xcode_compatibility_version" class="example notrun"><strong>Xcode compatibility version</strong></p>
 <p>Xcode project files can either be Xcode 3.1 or Xcode 3.2 compatible. Usually, modern Xcode projects are Xcode 3.2 compatible.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.compatibilityVersion should be 'Xcode 3.2'</pre>
-</li><li><p id="Development_region"><strong>Development region</strong></p>
+</li><li><p id="Development_region" class="example notrun"><strong>Development region</strong></p>
 <p>TODO find out what this is intended for.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.developmentRegion should be 'English'</pre>
-</li><li><p id="Known_regions"><strong>Known regions</strong></p>
+</li><li><p id="Known_regions" class="example notrun"><strong>Known regions</strong></p>
 <p>TODO find out what this is intened for.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.knownRegions should contain 'en'</pre>
-</li><li><p id="Scanned_for_encodings"><strong>Scanned for encodings</strong></p>
+</li><li><p id="Scanned_for_encodings" class="example notrun"><strong>Scanned for encodings</strong></p>
 <p>TODO find out what this is intended for.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.hasScannedForEncodings should be false</pre>
 </li></ul>
 </div>
-<h2 id="Project_structure">Project structure</h2>
+<h3 class="exampleGroup notrun"  id="Project_structure">Project structure</h3>
 <div class="level">
-<h3 id="Groups">Groups</h3>
+<h4 class="exampleGroup notrun"  id="Groups">Groups</h4>
 <p>A project is made up of a number of groups. Some of these groups have a special meaning.</p>
-<ul><li><p id="A_project_has_one_main_group"><strong>A project has one main group</strong></p>
+<ul><li><p id="A_project_has_one_main_group" class="example notrun"><strong>A project has one main group</strong></p>
 <p>The main group usually is equivalent with the project root.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 project.mainGroup should not be null</pre>
-</li><li><p id="Groups_can_be_nested"><strong>Groups can be nested</strong></p>
+</li><li><p id="Groups_can_be_nested" class="example notrun"><strong>Groups can be nested</strong></p>
 <p>Groups can be nested. When a nested group is created using a path, this path will be relative to the path of the parnet group. If a group is created with a name instead of a path, its location will be the same as the parents group.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup
 
@@ -113,10 +120,10 @@ val bazGroup = barGroup.createGroup('BazGroup')
 bazGroup.path.toString should be ''
 bazGroup.groupName should be 'BazGroup'</pre>
 </li></ul><div class="level">
-<h4 id="The_main_source_group">The main source group</h4>
-<ul><li><p id="The_main_group_contains_a_group_for_the_main_source_files"><strong>The main group contains a group for the main source files</strong></p>
+<h5 class="exampleGroup notrun"  id="The_main_source_group">The main source group</h5>
+<ul><li><p id="The_main_group_contains_a_group_for_the_main_source_files" class="example notrun"><strong>The main group contains a group for the main source files</strong></p>
 <p>The main group usually contains a group with the same name as the project name. This group contains most of the (non-test) source code files that make up a project.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup 
 
@@ -124,9 +131,9 @@ val foobarProjectGroup = mainGroup.createGroup('FooBarProject'.toPath)
 foobarProjectGroup should not be null
 foobarProjectGroup.path should not be null
 foobarProjectGroup.path.toString should be 'FooBarProject'</pre>
-</li><li><p id="Supporting_Files"><strong>Supporting Files</strong></p>
+</li><li><p id="Supporting_Files" class="example notrun"><strong>Supporting Files</strong></p>
 <p>When creating a new Xcode project, the main source group usually contains a virtual group named <code>Supporting Files</code>.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup 
 
@@ -137,10 +144,10 @@ supportingfilesGroup.groupName should be 'Supporting Files'</pre>
 </li></ul>
 </div>
 <div class="level">
-<h4 id="The_unit_tests_source_group">The unit tests source group</h4>
-<ul><li><p id="The_main_group_contains_a_group_for_the_unit_test_source_files"><strong>The main group contains a group for the unit test source files</strong></p>
+<h5 class="exampleGroup notrun"  id="The_unit_tests_source_group">The unit tests source group</h5>
+<ul><li><p id="The_main_group_contains_a_group_for_the_unit_test_source_files" class="example notrun"><strong>The main group contains a group for the unit test source files</strong></p>
 <p>If the project uses unit tests, the test files usually are contained in a group named <code>&lt;projectname&gt;Tests</code>.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup 
 
@@ -151,10 +158,10 @@ foobartestsGroup.path.toString should be 'FooBarProjectTests'</pre>
 </li></ul>
 </div>
 <div class="level">
-<h4 id="The_frameworks_group">The frameworks group</h4>
-<ul><li><p id="The_main_project_contains_a_group_for_the_frameworks"><strong>The main project contains a group for the frameworks</strong></p>
+<h5 class="exampleGroup notrun"  id="The_frameworks_group">The frameworks group</h5>
+<ul><li><p id="The_main_project_contains_a_group_for_the_frameworks" class="example notrun"><strong>The main project contains a group for the frameworks</strong></p>
 <p>Almost any project makes use of a number of frameworks, which are grouped into a group named <code>Frameworks</code>. This group has no physical representation on disc, which is why its <code>path</code> property should be empty whereas the <code>groupName</code> should be <code>Frameworks</code>.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup
 
@@ -166,10 +173,10 @@ foobarframeworksGroup.path.toString should be ''</pre>
 </li></ul>
 </div>
 <div class="level">
-<h4 id="The_products_group">The products group</h4>
-<ul><li><p id="The_main_group_contains_a_group_for_the_products_of_the_build_process"><strong>The main group contains a group for the products of the build process</strong></p>
+<h5 class="exampleGroup notrun"  id="The_products_group">The products group</h5>
+<ul><li><p id="The_main_group_contains_a_group_for_the_products_of_the_build_process" class="example notrun"><strong>The main group contains a group for the products of the build process</strong></p>
 <p>The outcome of the build process is defined in the <code>Products</code> group. As well as the <code>Frameworks</code> group, this group does not have a physical representation on disc and thus does not have a <code>path</code> assigned.</p><p>As this group is of vital interest, it will be created when the project is created.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 
 val productsGroup = project.productsGroup
@@ -178,8 +185,8 @@ productsGroup.productsGroup should be true
 productsGroup.groupName should not be null
 productsGroup.groupName should be 'Products'
 productsGroup.path.toString should be ''</pre>
-</li><li><p id="The_products_group_contains_references_to_the_binary_output_files_of_the_build_process"><strong>The products group contains references to the binary output files of the build process</strong></p>
-<pre class="prettyprint lang-spec">
+</li><li><p id="The_products_group_contains_references_to_the_binary_output_files_of_the_build_process" class="example notrun"><strong>The products group contains references to the binary output files of the build process</strong></p>
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 
 val productsGroup = project.productsGroup
@@ -193,10 +200,10 @@ octestFile.sourceTree should be SourceTree::BUILT_PRODUCTS_DIR</pre>
 </div>
 </div>
 <div class="level">
-<h3 id="Files">Files</h3>
-<ul><li><p id="Files_belong_to_a_group"><strong>Files belong to a group</strong></p>
+<h4 class="exampleGroup notrun"  id="Files">Files</h4>
+<ul><li><p id="Files_belong_to_a_group" class="example notrun"><strong>Files belong to a group</strong></p>
 <p>Files are grouped into groups, each file belonging to one group. Adding a file to a group also adds a file reference to the project itself. In addition, a build file reference will be created for all files that pass the build process.</p><p>TODO: check if files can be added to more than just one group.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup 
 val group = mainGroup.createGroup('FooBarProject'.toPath)
@@ -210,8 +217,8 @@ group.files should contain foobarFile
 
 project.files.size should be 1
 project.files should contain foobarFile</pre>
-</li><li><p id="Certain_file_types_are_considered_build_files"><strong>Certain file types are considered build files</strong></p>
-<p>A number of file types are considered <em>build files</em>.</p><p>The following file types belong to this category:</p>
+</li><li><p id="Certain_file_types_are_considered_build_files" class="example notrun"><strong>Certain file types are considered build files</strong></p>
+<p>TODO This is an aspect of adding a file to a build phase and should be moved there. A number of file types are considered <em>build files</em>.</p><p>The following file types belong to this category:</p>
 <ul>
   <li>module files (<code>.m</code>)</li>
   <li>framework wrappers</li>
@@ -219,7 +226,7 @@ project.files should contain foobarFile</pre>
 <ul>
   <li>header files (<code>.h</code>)</li>
 </ul>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val mainGroup = project.mainGroup 
 val group = mainGroup.createGroup('FooBarProject'.toPath)
@@ -234,23 +241,29 @@ val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKi
 frameworkWrapper.buildFile should be true</pre>
 </li></ul>
 </div>
-<h2 id="Configuration_Management">Configuration Management</h2>
+<h3 class="exampleGroup notrun"  id="Configuration_Management">Configuration Management</h3>
 <div class="level">
-<h3 id="Targets">Targets</h3>
+<h4 class="exampleGroup notrun"  id="Targets">Targets</h4>
 <p>A project has several targets.</p>
 <div class="level">
-<h4 id="Creating_a_target">Creating a target</h4>
+<h5 class="exampleGroup notrun"  id="Creating_a_target">Creating a target</h5>
 <p>Targets can be created using a number of factory methods on an <code>XcodeProject</code>.</p>
-<ul><li><p id="Creating_an_application_target"><strong>Creating an application target</strong></p>
+<ul><li><p id="Creating_an_application_target" class="example notrun"><strong>Creating an application target</strong></p>
 <p>The outcome of an application target is an app.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
-val target = project.createApplicationTarget('FooBarProject')
+val productsGroup = project.productsGroup
+val appFile = productsGroup.createAppFile('FooBar.app'.toPath)
+
+val target = project.createApplicationTarget('FooBarProject', appFile)
 target should not be null
-target.productType should be ProductType::APPLICATION</pre>
-</li><li><p id="Creating_a_bundle_target"><strong>Creating a bundle target</strong></p>
+target.productType should be ProductType::APPLICATION
+
+project.targets.size should be 1
+project.targets should contain target</pre>
+</li><li><p id="Creating_a_bundle_target" class="example notrun"><strong>Creating a bundle target</strong></p>
 <p>The outcome of a bundle target is a bundle. Bundle targets are used to create test bundles. TODO: Check if they also are used to create library bundles.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createBundleTarget('FooBarProjectTests')
 target should not be null
@@ -258,35 +271,54 @@ target.productType should be ProductType::BUNDLE</pre>
 </li></ul>
 </div>
 <div class="level">
-<h4 id="Naming">Naming</h4>
-<ul><li><p id="A_target_has_a_name"><strong>A target has a name</strong></p>
+<h5 class="exampleGroup notrun"  id="Naming">Naming</h5>
+<ul><li><p id="A_target_has_a_name" class="example notrun"><strong>A target has a name</strong></p>
 <p>The target name will be displayed in the <em>Target</em> section in the Xcode target editor.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 target.name should be 'FooBarProject'</pre>
-</li><li><p id="A_target_has_a_product_name"><strong>A target has a product name</strong></p>
+</li><li><p id="A_target_has_a_product_name" class="example notrun"><strong>A target has a product name</strong></p>
 <p>A target has a product name, but it is not quite clear what this is intended for, as the name of the target will be displayed in the <em>Target</em> section of the target editor and the product name does not seem to have any influence on any other part of the UI.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 target.productName should be 'FooBarProject'</pre>
 </li></ul>
 </div>
 <div class="level">
-<h4 id="Build_phases">Build phases</h4>
+<h5 class="exampleGroup notrun"  id="Adding_files">Adding files</h5>
+<ul><li><p id="Files_cannot_be_added_to_a_target_directly_Instead_they_must_be_added_to_a_build_phase" class="example notrun"><strong>Files cannot be added to a target directly. Instead, they must be added to a build phase.</strong></p>
+<pre class="prettyprint lang-spec linenums">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+
+// TODO: might make sense to allow shortcut syntax project.createGroup(...) and imply that this group will created in the mainGroup
+val group = project.mainGroup.createGroup('FooBarProject'.toPath)
+
+val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+target.sourceBuildPhase.add(moduleFile)
+
+target.sourceBuildPhase.files =&gt; [
+  size should be 1
+  it should contain moduleFile
+]</pre>
+</li></ul>
+</div>
+<div class="level">
+<h5 class="exampleGroup notrun"  id="Build_phases">Build phases</h5>
 <p>A target can have several build phases.</p>
 <div class="level">
-<h4 id="Source_build_phase">Source build phase</h4>
+<h5 class="exampleGroup notrun"  id="Source_build_phase">Source build phase</h5>
 <p>The source build phase defines which source code files will be compiled.</p>
-<ul><li><p id="Each_target_should_have_a_source_build_phase"><strong>Each target should have a source build phase</strong></p>
-<pre class="prettyprint lang-spec">
+<ul><li><p id="Each_target_should_have_a_source_build_phase" class="example notrun"><strong>Each target should have a source build phase</strong></p>
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 target.sourceBuildPhase should not be null</pre>
-</li><li><p id="Source_code_files_will_only_be_compiled_if_they_are_listed_in_the_source_build_phase"><strong>Source code files will only be compiled if they are listed in the source build phase</strong></p>
+</li><li><p id="Source_code_files_will_only_be_compiled_if_they_are_listed_in_the_source_build_phase" class="example notrun"><strong>Source code files will only be compiled if they are listed in the source build phase</strong></p>
 <p>Only source code files will be compiled. Adding non-source code files to the source build phase is prevented by the API.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 val sourceBuildPhase = target.sourceBuildPhase
@@ -311,16 +343,16 @@ sourceBuildPhase.files should not contain headerFile</pre>
 </li></ul>
 </div>
 <div class="level">
-<h4 id="Framework_build_phase">Framework build phase</h4>
+<h5 class="exampleGroup notrun"  id="Framework_build_phase">Framework build phase</h5>
 <p>The framework build phase defines which frameworks will be linked with the binary.</p>
-<ul><li><p id="A_target_can_have_one_frameworks_build_phase"><strong>A target can have one frameworks build phase</strong></p>
-<pre class="prettyprint lang-spec">
+<ul><li><p id="A_target_can_have_one_frameworks_build_phase" class="example notrun"><strong>A target can have one frameworks build phase</strong></p>
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 val frameworkBuildPhase = target.frameworkBuildPhase
 frameworkBuildPhase should not be null</pre>
-</li><li><p id="The_frameworks_build_phase_can_only_contain_frameworks"><strong>The frameworks build phase can only contain frameworks</strong></p>
-<pre class="prettyprint lang-spec">
+</li><li><p id="The_frameworks_build_phase_can_only_contain_frameworks" class="example notrun"><strong>The frameworks build phase can only contain frameworks</strong></p>
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 val frameworkBuildPhase = target.frameworkBuildPhase
@@ -340,8 +372,9 @@ frameworkBuildPhase.add(datamodelFile)
 frameworkBuildPhase.files.size should be 1
 frameworkBuildPhase.files should contain frameworkWrapper
 frameworkBuildPhase.files should not contain moduleFile</pre>
-</li><li><p id="Frameworks_are_either_required_or_optional"><strong>Frameworks are either required or optional</strong></p>
-<pre class="prettyprint lang-spec">
+</li><li><p id="Frameworks_are_either_required_or_optional" class="example notrun"><strong>Frameworks are either required or optional</strong></p>
+<p>Frameworks can be marked as <code>required</code>or <code>optional</code> in the Xcode UI. This results in the respective framework being linked either <code>weak</code> (for optional frameworks) or <code>strong</code> (for required frameworks). Weak linking frameworks is a strategy you usually follow if you want to use APIs that are not available in a specific iOS version and you want to figure out if they are available at runtime.</p>
+<pre class="prettyprint lang-spec linenums">
 val project = projectFactory.create('/foo/bar')
 val target = project.createApplicationTarget('FooBarProject')
 val frameworkBuildPhase = target.frameworkBuildPhase
@@ -357,17 +390,601 @@ frameworkWrapper.required = false
 frameworkWrapper.required should be false</pre>
 </li></ul>
 </div>
+<div class="level">
+<h5 class="exampleGroup notrun"  id="Copy_bundle_resources_build_phase">Copy bundle resources build phase</h5>
+<p>The copy bundle resources build phase is used to copy resources like images, localization files, etc.</p>
+<ul><li><p id="A_target_can_have_one_copy_bundle_resources_build_phase" class="example notrun"><strong>A target can have one copy bundle resources build phase</strong></p>
+<pre class="prettyprint lang-spec linenums">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+val copyBundleResourcesBuildPhase = target.copyBundleResourcesBuildPhase
+copyBundleResourcesBuildPhase should not be null</pre>
+</li><li><p id="The_copy_bundle_resources_build_phase_can_contain_any_kind_of_file" class="example notrun"><strong>The copy bundle resources build phase can contain any kind of file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+val project = projectFactory.create('/foo/bar')
+val target = project.createApplicationTarget('FooBarProject')
+val copyBundleResourcesBuildPhase = target.copyBundleResourcesBuildPhase
+
+val mainGroup = project.mainGroup 
+val group = mainGroup.createGroup('FooBarProject'.toPath)
+
+val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+copyBundleResourcesBuildPhase.add(moduleFile)
+val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+
+// FIXME TODO a file is a build file as soon as it is referred to in a build phase
+// makes sense, actually.
+
+copyBundleResourcesBuildPhase.add(headerFile)
+val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+copyBundleResourcesBuildPhase.add(frameworkWrapper)
+val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+copyBundleResourcesBuildPhase.add(datamodelFile)
+
+copyBundleResourcesBuildPhase.files =&gt; [
+  size should be 4
+  it should contain frameworkWrapper
+  it should contain moduleFile
+  it should contain headerFile
+  it should contain datamodelFile
+]</pre>
+</li></ul>
 </div>
 </div>
-				</div>
-			</div>
-		</div> <!-- /content -->
+</div>
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>XcodeProject.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.util.xcode.project
+
+import com.google.inject.Inject
+import org.applause.util.xcode.projectfile.pbxproj.ProductType
+import org.jnario.runner.CreateWith
+
+import static extension org.applause.util.xcode.project.Path.*
+import static extension org.jnario.lib.Should.*
+
+/**
+ * `XcodeProject`s are a high-level API to create and read `.pbxproj` files. Internally, it uses the 
+ * Pbxproject metamodel as defined by `pbxproj.xtext` and provides an easy-to-use high-level API for it. 
+ */
+@CreateWith(typeof(PbxprojSpecCreator))
+describe XcodeProject {
+  @Inject XcodeProjectFactory projectFactory
+  
+  context 'Creating projects' {
+    fact 'A project can be created without a path' {
+      new XcodeProject() // but does this make sense?
+    }
+    
+    /**
+     * TODO can we create projects wihout using the project factory?
+     */
+    fact 'A project can be created with a path' {
+      val project = projectFactory.create('/foo/bar')
+      project.pbxProjectFileName should be '/foo/bar/project.pbxproj'
+    }
+  }
+  
+  context 'Project properties' {
+    /**
+     * A project has a number of attributes that are used by Xcode and other IDEs, mainly to
+     * derive information such as the copyright string.
+     */
+    context 'Project attributes' {
+      /**
+       * TODO: Do Xcode and other tools use the organization name to create the copyright string? 
+       */
+      fact 'Organization name' {
+        val project = projectFactory.create('/foo/bar')
+        project.organizationName = 'Peter Friese'
+        project.organizationName should be 'Peter Friese'
+      }
+      
+      /**
+       * The class prefix is used by Xcode wizards to suggest class names.
+       */
+      fact 'Class prefix' {
+        val project = projectFactory.create('/foo/bar')
+        project.classPrefix = 'FOO'
+        project.classPrefix should be 'FOO'
+      }
+      
+      /**
+       * LastUpgradeCheck seems to reflect the version number of Xcode.
+       * TODO Check this.
+       */
+      fact 'Last update check' {
+        val project = projectFactory.create('/foo/bar')
+        assert project.lastUpgradeCheck &gt;= 440        
+      }
+    }
+    
+    /**
+     * There are more IDE-related properties which are not stored in the `attributes` section of 
+     * a project, but rather in the main project node.
+     */
+    context 'More IDE-related properties' {
+      
+      /** 
+       * Xcode project files can either be Xcode 3.1 or Xcode 3.2 compatible.
+       * Usually, modern Xcode projects are Xcode 3.2 compatible.
+       */
+      fact 'Xcode compatibility version' {
+        val project = projectFactory.create('/foo/bar')
+        project.compatibilityVersion should be 'Xcode 3.2'
+      }
+      
+      /**
+       * TODO find out what this is intended for.
+       */
+      fact 'Development region' {
+        val project = projectFactory.create('/foo/bar')
+        project.developmentRegion should be 'English'
+      }
+      
+      /**
+       * TODO find out what this is intened for.
+       */
+      fact 'Known regions' {
+        val project = projectFactory.create('/foo/bar')
+        project.knownRegions should contain 'en'
+      }
+      
+      /**
+       * TODO find out what this is intended for. 
+       */
+      fact 'Scanned for encodings' {
+        val project = projectFactory.create('/foo/bar')
+        project.hasScannedForEncodings should be false
+      }
+      
+    }
+  }
+  
+  context 'Project structure' {
+    
+    /**
+     * A project is made up of a number of groups. Some of these groups have a special meaning.
+     */
+    context 'Groups' {
+      
+      /**
+       * The main group usually is equivalent with the project root.
+       */
+      fact 'A project has one main group' {
+        val project = projectFactory.create('/foo/bar')
+        project.mainGroup should not be null
+      }
+      
+      /**
+       * Groups can be nested. When a nested group is created using a path, this path will be relative to the
+       * path of the parnet group. If a group is created with a name instead of a path, its location will be
+       * the same as the parents group.
+       */
+      fact 'Groups can be nested' {
+        val project = projectFactory.create('/foo/bar')
+        val mainGroup = project.mainGroup
+        
+        val fooGroup = mainGroup.createGroup('FooGroup'.toPath)
+        fooGroup.path.toString should be 'FooGroup'
+        
+        val barGroup = fooGroup.createGroup('BarGroup'.toPath)
+        barGroup.path.toString should be 'BarGroup'
+        barGroup.parentGroup should be fooGroup
+        
+        val bazGroup = barGroup.createGroup('BazGroup')
+        bazGroup.path.toString should be ''
+        bazGroup.groupName should be 'BazGroup' 
+      }
+      
+      context 'The main source group' {
+        /** 
+         * The main group usually contains a group with the same name as the project name. This group
+         * contains most of the (non-test) source code files that make up a project. 
+         */
+        fact 'The main group contains a group for the main source files' {
+          val project = projectFactory.create('/foo/bar')
+          val mainGroup = project.mainGroup 
+          
+          val foobarProjectGroup = mainGroup.createGroup('FooBarProject'.toPath)
+          foobarProjectGroup should not be null
+          foobarProjectGroup.path should not be null
+          foobarProjectGroup.path.toString should be 'FooBarProject'
+        }
+        
+        /**
+         * When creating a new Xcode project, the main source group usually contains a virtual group named
+         * `Supporting Files`.
+         */
+        fact 'Supporting Files' {
+          val project = projectFactory.create('/foo/bar')
+          val mainGroup = project.mainGroup 
+          
+          val foobarProjectGroup = mainGroup.createGroup('FooBarProject'.toPath)
+          val supportingfilesGroup = foobarProjectGroup.createGroup('Supporting Files')
+          supportingfilesGroup.path.toString should be ''
+          supportingfilesGroup.groupName should be 'Supporting Files'          
+        }
+      }
+      
+      context 'The unit tests source group' {
+        /**
+         * If the project uses unit tests, the test files usually are contained in a group
+         * named `&lt;projectname&gt;Tests`.
+         */      
+        fact 'The main group contains a group for the unit test source files' {
+          val project = projectFactory.create('/foo/bar')
+          val mainGroup = project.mainGroup 
+          
+          val foobartestsGroup = mainGroup.createGroup('FooBarProjectTests'.toPath)
+          foobartestsGroup should not be null
+          foobartestsGroup.path should not be null
+          foobartestsGroup.path.toString should be 'FooBarProjectTests'
+        }
+      }
+      
+      context 'The frameworks group'{
+        /**
+         * Almost any project makes use of a number of frameworks, which are grouped into a group
+         * named `Frameworks`. This group has no physical representation on disc, which is why 
+         * its `path` property should be empty whereas the `groupName` should be `Frameworks`. 
+         */
+        fact 'The main project contains a group for the frameworks' {
+          val project = projectFactory.create('/foo/bar')
+          val mainGroup = project.mainGroup
+          
+          val foobarframeworksGroup = mainGroup.createGroup('Frameworks')
+          foobarframeworksGroup should not be null
+          foobarframeworksGroup.groupName should not be null
+          foobarframeworksGroup.groupName should be 'Frameworks'
+          foobarframeworksGroup.path.toString should be ''
+        }
+      }
+      
+      context 'The products group' {
+        /**
+         * The outcome of the build process is defined in the `Products` group. As well as the
+         * `Frameworks` group, this group does not have a physical representation on disc and thus does
+         * not have a `path` assigned.
+         * 
+         * As this group is of vital interest, it will be created when the project is created.
+         */
+        fact 'The main group contains a group for the products of the build process' {
+          val project = projectFactory.create('/foo/bar')
+          
+          val productsGroup = project.productsGroup
+          productsGroup should not be null
+          productsGroup.productsGroup should be true
+          productsGroup.groupName should not be null
+          productsGroup.groupName should be 'Products'
+          productsGroup.path.toString should be ''
+        }
+        
+        /**
+         * 
+         */
+        fact 'The products group contains references to the binary output files of the build process' {
+          val project = projectFactory.create('/foo/bar')
+          
+          val productsGroup = project.productsGroup
+          
+          val appFile = productsGroup.createAppFile('FooBar.app'.toPath)
+          appFile.sourceTree should be SourceTree::BUILT_PRODUCTS_DIR
+          
+          val octestFile = productsGroup.createOCTestFile('FooBarTests.octest'.toPath)
+          octestFile.sourceTree should be SourceTree::BUILT_PRODUCTS_DIR          
+        }
+        
+      }
+      
+    }
+    
+    context 'Files' {
+      
+      /**
+       * Files are grouped into groups, each file belonging to one group. Adding a file to a group
+       * also adds a file reference to the project itself. In addition, a build file reference will
+       * be created for all files that pass the build process.
+       * 
+       * TODO: check if files can be added to more than just one group.
+       */
+      fact 'Files belong to a group' {
+        val project = projectFactory.create('/foo/bar')
+        val mainGroup = project.mainGroup 
+        val group = mainGroup.createGroup('FooBarProject'.toPath)
+        
+        val foobarFile = group.createModuleFile('FooBar.h'.toPath)
+        foobarFile should not be null
+        foobarFile.path.toString should be 'FooBar.h'
+        
+        group.files.size should be 1
+        group.files should contain foobarFile
+        
+        project.files.size should be 1
+        project.files should contain foobarFile
+      }
+      
+      /**
+       * TODO This is an aspect of adding a file to a build phase and should be moved there.
+       * A number of file types are considered *build files*. 
+       * 
+       * The following file types belong to this category:
+       * 
+       * - module files (`.m`)
+       * - framework wrappers
+       * 
+       * The following file types are *not* build files:
+       * 
+       * - header files (`.h`)
+       */
+      fact 'Certain file types are considered build files' {
+        val project = projectFactory.create('/foo/bar')
+        val mainGroup = project.mainGroup 
+        val group = mainGroup.createGroup('FooBarProject'.toPath)
+        
+        val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+        moduleFile.buildFile should be true
+        
+        val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+        headerFile.buildFile should be false
+        
+        val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+        frameworkWrapper.buildFile should be true
+      }
+    }
+  }
+  
+  context 'Configuration Management' {
+    
+    /**
+     * A project has several targets.
+     */    
+    context 'Targets' {
+      
+      /**
+       * Targets can be created using a number of factory methods on an `XcodeProject`.
+       */
+      context 'Creating a target' {
+        
+        /**
+         * The outcome of an application target is an app.
+         */
+        fact 'Creating an application target' {
+          val project = projectFactory.create('/foo/bar')
+          val productsGroup = project.productsGroup
+          val appFile = productsGroup.createAppFile('FooBar.app'.toPath)
+          
+          val target = project.createApplicationTarget('FooBarProject', appFile)
+          target should not be null
+          target.productType should be ProductType::APPLICATION
+          
+          project.targets.size should be 1
+          project.targets should contain target
+        }
+        
+        /**
+         * The outcome of a bundle target is a bundle. Bundle targets are used to create test bundles.
+         * TODO: Check if they also are used to create library bundles.
+         */
+        fact 'Creating a bundle target' {
+          val project = projectFactory.create('/foo/bar')
+          val target = project.createBundleTarget('FooBarProjectTests')
+          target should not be null
+          target.productType should be ProductType::BUNDLE
+        }
+        
+      }
+      
+      context 'Naming' {
+        
+        /**
+         * The target name will be displayed in the *Target* section in the Xcode target editor.
+         */
+        fact 'A target has a name' {
+          val project = projectFactory.create('/foo/bar')
+          val target = project.createApplicationTarget('FooBarProject')
+          target.name should be 'FooBarProject'
+        }
+        
+        /**
+         * A target has a product name, but it is not quite clear what this is intended for, as
+         * the name of the target will be displayed in the *Target* section of the target editor
+         * and the product name does not seem to have any influence on any other part of the UI.
+         */
+        fact 'A target has a product name' {
+          val project = projectFactory.create('/foo/bar')
+          val target = project.createApplicationTarget('FooBarProject')
+          target.productName should be 'FooBarProject'
+        }
+      }
+      
+      context 'Adding files' {
+        
+        fact 'Files cannot be added to a target directly. Instead, they must be added to a build phase.' {
+          val project = projectFactory.create('/foo/bar')
+          val target = project.createApplicationTarget('FooBarProject')
+          
+          // TODO: might make sense to allow shortcut syntax project.createGroup(...) and imply that this group will created in the mainGroup
+          val group = project.mainGroup.createGroup('FooBarProject'.toPath)
+          
+          val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+          target.sourceBuildPhase.add(moduleFile)
+          
+          target.sourceBuildPhase.files =&gt; [
+            size should be 1
+            it should contain moduleFile
+          ]
+        }
+        
+      }
+      
+      /**
+       * A target can have several build phases.
+       */
+      context 'Build phases' {
+        
+        /**
+         * The source build phase defines which source code files will be compiled.
+         */
+        context 'Source build phase' {
+          
+          fact 'Each target should have a source build phase' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            target.sourceBuildPhase should not be null
+          }
+          
+          /**
+           * Only source code files will be compiled. Adding non-source code files to the source build
+           * phase is prevented by the API.
+           */
+          fact 'Source code files will only be compiled if they are listed in the source build phase' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            val sourceBuildPhase = target.sourceBuildPhase
+            sourceBuildPhase should not be null
+            
+            val mainGroup = project.mainGroup 
+            val group = mainGroup.createGroup('FooBarProject'.toPath)
+            
+            val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+            sourceBuildPhase.add(moduleFile)
+            val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+            sourceBuildPhase.add(headerFile)
+            val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+            sourceBuildPhase.add(frameworkWrapper)
+            val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+            sourceBuildPhase.add(datamodelFile)
+            
+            sourceBuildPhase.files.size should be 2
+            sourceBuildPhase.files should contain moduleFile
+            sourceBuildPhase.files should contain datamodelFile
+            sourceBuildPhase.files should not contain headerFile
+          }
+          
+        }
+
+        /**
+         * The framework build phase defines which frameworks will be linked with the binary.
+         */
+        context 'Framework build phase' {
+          
+          fact 'A target can have one frameworks build phase' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            val frameworkBuildPhase = target.frameworkBuildPhase
+            frameworkBuildPhase should not be null
+          }
+          
+          fact 'The frameworks build phase can only contain frameworks' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            val frameworkBuildPhase = target.frameworkBuildPhase
+            
+            val mainGroup = project.mainGroup 
+            val group = mainGroup.createGroup('FooBarProject'.toPath)
+            
+            val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+            frameworkBuildPhase.add(moduleFile)
+            val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+            frameworkBuildPhase.add(headerFile)
+            val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+            frameworkBuildPhase.add(frameworkWrapper)
+            val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+            frameworkBuildPhase.add(datamodelFile)
+            
+            frameworkBuildPhase.files.size should be 1
+            frameworkBuildPhase.files should contain frameworkWrapper
+            frameworkBuildPhase.files should not contain moduleFile
+          }
+          
+          /**
+           * Frameworks can be marked as `required`or `optional` in the Xcode UI. This results in the respective
+           * framework being linked either `weak` (for optional frameworks) or `strong` (for required frameworks).
+           * Weak linking frameworks is a strategy you usually follow if you want to use APIs that are not available 
+           * in a specific iOS version and you want to figure out if they are available at runtime.  
+           */
+          fact 'Frameworks are either required or optional' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            val frameworkBuildPhase = target.frameworkBuildPhase
+            
+            val mainGroup = project.mainGroup 
+            val group = mainGroup.createGroup('FooBarProject'.toPath)
+            
+            val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+            frameworkBuildPhase.add(frameworkWrapper)
+            frameworkWrapper.required should be true
+            
+            frameworkWrapper.required = false
+            frameworkWrapper.required should be false
+          }
+          
+        }        
+
+        /**
+         * The copy bundle resources build phase is used to copy resources like images, localization files, etc.
+         */
+        context 'Copy bundle resources build phase' {
+          
+          fact 'A target can have one copy bundle resources build phase' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            val copyBundleResourcesBuildPhase = target.copyBundleResourcesBuildPhase
+            copyBundleResourcesBuildPhase should not be null
+          }
+          
+          fact 'The copy bundle resources build phase can contain any kind of file' {
+            val project = projectFactory.create('/foo/bar')
+            val target = project.createApplicationTarget('FooBarProject')
+            val copyBundleResourcesBuildPhase = target.copyBundleResourcesBuildPhase
+            
+            val mainGroup = project.mainGroup 
+            val group = mainGroup.createGroup('FooBarProject'.toPath)
+            
+            val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+            copyBundleResourcesBuildPhase.add(moduleFile)
+            val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+            
+            // FIXME TODO a file is a build file as soon as it is referred to in a build phase
+            // makes sense, actually.
+            
+            copyBundleResourcesBuildPhase.add(headerFile)
+            val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+            copyBundleResourcesBuildPhase.add(frameworkWrapper)
+            val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+            copyBundleResourcesBuildPhase.add(datamodelFile)
+            
+            copyBundleResourcesBuildPhase.files =&gt; [
+              size should be 4
+              it should contain frameworkWrapper
+              it should contain moduleFile
+              it should contain headerFile
+              it should contain datamodelFile
+            ]
+          }
+        }
+      }
+      
+    }
+    
+  }
+
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
 		<footer>
 			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
 		</footer>
-
-	</div>
-	<!-- /container -->
+	</div> <!-- /container -->
 
 </body>
 </html>

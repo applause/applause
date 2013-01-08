@@ -183,13 +183,5 @@ class XcodeFile {
 		// hook up the fileReference
 		project.pbx_projectModel.objects.add(pbx_fileReference)
 		group.pbx_group.children.add(pbx_fileReference)
-		
-		if (buildFile) {
-			pbx_buildFile = PbxprojFactory::eINSTANCE.createBuildFile
-			pbx_buildFile.isa = 'PBXBuildFile'
-			pbx_buildFile.name = generateUUID	
-			pbx_buildFile.fileRef = pbx_fileReference
-			project.pbx_projectModel.objects.add(pbx_buildFile)
-		}
 	}	
 }

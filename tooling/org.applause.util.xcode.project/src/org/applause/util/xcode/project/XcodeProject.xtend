@@ -102,6 +102,9 @@ class XcodeProject extends XcodeProjectBase {
 	}
 	
 	def mainGroup() {
+		if (mainGroup == null) {
+			createMainGroup(this)
+		}
 		mainGroup
 	}
 	
@@ -128,6 +131,8 @@ class XcodeProject extends XcodeProjectBase {
 		targets
 	}
 	
+	
+	// TODO remove!
 	def createApplicationTarget(String name) {
 		createApplicationTarget(this, name)
 	}
@@ -146,6 +151,10 @@ class XcodeProject extends XcodeProjectBase {
 	
 	def createFrameworkBuildPhase() {
 		new XcodeFrameworkBuildPhase(this)
+	}
+	
+	def createCopyBundleResourcesBuildPhase() {
+		new XcodeCopyBundleResourcesBuildPhase(this)
 	}
 	
 	def createBuildConfiguration(String name) {

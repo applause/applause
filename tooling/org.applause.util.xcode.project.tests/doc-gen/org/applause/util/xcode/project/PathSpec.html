@@ -6,81 +6,177 @@
 <meta name="description" content="">
 <meta name="author" content="Jnario">
 
-<!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
 <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 
-<!-- Le styles -->
 <link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../../../../css/bootstrap-responsive.min.css">
 <link rel="stylesheet" href="../../../../../css/custom.css">
 <link rel="stylesheet" href="../../../../../css/prettify.css">
 <script type="text/javascript" src="../../../../../js/prettify.js"></script>
 <script type="text/javascript" src="../../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../../js/bootstrap-tab.js"></script>
 </head>
 
 <body onload="prettyPrint()">
 	<div class="container">
-		<div class="content">
-			<div class="page-header">
-				<h1>Path</h1>
-			</div>
-			<div class="row">
-				<div class="span12">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header notrun">
+					<h1>Path</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
 <p>Pbxproj files use <code>Path</code>s to describe absolute and relative paths inside Xcode projects.</p>
-<h2 id="Creating_paths">Creating paths</h2>
+<h3 class="exampleGroup notrun"  id="Creating_paths">Creating paths</h3>
 <p>There are various ways to create paths.</p>
-<ul><li><p id="Regular_constructor"><strong>Regular constructor</strong></p>
+<ul><li><p id="Regular_constructor" class="example notrun"><strong>Regular constructor</strong></p>
 <p>A path can be created using a regular constructor.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 new Path(&quot;foo/bar&quot;)</pre>
-</li><li><p id="Factory_method"><strong>Factory method</strong></p>
+</li><li><p id="Factory_method" class="example notrun"><strong>Factory method</strong></p>
 <p>A path can also be created using a static factory method.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 Path::toPath(&quot;foo/bar&quot;)</pre>
 </li></ul>
-<h2 id="Querying_paths">Querying paths</h2>
-<ul><li><p id="String_representation"><strong>String representation</strong></p>
+<h3 class="exampleGroup notrun"  id="Querying_paths">Querying paths</h3>
+<ul><li><p id="String_representation" class="example notrun"><strong>String representation</strong></p>
 <p>The <code>toString()</code> method returns the string representation of a path</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 new Path(&quot;foo/bar&quot;).toString should be &quot;foo/bar&quot;</pre>
-</li><li><p id="Getting_the_last_segment"><strong>Getting the last segment</strong></p>
+</li><li><p id="Getting_the_last_segment" class="example notrun"><strong>Getting the last segment</strong></p>
 <p>Retrieving the last segment of a path is interesting, as this often is the file name.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val path = new Path(&quot;foo/bar.h&quot;)
 path.lastSegment should be &quot;bar.h&quot;</pre>
-</li><li><p id="Retrieving_the_beginning_of_the_path"><strong>Retrieving the beginning of the path</strong></p>
-<pre class="prettyprint lang-spec">
+</li><li><p id="Retrieving_the_beginning_of_the_path" class="example notrun"><strong>Retrieving the beginning of the path</strong></p>
+<pre class="prettyprint lang-spec linenums">
 val path = new Path(&quot;foo/bar/baz.h&quot;)
 path.leadingSegments.size should be 2</pre>
 </li></ul>
-<h2 id="Sizing">Sizing</h2>
-<ul><li><p id="The_number_of_segments_is_not_limited"><strong>The number of segments is not limited</strong></p>
+<h3 class="exampleGroup notrun"  id="Sizing">Sizing</h3>
+<ul><li><p id="The_number_of_segments_is_not_limited" class="example notrun"><strong>The number of segments is not limited</strong></p>
 <p>Basically, a path can have any number of segments. However, in real life paths will have no more than just a few segments. Who wants to dig into a deeply nested folder structure anyway?</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val path = new Path(&quot;foo/bar/baz/boom.m&quot;)
 path.lastSegment should be &quot;boom.m&quot;</pre>
-</li><li><p id="Path_without_a_segment"><strong>Path without a segment</strong></p>
+</li><li><p id="Path_without_a_segment" class="example notrun"><strong>Path without a segment</strong></p>
 <p>If a path has no segment, retrieving the <code>lastSegment</code> returns an empty string.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val path = new Path()
 path.lastSegment should be &quot;&quot;</pre>
-</li><li><p id="Path_without_a_segment_has_an_empty_beginning"><strong>Path without a segment has an empty beginning</strong></p>
+</li><li><p id="Path_without_a_segment_has_an_empty_beginning" class="example notrun"><strong>Path without a segment has an empty beginning</strong></p>
 <p>If a path has no segment, retrieving the <code>leadingSegemnts</code> yields an empty array.</p>
-<pre class="prettyprint lang-spec">
+<pre class="prettyprint lang-spec linenums">
 val path = new Path()
 path.leadingSegments.size should be 0</pre>
 </li></ul>
-				</div>
-			</div>
-		</div> <!-- /content -->
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>Path.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.util.xcode.project
+
+import org.jnario.runner.CreateWith
+
+import static extension org.jnario.lib.Should.*
+
+/**
+ * Pbxproj files use `Path`s to describe absolute and relative paths inside Xcode projects.
+ */
+@CreateWith(typeof(PbxprojSpecCreator))
+describe Path {
+  
+  /**
+   * There are various ways to create paths.
+   */
+  context &quot;Creating paths&quot; {
+    /**
+     * A path can be created using a regular constructor.
+     */
+    fact &quot;Regular constructor&quot; {
+      new Path(&quot;foo/bar&quot;)
+    }
+    /**
+     * A path can also be created using a static factory method.
+     */
+    fact &quot;Factory method&quot; {
+      Path::toPath(&quot;foo/bar&quot;)
+    }
+  }
+  
+  context &quot;Querying paths&quot; {
+    /**
+     * The `toString()` method returns the string representation of a path
+     */
+    fact &quot;String representation&quot; {
+      new Path(&quot;foo/bar&quot;).toString should be &quot;foo/bar&quot;
+    }
+    
+    /**
+     * Retrieving the last segment of a path is interesting, as this often is the file name.
+     */
+    fact &quot;Getting the last segment&quot;  {
+      val path = new Path(&quot;foo/bar.h&quot;)
+      path.lastSegment should be &quot;bar.h&quot;
+    }
+    
+    fact &quot;Retrieving the beginning of the path&quot; {
+      val path = new Path(&quot;foo/bar/baz.h&quot;)
+      path.leadingSegments.size should be 2
+    }
+    
+  }
+  
+  context &quot;Sizing&quot; {
+    /**
+     * Basically, a path can have any number of segments. However, in real life paths 
+     * will have no more than just a few segments. Who wants to dig into a deeply nested
+     * folder structure anyway?
+     */
+    fact &quot;The number of segments is not limited&quot; {
+      val path = new Path(&quot;foo/bar/baz/boom.m&quot;)
+      path.lastSegment should be &quot;boom.m&quot;
+    }
+    
+    /**
+     * If a path has no segment, retrieving the `lastSegment` returns an empty string.
+     */
+    fact &quot;Path without a segment&quot; {
+      val path = new Path()
+      path.lastSegment should be &quot;&quot;
+    }
+    
+    /**
+     * If a path has no segment, retrieving the `leadingSegemnts` yields an empty array.
+     */
+    fact &quot;Path without a segment has an empty beginning&quot; {
+      val path = new Path()
+      path.leadingSegments.size should be 0
+    }
+  }
+
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
 		<footer>
 			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
 		</footer>
-
-	</div>
-	<!-- /container -->
+	</div> <!-- /container -->
 
 </body>
 </html>

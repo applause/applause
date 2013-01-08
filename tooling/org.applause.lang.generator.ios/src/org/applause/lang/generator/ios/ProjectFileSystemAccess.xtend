@@ -1,6 +1,11 @@
 package org.applause.lang.generator.ios
 
 import com.google.inject.Inject
+import org.applause.util.xcode.project.CLanguageDialect
+import org.applause.util.xcode.project.CxxLanguageDialect
+import org.applause.util.xcode.project.GCCVersion
+import org.applause.util.xcode.project.IOSVersion
+import org.applause.util.xcode.project.SDKRoot
 import org.applause.util.xcode.project.XcodeGroup
 import org.applause.util.xcode.project.XcodeProject
 import org.applause.util.xcode.project.XcodeProjectFactory
@@ -9,13 +14,6 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static extension org.applause.util.xcode.project.Path.*
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
-import org.applause.util.xcode.project.CLanguageDialect
-import org.applause.util.xcode.project.CxxLanguageDialect
-import org.applause.util.xcode.project.GCCVersion
-import org.applause.util.xcode.project.IOSVersion
-import org.applause.util.xcode.project.SDKRoot
-import org.applause.util.xcode.project.XcodeFile
-
 import static extension org.applause.util.xcode.project.XcodeProjectObjectExtensions.*
 
 class ProjectFileSystemAccess {
@@ -43,7 +41,6 @@ class ProjectFileSystemAccess {
 		mainSourceGroup().setup
 	}
 	
-	
 	// syntactic sugar!
 	def setup(XcodeProject project) { project }
 	def setup(XcodeGroup group) { group }
@@ -67,6 +64,9 @@ class ProjectFileSystemAccess {
 			mainSourceGroup = mainGroup().createGroup(resource.sourceGroupName.toPath)
 		}
 		mainSourceGroup
+	}
+	
+	def mainTarget() {
 	}
 	
 	def createHeaderFile(XcodeGroup group, String outlet, String name, CharSequence header) { 
@@ -115,11 +115,11 @@ class ProjectFileSystemAccess {
 		// MyTestProject app target
 		val applicationTarget = project.createApplicationTarget("MyTestProject", applicationFile)
 		applicationTarget.productName = "MyTestProject" 
-		applicationTarget.add(appDelegateModuleFile)
+		applicationTarget.sourceBuildPhase.add(appDelegateModuleFile)
 		
 		val applicationTestTarget = project.createApplicationTarget("MyTestProjectTests", octestFile)
 		applicationTestTarget.productName = "MyTestProjectTests" 
-		applicationTestTarget.add(appDelegateModuleFile)
+		applicationTestTarget.sourceBuildPhase.add(appDelegateModuleFile)
 		
 		// Build configuration list for PBXProject MyTestProject
 		val buildConfigurationProject = project.createBuildConfiguration("Release")

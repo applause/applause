@@ -269,6 +269,7 @@ describe XcodeProject {
 			}
 			
 			/**
+			 * TODO This is an aspect of adding a file to a build phase and should be moved there.
 			 * A number of file types are considered *build files*. 
 			 * 
 			 * The following file types belong to this category:
@@ -314,9 +315,15 @@ describe XcodeProject {
 				 */
 				fact 'Creating an application target' {
 					val project = projectFactory.create('/foo/bar')
-					val target = project.createApplicationTarget('FooBarProject')
+					val productsGroup = project.productsGroup
+					val appFile = productsGroup.createAppFile('FooBar.app'.toPath)
+					
+					val target = project.createApplicationTarget('FooBarProject', appFile)
 					target should not be null
 					target.productType should be ProductType::APPLICATION
+					
+					project.targets.size should be 1
+					project.targets should contain target
 				}
 				
 				/**
@@ -353,6 +360,26 @@ describe XcodeProject {
 					val target = project.createApplicationTarget('FooBarProject')
 					target.productName should be 'FooBarProject'
 				}
+			}
+			
+			context 'Adding files' {
+				
+				fact 'Files cannot be added to a target directly. Instead, they must be added to a build phase.' {
+					val project = projectFactory.create('/foo/bar')
+					val target = project.createApplicationTarget('FooBarProject')
+					
+					// TODO: might make sense to allow shortcut syntax project.createGroup(...) and imply that this group will created in the mainGroup
+					val group = project.mainGroup.createGroup('FooBarProject'.toPath)
+					
+					val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+					target.sourceBuildPhase.add(moduleFile)
+					
+					target.sourceBuildPhase.files => [
+						size should be 1
+						it should contain moduleFile
+					]
+				}
+				
 			}
 			
 			/**
@@ -435,6 +462,12 @@ describe XcodeProject {
 						frameworkBuildPhase.files should not contain moduleFile
 					}
 					
+					/**
+					 * Frameworks can be marked as `required`or `optional` in the Xcode UI. This results in the respective
+					 * framework being linked either `weak` (for optional frameworks) or `strong` (for required frameworks).
+					 * Weak linking frameworks is a strategy you usually follow if you want to use APIs that are not available 
+					 * in a specific iOS version and you want to figure out if they are available at runtime.  
+					 */
 					fact 'Frameworks are either required or optional' {
 						val project = projectFactory.create('/foo/bar')
 						val target = project.createApplicationTarget('FooBarProject')
@@ -452,6 +485,49 @@ describe XcodeProject {
 					}
 					
 				}				
+
+				/**
+				 * The copy bundle resources build phase is used to copy resources like images, localization files, etc.
+				 */
+				context 'Copy bundle resources build phase' {
+					
+					fact 'A target can have one copy bundle resources build phase' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						val copyBundleResourcesBuildPhase = target.copyBundleResourcesBuildPhase
+						copyBundleResourcesBuildPhase should not be null
+					}
+					
+					fact 'The copy bundle resources build phase can contain any kind of file' {
+						val project = projectFactory.create('/foo/bar')
+						val target = project.createApplicationTarget('FooBarProject')
+						val copyBundleResourcesBuildPhase = target.copyBundleResourcesBuildPhase
+						
+						val mainGroup = project.mainGroup 
+						val group = mainGroup.createGroup('FooBarProject'.toPath)
+						
+						val moduleFile = group.createModuleFile('FooBar.m'.toPath)
+						copyBundleResourcesBuildPhase.add(moduleFile)
+						val headerFile = group.createHeaderFile('FooBar.h'.toPath)
+						
+						// FIXME TODO a file is a build file as soon as it is referred to in a build phase
+						// makes sense, actually.
+						
+						copyBundleResourcesBuildPhase.add(headerFile)
+						val frameworkWrapper = group.createFrameworkFile('System/Library/Frameworks/UIKit.framework'.toPath)
+						copyBundleResourcesBuildPhase.add(frameworkWrapper)
+						val datamodelFile = group.createDatamodelFile('FooBarProject.xcdatamodeld'.toPath)
+						copyBundleResourcesBuildPhase.add(datamodelFile)
+						
+						copyBundleResourcesBuildPhase.files => [
+							size should be 4
+							it should contain frameworkWrapper
+							it should contain moduleFile
+							it should contain headerFile
+							it should contain datamodelFile
+						]
+					}
+				}
 			}
 			
 		}

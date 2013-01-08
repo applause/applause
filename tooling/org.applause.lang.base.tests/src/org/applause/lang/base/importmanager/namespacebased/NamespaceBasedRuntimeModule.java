@@ -18,7 +18,7 @@ public class NamespaceBasedRuntimeModule extends ApplauseDslRuntimeModule {
 	}
 	
 	public Class<? extends ImportManager> bindImportManager() {
-		return FooBarImportmanager.class;
+		return FooBarImportManager.class;
 	}
 
 }
