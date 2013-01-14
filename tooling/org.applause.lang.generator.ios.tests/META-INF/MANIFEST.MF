@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Applause Base Tests
+Bundle-SymbolicName: org.applause.lang.base.tests
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: Peter Friese
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.applause.lang,
+ org.applause.lang.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext.junit4,
+ org.eclipse.ui.workbench;resolution:=optional,
+ org.applause.lang.tests;bundle-version="1.0.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.3.0",
+ org.applause.lang.base;bundle-version="1.0.0",
+ org.jnario.lib,
+ org.eclipse.xtend.lib,
+ org.hamcrest.core,
+ com.google.guava,
+ org.junit,
+ org.applause.lang.generator.ios;bundle-version="1.0.0",
+ org.applause.util.xcode.project;bundle-version="1.0.0"
+Import-Package: org.apache.log4j,
+ org.junit;version="4.5.0",
+ org.junit.runner;version="4.5.0",
+ org.junit.runner.manipulation;version="4.5.0",
+ org.junit.runner.notification;version="4.5.0",
+ org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0",
+ org.hamcrest.core
+
