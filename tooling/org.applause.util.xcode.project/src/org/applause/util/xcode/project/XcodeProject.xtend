@@ -19,15 +19,14 @@ import static org.applause.util.xcode.project.XcodeTarget.*
 
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationList.*
 import java.util.ArrayList
+import org.applause.util.xcode.projectfile.pbxproj.ProjectObject
+import org.applause.util.xcode.projectfile.pbxproj.Group
 
 class XcodeProject extends XcodeProjectBase {
 	@Property ProjectModel pbx_projectModel
 	@Property Project pbx_project
 	XcodeBuildConfigurationList buildConfigurationList
 	String projectPath
-	
-	XcodeGroup mainGroup
-	XcodeGroup productsGroup
 	
 	new() {	
 	}
@@ -85,8 +84,26 @@ class XcodeProject extends XcodeProjectBase {
 	
 	override toString() {
 		resource()
+		val children = mainGroup().pbx_group.children
+		
+		// IDEA: use numerical value to compare groups. Frameworks and Products group should have a rather high value, others a low one.
+		// make sure the order is SourceGroup > TestsGroup > Frameworks > Products
+		val sorted = children.sort[a, b | a.sortValue.compareTo(b.sortValue)]
+		
+		// kinda circumstancial, but sortInplace yields "No duplicates constraint is violated"
+		mainGroup().pbx_group.children.clear
+		mainGroup().pbx_group.children.addAll(sorted)
+		
 		val out = serializer.serialize(pbx_projectModel, SaveOptions::newBuilder.format.noValidation.options)
 		out
+	}
+	
+	def sortValue(ProjectObject object) { 
+		object.name
+	}
+	
+	def sortValue(Group group) {
+		group.groupName
 	}
 	
 	def save() {
@@ -96,6 +113,8 @@ class XcodeProject extends XcodeProjectBase {
 	def String pbxProjectFileName() {
 		projectPath + '/project.pbxproj'
 	}
+	
+	XcodeGroup mainGroup
 	
 	def createMainGroup() {
 		mainGroup = createMainGroup(this)
@@ -108,6 +127,8 @@ class XcodeProject extends XcodeProjectBase {
 		mainGroup
 	}
 	
+	XcodeGroup productsGroup
+	
 	def createProductsGroup() {
 		productsGroup = createProductsGroup(this)
 	}
@@ -117,6 +138,19 @@ class XcodeProject extends XcodeProjectBase {
 			createProductsGroup
 		}
 		productsGroup
+	}
+	
+	XcodeGroup frameworksGroup
+	
+	def createFrameworksGroup() {
+		frameworksGroup = createFrameworksGroup(this)
+	}
+	
+	def frameworksGroup() {
+		if (frameworksGroup == null) {
+			createFrameworksGroup
+		}
+		frameworksGroup
 	}
 	
 	ArrayList<XcodeFile> files = newArrayList()
@@ -165,7 +199,7 @@ class XcodeProject extends XcodeProjectBase {
 	}
 	
 	def getBuildConfiguration(String name) {
-		buildConfigurationList.getBuildConfiguration(name)
+		buildConfigurationList.buildConfiguration(name)
 	}
 	
 	def setOrganizationName(String name) {

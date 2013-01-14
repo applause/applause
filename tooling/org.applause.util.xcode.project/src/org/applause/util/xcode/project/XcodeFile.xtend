@@ -43,6 +43,14 @@ class XcodeFile {
 		file
 	}
 	
+	def static createPrecompiledHeaderFile(XcodeGroup group, Path path) {
+		val file = createFile(group)
+		file.fileType = FileType::PRECOMPILED_HEADER
+		file.path = path
+		file.connect
+		file
+	}
+	
 	def static createModuleFile(XcodeGroup group, Path path) {
 		val file = createFile(group)
 		file.fileType = FileType::C_MODULE
@@ -109,7 +117,9 @@ class XcodeFile {
 		pbx_fileReference.explicitFileType = null;
 		
 		pbx_fileReference.lastKnownFileType = switch type {
-			case FileType::C_HEADER: 
+			case FileType::PRECOMPILED_HEADER: 
+				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH
+			case FileType::C_HEADER:
 				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_CH
 			case FileType::C_MODULE:
 				org::applause::util::xcode::projectfile::pbxproj::FileType::SOURCECODE_COBJC

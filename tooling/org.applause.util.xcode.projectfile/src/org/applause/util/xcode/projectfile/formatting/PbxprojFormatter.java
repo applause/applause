@@ -77,14 +77,14 @@ public class PbxprojFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap().after(g.getFileReferenceAccess().getLeftCurlyBracketKeyword_2());
 		c.setNoSpace().after(g.getFileReferenceAccess().getLeftCurlyBracketKeyword_2());
 		for (Keyword semicolon: g.getFileReferenceAccess().findKeywords(";")) {
-			if (semicolon != g.getFileReferenceAccess().getSemicolonKeyword_22()) {
+			if (semicolon != g.getFileReferenceAccess().getSemicolonKeyword_20()) {
 				c.setNoLinewrap().after(semicolon);
 				c.setNoSpace().after(semicolon);
 				c.setSpace(" ").after(semicolon);
 			}
 		}
-		c.setNoSpace().before(g.getFileReferenceAccess().getRightCurlyBracketKeyword_21());
-		c.setNoLinewrap().before(g.getFileReferenceAccess().getRightCurlyBracketKeyword_21());
+		c.setNoSpace().before(g.getFileReferenceAccess().getRightCurlyBracketKeyword_19());
+		c.setNoLinewrap().before(g.getFileReferenceAccess().getRightCurlyBracketKeyword_19());
 		
 		// BuildSetting
 		c.setNoLinewrap().before(g.getSimpleBuildsettingAccess().getEqualsSignKeyword_1());

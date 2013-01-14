@@ -17,6 +17,19 @@ class XcodeTarget {
 
 	XcodeBuildConfigurationList buildConfigurationList
 	
+	def buildConfigurationList() {
+		if (buildConfigurationList == null) {
+			buildConfigurationList = project.createBuildConfigurationList()
+			buildConfigurationList => [
+				getBuildConfiguration('Release')
+				getBuildConfiguration('Debug')
+				defaultConfigurationName = 'Release'
+				pbx_target.buildConfigurationList = pbx_BuildConfigurationList
+			]
+		}
+		buildConfigurationList
+	}
+	
 	private new(XcodeProject project, String name) {
 		this.project = project
 		project.targets.add(this)
@@ -30,11 +43,8 @@ class XcodeTarget {
 		project.pbx_project.targets.add(pbx_target)
 		project.pbx_projectModel.objects.add(pbx_target)
 		
-		buildConfigurationList = project.createBuildConfigurationList()
-		buildConfigurationList.createBuildConfiguration('Release')
-		buildConfigurationList.createBuildConfiguration('Debug')
-		pbx_target.buildConfigurationList = buildConfigurationList.pbx_BuildConfigurationList
-		buildConfigurationList.defaultConfigurationName = 'Release'
+		buildConfigurationList()
+		
 	}
 	
 	def static createTarget(XcodeProject project, String name) {
@@ -100,7 +110,7 @@ class XcodeTarget {
 	}
 	
 	def getBuildConfiguration(String name) {
-		buildConfigurationList.getBuildConfiguration(name)
+		buildConfigurationList().buildConfiguration(name)
 	}
 	
 	def name() {

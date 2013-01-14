@@ -32,6 +32,12 @@ class XcodeGroup {
 		]
 	}
 	
+	def static createFrameworksGroup(XcodeProject project) {
+		project.mainGroup.createGroup() => [
+			groupName = 'Frameworks'
+		]
+	}
+	
 	def createGroup(Path path) {
 		val newgroup = new XcodeGroup(project)
 		newgroup.parentGroup = this
@@ -100,6 +106,10 @@ class XcodeGroup {
 	
 	def createHeaderFile(Path path) {
 		createHeaderFile(this, path)
+	}
+	
+	def createPrecompiledHeaderFile(Path path) {
+		createPrecompiledHeaderFile(this, path)
 	}
 	
 	def createModuleFile(Path path) {

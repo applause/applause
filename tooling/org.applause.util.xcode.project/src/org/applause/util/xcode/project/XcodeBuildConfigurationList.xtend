@@ -39,7 +39,7 @@ class XcodeBuildConfigurationList {
 		buildConfiguration
 	}
 	
-	def getBuildConfiguration(String configurationName) {
+	def buildConfiguration(String configurationName) {
 		buildConfigurationList.findFirst[it.name == configurationName]
 	}
 	

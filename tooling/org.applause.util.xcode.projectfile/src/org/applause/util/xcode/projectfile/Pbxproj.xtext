@@ -60,8 +60,13 @@ FileReference:
 	name=UUID '=' '{' 
 		'isa' '=' isa=PBXFileReferenceLiteral ';'
 		('fileEncoding' '=' fileEncoding = INT ';')?
+		
+		(
 		( ('lastKnownFileType' '=' lastKnownFileType=FileType) | ('explicitFileType' '=' explicitFileType=FileType) )';'
+		&
 		('includeInIndex' '=' includeInIndex=INT';')?
+		)
+		
 		('name' '=' fileName=ID ';')?
 		'path' '=' path=Path ';'
 		'sourceTree' '=' sourceTree=SourceTree ';'
