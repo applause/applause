@@ -64,7 +64,7 @@ public class PbxprojFormatter extends AbstractDeclarativeFormatter {
 		c.setNoLinewrap().after(g.getBuildFileAccess().getLeftCurlyBracketKeyword_2());
 		c.setNoSpace().after(g.getBuildFileAccess().getLeftCurlyBracketKeyword_2());
 		for (Keyword semicolon: g.getBuildFileAccess().findKeywords(";")) {
-			if (semicolon != g.getBuildFileAccess().getSemicolonKeyword_10()) {
+			if (semicolon != g.getBuildFileAccess().getSemicolonKeyword_13()) {
 				c.setNoLinewrap().after(semicolon);
 				c.setNoSpace().after(semicolon);
 				c.setSpace(" ").after(semicolon);
