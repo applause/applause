@@ -23,44 +23,14 @@ class AppCompiler {
 	@Inject InfoPlistCompiler infoPlistCompiler
 	
 	def compile(Resource resource, ProjectFileSystemAccess pfsa) {
+		setupFrameworks(resource, pfsa)
+		setupBuildConfigurations(resource, pfsa)
+		
 		appDelegateCompiler.compile(resource, pfsa)
 		pchCompiler.compile(resource, pfsa)
 		infoPlistCompiler.compile(resource, pfsa)
-		
-		setupProducts(resource, pfsa)
-		setupFrameworks(resource, pfsa)
-		setupBuildConfiguration(resource, pfsa)
 	}
 	
-	def setupProducts(Resource resource, ProjectFileSystemAccess pfsa) { 
-		val productsGroup = pfsa.productsGroup
-		
-		// set up default product plus its target and build config
-		val appFileName = resource.appName() + '.app'
-		val appFile = productsGroup.createAppFile(appFileName.toPath)
-		
-		pfsa.project => [
-			val targetName = resource.appName()
-			val appTarget = createApplicationTarget(targetName, appFile)
-			appTarget.createBuildConfiguration("Release") => [
-				
-			]
-			appTarget.createBuildConfiguration("Debug") => [
-				precompilePrefixHeader = true
-				
-				val pchFilePath = pchCompiler.file.projectRelativePath
-				prefixHeaderFileName = '"' + pchFilePath +  '"'
-			
-				val infoPlistFilePath = infoPlistCompiler.file.projectRelativePath
-				infoPListFile = '"' + infoPlistFilePath + '"'
-				
-				productName = '"$(TARGET_NAME)"'
-				wrapperExtension = "app"
-			]
-		]
-		
-	}
-
 	// TODO figure out a smart way how individual compilers can add frameworks.
 	// Should be similar to the ImportManager. 
 	// For now, let's just add them here. 	
@@ -70,7 +40,9 @@ class AppCompiler {
 		]
 	}
 	
-	def setupBuildConfiguration(Resource resource, ProjectFileSystemAccess pfsa) {
+	def setupBuildConfigurations(Resource resource, ProjectFileSystemAccess pfsa) {
+		
+		// build configuration for the global project
 		pfsa.project => [
 			createBuildConfiguration("Release") => [
 				alwaysSearchUserPaths = false
@@ -110,6 +82,19 @@ class AppCompiler {
 				blockAssertions = true
 			]
 		]
+		
+		// build configurations for the app target
+		pfsa.appTarget => [
+			getBuildConfiguration("Release") => [
+				
+			]
+			getBuildConfiguration("Debug") => [
+				// why is this just here? Shouldn't it go into the main target configuration?
+				productName = '"$(TARGET_NAME)"'
+				wrapperExtension = "app"
+			]
+		]
+		
 	}
 	
 }

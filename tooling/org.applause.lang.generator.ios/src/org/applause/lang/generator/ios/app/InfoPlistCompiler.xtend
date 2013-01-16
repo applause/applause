@@ -2,23 +2,18 @@ package org.applause.lang.generator.ios.app
 
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Application
-import org.applause.lang.base.ImportManager
-import org.applause.lang.base.ImportManagerFactory
-import org.applause.lang.generator.ios.BoilerplateExtensions
 import org.applause.lang.generator.ios.IosOutputConfigurationProvider
+import org.applause.lang.generator.ios.ProjectExtensions
 import org.applause.lang.generator.ios.ProjectFileSystemAccess
 import org.eclipse.emf.ecore.resource.Resource
-import org.applause.lang.generator.ios.ProjectExtensions
-import org.applause.util.xcode.project.XcodeFile
+
+import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
+import static extension org.applause.util.xcode.project.XcodeProjectObjectExtensions.*
 
 
 class InfoPlistCompiler {
 	
-	@Inject extension BoilerplateExtensions
-	
 	@Inject extension ProjectExtensions	
-	
-	@Inject ImportManagerFactory importManagerFactory
 	
 	// outlet name
 	public String APP_OUTPUT = IosOutputConfigurationProvider::OUTPUT_APP
@@ -31,13 +26,17 @@ class InfoPlistCompiler {
 		
 		resource.allContents.filter(typeof(Application)).forEach[
 			val fileName = resource.appName + "-Info.plist"
-			infoPlistFile = pfsa.createPlistFile(appGroup, APP_OUTPUT, fileName, it.compileInfoPlist)
+			val infoPlistFile = pfsa.createPlistFile(appGroup, APP_OUTPUT, fileName, it.compileInfoPlist)
+			pfsa.appTarget => [
+				getBuildConfiguration("Release") => [
+					
+				]
+				getBuildConfiguration("Debug") => [
+					val infoPlistFilePath = infoPlistFile.projectRelativePath
+					infoPListFile = '"' + infoPlistFilePath + '"'
+				]
+			]
 		]
-	}
-	
-	XcodeFile infoPlistFile
-	def file() {
-		infoPlistFile
 	}
 	
 	/**

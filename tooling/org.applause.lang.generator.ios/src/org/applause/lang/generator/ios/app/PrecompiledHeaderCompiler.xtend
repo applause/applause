@@ -6,10 +6,12 @@ import org.applause.lang.base.ImportManager
 import org.applause.lang.base.ImportManagerFactory
 import org.applause.lang.generator.ios.BoilerplateExtensions
 import org.applause.lang.generator.ios.IosOutputConfigurationProvider
+import org.applause.lang.generator.ios.ProjectExtensions
 import org.applause.lang.generator.ios.ProjectFileSystemAccess
 import org.eclipse.emf.ecore.resource.Resource
-import org.applause.lang.generator.ios.ProjectExtensions
-import org.applause.util.xcode.project.XcodeFile
+
+import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
+import static extension org.applause.util.xcode.project.XcodeProjectObjectExtensions.*
 
 
 class PrecompiledHeaderCompiler {
@@ -31,13 +33,20 @@ class PrecompiledHeaderCompiler {
 		
 		resource.allContents.filter(typeof(Application)).forEach[
 			val fileName = resource.appName + "-Prefix.pch"
-			pchFile = pfsa.createPrecompiledHeaderFile(appGroup, APP_OUTPUT, fileName, it.compilePrecompiledHeader)
+			val pchFile = pfsa.createPrecompiledHeaderFile(appGroup, APP_OUTPUT, fileName, it.compilePrecompiledHeader)
+			pfsa.appTarget => [
+				getBuildConfiguration("Release") => [
+					
+				]
+				getBuildConfiguration("Debug") => [
+					precompilePrefixHeader = true
+				
+					val pchFilePath = pchFile.projectRelativePath
+					prefixHeaderFileName = '"' + pchFilePath +  '"'
+				]
+			]
 		]
-	}
-	
-	XcodeFile pchFile
-	def file() {
-		pchFile
+		
 	}
 	
 	/**

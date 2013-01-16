@@ -10,6 +10,8 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import static extension org.applause.util.xcode.project.Path.*
 import static extension org.applause.util.xcode.project.XcodeBuildConfigurationSettings.*
 import static extension org.applause.util.xcode.project.XcodeProjectObjectExtensions.*
+import org.applause.util.xcode.project.XcodeFile
+import org.applause.util.xcode.project.XcodeTarget
 
 class ProjectFileSystemAccess {
 	IFileSystemAccess fsa
@@ -68,6 +70,25 @@ class ProjectFileSystemAccess {
 	def mainTarget() {
 	}
 	
+	XcodeTarget appTarget
+	def appTarget() {
+		if (appTarget == null) {
+			// set up default product plus its target and build config
+			val appFileName = resource.appName() + '.app'
+			val appFile = productsGroup.createAppFile(appFileName.toPath)
+			
+			project => [
+				val targetName = resource.appName()
+				appTarget = createApplicationTarget(targetName, appFile)
+				appTarget.createBuildConfiguration("Release") => [
+				]
+				appTarget.createBuildConfiguration("Debug") => [
+				]
+			]
+		}
+		appTarget
+	}
+	
 	def createPrecompiledHeaderFile(XcodeGroup group, String outlet, String name, CharSequence contents) { 
 		val file = group.createPrecompiledHeaderFile(name.toPath)
 		val filePath = file.projectRelativePath
@@ -92,6 +113,7 @@ class ProjectFileSystemAccess {
 		val file = group.createModuleFile(name.toPath)
 		val filePath = file.projectRelativePath
 		fsa.generateFile(filePath, outlet, contents)
+		file
 	}
 	
 	def void saveProject() {

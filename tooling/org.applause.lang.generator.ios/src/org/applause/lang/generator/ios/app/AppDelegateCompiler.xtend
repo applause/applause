@@ -1,18 +1,15 @@
 package org.applause.lang.generator.ios.app
 
 import com.google.inject.Inject
-import org.applause.lang.base.ScreenflowExtensions
-import org.applause.lang.generator.ios.TypeExtensions
-import org.applause.lang.generator.ios.BoilerplateExtensions
-import org.applause.lang.generator.ios.IosOutputConfigurationProvider
-import org.eclipse.emf.ecore.resource.Resource
-import org.applause.lang.generator.ios.ProjectFileSystemAccess
-
-import static extension org.applause.util.xcode.project.Path.*
 import org.applause.lang.applauseDsl.Application
 import org.applause.lang.base.ImportManager
 import org.applause.lang.base.ImportManagerFactory
-
+import org.applause.lang.base.ScreenflowExtensions
+import org.applause.lang.generator.ios.BoilerplateExtensions
+import org.applause.lang.generator.ios.IosOutputConfigurationProvider
+import org.applause.lang.generator.ios.ProjectFileSystemAccess
+import org.applause.lang.generator.ios.TypeExtensions
+import org.eclipse.emf.ecore.resource.Resource
 
 class AppDelegateCompiler {
 	
@@ -35,7 +32,8 @@ class AppDelegateCompiler {
 		
 		resource.allContents.filter(typeof(Application)).forEach[
 			pfsa.createHeaderFile(appGroup, APP_OUTPUT, "AppDelegate.h", it.compileHeader)
-			pfsa.createModuleFile(appGroup, APP_OUTPUT, "AppDelegate.m", it.compileModule)
+			val moduleFile = pfsa.createModuleFile(appGroup, APP_OUTPUT, "AppDelegate.m", it.compileModule)
+			pfsa.appTarget.sourceBuildPhase.add(moduleFile)
 		]
 	}
 	
