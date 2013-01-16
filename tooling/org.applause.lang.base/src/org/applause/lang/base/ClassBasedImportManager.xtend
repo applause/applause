@@ -36,7 +36,7 @@ abstract class ClassBasedImportmanager extends ImportManager {
 	override requiresImport(Type type) {
 		!(type.primitive 
 			|| (type.wellknownClass && !type.wellknownClassHasImport) 
-			|| (type == thisType)
+			// 2013-01-16 pfr I removed this to make sure an Objective-C type imports its header file: || (type == thisType)
 		)
 	}
 	

@@ -172,7 +172,7 @@ val barType = model.elements.filter(typeof(DataType)).findFirst[name == 'Bar']
 subject.serialize(barType) should be 'Bar'</pre>
 </li></ul>
 <h3 class="exampleGroup notrun"  id="Scope">Scope</h3>
-<ul><li><p id="A_type_must_not_import_itself_Only_external_types_need_to_be_imported" class="example notrun"><strong>A type must not import itself. Only external types need to be imported.</strong></p>
+<ul><li><p id="In_C_like_languages_a_type_must_actually_import_itself" class="example notrun"><strong>In C-like languages, a type must actually import itself!</strong></p>
 <pre class="prettyprint lang-spec linenums">
 val model = parseHelper.parse('''
   entity Foo { }
@@ -184,11 +184,11 @@ val bar = model.elements.filter(typeof(Entity)).findFirst[name == 'Bar']
 val importManager = importManagerFactory.create(bar)
 
 importManager.add(bar)
-importManager.imports.size should be 0
+importManager.imports.size should be 1
 importManager.serialize(bar) should be 'Bar'
 
 importManager.serialize(foo) should be 'Foo'
-importManager.imports.size should be 1</pre>
+importManager.imports.size should be 2</pre>
 </li></ul>
 <h3 class="exampleGroup notrun"  id="Well_known_classes">Well-known classes</h3>
 <p>Well-known classes are classes that are part of the runtime and do not need to be imported, or that are part of the runtime and need to be imported using a specific, predefined import.</p>
@@ -457,7 +457,7 @@ describe ImportManager {
     
     @Inject ImportManagerFactory importManagerFactory
     
-    fact &quot;A type must not import itself. Only external types need to be imported.&quot; {
+    fact &quot;In C-like languages, a type must actually import itself!&quot; {
       val model = parseHelper.parse('''
         entity Foo { }
         entity Bar extends Foo {}
@@ -468,11 +468,11 @@ describe ImportManager {
       val importManager = importManagerFactory.create(bar)
       
       importManager.add(bar)
-      importManager.imports.size should be 0
+      importManager.imports.size should be 1
       importManager.serialize(bar) should be 'Bar'
       
       importManager.serialize(foo) should be 'Foo'
-      importManager.imports.size should be 1
+      importManager.imports.size should be 2
     }
     
   }

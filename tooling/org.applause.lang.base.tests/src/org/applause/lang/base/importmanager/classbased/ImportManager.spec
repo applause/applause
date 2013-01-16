@@ -200,7 +200,7 @@ describe ImportManager {
 		
 		@Inject ImportManagerFactory importManagerFactory
 		
-		fact "A type must not import itself. Only external types need to be imported." {
+		fact "In C-like languages, a type must actually import itself!" {
 			val model = parseHelper.parse('''
 				entity Foo { }
 				entity Bar extends Foo {}
@@ -211,11 +211,11 @@ describe ImportManager {
 			val importManager = importManagerFactory.create(bar)
 			
 			importManager.add(bar)
-			importManager.imports.size should be 0
+			importManager.imports.size should be 1
 			importManager.serialize(bar) should be 'Bar'
 			
 			importManager.serialize(foo) should be 'Foo'
-			importManager.imports.size should be 1
+			importManager.imports.size should be 2
 		}
 		
 	}
