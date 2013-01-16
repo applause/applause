@@ -20,10 +20,12 @@ class AppCompiler {
 	
 	@Inject AppDelegateCompiler appDelegateCompiler
 	@Inject PrecompiledHeaderCompiler pchCompiler
+	@Inject InfoPlistCompiler infoPlistCompiler
 	
 	def compile(Resource resource, ProjectFileSystemAccess pfsa) {
 		appDelegateCompiler.compile(resource, pfsa)
 		pchCompiler.compile(resource, pfsa)
+		infoPlistCompiler.compile(resource, pfsa)
 		
 		setupProducts(resource, pfsa)
 		setupFrameworks(resource, pfsa)
@@ -47,9 +49,11 @@ class AppCompiler {
 				precompilePrefixHeader = true
 				
 				val pchFilePath = pchCompiler.file.projectRelativePath
-				
 				prefixHeaderFileName = '"' + pchFilePath +  '"'
-				infoPListFile = '"MyTestProject/MyTestProject-Info.plist"'
+			
+				val infoPlistFilePath = infoPlistCompiler.file.projectRelativePath
+				infoPListFile = '"' + infoPlistFilePath + '"'
+				
 				productName = '"$(TARGET_NAME)"'
 				wrapperExtension = "app"
 			]

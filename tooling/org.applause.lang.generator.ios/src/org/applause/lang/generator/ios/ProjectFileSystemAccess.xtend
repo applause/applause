@@ -68,23 +68,30 @@ class ProjectFileSystemAccess {
 	def mainTarget() {
 	}
 	
-	def createPrecompiledHeaderFile(XcodeGroup group, String outlet, String name, CharSequence header) { 
+	def createPrecompiledHeaderFile(XcodeGroup group, String outlet, String name, CharSequence contents) { 
 		val file = group.createPrecompiledHeaderFile(name.toPath)
 		val filePath = file.projectRelativePath
-		fsa.generateFile(filePath, outlet, header)
+		fsa.generateFile(filePath, outlet, contents)
 		file
 	}
 	
-	def createHeaderFile(XcodeGroup group, String outlet, String name, CharSequence header) { 
+	def createPlistFile(XcodeGroup group, String outlet, String name, CharSequence contents) {
+		group.createPlistFile(name.toPath) => [
+			val filePath = projectRelativePath
+			fsa.generateFile(filePath, outlet, contents)
+		]
+	}
+	
+	def createHeaderFile(XcodeGroup group, String outlet, String name, CharSequence contents) { 
 		val file = group.createHeaderFile(name.toPath)
 		val filePath = file.projectRelativePath
-		fsa.generateFile(filePath, outlet, header)
+		fsa.generateFile(filePath, outlet, contents)
 	}
 
-	def createModuleFile(XcodeGroup group, String outlet, String name, CharSequence header) { 
+	def createModuleFile(XcodeGroup group, String outlet, String name, CharSequence contents) { 
 		val file = group.createModuleFile(name.toPath)
 		val filePath = file.projectRelativePath
-		fsa.generateFile(filePath, outlet, header)
+		fsa.generateFile(filePath, outlet, contents)
 	}
 	
 	def void saveProject() {
