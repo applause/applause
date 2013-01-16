@@ -32,8 +32,7 @@ class AppDelegateCompiler {
 		
 		resource.allContents.filter(typeof(Application)).forEach[
 			pfsa.createHeaderFile(appGroup, APP_OUTPUT, "AppDelegate.h", it.compileHeader)
-			val moduleFile = pfsa.createModuleFile(appGroup, APP_OUTPUT, "AppDelegate.m", it.compileModule)
-			pfsa.appTarget.sourceBuildPhase.add(moduleFile)
+			pfsa.createModuleFile(appGroup, APP_OUTPUT, "AppDelegate.m", it.compileModule)
 		]
 	}
 	

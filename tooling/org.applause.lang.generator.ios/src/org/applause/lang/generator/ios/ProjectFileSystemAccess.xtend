@@ -113,7 +113,7 @@ class ProjectFileSystemAccess {
 		val file = group.createModuleFile(name.toPath)
 		val filePath = file.projectRelativePath
 		fsa.generateFile(filePath, outlet, contents)
-		file
+		appTarget().sourceBuildPhase.add(file)		
 	}
 	
 	def void saveProject() {
