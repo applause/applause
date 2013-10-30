@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Entities</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-tab.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header notrun">
+					<h1>Entities</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
+<p>Entities represent the data we deal with. At their core, they are a similar to POJOs or plain C# classes, but with a very stripped-down syntax, which makes for great readability and allows us to write very efficient code generators.</p>
+<h3 class="exampleGroup notrun"  id="Defining_Entities">Defining Entities</h3>
+<p>Entities can have any name and can be defined anywhere in your DSL program.</p>
+<ul><li><p id="Simple_entities" class="example notrun"><strong>Simple entities</strong></p>
+<p>Entities can be defined using the <code>entity</code> keyword.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {
+}</pre>
+</li><li><p id="Entity_inheritance" class="example notrun"><strong>Entity inheritance</strong></p>
+<p>Entities can extend other entities.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {
+}
+entity Employee extends Person {
+}</pre>
+</li><li><p id="Abstract_Entities" class="example notrun"><strong>Abstract Entities</strong></p>
+<p>If an entity is merely used to specify base attributes for an inheritance hierarchy, it makes sense to define it as being abstract to make sure it cannot be instantiated.</p>
+<pre class="prettyprint lang-spec linenums">
+abstract entity Person {
+}
+entity Employee extends Person {
+}</pre>
+</li><li><p id="Entity_attributes" class="example notrun"><strong>Entity attributes</strong></p>
+<p>Entities can have any number of attributes. Attribute types refer to <code>datatype</code>s or other <code>entity</code>s.</p>
+<pre class="prettyprint lang-spec linenums">
+datatype String
+datatype Date
+entity Person {
+  String name
+  Date birthdate
+}</pre>
+</li><li><p id="Property_cardinality" class="example notrun"><strong>Property cardinality</strong></p>
+<p>Properties can have an optional cardinality, so you can express 1:n relationships.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {
+  Person[] friends
+}</pre>
+</li></ul>
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>Entities.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.specification.data
+
+import com.google.inject.Inject
+import org.eclipse.xtext.junit4.InjectWith
+import org.applause.specification.ApplauseDslInjectorProvider
+import org.applause.specification.ApplauseDslTestCreator
+import org.jnario.runner.CreateWith
+
+/**
+ * Entities represent the data we deal with. At their core, they are a similar to POJOs 
+ * or plain C# classes, but with a very stripped-down syntax, which makes for great 
+ * readability and allows us to write very efficient code generators.
+ */
+@InjectWith(ApplauseDslInjectorProvider)
+@CreateWith(typeof(ApplauseDslTestCreator))
+describe &quot;Entities&quot;{
+  
+  @Inject extension EntitiesValidationTestHelper
+  
+  /**
+   * Entities can have any name and can be defined anywhere in your DSL program.
+   */
+  describe &quot;Defining Entities&quot; {
+    
+    /**
+     * Entities can be defined using the `entity` keyword.
+     * @filter('''|.isValid.*)
+     */
+    fact &quot;Simple entities&quot; {
+      '''
+        entity Person {
+        }
+      '''.isValidEntity
+    }
+  
+    /**
+     * Entities can extend other entities.
+     * @filter('''|.isValid.*)
+     */
+    fact &quot;Entity inheritance&quot; {
+      '''
+        entity Person {
+        }
+        entity Employee extends Person {
+        }
+      '''.isValidEntityWithInheritance
+    }
+    
+    /**
+     * If an entity is merely used to specify base attributes for an inheritance hierarchy,
+     * it makes sense to define it as being abstract to make sure it cannot be instantiated.
+     * @filter('''|isValid.*)
+     */
+    fact &quot;Abstract Entities&quot; {
+      '''
+        abstract entity Person {
+        }
+        entity Employee extends Person {
+        }
+      '''.isValidAbstractEntityWithInheritance
+    }
+    
+    /**
+     * Entities can have any number of attributes. Attribute types refer to `datatype`s or other
+     * `entity`s.
+     * @filter('''|.isValid.*) 
+     */
+    fact &quot;Entity attributes&quot; {
+      '''
+        datatype String
+        datatype Date
+        entity Person {
+          String name
+          Date birthdate
+        }
+      '''.isValidEntityWithAttributes
+    }
+    
+    /**
+     * Properties can have an optional cardinality, so you can express 1:n relationships.
+     * @filter('''|.isValid.*) 
+     */
+    fact &quot;Property cardinality&quot; {
+      '''
+        entity Person {
+          Person[] friends
+        }
+      '''.isValidEntityWithOneToManyRelationship
+    }
+    
+  }
+
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+	</div> <!-- /container -->
+
+</body>
+</html>
