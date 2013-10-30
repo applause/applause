@@ -1,0 +1,21 @@
+package org.applause.specification.data
+
+#Data Access Layer DSL
+
+The data access layer DSL in Applause is a domain specific language that allows you to describe data and how to access it. In particular, it supports:
+
+* specifying basic datatypes and mapping them to their respective counterparts in the languages used to build native apps
+* using those datatypes to define entities and their properties
+* specifying remote datasource
+* specifying datasources
+* defining local filters
+
+##Describing Data
+
+- "Scalar Data Types": make up the core of the Applause DSLs, they are one of the building blocks for the other concepts used throughout the DSL. 
+- "Entities": are used to model data structures that you pass between a backend and your app
+
+##Describing Data Access
+
+* remote data access
+* local data access
