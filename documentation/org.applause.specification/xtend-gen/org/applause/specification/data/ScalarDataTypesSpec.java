@@ -6,6 +6,7 @@ import org.applause.specification.ApplauseDslInjectorProvider;
 import org.applause.specification.ApplauseDslTestCreator;
 import org.applause.specification.data.ApplauseValidationTestHelper;
 import org.applause.specification.data.ScalarDataTypesDefiningDataTypesSpec;
+import org.applause.specification.data.ScalarDataTypesValidationTestHelper;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -35,4 +36,9 @@ public class ScalarDataTypesSpec {
   @Extension
   @org.jnario.runner.Extension
   public ApplauseValidationTestHelper _applauseValidationTestHelper;
+  
+  @Inject
+  @Extension
+  @org.jnario.runner.Extension
+  public ScalarDataTypesValidationTestHelper _scalarDataTypesValidationTestHelper;
 }

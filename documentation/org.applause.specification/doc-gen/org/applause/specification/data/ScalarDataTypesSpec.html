@@ -43,6 +43,11 @@
 <pre class="prettyprint lang-spec linenums">
 datatype String
 datatype Integer</pre>
+</li><li><p id="Data_types_must_be_unique" class="example notrun"><strong>Data types must be unique</strong></p>
+<p>Data types must be unique. Currently, this means they must be unique across the board and <strong>cannot</strong> be namespaced.</p>
+<pre class="prettyprint lang-spec linenums">
+datatype String
+datatype String // &lt;-- invalid</pre>
 </li></ul>
 							</div>
 						    <div class="tab-pane" id="source">
@@ -52,7 +57,6 @@ datatype Integer</pre>
 package org.applause.specification.data
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.ApplauseDslPackage
 import org.applause.lang.applauseDsl.Model
 import org.applause.specification.ApplauseDslInjectorProvider
 import org.applause.specification.ApplauseDslTestCreator
@@ -70,6 +74,7 @@ describe &quot;Scalar Data Types&quot;{
   
   @Inject extension ParseHelper&lt;Model&gt;
   @Inject extension ApplauseValidationTestHelper
+  @Inject extension ScalarDataTypesValidationTestHelper
   
   /**
    * Data types can have any name and can be defined anywhere in your DSL program.
@@ -86,19 +91,17 @@ describe &quot;Scalar Data Types&quot;{
       '''.isValid
     }
   
-    def void hasDuplicateDatatype(CharSequence sequence) {
-      sequence.parse.assertError(ApplauseDslPackage.eINSTANCE.dataType, null, &quot;Duplicate DataType 'String'&quot;)
+    /**
+     * Data types must be unique. Currently, this means they must be unique across the board and __cannot__
+     * be namespaced.
+     * @filter('''|.hasDuplicateDatatype)
+     */
+    fact &quot;Data types must be unique&quot; {
+      '''
+        datatype String
+        datatype String // &lt;-- invalid
+      '''.hasDuplicateDatatype
     }
-    
-//    /**
-//     * @filter('''|.hasDuplicateDatatype)
-//     */
-//    fact &quot;Data types must be unique&quot; {
-//      '''
-//        datatype String
-//        datatype String // &lt;-- invalid
-//      '''.hasDuplicateDatatype
-//    }
   
   }
   

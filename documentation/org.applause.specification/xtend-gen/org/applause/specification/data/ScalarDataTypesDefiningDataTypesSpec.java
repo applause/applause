@@ -1,11 +1,7 @@
 package org.applause.specification.data;
 
-import org.applause.lang.applauseDsl.ApplauseDslPackage;
-import org.applause.lang.applauseDsl.Model;
 import org.applause.specification.data.ScalarDataTypesSpec;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.jnario.runner.ExampleGroupRunner;
 import org.jnario.runner.Named;
 import org.jnario.runner.Order;
@@ -35,13 +31,20 @@ public class ScalarDataTypesDefiningDataTypesSpec extends ScalarDataTypesSpec {
     this._applauseValidationTestHelper.isValid(_builder);
   }
   
-  public void hasDuplicateDatatype(final CharSequence sequence) {
-    try {
-      Model _parse = this._parseHelper.parse(sequence);
-      EClass _dataType = ApplauseDslPackage.eINSTANCE.getDataType();
-      this._applauseValidationTestHelper.assertError(_parse, _dataType, null, "Duplicate DataType \'String\'");
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
+  /**
+   * Data types must be unique. Currently, this means they must be unique across the board and __cannot__
+   * be namespaced.
+   * @filter('''|.hasDuplicateDatatype)
+   */
+  @Test
+  @Named("Data types must be unique")
+  @Order(2)
+  public void _dataTypesMustBeUnique() throws Exception {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("datatype String");
+    _builder.newLine();
+    _builder.append("datatype String // <-- invalid");
+    _builder.newLine();
+    this._scalarDataTypesValidationTestHelper.hasDuplicateDatatype(_builder);
   }
 }

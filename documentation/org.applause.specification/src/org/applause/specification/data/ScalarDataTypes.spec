@@ -1,7 +1,6 @@
 package org.applause.specification.data
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.ApplauseDslPackage
 import org.applause.lang.applauseDsl.Model
 import org.applause.specification.ApplauseDslInjectorProvider
 import org.applause.specification.ApplauseDslTestCreator
@@ -19,6 +18,7 @@ describe "Scalar Data Types"{
 	
 	@Inject extension ParseHelper<Model>
 	@Inject extension ApplauseValidationTestHelper
+	@Inject extension ScalarDataTypesValidationTestHelper
 	
 	/**
 	 * Data types can have any name and can be defined anywhere in your DSL program.
@@ -35,19 +35,17 @@ describe "Scalar Data Types"{
 			'''.isValid
 		}
 	
-		def void hasDuplicateDatatype(CharSequence sequence) {
-			sequence.parse.assertError(ApplauseDslPackage.eINSTANCE.dataType, null, "Duplicate DataType 'String'")
+		/**
+		 * Data types must be unique. Currently, this means they must be unique across the board and __cannot__
+		 * be namespaced.
+		 * @filter('''|.hasDuplicateDatatype)
+		 */
+		fact "Data types must be unique" {
+			'''
+				datatype String
+				datatype String // <-- invalid
+			'''.hasDuplicateDatatype
 		}
-		
-//		/**
-//		 * @filter('''|.hasDuplicateDatatype)
-//		 */
-//		fact "Data types must be unique" {
-//			'''
-//				datatype String
-//				datatype String // <-- invalid
-//			'''.hasDuplicateDatatype
-//		}
 	
 	}
 	
