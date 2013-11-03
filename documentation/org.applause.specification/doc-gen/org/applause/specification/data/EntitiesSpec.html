@@ -43,6 +43,12 @@
 <pre class="prettyprint lang-spec linenums">
 entity Person {
 }</pre>
+</li><li><p id="Entities_must_be_unique" class="example notrun"><strong>Entities must be unique</strong></p>
+<p>Entities must be unique. Currently, this means they must be unique across the board and <strong>cannot</strong> be namespaced.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person
+entity Person // &lt;-- invalid
+      .hasDuplicateEntity</pre>
 </li><li><p id="Entity_inheritance" class="example notrun"><strong>Entity inheritance</strong></p>
 <p>Entities can extend other entities.</p>
 <pre class="prettyprint lang-spec linenums">
@@ -112,6 +118,19 @@ describe &quot;Entities&quot;{
         }
       '''.isValidEntity
     }
+    
+    /**
+     * Entities must be unique. Currently, this means they must be unique across the board and __cannot__
+     * be namespaced.
+     * @filter('''|.hasDuplicateDatatype)
+     */
+    fact &quot;Entities must be unique&quot; {
+      '''
+        entity Person
+        entity Person // &lt;-- invalid
+      '''.hasDuplicateEntity
+    }
+
   
     /**
      * Entities can extend other entities.

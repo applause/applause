@@ -1,6 +1,7 @@
 package org.applause.specification.data
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.ApplauseDslPackage
 import org.applause.lang.applauseDsl.Model
 import org.eclipse.xtext.junit4.util.ParseHelper
 import org.applause.lang.applauseDsl.Entity
@@ -20,6 +21,11 @@ class EntitiesValidationTestHelper extends ApplauseValidationTestHelper {
 		val entity = model.elements.head as Entity
 		assertNotNull(entity.name)
 	}
+	
+	def void hasDuplicateEntity(CharSequence sequence) {
+		sequence.parse.assertError(ApplauseDslPackage.eINSTANCE.entity, null, "Duplicate Type 'Person'")
+	}
+	
 	
 	def void isValidEntityWithInheritance(CharSequence sequence) {
 		val model = sequence.parse

@@ -32,6 +32,19 @@ describe "Entities"{
 				}
 			'''.isValidEntity
 		}
+		
+		/**
+		 * Entities must be unique. Currently, this means they must be unique across the board and __cannot__
+		 * be namespaced.
+		 * @filter('''|.hasDuplicateDatatype)
+		 */
+		fact "Entities must be unique" {
+			'''
+				entity Person
+				entity Person // <-- invalid
+			'''.hasDuplicateEntity
+		}
+
 	
 		/**
 		 * Entities can extend other entities.

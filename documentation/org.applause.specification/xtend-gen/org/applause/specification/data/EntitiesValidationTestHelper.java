@@ -3,12 +3,14 @@ package org.applause.specification.data;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.Type;
 import org.applause.specification.data.ApplauseValidationTestHelper;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.xtext.junit4.util.ParseHelper;
 import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -36,6 +38,16 @@ public class EntitiesValidationTestHelper extends ApplauseValidationTestHelper {
       final Entity entity = ((Entity) _head);
       String _name = entity.getName();
       Assert.assertNotNull(_name);
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  public void hasDuplicateEntity(final CharSequence sequence) {
+    try {
+      Model _parse = this._parseHelper.parse(sequence);
+      EClass _entity = ApplauseDslPackage.eINSTANCE.getEntity();
+      this.assertError(_parse, _entity, null, "Duplicate Type \'Person\'");
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
     }

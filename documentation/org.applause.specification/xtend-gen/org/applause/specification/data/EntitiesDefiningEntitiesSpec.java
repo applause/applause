@@ -32,12 +32,29 @@ public class EntitiesDefiningEntitiesSpec extends EntitiesSpec {
   }
   
   /**
+   * Entities must be unique. Currently, this means they must be unique across the board and __cannot__
+   * be namespaced.
+   * @filter('''|.hasDuplicateDatatype)
+   */
+  @Test
+  @Named("Entities must be unique")
+  @Order(2)
+  public void _entitiesMustBeUnique() throws Exception {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("entity Person");
+    _builder.newLine();
+    _builder.append("entity Person // <-- invalid");
+    _builder.newLine();
+    this._entitiesValidationTestHelper.hasDuplicateEntity(_builder);
+  }
+  
+  /**
    * Entities can extend other entities.
    * @filter('''|.isValid.*)
    */
   @Test
   @Named("Entity inheritance")
-  @Order(2)
+  @Order(3)
   public void _entityInheritance() throws Exception {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("entity Person {");
@@ -58,7 +75,7 @@ public class EntitiesDefiningEntitiesSpec extends EntitiesSpec {
    */
   @Test
   @Named("Abstract Entities")
-  @Order(3)
+  @Order(4)
   public void _abstractEntities() throws Exception {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("abstract entity Person {");
@@ -79,7 +96,7 @@ public class EntitiesDefiningEntitiesSpec extends EntitiesSpec {
    */
   @Test
   @Named("Entity attributes")
-  @Order(4)
+  @Order(5)
   public void _entityAttributes() throws Exception {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("datatype String");
@@ -105,7 +122,7 @@ public class EntitiesDefiningEntitiesSpec extends EntitiesSpec {
    */
   @Test
   @Named("Property cardinality")
-  @Order(5)
+  @Order(6)
   public void _propertyCardinality() throws Exception {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("entity Person {");
