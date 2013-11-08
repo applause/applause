@@ -3,8 +3,18 @@ grammar org.applause.lang.ApplauseDsl with org.eclipse.xtext.common.Terminals
 generate applauseDsl "http://www.applause.org/lang/ApplauseDsl"
 
 Model:
-	elements += Type*
+	elements += NamedElement*
 ;
+
+NamedElement:
+	Type | Platform
+;
+
+
+
+// -----------------------------------------
+// Entities
+// -----------------------------------------
 
 Type:
 	DataType | Entity
@@ -22,4 +32,22 @@ Entity:
 
 Attribute:
 	type=[Type]	(many?='[]')? name=ID
+;
+
+// -----------------------------------------
+// Platform-specific mappings
+// -----------------------------------------
+
+Platform:
+	'platform' name=ID '{'
+		mappings += PlatformMapping*
+	'}'
+;
+
+PlatformMapping:
+	TypeMapping // | NamespaceMapping
+;
+
+TypeMapping:
+	'typemapping' type=[DataType] '->' simpleName=ID
 ;

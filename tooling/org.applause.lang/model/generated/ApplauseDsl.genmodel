@@ -10,9 +10,10 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/elements"/>
     </genClasses>
-    <genClasses ecoreClass="ApplauseDsl.ecore#//Type">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Type/name"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//NamedElement/name"/>
     </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Type"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//DataType"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Entity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Entity/abstract"/>
@@ -23,6 +24,14 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Attribute/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Attribute/many"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Attribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Platform">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Platform/mappings"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//PlatformMapping"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//TypeMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TypeMapping/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//TypeMapping/simpleName"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

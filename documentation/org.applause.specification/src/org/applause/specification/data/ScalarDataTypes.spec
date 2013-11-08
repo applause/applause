@@ -49,37 +49,38 @@ describe "Scalar Data Types"{
 	
 	}
 	
-//	/**
-//	 * Applause supports mapping data types to platform types.
-//	 */
-//	describe "Platform Mapping" {
-//		
-//		/**
-//		 * The `platform` keyword can be used to define a platform.
-//		 * @filter('''|.isValid)
-//		 */
-//		fact "Defining platforms" {
-//			'''
-//				platform iOS {
-//					// platform-specific configurations
-//				}
-//			'''.isValid
-//		}
-//		
-//		/**
-//		 * This makes sense when you want to support multiple platforms. This way, you can use the
-//		 * platform-independent data type name and do not need to care about what's the right type 
-//		 * on the target platform.
-//		 * @filter(''')
-//		 */
-//		fact "A data type can be mapped to a different type" {
-//			'''
-//				platform foo {
-//					typemapping String -> foo.Bar
-//				}
-//			'''.isValid
-//		}
-//		
+	/**
+	 * Applause supports mapping data types to platform types.
+	 */
+	describe "Platform Mapping" {
+		
+		/**
+		 * The `platform` keyword can be used to define a platform.
+		 * @filter('''|.hasPlatform.*)
+		 */
+		fact "Defining platforms" {
+			'''
+				platform iOS {
+					// platform-specific configurations
+				}
+			'''.hasPlatform('iOS')
+		}
+		
+		/**
+		 * This makes sense when you want to support multiple platforms. This way, you can use the
+		 * platform-independent data type name and do not need to care about what's the right type 
+		 * on the target platform.
+		 * @filter('''|.hasPlatformTypeMapping.*)
+		 */
+		fact "A data type can be mapped to a different type" {
+			'''
+				datatype String
+				platform iOS {
+					typemapping String -> NSString
+				}
+			'''.hasPlatformTypeMapping('String', 'NSString')
+		}
+		
 //		/**
 //		 * Applause comes with a number of pre-defined platform mappings for the supported platforms. 
 //		 */
@@ -125,6 +126,6 @@ describe "Scalar Data Types"{
 //			}
 //			
 //		}
-//		
-//	}
+		
+	}
 }

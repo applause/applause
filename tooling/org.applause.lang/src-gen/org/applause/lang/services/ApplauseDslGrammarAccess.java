@@ -21,17 +21,37 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
 		private final Assignment cElementsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cElementsTypeParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
+		private final RuleCall cElementsNamedElementParserRuleCall_0 = (RuleCall)cElementsAssignment.eContents().get(0);
 		
 		//Model:
-		//	elements+=Type*;
+		//	elements+=NamedElement*;
 		public ParserRule getRule() { return rule; }
 
-		//elements+=Type*
+		//elements+=NamedElement*
 		public Assignment getElementsAssignment() { return cElementsAssignment; }
 
+		//NamedElement
+		public RuleCall getElementsNamedElementParserRuleCall_0() { return cElementsNamedElementParserRuleCall_0; }
+	}
+
+	public class NamedElementElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NamedElement");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cPlatformParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//NamedElement:
+		//	Type | Platform;
+		public ParserRule getRule() { return rule; }
+
+		//Type | Platform
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//Type
-		public RuleCall getElementsTypeParserRuleCall_0() { return cElementsTypeParserRuleCall_0; }
+		public RuleCall getTypeParserRuleCall_0() { return cTypeParserRuleCall_0; }
+
+		//Platform
+		public RuleCall getPlatformParserRuleCall_1() { return cPlatformParserRuleCall_1; }
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
@@ -40,6 +60,9 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cDataTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEntityParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
+		//// -----------------------------------------
+		//// Entities
+		//// -----------------------------------------
 		//Type:
 		//	DataType | Entity;
 		public ParserRule getRule() { return rule; }
@@ -185,13 +208,113 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 	}
+
+	public class PlatformElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Platform");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cPlatformKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cMappingsAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cMappingsPlatformMappingParserRuleCall_3_0 = (RuleCall)cMappingsAssignment_3.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//// -----------------------------------------
+		//// Platform-specific mappings
+		//// -----------------------------------------
+		//Platform:
+		//	"platform" name=ID "{" mappings+=PlatformMapping* "}";
+		public ParserRule getRule() { return rule; }
+
+		//"platform" name=ID "{" mappings+=PlatformMapping* "}"
+		public Group getGroup() { return cGroup; }
+
+		//"platform"
+		public Keyword getPlatformKeyword_0() { return cPlatformKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//mappings+=PlatformMapping*
+		public Assignment getMappingsAssignment_3() { return cMappingsAssignment_3; }
+
+		//PlatformMapping
+		public RuleCall getMappingsPlatformMappingParserRuleCall_3_0() { return cMappingsPlatformMappingParserRuleCall_3_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_4() { return cRightCurlyBracketKeyword_4; }
+	}
+
+	public class PlatformMappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PlatformMapping");
+		private final RuleCall cTypeMappingParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//PlatformMapping: // | NamespaceMapping
+		//	TypeMapping;
+		public ParserRule getRule() { return rule; }
+
+		//// | NamespaceMapping
+		//TypeMapping
+		public RuleCall getTypeMappingParserRuleCall() { return cTypeMappingParserRuleCall; }
+	}
+
+	public class TypeMappingElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TypeMapping");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cTypemappingKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTypeDataTypeCrossReference_1_0 = (CrossReference)cTypeAssignment_1.eContents().get(0);
+		private final RuleCall cTypeDataTypeIDTerminalRuleCall_1_0_1 = (RuleCall)cTypeDataTypeCrossReference_1_0.eContents().get(1);
+		private final Keyword cHyphenMinusGreaterThanSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cSimpleNameAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cSimpleNameIDTerminalRuleCall_3_0 = (RuleCall)cSimpleNameAssignment_3.eContents().get(0);
+		
+		//TypeMapping:
+		//	"typemapping" type=[DataType] "->" simpleName=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"typemapping" type=[DataType] "->" simpleName=ID
+		public Group getGroup() { return cGroup; }
+
+		//"typemapping"
+		public Keyword getTypemappingKeyword_0() { return cTypemappingKeyword_0; }
+
+		//type=[DataType]
+		public Assignment getTypeAssignment_1() { return cTypeAssignment_1; }
+
+		//[DataType]
+		public CrossReference getTypeDataTypeCrossReference_1_0() { return cTypeDataTypeCrossReference_1_0; }
+
+		//ID
+		public RuleCall getTypeDataTypeIDTerminalRuleCall_1_0_1() { return cTypeDataTypeIDTerminalRuleCall_1_0_1; }
+
+		//"->"
+		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
+
+		//simpleName=ID
+		public Assignment getSimpleNameAssignment_3() { return cSimpleNameAssignment_3; }
+
+		//ID
+		public RuleCall getSimpleNameIDTerminalRuleCall_3_0() { return cSimpleNameIDTerminalRuleCall_3_0; }
+	}
 	
 	
 	private ModelElements pModel;
+	private NamedElementElements pNamedElement;
 	private TypeElements pType;
 	private DataTypeElements pDataType;
 	private EntityElements pEntity;
 	private AttributeElements pAttribute;
+	private PlatformElements pPlatform;
+	private PlatformMappingElements pPlatformMapping;
+	private TypeMappingElements pTypeMapping;
 	
 	private final Grammar grammar;
 
@@ -232,7 +355,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Model:
-	//	elements+=Type*;
+	//	elements+=NamedElement*;
 	public ModelElements getModelAccess() {
 		return (pModel != null) ? pModel : (pModel = new ModelElements());
 	}
@@ -241,6 +364,19 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		return getModelAccess().getRule();
 	}
 
+	//NamedElement:
+	//	Type | Platform;
+	public NamedElementElements getNamedElementAccess() {
+		return (pNamedElement != null) ? pNamedElement : (pNamedElement = new NamedElementElements());
+	}
+	
+	public ParserRule getNamedElementRule() {
+		return getNamedElementAccess().getRule();
+	}
+
+	//// -----------------------------------------
+	//// Entities
+	//// -----------------------------------------
 	//Type:
 	//	DataType | Entity;
 	public TypeElements getTypeAccess() {
@@ -279,6 +415,39 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getAttributeRule() {
 		return getAttributeAccess().getRule();
+	}
+
+	//// -----------------------------------------
+	//// Platform-specific mappings
+	//// -----------------------------------------
+	//Platform:
+	//	"platform" name=ID "{" mappings+=PlatformMapping* "}";
+	public PlatformElements getPlatformAccess() {
+		return (pPlatform != null) ? pPlatform : (pPlatform = new PlatformElements());
+	}
+	
+	public ParserRule getPlatformRule() {
+		return getPlatformAccess().getRule();
+	}
+
+	//PlatformMapping: // | NamespaceMapping
+	//	TypeMapping;
+	public PlatformMappingElements getPlatformMappingAccess() {
+		return (pPlatformMapping != null) ? pPlatformMapping : (pPlatformMapping = new PlatformMappingElements());
+	}
+	
+	public ParserRule getPlatformMappingRule() {
+		return getPlatformMappingAccess().getRule();
+	}
+
+	//TypeMapping:
+	//	"typemapping" type=[DataType] "->" simpleName=ID;
+	public TypeMappingElements getTypeMappingAccess() {
+		return (pTypeMapping != null) ? pTypeMapping : (pTypeMapping = new TypeMappingElements());
+	}
+	
+	public ParserRule getTypeMappingRule() {
+		return getTypeMappingAccess().getRule();
 	}
 
 	//terminal ID:

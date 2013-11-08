@@ -79,10 +79,18 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.NAMED_ELEMENT:
+      {
+        NamedElement namedElement = (NamedElement)theEObject;
+        T result = caseNamedElement(namedElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.TYPE:
       {
         Type type = (Type)theEObject;
         T result = caseType(type);
+        if (result == null) result = caseNamedElement(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -91,6 +99,7 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         DataType dataType = (DataType)theEObject;
         T result = caseDataType(dataType);
         if (result == null) result = caseType(dataType);
+        if (result == null) result = caseNamedElement(dataType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -99,6 +108,7 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         Entity entity = (Entity)theEObject;
         T result = caseEntity(entity);
         if (result == null) result = caseType(entity);
+        if (result == null) result = caseNamedElement(entity);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -106,6 +116,29 @@ public class ApplauseDslSwitch<T> extends Switch<T>
       {
         Attribute attribute = (Attribute)theEObject;
         T result = caseAttribute(attribute);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PLATFORM:
+      {
+        Platform platform = (Platform)theEObject;
+        T result = casePlatform(platform);
+        if (result == null) result = caseNamedElement(platform);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PLATFORM_MAPPING:
+      {
+        PlatformMapping platformMapping = (PlatformMapping)theEObject;
+        T result = casePlatformMapping(platformMapping);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.TYPE_MAPPING:
+      {
+        TypeMapping typeMapping = (TypeMapping)theEObject;
+        T result = caseTypeMapping(typeMapping);
+        if (result == null) result = casePlatformMapping(typeMapping);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -125,6 +158,22 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseModel(Model object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNamedElement(NamedElement object)
   {
     return null;
   }
@@ -189,6 +238,54 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseAttribute(Attribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Platform</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Platform</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlatform(Platform object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Platform Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Platform Mapping</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePlatformMapping(PlatformMapping object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Type Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Type Mapping</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTypeMapping(TypeMapping object)
   {
     return null;
   }

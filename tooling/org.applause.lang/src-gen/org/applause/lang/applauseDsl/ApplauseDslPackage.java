@@ -85,14 +85,14 @@ public interface ApplauseDslPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.TypeImpl <em>Type</em>}' class.
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.NamedElementImpl <em>Named Element</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.applause.lang.applauseDsl.impl.TypeImpl
-   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getType()
+   * @see org.applause.lang.applauseDsl.impl.NamedElementImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getNamedElement()
    * @generated
    */
-  int TYPE = 1;
+  int NAMED_ELEMENT = 1;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -101,7 +101,35 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE__NAME = 0;
+  int NAMED_ELEMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Named Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.TypeImpl <em>Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.TypeImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getType()
+   * @generated
+   */
+  int TYPE = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE__NAME = NAMED_ELEMENT__NAME;
 
   /**
    * The number of structural features of the '<em>Type</em>' class.
@@ -110,7 +138,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TYPE_FEATURE_COUNT = 1;
+  int TYPE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -120,7 +148,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataType()
    * @generated
    */
-  int DATA_TYPE = 2;
+  int DATA_TYPE = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -148,7 +176,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntity()
    * @generated
    */
-  int ENTITY = 3;
+  int ENTITY = 4;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -203,7 +231,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 4;
+  int ATTRIBUTE = 5;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -241,6 +269,99 @@ public interface ApplauseDslPackage extends EPackage
    */
   int ATTRIBUTE_FEATURE_COUNT = 3;
 
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.PlatformImpl <em>Platform</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.PlatformImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getPlatform()
+   * @generated
+   */
+  int PLATFORM = 6;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLATFORM__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Mappings</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLATFORM__MAPPINGS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Platform</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLATFORM_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.PlatformMappingImpl <em>Platform Mapping</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.PlatformMappingImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getPlatformMapping()
+   * @generated
+   */
+  int PLATFORM_MAPPING = 7;
+
+  /**
+   * The number of structural features of the '<em>Platform Mapping</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLATFORM_MAPPING_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.TypeMappingImpl <em>Type Mapping</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.TypeMappingImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getTypeMapping()
+   * @generated
+   */
+  int TYPE_MAPPING = 8;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_MAPPING__TYPE = PLATFORM_MAPPING_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Simple Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_MAPPING__SIMPLE_NAME = PLATFORM_MAPPING_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Type Mapping</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_MAPPING_FEATURE_COUNT = PLATFORM_MAPPING_FEATURE_COUNT + 2;
+
 
   /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Model <em>Model</em>}'.
@@ -264,6 +385,27 @@ public interface ApplauseDslPackage extends EPackage
   EReference getModel_Elements();
 
   /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Named Element</em>'.
+   * @see org.applause.lang.applauseDsl.NamedElement
+   * @generated
+   */
+  EClass getNamedElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.NamedElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.NamedElement#getName()
+   * @see #getNamedElement()
+   * @generated
+   */
+  EAttribute getNamedElement_Name();
+
+  /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -272,17 +414,6 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EClass getType();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Type#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.applause.lang.applauseDsl.Type#getName()
-   * @see #getType()
-   * @generated
-   */
-  EAttribute getType_Name();
 
   /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.DataType <em>Data Type</em>}'.
@@ -381,6 +512,69 @@ public interface ApplauseDslPackage extends EPackage
   EAttribute getAttribute_Name();
 
   /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Platform <em>Platform</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Platform</em>'.
+   * @see org.applause.lang.applauseDsl.Platform
+   * @generated
+   */
+  EClass getPlatform();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.Platform#getMappings <em>Mappings</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Mappings</em>'.
+   * @see org.applause.lang.applauseDsl.Platform#getMappings()
+   * @see #getPlatform()
+   * @generated
+   */
+  EReference getPlatform_Mappings();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.PlatformMapping <em>Platform Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Platform Mapping</em>'.
+   * @see org.applause.lang.applauseDsl.PlatformMapping
+   * @generated
+   */
+  EClass getPlatformMapping();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.TypeMapping <em>Type Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Type Mapping</em>'.
+   * @see org.applause.lang.applauseDsl.TypeMapping
+   * @generated
+   */
+  EClass getTypeMapping();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.TypeMapping#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.applause.lang.applauseDsl.TypeMapping#getType()
+   * @see #getTypeMapping()
+   * @generated
+   */
+  EReference getTypeMapping_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.TypeMapping#getSimpleName <em>Simple Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Simple Name</em>'.
+   * @see org.applause.lang.applauseDsl.TypeMapping#getSimpleName()
+   * @see #getTypeMapping()
+   * @generated
+   */
+  EAttribute getTypeMapping_SimpleName();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -422,6 +616,24 @@ public interface ApplauseDslPackage extends EPackage
     EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
 
     /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.NamedElementImpl <em>Named Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.NamedElementImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getNamedElement()
+     * @generated
+     */
+    EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+    /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.TypeImpl <em>Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -430,14 +642,6 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EClass TYPE = eINSTANCE.getType();
-
-    /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute TYPE__NAME = eINSTANCE.getType_Name();
 
     /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.DataTypeImpl <em>Data Type</em>}' class.
@@ -516,6 +720,60 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.PlatformImpl <em>Platform</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.PlatformImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getPlatform()
+     * @generated
+     */
+    EClass PLATFORM = eINSTANCE.getPlatform();
+
+    /**
+     * The meta object literal for the '<em><b>Mappings</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLATFORM__MAPPINGS = eINSTANCE.getPlatform_Mappings();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.PlatformMappingImpl <em>Platform Mapping</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.PlatformMappingImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getPlatformMapping()
+     * @generated
+     */
+    EClass PLATFORM_MAPPING = eINSTANCE.getPlatformMapping();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.TypeMappingImpl <em>Type Mapping</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.TypeMappingImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getTypeMapping()
+     * @generated
+     */
+    EClass TYPE_MAPPING = eINSTANCE.getTypeMapping();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TYPE_MAPPING__TYPE = eINSTANCE.getTypeMapping_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Simple Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute TYPE_MAPPING__SIMPLE_NAME = eINSTANCE.getTypeMapping_SimpleName();
 
   }
 

@@ -49,6 +49,22 @@ datatype Integer</pre>
 datatype String
 datatype String // &lt;-- invalid</pre>
 </li></ul>
+<h3 class="exampleGroup notrun"  id="Platform_Mapping">Platform Mapping</h3>
+<p>Applause supports mapping data types to platform types.</p>
+<ul><li><p id="Defining_platforms" class="example notrun"><strong>Defining platforms</strong></p>
+<p>The <code>platform</code> keyword can be used to define a platform.</p>
+<pre class="prettyprint lang-spec linenums">
+platform iOS {
+  // platform-specific configurations
+}</pre>
+</li><li><p id="A_data_type_can_be_mapped_to_a_different_type" class="example notrun"><strong>A data type can be mapped to a different type</strong></p>
+<p>This makes sense when you want to support multiple platforms. This way, you can use the platform-independent data type name and do not need to care about what's the right type on the target platform.</p>
+<pre class="prettyprint lang-spec linenums">
+datatype String
+platform iOS {
+  typemapping String -&gt; NSString
+}</pre>
+</li></ul>
 							</div>
 						    <div class="tab-pane" id="source">
 						    	<h3>ScalarDataTypes.spec</h3>
@@ -105,37 +121,38 @@ describe &quot;Scalar Data Types&quot;{
   
   }
   
-//  /**
-//   * Applause supports mapping data types to platform types.
-//   */
-//  describe &quot;Platform Mapping&quot; {
-//    
-//    /**
-//     * The `platform` keyword can be used to define a platform.
-//     * @filter('''|.isValid)
-//     */
-//    fact &quot;Defining platforms&quot; {
-//      '''
-//        platform iOS {
-//          // platform-specific configurations
-//        }
-//      '''.isValid
-//    }
-//    
-//    /**
-//     * This makes sense when you want to support multiple platforms. This way, you can use the
-//     * platform-independent data type name and do not need to care about what's the right type 
-//     * on the target platform.
-//     * @filter(''')
-//     */
-//    fact &quot;A data type can be mapped to a different type&quot; {
-//      '''
-//        platform foo {
-//          typemapping String -&gt; foo.Bar
-//        }
-//      '''.isValid
-//    }
-//    
+  /**
+   * Applause supports mapping data types to platform types.
+   */
+  describe &quot;Platform Mapping&quot; {
+    
+    /**
+     * The `platform` keyword can be used to define a platform.
+     * @filter('''|.hasPlatform.*)
+     */
+    fact &quot;Defining platforms&quot; {
+      '''
+        platform iOS {
+          // platform-specific configurations
+        }
+      '''.hasPlatform('iOS')
+    }
+    
+    /**
+     * This makes sense when you want to support multiple platforms. This way, you can use the
+     * platform-independent data type name and do not need to care about what's the right type 
+     * on the target platform.
+     * @filter('''|.hasPlatformTypeMapping.*)
+     */
+    fact &quot;A data type can be mapped to a different type&quot; {
+      '''
+        datatype String
+        platform iOS {
+          typemapping String -&gt; NSString
+        }
+      '''.hasPlatformTypeMapping('String', 'NSString')
+    }
+    
 //    /**
 //     * Applause comes with a number of pre-defined platform mappings for the supported platforms. 
 //     */
@@ -181,8 +198,8 @@ describe &quot;Scalar Data Types&quot;{
 //      }
 //      
 //    }
-//    
-//  }
+    
+  }
 }
 </pre>
 						    </p></div>

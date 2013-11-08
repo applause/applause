@@ -5,8 +5,8 @@ package org.applause.lang.applauseDsl.impl;
 import java.util.Collection;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
-import org.applause.lang.applauseDsl.Model;
-import org.applause.lang.applauseDsl.NamedElement;
+import org.applause.lang.applauseDsl.Platform;
+import org.applause.lang.applauseDsl.PlatformMapping;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -15,42 +15,40 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Platform</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.lang.applauseDsl.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.PlatformImpl#getMappings <em>Mappings</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class PlatformImpl extends NamedElementImpl implements Platform
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The cached value of the '{@link #getMappings() <em>Mappings</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getMappings()
    * @generated
    * @ordered
    */
-  protected EList<NamedElement> elements;
+  protected EList<PlatformMapping> mappings;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected PlatformImpl()
   {
     super();
   }
@@ -63,7 +61,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.MODEL;
+    return ApplauseDslPackage.Literals.PLATFORM;
   }
 
   /**
@@ -71,13 +69,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NamedElement> getElements()
+  public EList<PlatformMapping> getMappings()
   {
-    if (elements == null)
+    if (mappings == null)
     {
-      elements = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, ApplauseDslPackage.MODEL__ELEMENTS);
+      mappings = new EObjectContainmentEList<PlatformMapping>(PlatformMapping.class, this, ApplauseDslPackage.PLATFORM__MAPPINGS);
     }
-    return elements;
+    return mappings;
   }
 
   /**
@@ -90,8 +88,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
+      case ApplauseDslPackage.PLATFORM__MAPPINGS:
+        return ((InternalEList<?>)getMappings()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -106,8 +104,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        return getElements();
+      case ApplauseDslPackage.PLATFORM__MAPPINGS:
+        return getMappings();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -123,9 +121,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends NamedElement>)newValue);
+      case ApplauseDslPackage.PLATFORM__MAPPINGS:
+        getMappings().clear();
+        getMappings().addAll((Collection<? extends PlatformMapping>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +139,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
+      case ApplauseDslPackage.PLATFORM__MAPPINGS:
+        getMappings().clear();
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +156,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case ApplauseDslPackage.PLATFORM__MAPPINGS:
+        return mappings != null && !mappings.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+} //PlatformImpl

@@ -8,7 +8,11 @@ import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.DataType;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
+import org.applause.lang.applauseDsl.NamedElement;
+import org.applause.lang.applauseDsl.Platform;
+import org.applause.lang.applauseDsl.PlatformMapping;
 import org.applause.lang.applauseDsl.Type;
+import org.applause.lang.applauseDsl.TypeMapping;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -37,6 +41,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass namedElementEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass typeEClass = null;
 
   /**
@@ -59,6 +70,27 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EClass attributeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass platformEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass platformMappingEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass typeMappingEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -148,9 +180,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getType()
+  public EClass getNamedElement()
   {
-    return typeEClass;
+    return namedElementEClass;
   }
 
   /**
@@ -158,9 +190,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getType_Name()
+  public EAttribute getNamedElement_Name()
   {
-    return (EAttribute)typeEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)namedElementEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getType()
+  {
+    return typeEClass;
   }
 
   /**
@@ -258,6 +300,66 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPlatform()
+  {
+    return platformEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPlatform_Mappings()
+  {
+    return (EReference)platformEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPlatformMapping()
+  {
+    return platformMappingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getTypeMapping()
+  {
+    return typeMappingEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTypeMapping_Type()
+  {
+    return (EReference)typeMappingEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getTypeMapping_SimpleName()
+  {
+    return (EAttribute)typeMappingEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ApplauseDslFactory getApplauseDslFactory()
   {
     return (ApplauseDslFactory)getEFactoryInstance();
@@ -286,8 +388,10 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     modelEClass = createEClass(MODEL);
     createEReference(modelEClass, MODEL__ELEMENTS);
 
+    namedElementEClass = createEClass(NAMED_ELEMENT);
+    createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
+
     typeEClass = createEClass(TYPE);
-    createEAttribute(typeEClass, TYPE__NAME);
 
     dataTypeEClass = createEClass(DATA_TYPE);
 
@@ -300,6 +404,15 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(attributeEClass, ATTRIBUTE__TYPE);
     createEAttribute(attributeEClass, ATTRIBUTE__MANY);
     createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+
+    platformEClass = createEClass(PLATFORM);
+    createEReference(platformEClass, PLATFORM__MAPPINGS);
+
+    platformMappingEClass = createEClass(PLATFORM_MAPPING);
+
+    typeMappingEClass = createEClass(TYPE_MAPPING);
+    createEReference(typeMappingEClass, TYPE_MAPPING__TYPE);
+    createEAttribute(typeMappingEClass, TYPE_MAPPING__SIMPLE_NAME);
   }
 
   /**
@@ -331,15 +444,20 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     // Set bounds for type parameters
 
     // Add supertypes to classes
+    typeEClass.getESuperTypes().add(this.getNamedElement());
     dataTypeEClass.getESuperTypes().add(this.getType());
     entityEClass.getESuperTypes().add(this.getType());
+    platformEClass.getESuperTypes().add(this.getNamedElement());
+    typeMappingEClass.getESuperTypes().add(this.getPlatformMapping());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_Elements(), this.getType(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Elements(), this.getNamedElement(), null, "elements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getType_Name(), ecorePackage.getEString(), "name", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataTypeEClass, DataType.class, "DataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -352,6 +470,15 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getAttribute_Type(), this.getType(), null, "type", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Many(), ecorePackage.getEBoolean(), "many", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(platformEClass, Platform.class, "Platform", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPlatform_Mappings(), this.getPlatformMapping(), null, "mappings", null, 0, -1, Platform.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(platformMappingEClass, PlatformMapping.class, "PlatformMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(typeMappingEClass, TypeMapping.class, "TypeMapping", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTypeMapping_Type(), this.getDataType(), null, "type", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getTypeMapping_SimpleName(), ecorePackage.getEString(), "simpleName", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

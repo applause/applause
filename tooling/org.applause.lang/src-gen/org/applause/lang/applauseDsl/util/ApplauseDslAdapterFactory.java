@@ -80,6 +80,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
+      public Adapter caseNamedElement(NamedElement object)
+      {
+        return createNamedElementAdapter();
+      }
+      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
@@ -98,6 +103,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseAttribute(Attribute object)
       {
         return createAttributeAdapter();
+      }
+      @Override
+      public Adapter casePlatform(Platform object)
+      {
+        return createPlatformAdapter();
+      }
+      @Override
+      public Adapter casePlatformMapping(PlatformMapping object)
+      {
+        return createPlatformMappingAdapter();
+      }
+      @Override
+      public Adapter caseTypeMapping(TypeMapping object)
+      {
+        return createTypeMappingAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -132,6 +152,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModelAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.NamedElement <em>Named Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.NamedElement
+   * @generated
+   */
+  public Adapter createNamedElementAdapter()
   {
     return null;
   }
@@ -192,6 +227,51 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createAttributeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.Platform <em>Platform</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.Platform
+   * @generated
+   */
+  public Adapter createPlatformAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.PlatformMapping <em>Platform Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.PlatformMapping
+   * @generated
+   */
+  public Adapter createPlatformMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.TypeMapping <em>Type Mapping</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.TypeMapping
+   * @generated
+   */
+  public Adapter createTypeMappingAdapter()
   {
     return null;
   }

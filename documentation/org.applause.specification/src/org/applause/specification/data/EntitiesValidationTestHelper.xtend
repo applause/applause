@@ -23,7 +23,7 @@ class EntitiesValidationTestHelper extends ApplauseValidationTestHelper {
 	}
 	
 	def void hasDuplicateEntity(CharSequence sequence) {
-		sequence.parse.assertError(ApplauseDslPackage.eINSTANCE.entity, null, "Duplicate Type 'Person'")
+		sequence.parse.assertError(ApplauseDslPackage.eINSTANCE.entity, null, "Duplicate NamedElement 'Person'")
 	}
 	
 	

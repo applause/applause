@@ -2,55 +2,57 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
-import java.util.Collection;
-
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
-import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.NamedElement;
 
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Model</b></em>'.
+ * An implementation of the model object '<em><b>Named Element</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.lang.applauseDsl.impl.ModelImpl#getElements <em>Elements</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.NamedElementImpl#getName <em>Name</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model
+public class NamedElementImpl extends MinimalEObjectImpl.Container implements NamedElement
 {
   /**
-   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getElements()
+   * @see #getName()
    * @generated
    * @ordered
    */
-  protected EList<NamedElement> elements;
+  protected static final String NAME_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getName()
+   * @generated
+   * @ordered
+   */
+  protected String name = NAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ModelImpl()
+  protected NamedElementImpl()
   {
     super();
   }
@@ -63,7 +65,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.MODEL;
+    return ApplauseDslPackage.Literals.NAMED_ELEMENT;
   }
 
   /**
@@ -71,13 +73,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NamedElement> getElements()
+  public String getName()
   {
-    if (elements == null)
-    {
-      elements = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, ApplauseDslPackage.MODEL__ELEMENTS);
-    }
-    return elements;
+    return name;
   }
 
   /**
@@ -85,15 +83,12 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  public void setName(String newName)
   {
-    switch (featureID)
-    {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
-    }
-    return super.eInverseRemove(otherEnd, featureID, msgs);
+    String oldName = name;
+    name = newName;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.NAMED_ELEMENT__NAME, oldName, name));
   }
 
   /**
@@ -106,8 +101,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        return getElements();
+      case ApplauseDslPackage.NAMED_ELEMENT__NAME:
+        return getName();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -117,15 +112,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
-  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
-        getElements().addAll((Collection<? extends NamedElement>)newValue);
+      case ApplauseDslPackage.NAMED_ELEMENT__NAME:
+        setName((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -141,8 +134,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        getElements().clear();
+      case ApplauseDslPackage.NAMED_ELEMENT__NAME:
+        setName(NAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -158,10 +151,27 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.MODEL__ELEMENTS:
-        return elements != null && !elements.isEmpty();
+      case ApplauseDslPackage.NAMED_ELEMENT__NAME:
+        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
     }
     return super.eIsSet(featureID);
   }
 
-} //ModelImpl
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (name: ");
+    result.append(name);
+    result.append(')');
+    return result.toString();
+  }
+
+} //NamedElementImpl

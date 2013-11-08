@@ -32,6 +32,15 @@ public interface ApplauseDslFactory extends EFactory
   Model createModel();
 
   /**
+   * Returns a new object of class '<em>Named Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Named Element</em>'.
+   * @generated
+   */
+  NamedElement createNamedElement();
+
+  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -66,6 +75,33 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   Attribute createAttribute();
+
+  /**
+   * Returns a new object of class '<em>Platform</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Platform</em>'.
+   * @generated
+   */
+  Platform createPlatform();
+
+  /**
+   * Returns a new object of class '<em>Platform Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Platform Mapping</em>'.
+   * @generated
+   */
+  PlatformMapping createPlatformMapping();
+
+  /**
+   * Returns a new object of class '<em>Type Mapping</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Type Mapping</em>'.
+   * @generated
+   */
+  TypeMapping createTypeMapping();
 
   /**
    * Returns the package supported by this factory.

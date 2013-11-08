@@ -3,27 +3,29 @@
 package org.applause.lang.applauseDsl.impl;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
-import org.applause.lang.applauseDsl.Type;
+import org.applause.lang.applauseDsl.PlatformMapping;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Type</b></em>'.
+ * An implementation of the model object '<em><b>Platform Mapping</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class TypeImpl extends NamedElementImpl implements Type
+public class PlatformMappingImpl extends MinimalEObjectImpl.Container implements PlatformMapping
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TypeImpl()
+  protected PlatformMappingImpl()
   {
     super();
   }
@@ -36,7 +38,7 @@ public class TypeImpl extends NamedElementImpl implements Type
   @Override
   protected EClass eStaticClass()
   {
-    return ApplauseDslPackage.Literals.TYPE;
+    return ApplauseDslPackage.Literals.PLATFORM_MAPPING;
   }
 
-} //TypeImpl
+} //PlatformMappingImpl

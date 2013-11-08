@@ -26,7 +26,7 @@ public interface Model extends EObject
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.applause.lang.applauseDsl.Type}.
+   * The list contents are of type {@link org.applause.lang.applauseDsl.NamedElement}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -38,6 +38,6 @@ public interface Model extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<Type> getElements();
+  EList<NamedElement> getElements();
 
 } // Model

@@ -37,11 +37,14 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getNamedElementAccess().getAlternatives(), "rule__NamedElement__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getDataTypeAccess().getGroup(), "rule__DataType__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup_3(), "rule__Entity__Group_3__0");
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
+					put(grammarAccess.getPlatformAccess().getGroup(), "rule__Platform__Group__0");
+					put(grammarAccess.getTypeMappingAccess().getGroup(), "rule__TypeMapping__Group__0");
 					put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
 					put(grammarAccess.getDataTypeAccess().getNameAssignment_1(), "rule__DataType__NameAssignment_1");
 					put(grammarAccess.getEntityAccess().getAbstractAssignment_0(), "rule__Entity__AbstractAssignment_0");
@@ -51,6 +54,10 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getTypeAssignment_0(), "rule__Attribute__TypeAssignment_0");
 					put(grammarAccess.getAttributeAccess().getManyAssignment_1(), "rule__Attribute__ManyAssignment_1");
 					put(grammarAccess.getAttributeAccess().getNameAssignment_2(), "rule__Attribute__NameAssignment_2");
+					put(grammarAccess.getPlatformAccess().getNameAssignment_1(), "rule__Platform__NameAssignment_1");
+					put(grammarAccess.getPlatformAccess().getMappingsAssignment_3(), "rule__Platform__MappingsAssignment_3");
+					put(grammarAccess.getTypeMappingAccess().getTypeAssignment_1(), "rule__TypeMapping__TypeAssignment_1");
+					put(grammarAccess.getTypeMappingAccess().getSimpleNameAssignment_3(), "rule__TypeMapping__SimpleNameAssignment_3");
 				}
 			};
 		}

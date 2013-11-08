@@ -65,10 +65,14 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     switch (eClass.getClassifierID())
     {
       case ApplauseDslPackage.MODEL: return createModel();
+      case ApplauseDslPackage.NAMED_ELEMENT: return createNamedElement();
       case ApplauseDslPackage.TYPE: return createType();
       case ApplauseDslPackage.DATA_TYPE: return createDataType();
       case ApplauseDslPackage.ENTITY: return createEntity();
       case ApplauseDslPackage.ATTRIBUTE: return createAttribute();
+      case ApplauseDslPackage.PLATFORM: return createPlatform();
+      case ApplauseDslPackage.PLATFORM_MAPPING: return createPlatformMapping();
+      case ApplauseDslPackage.TYPE_MAPPING: return createTypeMapping();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -83,6 +87,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     ModelImpl model = new ModelImpl();
     return model;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NamedElement createNamedElement()
+  {
+    NamedElementImpl namedElement = new NamedElementImpl();
+    return namedElement;
   }
 
   /**
@@ -127,6 +142,39 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     AttributeImpl attribute = new AttributeImpl();
     return attribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Platform createPlatform()
+  {
+    PlatformImpl platform = new PlatformImpl();
+    return platform;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public PlatformMapping createPlatformMapping()
+  {
+    PlatformMappingImpl platformMapping = new PlatformMappingImpl();
+    return platformMapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TypeMapping createTypeMapping()
+  {
+    TypeMappingImpl typeMapping = new TypeMappingImpl();
+    return typeMapping;
   }
 
   /**
