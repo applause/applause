@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Scalar Data Types</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-tab.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header notrun">
+					<h1>Scalar Data Types</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
+<p>Scalar data types make up the core of the Applause DSL. They are one of the central building blocks for most of the other concepts in the Applause DSL.</p>
+<h3 class="exampleGroup notrun"  id="Defining_data_types">Defining data types</h3>
+<p>Data types can have any name and can be defined anywhere in your DSL program.</p>
+<ul><li><p id="Simple_data_types" class="example notrun"><strong>Simple data types</strong></p>
+<p>New data types can be defined using the <code>datatype</code> keyword.</p>
+<pre class="prettyprint lang-spec linenums">
+datatype String
+datatype Integer</pre>
+</li><li><p id="Data_types_must_be_unique" class="example notrun"><strong>Data types must be unique</strong></p>
+<p>Data types must be unique. Currently, this means they must be unique across the board and <strong>cannot</strong> be namespaced.</p>
+<pre class="prettyprint lang-spec linenums">
+datatype String
+datatype String // &lt;-- invalid</pre>
+</li></ul>
+<h3 class="exampleGroup notrun"  id="Platform_Mapping">Platform Mapping</h3>
+<p>Applause supports mapping data types to platform types.</p>
+<ul><li><p id="Defining_platforms" class="example notrun"><strong>Defining platforms</strong></p>
+<p>The <code>platform</code> keyword can be used to define a platform.</p>
+<pre class="prettyprint lang-spec linenums">
+platform iOS {
+  // platform-specific configurations
+}</pre>
+</li><li><p id="A_data_type_can_be_mapped_to_a_type_in_the_target_language" class="example notrun"><strong>A data type can be mapped to a type in the target language</strong></p>
+<p>This makes sense when you want to support multiple platforms. This way, you can use the platform-independent data type name and do not need to care about what's the right type on the target platform.</p>
+<pre class="prettyprint lang-spec linenums">
+datatype String
+platform iOS {
+  typemapping String -&gt; NSString
+}</pre>
+</li></ul>
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>ScalarDataTypes.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.specification.data
+
+import com.google.inject.Inject
+import org.applause.lang.applauseDsl.Model
+import org.applause.specification.ApplauseDslInjectorProvider
+import org.applause.specification.ApplauseDslTestCreator
+import org.eclipse.xtext.junit4.InjectWith
+import org.eclipse.xtext.junit4.util.ParseHelper
+import org.jnario.runner.CreateWith
+
+/**
+ * Scalar data types make up the core of the Applause DSL. They are one of the central building blocks
+ * for most of the other concepts in the Applause DSL. 
+ */
+ @InjectWith(ApplauseDslInjectorProvider)
+ @CreateWith(typeof(ApplauseDslTestCreator))
+describe &quot;Scalar Data Types&quot;{
+  
+  @Inject extension ParseHelper&lt;Model&gt;
+  @Inject extension ApplauseValidationTestHelper
+  @Inject extension ScalarDataTypesValidationTestHelper
+  
+  /**
+   * Data types can have any name and can be defined anywhere in your DSL program.
+   */
+  describe &quot;Defining data types&quot;{
+    /**
+     * New data types can be defined using the `datatype` keyword.
+     * @filter('''|.isValid)
+     */
+    fact &quot;Simple data types&quot; {
+      '''
+        datatype String
+        datatype Integer
+      '''.isValid
+    }
+  
+    /**
+     * Data types must be unique. Currently, this means they must be unique across the board and __cannot__
+     * be namespaced.
+     * @filter('''|.hasDuplicateDatatype)
+     */
+    fact &quot;Data types must be unique&quot; {
+      '''
+        datatype String
+        datatype String // &lt;-- invalid
+      '''.hasDuplicateDatatype
+    }
+  
+  }
+  
+  /**
+   * Applause supports mapping data types to platform types.
+   */
+  describe &quot;Platform Mapping&quot; {
+    
+    /**
+     * The `platform` keyword can be used to define a platform.
+     * @filter('''|.hasPlatform.*)
+     */
+    fact &quot;Defining platforms&quot; {
+      '''
+        platform iOS {
+          // platform-specific configurations
+        }
+      '''.hasPlatform('iOS')
+    }
+    
+    /**
+     * This makes sense when you want to support multiple platforms. This way, you can use the
+     * platform-independent data type name and do not need to care about what's the right type 
+     * on the target platform.
+     * @filter('''|.hasPlatformTypeMapping.*)
+     */
+    fact &quot;A data type can be mapped to a type in the target language&quot; {
+      '''
+        datatype String
+        platform iOS {
+          typemapping String -&gt; NSString
+        }
+      '''.hasPlatformTypeMapping('String', 'NSString')
+    }
+    
+//    /**
+//     * Applause comes with a number of pre-defined platform mappings for the supported platforms. 
+//     */
+//    describe &quot;Pre-defined platform mappings&quot; {
+//      
+//      /**
+//       * @filter(''')
+//       */
+//      fact &quot;Scalar data type mappings for iOS&quot; {
+//        '''
+//          platform iOS {
+//              typemapping String -&gt; NSString
+//              typemapping Integer -&gt; NSNumber
+//          }      
+//        '''.isValid
+//      }
+//      
+//      /**
+//       * @filter(''')
+//       */
+//      fact &quot;Scalar data type mappings for Android&quot; {
+//        '''
+//          platform Android {
+//              typemapping Integer -&gt; java.lang.Integer
+//              typemapping String -&gt; java.lang.String
+//              typemapping Date -&gt; java.util.Date
+//              typemapping Bool -&gt; boolean
+//          }        
+//        '''.isValid
+//      }
+//      
+//      /**
+//       * @filter(''')
+//       */
+//      fact &quot;Scalar data type mappings for Windows Phone&quot; {
+//        '''
+//          platform WP {
+//            typemapping Integer -&gt; int
+//            typemapping String -&gt; string
+//            typemapping Bool -&gt; bool
+//          }        
+//        '''.isValid
+//      }
+//      
+//    }
+    
+  }
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+	</div> <!-- /container -->
+
+</body>
+</html>
