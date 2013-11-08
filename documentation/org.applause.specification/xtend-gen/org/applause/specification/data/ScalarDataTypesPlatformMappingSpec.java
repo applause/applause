@@ -41,9 +41,9 @@ public class ScalarDataTypesPlatformMappingSpec extends ScalarDataTypesSpec {
    * @filter('''|.hasPlatformTypeMapping.*)
    */
   @Test
-  @Named("A data type can be mapped to a different type")
+  @Named("A data type can be mapped to a type in the target language")
   @Order(2)
-  public void _aDataTypeCanBeMappedToADifferentType() throws Exception {
+  public void _aDataTypeCanBeMappedToATypeInTheTargetLanguage() throws Exception {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("datatype String");
     _builder.newLine();

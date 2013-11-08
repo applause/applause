@@ -72,7 +72,7 @@ describe "Scalar Data Types"{
 		 * on the target platform.
 		 * @filter('''|.hasPlatformTypeMapping.*)
 		 */
-		fact "A data type can be mapped to a different type" {
+		fact "A data type can be mapped to a type in the target language" {
 			'''
 				datatype String
 				platform iOS {

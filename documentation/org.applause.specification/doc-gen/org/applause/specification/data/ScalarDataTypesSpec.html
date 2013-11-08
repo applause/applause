@@ -57,7 +57,7 @@ datatype String // &lt;-- invalid</pre>
 platform iOS {
   // platform-specific configurations
 }</pre>
-</li><li><p id="A_data_type_can_be_mapped_to_a_different_type" class="example notrun"><strong>A data type can be mapped to a different type</strong></p>
+</li><li><p id="A_data_type_can_be_mapped_to_a_type_in_the_target_language" class="example notrun"><strong>A data type can be mapped to a type in the target language</strong></p>
 <p>This makes sense when you want to support multiple platforms. This way, you can use the platform-independent data type name and do not need to care about what's the right type on the target platform.</p>
 <pre class="prettyprint lang-spec linenums">
 datatype String
@@ -144,7 +144,7 @@ describe &quot;Scalar Data Types&quot;{
      * on the target platform.
      * @filter('''|.hasPlatformTypeMapping.*)
      */
-    fact &quot;A data type can be mapped to a different type&quot; {
+    fact &quot;A data type can be mapped to a type in the target language&quot; {
       '''
         datatype String
         platform iOS {
