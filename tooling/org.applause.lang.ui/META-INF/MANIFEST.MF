@@ -19,8 +19,9 @@ Require-Bundle: org.applause.lang;visibility:=reexport,
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.applause.lang.ui.quickfix,
+Export-Package: org.applause.lang.ui,
  org.applause.lang.ui.contentassist,
  org.applause.lang.ui.contentassist.antlr,
- org.applause.lang.ui.internal
+ org.applause.lang.ui.internal,
+ org.applause.lang.ui.quickfix
 Bundle-Activator: org.applause.lang.ui.internal.ApplauseDslActivator

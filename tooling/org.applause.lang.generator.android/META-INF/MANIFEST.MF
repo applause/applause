@@ -4,5 +4,7 @@ Bundle-Name: Applause Android Application Generator
 Bundle-SymbolicName: org.applause.lang.generator.android;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.applause.lang
+Require-Bundle: org.applause.lang,
+ org.applause.lang.ui;bundle-version="1.0.0"
 Bundle-Vendor: Peter Friese / Applause.org
+Export-Package: org.applause.lang.generator.android
