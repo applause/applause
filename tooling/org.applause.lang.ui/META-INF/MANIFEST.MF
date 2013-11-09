@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.applause.lang.ui
-Bundle-Vendor: My Company
+Bundle-Name: Applause Language UI
+Bundle-Vendor: Peter Friese / Applause.org
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.applause.lang.ui; singleton:=true
 Bundle-ActivationPolicy: lazy

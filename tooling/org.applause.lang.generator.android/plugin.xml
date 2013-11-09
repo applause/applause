@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.applause.lang.platformbuildparticipant">
+      <participant
+            class="org.applause.lang.generator.android.AndroidAppGenerator">
+      </participant>
+   </extension>
+
+</plugin>

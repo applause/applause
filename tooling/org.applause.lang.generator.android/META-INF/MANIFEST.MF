@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Applause Android Application Generator
+Bundle-SymbolicName: org.applause.lang.generator.android;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.applause.lang
+Bundle-Vendor: Peter Friese / Applause.org
