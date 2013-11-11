@@ -29,7 +29,7 @@ describe "Entity Generator" {
 	
 	def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
 		val entity = input.entity(entityName)
-		val result = entity.compileInterface
+		val result = entity.compileHeader
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
 	
@@ -88,6 +88,41 @@ describe "Entity Generator" {
 		}
 		
 		describe "Entity inheritance" {
+			
+			val inheritedPersonEntity = '''
+				entity Creature {
+				}
+				entity Person extends Creature {
+				}
+			'''
+			
+			/**
+			 * @filter('''|.isGenerated.*)
+			 */
+			fact "Header File" {
+				'''
+					#import <Foundation/Foundation.h>
+					
+					@class Creature;
+					
+					@interface Person : Creature
+					@end
+				'''.isGeneratedHeaderFileFromModel("Person", inheritedPersonEntity)
+			}
+			
+			/**
+			 * @filter('''|.isGenerated.*)
+			 */
+			fact "Implementation file" {
+				'''
+					#import "Person.h"
+					#import "Creature.h"
+
+					@implementation Person
+					@end
+				'''.isGeneratedModuleFileFromModel("Person", inheritedPersonEntity)
+			}
+			
 		}
 		
 	}

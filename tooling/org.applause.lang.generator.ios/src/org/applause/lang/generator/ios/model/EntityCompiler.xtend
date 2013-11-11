@@ -10,10 +10,11 @@ class EntityCompiler {
 	
 	@Inject extension EntityInterfaceCompiler
 	@Inject extension EntityModuleCompiler
+	@Inject extension EntityExtensions
 	
 	def doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.interfaceFileName, it.compileInterface)
+			fsa.generateFile(it.headerFileName, it.compileHeader)
 			fsa.generateFile(it.moduleFileName, it.compileModule)
 		]
 	}
@@ -21,10 +22,6 @@ class EntityCompiler {
 }
 
 class EntityInterfaceCompiler {
-	
-	def interfaceFileName(Entity it) {
-		name + '.h'
-	}
 	
 	// TODO simplified implementation, we will need an import manager later!
 	def typeName(Attribute it) {
@@ -34,14 +31,27 @@ class EntityInterfaceCompiler {
 		}
 	}
 	
+	def typeName(Entity it) {
+		if (it != null) it.name
+		else "NSObject"
+	}
+	
 	def propertyName(Attribute it) {
 		name
 	}
 	
-	def compileInterface(Entity it) '''
-		#import <Foundation/Foundation.h>
+	def superTypeForwardDeclaration(Entity it) '''
+		«IF superType != null»
 		
-		@interface «name» : NSObject
+		@class «superType.typeName»;
+		«ENDIF»
+	'''
+	
+	def compileHeader(Entity it) '''
+		#import <Foundation/Foundation.h>
+		«superTypeForwardDeclaration»
+		
+		@interface «name» : «superType.typeName»
 			«FOR attribute: attributes»
 		«attribute.compile»
 			«ENDFOR»
@@ -56,14 +66,18 @@ class EntityInterfaceCompiler {
 
 class EntityModuleCompiler {
 	
-	def moduleFileName(Entity it) {
-		name + '.m'
-	}
+	@Inject extension EntityExtensions
+	
+	def superTypeImportDeclaration(Entity it) '''
+		«IF superType != null»#import "«superType.headerFileName»"«ENDIF»
+	'''
 	
 	def compileModule(Entity it) '''
 		#import "«name».h"
+		«superTypeImportDeclaration»
 		
 		@implementation «name»
 		@end
 	'''
+	
 }

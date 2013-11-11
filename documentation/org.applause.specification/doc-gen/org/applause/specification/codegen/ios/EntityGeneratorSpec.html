@@ -62,6 +62,22 @@ entity Person {
 </div>
 <div class="level">
 <h4 class="exampleGroup pending"  id="Entity_inheritance">Entity inheritance</h4>
+<ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &lt;Foundation/Foundation.h&gt;
+
+@class Creature;
+
+@interface Person : Creature
+@end</pre>
+</li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &quot;Person.h&quot;
+#import &quot;Creature.h&quot;
+
+@implementation Person
+@end</pre>
+</li></ul>
 </div>
 <h3 class="exampleGroup pending"  id="Generating_Entity_Attributes">Generating Entity Attributes</h3>
 <div class="level">
@@ -124,7 +140,7 @@ describe &quot;Entity Generator&quot; {
   
   def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
     val entity = input.entity(entityName)
-    val result = entity.compileInterface
+    val result = entity.compileHeader
     assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
   }
   
@@ -183,6 +199,41 @@ describe &quot;Entity Generator&quot; {
     }
     
     describe &quot;Entity inheritance&quot; {
+      
+      val inheritedPersonEntity = '''
+        entity Creature {
+        }
+        entity Person extends Creature {
+        }
+      '''
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Header File&quot; {
+        '''
+          #import &lt;Foundation/Foundation.h&gt;
+          
+          @class Creature;
+          
+          @interface Person : Creature
+          @end
+        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, inheritedPersonEntity)
+      }
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Implementation file&quot; {
+        '''
+          #import &quot;Person.h&quot;
+          #import &quot;Creature.h&quot;
+
+          @implementation Person
+          @end
+        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, inheritedPersonEntity)
+      }
+      
     }
     
   }

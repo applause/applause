@@ -9,12 +9,6 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
 public class EntityInterfaceCompiler {
-  public String interfaceFileName(final Entity it) {
-    String _name = it.getName();
-    String _plus = (_name + ".h");
-    return _plus;
-  }
-  
   public String typeName(final Attribute it) {
     String _switchResult = null;
     Type _type = it.getType();
@@ -35,20 +29,56 @@ public class EntityInterfaceCompiler {
     return _switchResult;
   }
   
+  public String typeName(final Entity it) {
+    String _xifexpression = null;
+    boolean _notEquals = (!Objects.equal(it, null));
+    if (_notEquals) {
+      String _name = it.getName();
+      _xifexpression = _name;
+    } else {
+      _xifexpression = "NSObject";
+    }
+    return _xifexpression;
+  }
+  
   public String propertyName(final Attribute it) {
     String _name = it.getName();
     return _name;
   }
   
-  public CharSequence compileInterface(final Entity it) {
+  public CharSequence superTypeForwardDeclaration(final Entity it) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      Entity _superType = it.getSuperType();
+      boolean _notEquals = (!Objects.equal(_superType, null));
+      if (_notEquals) {
+        _builder.newLine();
+        _builder.append("@class ");
+        Entity _superType_1 = it.getSuperType();
+        String _typeName = this.typeName(_superType_1);
+        _builder.append(_typeName, "");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    return _builder;
+  }
+  
+  public CharSequence compileHeader(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#import <Foundation/Foundation.h>");
     _builder.newLine();
+    CharSequence _superTypeForwardDeclaration = this.superTypeForwardDeclaration(it);
+    _builder.append(_superTypeForwardDeclaration, "");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("@interface ");
     String _name = it.getName();
     _builder.append(_name, "");
-    _builder.append(" : NSObject");
+    _builder.append(" : ");
+    Entity _superType = it.getSuperType();
+    String _typeName = this.typeName(_superType);
+    _builder.append(_typeName, "");
     _builder.newLineIfNotEmpty();
     {
       EList<Attribute> _attributes = it.getAttributes();

@@ -75,7 +75,7 @@ public class EntityGeneratorSpec {
   
   public void isGeneratedHeaderFileFromModel(final CharSequence expectedGeneratedCode, final String entityName, final CharSequence input) {
     final Entity entity = this.entity(input, entityName);
-    final CharSequence result = this._entityInterfaceCompiler.compileInterface(entity);
+    final CharSequence result = this._entityInterfaceCompiler.compileHeader(entity);
     String _string = result.toString();
     String _string_1 = expectedGeneratedCode.toString();
     Matcher<String> _equalTo = CoreMatchers.<String>equalTo(_string_1);
