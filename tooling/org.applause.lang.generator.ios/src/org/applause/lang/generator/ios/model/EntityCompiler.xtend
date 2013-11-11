@@ -26,7 +26,9 @@ class EntityInterfaceCompiler {
 	}
 	
 	def compileInterface(Entity it) '''
-		@interface «name»: NSObject
+		#import <Foundation/Foundation.h>
+		
+		@interface «name» : NSObject
 		@end
 	'''
 }

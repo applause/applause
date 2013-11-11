@@ -13,10 +13,13 @@ public class EntityInterfaceCompiler {
   
   public CharSequence compileInterface(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("#import <Foundation/Foundation.h>");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("@interface ");
     String _name = it.getName();
     _builder.append(_name, "");
-    _builder.append(": NSObject");
+    _builder.append(" : NSObject");
     _builder.newLineIfNotEmpty();
     _builder.append("@end");
     _builder.newLine();

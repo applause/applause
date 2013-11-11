@@ -1,7 +1,7 @@
 package org.applause.specification
 import org.applause.specification.data.*
 import org.applause.specification.ui.*
-import data.*
+import org.applause.specification.codegen.ios.*
 
 # Applause Documentation
 
@@ -16,3 +16,8 @@ This documentation serves both as a documentation and a specification for the va
 
 - "Data Access Layer DSL": describes how to use Applause to describe access to restful services
 - "User Interface DSL": describes how to use Applause to describe the UI of your application 
+
+##Code Generators
+
+- "iOS Code Generator": describes the iOS Code Generator
+ 
