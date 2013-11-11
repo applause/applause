@@ -52,8 +52,7 @@ entity Person {
 #import &quot;Person.h&quot;
 
 @implementation Person
-@end
-      .isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)</pre>
+@end</pre>
 </li></ul>
 							</div>
 						    <div class="tab-pane" id="source">
@@ -119,7 +118,7 @@ describe &quot;Entity Generator&quot; {
     '''
     
     /**
-     * @filter('''|.isGeneratedHeaderFileFromModel.*)
+     * @filter('''|.isGenerated.*)
      */
     fact &quot;Header File&quot; {
       '''
@@ -131,7 +130,7 @@ describe &quot;Entity Generator&quot; {
     }
     
     /**
-     * @filter('''|.isGeneratedHeaderFileFromModel.*)
+     * @filter('''|.isGenerated.*)
      */
     fact &quot;Implementation file&quot; {
       '''

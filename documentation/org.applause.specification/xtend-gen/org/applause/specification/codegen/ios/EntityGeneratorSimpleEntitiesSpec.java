@@ -35,7 +35,7 @@ public class EntityGeneratorSimpleEntitiesSpec extends EntityGeneratorSpec {
   }.apply();
   
   /**
-   * @filter('''|.isGeneratedHeaderFileFromModel.*)
+   * @filter('''|.isGenerated.*)
    */
   @Test
   @Named("Header File")
@@ -53,7 +53,7 @@ public class EntityGeneratorSimpleEntitiesSpec extends EntityGeneratorSpec {
   }
   
   /**
-   * @filter('''|.isGeneratedHeaderFileFromModel.*)
+   * @filter('''|.isGenerated.*)
    */
   @Test
   @Named("Implementation file")

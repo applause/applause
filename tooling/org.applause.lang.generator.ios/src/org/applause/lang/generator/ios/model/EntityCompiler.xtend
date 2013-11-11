@@ -12,8 +12,8 @@ class EntityCompiler {
 	
 	def doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.interfaceFileName , it.compileInterface)
-			fsa.generateFile(it.moduleFileName , it.compileModule)
+			fsa.generateFile(it.interfaceFileName, it.compileInterface)
+			fsa.generateFile(it.moduleFileName, it.compileModule)
 		]
 	}
 	

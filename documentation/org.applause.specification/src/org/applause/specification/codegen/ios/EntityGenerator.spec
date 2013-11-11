@@ -57,7 +57,7 @@ describe "Entity Generator" {
 		'''
 		
 		/**
-		 * @filter('''|.isGeneratedHeaderFileFromModel.*)
+		 * @filter('''|.isGenerated.*)
 		 */
 		fact "Header File" {
 			'''
@@ -69,7 +69,7 @@ describe "Entity Generator" {
 		}
 		
 		/**
-		 * @filter('''|.isGeneratedHeaderFileFromModel.*)
+		 * @filter('''|.isGenerated.*)
 		 */
 		fact "Implementation file" {
 			'''
