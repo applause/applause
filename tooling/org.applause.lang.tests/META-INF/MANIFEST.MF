@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.applause.lang.tests
-Bundle-Vendor: My Company
+Bundle-Name: Applause Tests
+Bundle-Vendor: Peter Friese / Applause.org
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.applause.lang.tests; singleton:=true
 Bundle-ActivationPolicy: lazy

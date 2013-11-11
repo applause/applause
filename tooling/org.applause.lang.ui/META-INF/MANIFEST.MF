@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: org.applause.lang.ui
-Bundle-Vendor: My Company
+Bundle-Name: Applause Language UI
+Bundle-Vendor: Peter Friese / Applause.org
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.applause.lang.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
@@ -19,8 +19,9 @@ Require-Bundle: org.applause.lang;visibility:=reexport,
 Import-Package: org.apache.log4j,
  org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.applause.lang.ui.quickfix,
+Export-Package: org.applause.lang.ui,
  org.applause.lang.ui.contentassist,
  org.applause.lang.ui.contentassist.antlr,
- org.applause.lang.ui.internal
+ org.applause.lang.ui.internal,
+ org.applause.lang.ui.quickfix
 Bundle-Activator: org.applause.lang.ui.internal.ApplauseDslActivator
