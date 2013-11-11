@@ -7,3 +7,5 @@ reference/backend/todomobile/data
 *.java._trace
 
 bin
+
+xcuserdata
