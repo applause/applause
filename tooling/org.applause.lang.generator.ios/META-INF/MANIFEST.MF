@@ -4,5 +4,6 @@ Bundle-Name: Applause iOS Application Generator
 Bundle-SymbolicName: org.applause.lang.generator.ios;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Require-Bundle: org.applause.lang
-Bundle-Vendor: Applause.org
+Require-Bundle: org.applause.lang;bundle-version="1.0.0"
+Bundle-Vendor: Peter Friese / Applause.org
+Export-Package: org.applause.lang.generator.ios
