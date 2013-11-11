@@ -36,14 +36,24 @@
 						  <div class="tab-content">
 							  	<div class="tab-pane active" id="spec">
 <h3 class="exampleGroup notrun"  id="Simple_Entities">Simple Entities</h3>
+<p>A simple entity like this:</p>
+<pre class="prettyprint linenums lang-applause">
+entity Person {
+}
+</pre><p>will result in the following header and implementation files:</p>
 <ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
 <pre class="prettyprint lang-spec linenums">
-'''
-  #import &lt;Foundation/Foundation.h&gt;
-  
-  @interface Person : NSObject
-  @end
-'''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)</pre>
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+@end</pre>
+</li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &quot;Person.h&quot;
+
+@implementation Person
+@end
+      .isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)</pre>
 </li></ul>
 							</div>
 						    <div class="tab-pane" id="source">
@@ -56,6 +66,7 @@ import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.generator.ios.model.EntityInterfaceCompiler
+import org.applause.lang.generator.ios.model.EntityModuleCompiler
 import org.applause.specification.ApplauseDslInjectorProvider
 import org.applause.specification.ApplauseDslTestCreator
 import org.eclipse.xtext.junit4.InjectWith
@@ -71,15 +82,35 @@ describe &quot;Entity Generator&quot; {
   
   @Inject extension ParseHelper&lt;Model&gt;
   @Inject extension EntityInterfaceCompiler
+  @Inject extension EntityModuleCompiler
+  
+  private def entity(CharSequence input, String entityName) {
+    val model = input.parse
+    model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+  }
   
   def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-    val model = input.parse
-    val entity = model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+    val entity = input.entity(entityName)
     val result = entity.compileInterface
     assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
   }
-    
   
+  def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
+    val entity = input.entity(entityName)    
+    val result = entity.compileModule
+    assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
+  }
+    
+  /**
+   * A simple entity like this:
+   * 
+   * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
+   * entity Person {
+   * }
+   * &lt;/pre&gt;
+   * 
+   * will result in the following header and implementation files:
+   */
   describe &quot;Simple Entities&quot; {
     
     val simplePersonEntity = '''
@@ -87,6 +118,9 @@ describe &quot;Entity Generator&quot; {
       }
     '''
     
+    /**
+     * @filter('''|.isGeneratedHeaderFileFromModel.*)
+     */
     fact &quot;Header File&quot; {
       '''
         #import &lt;Foundation/Foundation.h&gt;
@@ -94,8 +128,20 @@ describe &quot;Entity Generator&quot; {
         @interface Person : NSObject
         @end
       '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
-      
     }
+    
+    /**
+     * @filter('''|.isGeneratedHeaderFileFromModel.*)
+     */
+    fact &quot;Implementation file&quot; {
+      '''
+        #import &quot;Person.h&quot;
+
+        @implementation Person
+        @end
+      '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+    }
+    
   }
 
 }

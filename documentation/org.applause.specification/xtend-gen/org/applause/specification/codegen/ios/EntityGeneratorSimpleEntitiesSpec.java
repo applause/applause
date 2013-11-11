@@ -9,6 +9,16 @@ import org.jnario.runner.Order;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+/**
+ * A simple entity like this:
+ * 
+ * <pre class="prettyprint linenums lang-applause">
+ * entity Person {
+ * }
+ * </pre>
+ * 
+ * will result in the following header and implementation files:
+ */
 @Named("Simple Entities")
 @RunWith(ExampleGroupRunner.class)
 @SuppressWarnings("all")
@@ -24,6 +34,9 @@ public class EntityGeneratorSimpleEntitiesSpec extends EntityGeneratorSpec {
     }
   }.apply();
   
+  /**
+   * @filter('''|.isGeneratedHeaderFileFromModel.*)
+   */
   @Test
   @Named("Header File")
   @Order(1)
@@ -37,5 +50,23 @@ public class EntityGeneratorSimpleEntitiesSpec extends EntityGeneratorSpec {
     _builder.append("@end");
     _builder.newLine();
     this.isGeneratedHeaderFileFromModel(_builder, "Person", this.simplePersonEntity);
+  }
+  
+  /**
+   * @filter('''|.isGeneratedHeaderFileFromModel.*)
+   */
+  @Test
+  @Named("Implementation file")
+  @Order(2)
+  public void _implementationFile() throws Exception {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("#import \"Person.h\"");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("@implementation Person");
+    _builder.newLine();
+    _builder.append("@end");
+    _builder.newLine();
+    this.isGeneratedModuleFileFromModel(_builder, "Person", this.simplePersonEntity);
   }
 }

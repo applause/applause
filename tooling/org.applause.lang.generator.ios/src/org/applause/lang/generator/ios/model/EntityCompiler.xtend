@@ -41,7 +41,8 @@ class EntityModuleCompiler {
 	
 	def compileModule(Entity it) '''
 		#import "«name».h"
-		@implementation «name» 
+		
+		@implementation «name»
 		@end
 	'''
 }

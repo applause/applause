@@ -18,10 +18,10 @@ public class EntityModuleCompiler {
     _builder.append(_name, "");
     _builder.append(".h\"");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("@implementation ");
     String _name_1 = it.getName();
     _builder.append(_name_1, "");
-    _builder.append(" ");
     _builder.newLineIfNotEmpty();
     _builder.append("@end");
     _builder.newLine();

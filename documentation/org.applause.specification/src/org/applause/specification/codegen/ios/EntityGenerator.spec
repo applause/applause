@@ -4,6 +4,7 @@ import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.generator.ios.model.EntityInterfaceCompiler
+import org.applause.lang.generator.ios.model.EntityModuleCompiler
 import org.applause.specification.ApplauseDslInjectorProvider
 import org.applause.specification.ApplauseDslTestCreator
 import org.eclipse.xtext.junit4.InjectWith
@@ -19,15 +20,35 @@ describe "Entity Generator" {
 	
 	@Inject extension ParseHelper<Model>
 	@Inject extension EntityInterfaceCompiler
+	@Inject extension EntityModuleCompiler
+	
+	private def entity(CharSequence input, String entityName) {
+		val model = input.parse
+		model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+	}
 	
 	def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-		val model = input.parse
-		val entity = model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+		val entity = input.entity(entityName)
 		val result = entity.compileInterface
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
-		
 	
+	def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
+		val entity = input.entity(entityName)		
+		val result = entity.compileModule
+		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
+	}
+		
+	/**
+	 * A simple entity like this:
+	 * 
+	 * <pre class="prettyprint linenums lang-applause">
+	 * entity Person {
+	 * }
+	 * </pre>
+	 * 
+	 * will result in the following header and implementation files:
+	 */
 	describe "Simple Entities" {
 		
 		val simplePersonEntity = '''
@@ -35,6 +56,9 @@ describe "Entity Generator" {
 			}
 		'''
 		
+		/**
+		 * @filter('''|.isGeneratedHeaderFileFromModel.*)
+		 */
 		fact "Header File" {
 			'''
 				#import <Foundation/Foundation.h>
@@ -42,8 +66,20 @@ describe "Entity Generator" {
 				@interface Person : NSObject
 				@end
 			'''.isGeneratedHeaderFileFromModel("Person", simplePersonEntity)
-			
 		}
+		
+		/**
+		 * @filter('''|.isGeneratedHeaderFileFromModel.*)
+		 */
+		fact "Implementation file" {
+			'''
+				#import "Person.h"
+
+				@implementation Person
+				@end
+			'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)
+		}
+		
 	}
 
 }
