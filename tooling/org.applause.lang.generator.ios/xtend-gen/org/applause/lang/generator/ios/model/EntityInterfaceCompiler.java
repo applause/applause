@@ -1,45 +1,19 @@
 package org.applause.lang.generator.ios.model;
 
 import com.google.common.base.Objects;
+import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.Entity;
-import org.applause.lang.applauseDsl.Type;
+import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Extension;
 
 @SuppressWarnings("all")
 public class EntityInterfaceCompiler {
-  public String typeName(final Attribute it) {
-    String _switchResult = null;
-    Type _type = it.getType();
-    String _name = _type.getName();
-    final String _switchValue = _name;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,"String")) {
-        _matched=true;
-        _switchResult = "NSString";
-      }
-    }
-    if (!_matched) {
-      Type _type_1 = it.getType();
-      String _name_1 = _type_1.getName();
-      _switchResult = _name_1;
-    }
-    return _switchResult;
-  }
-  
-  public String typeName(final Entity it) {
-    String _xifexpression = null;
-    boolean _notEquals = (!Objects.equal(it, null));
-    if (_notEquals) {
-      String _name = it.getName();
-      _xifexpression = _name;
-    } else {
-      _xifexpression = "NSObject";
-    }
-    return _xifexpression;
-  }
+  @Inject
+  @Extension
+  private TypeExtensions _typeExtensions;
   
   public String propertyName(final Attribute it) {
     String _name = it.getName();
@@ -55,7 +29,7 @@ public class EntityInterfaceCompiler {
         _builder.newLine();
         _builder.append("@class ");
         Entity _superType_1 = it.getSuperType();
-        String _typeName = this.typeName(_superType_1);
+        String _typeName = this._typeExtensions.typeName(_superType_1);
         _builder.append(_typeName, "");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
@@ -77,7 +51,7 @@ public class EntityInterfaceCompiler {
     _builder.append(_name, "");
     _builder.append(" : ");
     Entity _superType = it.getSuperType();
-    String _typeName = this.typeName(_superType);
+    String _typeName = this._typeExtensions.typeName(_superType);
     _builder.append(_typeName, "");
     _builder.newLineIfNotEmpty();
     {
@@ -96,7 +70,7 @@ public class EntityInterfaceCompiler {
   public CharSequence compile(final Attribute it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@property (nonatomic, strong) ");
-    String _typeName = this.typeName(it);
+    String _typeName = this._typeExtensions.typeName(it);
     _builder.append(_typeName, "");
     _builder.append(" *");
     String _propertyName = this.propertyName(it);

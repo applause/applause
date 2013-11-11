@@ -23,18 +23,7 @@ class EntityCompiler {
 
 class EntityInterfaceCompiler {
 	
-	// TODO simplified implementation, we will need an import manager later!
-	def typeName(Attribute it) {
-		return switch type.name {
-			case "String": "NSString"
-			default: type.name
-		}
-	}
-	
-	def typeName(Entity it) {
-		if (it != null) it.name
-		else "NSObject"
-	}
+	@Inject extension TypeExtensions
 	
 	def propertyName(Attribute it) {
 		name
