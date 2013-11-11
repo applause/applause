@@ -38,48 +38,110 @@ describe "Entity Generator" {
 		val result = entity.compileModule
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
-		
-	/**
-	 * A simple entity like this:
-	 * 
-	 * <pre class="prettyprint linenums lang-applause">
-	 * entity Person {
-	 * }
-	 * </pre>
-	 * 
-	 * will result in the following header and implementation files:
-	 */
-	describe "Simple Entities" {
-		
-		val simplePersonEntity = '''
-			entity Person {
-			}
-		'''
+	
+	context "Generating Entities" {
 		
 		/**
-		 * @filter('''|.isGenerated.*)
+		 * A simple entity like this:
+		 * 
+		 * <pre class="prettyprint linenums lang-applause">
+		 * entity Person {
+		 * }
+		 * </pre>
+		 * 
+		 * will result in the following header and implementation files:
 		 */
-		fact "Header File" {
+		describe "Simple Entities" {
+			
+			val simplePersonEntity = '''
+				entity Person {
+				}
 			'''
-				#import <Foundation/Foundation.h>
-				
-				@interface Person : NSObject
-				@end
-			'''.isGeneratedHeaderFileFromModel("Person", simplePersonEntity)
+			
+			/**
+			 * @filter('''|.isGenerated.*)
+			 */
+			fact "Header File" {
+				'''
+					#import <Foundation/Foundation.h>
+					
+					@interface Person : NSObject
+					@end
+				'''.isGeneratedHeaderFileFromModel("Person", simplePersonEntity)
+			}
+			
+			/**
+			 * @filter('''|.isGenerated.*)
+			 */
+			fact "Implementation file" {
+				'''
+					#import "Person.h"
+
+					@implementation Person
+					@end
+				'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)
+			}
+			
+		}
+	
+		describe "Abstract Entities" {
 		}
 		
-		/**
-		 * @filter('''|.isGenerated.*)
-		 */
-		fact "Implementation file" {
-			'''
-				#import "Person.h"
-
-				@implementation Person
-				@end
-			'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)
+		describe "Entity inheritance" {
 		}
 		
 	}
 
+	context "Generating Entity Attributes" {
+		
+		/**
+		 * Simple attributes like these:
+		 * 
+		 * <pre class="prettyprint linenums lang-applause">
+		 * datatype String
+		 * entity Person {
+		 *	String name
+		 * }
+		 * </pre>
+		 * 
+		 * will result in the following header and implementation files:
+		 */
+		describe "Simple Attributes" {
+			
+			val simplePersonEntity = '''
+				datatype String
+				entity Person {
+					String name
+				}
+			'''
+			
+			/**
+			 * @filter('''|.isGenerated.*)
+			 */
+			fact "Header File" {
+				'''
+					#import <Foundation/Foundation.h>
+					
+					@interface Person : NSObject
+					@property (nonatomic, strong) NSString *name;
+					@end
+				'''.isGeneratedHeaderFileFromModel("Person", simplePersonEntity)
+			}
+			
+			/**
+			 * @filter('''|.isGenerated.*)
+			 */
+			fact "Implementation file" {
+				'''
+					#import "Person.h"
+
+					@implementation Person
+					@end
+				'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)
+			}
+			
+		}
+			
+	}	
+	
 }

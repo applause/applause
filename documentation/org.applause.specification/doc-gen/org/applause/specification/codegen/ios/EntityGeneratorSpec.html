@@ -35,7 +35,9 @@
 					<div class="span12">
 						  <div class="tab-content">
 							  	<div class="tab-pane active" id="spec">
-<h3 class="exampleGroup notrun"  id="Simple_Entities">Simple Entities</h3>
+<h3 class="exampleGroup pending"  id="Generating_Entities">Generating Entities</h3>
+<div class="level">
+<h4 class="exampleGroup notrun"  id="Simple_Entities">Simple Entities</h4>
 <p>A simple entity like this:</p>
 <pre class="prettyprint linenums lang-applause">
 entity Person {
@@ -54,6 +56,38 @@ entity Person {
 @implementation Person
 @end</pre>
 </li></ul>
+</div>
+<div class="level">
+<h4 class="exampleGroup pending"  id="Abstract_Entities">Abstract Entities</h4>
+</div>
+<div class="level">
+<h4 class="exampleGroup pending"  id="Entity_inheritance">Entity inheritance</h4>
+</div>
+<h3 class="exampleGroup pending"  id="Generating_Entity_Attributes">Generating Entity Attributes</h3>
+<div class="level">
+<h4 class="exampleGroup pending"  id="Simple_Attributes">Simple Attributes</h4>
+<p>Simple attributes like these:</p>
+<pre class="prettyprint linenums lang-applause">
+datatype String
+entity Person {
+	String name
+}
+</pre><p>will result in the following header and implementation files:</p>
+<ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+@property (nonatomic, strong) NSString *name;
+@end</pre>
+</li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &quot;Person.h&quot;
+
+@implementation Person
+@end</pre>
+</li></ul>
+</div>
 							</div>
 						    <div class="tab-pane" id="source">
 						    	<h3>EntityGenerator.spec</h3>
@@ -99,50 +133,112 @@ describe &quot;Entity Generator&quot; {
     val result = entity.compileModule
     assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
   }
-    
-  /**
-   * A simple entity like this:
-   * 
-   * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
-   * entity Person {
-   * }
-   * &lt;/pre&gt;
-   * 
-   * will result in the following header and implementation files:
-   */
-  describe &quot;Simple Entities&quot; {
-    
-    val simplePersonEntity = '''
-      entity Person {
-      }
-    '''
+  
+  context &quot;Generating Entities&quot; {
     
     /**
-     * @filter('''|.isGenerated.*)
+     * A simple entity like this:
+     * 
+     * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
+     * entity Person {
+     * }
+     * &lt;/pre&gt;
+     * 
+     * will result in the following header and implementation files:
      */
-    fact &quot;Header File&quot; {
+    describe &quot;Simple Entities&quot; {
+      
+      val simplePersonEntity = '''
+        entity Person {
+        }
       '''
-        #import &lt;Foundation/Foundation.h&gt;
-        
-        @interface Person : NSObject
-        @end
-      '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Header File&quot; {
+        '''
+          #import &lt;Foundation/Foundation.h&gt;
+          
+          @interface Person : NSObject
+          @end
+        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Implementation file&quot; {
+        '''
+          #import &quot;Person.h&quot;
+
+          @implementation Person
+          @end
+        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+    }
+  
+    describe &quot;Abstract Entities&quot; {
     }
     
-    /**
-     * @filter('''|.isGenerated.*)
-     */
-    fact &quot;Implementation file&quot; {
-      '''
-        #import &quot;Person.h&quot;
-
-        @implementation Person
-        @end
-      '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+    describe &quot;Entity inheritance&quot; {
     }
     
   }
 
+  context &quot;Generating Entity Attributes&quot; {
+    
+    /**
+     * Simple attributes like these:
+     * 
+     * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
+     * datatype String
+     * entity Person {
+     *  String name
+     * }
+     * &lt;/pre&gt;
+     * 
+     * will result in the following header and implementation files:
+     */
+    describe &quot;Simple Attributes&quot; {
+      
+      val simplePersonEntity = '''
+        datatype String
+        entity Person {
+          String name
+        }
+      '''
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Header File&quot; {
+        '''
+          #import &lt;Foundation/Foundation.h&gt;
+          
+          @interface Person : NSObject
+          @property (nonatomic, strong) NSString *name;
+          @end
+        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Implementation file&quot; {
+        '''
+          #import &quot;Person.h&quot;
+
+          @implementation Person
+          @end
+        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+    }
+      
+  }  
+  
 }
 </pre>
 						    </p></div>

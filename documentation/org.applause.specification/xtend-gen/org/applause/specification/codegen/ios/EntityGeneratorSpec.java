@@ -10,7 +10,8 @@ import org.applause.lang.generator.ios.model.EntityInterfaceCompiler;
 import org.applause.lang.generator.ios.model.EntityModuleCompiler;
 import org.applause.specification.ApplauseDslInjectorProvider;
 import org.applause.specification.ApplauseDslTestCreator;
-import org.applause.specification.codegen.ios.EntityGeneratorSimpleEntitiesSpec;
+import org.applause.specification.codegen.ios.EntityGeneratorGeneratingEntitiesSpec;
+import org.applause.specification.codegen.ios.EntityGeneratorGeneratingEntityAttributesSpec;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
@@ -27,7 +28,7 @@ import org.jnario.runner.Named;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 
-@Contains(EntityGeneratorSimpleEntitiesSpec.class)
+@Contains({ EntityGeneratorGeneratingEntitiesSpec.class, EntityGeneratorGeneratingEntityAttributesSpec.class })
 @Named("Entity Generator")
 @RunWith(ExampleGroupRunner.class)
 @InjectWith(ApplauseDslInjectorProvider.class)

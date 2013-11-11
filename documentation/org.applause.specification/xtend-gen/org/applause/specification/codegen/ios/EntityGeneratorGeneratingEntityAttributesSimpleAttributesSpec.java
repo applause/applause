@@ -1,6 +1,6 @@
 package org.applause.specification.codegen.ios;
 
-import org.applause.specification.codegen.ios.EntityGeneratorSpec;
+import org.applause.specification.codegen.ios.EntityGeneratorGeneratingEntityAttributesSpec;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.jnario.runner.ExampleGroupRunner;
@@ -10,23 +10,30 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * A simple entity like this:
+ * Simple attributes like these:
  * 
  * <pre class="prettyprint linenums lang-applause">
+ * datatype String
  * entity Person {
+ * 	String name
  * }
  * </pre>
  * 
  * will result in the following header and implementation files:
  */
-@Named("Simple Entities")
+@Named("Simple Attributes")
 @RunWith(ExampleGroupRunner.class)
 @SuppressWarnings("all")
-public class EntityGeneratorSimpleEntitiesSpec extends EntityGeneratorSpec {
+public class EntityGeneratorGeneratingEntityAttributesSimpleAttributesSpec extends EntityGeneratorGeneratingEntityAttributesSpec {
   final String simplePersonEntity = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
+      _builder.append("datatype String");
+      _builder.newLine();
       _builder.append("entity Person {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("String name");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
@@ -46,6 +53,8 @@ public class EntityGeneratorSimpleEntitiesSpec extends EntityGeneratorSpec {
     _builder.newLine();
     _builder.newLine();
     _builder.append("@interface Person : NSObject");
+    _builder.newLine();
+    _builder.append("@property (nonatomic, strong) NSString *name;");
     _builder.newLine();
     _builder.append("@end");
     _builder.newLine();
