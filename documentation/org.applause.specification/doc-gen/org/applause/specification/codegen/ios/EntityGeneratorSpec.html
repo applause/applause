@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Entity Generator</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" href="../../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../../js/bootstrap-tab.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header pending">
+					<h1>Entity Generator</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
+<h3 class="exampleGroup pending"  id="Generating_Entities">Generating Entities</h3>
+<div class="level">
+<h4 class="exampleGroup notrun"  id="Simple_Entities">Simple Entities</h4>
+<p>A simple entity like this:</p>
+<pre class="prettyprint linenums lang-applause">
+entity Person {
+}
+</pre><p>will result in the following header and implementation files:</p>
+<ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+@end</pre>
+</li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &quot;Person.h&quot;
+
+@implementation Person
+@end</pre>
+</li></ul>
+</div>
+<div class="level">
+<h4 class="exampleGroup pending"  id="Abstract_Entities">Abstract Entities</h4>
+</div>
+<div class="level">
+<h4 class="exampleGroup pending"  id="Entity_inheritance">Entity inheritance</h4>
+<ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &lt;Foundation/Foundation.h&gt;
+
+@class Creature;
+
+@interface Person : Creature
+@end</pre>
+</li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &quot;Person.h&quot;
+#import &quot;Creature.h&quot;
+
+@implementation Person
+@end</pre>
+</li></ul>
+</div>
+<h3 class="exampleGroup pending"  id="Generating_Entity_Attributes">Generating Entity Attributes</h3>
+<div class="level">
+<h4 class="exampleGroup pending"  id="Simple_Attributes">Simple Attributes</h4>
+<p>Simple attributes like these:</p>
+<pre class="prettyprint linenums lang-applause">
+datatype String
+entity Person {
+	String name
+}
+</pre><p>will result in the following header and implementation files:</p>
+<ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &lt;Foundation/Foundation.h&gt;
+
+@interface Person : NSObject
+@property (nonatomic, strong) NSString *name;
+@end</pre>
+</li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
+<pre class="prettyprint lang-spec linenums">
+#import &quot;Person.h&quot;
+
+@implementation Person
+@end</pre>
+</li></ul>
+</div>
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>EntityGenerator.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.specification.codegen.ios
+
+import com.google.inject.Inject
+import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.Model
+import org.applause.lang.generator.ios.model.EntityInterfaceCompiler
+import org.applause.lang.generator.ios.model.EntityModuleCompiler
+import org.applause.specification.ApplauseDslInjectorProvider
+import org.applause.specification.ApplauseDslTestCreator
+import org.eclipse.xtext.junit4.InjectWith
+import org.eclipse.xtext.junit4.util.ParseHelper
+import org.jnario.runner.CreateWith
+
+import static org.hamcrest.CoreMatchers.*
+import static org.junit.Assert.*
+
+@InjectWith(ApplauseDslInjectorProvider)
+@CreateWith(typeof(ApplauseDslTestCreator))
+describe &quot;Entity Generator&quot; {
+  
+  @Inject extension ParseHelper&lt;Model&gt;
+  @Inject extension EntityInterfaceCompiler
+  @Inject extension EntityModuleCompiler
+  
+  private def entity(CharSequence input, String entityName) {
+    val model = input.parse
+    model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+  }
+  
+  def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
+    val entity = input.entity(entityName)
+    val result = entity.compileHeader
+    assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
+  }
+  
+  def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
+    val entity = input.entity(entityName)    
+    val result = entity.compileModule
+    assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
+  }
+  
+  context &quot;Generating Entities&quot; {
+    
+    /**
+     * A simple entity like this:
+     * 
+     * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
+     * entity Person {
+     * }
+     * &lt;/pre&gt;
+     * 
+     * will result in the following header and implementation files:
+     */
+    describe &quot;Simple Entities&quot; {
+      
+      val simplePersonEntity = '''
+        entity Person {
+        }
+      '''
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Header File&quot; {
+        '''
+          #import &lt;Foundation/Foundation.h&gt;
+          
+          @interface Person : NSObject
+          @end
+        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Implementation file&quot; {
+        '''
+          #import &quot;Person.h&quot;
+
+          @implementation Person
+          @end
+        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+    }
+  
+    describe &quot;Abstract Entities&quot; {
+    }
+    
+    describe &quot;Entity inheritance&quot; {
+      
+      val inheritedPersonEntity = '''
+        entity Creature {
+        }
+        entity Person extends Creature {
+        }
+      '''
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Header File&quot; {
+        '''
+          #import &lt;Foundation/Foundation.h&gt;
+          
+          @class Creature;
+          
+          @interface Person : Creature
+          @end
+        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, inheritedPersonEntity)
+      }
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Implementation file&quot; {
+        '''
+          #import &quot;Person.h&quot;
+          #import &quot;Creature.h&quot;
+
+          @implementation Person
+          @end
+        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, inheritedPersonEntity)
+      }
+      
+    }
+    
+  }
+
+  context &quot;Generating Entity Attributes&quot; {
+    
+    /**
+     * Simple attributes like these:
+     * 
+     * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
+     * datatype String
+     * entity Person {
+     *  String name
+     * }
+     * &lt;/pre&gt;
+     * 
+     * will result in the following header and implementation files:
+     */
+    describe &quot;Simple Attributes&quot; {
+      
+      val simplePersonEntity = '''
+        datatype String
+        entity Person {
+          String name
+        }
+      '''
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Header File&quot; {
+        '''
+          #import &lt;Foundation/Foundation.h&gt;
+          
+          @interface Person : NSObject
+          @property (nonatomic, strong) NSString *name;
+          @end
+        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+      /**
+       * @filter('''|.isGenerated.*)
+       */
+      fact &quot;Implementation file&quot; {
+        '''
+          #import &quot;Person.h&quot;
+
+          @implementation Person
+          @end
+        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+      }
+      
+    }
+      
+  }  
+  
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+	</div> <!-- /container -->
+
+</body>
+</html>
