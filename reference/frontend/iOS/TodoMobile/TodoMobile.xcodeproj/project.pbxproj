@@ -26,6 +26,7 @@
 		F2ED49E298DDDC1CB6095E89 /* TodoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4BD77266BFD586428960 /* TodoDetailsViewController.m */; };
 		F2ED4C194EEFF1292063436C /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4BA6FDFA7F72E25C0515 /* Todo.m */; };
 		F2ED4C87A098816C4B97FA61 /* Todo+DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4A708F0496909EE63188 /* Todo+DataAccess.m */; };
+		F2ED4D15AD25D1B256349370 /* Todo+DataMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED40D716D80D9ECA28B2A8 /* Todo+DataMapping.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		885674F817DD42ED00E5E4F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		885674FA17DD42ED00E5E4F5 /* TodoMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoMobileTests.m; sourceTree = "<group>"; };
 		A49C7CB1D7734AFB826CA174 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2ED40D716D80D9ECA28B2A8 /* Todo+DataMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+DataMapping.m"; sourceTree = "<group>"; };
 		F2ED43B444D0278DA8979A9B /* TodoAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoAPIClient.m; sourceTree = "<group>"; };
 		F2ED45E6E886D4173BB3374F /* TodoAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoAPIClient.h; sourceTree = "<group>"; };
 		F2ED486AFE1D0AAC6BE2F55F /* Todo+DataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+DataAccess.h"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		F2ED4B6F8F8A761CA9D8871C /* TodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListViewController.h; sourceTree = "<group>"; };
 		F2ED4BA6FDFA7F72E25C0515 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
 		F2ED4BD77266BFD586428960 /* TodoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDetailsViewController.m; sourceTree = "<group>"; };
+		F2ED4DACE014450F85056EFF /* Todo+DataMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+DataMapping.h"; sourceTree = "<group>"; };
 		F2ED4E454C5EE0F73EE92134 /* TodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -207,6 +210,8 @@
 				F2ED43B444D0278DA8979A9B /* TodoAPIClient.m */,
 				F2ED486AFE1D0AAC6BE2F55F /* Todo+DataAccess.h */,
 				F2ED4A708F0496909EE63188 /* Todo+DataAccess.m */,
+				F2ED4DACE014450F85056EFF /* Todo+DataMapping.h */,
+				F2ED40D716D80D9ECA28B2A8 /* Todo+DataMapping.m */,
 			);
 			path = DataAccess;
 			sourceTree = "<group>";
@@ -348,6 +353,7 @@
 				F2ED414437B428C76ECB09F4 /* TodoAPIClient.m in Sources */,
 				F2ED4C87A098816C4B97FA61 /* Todo+DataAccess.m in Sources */,
 				F2ED4C194EEFF1292063436C /* Todo.m in Sources */,
+				F2ED4D15AD25D1B256349370 /* Todo+DataMapping.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

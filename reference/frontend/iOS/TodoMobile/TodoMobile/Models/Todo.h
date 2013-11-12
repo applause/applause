@@ -12,7 +12,4 @@
 @property (nonatomic, strong) NSDate *dueDate;
 @property (nonatomic) BOOL done;
 
-- (id)initWithAttributes:(NSDictionary *)attributes;
-- (NSDictionary *)attributes;
-
 @end

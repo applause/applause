@@ -6,6 +6,7 @@
 
 #import "Todo+DataAccess.h"
 #import "TodoAPIClient.h"
+#import "Todo+DataMapping.h"
 
 static NSString *const kAllTodosPath = @"/todos";
 static NSString *const kPostTodoPath = @"/todos";
