@@ -9,5 +9,6 @@ The iOS Code Generator generates iOS applications
  
 - "Entity Generator": describes the Entity Generator
 - "Entity Data Access Generator": describes how data access code is generated
+- "API Client Generator": describes how the API client is generated
  
 ##UI
