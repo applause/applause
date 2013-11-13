@@ -1,15 +1,15 @@
 package org.applause.specification.codegen.ios;
 
+import org.applause.specification.codegen.ios.EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec;
 import org.applause.specification.codegen.ios.EntityDataAccessGeneratorSpec;
-import org.applause.specification.codegen.ios.EntityGeneratorSpec;
 import org.jnario.runner.Contains;
 import org.jnario.runner.ExampleGroupRunner;
 import org.jnario.runner.Named;
 import org.junit.runner.RunWith;
 
-@Named("Data")
-@Contains({ EntityDataAccessGeneratorSpec.class, EntityGeneratorSpec.class })
+@Contains(EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec.class)
+@Named("Generating Entities")
 @RunWith(ExampleGroupRunner.class)
 @SuppressWarnings("all")
-public class DataSuite {
+public class EntityDataAccessGeneratorGeneratingEntitiesSpec extends EntityDataAccessGeneratorSpec {
 }

@@ -1,18 +1,19 @@
 package org.applause.lang.generator.ios.model
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.generator.ios.ICompilerModule
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
-import org.applause.lang.applauseDsl.Attribute
 
-class EntityCompiler {
+class EntityCompiler implements ICompilerModule {
 	
-	@Inject extension EntityInterfaceCompiler
-	@Inject extension EntityModuleCompiler
-	@Inject extension EntityExtensions
+	@Inject extension EntityHeaderFileCompiler
+	@Inject extension EntityModuleFileCompiler
+	@Inject extension EntityModelExtensions
 	
-	def doGenerate(Resource resource, IFileSystemAccess fsa) {
+	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
 			fsa.generateFile(it.headerFileName, it.compileHeader)
 			fsa.generateFile(it.moduleFileName, it.compileModule)
@@ -21,7 +22,16 @@ class EntityCompiler {
 	
 }
 
-class EntityInterfaceCompiler {
+class EntityModelExtensions {
+	def headerFileName(Entity it) {
+		name + '.h'
+	}
+	def moduleFileName(Entity it) {
+		name + '.m'
+	}
+}
+
+class EntityHeaderFileCompiler {
 	
 	@Inject extension TypeExtensions
 	
@@ -53,9 +63,9 @@ class EntityInterfaceCompiler {
 	
 }
 
-class EntityModuleCompiler {
+class EntityModuleFileCompiler {
 	
-	@Inject extension EntityExtensions
+	@Inject extension EntityModelExtensions
 	
 	def superTypeImportDeclaration(Entity it) '''
 		«IF superType != null»#import "«superType.headerFileName»"«ENDIF»

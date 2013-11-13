@@ -3,8 +3,8 @@ package org.applause.specification.codegen.ios
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.Model
-import org.applause.lang.generator.ios.model.EntityInterfaceCompiler
-import org.applause.lang.generator.ios.model.EntityModuleCompiler
+import org.applause.lang.generator.ios.model.EntityHeaderFileCompiler
+import org.applause.lang.generator.ios.model.EntityModuleFileCompiler
 import org.applause.specification.ApplauseDslInjectorProvider
 import org.applause.specification.ApplauseDslTestCreator
 import org.eclipse.xtext.junit4.InjectWith
@@ -19,8 +19,8 @@ import static org.junit.Assert.*
 describe "Entity Generator" {
 	
 	@Inject extension ParseHelper<Model>
-	@Inject extension EntityInterfaceCompiler
-	@Inject extension EntityModuleCompiler
+	@Inject extension EntityHeaderFileCompiler
+	@Inject extension EntityModuleFileCompiler
 	
 	private def entity(CharSequence input, String entityName) {
 		val model = input.parse

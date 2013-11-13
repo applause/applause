@@ -6,12 +6,11 @@ import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.NamedElement;
-import org.applause.lang.generator.ios.model.EntityHeaderFileCompiler;
-import org.applause.lang.generator.ios.model.EntityModuleFileCompiler;
+import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler;
+import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler;
 import org.applause.specification.ApplauseDslInjectorProvider;
 import org.applause.specification.ApplauseDslTestCreator;
-import org.applause.specification.codegen.ios.EntityGeneratorGeneratingEntitiesSpec;
-import org.applause.specification.codegen.ios.EntityGeneratorGeneratingEntityAttributesSpec;
+import org.applause.specification.codegen.ios.EntityDataAccessGeneratorGeneratingEntitiesSpec;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.junit4.InjectWith;
 import org.eclipse.xtext.junit4.util.ParseHelper;
@@ -28,13 +27,13 @@ import org.jnario.runner.Named;
 import org.junit.Assert;
 import org.junit.runner.RunWith;
 
-@Contains({ EntityGeneratorGeneratingEntitiesSpec.class, EntityGeneratorGeneratingEntityAttributesSpec.class })
-@Named("Entity Generator")
+@Contains(EntityDataAccessGeneratorGeneratingEntitiesSpec.class)
+@Named("Entity Data Access Generator")
 @RunWith(ExampleGroupRunner.class)
 @InjectWith(ApplauseDslInjectorProvider.class)
 @CreateWith(ApplauseDslTestCreator.class)
 @SuppressWarnings("all")
-public class EntityGeneratorSpec {
+public class EntityDataAccessGeneratorSpec {
   @Inject
   @Extension
   @org.jnario.runner.Extension
@@ -43,12 +42,12 @@ public class EntityGeneratorSpec {
   @Inject
   @Extension
   @org.jnario.runner.Extension
-  public EntityHeaderFileCompiler _entityHeaderFileCompiler;
+  public EntityDataAccessHeaderFileCompiler _entityDataAccessHeaderFileCompiler;
   
   @Inject
   @Extension
   @org.jnario.runner.Extension
-  public EntityModuleFileCompiler _entityModuleFileCompiler;
+  public EntityDataAccessModuleFileCompiler _entityDataAccessModuleFileCompiler;
   
   private Entity entity(final CharSequence input, final String entityName) {
     try {
@@ -75,7 +74,7 @@ public class EntityGeneratorSpec {
   
   public void isGeneratedHeaderFileFromModel(final CharSequence expectedGeneratedCode, final String entityName, final CharSequence input) {
     final Entity entity = this.entity(input, entityName);
-    final CharSequence result = this._entityHeaderFileCompiler.compileHeader(entity);
+    final CharSequence result = this._entityDataAccessHeaderFileCompiler.compileHeaderFile(entity);
     String _string = result.toString();
     String _string_1 = expectedGeneratedCode.toString();
     Matcher<String> _equalTo = CoreMatchers.<String>equalTo(_string_1);
@@ -84,7 +83,7 @@ public class EntityGeneratorSpec {
   
   public void isGeneratedModuleFileFromModel(final CharSequence expectedGeneratedCode, final String entityName, final CharSequence input) {
     final Entity entity = this.entity(input, entityName);
-    final CharSequence result = this._entityModuleFileCompiler.compileModule(entity);
+    final CharSequence result = this._entityDataAccessModuleFileCompiler.compileModuleFile(entity);
     String _string = result.toString();
     String _string_1 = expectedGeneratedCode.toString();
     Matcher<String> _equalTo = CoreMatchers.<String>equalTo(_string_1);
