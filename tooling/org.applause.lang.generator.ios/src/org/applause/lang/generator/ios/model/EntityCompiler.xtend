@@ -11,33 +11,38 @@ class EntityCompiler implements ICompilerModule {
 	
 	@Inject extension EntityHeaderFileCompiler
 	@Inject extension EntityModuleFileCompiler
-	@Inject extension EntityModelExtensions
+	@Inject extension EntityClassExtensions
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.headerFileName, it.compileHeader)
-			fsa.generateFile(it.moduleFileName, it.compileModule)
+			fsa.generateFile(it.entityModelHeaderFileName, it.compileHeader)
+			fsa.generateFile(it.entityModelModuleFileName, it.compileModule)
 		]
 	}
 	
 }
 
-class EntityModelExtensions {
-	def headerFileName(Entity it) {
-		name + '.h'
+class EntityClassExtensions {
+	
+	@Inject extension TypeExtensions
+
+	def entityModelHeaderFileName(Entity it) {
+		typeName + '.h'
 	}
-	def moduleFileName(Entity it) {
-		name + '.m'
+	def entityModelModuleFileName(Entity it) {
+		typeName + '.m'
 	}
+	
+	def propertyName(Attribute it) {
+		name
+	}
+	
 }
 
 class EntityHeaderFileCompiler {
 	
 	@Inject extension TypeExtensions
-	
-	def propertyName(Attribute it) {
-		name
-	}
+	@Inject extension EntityClassExtensions
 	
 	def superTypeForwardDeclaration(Entity it) '''
 		«IF superType != null»
@@ -65,10 +70,10 @@ class EntityHeaderFileCompiler {
 
 class EntityModuleFileCompiler {
 	
-	@Inject extension EntityModelExtensions
+	@Inject extension EntityClassExtensions
 	
 	def superTypeImportDeclaration(Entity it) '''
-		«IF superType != null»#import "«superType.headerFileName»"«ENDIF»
+		«IF superType != null»#import "«superType.entityModelHeaderFileName»"«ENDIF»
 	'''
 	
 	def compileModule(Entity it) '''

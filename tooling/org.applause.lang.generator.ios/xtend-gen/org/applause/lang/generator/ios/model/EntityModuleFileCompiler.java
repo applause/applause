@@ -3,7 +3,7 @@ package org.applause.lang.generator.ios.model;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
-import org.applause.lang.generator.ios.model.EntityModelExtensions;
+import org.applause.lang.generator.ios.model.EntityClassExtensions;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
 
@@ -11,7 +11,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class EntityModuleFileCompiler {
   @Inject
   @Extension
-  private EntityModelExtensions _entityModelExtensions;
+  private EntityClassExtensions _entityClassExtensions;
   
   public CharSequence superTypeImportDeclaration(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
@@ -21,8 +21,8 @@ public class EntityModuleFileCompiler {
       if (_notEquals) {
         _builder.append("#import \"");
         Entity _superType_1 = it.getSuperType();
-        String _headerFileName = this._entityModelExtensions.headerFileName(_superType_1);
-        _builder.append(_headerFileName, "");
+        String _entityModelHeaderFileName = this._entityClassExtensions.entityModelHeaderFileName(_superType_1);
+        _builder.append(_entityModelHeaderFileName, "");
         _builder.append("\"");
       }
     }

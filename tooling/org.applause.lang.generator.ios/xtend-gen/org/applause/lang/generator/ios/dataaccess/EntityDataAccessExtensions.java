@@ -5,24 +5,6 @@ import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
 public class EntityDataAccessExtensions {
-  private final String DATAACCESS_CATEGORY = "DataAccess";
-  
-  public String headerFileName(final Entity it) {
-    String _name = it.getName();
-    String _plus = (_name + "+");
-    String _plus_1 = (_plus + this.DATAACCESS_CATEGORY);
-    String _plus_2 = (_plus_1 + ".h");
-    return _plus_2;
-  }
-  
-  public String moduleFileName(final Entity it) {
-    String _name = it.getName();
-    String _plus = (_name + "+");
-    String _plus_1 = (_plus + this.DATAACCESS_CATEGORY);
-    String _plus_2 = (_plus_1 + ".m");
-    return _plus_2;
-  }
-  
   public String parameterName(final Entity it) {
     String _name = it.getName();
     String _firstLower = StringExtensions.toFirstLower(_name);

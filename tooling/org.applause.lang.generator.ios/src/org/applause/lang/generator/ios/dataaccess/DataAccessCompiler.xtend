@@ -1,39 +1,49 @@
 package org.applause.lang.generator.ios.dataaccess
 
+import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.generator.ios.FileNameExtensions
 import org.applause.lang.generator.ios.ICompilerModule
+import org.applause.lang.generator.ios.model.EntityClassExtensions
+import org.applause.lang.generator.ios.model.TypeExtensions
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
-import com.google.inject.Inject
-import org.applause.lang.generator.ios.model.EntityModelExtensions
-import org.applause.lang.generator.ios.EntityExtensions
-import org.applause.lang.generator.ios.model.TypeExtensions
 
 class DataAccessCompiler implements ICompilerModule {
 	
 	@Inject extension EntityDataAccessHeaderFileCompiler
 	@Inject extension EntityDataAccessModuleFileCompiler
-	@Inject extension EntityDataAccessExtensions
+	
+	@Inject extension DataAccessClassExtensions
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.headerFileName, it.compileHeaderFile)
-			fsa.generateFile(it.moduleFileName, it.compileModuleFile)
-		]
+			fsa.generateFile(it.entityDataAccessCategoryHeaderFileName, it.compileHeaderFile)
+			fsa.generateFile(it.entityDataAccessCategoryModuleFileName, it.compileModuleFile)
+		]		
 	}
 	
 }
 
-class EntityDataAccessExtensions {
-	val DATAACCESS_CATEGORY = "DataAccess"
+class DataAccessClassExtensions {
 	
-	def headerFileName(Entity it) {
-		name + '+' + DATAACCESS_CATEGORY + '.h'
+	@Inject extension TypeExtensions
+	@Inject extension FileNameExtensions
+	
+	val categoryName = 'DataAccess'
+
+	def entityDataAccessCategoryHeaderFileName(Entity it) {
+		(typeName + '+' + categoryName).headerFileName
 	}
-	def moduleFileName(Entity it) {
-		name + '+' + DATAACCESS_CATEGORY + '.m'
+	
+	def entityDataAccessCategoryModuleFileName(Entity it) {
+		(typeName + '+' + categoryName).moduleFileName
 	}
 
+}
+
+class EntityDataAccessExtensions {
+	
 	def parameterName(Entity it) {
 		it.name.toFirstLower
 	}
@@ -50,19 +60,19 @@ class EntityDataAccessExtensions {
 
 class EntityDataAccessHeaderFileCompiler {
 	
-	@Inject extension EntityModelExtensions
-	@Inject extension EntityExtensions
+	@Inject extension EntityClassExtensions
+	@Inject extension TypeExtensions
 	@Inject extension EntityDataAccessExtensions
 	
 	def compileHeaderFile(Entity it) '''
 		#import <Foundation/Foundation.h>
-		#import "«headerFileName»"
+		#import "«entityModelHeaderFileName»"
 		
 		@interface «name» (DataAccess)
 		+ (void)«listAllMethodName»:(void (^)(NSArray *«parameterName.plural», NSError *error))block;
-		- (void)post:(void (^)(«modelClassName» *«parameterName», NSError *error))block;
-		- (void)put:(void (^)(«modelClassName» *«parameterName», NSError *error))block;
-		- (void)remove:(void (^)(«modelClassName» *«parameterName», NSError *error))block;
+		- (void)post:(void (^)(«typeName» *«parameterName», NSError *error))block;
+		- (void)put:(void (^)(«typeName» *«parameterName», NSError *error))block;
+		- (void)remove:(void (^)(«typeName» *«parameterName», NSError *error))block;
 		@end
 	'''
 	
@@ -72,6 +82,7 @@ class EntityDataAccessModuleFileCompiler {
 	
 	@Inject extension EntityDataAccessExtensions
 	@Inject extension TypeExtensions
+	@Inject extension FileNameExtensions
 	
 	def listAllUrlConstantName(Entity it) {
 		'kAll' + name.plural + 'Path'
@@ -109,20 +120,15 @@ class EntityDataAccessModuleFileCompiler {
 		'/' + name.plural.toFirstLower + '/%@'
 	}
 	
-	def apiClientClassName(Entity it) {
-		name + 'APIClient'
-	}
-	
-	def headerFileName(String className) {
-		className + '.h'
-	}
-	
 	def mappingClassName(Entity it) {
 		typeName + '+' + 'DataMapping'
 	}
 	
+	@Inject extension APIClientClassExtensions
+	@Inject extension DataAccessClassExtensions
+	
 	def compileModuleFile(Entity it) '''
-		#import "«headerFileName»"
+		#import "«entityDataAccessCategoryHeaderFileName»"
 		#import "«apiClientClassName.headerFileName»"
 		#import "«mappingClassName.headerFileName»"
 		

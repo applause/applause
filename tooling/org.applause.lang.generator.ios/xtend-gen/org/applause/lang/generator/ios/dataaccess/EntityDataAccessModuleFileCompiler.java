@@ -2,6 +2,9 @@ package org.applause.lang.generator.ios.dataaccess;
 
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
+import org.applause.lang.generator.ios.FileNameExtensions;
+import org.applause.lang.generator.ios.dataaccess.APIClientClassExtensions;
+import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessExtensions;
 import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -17,6 +20,10 @@ public class EntityDataAccessModuleFileCompiler {
   @Inject
   @Extension
   private TypeExtensions _typeExtensions;
+  
+  @Inject
+  @Extension
+  private FileNameExtensions _fileNameExtensions;
   
   public String listAllUrlConstantName(final Entity it) {
     String _name = it.getName();
@@ -80,17 +87,6 @@ public class EntityDataAccessModuleFileCompiler {
     return _plus_1;
   }
   
-  public String apiClientClassName(final Entity it) {
-    String _name = it.getName();
-    String _plus = (_name + "APIClient");
-    return _plus;
-  }
-  
-  public String headerFileName(final String className) {
-    String _plus = (className + ".h");
-    return _plus;
-  }
-  
   public String mappingClassName(final Entity it) {
     String _typeName = this._typeExtensions.typeName(it);
     String _plus = (_typeName + "+");
@@ -98,23 +94,31 @@ public class EntityDataAccessModuleFileCompiler {
     return _plus_1;
   }
   
+  @Inject
+  @Extension
+  private APIClientClassExtensions _aPIClientClassExtensions;
+  
+  @Inject
+  @Extension
+  private DataAccessClassExtensions _dataAccessClassExtensions;
+  
   public CharSequence compileModuleFile(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#import \"");
-    String _headerFileName = this._entityDataAccessExtensions.headerFileName(it);
+    String _entityDataAccessCategoryHeaderFileName = this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(it);
+    _builder.append(_entityDataAccessCategoryHeaderFileName, "");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
+    _builder.append("#import \"");
+    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(it);
+    String _headerFileName = this._fileNameExtensions.headerFileName(_apiClientClassName);
     _builder.append(_headerFileName, "");
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.append("#import \"");
-    String _apiClientClassName = this.apiClientClassName(it);
-    String _headerFileName_1 = this.headerFileName(_apiClientClassName);
-    _builder.append(_headerFileName_1, "");
-    _builder.append("\"");
-    _builder.newLineIfNotEmpty();
-    _builder.append("#import \"");
     String _mappingClassName = this.mappingClassName(it);
-    String _headerFileName_2 = this.headerFileName(_mappingClassName);
-    _builder.append(_headerFileName_2, "");
+    String _headerFileName_1 = this._fileNameExtensions.headerFileName(_mappingClassName);
+    _builder.append(_headerFileName_1, "");
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -170,7 +174,7 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[[");
-    String _apiClientClassName_1 = this.apiClientClassName(it);
+    String _apiClientClassName_1 = this._aPIClientClassExtensions.apiClientClassName(it);
     _builder.append(_apiClientClassName_1, "	");
     _builder.append(" sharedClient] GET:");
     String _listAllUrlConstantName_1 = this.listAllUrlConstantName(it);
@@ -249,7 +253,7 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[[");
-    String _apiClientClassName_2 = this.apiClientClassName(it);
+    String _apiClientClassName_2 = this._aPIClientClassExtensions.apiClientClassName(it);
     _builder.append(_apiClientClassName_2, "	");
     _builder.append(" sharedClient] POST:");
     String _postUrlConstantName_1 = this.postUrlConstantName(it);
@@ -309,7 +313,7 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[[");
-    String _apiClientClassName_3 = this.apiClientClassName(it);
+    String _apiClientClassName_3 = this._aPIClientClassExtensions.apiClientClassName(it);
     _builder.append(_apiClientClassName_3, "	");
     _builder.append(" sharedClient] PUT:");
     String _putUrlConstantName_1 = this.putUrlConstantName(it);
@@ -372,7 +376,7 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("[[");
-    String _apiClientClassName_4 = this.apiClientClassName(it);
+    String _apiClientClassName_4 = this._aPIClientClassExtensions.apiClientClassName(it);
     _builder.append(_apiClientClassName_4, "	");
     _builder.append(" sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();

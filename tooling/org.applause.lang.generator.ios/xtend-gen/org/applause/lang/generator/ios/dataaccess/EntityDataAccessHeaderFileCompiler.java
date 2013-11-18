@@ -2,9 +2,9 @@ package org.applause.lang.generator.ios.dataaccess;
 
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
-import org.applause.lang.generator.ios.EntityExtensions;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessExtensions;
-import org.applause.lang.generator.ios.model.EntityModelExtensions;
+import org.applause.lang.generator.ios.model.EntityClassExtensions;
+import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
 
@@ -12,11 +12,11 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class EntityDataAccessHeaderFileCompiler {
   @Inject
   @Extension
-  private EntityModelExtensions _entityModelExtensions;
+  private EntityClassExtensions _entityClassExtensions;
   
   @Inject
   @Extension
-  private EntityExtensions _entityExtensions;
+  private TypeExtensions _typeExtensions;
   
   @Inject
   @Extension
@@ -27,8 +27,8 @@ public class EntityDataAccessHeaderFileCompiler {
     _builder.append("#import <Foundation/Foundation.h>");
     _builder.newLine();
     _builder.append("#import \"");
-    String _headerFileName = this._entityModelExtensions.headerFileName(it);
-    _builder.append(_headerFileName, "");
+    String _entityModelHeaderFileName = this._entityClassExtensions.entityModelHeaderFileName(it);
+    _builder.append(_entityModelHeaderFileName, "");
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -47,24 +47,24 @@ public class EntityDataAccessHeaderFileCompiler {
     _builder.append(", NSError *error))block;");
     _builder.newLineIfNotEmpty();
     _builder.append("- (void)post:(void (^)(");
-    String _modelClassName = this._entityExtensions.modelClassName(it);
-    _builder.append(_modelClassName, "");
+    String _typeName = this._typeExtensions.typeName(it);
+    _builder.append(_typeName, "");
     _builder.append(" *");
     String _parameterName_1 = this._entityDataAccessExtensions.parameterName(it);
     _builder.append(_parameterName_1, "");
     _builder.append(", NSError *error))block;");
     _builder.newLineIfNotEmpty();
     _builder.append("- (void)put:(void (^)(");
-    String _modelClassName_1 = this._entityExtensions.modelClassName(it);
-    _builder.append(_modelClassName_1, "");
+    String _typeName_1 = this._typeExtensions.typeName(it);
+    _builder.append(_typeName_1, "");
     _builder.append(" *");
     String _parameterName_2 = this._entityDataAccessExtensions.parameterName(it);
     _builder.append(_parameterName_2, "");
     _builder.append(", NSError *error))block;");
     _builder.newLineIfNotEmpty();
     _builder.append("- (void)remove:(void (^)(");
-    String _modelClassName_2 = this._entityExtensions.modelClassName(it);
-    _builder.append(_modelClassName_2, "");
+    String _typeName_2 = this._typeExtensions.typeName(it);
+    _builder.append(_typeName_2, "");
     _builder.append(" *");
     String _parameterName_3 = this._entityDataAccessExtensions.parameterName(it);
     _builder.append(_parameterName_3, "");

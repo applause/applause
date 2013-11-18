@@ -14,6 +14,9 @@ class TypeExtensions {
 	def typeName(Attribute it) {
 		return switch type.name {
 			case "String": "NSString"
+			case "Bool": "BOOL"
+			case "Date": "NSDate"
+			case "Integer": "NSNumber"
 			default: type.name
 		}
 	}

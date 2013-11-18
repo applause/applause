@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.Entity;
+import org.applause.lang.generator.ios.model.EntityClassExtensions;
 import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -15,10 +16,9 @@ public class EntityHeaderFileCompiler {
   @Extension
   private TypeExtensions _typeExtensions;
   
-  public String propertyName(final Attribute it) {
-    String _name = it.getName();
-    return _name;
-  }
+  @Inject
+  @Extension
+  private EntityClassExtensions _entityClassExtensions;
   
   public CharSequence superTypeForwardDeclaration(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
@@ -73,7 +73,7 @@ public class EntityHeaderFileCompiler {
     String _typeName = this._typeExtensions.typeName(it);
     _builder.append(_typeName, "");
     _builder.append(" *");
-    String _propertyName = this.propertyName(it);
+    String _propertyName = this._entityClassExtensions.propertyName(it);
     _builder.append(_propertyName, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();

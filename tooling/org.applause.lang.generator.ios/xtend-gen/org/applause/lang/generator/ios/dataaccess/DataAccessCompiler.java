@@ -4,7 +4,7 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.generator.ios.ICompilerModule;
-import org.applause.lang.generator.ios.dataaccess.EntityDataAccessExtensions;
+import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -28,7 +28,7 @@ public class DataAccessCompiler implements ICompilerModule {
   
   @Inject
   @Extension
-  private EntityDataAccessExtensions _entityDataAccessExtensions;
+  private DataAccessClassExtensions _dataAccessClassExtensions;
   
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
@@ -36,12 +36,12 @@ public class DataAccessCompiler implements ICompilerModule {
     Iterable<Entity> _filter = Iterables.<Entity>filter(_iterable, Entity.class);
     final Procedure1<Entity> _function = new Procedure1<Entity>() {
       public void apply(final Entity it) {
-        String _headerFileName = DataAccessCompiler.this._entityDataAccessExtensions.headerFileName(it);
+        String _entityDataAccessCategoryHeaderFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(it);
         CharSequence _compileHeaderFile = DataAccessCompiler.this._entityDataAccessHeaderFileCompiler.compileHeaderFile(it);
-        fsa.generateFile(_headerFileName, _compileHeaderFile);
-        String _moduleFileName = DataAccessCompiler.this._entityDataAccessExtensions.moduleFileName(it);
+        fsa.generateFile(_entityDataAccessCategoryHeaderFileName, _compileHeaderFile);
+        String _entityDataAccessCategoryModuleFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryModuleFileName(it);
         CharSequence _compileModuleFile = DataAccessCompiler.this._entityDataAccessModuleFileCompiler.compileModuleFile(it);
-        fsa.generateFile(_moduleFileName, _compileModuleFile);
+        fsa.generateFile(_entityDataAccessCategoryModuleFileName, _compileModuleFile);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

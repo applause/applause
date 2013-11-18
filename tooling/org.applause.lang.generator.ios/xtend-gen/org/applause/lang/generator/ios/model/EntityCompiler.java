@@ -4,8 +4,8 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.generator.ios.ICompilerModule;
+import org.applause.lang.generator.ios.model.EntityClassExtensions;
 import org.applause.lang.generator.ios.model.EntityHeaderFileCompiler;
-import org.applause.lang.generator.ios.model.EntityModelExtensions;
 import org.applause.lang.generator.ios.model.EntityModuleFileCompiler;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -28,7 +28,7 @@ public class EntityCompiler implements ICompilerModule {
   
   @Inject
   @Extension
-  private EntityModelExtensions _entityModelExtensions;
+  private EntityClassExtensions _entityClassExtensions;
   
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
@@ -36,12 +36,12 @@ public class EntityCompiler implements ICompilerModule {
     Iterable<Entity> _filter = Iterables.<Entity>filter(_iterable, Entity.class);
     final Procedure1<Entity> _function = new Procedure1<Entity>() {
       public void apply(final Entity it) {
-        String _headerFileName = EntityCompiler.this._entityModelExtensions.headerFileName(it);
+        String _entityModelHeaderFileName = EntityCompiler.this._entityClassExtensions.entityModelHeaderFileName(it);
         CharSequence _compileHeader = EntityCompiler.this._entityHeaderFileCompiler.compileHeader(it);
-        fsa.generateFile(_headerFileName, _compileHeader);
-        String _moduleFileName = EntityCompiler.this._entityModelExtensions.moduleFileName(it);
+        fsa.generateFile(_entityModelHeaderFileName, _compileHeader);
+        String _entityModelModuleFileName = EntityCompiler.this._entityClassExtensions.entityModelModuleFileName(it);
         CharSequence _compileModule = EntityCompiler.this._entityModuleFileCompiler.compileModule(it);
-        fsa.generateFile(_moduleFileName, _compileModule);
+        fsa.generateFile(_entityModelModuleFileName, _compileModule);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

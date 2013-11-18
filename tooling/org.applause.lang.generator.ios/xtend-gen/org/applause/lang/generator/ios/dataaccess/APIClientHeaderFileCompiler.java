@@ -2,7 +2,7 @@ package org.applause.lang.generator.ios.dataaccess;
 
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
-import org.applause.lang.generator.ios.dataaccess.APIClientExtensions;
+import org.applause.lang.generator.ios.dataaccess.APIClientClassExtensions;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
 
@@ -10,7 +10,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class APIClientHeaderFileCompiler {
   @Inject
   @Extension
-  private APIClientExtensions _aPIClientExtensions;
+  private APIClientClassExtensions _aPIClientClassExtensions;
   
   public CharSequence compileHeaderFile(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
@@ -20,13 +20,13 @@ public class APIClientHeaderFileCompiler {
     _builder.newLine();
     _builder.newLine();
     _builder.append("@interface ");
-    String _className = this._aPIClientExtensions.className(it);
-    _builder.append(_className, "");
+    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(it);
+    _builder.append(_apiClientClassName, "");
     _builder.append(" : AFHTTPSessionManager");
     _builder.newLineIfNotEmpty();
     _builder.append("+ (");
-    String _className_1 = this._aPIClientExtensions.className(it);
-    _builder.append(_className_1, "");
+    String _apiClientClassName_1 = this._aPIClientClassExtensions.apiClientClassName(it);
+    _builder.append(_apiClientClassName_1, "");
     _builder.append(" *)sharedClient;");
     _builder.newLineIfNotEmpty();
     _builder.append("@end");
