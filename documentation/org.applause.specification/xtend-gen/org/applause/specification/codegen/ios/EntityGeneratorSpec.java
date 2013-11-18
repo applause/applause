@@ -6,8 +6,8 @@ import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.NamedElement;
-import org.applause.lang.generator.ios.model.EntityInterfaceCompiler;
-import org.applause.lang.generator.ios.model.EntityModuleCompiler;
+import org.applause.lang.generator.ios.model.EntityHeaderFileCompiler;
+import org.applause.lang.generator.ios.model.EntityModuleFileCompiler;
 import org.applause.specification.ApplauseDslInjectorProvider;
 import org.applause.specification.ApplauseDslTestCreator;
 import org.applause.specification.codegen.ios.EntityGeneratorGeneratingEntitiesSpec;
@@ -43,12 +43,12 @@ public class EntityGeneratorSpec {
   @Inject
   @Extension
   @org.jnario.runner.Extension
-  public EntityInterfaceCompiler _entityInterfaceCompiler;
+  public EntityHeaderFileCompiler _entityHeaderFileCompiler;
   
   @Inject
   @Extension
   @org.jnario.runner.Extension
-  public EntityModuleCompiler _entityModuleCompiler;
+  public EntityModuleFileCompiler _entityModuleFileCompiler;
   
   private Entity entity(final CharSequence input, final String entityName) {
     try {
@@ -75,7 +75,7 @@ public class EntityGeneratorSpec {
   
   public void isGeneratedHeaderFileFromModel(final CharSequence expectedGeneratedCode, final String entityName, final CharSequence input) {
     final Entity entity = this.entity(input, entityName);
-    final CharSequence result = this._entityInterfaceCompiler.compileHeader(entity);
+    final CharSequence result = this._entityHeaderFileCompiler.compileHeader(entity);
     String _string = result.toString();
     String _string_1 = expectedGeneratedCode.toString();
     Matcher<String> _equalTo = CoreMatchers.<String>equalTo(_string_1);
@@ -84,7 +84,7 @@ public class EntityGeneratorSpec {
   
   public void isGeneratedModuleFileFromModel(final CharSequence expectedGeneratedCode, final String entityName, final CharSequence input) {
     final Entity entity = this.entity(input, entityName);
-    final CharSequence result = this._entityModuleCompiler.compileModule(entity);
+    final CharSequence result = this._entityModuleFileCompiler.compileModule(entity);
     String _string = result.toString();
     String _string_1 = expectedGeneratedCode.toString();
     Matcher<String> _equalTo = CoreMatchers.<String>equalTo(_string_1);

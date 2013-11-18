@@ -32,6 +32,24 @@ public class TypeExtensions {
       }
     }
     if (!_matched) {
+      if (Objects.equal(_switchValue,"Bool")) {
+        _matched=true;
+        _switchResult = "BOOL";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,"Date")) {
+        _matched=true;
+        _switchResult = "NSDate";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,"Integer")) {
+        _matched=true;
+        _switchResult = "NSNumber";
+      }
+    }
+    if (!_matched) {
       Type _type_1 = it.getType();
       String _name_1 = _type_1.getName();
       _switchResult = _name_1;

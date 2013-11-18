@@ -1,33 +1,48 @@
 package org.applause.lang.generator.ios.model
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.Attribute
 import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.generator.ios.ICompilerModule
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
-import org.applause.lang.applauseDsl.Attribute
 
-class EntityCompiler {
+class EntityCompiler implements ICompilerModule {
 	
-	@Inject extension EntityInterfaceCompiler
-	@Inject extension EntityModuleCompiler
-	@Inject extension EntityExtensions
+	@Inject extension EntityHeaderFileCompiler
+	@Inject extension EntityModuleFileCompiler
+	@Inject extension EntityClassExtensions
 	
-	def doGenerate(Resource resource, IFileSystemAccess fsa) {
+	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.headerFileName, it.compileHeader)
-			fsa.generateFile(it.moduleFileName, it.compileModule)
+			fsa.generateFile(it.entityModelHeaderFileName, it.compileHeader)
+			fsa.generateFile(it.entityModelModuleFileName, it.compileModule)
 		]
 	}
 	
 }
 
-class EntityInterfaceCompiler {
+class EntityClassExtensions {
 	
 	@Inject extension TypeExtensions
+
+	def entityModelHeaderFileName(Entity it) {
+		typeName + '.h'
+	}
+	def entityModelModuleFileName(Entity it) {
+		typeName + '.m'
+	}
 	
 	def propertyName(Attribute it) {
 		name
 	}
+	
+}
+
+class EntityHeaderFileCompiler {
+	
+	@Inject extension TypeExtensions
+	@Inject extension EntityClassExtensions
 	
 	def superTypeForwardDeclaration(Entity it) '''
 		«IF superType != null»
@@ -53,12 +68,12 @@ class EntityInterfaceCompiler {
 	
 }
 
-class EntityModuleCompiler {
+class EntityModuleFileCompiler {
 	
-	@Inject extension EntityExtensions
+	@Inject extension EntityClassExtensions
 	
 	def superTypeImportDeclaration(Entity it) '''
-		«IF superType != null»#import "«superType.headerFileName»"«ENDIF»
+		«IF superType != null»#import "«superType.entityModelHeaderFileName»"«ENDIF»
 	'''
 	
 	def compileModule(Entity it) '''

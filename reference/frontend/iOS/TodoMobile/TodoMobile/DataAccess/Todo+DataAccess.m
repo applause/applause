@@ -6,10 +6,12 @@
 
 #import "Todo+DataAccess.h"
 #import "TodoAPIClient.h"
+#import "Todo+DataMapping.h"
 
 static NSString *const kAllTodosPath = @"/todos";
 static NSString *const kPostTodoPath = @"/todos";
 static NSString *const kPutTodoPath = @"/todos";
+static NSString *const kDeleteTodoPath = @"/todos/%@";
 
 @implementation Todo (DataAccess)
 
@@ -17,15 +19,15 @@ static NSString *const kPutTodoPath = @"/todos";
 {
 	[[TodoAPIClient sharedClient] GET:kAllTodosPath parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 	{
-		NSArray *todosFromJSON = responseObject;
-		NSMutableArray *todos = [[NSMutableArray alloc] initWithCapacity:[todosFromJSON count]];
-		for (NSDictionary *attributes in todosFromJSON) {
-			Todo *todo = [[Todo alloc] initWithAttributes:attributes];
-			[todos addObject:todo];
+		NSArray *elementsFromJSON = responseObject;
+		NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[elementsFromJSON count]];
+		for (NSDictionary *attributes in elementsFromJSON) {
+			Todo *mappedElement = [[Todo alloc] initWithAttributes:attributes];
+			[result addObject:mappedElement];
 		}
 
 		if (block) {
-			block([todos copy], nil);
+			block([result copy], nil);
 		}
 	} failure:^(NSURLSessionDataTask *task, NSError *error)
 	{
@@ -37,12 +39,12 @@ static NSString *const kPutTodoPath = @"/todos";
 
 - (void)post:(void (^)(Todo *todo, NSError *error))block
 {
-	NSDictionary *todoDictionary = [self attributes];
-	[[TodoAPIClient sharedClient] POST:kPostTodoPath parameters:todoDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+	NSDictionary *elementDictionary = [self attributes];
+	[[TodoAPIClient sharedClient] POST:kPostTodoPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 	{
-		Todo *postedTodo = responseObject;
+		Todo *postedElement = responseObject;
 		if(block) {
-			block(postedTodo, nil);
+			block(postedElement, nil);
 		}
 	} failure:^(NSURLSessionDataTask *task, NSError *error)
 	{
@@ -54,12 +56,12 @@ static NSString *const kPutTodoPath = @"/todos";
 
 - (void)put:(void (^)(Todo *todo, NSError *error))block
 {
-	NSDictionary *todoDictionary = [self attributes];
-	[[TodoAPIClient sharedClient] PUT:kPutTodoPath parameters:todoDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+	NSDictionary *elementDictionary = [self attributes];
+	[[TodoAPIClient sharedClient] PUT:kPutTodoPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 	{
-		Todo *postedTodo = responseObject;
+		Todo *postedElement = responseObject;
 		if(block) {
-			block(postedTodo, nil);
+			block(postedElement, nil);
 		}
 	} failure:^(NSURLSessionDataTask *task, NSError *error)
 	{
@@ -71,7 +73,7 @@ static NSString *const kPutTodoPath = @"/todos";
 
 - (void)remove:(void (^)(Todo *todo, NSError *error))block
 {
-	NSString *urlString = [NSString stringWithFormat:@"/todos/%@", self.id];
+	NSString *urlString = [NSString stringWithFormat:kDeleteTodoPath, self.id];
 	[[TodoAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 	{
 		if(block) {

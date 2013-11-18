@@ -61,7 +61,7 @@ entity Person {
 <h4 class="exampleGroup pending"  id="Abstract_Entities">Abstract Entities</h4>
 </div>
 <div class="level">
-<h4 class="exampleGroup pending"  id="Entity_inheritance">Entity inheritance</h4>
+<h4 class="exampleGroup notrun"  id="Entity_inheritance">Entity inheritance</h4>
 <ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
 <pre class="prettyprint lang-spec linenums">
 #import &lt;Foundation/Foundation.h&gt;
@@ -79,9 +79,9 @@ entity Person {
 @end</pre>
 </li></ul>
 </div>
-<h3 class="exampleGroup pending"  id="Generating_Entity_Attributes">Generating Entity Attributes</h3>
+<h3 class="exampleGroup notrun"  id="Generating_Entity_Attributes">Generating Entity Attributes</h3>
 <div class="level">
-<h4 class="exampleGroup pending"  id="Simple_Attributes">Simple Attributes</h4>
+<h4 class="exampleGroup notrun"  id="Simple_Attributes">Simple Attributes</h4>
 <p>Simple attributes like these:</p>
 <pre class="prettyprint linenums lang-applause">
 datatype String
@@ -114,8 +114,8 @@ package org.applause.specification.codegen.ios
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.Model
-import org.applause.lang.generator.ios.model.EntityInterfaceCompiler
-import org.applause.lang.generator.ios.model.EntityModuleCompiler
+import org.applause.lang.generator.ios.model.EntityHeaderFileCompiler
+import org.applause.lang.generator.ios.model.EntityModuleFileCompiler
 import org.applause.specification.ApplauseDslInjectorProvider
 import org.applause.specification.ApplauseDslTestCreator
 import org.eclipse.xtext.junit4.InjectWith
@@ -130,8 +130,8 @@ import static org.junit.Assert.*
 describe &quot;Entity Generator&quot; {
   
   @Inject extension ParseHelper&lt;Model&gt;
-  @Inject extension EntityInterfaceCompiler
-  @Inject extension EntityModuleCompiler
+  @Inject extension EntityHeaderFileCompiler
+  @Inject extension EntityModuleFileCompiler
   
   private def entity(CharSequence input, String entityName) {
     val model = input.parse
