@@ -120,6 +120,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createTypeMappingAdapter();
       }
       @Override
+      public Adapter caseDataSource(DataSource object)
+      {
+        return createDataSourceAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -272,6 +277,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTypeMappingAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.DataSource <em>Data Source</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.DataSource
+   * @generated
+   */
+  public Adapter createDataSourceAdapter()
   {
     return null;
   }

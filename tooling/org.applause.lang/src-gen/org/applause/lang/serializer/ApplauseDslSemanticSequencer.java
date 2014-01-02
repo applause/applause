@@ -4,6 +4,7 @@ import com.google.inject.Inject;
 import com.google.inject.Provider;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
+import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataType;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
@@ -33,6 +34,12 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case ApplauseDslPackage.ATTRIBUTE:
 				if(context == grammarAccess.getAttributeRule()) {
 					sequence_Attribute(context, (Attribute) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.DATA_SOURCE:
+				if(context == grammarAccess.getDataSourceRule()) {
+					sequence_DataSource(context, (DataSource) semanticObject); 
 					return; 
 				}
 				else break;
@@ -82,6 +89,22 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_Attribute(EObject context, Attribute semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_DataSource(EObject context, DataSource semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.DATA_SOURCE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.DATA_SOURCE__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getDataSourceAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

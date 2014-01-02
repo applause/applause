@@ -104,6 +104,15 @@ public interface ApplauseDslFactory extends EFactory
   TypeMapping createTypeMapping();
 
   /**
+   * Returns a new object of class '<em>Data Source</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Source</em>'.
+   * @generated
+   */
+  DataSource createDataSource();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

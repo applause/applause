@@ -10,8 +10,6 @@ NamedElement:
 	Type | Platform
 ;
 
-
-
 // -----------------------------------------
 // Entities
 // -----------------------------------------
@@ -50,4 +48,13 @@ PlatformMapping:
 
 TypeMapping:
 	'typemapping' type=[DataType] '->' simpleName=ID
+;
+
+// -----------------------------------------
+// Data Source
+// -----------------------------------------
+
+DataSource:
+	'datasource' name=ID '{'
+	'}'
 ;

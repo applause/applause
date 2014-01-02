@@ -73,6 +73,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.PLATFORM: return createPlatform();
       case ApplauseDslPackage.PLATFORM_MAPPING: return createPlatformMapping();
       case ApplauseDslPackage.TYPE_MAPPING: return createTypeMapping();
+      case ApplauseDslPackage.DATA_SOURCE: return createDataSource();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -175,6 +176,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     TypeMappingImpl typeMapping = new TypeMappingImpl();
     return typeMapping;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataSource createDataSource()
+  {
+    DataSourceImpl dataSource = new DataSourceImpl();
+    return dataSource;
   }
 
   /**
