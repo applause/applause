@@ -786,13 +786,13 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__NamedElement__Alternatives"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:312:1: rule__NamedElement__Alternatives : ( ( ruleType ) | ( rulePlatform ) );
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:314:1: rule__NamedElement__Alternatives : ( ( ruleType ) | ( rulePlatform ) );
     public final void rule__NamedElement__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:316:1: ( ( ruleType ) | ( rulePlatform ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:318:1: ( ( ruleType ) | ( rulePlatform ) )
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -810,13 +810,13 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
             }
             switch (alt2) {
                 case 1 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:317:1: ( ruleType )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:319:1: ( ruleType )
                     {
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:317:1: ( ruleType )
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:318:1: ruleType
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:319:1: ( ruleType )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:320:1: ruleType
                     {
                      before(grammarAccess.getNamedElementAccess().getTypeParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleType_in_rule__NamedElement__Alternatives610);
+                    pushFollow(FOLLOW_ruleType_in_rule__NamedElement__Alternatives612);
                     ruleType();
 
                     state._fsp--;
@@ -829,13 +829,13 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:323:6: ( rulePlatform )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:325:6: ( rulePlatform )
                     {
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:323:6: ( rulePlatform )
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:324:1: rulePlatform
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:325:6: ( rulePlatform )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:326:1: rulePlatform
                     {
                      before(grammarAccess.getNamedElementAccess().getPlatformParserRuleCall_1()); 
-                    pushFollow(FOLLOW_rulePlatform_in_rule__NamedElement__Alternatives627);
+                    pushFollow(FOLLOW_rulePlatform_in_rule__NamedElement__Alternatives629);
                     rulePlatform();
 
                     state._fsp--;
@@ -865,13 +865,13 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Type__Alternatives"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:334:1: rule__Type__Alternatives : ( ( ruleDataType ) | ( ruleEntity ) );
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:336:1: rule__Type__Alternatives : ( ( ruleDataType ) | ( ruleEntity ) );
     public final void rule__Type__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:338:1: ( ( ruleDataType ) | ( ruleEntity ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:340:1: ( ( ruleDataType ) | ( ruleEntity ) )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -889,13 +889,13 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:339:1: ( ruleDataType )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:341:1: ( ruleDataType )
                     {
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:339:1: ( ruleDataType )
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:340:1: ruleDataType
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:341:1: ( ruleDataType )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:342:1: ruleDataType
                     {
                      before(grammarAccess.getTypeAccess().getDataTypeParserRuleCall_0()); 
-                    pushFollow(FOLLOW_ruleDataType_in_rule__Type__Alternatives659);
+                    pushFollow(FOLLOW_ruleDataType_in_rule__Type__Alternatives661);
                     ruleDataType();
 
                     state._fsp--;
@@ -908,13 +908,13 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:345:6: ( ruleEntity )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:347:6: ( ruleEntity )
                     {
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:345:6: ( ruleEntity )
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:346:1: ruleEntity
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:347:6: ( ruleEntity )
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:348:1: ruleEntity
                     {
                      before(grammarAccess.getTypeAccess().getEntityParserRuleCall_1()); 
-                    pushFollow(FOLLOW_ruleEntity_in_rule__Type__Alternatives676);
+                    pushFollow(FOLLOW_ruleEntity_in_rule__Type__Alternatives678);
                     ruleEntity();
 
                     state._fsp--;
@@ -944,21 +944,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataType__Group__0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:358:1: rule__DataType__Group__0 : rule__DataType__Group__0__Impl rule__DataType__Group__1 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:360:1: rule__DataType__Group__0 : rule__DataType__Group__0__Impl rule__DataType__Group__1 ;
     public final void rule__DataType__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:362:1: ( rule__DataType__Group__0__Impl rule__DataType__Group__1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:363:2: rule__DataType__Group__0__Impl rule__DataType__Group__1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:364:1: ( rule__DataType__Group__0__Impl rule__DataType__Group__1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:365:2: rule__DataType__Group__0__Impl rule__DataType__Group__1
             {
-            pushFollow(FOLLOW_rule__DataType__Group__0__Impl_in_rule__DataType__Group__0706);
+            pushFollow(FOLLOW_rule__DataType__Group__0__Impl_in_rule__DataType__Group__0708);
             rule__DataType__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__DataType__Group__1_in_rule__DataType__Group__0709);
+            pushFollow(FOLLOW_rule__DataType__Group__1_in_rule__DataType__Group__0711);
             rule__DataType__Group__1();
 
             state._fsp--;
@@ -982,20 +982,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataType__Group__0__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:370:1: rule__DataType__Group__0__Impl : ( 'datatype' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:372:1: rule__DataType__Group__0__Impl : ( 'datatype' ) ;
     public final void rule__DataType__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:374:1: ( ( 'datatype' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:375:1: ( 'datatype' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:376:1: ( ( 'datatype' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:377:1: ( 'datatype' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:375:1: ( 'datatype' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:376:1: 'datatype'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:377:1: ( 'datatype' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:378:1: 'datatype'
             {
              before(grammarAccess.getDataTypeAccess().getDatatypeKeyword_0()); 
-            match(input,11,FOLLOW_11_in_rule__DataType__Group__0__Impl737); 
+            match(input,11,FOLLOW_11_in_rule__DataType__Group__0__Impl739); 
              after(grammarAccess.getDataTypeAccess().getDatatypeKeyword_0()); 
 
             }
@@ -1019,16 +1019,16 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataType__Group__1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:389:1: rule__DataType__Group__1 : rule__DataType__Group__1__Impl ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:391:1: rule__DataType__Group__1 : rule__DataType__Group__1__Impl ;
     public final void rule__DataType__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:393:1: ( rule__DataType__Group__1__Impl )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:394:2: rule__DataType__Group__1__Impl
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:395:1: ( rule__DataType__Group__1__Impl )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:396:2: rule__DataType__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__DataType__Group__1__Impl_in_rule__DataType__Group__1768);
+            pushFollow(FOLLOW_rule__DataType__Group__1__Impl_in_rule__DataType__Group__1770);
             rule__DataType__Group__1__Impl();
 
             state._fsp--;
@@ -1052,23 +1052,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataType__Group__1__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:400:1: rule__DataType__Group__1__Impl : ( ( rule__DataType__NameAssignment_1 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:402:1: rule__DataType__Group__1__Impl : ( ( rule__DataType__NameAssignment_1 ) ) ;
     public final void rule__DataType__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:404:1: ( ( ( rule__DataType__NameAssignment_1 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:405:1: ( ( rule__DataType__NameAssignment_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:406:1: ( ( ( rule__DataType__NameAssignment_1 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:407:1: ( ( rule__DataType__NameAssignment_1 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:405:1: ( ( rule__DataType__NameAssignment_1 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:406:1: ( rule__DataType__NameAssignment_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:407:1: ( ( rule__DataType__NameAssignment_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:408:1: ( rule__DataType__NameAssignment_1 )
             {
              before(grammarAccess.getDataTypeAccess().getNameAssignment_1()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:407:1: ( rule__DataType__NameAssignment_1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:407:2: rule__DataType__NameAssignment_1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:409:1: ( rule__DataType__NameAssignment_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:409:2: rule__DataType__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__DataType__NameAssignment_1_in_rule__DataType__Group__1__Impl795);
+            pushFollow(FOLLOW_rule__DataType__NameAssignment_1_in_rule__DataType__Group__1__Impl797);
             rule__DataType__NameAssignment_1();
 
             state._fsp--;
@@ -1099,21 +1099,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:421:1: rule__Entity__Group__0 : rule__Entity__Group__0__Impl rule__Entity__Group__1 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:423:1: rule__Entity__Group__0 : rule__Entity__Group__0__Impl rule__Entity__Group__1 ;
     public final void rule__Entity__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:425:1: ( rule__Entity__Group__0__Impl rule__Entity__Group__1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:426:2: rule__Entity__Group__0__Impl rule__Entity__Group__1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:427:1: ( rule__Entity__Group__0__Impl rule__Entity__Group__1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:428:2: rule__Entity__Group__0__Impl rule__Entity__Group__1
             {
-            pushFollow(FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__0829);
+            pushFollow(FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__0831);
             rule__Entity__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__0832);
+            pushFollow(FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__0834);
             rule__Entity__Group__1();
 
             state._fsp--;
@@ -1137,20 +1137,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__0__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:433:1: rule__Entity__Group__0__Impl : ( ( rule__Entity__AbstractAssignment_0 )? ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:435:1: rule__Entity__Group__0__Impl : ( ( rule__Entity__AbstractAssignment_0 )? ) ;
     public final void rule__Entity__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:437:1: ( ( ( rule__Entity__AbstractAssignment_0 )? ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:438:1: ( ( rule__Entity__AbstractAssignment_0 )? )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:439:1: ( ( ( rule__Entity__AbstractAssignment_0 )? ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:440:1: ( ( rule__Entity__AbstractAssignment_0 )? )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:438:1: ( ( rule__Entity__AbstractAssignment_0 )? )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:439:1: ( rule__Entity__AbstractAssignment_0 )?
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:440:1: ( ( rule__Entity__AbstractAssignment_0 )? )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:441:1: ( rule__Entity__AbstractAssignment_0 )?
             {
              before(grammarAccess.getEntityAccess().getAbstractAssignment_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:440:1: ( rule__Entity__AbstractAssignment_0 )?
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:442:1: ( rule__Entity__AbstractAssignment_0 )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -1159,9 +1159,9 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:440:2: rule__Entity__AbstractAssignment_0
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:442:2: rule__Entity__AbstractAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__Entity__AbstractAssignment_0_in_rule__Entity__Group__0__Impl859);
+                    pushFollow(FOLLOW_rule__Entity__AbstractAssignment_0_in_rule__Entity__Group__0__Impl861);
                     rule__Entity__AbstractAssignment_0();
 
                     state._fsp--;
@@ -1195,21 +1195,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:450:1: rule__Entity__Group__1 : rule__Entity__Group__1__Impl rule__Entity__Group__2 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:452:1: rule__Entity__Group__1 : rule__Entity__Group__1__Impl rule__Entity__Group__2 ;
     public final void rule__Entity__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:454:1: ( rule__Entity__Group__1__Impl rule__Entity__Group__2 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:455:2: rule__Entity__Group__1__Impl rule__Entity__Group__2
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:456:1: ( rule__Entity__Group__1__Impl rule__Entity__Group__2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:457:2: rule__Entity__Group__1__Impl rule__Entity__Group__2
             {
-            pushFollow(FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__1890);
+            pushFollow(FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__1892);
             rule__Entity__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__1893);
+            pushFollow(FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__1895);
             rule__Entity__Group__2();
 
             state._fsp--;
@@ -1233,20 +1233,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__1__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:462:1: rule__Entity__Group__1__Impl : ( 'entity' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:464:1: rule__Entity__Group__1__Impl : ( 'entity' ) ;
     public final void rule__Entity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:466:1: ( ( 'entity' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:467:1: ( 'entity' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:468:1: ( ( 'entity' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:469:1: ( 'entity' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:467:1: ( 'entity' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:468:1: 'entity'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:469:1: ( 'entity' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:470:1: 'entity'
             {
              before(grammarAccess.getEntityAccess().getEntityKeyword_1()); 
-            match(input,12,FOLLOW_12_in_rule__Entity__Group__1__Impl921); 
+            match(input,12,FOLLOW_12_in_rule__Entity__Group__1__Impl923); 
              after(grammarAccess.getEntityAccess().getEntityKeyword_1()); 
 
             }
@@ -1270,21 +1270,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__2"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:481:1: rule__Entity__Group__2 : rule__Entity__Group__2__Impl rule__Entity__Group__3 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:483:1: rule__Entity__Group__2 : rule__Entity__Group__2__Impl rule__Entity__Group__3 ;
     public final void rule__Entity__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:485:1: ( rule__Entity__Group__2__Impl rule__Entity__Group__3 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:486:2: rule__Entity__Group__2__Impl rule__Entity__Group__3
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:487:1: ( rule__Entity__Group__2__Impl rule__Entity__Group__3 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:488:2: rule__Entity__Group__2__Impl rule__Entity__Group__3
             {
-            pushFollow(FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__2952);
+            pushFollow(FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__2954);
             rule__Entity__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__2955);
+            pushFollow(FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__2957);
             rule__Entity__Group__3();
 
             state._fsp--;
@@ -1308,23 +1308,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__2__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:493:1: rule__Entity__Group__2__Impl : ( ( rule__Entity__NameAssignment_2 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:495:1: rule__Entity__Group__2__Impl : ( ( rule__Entity__NameAssignment_2 ) ) ;
     public final void rule__Entity__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:497:1: ( ( ( rule__Entity__NameAssignment_2 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:498:1: ( ( rule__Entity__NameAssignment_2 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:499:1: ( ( ( rule__Entity__NameAssignment_2 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:500:1: ( ( rule__Entity__NameAssignment_2 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:498:1: ( ( rule__Entity__NameAssignment_2 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:499:1: ( rule__Entity__NameAssignment_2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:500:1: ( ( rule__Entity__NameAssignment_2 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:501:1: ( rule__Entity__NameAssignment_2 )
             {
              before(grammarAccess.getEntityAccess().getNameAssignment_2()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:500:1: ( rule__Entity__NameAssignment_2 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:500:2: rule__Entity__NameAssignment_2
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:502:1: ( rule__Entity__NameAssignment_2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:502:2: rule__Entity__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__Entity__NameAssignment_2_in_rule__Entity__Group__2__Impl982);
+            pushFollow(FOLLOW_rule__Entity__NameAssignment_2_in_rule__Entity__Group__2__Impl984);
             rule__Entity__NameAssignment_2();
 
             state._fsp--;
@@ -1355,21 +1355,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__3"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:510:1: rule__Entity__Group__3 : rule__Entity__Group__3__Impl rule__Entity__Group__4 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:512:1: rule__Entity__Group__3 : rule__Entity__Group__3__Impl rule__Entity__Group__4 ;
     public final void rule__Entity__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:514:1: ( rule__Entity__Group__3__Impl rule__Entity__Group__4 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:515:2: rule__Entity__Group__3__Impl rule__Entity__Group__4
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:516:1: ( rule__Entity__Group__3__Impl rule__Entity__Group__4 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:517:2: rule__Entity__Group__3__Impl rule__Entity__Group__4
             {
-            pushFollow(FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__31012);
+            pushFollow(FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__31014);
             rule__Entity__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__31015);
+            pushFollow(FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__31017);
             rule__Entity__Group__4();
 
             state._fsp--;
@@ -1393,20 +1393,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__3__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:522:1: rule__Entity__Group__3__Impl : ( ( rule__Entity__Group_3__0 )? ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:524:1: rule__Entity__Group__3__Impl : ( ( rule__Entity__Group_3__0 )? ) ;
     public final void rule__Entity__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:526:1: ( ( ( rule__Entity__Group_3__0 )? ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:527:1: ( ( rule__Entity__Group_3__0 )? )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:528:1: ( ( ( rule__Entity__Group_3__0 )? ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:529:1: ( ( rule__Entity__Group_3__0 )? )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:527:1: ( ( rule__Entity__Group_3__0 )? )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:528:1: ( rule__Entity__Group_3__0 )?
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:529:1: ( ( rule__Entity__Group_3__0 )? )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:530:1: ( rule__Entity__Group_3__0 )?
             {
              before(grammarAccess.getEntityAccess().getGroup_3()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:529:1: ( rule__Entity__Group_3__0 )?
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:531:1: ( rule__Entity__Group_3__0 )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -1415,9 +1415,9 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
             }
             switch (alt5) {
                 case 1 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:529:2: rule__Entity__Group_3__0
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:531:2: rule__Entity__Group_3__0
                     {
-                    pushFollow(FOLLOW_rule__Entity__Group_3__0_in_rule__Entity__Group__3__Impl1042);
+                    pushFollow(FOLLOW_rule__Entity__Group_3__0_in_rule__Entity__Group__3__Impl1044);
                     rule__Entity__Group_3__0();
 
                     state._fsp--;
@@ -1451,21 +1451,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__4"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:539:1: rule__Entity__Group__4 : rule__Entity__Group__4__Impl rule__Entity__Group__5 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:541:1: rule__Entity__Group__4 : rule__Entity__Group__4__Impl rule__Entity__Group__5 ;
     public final void rule__Entity__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:543:1: ( rule__Entity__Group__4__Impl rule__Entity__Group__5 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:544:2: rule__Entity__Group__4__Impl rule__Entity__Group__5
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:545:1: ( rule__Entity__Group__4__Impl rule__Entity__Group__5 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:546:2: rule__Entity__Group__4__Impl rule__Entity__Group__5
             {
-            pushFollow(FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__41073);
+            pushFollow(FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__41075);
             rule__Entity__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__41076);
+            pushFollow(FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__41078);
             rule__Entity__Group__5();
 
             state._fsp--;
@@ -1489,20 +1489,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__4__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:551:1: rule__Entity__Group__4__Impl : ( '{' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:553:1: rule__Entity__Group__4__Impl : ( '{' ) ;
     public final void rule__Entity__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:555:1: ( ( '{' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:556:1: ( '{' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:557:1: ( ( '{' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:558:1: ( '{' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:556:1: ( '{' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:557:1: '{'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:558:1: ( '{' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:559:1: '{'
             {
              before(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_4()); 
-            match(input,13,FOLLOW_13_in_rule__Entity__Group__4__Impl1104); 
+            match(input,13,FOLLOW_13_in_rule__Entity__Group__4__Impl1106); 
              after(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_4()); 
 
             }
@@ -1526,21 +1526,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__5"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:570:1: rule__Entity__Group__5 : rule__Entity__Group__5__Impl rule__Entity__Group__6 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:572:1: rule__Entity__Group__5 : rule__Entity__Group__5__Impl rule__Entity__Group__6 ;
     public final void rule__Entity__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:574:1: ( rule__Entity__Group__5__Impl rule__Entity__Group__6 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:575:2: rule__Entity__Group__5__Impl rule__Entity__Group__6
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:576:1: ( rule__Entity__Group__5__Impl rule__Entity__Group__6 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:577:2: rule__Entity__Group__5__Impl rule__Entity__Group__6
             {
-            pushFollow(FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__51135);
+            pushFollow(FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__51137);
             rule__Entity__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group__6_in_rule__Entity__Group__51138);
+            pushFollow(FOLLOW_rule__Entity__Group__6_in_rule__Entity__Group__51140);
             rule__Entity__Group__6();
 
             state._fsp--;
@@ -1564,20 +1564,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__5__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:582:1: rule__Entity__Group__5__Impl : ( ( rule__Entity__AttributesAssignment_5 )* ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:584:1: rule__Entity__Group__5__Impl : ( ( rule__Entity__AttributesAssignment_5 )* ) ;
     public final void rule__Entity__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:586:1: ( ( ( rule__Entity__AttributesAssignment_5 )* ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:587:1: ( ( rule__Entity__AttributesAssignment_5 )* )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:588:1: ( ( ( rule__Entity__AttributesAssignment_5 )* ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:589:1: ( ( rule__Entity__AttributesAssignment_5 )* )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:587:1: ( ( rule__Entity__AttributesAssignment_5 )* )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:588:1: ( rule__Entity__AttributesAssignment_5 )*
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:589:1: ( ( rule__Entity__AttributesAssignment_5 )* )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:590:1: ( rule__Entity__AttributesAssignment_5 )*
             {
              before(grammarAccess.getEntityAccess().getAttributesAssignment_5()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:589:1: ( rule__Entity__AttributesAssignment_5 )*
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:591:1: ( rule__Entity__AttributesAssignment_5 )*
             loop6:
             do {
                 int alt6=2;
@@ -1590,9 +1590,9 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:589:2: rule__Entity__AttributesAssignment_5
+            	    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:591:2: rule__Entity__AttributesAssignment_5
             	    {
-            	    pushFollow(FOLLOW_rule__Entity__AttributesAssignment_5_in_rule__Entity__Group__5__Impl1165);
+            	    pushFollow(FOLLOW_rule__Entity__AttributesAssignment_5_in_rule__Entity__Group__5__Impl1167);
             	    rule__Entity__AttributesAssignment_5();
 
             	    state._fsp--;
@@ -1629,16 +1629,16 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__6"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:599:1: rule__Entity__Group__6 : rule__Entity__Group__6__Impl ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:601:1: rule__Entity__Group__6 : rule__Entity__Group__6__Impl ;
     public final void rule__Entity__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:603:1: ( rule__Entity__Group__6__Impl )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:604:2: rule__Entity__Group__6__Impl
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:605:1: ( rule__Entity__Group__6__Impl )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:606:2: rule__Entity__Group__6__Impl
             {
-            pushFollow(FOLLOW_rule__Entity__Group__6__Impl_in_rule__Entity__Group__61196);
+            pushFollow(FOLLOW_rule__Entity__Group__6__Impl_in_rule__Entity__Group__61198);
             rule__Entity__Group__6__Impl();
 
             state._fsp--;
@@ -1662,20 +1662,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group__6__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:610:1: rule__Entity__Group__6__Impl : ( '}' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:612:1: rule__Entity__Group__6__Impl : ( '}' ) ;
     public final void rule__Entity__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:614:1: ( ( '}' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:615:1: ( '}' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:616:1: ( ( '}' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:617:1: ( '}' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:615:1: ( '}' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:616:1: '}'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:617:1: ( '}' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:618:1: '}'
             {
              before(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6()); 
-            match(input,14,FOLLOW_14_in_rule__Entity__Group__6__Impl1224); 
+            match(input,14,FOLLOW_14_in_rule__Entity__Group__6__Impl1226); 
              after(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_6()); 
 
             }
@@ -1699,21 +1699,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group_3__0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:643:1: rule__Entity__Group_3__0 : rule__Entity__Group_3__0__Impl rule__Entity__Group_3__1 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:645:1: rule__Entity__Group_3__0 : rule__Entity__Group_3__0__Impl rule__Entity__Group_3__1 ;
     public final void rule__Entity__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:647:1: ( rule__Entity__Group_3__0__Impl rule__Entity__Group_3__1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:648:2: rule__Entity__Group_3__0__Impl rule__Entity__Group_3__1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:649:1: ( rule__Entity__Group_3__0__Impl rule__Entity__Group_3__1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:650:2: rule__Entity__Group_3__0__Impl rule__Entity__Group_3__1
             {
-            pushFollow(FOLLOW_rule__Entity__Group_3__0__Impl_in_rule__Entity__Group_3__01269);
+            pushFollow(FOLLOW_rule__Entity__Group_3__0__Impl_in_rule__Entity__Group_3__01271);
             rule__Entity__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Entity__Group_3__1_in_rule__Entity__Group_3__01272);
+            pushFollow(FOLLOW_rule__Entity__Group_3__1_in_rule__Entity__Group_3__01274);
             rule__Entity__Group_3__1();
 
             state._fsp--;
@@ -1737,20 +1737,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group_3__0__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:655:1: rule__Entity__Group_3__0__Impl : ( 'extends' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:657:1: rule__Entity__Group_3__0__Impl : ( 'extends' ) ;
     public final void rule__Entity__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:659:1: ( ( 'extends' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:660:1: ( 'extends' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:661:1: ( ( 'extends' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:662:1: ( 'extends' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:660:1: ( 'extends' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:661:1: 'extends'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:662:1: ( 'extends' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:663:1: 'extends'
             {
              before(grammarAccess.getEntityAccess().getExtendsKeyword_3_0()); 
-            match(input,15,FOLLOW_15_in_rule__Entity__Group_3__0__Impl1300); 
+            match(input,15,FOLLOW_15_in_rule__Entity__Group_3__0__Impl1302); 
              after(grammarAccess.getEntityAccess().getExtendsKeyword_3_0()); 
 
             }
@@ -1774,16 +1774,16 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group_3__1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:674:1: rule__Entity__Group_3__1 : rule__Entity__Group_3__1__Impl ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:676:1: rule__Entity__Group_3__1 : rule__Entity__Group_3__1__Impl ;
     public final void rule__Entity__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:678:1: ( rule__Entity__Group_3__1__Impl )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:679:2: rule__Entity__Group_3__1__Impl
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:680:1: ( rule__Entity__Group_3__1__Impl )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:681:2: rule__Entity__Group_3__1__Impl
             {
-            pushFollow(FOLLOW_rule__Entity__Group_3__1__Impl_in_rule__Entity__Group_3__11331);
+            pushFollow(FOLLOW_rule__Entity__Group_3__1__Impl_in_rule__Entity__Group_3__11333);
             rule__Entity__Group_3__1__Impl();
 
             state._fsp--;
@@ -1807,23 +1807,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__Group_3__1__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:685:1: rule__Entity__Group_3__1__Impl : ( ( rule__Entity__SuperTypeAssignment_3_1 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:687:1: rule__Entity__Group_3__1__Impl : ( ( rule__Entity__SuperTypeAssignment_3_1 ) ) ;
     public final void rule__Entity__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:689:1: ( ( ( rule__Entity__SuperTypeAssignment_3_1 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:690:1: ( ( rule__Entity__SuperTypeAssignment_3_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:691:1: ( ( ( rule__Entity__SuperTypeAssignment_3_1 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:692:1: ( ( rule__Entity__SuperTypeAssignment_3_1 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:690:1: ( ( rule__Entity__SuperTypeAssignment_3_1 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:691:1: ( rule__Entity__SuperTypeAssignment_3_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:692:1: ( ( rule__Entity__SuperTypeAssignment_3_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:693:1: ( rule__Entity__SuperTypeAssignment_3_1 )
             {
              before(grammarAccess.getEntityAccess().getSuperTypeAssignment_3_1()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:692:1: ( rule__Entity__SuperTypeAssignment_3_1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:692:2: rule__Entity__SuperTypeAssignment_3_1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:694:1: ( rule__Entity__SuperTypeAssignment_3_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:694:2: rule__Entity__SuperTypeAssignment_3_1
             {
-            pushFollow(FOLLOW_rule__Entity__SuperTypeAssignment_3_1_in_rule__Entity__Group_3__1__Impl1358);
+            pushFollow(FOLLOW_rule__Entity__SuperTypeAssignment_3_1_in_rule__Entity__Group_3__1__Impl1360);
             rule__Entity__SuperTypeAssignment_3_1();
 
             state._fsp--;
@@ -1854,21 +1854,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__Group__0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:706:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:708:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
     public final void rule__Attribute__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:710:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:711:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:712:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:713:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
             {
-            pushFollow(FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__01392);
+            pushFollow(FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__01394);
             rule__Attribute__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__01395);
+            pushFollow(FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__01397);
             rule__Attribute__Group__1();
 
             state._fsp--;
@@ -1892,23 +1892,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__Group__0__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:718:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__TypeAssignment_0 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:720:1: rule__Attribute__Group__0__Impl : ( ( rule__Attribute__TypeAssignment_0 ) ) ;
     public final void rule__Attribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:722:1: ( ( ( rule__Attribute__TypeAssignment_0 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:723:1: ( ( rule__Attribute__TypeAssignment_0 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:724:1: ( ( ( rule__Attribute__TypeAssignment_0 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:725:1: ( ( rule__Attribute__TypeAssignment_0 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:723:1: ( ( rule__Attribute__TypeAssignment_0 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:724:1: ( rule__Attribute__TypeAssignment_0 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:725:1: ( ( rule__Attribute__TypeAssignment_0 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:726:1: ( rule__Attribute__TypeAssignment_0 )
             {
              before(grammarAccess.getAttributeAccess().getTypeAssignment_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:725:1: ( rule__Attribute__TypeAssignment_0 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:725:2: rule__Attribute__TypeAssignment_0
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:727:1: ( rule__Attribute__TypeAssignment_0 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:727:2: rule__Attribute__TypeAssignment_0
             {
-            pushFollow(FOLLOW_rule__Attribute__TypeAssignment_0_in_rule__Attribute__Group__0__Impl1422);
+            pushFollow(FOLLOW_rule__Attribute__TypeAssignment_0_in_rule__Attribute__Group__0__Impl1424);
             rule__Attribute__TypeAssignment_0();
 
             state._fsp--;
@@ -1939,21 +1939,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__Group__1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:735:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:737:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
     public final void rule__Attribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:739:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:740:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:741:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:742:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
             {
-            pushFollow(FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__11452);
+            pushFollow(FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__11454);
             rule__Attribute__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__11455);
+            pushFollow(FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__11457);
             rule__Attribute__Group__2();
 
             state._fsp--;
@@ -1977,20 +1977,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__Group__1__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:747:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__ManyAssignment_1 )? ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:749:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__ManyAssignment_1 )? ) ;
     public final void rule__Attribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:751:1: ( ( ( rule__Attribute__ManyAssignment_1 )? ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:752:1: ( ( rule__Attribute__ManyAssignment_1 )? )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:753:1: ( ( ( rule__Attribute__ManyAssignment_1 )? ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:754:1: ( ( rule__Attribute__ManyAssignment_1 )? )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:752:1: ( ( rule__Attribute__ManyAssignment_1 )? )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:753:1: ( rule__Attribute__ManyAssignment_1 )?
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:754:1: ( ( rule__Attribute__ManyAssignment_1 )? )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:755:1: ( rule__Attribute__ManyAssignment_1 )?
             {
              before(grammarAccess.getAttributeAccess().getManyAssignment_1()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:754:1: ( rule__Attribute__ManyAssignment_1 )?
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:756:1: ( rule__Attribute__ManyAssignment_1 )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1999,9 +1999,9 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:754:2: rule__Attribute__ManyAssignment_1
+                    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:756:2: rule__Attribute__ManyAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__Attribute__ManyAssignment_1_in_rule__Attribute__Group__1__Impl1482);
+                    pushFollow(FOLLOW_rule__Attribute__ManyAssignment_1_in_rule__Attribute__Group__1__Impl1484);
                     rule__Attribute__ManyAssignment_1();
 
                     state._fsp--;
@@ -2035,16 +2035,16 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__Group__2"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:764:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:766:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl ;
     public final void rule__Attribute__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:768:1: ( rule__Attribute__Group__2__Impl )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:769:2: rule__Attribute__Group__2__Impl
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:770:1: ( rule__Attribute__Group__2__Impl )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:771:2: rule__Attribute__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__21513);
+            pushFollow(FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__21515);
             rule__Attribute__Group__2__Impl();
 
             state._fsp--;
@@ -2068,23 +2068,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__Group__2__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:775:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__NameAssignment_2 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:777:1: rule__Attribute__Group__2__Impl : ( ( rule__Attribute__NameAssignment_2 ) ) ;
     public final void rule__Attribute__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:779:1: ( ( ( rule__Attribute__NameAssignment_2 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:780:1: ( ( rule__Attribute__NameAssignment_2 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:781:1: ( ( ( rule__Attribute__NameAssignment_2 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:782:1: ( ( rule__Attribute__NameAssignment_2 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:780:1: ( ( rule__Attribute__NameAssignment_2 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:781:1: ( rule__Attribute__NameAssignment_2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:782:1: ( ( rule__Attribute__NameAssignment_2 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:783:1: ( rule__Attribute__NameAssignment_2 )
             {
              before(grammarAccess.getAttributeAccess().getNameAssignment_2()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:782:1: ( rule__Attribute__NameAssignment_2 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:782:2: rule__Attribute__NameAssignment_2
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:784:1: ( rule__Attribute__NameAssignment_2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:784:2: rule__Attribute__NameAssignment_2
             {
-            pushFollow(FOLLOW_rule__Attribute__NameAssignment_2_in_rule__Attribute__Group__2__Impl1540);
+            pushFollow(FOLLOW_rule__Attribute__NameAssignment_2_in_rule__Attribute__Group__2__Impl1542);
             rule__Attribute__NameAssignment_2();
 
             state._fsp--;
@@ -2115,21 +2115,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:798:1: rule__Platform__Group__0 : rule__Platform__Group__0__Impl rule__Platform__Group__1 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:800:1: rule__Platform__Group__0 : rule__Platform__Group__0__Impl rule__Platform__Group__1 ;
     public final void rule__Platform__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:802:1: ( rule__Platform__Group__0__Impl rule__Platform__Group__1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:803:2: rule__Platform__Group__0__Impl rule__Platform__Group__1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:804:1: ( rule__Platform__Group__0__Impl rule__Platform__Group__1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:805:2: rule__Platform__Group__0__Impl rule__Platform__Group__1
             {
-            pushFollow(FOLLOW_rule__Platform__Group__0__Impl_in_rule__Platform__Group__01576);
+            pushFollow(FOLLOW_rule__Platform__Group__0__Impl_in_rule__Platform__Group__01578);
             rule__Platform__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Platform__Group__1_in_rule__Platform__Group__01579);
+            pushFollow(FOLLOW_rule__Platform__Group__1_in_rule__Platform__Group__01581);
             rule__Platform__Group__1();
 
             state._fsp--;
@@ -2153,20 +2153,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__0__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:810:1: rule__Platform__Group__0__Impl : ( 'platform' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:812:1: rule__Platform__Group__0__Impl : ( 'platform' ) ;
     public final void rule__Platform__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:814:1: ( ( 'platform' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:815:1: ( 'platform' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:816:1: ( ( 'platform' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:817:1: ( 'platform' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:815:1: ( 'platform' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:816:1: 'platform'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:817:1: ( 'platform' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:818:1: 'platform'
             {
              before(grammarAccess.getPlatformAccess().getPlatformKeyword_0()); 
-            match(input,16,FOLLOW_16_in_rule__Platform__Group__0__Impl1607); 
+            match(input,16,FOLLOW_16_in_rule__Platform__Group__0__Impl1609); 
              after(grammarAccess.getPlatformAccess().getPlatformKeyword_0()); 
 
             }
@@ -2190,21 +2190,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:829:1: rule__Platform__Group__1 : rule__Platform__Group__1__Impl rule__Platform__Group__2 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:831:1: rule__Platform__Group__1 : rule__Platform__Group__1__Impl rule__Platform__Group__2 ;
     public final void rule__Platform__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:833:1: ( rule__Platform__Group__1__Impl rule__Platform__Group__2 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:834:2: rule__Platform__Group__1__Impl rule__Platform__Group__2
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:835:1: ( rule__Platform__Group__1__Impl rule__Platform__Group__2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:836:2: rule__Platform__Group__1__Impl rule__Platform__Group__2
             {
-            pushFollow(FOLLOW_rule__Platform__Group__1__Impl_in_rule__Platform__Group__11638);
+            pushFollow(FOLLOW_rule__Platform__Group__1__Impl_in_rule__Platform__Group__11640);
             rule__Platform__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Platform__Group__2_in_rule__Platform__Group__11641);
+            pushFollow(FOLLOW_rule__Platform__Group__2_in_rule__Platform__Group__11643);
             rule__Platform__Group__2();
 
             state._fsp--;
@@ -2228,23 +2228,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__1__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:841:1: rule__Platform__Group__1__Impl : ( ( rule__Platform__NameAssignment_1 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:843:1: rule__Platform__Group__1__Impl : ( ( rule__Platform__NameAssignment_1 ) ) ;
     public final void rule__Platform__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:845:1: ( ( ( rule__Platform__NameAssignment_1 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:846:1: ( ( rule__Platform__NameAssignment_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:847:1: ( ( ( rule__Platform__NameAssignment_1 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:848:1: ( ( rule__Platform__NameAssignment_1 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:846:1: ( ( rule__Platform__NameAssignment_1 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:847:1: ( rule__Platform__NameAssignment_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:848:1: ( ( rule__Platform__NameAssignment_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:849:1: ( rule__Platform__NameAssignment_1 )
             {
              before(grammarAccess.getPlatformAccess().getNameAssignment_1()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:848:1: ( rule__Platform__NameAssignment_1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:848:2: rule__Platform__NameAssignment_1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:850:1: ( rule__Platform__NameAssignment_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:850:2: rule__Platform__NameAssignment_1
             {
-            pushFollow(FOLLOW_rule__Platform__NameAssignment_1_in_rule__Platform__Group__1__Impl1668);
+            pushFollow(FOLLOW_rule__Platform__NameAssignment_1_in_rule__Platform__Group__1__Impl1670);
             rule__Platform__NameAssignment_1();
 
             state._fsp--;
@@ -2275,21 +2275,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__2"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:858:1: rule__Platform__Group__2 : rule__Platform__Group__2__Impl rule__Platform__Group__3 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:860:1: rule__Platform__Group__2 : rule__Platform__Group__2__Impl rule__Platform__Group__3 ;
     public final void rule__Platform__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:862:1: ( rule__Platform__Group__2__Impl rule__Platform__Group__3 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:863:2: rule__Platform__Group__2__Impl rule__Platform__Group__3
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:864:1: ( rule__Platform__Group__2__Impl rule__Platform__Group__3 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:865:2: rule__Platform__Group__2__Impl rule__Platform__Group__3
             {
-            pushFollow(FOLLOW_rule__Platform__Group__2__Impl_in_rule__Platform__Group__21698);
+            pushFollow(FOLLOW_rule__Platform__Group__2__Impl_in_rule__Platform__Group__21700);
             rule__Platform__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Platform__Group__3_in_rule__Platform__Group__21701);
+            pushFollow(FOLLOW_rule__Platform__Group__3_in_rule__Platform__Group__21703);
             rule__Platform__Group__3();
 
             state._fsp--;
@@ -2313,20 +2313,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__2__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:870:1: rule__Platform__Group__2__Impl : ( '{' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:872:1: rule__Platform__Group__2__Impl : ( '{' ) ;
     public final void rule__Platform__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:874:1: ( ( '{' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:875:1: ( '{' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:876:1: ( ( '{' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:877:1: ( '{' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:875:1: ( '{' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:876:1: '{'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:877:1: ( '{' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:878:1: '{'
             {
              before(grammarAccess.getPlatformAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,13,FOLLOW_13_in_rule__Platform__Group__2__Impl1729); 
+            match(input,13,FOLLOW_13_in_rule__Platform__Group__2__Impl1731); 
              after(grammarAccess.getPlatformAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -2350,21 +2350,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__3"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:889:1: rule__Platform__Group__3 : rule__Platform__Group__3__Impl rule__Platform__Group__4 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:891:1: rule__Platform__Group__3 : rule__Platform__Group__3__Impl rule__Platform__Group__4 ;
     public final void rule__Platform__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:893:1: ( rule__Platform__Group__3__Impl rule__Platform__Group__4 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:894:2: rule__Platform__Group__3__Impl rule__Platform__Group__4
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:895:1: ( rule__Platform__Group__3__Impl rule__Platform__Group__4 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:896:2: rule__Platform__Group__3__Impl rule__Platform__Group__4
             {
-            pushFollow(FOLLOW_rule__Platform__Group__3__Impl_in_rule__Platform__Group__31760);
+            pushFollow(FOLLOW_rule__Platform__Group__3__Impl_in_rule__Platform__Group__31762);
             rule__Platform__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__Platform__Group__4_in_rule__Platform__Group__31763);
+            pushFollow(FOLLOW_rule__Platform__Group__4_in_rule__Platform__Group__31765);
             rule__Platform__Group__4();
 
             state._fsp--;
@@ -2388,20 +2388,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__3__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:901:1: rule__Platform__Group__3__Impl : ( ( rule__Platform__MappingsAssignment_3 )* ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:903:1: rule__Platform__Group__3__Impl : ( ( rule__Platform__MappingsAssignment_3 )* ) ;
     public final void rule__Platform__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:905:1: ( ( ( rule__Platform__MappingsAssignment_3 )* ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:906:1: ( ( rule__Platform__MappingsAssignment_3 )* )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:907:1: ( ( ( rule__Platform__MappingsAssignment_3 )* ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:908:1: ( ( rule__Platform__MappingsAssignment_3 )* )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:906:1: ( ( rule__Platform__MappingsAssignment_3 )* )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:907:1: ( rule__Platform__MappingsAssignment_3 )*
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:908:1: ( ( rule__Platform__MappingsAssignment_3 )* )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:909:1: ( rule__Platform__MappingsAssignment_3 )*
             {
              before(grammarAccess.getPlatformAccess().getMappingsAssignment_3()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:908:1: ( rule__Platform__MappingsAssignment_3 )*
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:910:1: ( rule__Platform__MappingsAssignment_3 )*
             loop8:
             do {
                 int alt8=2;
@@ -2414,9 +2414,9 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:908:2: rule__Platform__MappingsAssignment_3
+            	    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:910:2: rule__Platform__MappingsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_rule__Platform__MappingsAssignment_3_in_rule__Platform__Group__3__Impl1790);
+            	    pushFollow(FOLLOW_rule__Platform__MappingsAssignment_3_in_rule__Platform__Group__3__Impl1792);
             	    rule__Platform__MappingsAssignment_3();
 
             	    state._fsp--;
@@ -2453,16 +2453,16 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__4"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:918:1: rule__Platform__Group__4 : rule__Platform__Group__4__Impl ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:920:1: rule__Platform__Group__4 : rule__Platform__Group__4__Impl ;
     public final void rule__Platform__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:922:1: ( rule__Platform__Group__4__Impl )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:923:2: rule__Platform__Group__4__Impl
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:924:1: ( rule__Platform__Group__4__Impl )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:925:2: rule__Platform__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__Platform__Group__4__Impl_in_rule__Platform__Group__41821);
+            pushFollow(FOLLOW_rule__Platform__Group__4__Impl_in_rule__Platform__Group__41823);
             rule__Platform__Group__4__Impl();
 
             state._fsp--;
@@ -2486,20 +2486,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__Group__4__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:929:1: rule__Platform__Group__4__Impl : ( '}' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:931:1: rule__Platform__Group__4__Impl : ( '}' ) ;
     public final void rule__Platform__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:933:1: ( ( '}' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:934:1: ( '}' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:935:1: ( ( '}' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:936:1: ( '}' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:934:1: ( '}' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:935:1: '}'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:936:1: ( '}' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:937:1: '}'
             {
              before(grammarAccess.getPlatformAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,14,FOLLOW_14_in_rule__Platform__Group__4__Impl1849); 
+            match(input,14,FOLLOW_14_in_rule__Platform__Group__4__Impl1851); 
              after(grammarAccess.getPlatformAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -2523,21 +2523,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:958:1: rule__TypeMapping__Group__0 : rule__TypeMapping__Group__0__Impl rule__TypeMapping__Group__1 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:960:1: rule__TypeMapping__Group__0 : rule__TypeMapping__Group__0__Impl rule__TypeMapping__Group__1 ;
     public final void rule__TypeMapping__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:962:1: ( rule__TypeMapping__Group__0__Impl rule__TypeMapping__Group__1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:963:2: rule__TypeMapping__Group__0__Impl rule__TypeMapping__Group__1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:964:1: ( rule__TypeMapping__Group__0__Impl rule__TypeMapping__Group__1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:965:2: rule__TypeMapping__Group__0__Impl rule__TypeMapping__Group__1
             {
-            pushFollow(FOLLOW_rule__TypeMapping__Group__0__Impl_in_rule__TypeMapping__Group__01890);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__0__Impl_in_rule__TypeMapping__Group__01892);
             rule__TypeMapping__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__TypeMapping__Group__1_in_rule__TypeMapping__Group__01893);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__1_in_rule__TypeMapping__Group__01895);
             rule__TypeMapping__Group__1();
 
             state._fsp--;
@@ -2561,20 +2561,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__0__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:970:1: rule__TypeMapping__Group__0__Impl : ( 'typemapping' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:972:1: rule__TypeMapping__Group__0__Impl : ( 'typemapping' ) ;
     public final void rule__TypeMapping__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:974:1: ( ( 'typemapping' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:975:1: ( 'typemapping' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:976:1: ( ( 'typemapping' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:977:1: ( 'typemapping' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:975:1: ( 'typemapping' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:976:1: 'typemapping'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:977:1: ( 'typemapping' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:978:1: 'typemapping'
             {
              before(grammarAccess.getTypeMappingAccess().getTypemappingKeyword_0()); 
-            match(input,17,FOLLOW_17_in_rule__TypeMapping__Group__0__Impl1921); 
+            match(input,17,FOLLOW_17_in_rule__TypeMapping__Group__0__Impl1923); 
              after(grammarAccess.getTypeMappingAccess().getTypemappingKeyword_0()); 
 
             }
@@ -2598,21 +2598,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:989:1: rule__TypeMapping__Group__1 : rule__TypeMapping__Group__1__Impl rule__TypeMapping__Group__2 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:991:1: rule__TypeMapping__Group__1 : rule__TypeMapping__Group__1__Impl rule__TypeMapping__Group__2 ;
     public final void rule__TypeMapping__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:993:1: ( rule__TypeMapping__Group__1__Impl rule__TypeMapping__Group__2 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:994:2: rule__TypeMapping__Group__1__Impl rule__TypeMapping__Group__2
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:995:1: ( rule__TypeMapping__Group__1__Impl rule__TypeMapping__Group__2 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:996:2: rule__TypeMapping__Group__1__Impl rule__TypeMapping__Group__2
             {
-            pushFollow(FOLLOW_rule__TypeMapping__Group__1__Impl_in_rule__TypeMapping__Group__11952);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__1__Impl_in_rule__TypeMapping__Group__11954);
             rule__TypeMapping__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__TypeMapping__Group__2_in_rule__TypeMapping__Group__11955);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__2_in_rule__TypeMapping__Group__11957);
             rule__TypeMapping__Group__2();
 
             state._fsp--;
@@ -2636,23 +2636,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__1__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1001:1: rule__TypeMapping__Group__1__Impl : ( ( rule__TypeMapping__TypeAssignment_1 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1003:1: rule__TypeMapping__Group__1__Impl : ( ( rule__TypeMapping__TypeAssignment_1 ) ) ;
     public final void rule__TypeMapping__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1005:1: ( ( ( rule__TypeMapping__TypeAssignment_1 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1006:1: ( ( rule__TypeMapping__TypeAssignment_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1007:1: ( ( ( rule__TypeMapping__TypeAssignment_1 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1008:1: ( ( rule__TypeMapping__TypeAssignment_1 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1006:1: ( ( rule__TypeMapping__TypeAssignment_1 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1007:1: ( rule__TypeMapping__TypeAssignment_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1008:1: ( ( rule__TypeMapping__TypeAssignment_1 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1009:1: ( rule__TypeMapping__TypeAssignment_1 )
             {
              before(grammarAccess.getTypeMappingAccess().getTypeAssignment_1()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1008:1: ( rule__TypeMapping__TypeAssignment_1 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1008:2: rule__TypeMapping__TypeAssignment_1
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1010:1: ( rule__TypeMapping__TypeAssignment_1 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1010:2: rule__TypeMapping__TypeAssignment_1
             {
-            pushFollow(FOLLOW_rule__TypeMapping__TypeAssignment_1_in_rule__TypeMapping__Group__1__Impl1982);
+            pushFollow(FOLLOW_rule__TypeMapping__TypeAssignment_1_in_rule__TypeMapping__Group__1__Impl1984);
             rule__TypeMapping__TypeAssignment_1();
 
             state._fsp--;
@@ -2683,21 +2683,21 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__2"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1018:1: rule__TypeMapping__Group__2 : rule__TypeMapping__Group__2__Impl rule__TypeMapping__Group__3 ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1020:1: rule__TypeMapping__Group__2 : rule__TypeMapping__Group__2__Impl rule__TypeMapping__Group__3 ;
     public final void rule__TypeMapping__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1022:1: ( rule__TypeMapping__Group__2__Impl rule__TypeMapping__Group__3 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1023:2: rule__TypeMapping__Group__2__Impl rule__TypeMapping__Group__3
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1024:1: ( rule__TypeMapping__Group__2__Impl rule__TypeMapping__Group__3 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1025:2: rule__TypeMapping__Group__2__Impl rule__TypeMapping__Group__3
             {
-            pushFollow(FOLLOW_rule__TypeMapping__Group__2__Impl_in_rule__TypeMapping__Group__22012);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__2__Impl_in_rule__TypeMapping__Group__22014);
             rule__TypeMapping__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FOLLOW_rule__TypeMapping__Group__3_in_rule__TypeMapping__Group__22015);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__3_in_rule__TypeMapping__Group__22017);
             rule__TypeMapping__Group__3();
 
             state._fsp--;
@@ -2721,20 +2721,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__2__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1030:1: rule__TypeMapping__Group__2__Impl : ( '->' ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1032:1: rule__TypeMapping__Group__2__Impl : ( '->' ) ;
     public final void rule__TypeMapping__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1034:1: ( ( '->' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1035:1: ( '->' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1036:1: ( ( '->' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1037:1: ( '->' )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1035:1: ( '->' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1036:1: '->'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1037:1: ( '->' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1038:1: '->'
             {
              before(grammarAccess.getTypeMappingAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
-            match(input,18,FOLLOW_18_in_rule__TypeMapping__Group__2__Impl2043); 
+            match(input,18,FOLLOW_18_in_rule__TypeMapping__Group__2__Impl2045); 
              after(grammarAccess.getTypeMappingAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
 
             }
@@ -2758,16 +2758,16 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__3"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1049:1: rule__TypeMapping__Group__3 : rule__TypeMapping__Group__3__Impl ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1051:1: rule__TypeMapping__Group__3 : rule__TypeMapping__Group__3__Impl ;
     public final void rule__TypeMapping__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1053:1: ( rule__TypeMapping__Group__3__Impl )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1054:2: rule__TypeMapping__Group__3__Impl
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1055:1: ( rule__TypeMapping__Group__3__Impl )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1056:2: rule__TypeMapping__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__TypeMapping__Group__3__Impl_in_rule__TypeMapping__Group__32074);
+            pushFollow(FOLLOW_rule__TypeMapping__Group__3__Impl_in_rule__TypeMapping__Group__32076);
             rule__TypeMapping__Group__3__Impl();
 
             state._fsp--;
@@ -2791,23 +2791,23 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__Group__3__Impl"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1060:1: rule__TypeMapping__Group__3__Impl : ( ( rule__TypeMapping__SimpleNameAssignment_3 ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1062:1: rule__TypeMapping__Group__3__Impl : ( ( rule__TypeMapping__SimpleNameAssignment_3 ) ) ;
     public final void rule__TypeMapping__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1064:1: ( ( ( rule__TypeMapping__SimpleNameAssignment_3 ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1065:1: ( ( rule__TypeMapping__SimpleNameAssignment_3 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1066:1: ( ( ( rule__TypeMapping__SimpleNameAssignment_3 ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1067:1: ( ( rule__TypeMapping__SimpleNameAssignment_3 ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1065:1: ( ( rule__TypeMapping__SimpleNameAssignment_3 ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1066:1: ( rule__TypeMapping__SimpleNameAssignment_3 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1067:1: ( ( rule__TypeMapping__SimpleNameAssignment_3 ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1068:1: ( rule__TypeMapping__SimpleNameAssignment_3 )
             {
              before(grammarAccess.getTypeMappingAccess().getSimpleNameAssignment_3()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1067:1: ( rule__TypeMapping__SimpleNameAssignment_3 )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1067:2: rule__TypeMapping__SimpleNameAssignment_3
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1069:1: ( rule__TypeMapping__SimpleNameAssignment_3 )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1069:2: rule__TypeMapping__SimpleNameAssignment_3
             {
-            pushFollow(FOLLOW_rule__TypeMapping__SimpleNameAssignment_3_in_rule__TypeMapping__Group__3__Impl2101);
+            pushFollow(FOLLOW_rule__TypeMapping__SimpleNameAssignment_3_in_rule__TypeMapping__Group__3__Impl2103);
             rule__TypeMapping__SimpleNameAssignment_3();
 
             state._fsp--;
@@ -2838,20 +2838,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Model__ElementsAssignment"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1086:1: rule__Model__ElementsAssignment : ( ruleNamedElement ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1089:1: rule__Model__ElementsAssignment : ( ruleNamedElement ) ;
     public final void rule__Model__ElementsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1090:1: ( ( ruleNamedElement ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1091:1: ( ruleNamedElement )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1093:1: ( ( ruleNamedElement ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1094:1: ( ruleNamedElement )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1091:1: ( ruleNamedElement )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1092:1: ruleNamedElement
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1094:1: ( ruleNamedElement )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1095:1: ruleNamedElement
             {
              before(grammarAccess.getModelAccess().getElementsNamedElementParserRuleCall_0()); 
-            pushFollow(FOLLOW_ruleNamedElement_in_rule__Model__ElementsAssignment2144);
+            pushFollow(FOLLOW_ruleNamedElement_in_rule__Model__ElementsAssignment2147);
             ruleNamedElement();
 
             state._fsp--;
@@ -2879,20 +2879,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__DataType__NameAssignment_1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1101:1: rule__DataType__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1104:1: rule__DataType__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__DataType__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1105:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1106:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1108:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1109:1: ( RULE_ID )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1106:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1107:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1109:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1110:1: RULE_ID
             {
              before(grammarAccess.getDataTypeAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DataType__NameAssignment_12175); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DataType__NameAssignment_12178); 
              after(grammarAccess.getDataTypeAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -2916,24 +2916,24 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__AbstractAssignment_0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1116:1: rule__Entity__AbstractAssignment_0 : ( ( 'abstract' ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1119:1: rule__Entity__AbstractAssignment_0 : ( ( 'abstract' ) ) ;
     public final void rule__Entity__AbstractAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1120:1: ( ( ( 'abstract' ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1121:1: ( ( 'abstract' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1123:1: ( ( ( 'abstract' ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1124:1: ( ( 'abstract' ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1121:1: ( ( 'abstract' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1122:1: ( 'abstract' )
-            {
-             before(grammarAccess.getEntityAccess().getAbstractAbstractKeyword_0_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1123:1: ( 'abstract' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1124:1: 'abstract'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1124:1: ( ( 'abstract' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1125:1: ( 'abstract' )
             {
              before(grammarAccess.getEntityAccess().getAbstractAbstractKeyword_0_0()); 
-            match(input,19,FOLLOW_19_in_rule__Entity__AbstractAssignment_02211); 
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1126:1: ( 'abstract' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1127:1: 'abstract'
+            {
+             before(grammarAccess.getEntityAccess().getAbstractAbstractKeyword_0_0()); 
+            match(input,19,FOLLOW_19_in_rule__Entity__AbstractAssignment_02214); 
              after(grammarAccess.getEntityAccess().getAbstractAbstractKeyword_0_0()); 
 
             }
@@ -2961,20 +2961,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__NameAssignment_2"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1139:1: rule__Entity__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1142:1: rule__Entity__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Entity__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1143:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1144:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1146:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1147:1: ( RULE_ID )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1144:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1145:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1147:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1148:1: RULE_ID
             {
              before(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Entity__NameAssignment_22250); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Entity__NameAssignment_22253); 
              after(grammarAccess.getEntityAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -2998,24 +2998,24 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__SuperTypeAssignment_3_1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1154:1: rule__Entity__SuperTypeAssignment_3_1 : ( ( RULE_ID ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1157:1: rule__Entity__SuperTypeAssignment_3_1 : ( ( RULE_ID ) ) ;
     public final void rule__Entity__SuperTypeAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1158:1: ( ( ( RULE_ID ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1159:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1161:1: ( ( ( RULE_ID ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1162:1: ( ( RULE_ID ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1159:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1160:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1162:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1163:1: ( RULE_ID )
             {
              before(grammarAccess.getEntityAccess().getSuperTypeEntityCrossReference_3_1_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1161:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1162:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1164:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1165:1: RULE_ID
             {
              before(grammarAccess.getEntityAccess().getSuperTypeEntityIDTerminalRuleCall_3_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Entity__SuperTypeAssignment_3_12285); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Entity__SuperTypeAssignment_3_12288); 
              after(grammarAccess.getEntityAccess().getSuperTypeEntityIDTerminalRuleCall_3_1_0_1()); 
 
             }
@@ -3043,20 +3043,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Entity__AttributesAssignment_5"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1173:1: rule__Entity__AttributesAssignment_5 : ( ruleAttribute ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1176:1: rule__Entity__AttributesAssignment_5 : ( ruleAttribute ) ;
     public final void rule__Entity__AttributesAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1177:1: ( ( ruleAttribute ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1178:1: ( ruleAttribute )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1180:1: ( ( ruleAttribute ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1181:1: ( ruleAttribute )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1178:1: ( ruleAttribute )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1179:1: ruleAttribute
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1181:1: ( ruleAttribute )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1182:1: ruleAttribute
             {
              before(grammarAccess.getEntityAccess().getAttributesAttributeParserRuleCall_5_0()); 
-            pushFollow(FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_52320);
+            pushFollow(FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_52323);
             ruleAttribute();
 
             state._fsp--;
@@ -3084,24 +3084,24 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__TypeAssignment_0"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1188:1: rule__Attribute__TypeAssignment_0 : ( ( RULE_ID ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1191:1: rule__Attribute__TypeAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__Attribute__TypeAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1192:1: ( ( ( RULE_ID ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1193:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1195:1: ( ( ( RULE_ID ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1196:1: ( ( RULE_ID ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1193:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1194:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1196:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1197:1: ( RULE_ID )
             {
              before(grammarAccess.getAttributeAccess().getTypeTypeCrossReference_0_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1195:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1196:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1198:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1199:1: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getTypeTypeIDTerminalRuleCall_0_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Attribute__TypeAssignment_02355); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Attribute__TypeAssignment_02358); 
              after(grammarAccess.getAttributeAccess().getTypeTypeIDTerminalRuleCall_0_0_1()); 
 
             }
@@ -3129,24 +3129,24 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__ManyAssignment_1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1207:1: rule__Attribute__ManyAssignment_1 : ( ( '[]' ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1210:1: rule__Attribute__ManyAssignment_1 : ( ( '[]' ) ) ;
     public final void rule__Attribute__ManyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1211:1: ( ( ( '[]' ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1212:1: ( ( '[]' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1214:1: ( ( ( '[]' ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1215:1: ( ( '[]' ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1212:1: ( ( '[]' ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1213:1: ( '[]' )
-            {
-             before(grammarAccess.getAttributeAccess().getManyLeftSquareBracketRightSquareBracketKeyword_1_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1214:1: ( '[]' )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1215:1: '[]'
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1215:1: ( ( '[]' ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1216:1: ( '[]' )
             {
              before(grammarAccess.getAttributeAccess().getManyLeftSquareBracketRightSquareBracketKeyword_1_0()); 
-            match(input,20,FOLLOW_20_in_rule__Attribute__ManyAssignment_12395); 
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1217:1: ( '[]' )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1218:1: '[]'
+            {
+             before(grammarAccess.getAttributeAccess().getManyLeftSquareBracketRightSquareBracketKeyword_1_0()); 
+            match(input,20,FOLLOW_20_in_rule__Attribute__ManyAssignment_12398); 
              after(grammarAccess.getAttributeAccess().getManyLeftSquareBracketRightSquareBracketKeyword_1_0()); 
 
             }
@@ -3174,20 +3174,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_2"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1230:1: rule__Attribute__NameAssignment_2 : ( RULE_ID ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1233:1: rule__Attribute__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1234:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1235:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1237:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1238:1: ( RULE_ID )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1235:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1236:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1238:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1239:1: RULE_ID
             {
              before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_2_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Attribute__NameAssignment_22434); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Attribute__NameAssignment_22437); 
              after(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_2_0()); 
 
             }
@@ -3211,20 +3211,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__NameAssignment_1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1245:1: rule__Platform__NameAssignment_1 : ( RULE_ID ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1248:1: rule__Platform__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Platform__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1249:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1250:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1252:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1253:1: ( RULE_ID )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1250:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1251:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1253:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1254:1: RULE_ID
             {
              before(grammarAccess.getPlatformAccess().getNameIDTerminalRuleCall_1_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Platform__NameAssignment_12465); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Platform__NameAssignment_12468); 
              after(grammarAccess.getPlatformAccess().getNameIDTerminalRuleCall_1_0()); 
 
             }
@@ -3248,20 +3248,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__Platform__MappingsAssignment_3"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1260:1: rule__Platform__MappingsAssignment_3 : ( rulePlatformMapping ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1263:1: rule__Platform__MappingsAssignment_3 : ( rulePlatformMapping ) ;
     public final void rule__Platform__MappingsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1264:1: ( ( rulePlatformMapping ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1265:1: ( rulePlatformMapping )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1267:1: ( ( rulePlatformMapping ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1268:1: ( rulePlatformMapping )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1265:1: ( rulePlatformMapping )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1266:1: rulePlatformMapping
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1268:1: ( rulePlatformMapping )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1269:1: rulePlatformMapping
             {
              before(grammarAccess.getPlatformAccess().getMappingsPlatformMappingParserRuleCall_3_0()); 
-            pushFollow(FOLLOW_rulePlatformMapping_in_rule__Platform__MappingsAssignment_32496);
+            pushFollow(FOLLOW_rulePlatformMapping_in_rule__Platform__MappingsAssignment_32499);
             rulePlatformMapping();
 
             state._fsp--;
@@ -3289,24 +3289,24 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__TypeAssignment_1"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1275:1: rule__TypeMapping__TypeAssignment_1 : ( ( RULE_ID ) ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1278:1: rule__TypeMapping__TypeAssignment_1 : ( ( RULE_ID ) ) ;
     public final void rule__TypeMapping__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1279:1: ( ( ( RULE_ID ) ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1280:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1282:1: ( ( ( RULE_ID ) ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1283:1: ( ( RULE_ID ) )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1280:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1281:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1283:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1284:1: ( RULE_ID )
             {
              before(grammarAccess.getTypeMappingAccess().getTypeDataTypeCrossReference_1_0()); 
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1282:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1283:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1285:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1286:1: RULE_ID
             {
              before(grammarAccess.getTypeMappingAccess().getTypeDataTypeIDTerminalRuleCall_1_0_1()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__TypeMapping__TypeAssignment_12531); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__TypeMapping__TypeAssignment_12534); 
              after(grammarAccess.getTypeMappingAccess().getTypeDataTypeIDTerminalRuleCall_1_0_1()); 
 
             }
@@ -3334,20 +3334,20 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
 
 
     // $ANTLR start "rule__TypeMapping__SimpleNameAssignment_3"
-    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1294:1: rule__TypeMapping__SimpleNameAssignment_3 : ( RULE_ID ) ;
+    // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1297:1: rule__TypeMapping__SimpleNameAssignment_3 : ( RULE_ID ) ;
     public final void rule__TypeMapping__SimpleNameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1298:1: ( ( RULE_ID ) )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1299:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1301:1: ( ( RULE_ID ) )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1302:1: ( RULE_ID )
             {
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1299:1: ( RULE_ID )
-            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1300:1: RULE_ID
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1302:1: ( RULE_ID )
+            // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:1303:1: RULE_ID
             {
              before(grammarAccess.getTypeMappingAccess().getSimpleNameIDTerminalRuleCall_3_0()); 
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__TypeMapping__SimpleNameAssignment_32566); 
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__TypeMapping__SimpleNameAssignment_32569); 
              after(grammarAccess.getTypeMappingAccess().getSimpleNameIDTerminalRuleCall_3_0()); 
 
             }
@@ -3401,85 +3401,85 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
     public static final BitSet FOLLOW_ruleTypeMapping_in_entryRuleTypeMapping541 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTypeMapping548 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__TypeMapping__Group__0_in_ruleTypeMapping574 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleType_in_rule__NamedElement__Alternatives610 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePlatform_in_rule__NamedElement__Alternatives627 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataType_in_rule__Type__Alternatives659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleEntity_in_rule__Type__Alternatives676 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataType__Group__0__Impl_in_rule__DataType__Group__0706 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__DataType__Group__1_in_rule__DataType__Group__0709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_11_in_rule__DataType__Group__0__Impl737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataType__Group__1__Impl_in_rule__DataType__Group__1768 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__DataType__NameAssignment_1_in_rule__DataType__Group__1__Impl795 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__0829 = new BitSet(new long[]{0x0000000000081800L});
-    public static final BitSet FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__0832 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__AbstractAssignment_0_in_rule__Entity__Group__0__Impl859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__1890 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__1893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_12_in_rule__Entity__Group__1__Impl921 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__2952 = new BitSet(new long[]{0x000000000000A000L});
-    public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__2955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__NameAssignment_2_in_rule__Entity__Group__2__Impl982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__31012 = new BitSet(new long[]{0x000000000000A000L});
-    public static final BitSet FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__31015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group_3__0_in_rule__Entity__Group__3__Impl1042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__41073 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__41076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Entity__Group__4__Impl1104 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__51135 = new BitSet(new long[]{0x0000000000004010L});
-    public static final BitSet FOLLOW_rule__Entity__Group__6_in_rule__Entity__Group__51138 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__AttributesAssignment_5_in_rule__Entity__Group__5__Impl1165 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_rule__Entity__Group__6__Impl_in_rule__Entity__Group__61196 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Entity__Group__6__Impl1224 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group_3__0__Impl_in_rule__Entity__Group_3__01269 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Entity__Group_3__1_in_rule__Entity__Group_3__01272 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_15_in_rule__Entity__Group_3__0__Impl1300 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__Group_3__1__Impl_in_rule__Entity__Group_3__11331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Entity__SuperTypeAssignment_3_1_in_rule__Entity__Group_3__1__Impl1358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__01392 = new BitSet(new long[]{0x0000000000100010L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__01395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__TypeAssignment_0_in_rule__Attribute__Group__0__Impl1422 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__11452 = new BitSet(new long[]{0x0000000000100010L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__11455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__ManyAssignment_1_in_rule__Attribute__Group__1__Impl1482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__21513 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Attribute__NameAssignment_2_in_rule__Attribute__Group__2__Impl1540 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Platform__Group__0__Impl_in_rule__Platform__Group__01576 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__Platform__Group__1_in_rule__Platform__Group__01579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_16_in_rule__Platform__Group__0__Impl1607 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Platform__Group__1__Impl_in_rule__Platform__Group__11638 = new BitSet(new long[]{0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__Platform__Group__2_in_rule__Platform__Group__11641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Platform__NameAssignment_1_in_rule__Platform__Group__1__Impl1668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Platform__Group__2__Impl_in_rule__Platform__Group__21698 = new BitSet(new long[]{0x0000000000024000L});
-    public static final BitSet FOLLOW_rule__Platform__Group__3_in_rule__Platform__Group__21701 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_13_in_rule__Platform__Group__2__Impl1729 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Platform__Group__3__Impl_in_rule__Platform__Group__31760 = new BitSet(new long[]{0x0000000000024000L});
-    public static final BitSet FOLLOW_rule__Platform__Group__4_in_rule__Platform__Group__31763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Platform__MappingsAssignment_3_in_rule__Platform__Group__3__Impl1790 = new BitSet(new long[]{0x0000000000020002L});
-    public static final BitSet FOLLOW_rule__Platform__Group__4__Impl_in_rule__Platform__Group__41821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_14_in_rule__Platform__Group__4__Impl1849 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__0__Impl_in_rule__TypeMapping__Group__01890 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__1_in_rule__TypeMapping__Group__01893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_17_in_rule__TypeMapping__Group__0__Impl1921 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__1__Impl_in_rule__TypeMapping__Group__11952 = new BitSet(new long[]{0x0000000000040000L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__2_in_rule__TypeMapping__Group__11955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TypeMapping__TypeAssignment_1_in_rule__TypeMapping__Group__1__Impl1982 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__2__Impl_in_rule__TypeMapping__Group__22012 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__3_in_rule__TypeMapping__Group__22015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_18_in_rule__TypeMapping__Group__2__Impl2043 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TypeMapping__Group__3__Impl_in_rule__TypeMapping__Group__32074 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__TypeMapping__SimpleNameAssignment_3_in_rule__TypeMapping__Group__3__Impl2101 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNamedElement_in_rule__Model__ElementsAssignment2144 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DataType__NameAssignment_12175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_19_in_rule__Entity__AbstractAssignment_02211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Entity__NameAssignment_22250 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Entity__SuperTypeAssignment_3_12285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_52320 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Attribute__TypeAssignment_02355 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_20_in_rule__Attribute__ManyAssignment_12395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Attribute__NameAssignment_22434 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Platform__NameAssignment_12465 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePlatformMapping_in_rule__Platform__MappingsAssignment_32496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__TypeMapping__TypeAssignment_12531 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__TypeMapping__SimpleNameAssignment_32566 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleType_in_rule__NamedElement__Alternatives612 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlatform_in_rule__NamedElement__Alternatives629 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataType_in_rule__Type__Alternatives661 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleEntity_in_rule__Type__Alternatives678 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataType__Group__0__Impl_in_rule__DataType__Group__0708 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__DataType__Group__1_in_rule__DataType__Group__0711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_11_in_rule__DataType__Group__0__Impl739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataType__Group__1__Impl_in_rule__DataType__Group__1770 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__DataType__NameAssignment_1_in_rule__DataType__Group__1__Impl797 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__0831 = new BitSet(new long[]{0x0000000000081800L});
+    public static final BitSet FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__0834 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__AbstractAssignment_0_in_rule__Entity__Group__0__Impl861 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__1892 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__1895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_12_in_rule__Entity__Group__1__Impl923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__2954 = new BitSet(new long[]{0x000000000000A000L});
+    public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__2957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__NameAssignment_2_in_rule__Entity__Group__2__Impl984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__31014 = new BitSet(new long[]{0x000000000000A000L});
+    public static final BitSet FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__31017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group_3__0_in_rule__Entity__Group__3__Impl1044 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__41075 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_rule__Entity__Group__5_in_rule__Entity__Group__41078 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Entity__Group__4__Impl1106 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group__5__Impl_in_rule__Entity__Group__51137 = new BitSet(new long[]{0x0000000000004010L});
+    public static final BitSet FOLLOW_rule__Entity__Group__6_in_rule__Entity__Group__51140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__AttributesAssignment_5_in_rule__Entity__Group__5__Impl1167 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_rule__Entity__Group__6__Impl_in_rule__Entity__Group__61198 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Entity__Group__6__Impl1226 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group_3__0__Impl_in_rule__Entity__Group_3__01271 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Entity__Group_3__1_in_rule__Entity__Group_3__01274 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_15_in_rule__Entity__Group_3__0__Impl1302 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__Group_3__1__Impl_in_rule__Entity__Group_3__11333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Entity__SuperTypeAssignment_3_1_in_rule__Entity__Group_3__1__Impl1360 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__0__Impl_in_rule__Attribute__Group__01394 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__1_in_rule__Attribute__Group__01397 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__TypeAssignment_0_in_rule__Attribute__Group__0__Impl1424 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__1__Impl_in_rule__Attribute__Group__11454 = new BitSet(new long[]{0x0000000000100010L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__2_in_rule__Attribute__Group__11457 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__ManyAssignment_1_in_rule__Attribute__Group__1__Impl1484 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__Group__2__Impl_in_rule__Attribute__Group__21515 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Attribute__NameAssignment_2_in_rule__Attribute__Group__2__Impl1542 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Platform__Group__0__Impl_in_rule__Platform__Group__01578 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__Platform__Group__1_in_rule__Platform__Group__01581 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_16_in_rule__Platform__Group__0__Impl1609 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Platform__Group__1__Impl_in_rule__Platform__Group__11640 = new BitSet(new long[]{0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__Platform__Group__2_in_rule__Platform__Group__11643 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Platform__NameAssignment_1_in_rule__Platform__Group__1__Impl1670 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Platform__Group__2__Impl_in_rule__Platform__Group__21700 = new BitSet(new long[]{0x0000000000024000L});
+    public static final BitSet FOLLOW_rule__Platform__Group__3_in_rule__Platform__Group__21703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_13_in_rule__Platform__Group__2__Impl1731 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Platform__Group__3__Impl_in_rule__Platform__Group__31762 = new BitSet(new long[]{0x0000000000024000L});
+    public static final BitSet FOLLOW_rule__Platform__Group__4_in_rule__Platform__Group__31765 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Platform__MappingsAssignment_3_in_rule__Platform__Group__3__Impl1792 = new BitSet(new long[]{0x0000000000020002L});
+    public static final BitSet FOLLOW_rule__Platform__Group__4__Impl_in_rule__Platform__Group__41823 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_14_in_rule__Platform__Group__4__Impl1851 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__0__Impl_in_rule__TypeMapping__Group__01892 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__1_in_rule__TypeMapping__Group__01895 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_17_in_rule__TypeMapping__Group__0__Impl1923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__1__Impl_in_rule__TypeMapping__Group__11954 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__2_in_rule__TypeMapping__Group__11957 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TypeMapping__TypeAssignment_1_in_rule__TypeMapping__Group__1__Impl1984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__2__Impl_in_rule__TypeMapping__Group__22014 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__3_in_rule__TypeMapping__Group__22017 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_18_in_rule__TypeMapping__Group__2__Impl2045 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TypeMapping__Group__3__Impl_in_rule__TypeMapping__Group__32076 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__TypeMapping__SimpleNameAssignment_3_in_rule__TypeMapping__Group__3__Impl2103 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNamedElement_in_rule__Model__ElementsAssignment2147 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DataType__NameAssignment_12178 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_19_in_rule__Entity__AbstractAssignment_02214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Entity__NameAssignment_22253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Entity__SuperTypeAssignment_3_12288 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_52323 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Attribute__TypeAssignment_02358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_20_in_rule__Attribute__ManyAssignment_12398 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Attribute__NameAssignment_22437 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Platform__NameAssignment_12468 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePlatformMapping_in_rule__Platform__MappingsAssignment_32499 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__TypeMapping__TypeAssignment_12534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__TypeMapping__SimpleNameAssignment_32569 = new BitSet(new long[]{0x0000000000000002L});
 
 }

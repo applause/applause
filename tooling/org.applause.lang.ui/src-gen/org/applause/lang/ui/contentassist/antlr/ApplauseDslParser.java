@@ -45,6 +45,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getAttributeAccess().getGroup(), "rule__Attribute__Group__0");
 					put(grammarAccess.getPlatformAccess().getGroup(), "rule__Platform__Group__0");
 					put(grammarAccess.getTypeMappingAccess().getGroup(), "rule__TypeMapping__Group__0");
+					put(grammarAccess.getDataSourceAccess().getGroup(), "rule__DataSource__Group__0");
 					put(grammarAccess.getModelAccess().getElementsAssignment(), "rule__Model__ElementsAssignment");
 					put(grammarAccess.getDataTypeAccess().getNameAssignment_1(), "rule__DataType__NameAssignment_1");
 					put(grammarAccess.getEntityAccess().getAbstractAssignment_0(), "rule__Entity__AbstractAssignment_0");
@@ -58,6 +59,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPlatformAccess().getMappingsAssignment_3(), "rule__Platform__MappingsAssignment_3");
 					put(grammarAccess.getTypeMappingAccess().getTypeAssignment_1(), "rule__TypeMapping__TypeAssignment_1");
 					put(grammarAccess.getTypeMappingAccess().getSimpleNameAssignment_3(), "rule__TypeMapping__SimpleNameAssignment_3");
+					put(grammarAccess.getDataSourceAccess().getNameAssignment_1(), "rule__DataSource__NameAssignment_1");
 				}
 			};
 		}

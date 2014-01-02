@@ -58,7 +58,7 @@ public class EntityDataMappingModuleFileCompiler {
       for(final Attribute attribute : _attributes) {
         _builder.append("\t\t");
         CharSequence _compileAttributeToPropertyMapping = this.compileAttributeToPropertyMapping(attribute);
-        _builder.append(_compileAttributeToPropertyMapping, "		");
+        _builder.append(_compileAttributeToPropertyMapping, "\t\t");
         _builder.newLineIfNotEmpty();
       }
     }

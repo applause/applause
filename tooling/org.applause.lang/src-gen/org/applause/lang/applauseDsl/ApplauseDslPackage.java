@@ -362,6 +362,34 @@ public interface ApplauseDslPackage extends EPackage
    */
   int TYPE_MAPPING_FEATURE_COUNT = PLATFORM_MAPPING_FEATURE_COUNT + 2;
 
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.DataSourceImpl <em>Data Source</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.DataSourceImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSource()
+   * @generated
+   */
+  int DATA_SOURCE = 9;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Data Source</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_FEATURE_COUNT = 1;
+
 
   /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Model <em>Model</em>}'.
@@ -575,6 +603,27 @@ public interface ApplauseDslPackage extends EPackage
   EAttribute getTypeMapping_SimpleName();
 
   /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.DataSource <em>Data Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Source</em>'.
+   * @see org.applause.lang.applauseDsl.DataSource
+   * @generated
+   */
+  EClass getDataSource();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSource#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.DataSource#getName()
+   * @see #getDataSource()
+   * @generated
+   */
+  EAttribute getDataSource_Name();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -774,6 +823,24 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EAttribute TYPE_MAPPING__SIMPLE_NAME = eINSTANCE.getTypeMapping_SimpleName();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.DataSourceImpl <em>Data Source</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.DataSourceImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSource()
+     * @generated
+     */
+    EClass DATA_SOURCE = eINSTANCE.getDataSource();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_SOURCE__NAME = eINSTANCE.getDataSource_Name();
 
   }
 

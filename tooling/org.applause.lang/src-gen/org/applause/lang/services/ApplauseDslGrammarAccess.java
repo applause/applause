@@ -304,6 +304,41 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getSimpleNameIDTerminalRuleCall_3_0() { return cSimpleNameIDTerminalRuleCall_3_0; }
 	}
+
+	public class DataSourceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "DataSource");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cDatasourceKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//// -----------------------------------------
+		//// Data Source
+		//// -----------------------------------------
+		//DataSource:
+		//	"datasource" name=ID "{" "}";
+		public ParserRule getRule() { return rule; }
+
+		//"datasource" name=ID "{" "}"
+		public Group getGroup() { return cGroup; }
+
+		//"datasource"
+		public Keyword getDatasourceKeyword_0() { return cDatasourceKeyword_0; }
+
+		//name=ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_2() { return cLeftCurlyBracketKeyword_2; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
+	}
 	
 	
 	private ModelElements pModel;
@@ -315,6 +350,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private PlatformElements pPlatform;
 	private PlatformMappingElements pPlatformMapping;
 	private TypeMappingElements pTypeMapping;
+	private DataSourceElements pDataSource;
 	
 	private final Grammar grammar;
 
@@ -448,6 +484,19 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getTypeMappingRule() {
 		return getTypeMappingAccess().getRule();
+	}
+
+	//// -----------------------------------------
+	//// Data Source
+	//// -----------------------------------------
+	//DataSource:
+	//	"datasource" name=ID "{" "}";
+	public DataSourceElements getDataSourceAccess() {
+		return (pDataSource != null) ? pDataSource : (pDataSource = new DataSourceElements());
+	}
+	
+	public ParserRule getDataSourceRule() {
+		return getDataSourceAccess().getRule();
 	}
 
 	//terminal ID:
