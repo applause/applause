@@ -15,7 +15,7 @@ public class AndroidOutputConfigurationProvider implements IOutputConfigurationP
 	public Set<OutputConfiguration> getOutputConfigurations() {
 		OutputConfiguration defaultOutput = new OutputConfiguration(ANDROID_DEFAULT_OUTPUT);
 		defaultOutput.setDescription("Android Output Folder");
-		defaultOutput.setOutputDirectory("../../TodoMobile-Android/output");
+		defaultOutput.setOutputDirectory("../../$PROJECTNAME$-Android/.");
 		defaultOutput.setOverrideExistingResources(true);
 		defaultOutput.setCreateOutputDirectory(true);
 		defaultOutput.setCleanUpDerivedResources(true);

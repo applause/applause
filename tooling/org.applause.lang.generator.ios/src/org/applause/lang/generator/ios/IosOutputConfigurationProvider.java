@@ -16,7 +16,7 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
 	public Set<OutputConfiguration> getOutputConfigurations() {
 		OutputConfiguration defaultOutput = new OutputConfiguration(IOS_DEFAULT_OUTPUT);
 		defaultOutput.setDescription("iOS Output Folder");
-		defaultOutput.setOutputDirectory("../../TodoMobile-iOS/output");
+		defaultOutput.setOutputDirectory("../../$PROJECTNAME$-iOS/output2");
 		defaultOutput.setOverrideExistingResources(true);
 		defaultOutput.setCreateOutputDirectory(true);
 		defaultOutput.setCleanUpDerivedResources(true);
