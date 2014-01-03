@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.Entity;
+import org.applause.lang.generator.android.AndroidOutputConfigurationProvider;
 import org.applause.lang.generator.android.model.AttributeExtensions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
@@ -30,7 +31,7 @@ public class EntityCompiler {
       public void apply(final Entity it) {
         String _fileName = EntityCompiler.this.fileName(it);
         CharSequence _compile = EntityCompiler.this.compile(it);
-        fsa.generateFile(_fileName, _compile);
+        fsa.generateFile(_fileName, AndroidOutputConfigurationProvider.ANDROID_DEFAULT_OUTPUT, _compile);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

@@ -6,6 +6,7 @@ import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.generator.ios.ICompilerModule
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
+import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*;
 
 class EntityCompiler implements ICompilerModule {
 	
@@ -15,8 +16,8 @@ class EntityCompiler implements ICompilerModule {
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.entityModelHeaderFileName, it.compileHeader)
-			fsa.generateFile(it.entityModelModuleFileName, it.compileModule)
+			fsa.generateFile(it.entityModelHeaderFileName, IOS_DEFAULT_OUTPUT, it.compileHeader)
+			fsa.generateFile(it.entityModelModuleFileName, IOS_DEFAULT_OUTPUT, it.compileModule)
 		]
 	}
 	

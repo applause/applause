@@ -247,12 +247,15 @@
 	    <persistent value="true"/>
 	</extension>
 
+<!--
+	Disabled here, b/c we have builder participants in each platform generator plugin.
    <extension
          point="org.eclipse.xtext.builder.participant">
       <participant
             class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
+ -->
    <extension
             point="org.eclipse.ui.preferencePages">
         <page

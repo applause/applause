@@ -7,6 +7,7 @@ import org.applause.lang.generator.ios.ICompilerModule
 import org.applause.lang.generator.ios.model.TypeExtensions
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
+import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*;
 
 class APIClientCompiler implements ICompilerModule {
 	
@@ -17,8 +18,8 @@ class APIClientCompiler implements ICompilerModule {
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.apiClientClassName.headerFileName, it.compileHeaderFile)
-			fsa.generateFile(it.apiClientClassName.moduleFileName, it.compileModuleFile)
+			fsa.generateFile(it.apiClientClassName.headerFileName, IOS_DEFAULT_OUTPUT, it.compileHeaderFile)
+			fsa.generateFile(it.apiClientClassName.moduleFileName, IOS_DEFAULT_OUTPUT, it.compileModuleFile)
 		]
 	}
 	

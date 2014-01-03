@@ -247,37 +247,6 @@
 	    <persistent value="true"/>
 	</extension>
 
-   <extension
-         point="org.eclipse.xtext.builder.participant">
-      <participant
-            class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
-      </participant>
-   </extension>
-   <extension
-            point="org.eclipse.ui.preferencePages">
-        <page
-            category="org.applause.lang.ApplauseDsl"
-            class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="org.applause.lang.ApplauseDsl.compiler.preferencePage"
-            name="Compiler">
-            <keywordReference id="org.applause.lang.ui.keyword_ApplauseDsl"/>
-        </page>
-    </extension>
-    <extension
-            point="org.eclipse.ui.propertyPages">
-        <page
-            category="org.applause.lang.ApplauseDsl"
-            class="org.applause.lang.ui.ApplauseDslExecutableExtensionFactory:org.eclipse.xtext.builder.preferences.BuilderPreferencePage"
-            id="org.applause.lang.ApplauseDsl.compiler.propertyPage"
-            name="Compiler">
-            <keywordReference id="org.applause.lang.ui.keyword_ApplauseDsl"/>
-            <enabledWhen>
-	            <adapt type="org.eclipse.core.resources.IProject"/>
-			</enabledWhen>
-	        <filter name="projectNature" value="org.eclipse.xtext.ui.shared.xtextNature"/>
-        </page>
-    </extension>
-
 	<!-- Quick Outline -->
 	<extension
 		point="org.eclipse.ui.handlers">

@@ -2,10 +2,10 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.applause.lang.platformbuildparticipant">
+         point="org.eclipse.xtext.builder.participant">
       <participant
-            class="org.applause.lang.generator.ios.ui.IosGeneratorExecutableExtensionFactory:org.applause.lang.generator.ios.IosAppGenerator">
+            class="org.applause.lang.generator.ios.ui.IosGeneratorExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
    </extension>
-
+   
 </plugin>
