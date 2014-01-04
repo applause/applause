@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.generator.ios.ICompilerModule;
+import org.applause.lang.generator.ios.IosOutputConfigurationProvider;
 import org.applause.lang.generator.ios.model.EntityClassExtensions;
 import org.applause.lang.generator.ios.model.EntityHeaderFileCompiler;
 import org.applause.lang.generator.ios.model.EntityModuleFileCompiler;
@@ -38,10 +39,10 @@ public class EntityCompiler implements ICompilerModule {
       public void apply(final Entity it) {
         String _entityModelHeaderFileName = EntityCompiler.this._entityClassExtensions.entityModelHeaderFileName(it);
         CharSequence _compileHeader = EntityCompiler.this._entityHeaderFileCompiler.compileHeader(it);
-        fsa.generateFile(_entityModelHeaderFileName, _compileHeader);
+        fsa.generateFile(_entityModelHeaderFileName, IosOutputConfigurationProvider.IOS_OUTPUT_MODELS, _compileHeader);
         String _entityModelModuleFileName = EntityCompiler.this._entityClassExtensions.entityModelModuleFileName(it);
         CharSequence _compileModule = EntityCompiler.this._entityModuleFileCompiler.compileModule(it);
-        fsa.generateFile(_entityModelModuleFileName, _compileModule);
+        fsa.generateFile(_entityModelModuleFileName, IosOutputConfigurationProvider.IOS_OUTPUT_MODELS, _compileModule);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

@@ -2,10 +2,11 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension
-         point="org.applause.lang.platformbuildparticipant">
+         point="org.eclipse.xtext.builder.participant">
       <participant
-            class="org.applause.lang.generator.android.ui.AndroidGeneratorExecutableExtensionFactory:org.applause.lang.generator.android.AndroidAppGenerator">
+            class="org.applause.lang.generator.android.ui.AndroidGeneratorExecutableExtensionFactory:org.eclipse.xtext.builder.IXtextBuilderParticipant">
       </participant>
+      
    </extension>
 
 </plugin>

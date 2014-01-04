@@ -5,6 +5,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.Attribute
 import com.google.inject.Inject
+import static org.applause.lang.generator.android.AndroidOutputConfigurationProvider.*;
 
 class EntityCompiler {
 	
@@ -12,7 +13,7 @@ class EntityCompiler {
 	
 	def doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.fileName, it.compile)
+			fsa.generateFile(it.fileName, ANDROID_DEFAULT_OUTPUT, it.compile)
 		]
 	}
 	

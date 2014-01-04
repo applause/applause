@@ -5,6 +5,7 @@ import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.generator.ios.FileNameExtensions;
 import org.applause.lang.generator.ios.ICompilerModule;
+import org.applause.lang.generator.ios.IosOutputConfigurationProvider;
 import org.applause.lang.generator.ios.dataaccess.APIClientClassExtensions;
 import org.applause.lang.generator.ios.dataaccess.APIClientHeaderFileCompiler;
 import org.applause.lang.generator.ios.dataaccess.APIClientModuleFileCompiler;
@@ -44,11 +45,11 @@ public class APIClientCompiler implements ICompilerModule {
         String _apiClientClassName = APIClientCompiler.this._aPIClientClassExtensions.apiClientClassName(it);
         String _headerFileName = APIClientCompiler.this._fileNameExtensions.headerFileName(_apiClientClassName);
         CharSequence _compileHeaderFile = APIClientCompiler.this._aPIClientHeaderFileCompiler.compileHeaderFile(it);
-        fsa.generateFile(_headerFileName, _compileHeaderFile);
+        fsa.generateFile(_headerFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileHeaderFile);
         String _apiClientClassName_1 = APIClientCompiler.this._aPIClientClassExtensions.apiClientClassName(it);
         String _moduleFileName = APIClientCompiler.this._fileNameExtensions.moduleFileName(_apiClientClassName_1);
         CharSequence _compileModuleFile = APIClientCompiler.this._aPIClientModuleFileCompiler.compileModuleFile(it);
-        fsa.generateFile(_moduleFileName, _compileModuleFile);
+        fsa.generateFile(_moduleFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileModuleFile);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

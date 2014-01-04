@@ -4,6 +4,7 @@ import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.generator.ios.ICompilerModule;
+import org.applause.lang.generator.ios.IosOutputConfigurationProvider;
 import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler;
@@ -38,10 +39,10 @@ public class DataAccessCompiler implements ICompilerModule {
       public void apply(final Entity it) {
         String _entityDataAccessCategoryHeaderFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(it);
         CharSequence _compileHeaderFile = DataAccessCompiler.this._entityDataAccessHeaderFileCompiler.compileHeaderFile(it);
-        fsa.generateFile(_entityDataAccessCategoryHeaderFileName, _compileHeaderFile);
+        fsa.generateFile(_entityDataAccessCategoryHeaderFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileHeaderFile);
         String _entityDataAccessCategoryModuleFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryModuleFileName(it);
         CharSequence _compileModuleFile = DataAccessCompiler.this._entityDataAccessModuleFileCompiler.compileModuleFile(it);
-        fsa.generateFile(_entityDataAccessCategoryModuleFileName, _compileModuleFile);
+        fsa.generateFile(_entityDataAccessCategoryModuleFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileModuleFile);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

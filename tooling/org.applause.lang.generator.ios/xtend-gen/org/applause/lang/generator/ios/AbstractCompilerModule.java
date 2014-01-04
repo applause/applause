@@ -2,6 +2,7 @@ package org.applause.lang.generator.ios;
 
 import com.google.common.collect.Iterables;
 import org.applause.lang.generator.ios.ICompilerModule;
+import org.applause.lang.generator.ios.IosOutputConfigurationProvider;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -31,10 +32,10 @@ public abstract class AbstractCompilerModule<T extends Object> implements ICompi
       public void apply(final T it) {
         String _headerFileName = AbstractCompilerModule.this.headerFileName(it);
         CharSequence _compileHeaderFile = AbstractCompilerModule.this.compileHeaderFile(it);
-        fsa.generateFile(_headerFileName, _compileHeaderFile);
+        fsa.generateFile(_headerFileName, IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, _compileHeaderFile);
         String _moduleFileName = AbstractCompilerModule.this.moduleFileName(it);
         CharSequence _compileModuleFile = AbstractCompilerModule.this.compileModuleFile(it);
-        fsa.generateFile(_moduleFileName, _compileModuleFile);
+        fsa.generateFile(_moduleFileName, IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, _compileModuleFile);
       }
     };
     IterableExtensions.<T>forEach(_filter, _function);

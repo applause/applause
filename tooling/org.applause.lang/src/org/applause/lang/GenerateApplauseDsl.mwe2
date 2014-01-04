@@ -86,7 +86,9 @@ Workflow {
     		fragment = builder.BuilderIntegrationFragment auto-inject {}
     
     		// generator API
-    		fragment = generator.GeneratorFragment auto-inject {}
+    		// 2014-01-03 pfr 	Disabled this in order to prevent Xtext from generating a stub generator. As each of the
+    		//					platform plugins now have their own generator, this is not needed any more. In fact, it'd be counterproductive.
+    		// fragment = generator.GeneratorFragment auto-inject {}
     
     		// formatter API
     		fragment = formatting.FormatterFragment auto-inject {}
