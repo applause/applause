@@ -16,6 +16,8 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
   
   public final static String IOS_OUTPUT_DATAACCESS = "IOS_OUTPUT_DATAACCESS";
   
+  public final static String IOS_OUTPUT_SUPPORTFILES = "IOS_OUTPUT_SUPPORTFILES";
+  
   public Set<OutputConfiguration> getOutputConfigurations() {
     Set<OutputConfiguration> _xblockexpression = null;
     {
@@ -29,7 +31,6 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
           it.setSetDerivedProperty(true);
-          it.setKeepLocalHistory(Boolean.valueOf(true));
         }
       };
       ObjectExtensions.<OutputConfiguration>operator_doubleArrow(defaultOutput, _function);
@@ -43,7 +44,6 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
           it.setSetDerivedProperty(true);
-          it.setKeepLocalHistory(Boolean.valueOf(true));
         }
       };
       ObjectExtensions.<OutputConfiguration>operator_doubleArrow(modelsOutput, _function_1);
@@ -57,11 +57,23 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
           it.setSetDerivedProperty(true);
-          it.setKeepLocalHistory(Boolean.valueOf(true));
         }
       };
       ObjectExtensions.<OutputConfiguration>operator_doubleArrow(dataAccessOutput, _function_2);
-      _xblockexpression = (Collections.<OutputConfiguration>unmodifiableSet(Sets.<OutputConfiguration>newHashSet(defaultOutput, modelsOutput, dataAccessOutput)));
+      OutputConfiguration _outputConfiguration_3 = new OutputConfiguration(IosOutputConfigurationProvider.IOS_OUTPUT_SUPPORTFILES);
+      final OutputConfiguration supportFilesOutput = _outputConfiguration_3;
+      final Procedure1<OutputConfiguration> _function_3 = new Procedure1<OutputConfiguration>() {
+        public void apply(final OutputConfiguration it) {
+          it.setDescription("iOS Support Files Output Folder");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/");
+          it.setOverrideExistingResources(true);
+          it.setCreateOutputDirectory(true);
+          it.setCleanUpDerivedResources(true);
+          it.setSetDerivedProperty(true);
+        }
+      };
+      ObjectExtensions.<OutputConfiguration>operator_doubleArrow(supportFilesOutput, _function_3);
+      _xblockexpression = (Collections.<OutputConfiguration>unmodifiableSet(Sets.<OutputConfiguration>newHashSet(defaultOutput, modelsOutput, dataAccessOutput, supportFilesOutput)));
     }
     return _xblockexpression;
   }

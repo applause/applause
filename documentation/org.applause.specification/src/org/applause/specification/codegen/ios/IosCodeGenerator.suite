@@ -13,3 +13,7 @@ The iOS Code Generator generates iOS applications
 - "API Client Generator": describes how the API client is generated
  
 ##UI
+
+## Support Files
+
+- "Main Class Generator": describes how the iOS app's main class is generated'

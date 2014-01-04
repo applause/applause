@@ -20,7 +20,7 @@ public class AndroidOutputConfigurationProvider implements IOutputConfigurationP
 		defaultOutput.setCreateOutputDirectory(true);
 		defaultOutput.setCleanUpDerivedResources(true);
 		defaultOutput.setSetDerivedProperty(true);
-		defaultOutput.setKeepLocalHistory(true);
+		// Xtext 2.5 feature defaultOutput.setKeepLocalHistory(true);
 		return newHashSet(defaultOutput);
 	}
 

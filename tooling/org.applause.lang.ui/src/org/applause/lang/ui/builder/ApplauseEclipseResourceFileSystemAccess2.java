@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2011 itemis AG (http://www.itemis.eu) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *******************************************************************************/
 package org.applause.lang.ui.builder;
 
 import java.io.BufferedInputStream;
@@ -25,7 +32,6 @@ import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jdt.annotation.Nullable;
-import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2;
 import org.eclipse.xtext.builder.trace.TraceForStorageProvider;
 import org.eclipse.xtext.builder.trace.TraceMarkers;
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2;
@@ -34,7 +40,6 @@ import org.eclipse.xtext.generator.trace.AbstractTraceRegion;
 import org.eclipse.xtext.generator.trace.ILocationData;
 import org.eclipse.xtext.generator.trace.ITraceRegionProvider;
 import org.eclipse.xtext.generator.trace.TraceRegionSerializer;
-import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.GetGrammarElement;
 import org.eclipse.xtext.util.RuntimeIOException;
 import org.eclipse.xtext.util.StringInputStream;
 
@@ -170,7 +175,7 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 						// reset to offset zero allows to reuse internal byte[]
 						// no need to convert the string twice
 						newContent.reset();
-						file.setContents(newContent, true, outputConfig.isKeepLocalHistory(), monitor);
+						file.setContents(newContent, true, true, monitor);
 					} else {
 						file.touch(getMonitor());
 					}
@@ -219,7 +224,7 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 						// reset to offset zero allows to reuse internal byte[]
 						// no need to convert the string twice
 						content.reset();
-						file.setContents(content, true, outputConfig.isKeepLocalHistory(), monitor);
+						file.setContents(content, true, true, monitor);
 					} else {
 						file.touch(getMonitor());
 					}
@@ -305,7 +310,6 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 	 * @since 2.4
 	 */
 	protected IContainer getContainer(OutputConfiguration outputConfig) {
-		
 		String path = outputConfig.getOutputDirectory();
 		if (".".equals(path) || "./".equals(path) || "".equals(path)) {
 			return project;
@@ -384,7 +388,7 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 			// avoid copying the byte array
 			InputStream input = new ByteArrayInputStream(data.internalBuffer(), 0, data.internalLength());
 			if (traceFile.exists()) {
-				traceFile.setContents(input, false, false, monitor);
+				traceFile.setContents(input, false, true, monitor);
 			} else {
 				traceFile.create(input, true, monitor);
 			}
@@ -392,7 +396,7 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 			return;
 		}
 		if (traceFile.exists()) {
-			traceFile.delete(IResource.NONE, monitor);
+			traceFile.delete(IResource.KEEP_HISTORY, monitor);
 		}
 	}
 	
@@ -438,13 +442,6 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 		}
 		sourceTraces = null;
 	}
-	
-	/**
-	 * @since 2.5
-	 */
-	protected boolean isTraceFile(IFile file) {
-		return fileBasedTraceInformation.isTraceFile(file);
-	}
 
 	/**
 	 * @since 2.3
@@ -474,7 +471,7 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 	public void deleteFile(String fileName, String outputName) {
 		try {
 			IFile file = getFile(fileName, outputName);
-			deleteFile(file, outputName, monitor);
+			deleteFile(file, monitor);
 		} catch (CoreException e) {
 			throw new RuntimeIOException(e);
 		}
@@ -484,24 +481,16 @@ public class ApplauseEclipseResourceFileSystemAccess2 extends AbstractFileSystem
 	 * @since 2.3
 	 */
 	public void deleteFile(IFile file, IProgressMonitor monitor) throws CoreException {
-		deleteFile(file, DEFAULT_OUTPUT, monitor);
-	}
-	
-	/**
-	 * @since 2.5
-	 */
-	public void deleteFile(IFile file, String outputName, IProgressMonitor monitor) throws CoreException {
-		OutputConfiguration outputConfig = getOutputConfig(outputName);
 		IFileCallback callBack = getCallBack();
-		if ((callBack == null || callBack.beforeFileDeletion(file)) && file.exists() && !isTraceFile(file)) {
+		if ((callBack == null || callBack.beforeFileDeletion(file)) && file.exists()) {
 			IFile traceFile = getTraceFile(file);
-			file.delete(outputConfig.isKeepLocalHistory() ? IResource.KEEP_HISTORY : IResource.NONE, monitor);
+			file.delete(IResource.KEEP_HISTORY, monitor);
 			if (traceFile != null && traceFile.exists()) {
-				traceFile.delete(IResource.NONE, monitor);
+				traceFile.delete(IResource.KEEP_HISTORY, monitor);
 			}
 		}
 	}
-
+	
 	protected IFile getFile(String fileName, String outputName) {
 		OutputConfiguration configuration = getOutputConfig(outputName);
 		IContainer container = getContainer(configuration);

@@ -55,7 +55,7 @@ public class EntityCompiler {
       for(final Attribute attribute : _attributes) {
         _builder.append("\t");
         CharSequence _compile = this.compile(attribute);
-        _builder.append(_compile, "\t");
+        _builder.append(_compile, "	");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -89,10 +89,10 @@ public class EntityCompiler {
     _builder.append("\t");
     _builder.append("this.");
     String _name_2 = it.getName();
-    _builder.append(_name_2, "\t");
+    _builder.append(_name_2, "	");
     _builder.append(" = ");
     String _name_3 = it.getName();
-    _builder.append(_name_3, "\t");
+    _builder.append(_name_3, "	");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
@@ -109,7 +109,7 @@ public class EntityCompiler {
     _builder.append("\t");
     _builder.append("return this.");
     String _name_4 = it.getName();
-    _builder.append(_name_4, "\t");
+    _builder.append(_name_4, "	");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("}");

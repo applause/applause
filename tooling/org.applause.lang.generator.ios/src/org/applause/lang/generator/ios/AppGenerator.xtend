@@ -8,6 +8,7 @@ import org.applause.lang.generator.ios.model.EntityCompiler
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
+import org.applause.lang.generator.ios.supportfiles.MainClassCompiler
 
 class AppGenerator implements IGenerator {
 	
@@ -16,11 +17,15 @@ class AppGenerator implements IGenerator {
 	@Inject APIClientCompiler apiClientCompiler
 	@Inject DataMappingCompiler dataMappingCompiler
 	
+	@Inject MainClassCompiler mainClassCompiler
+	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		entityCompiler.doGenerate(resource, fsa)
 		apiClientCompiler.doGenerate(resource, fsa)
 		dataAccessCompiler.doGenerate(resource, fsa)
 		dataMappingCompiler.doGenerate(resource, fsa)
+		
+		mainClassCompiler.doGenerate(resource, fsa)
 	}	
 	
 }
