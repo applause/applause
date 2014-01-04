@@ -1,0 +1,68 @@
+package org.applause.lang.generator.ios;
+
+import com.google.common.collect.Sets;
+import java.util.Collections;
+import java.util.Set;
+import org.eclipse.xtext.generator.IOutputConfigurationProvider;
+import org.eclipse.xtext.generator.OutputConfiguration;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
+
+@SuppressWarnings("all")
+public class IosOutputConfigurationProvider implements IOutputConfigurationProvider {
+  public final static String IOS_DEFAULT_OUTPUT = "IOS_DEFAULT_OUTPUT";
+  
+  public final static String IOS_OUTPUT_MODELS = "IOS_OUTPUT_MODELS";
+  
+  public final static String IOS_OUTPUT_DATAACCESS = "IOS_OUTPUT_DATAACCESS";
+  
+  public Set<OutputConfiguration> getOutputConfigurations() {
+    Set<OutputConfiguration> _xblockexpression = null;
+    {
+      OutputConfiguration _outputConfiguration = new OutputConfiguration(IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT);
+      final OutputConfiguration defaultOutput = _outputConfiguration;
+      final Procedure1<OutputConfiguration> _function = new Procedure1<OutputConfiguration>() {
+        public void apply(final OutputConfiguration it) {
+          it.setDescription("iOS Output Folder");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2");
+          it.setOverrideExistingResources(true);
+          it.setCreateOutputDirectory(true);
+          it.setCleanUpDerivedResources(true);
+          it.setSetDerivedProperty(true);
+          it.setKeepLocalHistory(Boolean.valueOf(true));
+        }
+      };
+      ObjectExtensions.<OutputConfiguration>operator_doubleArrow(defaultOutput, _function);
+      OutputConfiguration _outputConfiguration_1 = new OutputConfiguration(IosOutputConfigurationProvider.IOS_OUTPUT_MODELS);
+      final OutputConfiguration modelsOutput = _outputConfiguration_1;
+      final Procedure1<OutputConfiguration> _function_1 = new Procedure1<OutputConfiguration>() {
+        public void apply(final OutputConfiguration it) {
+          it.setDescription("iOS Models Output Folder");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/Models");
+          it.setOverrideExistingResources(true);
+          it.setCreateOutputDirectory(true);
+          it.setCleanUpDerivedResources(true);
+          it.setSetDerivedProperty(true);
+          it.setKeepLocalHistory(Boolean.valueOf(true));
+        }
+      };
+      ObjectExtensions.<OutputConfiguration>operator_doubleArrow(modelsOutput, _function_1);
+      OutputConfiguration _outputConfiguration_2 = new OutputConfiguration(IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS);
+      final OutputConfiguration dataAccessOutput = _outputConfiguration_2;
+      final Procedure1<OutputConfiguration> _function_2 = new Procedure1<OutputConfiguration>() {
+        public void apply(final OutputConfiguration it) {
+          it.setDescription("iOS Data Access Output Folder");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/DataAccess");
+          it.setOverrideExistingResources(true);
+          it.setCreateOutputDirectory(true);
+          it.setCleanUpDerivedResources(true);
+          it.setSetDerivedProperty(true);
+          it.setKeepLocalHistory(Boolean.valueOf(true));
+        }
+      };
+      ObjectExtensions.<OutputConfiguration>operator_doubleArrow(dataAccessOutput, _function_2);
+      _xblockexpression = (Collections.<OutputConfiguration>unmodifiableSet(Sets.<OutputConfiguration>newHashSet(defaultOutput, modelsOutput, dataAccessOutput)));
+    }
+    return _xblockexpression;
+  }
+}

@@ -16,8 +16,8 @@ class EntityCompiler implements ICompilerModule {
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.entityModelHeaderFileName, IOS_DEFAULT_OUTPUT, it.compileHeader)
-			fsa.generateFile(it.entityModelModuleFileName, IOS_DEFAULT_OUTPUT, it.compileModule)
+			fsa.generateFile(it.entityModelHeaderFileName, IOS_OUTPUT_MODELS, it.compileHeader)
+			fsa.generateFile(it.entityModelModuleFileName, IOS_OUTPUT_MODELS, it.compileModule)
 		]
 	}
 	

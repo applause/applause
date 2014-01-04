@@ -39,10 +39,10 @@ public class DataAccessCompiler implements ICompilerModule {
       public void apply(final Entity it) {
         String _entityDataAccessCategoryHeaderFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(it);
         CharSequence _compileHeaderFile = DataAccessCompiler.this._entityDataAccessHeaderFileCompiler.compileHeaderFile(it);
-        fsa.generateFile(_entityDataAccessCategoryHeaderFileName, IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, _compileHeaderFile);
+        fsa.generateFile(_entityDataAccessCategoryHeaderFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileHeaderFile);
         String _entityDataAccessCategoryModuleFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryModuleFileName(it);
         CharSequence _compileModuleFile = DataAccessCompiler.this._entityDataAccessModuleFileCompiler.compileModuleFile(it);
-        fsa.generateFile(_entityDataAccessCategoryModuleFileName, IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, _compileModuleFile);
+        fsa.generateFile(_entityDataAccessCategoryModuleFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileModuleFile);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);

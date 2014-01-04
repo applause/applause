@@ -17,16 +17,10 @@ class AppGenerator implements IGenerator {
 	@Inject DataMappingCompiler dataMappingCompiler
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
-		fsa.generateFile('ios.txt', IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, stuff)
-		
 		entityCompiler.doGenerate(resource, fsa)
 		apiClientCompiler.doGenerate(resource, fsa)
 		dataAccessCompiler.doGenerate(resource, fsa)
 		dataMappingCompiler.doGenerate(resource, fsa)
 	}	
-	
-	def stuff() '''
-		Hallo Stuff.
-	'''
 	
 }

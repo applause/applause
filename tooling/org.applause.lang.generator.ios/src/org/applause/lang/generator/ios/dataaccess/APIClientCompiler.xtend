@@ -18,8 +18,8 @@ class APIClientCompiler implements ICompilerModule {
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.apiClientClassName.headerFileName, IOS_DEFAULT_OUTPUT, it.compileHeaderFile)
-			fsa.generateFile(it.apiClientClassName.moduleFileName, IOS_DEFAULT_OUTPUT, it.compileModuleFile)
+			fsa.generateFile(it.apiClientClassName.headerFileName, IOS_OUTPUT_DATAACCESS, it.compileHeaderFile)
+			fsa.generateFile(it.apiClientClassName.moduleFileName, IOS_OUTPUT_DATAACCESS, it.compileModuleFile)
 		]
 	}
 	

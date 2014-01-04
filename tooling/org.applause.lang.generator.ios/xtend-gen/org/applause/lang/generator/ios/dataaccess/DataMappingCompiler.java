@@ -39,10 +39,10 @@ public class DataMappingCompiler implements ICompilerModule {
       public void apply(final Entity it) {
         String _dataMappingHeaderFileName = DataMappingCompiler.this._dataMappingExtensions.dataMappingHeaderFileName(it);
         CharSequence _compileHeaderFile = DataMappingCompiler.this._entityDataMappingHeaderFileCompiler.compileHeaderFile(it);
-        fsa.generateFile(_dataMappingHeaderFileName, IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, _compileHeaderFile);
+        fsa.generateFile(_dataMappingHeaderFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileHeaderFile);
         String _dataMappingModuleFileName = DataMappingCompiler.this._dataMappingExtensions.dataMappingModuleFileName(it);
         CharSequence _compileModuleFile = DataMappingCompiler.this._entityDataMappingModuleFileCompiler.compileModuleFile(it);
-        fsa.generateFile(_dataMappingModuleFileName, IosOutputConfigurationProvider.IOS_DEFAULT_OUTPUT, _compileModuleFile);
+        fsa.generateFile(_dataMappingModuleFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileModuleFile);
       }
     };
     IterableExtensions.<Entity>forEach(_filter, _function);
