@@ -1,15 +1,12 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.applause.lang.applauseDsl.impl;
 
 import java.util.Collection;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
+import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.Entity;
-import org.applause.lang.applauseDsl.Property;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -31,8 +28,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.lang.applauseDsl.impl.EntityImpl#getExtends <em>Extends</em>}</li>
- *   <li>{@link org.applause.lang.applauseDsl.impl.EntityImpl#getProperties <em>Properties</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.EntityImpl#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.EntityImpl#getSuperType <em>Super Type</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.EntityImpl#getAttributes <em>Attributes</em>}</li>
  * </ul>
  * </p>
  *
@@ -41,24 +39,44 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class EntityImpl extends TypeImpl implements Entity
 {
   /**
-   * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
+   * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExtends()
+   * @see #isAbstract()
    * @generated
    * @ordered
    */
-  protected Entity extends_;
+  protected static final boolean ABSTRACT_EDEFAULT = false;
 
   /**
-   * The cached value of the '{@link #getProperties() <em>Properties</em>}' containment reference list.
+   * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getProperties()
+   * @see #isAbstract()
    * @generated
    * @ordered
    */
-  protected EList<Property> properties;
+  protected boolean abstract_ = ABSTRACT_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getSuperType()
+   * @generated
+   * @ordered
+   */
+  protected Entity superType;
+
+  /**
+   * The cached value of the '{@link #getAttributes() <em>Attributes</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAttributes()
+   * @generated
+   * @ordered
+   */
+  protected EList<Attribute> attributes;
 
   /**
    * <!-- begin-user-doc -->
@@ -86,19 +104,42 @@ public class EntityImpl extends TypeImpl implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity getExtends()
+  public boolean isAbstract()
   {
-    if (extends_ != null && extends_.eIsProxy())
+    return abstract_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setAbstract(boolean newAbstract)
+  {
+    boolean oldAbstract = abstract_;
+    abstract_ = newAbstract;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.ENTITY__ABSTRACT, oldAbstract, abstract_));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Entity getSuperType()
+  {
+    if (superType != null && superType.eIsProxy())
     {
-      InternalEObject oldExtends = (InternalEObject)extends_;
-      extends_ = (Entity)eResolveProxy(oldExtends);
-      if (extends_ != oldExtends)
+      InternalEObject oldSuperType = (InternalEObject)superType;
+      superType = (Entity)eResolveProxy(oldSuperType);
+      if (superType != oldSuperType)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ApplauseDslPackage.ENTITY__EXTENDS, oldExtends, extends_));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ApplauseDslPackage.ENTITY__SUPER_TYPE, oldSuperType, superType));
       }
     }
-    return extends_;
+    return superType;
   }
 
   /**
@@ -106,9 +147,9 @@ public class EntityImpl extends TypeImpl implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public Entity basicGetExtends()
+  public Entity basicGetSuperType()
   {
-    return extends_;
+    return superType;
   }
 
   /**
@@ -116,12 +157,12 @@ public class EntityImpl extends TypeImpl implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setExtends(Entity newExtends)
+  public void setSuperType(Entity newSuperType)
   {
-    Entity oldExtends = extends_;
-    extends_ = newExtends;
+    Entity oldSuperType = superType;
+    superType = newSuperType;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.ENTITY__EXTENDS, oldExtends, extends_));
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.ENTITY__SUPER_TYPE, oldSuperType, superType));
   }
 
   /**
@@ -129,13 +170,13 @@ public class EntityImpl extends TypeImpl implements Entity
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Property> getProperties()
+  public EList<Attribute> getAttributes()
   {
-    if (properties == null)
+    if (attributes == null)
     {
-      properties = new EObjectContainmentEList<Property>(Property.class, this, ApplauseDslPackage.ENTITY__PROPERTIES);
+      attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, ApplauseDslPackage.ENTITY__ATTRIBUTES);
     }
-    return properties;
+    return attributes;
   }
 
   /**
@@ -148,8 +189,8 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.ENTITY__PROPERTIES:
-        return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
+      case ApplauseDslPackage.ENTITY__ATTRIBUTES:
+        return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -164,11 +205,13 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.ENTITY__EXTENDS:
-        if (resolve) return getExtends();
-        return basicGetExtends();
-      case ApplauseDslPackage.ENTITY__PROPERTIES:
-        return getProperties();
+      case ApplauseDslPackage.ENTITY__ABSTRACT:
+        return isAbstract();
+      case ApplauseDslPackage.ENTITY__SUPER_TYPE:
+        if (resolve) return getSuperType();
+        return basicGetSuperType();
+      case ApplauseDslPackage.ENTITY__ATTRIBUTES:
+        return getAttributes();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -184,12 +227,15 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.ENTITY__EXTENDS:
-        setExtends((Entity)newValue);
+      case ApplauseDslPackage.ENTITY__ABSTRACT:
+        setAbstract((Boolean)newValue);
         return;
-      case ApplauseDslPackage.ENTITY__PROPERTIES:
-        getProperties().clear();
-        getProperties().addAll((Collection<? extends Property>)newValue);
+      case ApplauseDslPackage.ENTITY__SUPER_TYPE:
+        setSuperType((Entity)newValue);
+        return;
+      case ApplauseDslPackage.ENTITY__ATTRIBUTES:
+        getAttributes().clear();
+        getAttributes().addAll((Collection<? extends Attribute>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -205,11 +251,14 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.ENTITY__EXTENDS:
-        setExtends((Entity)null);
+      case ApplauseDslPackage.ENTITY__ABSTRACT:
+        setAbstract(ABSTRACT_EDEFAULT);
         return;
-      case ApplauseDslPackage.ENTITY__PROPERTIES:
-        getProperties().clear();
+      case ApplauseDslPackage.ENTITY__SUPER_TYPE:
+        setSuperType((Entity)null);
+        return;
+      case ApplauseDslPackage.ENTITY__ATTRIBUTES:
+        getAttributes().clear();
         return;
     }
     super.eUnset(featureID);
@@ -225,12 +274,31 @@ public class EntityImpl extends TypeImpl implements Entity
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.ENTITY__EXTENDS:
-        return extends_ != null;
-      case ApplauseDslPackage.ENTITY__PROPERTIES:
-        return properties != null && !properties.isEmpty();
+      case ApplauseDslPackage.ENTITY__ABSTRACT:
+        return abstract_ != ABSTRACT_EDEFAULT;
+      case ApplauseDslPackage.ENTITY__SUPER_TYPE:
+        return superType != null;
+      case ApplauseDslPackage.ENTITY__ATTRIBUTES:
+        return attributes != null && !attributes.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (abstract: ");
+    result.append(abstract_);
+    result.append(')');
+    return result.toString();
   }
 
 } //EntityImpl

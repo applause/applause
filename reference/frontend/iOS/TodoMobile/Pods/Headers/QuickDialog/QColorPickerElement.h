@@ -1,0 +1,1 @@
+../../QuickDialog/extras/QColorPickerElement.h

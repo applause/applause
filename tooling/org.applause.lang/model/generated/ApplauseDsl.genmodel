@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.applause.lang/src-gen" editDirectory="/org.applause.lang.edit/src"
+    editorDirectory="/org.applause.lang.editor/src" modelPluginID="org.applause.lang"
+    forceOverwrite="true" modelName="ApplauseDsl" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="5.0" copyrightFields="false" editPluginID="org.applause.lang.edit"
+    editorPluginID="org.applause.lang.editor" runtimeVersion="2.9">
+  <genPackages prefix="ApplauseDsl" basePackage="org.applause.lang" disposableProviderFactory="true"
+      fileExtensions="applause" ecorePackage="ApplauseDsl.ecore#/">
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Type"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//DataType"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Entity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Entity/abstract"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Entity/superType"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Entity/attributes"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Attribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Attribute/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Attribute/many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Attribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Platform">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Platform/mappings"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//PlatformMapping"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//TypeMapping">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//TypeMapping/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//TypeMapping/simpleName"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//DataSource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//DataSource/name"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

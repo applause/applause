@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3983A5F39D434023A0954BBE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A49C7CB1D7734AFB826CA174 /* libPods.a */; };
+		884C870E17DD4F2100890B38 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884C870D17DD4F2100890B38 /* MessageUI.framework */; };
+		885674D617DD42ED00E5E4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885674D517DD42ED00E5E4F5 /* Foundation.framework */; };
+		885674D817DD42ED00E5E4F5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885674D717DD42ED00E5E4F5 /* CoreGraphics.framework */; };
+		885674DA17DD42ED00E5E4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885674D917DD42ED00E5E4F5 /* UIKit.framework */; };
+		885674E017DD42ED00E5E4F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 885674DE17DD42ED00E5E4F5 /* InfoPlist.strings */; };
+		885674E217DD42ED00E5E4F5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 885674E117DD42ED00E5E4F5 /* main.m */; };
+		885674E617DD42ED00E5E4F5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 885674E517DD42ED00E5E4F5 /* AppDelegate.m */; };
+		885674E817DD42ED00E5E4F5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 885674E717DD42ED00E5E4F5 /* Images.xcassets */; };
+		885674EF17DD42ED00E5E4F5 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885674EE17DD42ED00E5E4F5 /* XCTest.framework */; };
+		885674F017DD42ED00E5E4F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885674D517DD42ED00E5E4F5 /* Foundation.framework */; };
+		885674F117DD42ED00E5E4F5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 885674D917DD42ED00E5E4F5 /* UIKit.framework */; };
+		885674F917DD42ED00E5E4F5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 885674F717DD42ED00E5E4F5 /* InfoPlist.strings */; };
+		885674FB17DD42ED00E5E4F5 /* TodoMobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 885674FA17DD42ED00E5E4F5 /* TodoMobileTests.m */; };
+		F2ED406662CC4089CE6B3884 /* TodoListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4E454C5EE0F73EE92134 /* TodoListViewController.m */; };
+		F2ED414437B428C76ECB09F4 /* TodoAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED43B444D0278DA8979A9B /* TodoAPIClient.m */; };
+		F2ED49E298DDDC1CB6095E89 /* TodoDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4BD77266BFD586428960 /* TodoDetailsViewController.m */; };
+		F2ED4C194EEFF1292063436C /* Todo.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4BA6FDFA7F72E25C0515 /* Todo.m */; };
+		F2ED4C87A098816C4B97FA61 /* Todo+DataAccess.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED4A708F0496909EE63188 /* Todo+DataAccess.m */; };
+		F2ED4D15AD25D1B256349370 /* Todo+DataMapping.m in Sources */ = {isa = PBXBuildFile; fileRef = F2ED40D716D80D9ECA28B2A8 /* Todo+DataMapping.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		885674F217DD42ED00E5E4F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 885674CA17DD42EC00E5E4F5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 885674D117DD42EC00E5E4F5;
+			remoteInfo = TodoMobile;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3C654741B3854A6AAC02BE29 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		884C870D17DD4F2100890B38 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		885674D217DD42EC00E5E4F5 /* TodoMobile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoMobile.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		885674D517DD42ED00E5E4F5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		885674D717DD42ED00E5E4F5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		885674D917DD42ED00E5E4F5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		885674DD17DD42ED00E5E4F5 /* TodoMobile-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TodoMobile-Info.plist"; sourceTree = "<group>"; };
+		885674DF17DD42ED00E5E4F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		885674E117DD42ED00E5E4F5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		885674E317DD42ED00E5E4F5 /* TodoMobile-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TodoMobile-Prefix.pch"; sourceTree = "<group>"; };
+		885674E417DD42ED00E5E4F5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		885674E517DD42ED00E5E4F5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		885674E717DD42ED00E5E4F5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		885674ED17DD42ED00E5E4F5 /* TodoMobileTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoMobileTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		885674EE17DD42ED00E5E4F5 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		885674F617DD42ED00E5E4F5 /* TodoMobileTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TodoMobileTests-Info.plist"; sourceTree = "<group>"; };
+		885674F817DD42ED00E5E4F5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		885674FA17DD42ED00E5E4F5 /* TodoMobileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TodoMobileTests.m; sourceTree = "<group>"; };
+		A49C7CB1D7734AFB826CA174 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2ED40D716D80D9ECA28B2A8 /* Todo+DataMapping.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+DataMapping.m"; sourceTree = "<group>"; };
+		F2ED43B444D0278DA8979A9B /* TodoAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoAPIClient.m; sourceTree = "<group>"; };
+		F2ED45E6E886D4173BB3374F /* TodoAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoAPIClient.h; sourceTree = "<group>"; };
+		F2ED486AFE1D0AAC6BE2F55F /* Todo+DataAccess.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+DataAccess.h"; sourceTree = "<group>"; };
+		F2ED4986936C36BC0A04029E /* Todo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Todo.h; sourceTree = "<group>"; };
+		F2ED4A6160B8D8C553BCA24F /* TodoDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoDetailsViewController.h; sourceTree = "<group>"; };
+		F2ED4A708F0496909EE63188 /* Todo+DataAccess.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Todo+DataAccess.m"; sourceTree = "<group>"; };
+		F2ED4B6F8F8A761CA9D8871C /* TodoListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TodoListViewController.h; sourceTree = "<group>"; };
+		F2ED4BA6FDFA7F72E25C0515 /* Todo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Todo.m; sourceTree = "<group>"; };
+		F2ED4BD77266BFD586428960 /* TodoDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoDetailsViewController.m; sourceTree = "<group>"; };
+		F2ED4DACE014450F85056EFF /* Todo+DataMapping.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Todo+DataMapping.h"; sourceTree = "<group>"; };
+		F2ED4E454C5EE0F73EE92134 /* TodoListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TodoListViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		885674CF17DD42EC00E5E4F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				884C870E17DD4F2100890B38 /* MessageUI.framework in Frameworks */,
+				885674D817DD42ED00E5E4F5 /* CoreGraphics.framework in Frameworks */,
+				885674DA17DD42ED00E5E4F5 /* UIKit.framework in Frameworks */,
+				885674D617DD42ED00E5E4F5 /* Foundation.framework in Frameworks */,
+				3983A5F39D434023A0954BBE /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		885674EA17DD42ED00E5E4F5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885674EF17DD42ED00E5E4F5 /* XCTest.framework in Frameworks */,
+				885674F117DD42ED00E5E4F5 /* UIKit.framework in Frameworks */,
+				885674F017DD42ED00E5E4F5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		885674C917DD42EC00E5E4F5 = {
+			isa = PBXGroup;
+			children = (
+				885674DB17DD42ED00E5E4F5 /* TodoMobile */,
+				885674F417DD42ED00E5E4F5 /* TodoMobileTests */,
+				885674D417DD42EC00E5E4F5 /* Frameworks */,
+				885674D317DD42EC00E5E4F5 /* Products */,
+				3C654741B3854A6AAC02BE29 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		885674D317DD42EC00E5E4F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				885674D217DD42EC00E5E4F5 /* TodoMobile.app */,
+				885674ED17DD42ED00E5E4F5 /* TodoMobileTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		885674D417DD42EC00E5E4F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				884C870D17DD4F2100890B38 /* MessageUI.framework */,
+				885674D517DD42ED00E5E4F5 /* Foundation.framework */,
+				885674D717DD42ED00E5E4F5 /* CoreGraphics.framework */,
+				885674D917DD42ED00E5E4F5 /* UIKit.framework */,
+				885674EE17DD42ED00E5E4F5 /* XCTest.framework */,
+				A49C7CB1D7734AFB826CA174 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		885674DB17DD42ED00E5E4F5 /* TodoMobile */ = {
+			isa = PBXGroup;
+			children = (
+				885674E417DD42ED00E5E4F5 /* AppDelegate.h */,
+				885674E517DD42ED00E5E4F5 /* AppDelegate.m */,
+				885674E717DD42ED00E5E4F5 /* Images.xcassets */,
+				885674DC17DD42ED00E5E4F5 /* Supporting Files */,
+				F2ED4A47D859CCE0F5F80BDD /* Controllers */,
+				F2ED4DB8F44440DDBCED6A58 /* DataAccess */,
+				F2ED4BB50B9D8C4839E481E3 /* Models */,
+				F2ED4D9FCF95A5EAC9540A7D /* Views */,
+			);
+			path = TodoMobile;
+			sourceTree = "<group>";
+		};
+		885674DC17DD42ED00E5E4F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				885674DD17DD42ED00E5E4F5 /* TodoMobile-Info.plist */,
+				885674DE17DD42ED00E5E4F5 /* InfoPlist.strings */,
+				885674E117DD42ED00E5E4F5 /* main.m */,
+				885674E317DD42ED00E5E4F5 /* TodoMobile-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		885674F417DD42ED00E5E4F5 /* TodoMobileTests */ = {
+			isa = PBXGroup;
+			children = (
+				885674FA17DD42ED00E5E4F5 /* TodoMobileTests.m */,
+				885674F517DD42ED00E5E4F5 /* Supporting Files */,
+			);
+			path = TodoMobileTests;
+			sourceTree = "<group>";
+		};
+		885674F517DD42ED00E5E4F5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				885674F617DD42ED00E5E4F5 /* TodoMobileTests-Info.plist */,
+				885674F717DD42ED00E5E4F5 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F2ED4A47D859CCE0F5F80BDD /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F2ED4B6F8F8A761CA9D8871C /* TodoListViewController.h */,
+				F2ED4E454C5EE0F73EE92134 /* TodoListViewController.m */,
+				F2ED4A6160B8D8C553BCA24F /* TodoDetailsViewController.h */,
+				F2ED4BD77266BFD586428960 /* TodoDetailsViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F2ED4BB50B9D8C4839E481E3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F2ED4986936C36BC0A04029E /* Todo.h */,
+				F2ED4BA6FDFA7F72E25C0515 /* Todo.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		F2ED4D9FCF95A5EAC9540A7D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F2ED4DB8F44440DDBCED6A58 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				F2ED45E6E886D4173BB3374F /* TodoAPIClient.h */,
+				F2ED43B444D0278DA8979A9B /* TodoAPIClient.m */,
+				F2ED486AFE1D0AAC6BE2F55F /* Todo+DataAccess.h */,
+				F2ED4A708F0496909EE63188 /* Todo+DataAccess.m */,
+				F2ED4DACE014450F85056EFF /* Todo+DataMapping.h */,
+				F2ED40D716D80D9ECA28B2A8 /* Todo+DataMapping.m */,
+			);
+			path = DataAccess;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		885674D117DD42EC00E5E4F5 /* TodoMobile */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 885674FE17DD42ED00E5E4F5 /* Build configuration list for PBXNativeTarget "TodoMobile" */;
+			buildPhases = (
+				245A16B401874F5BA991DD74 /* Check Pods Manifest.lock */,
+				885674CE17DD42EC00E5E4F5 /* Sources */,
+				885674CF17DD42EC00E5E4F5 /* Frameworks */,
+				885674D017DD42EC00E5E4F5 /* Resources */,
+				6F7A0B1AF1A846C7B5D6D2F3 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TodoMobile;
+			productName = TodoMobile;
+			productReference = 885674D217DD42EC00E5E4F5 /* TodoMobile.app */;
+			productType = "com.apple.product-type.application";
+		};
+		885674EC17DD42ED00E5E4F5 /* TodoMobileTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8856750117DD42ED00E5E4F5 /* Build configuration list for PBXNativeTarget "TodoMobileTests" */;
+			buildPhases = (
+				885674E917DD42ED00E5E4F5 /* Sources */,
+				885674EA17DD42ED00E5E4F5 /* Frameworks */,
+				885674EB17DD42ED00E5E4F5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				885674F317DD42ED00E5E4F5 /* PBXTargetDependency */,
+			);
+			name = TodoMobileTests;
+			productName = TodoMobileTests;
+			productReference = 885674ED17DD42ED00E5E4F5 /* TodoMobileTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		885674CA17DD42EC00E5E4F5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Peter Friese";
+				TargetAttributes = {
+					885674EC17DD42ED00E5E4F5 = {
+						TestTargetID = 885674D117DD42EC00E5E4F5 /* TodoMobile */;
+					};
+				};
+			};
+			buildConfigurationList = 885674CD17DD42EC00E5E4F5 /* Build configuration list for PBXProject "TodoMobile" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 885674C917DD42EC00E5E4F5;
+			productRefGroup = 885674D317DD42EC00E5E4F5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				885674D117DD42EC00E5E4F5 /* TodoMobile */,
+				885674EC17DD42ED00E5E4F5 /* TodoMobileTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		885674D017DD42EC00E5E4F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885674E017DD42ED00E5E4F5 /* InfoPlist.strings in Resources */,
+				885674E817DD42ED00E5E4F5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		885674EB17DD42ED00E5E4F5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885674F917DD42ED00E5E4F5 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		245A16B401874F5BA991DD74 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6F7A0B1AF1A846C7B5D6D2F3 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		885674CE17DD42EC00E5E4F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885674E617DD42ED00E5E4F5 /* AppDelegate.m in Sources */,
+				885674E217DD42ED00E5E4F5 /* main.m in Sources */,
+				F2ED406662CC4089CE6B3884 /* TodoListViewController.m in Sources */,
+				F2ED49E298DDDC1CB6095E89 /* TodoDetailsViewController.m in Sources */,
+				F2ED414437B428C76ECB09F4 /* TodoAPIClient.m in Sources */,
+				F2ED4C87A098816C4B97FA61 /* Todo+DataAccess.m in Sources */,
+				F2ED4C194EEFF1292063436C /* Todo.m in Sources */,
+				F2ED4D15AD25D1B256349370 /* Todo+DataMapping.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		885674E917DD42ED00E5E4F5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885674FB17DD42ED00E5E4F5 /* TodoMobileTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		885674F317DD42ED00E5E4F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 885674D117DD42EC00E5E4F5 /* TodoMobile */;
+			targetProxy = 885674F217DD42ED00E5E4F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		885674DE17DD42ED00E5E4F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				885674DF17DD42ED00E5E4F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		885674F717DD42ED00E5E4F5 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				885674F817DD42ED00E5E4F5 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		885674FC17DD42ED00E5E4F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		885674FD17DD42ED00E5E4F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		885674FF17DD42ED00E5E4F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C654741B3854A6AAC02BE29 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TodoMobile/TodoMobile-Prefix.pch";
+				INFOPLIST_FILE = "TodoMobile/TodoMobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8856750017DD42ED00E5E4F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3C654741B3854A6AAC02BE29 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TodoMobile/TodoMobile-Prefix.pch";
+				INFOPLIST_FILE = "TodoMobile/TodoMobile-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = "\"${PROJECT_DIR}/Pods\"/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		8856750217DD42ED00E5E4F5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TodoMobile.app/TodoMobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TodoMobile/TodoMobile-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "TodoMobileTests/TodoMobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		8856750317DD42ED00E5E4F5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/TodoMobile.app/TodoMobile";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TodoMobile/TodoMobile-Prefix.pch";
+				INFOPLIST_FILE = "TodoMobileTests/TodoMobileTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		885674CD17DD42EC00E5E4F5 /* Build configuration list for PBXProject "TodoMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				885674FC17DD42ED00E5E4F5 /* Debug */,
+				885674FD17DD42ED00E5E4F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		885674FE17DD42ED00E5E4F5 /* Build configuration list for PBXNativeTarget "TodoMobile" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				885674FF17DD42ED00E5E4F5 /* Debug */,
+				8856750017DD42ED00E5E4F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8856750117DD42ED00E5E4F5 /* Build configuration list for PBXNativeTarget "TodoMobileTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8856750217DD42ED00E5E4F5 /* Debug */,
+				8856750317DD42ED00E5E4F5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 885674CA17DD42EC00E5E4F5 /* Project object */;
+}

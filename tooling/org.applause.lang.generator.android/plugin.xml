@@ -1,19 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension
-         point="org.applause.lang.ui.buildstrategy">
-      <buildstrategy
-            class="org.applause.lang.generator.android.builder.AndroidBuildStrategy">
-      </buildstrategy>
-   </extension>
-   <extension
-         point="org.applause.lang.ui.mobileplatform">
-      <mobileplatform
-            name="Android"
-            projectNameSuffix="Android"
-            templateProject="templateproject/project.zip">
-      </mobileplatform>
-   </extension>
 
 </plugin>

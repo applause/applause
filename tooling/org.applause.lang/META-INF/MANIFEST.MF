@@ -1,31 +1,35 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: APPlause Language Plug-in
-Bundle-Vendor: The APPlause Team
-Bundle-Version: 1.0.0
+Bundle-Name: Applause Language Core
+Bundle-Vendor: Peter Friese / Applause.org
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.applause.lang; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
+Require-Bundle: org.eclipse.xtext;visibility:=reexport,
+ org.eclipse.xtext.xbase;resolution:=optional;visibility:=reexport,
  org.eclipse.xtext.generator;resolution:=optional,
- org.apache.commons.logging;resolution:=optional,
+ org.apache.commons.logging;bundle-version="1.0.4";resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
- com.ibm.icu;resolution:=optional,
- org.eclipse.xtext.xtend;resolution:=optional,
  org.eclipse.xtext.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
- org.antlr.runtime
-Import-Package: org.apache.log4j
+ org.antlr.runtime,
+ org.eclipse.xtext.common.types,
+ org.eclipse.core.runtime;bundle-version="3.9.0"
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
 Export-Package: org.applause.lang,
+ org.applause.lang.services,
  org.applause.lang.applauseDsl,
  org.applause.lang.applauseDsl.impl,
  org.applause.lang.applauseDsl.util,
- org.applause.lang.parseTreeConstruction,
+ org.applause.lang.serializer,
  org.applause.lang.parser.antlr,
  org.applause.lang.parser.antlr.internal,
+ org.applause.lang.validation,
  org.applause.lang.scoping,
- org.applause.lang.services,
- org.applause.lang.validation
+ org.applause.lang.formatting,
+ org.applause.lang.generator

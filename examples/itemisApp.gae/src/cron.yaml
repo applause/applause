@@ -1,4 +1,0 @@
-cron:
-- description: keep alive
-  url: /
-  schedule: every 2 minutes

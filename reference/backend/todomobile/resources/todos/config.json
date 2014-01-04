@@ -1,0 +1,29 @@
+{
+	"type": "Collection",
+	"properties": {
+		"title": {
+			"name": "title",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "title",
+			"order": 0
+		},
+		"dueDate": {
+			"name": "dueDate",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "dueDate",
+			"order": 1
+		},
+		"done": {
+			"name": "done",
+			"type": "boolean",
+			"typeLabel": "boolean",
+			"required": false,
+			"id": "done",
+			"order": 2
+		}
+	}
+}

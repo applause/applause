@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Applause Tests
+Bundle-Vendor: Peter Friese / Applause.org
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.applause.lang.tests; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.applause.lang,
+ org.applause.lang.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.xtext.junit4,
+ org.eclipse.ui.workbench;resolution:=optional
+Import-Package: org.apache.log4j,
+ org.junit;version="4.5.0",
+ org.junit.runner;version="4.5.0",
+ org.junit.runner.manipulation;version="4.5.0",
+ org.junit.runner.notification;version="4.5.0",
+ org.junit.runners;version="4.5.0",
+ org.junit.runners.model;version="4.5.0",
+ org.hamcrest.core
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: org.applause.lang

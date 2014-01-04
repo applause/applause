@@ -1,0 +1,1 @@
+../../QuickDialog/extras/QPickerElement.h

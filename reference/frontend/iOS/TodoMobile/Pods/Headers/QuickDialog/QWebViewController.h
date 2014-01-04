@@ -1,0 +1,1 @@
+../../QuickDialog/extras/QWebViewController.h

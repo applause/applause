@@ -7,11 +7,9 @@
     <package 
        uri = "http://www.applause.org/lang/ApplauseDsl" 
        class = "org.applause.lang.applauseDsl.ApplauseDslPackage"
-       genModel = "org/applause/lang/ApplauseDsl.genmodel" /> 
+       genModel = "model/generated/ApplauseDsl.genmodel" /> 
 	
   </extension>
-
-
 
 
 

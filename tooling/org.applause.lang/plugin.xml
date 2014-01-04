@@ -2,16 +2,15 @@
 <?eclipse version="3.0"?>
 
 <plugin>
+   <extension-point id="platformbuildparticipant" name="Applause Platform Build Participant" schema="schema/platformbuildparticipant.exsd"/>
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.applause.org/lang/ApplauseDsl" 
        class = "org.applause.lang.applauseDsl.ApplauseDslPackage"
-       genModel = "org/applause/lang/ApplauseDsl.genmodel" /> 
+       genModel = "model/generated/ApplauseDsl.genmodel" /> 
 	
   </extension>
-
-
 
 
 

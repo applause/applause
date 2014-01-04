@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.applause.lang.applauseDsl;
 
@@ -35,130 +32,13 @@ public interface ApplauseDslFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Application</em>'.
+   * Returns a new object of class '<em>Named Element</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Application</em>'.
+   * @return a new object of class '<em>Named Element</em>'.
    * @generated
    */
-  Application createApplication();
-
-  /**
-   * Returns a new object of class '<em>Model Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Model Element</em>'.
-   * @generated
-   */
-  ModelElement createModelElement();
-
-  /**
-   * Returns a new object of class '<em>Variable Declaration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Declaration</em>'.
-   * @generated
-   */
-  VariableDeclaration createVariableDeclaration();
-
-  /**
-   * Returns a new object of class '<em>Type Description</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Type Description</em>'.
-   * @generated
-   */
-  TypeDescription createTypeDescription();
-
-  /**
-   * Returns a new object of class '<em>Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Parameter</em>'.
-   * @generated
-   */
-  Parameter createParameter();
-
-  /**
-   * Returns a new object of class '<em>Object Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Object Reference</em>'.
-   * @generated
-   */
-  ObjectReference createObjectReference();
-
-  /**
-   * Returns a new object of class '<em>Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression</em>'.
-   * @generated
-   */
-  Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Scalar Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Scalar Expression</em>'.
-   * @generated
-   */
-  ScalarExpression createScalarExpression();
-
-  /**
-   * Returns a new object of class '<em>Collection Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Collection Expression</em>'.
-   * @generated
-   */
-  CollectionExpression createCollectionExpression();
-
-  /**
-   * Returns a new object of class '<em>String Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Literal</em>'.
-   * @generated
-   */
-  StringLiteral createStringLiteral();
-
-  /**
-   * Returns a new object of class '<em>String Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Function</em>'.
-   * @generated
-   */
-  StringFunction createStringFunction();
-
-  /**
-   * Returns a new object of class '<em>Collection Literal</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Collection Literal</em>'.
-   * @generated
-   */
-  CollectionLiteral createCollectionLiteral();
-
-  /**
-   * Returns a new object of class '<em>Collection Function</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Collection Function</em>'.
-   * @generated
-   */
-  CollectionFunction createCollectionFunction();
-
-  /**
-   * Returns a new object of class '<em>Tabbar Button</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Tabbar Button</em>'.
-   * @generated
-   */
-  TabbarButton createTabbarButton();
+  NamedElement createNamedElement();
 
   /**
    * Returns a new object of class '<em>Type</em>'.
@@ -170,13 +50,13 @@ public interface ApplauseDslFactory extends EFactory
   Type createType();
 
   /**
-   * Returns a new object of class '<em>Simple Type</em>'.
+   * Returns a new object of class '<em>Data Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Type</em>'.
+   * @return a new object of class '<em>Data Type</em>'.
    * @generated
    */
-  SimpleType createSimpleType();
+  DataType createDataType();
 
   /**
    * Returns a new object of class '<em>Entity</em>'.
@@ -188,202 +68,49 @@ public interface ApplauseDslFactory extends EFactory
   Entity createEntity();
 
   /**
-   * Returns a new object of class '<em>Property</em>'.
+   * Returns a new object of class '<em>Attribute</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Property</em>'.
+   * @return a new object of class '<em>Attribute</em>'.
    * @generated
    */
-  Property createProperty();
+  Attribute createAttribute();
 
   /**
-   * Returns a new object of class '<em>Content Provider</em>'.
+   * Returns a new object of class '<em>Platform</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Content Provider</em>'.
+   * @return a new object of class '<em>Platform</em>'.
    * @generated
    */
-  ContentProvider createContentProvider();
+  Platform createPlatform();
 
   /**
-   * Returns a new object of class '<em>Provider Construction</em>'.
+   * Returns a new object of class '<em>Platform Mapping</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Provider Construction</em>'.
+   * @return a new object of class '<em>Platform Mapping</em>'.
    * @generated
    */
-  ProviderConstruction createProviderConstruction();
+  PlatformMapping createPlatformMapping();
 
   /**
-   * Returns a new object of class '<em>View</em>'.
+   * Returns a new object of class '<em>Type Mapping</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>View</em>'.
+   * @return a new object of class '<em>Type Mapping</em>'.
    * @generated
    */
-  View createView();
+  TypeMapping createTypeMapping();
 
   /**
-   * Returns a new object of class '<em>Sectioned View</em>'.
+   * Returns a new object of class '<em>Data Source</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Sectioned View</em>'.
+   * @return a new object of class '<em>Data Source</em>'.
    * @generated
    */
-  SectionedView createSectionedView();
-
-  /**
-   * Returns a new object of class '<em>Table View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Table View</em>'.
-   * @generated
-   */
-  TableView createTableView();
-
-  /**
-   * Returns a new object of class '<em>Details View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Details View</em>'.
-   * @generated
-   */
-  DetailsView createDetailsView();
-
-  /**
-   * Returns a new object of class '<em>Custom View</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Custom View</em>'.
-   * @generated
-   */
-  CustomView createCustomView();
-
-  /**
-   * Returns a new object of class '<em>View Header</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View Header</em>'.
-   * @generated
-   */
-  ViewHeader createViewHeader();
-
-  /**
-   * Returns a new object of class '<em>View Section</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View Section</em>'.
-   * @generated
-   */
-  ViewSection createViewSection();
-
-  /**
-   * Returns a new object of class '<em>Section Cell</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Section Cell</em>'.
-   * @generated
-   */
-  SectionCell createSectionCell();
-
-  /**
-   * Returns a new object of class '<em>Collection Iterator</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Collection Iterator</em>'.
-   * @generated
-   */
-  CollectionIterator createCollectionIterator();
-
-  /**
-   * Returns a new object of class '<em>View Action</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View Action</em>'.
-   * @generated
-   */
-  ViewAction createViewAction();
-
-  /**
-   * Returns a new object of class '<em>External Open</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Open</em>'.
-   * @generated
-   */
-  ExternalOpen createExternalOpen();
-
-  /**
-   * Returns a new object of class '<em>View Call</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>View Call</em>'.
-   * @generated
-   */
-  ViewCall createViewCall();
-
-  /**
-   * Returns a new object of class '<em>String Concat</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Concat</em>'.
-   * @generated
-   */
-  StringConcat createStringConcat();
-
-  /**
-   * Returns a new object of class '<em>String Replace</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Replace</em>'.
-   * @generated
-   */
-  StringReplace createStringReplace();
-
-  /**
-   * Returns a new object of class '<em>String Url Conform</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Url Conform</em>'.
-   * @generated
-   */
-  StringUrlConform createStringUrlConform();
-
-  /**
-   * Returns a new object of class '<em>String Split</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>String Split</em>'.
-   * @generated
-   */
-  StringSplit createStringSplit();
-
-  /**
-   * Returns a new object of class '<em>Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant</em>'.
-   * @generated
-   */
-  Constant createConstant();
-
-  /**
-   * Returns a new object of class '<em>Complex Provider Construction</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Complex Provider Construction</em>'.
-   * @generated
-   */
-  ComplexProviderConstruction createComplexProviderConstruction();
-
-  /**
-   * Returns a new object of class '<em>Simple Provider Construction</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Simple Provider Construction</em>'.
-   * @generated
-   */
-  SimpleProviderConstruction createSimpleProviderConstruction();
+  DataSource createDataSource();
 
   /**
    * Returns the package supported by this factory.

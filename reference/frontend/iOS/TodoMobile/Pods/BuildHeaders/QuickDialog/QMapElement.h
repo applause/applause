@@ -1,0 +1,1 @@
+../../QuickDialog/extras/QMapElement.h

@@ -3,180 +3,58 @@ grammar org.applause.lang.ApplauseDsl with org.eclipse.xtext.common.Terminals
 generate applauseDsl "http://www.applause.org/lang/ApplauseDsl"
 
 Model:
-	application=Application
-	(elements+=ModelElement)*;
-	
-Application:
-	TabBarApplication;
-
-ModelElement:
-	Type | ContentProvider | View | Constant;
-	
-// -------------------------------------------
-// General
-
-// common supertype to allow variableReferences
-VariableDeclaration:
-	Parameter | Property | CollectionIterator;
-
-TypeDescription:
-	type=[Type] (many?='[]')?;
-	
-Parameter:
-	description=TypeDescription name=ID;
-
-ObjectReference:
-	object=[VariableDeclaration] tail=NestedObjectReference?;
-	
-//workaround: NestedObjectReference as separate rule to guide the content 
-//   assist parser technically could have been include in ObjectReference like
-//   ObjectReference:
-//     object=[VariableDeclaration] ('.' tail=ObjectReference)?;
-NestedObjectReference returns ObjectReference:
-	'.' object=[VariableDeclaration] tail=NestedObjectReference?;
-	
-Expression:
-	StringLiteral | StringFunction | CollectionLiteral | CollectionFunction | ObjectReference;
-
-ScalarExpression:
-	StringLiteral | StringFunction | ObjectReference;
-	
-CollectionExpression:
-	CollectionLiteral | CollectionFunction | ObjectReference;
-	
-StringLiteral:
-	value=STRING;
-
-StringFunction:
-	{StringConcat} '(' (values+=ScalarExpression)+ ')' |
-	{StringReplace} 'replace(' value=ScalarExpression ',' match=ScalarExpression ',' replacement=ScalarExpression ')' |
-	{StringUrlConform} 'urlconform(' value=ScalarExpression ')';
-	
-CollectionLiteral:
-	'[' items+=ScalarExpression (',' items+=ScalarExpression)* ']';
-	
-CollectionFunction:
-	{StringSplit} 'split(' value=ScalarExpression ',' delimiter=ScalarExpression ')'
+	elements += NamedElement*
 ;
-	
-// -------------------------------------------
-// applications
 
-TabBarApplication returns Application:
-	("tabbarApplication" | "application") name=ID '{'
-		("splash=" splash=STRING)?
-		(buttons += TabbarButton)*
-	'}';
+NamedElement:
+	Type | Platform
+;
 
-TabbarButton:
-	'button' '{'
-		'title=' title=ScalarExpression
-		'icon=' icon=ScalarExpression
-		'view=' view=ViewCall
+// -----------------------------------------
+// Entities
+// -----------------------------------------
+
+Type:
+	DataType | Entity
+;
+
+DataType:
+	'datatype' name=ID	
+;
+
+Entity:
+	(abstract ?= 'abstract')? 'entity' name=ID ('extends' superType=[Entity])? '{'
+		attributes += Attribute*
 	'}'
 ;
 
-Constant returns VariableDeclaration:
-	{Constant} 'const' name=ID value=ScalarExpression;	
+Attribute:
+	type=[Type]	(many?='[]')? name=ID
+;
 
-// -------------------------------------------
-// types
-Type:
-	SimpleType | Entity;
-	
-SimpleType:
-	'type' name=ID 'mapsTo' platformType = STRING;
-	
-Entity :
-	'entity' name=ID ('extends' extends=[Entity])? '{'
-		(properties+=Property)*
-	'}';
+// -----------------------------------------
+// Platform-specific mappings
+// -----------------------------------------
 
-Property:
-	(derived?='derived')? description=TypeDescription name=ID;
+Platform:
+	'platform' name=ID '{'
+		mappings += PlatformMapping*
+	'}'
+;
 
-// -------------------------------------------
-// content provider
+PlatformMapping:
+	TypeMapping // | NamespaceMapping
+;
 
-ContentProvider:
-	'contentprovider' name=ID
-	('(' parameter=Parameter ')')? 
-	('returns'|resolver?='resolves') type=[Type] (many?='[]')?
-	'fetches' 'XML'
-	'from' url=ScalarExpression
-	'selects' selection=ScalarExpression;
+TypeMapping:
+	'typemapping' type=[DataType] '->' simpleName=ID
+;
 
-ProviderConstruction:
-	{ComplexProviderConstruction} provider=[ContentProvider] '(' (argument=Expression)? ')' |
-	{SimpleProviderConstruction} expression=Expression;
+// -----------------------------------------
+// Data Source
+// -----------------------------------------
 
-// -------------------------------------------
-// views
-
-
-
-View:
-	SectionedView | CustomView;
-	
-SectionedView: 
-	TableView | DetailsView;
-		
-TableView:
-	'tableview' name=ID ('(' content=Parameter ')')? '{'
-		'title=' title=ScalarExpression
-		(sections+=ViewSection)*
-	'}';
-	
-DetailsView:
-	'detailsview' name=ID ('(' content=Parameter ')')? '{'
-		'title=' title=ScalarExpression
-		(header=ViewHeader)?
-		(sections+=ViewSection)*
-	'}';
-	
-CustomView:
-	'customview' name=ID ('(' content=Parameter ')')? 'implementedBy' objclass=STRING;
-	
-ViewHeader:
-	{ViewHeader}
-	'header' '{'
-		('title=' title=ScalarExpression)?
-		('subtitle=' subtitle=ScalarExpression)?
-		('details=' details=ScalarExpression)?
-		('image=' image=ScalarExpression)?
-	'}';
-	
-ViewSection:
-	'section' '{'
-		('title=' title=ScalarExpression)?
-		(cells+=SectionCell)+
-	'}';
-	
-SectionCell:
-	'cell' type=CellType ('foreach' iterator=CollectionIterator)? '{'
-		('text=' text=ScalarExpression)?
-		('details=' details=ScalarExpression)?
-		('image=' image=ScalarExpression)?
-		('query=' query=ScalarExpression)?
-		('action=' action=ViewAction)?
-	'}';	
-	
-enum CellType:
-	default = 'Default' |
-	defaultWithDisclosure = 'DefaultWithDisclosure' |
-	value2 = 'Value2' |
-	double = 'Double' |
-	subtitle = 'Subtitle' |
-	maps = 'Map';
-	
-CollectionIterator:
-	collection=CollectionExpression 'as' name=ID;
-	
-ViewAction:
-	ViewCall | ExternalOpen;
-	
-ExternalOpen:
-	url=ScalarExpression;
-
-ViewCall:
-	view=[View] '(' (provider=ProviderConstruction)? ')';	
+DataSource:
+	'datasource' name=ID '{'
+	'}'
+;

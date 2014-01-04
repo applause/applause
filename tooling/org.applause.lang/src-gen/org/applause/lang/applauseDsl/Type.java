@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.applause.lang.applauseDsl;
 
@@ -16,6 +13,6 @@ package org.applause.lang.applauseDsl;
  * @model
  * @generated
  */
-public interface Type extends ModelElement
+public interface Type extends NamedElement
 {
 } // Type

@@ -1,8 +1,8 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: APPlause Language UI Plug-in
-Bundle-Vendor: The APPlause Team
-Bundle-Version: 1.0.0
+Bundle-Name: Applause Language UI
+Bundle-Vendor: Peter Friese / Applause.org
+Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: org.applause.lang.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.applause.lang;visibility:=reexport,
@@ -13,14 +13,16 @@ Require-Bundle: org.applause.lang;visibility:=reexport,
  org.eclipse.ui,
  org.eclipse.xtext.builder,
  org.antlr.runtime,
- org.eclipse.core.runtime,
- org.eclipse.core.resources,
- org.eclipse.xtend,
- org.eclipse.xpand
-Import-Package: org.apache.commons.io;version="2.0.1",
- org.apache.commons.lang;version="2.3.0",
- org.apache.log4j
+ org.eclipse.xtext.common.types.ui,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.compare
+Import-Package: org.apache.log4j,
+ org.eclipse.xtext.xbase.lib
 Bundle-RequiredExecutionEnvironment: J2SE-1.5
-Export-Package: org.applause.lang.ui.builder,
- org.applause.lang.ui.contentassist.antlr
+Export-Package: org.applause.lang.ui,
+ org.applause.lang.ui.builder,
+ org.applause.lang.ui.contentassist,
+ org.applause.lang.ui.contentassist.antlr,
+ org.applause.lang.ui.internal,
+ org.applause.lang.ui.quickfix
 Bundle-Activator: org.applause.lang.ui.internal.ApplauseDslActivator

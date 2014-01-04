@@ -1,0 +1,3 @@
+platform :ios, "7.0"
+pod 'AFNetworking', :git => 'https://github.com/AFNetworking/AFNetworking.git', :commit => '8a80feae919a5efceb3d580af077a662f18f0341'
+pod "QuickDialog", :head

@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.applause.lang.applauseDsl.impl;
 
@@ -19,7 +16,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class TypeImpl extends ModelElementImpl implements Type
+public class TypeImpl extends NamedElementImpl implements Type
 {
   /**
    * <!-- begin-user-doc -->
