@@ -4,6 +4,7 @@ package org.applause.lang.applauseDsl;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -379,7 +380,34 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_SOURCE__NAME = 0;
+  int DATA_SOURCE__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Base Url</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE__BASE_URL = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Resource Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE__RESOURCE_TYPE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Methods</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE__METHODS = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>Data Source</em>' class.
@@ -388,7 +416,183 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int DATA_SOURCE_FEATURE_COUNT = 1;
+  int DATA_SOURCE_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.DataSourceAccessMethodImpl <em>Data Source Access Method</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.DataSourceAccessMethodImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceAccessMethod()
+   * @generated
+   */
+  int DATA_SOURCE_ACCESS_METHOD = 10;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_ACCESS_METHOD__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Declared Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_ACCESS_METHOD__DECLARED_PARAMETERS = 1;
+
+  /**
+   * The feature id for the '<em><b>Returns Many</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_ACCESS_METHOD__RETURNS_MANY = 2;
+
+  /**
+   * The feature id for the '<em><b>Rest Specification</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_ACCESS_METHOD__REST_SPECIFICATION = 3;
+
+  /**
+   * The number of structural features of the '<em>Data Source Access Method</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_ACCESS_METHOD_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.RESTSpecificationImpl <em>REST Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.RESTSpecificationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTSpecification()
+   * @generated
+   */
+  int REST_SPECIFICATION = 11;
+
+  /**
+   * The feature id for the '<em><b>Verb</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_SPECIFICATION__VERB = 0;
+
+  /**
+   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_SPECIFICATION__PATH = 1;
+
+  /**
+   * The feature id for the '<em><b>Body</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_SPECIFICATION__BODY = 2;
+
+  /**
+   * The number of structural features of the '<em>REST Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_SPECIFICATION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.DataSourceBodySpecificationImpl <em>Data Source Body Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.DataSourceBodySpecificationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceBodySpecification()
+   * @generated
+   */
+  int DATA_SOURCE_BODY_SPECIFICATION = 12;
+
+  /**
+   * The feature id for the '<em><b>Bodycontents</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_BODY_SPECIFICATION__BODYCONTENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Data Source Body Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_BODY_SPECIFICATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ParameterImpl <em>Parameter</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ParameterImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getParameter()
+   * @generated
+   */
+  int PARAMETER = 13;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Parameter</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.RESTVerb
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTVerb()
+   * @generated
+   */
+  int REST_VERB = 14;
 
 
   /**
@@ -613,15 +817,197 @@ public interface ApplauseDslPackage extends EPackage
   EClass getDataSource();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSource#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSource#getBaseUrl <em>Base Url</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.applause.lang.applauseDsl.DataSource#getName()
+   * @return the meta object for the attribute '<em>Base Url</em>'.
+   * @see org.applause.lang.applauseDsl.DataSource#getBaseUrl()
    * @see #getDataSource()
    * @generated
    */
-  EAttribute getDataSource_Name();
+  EAttribute getDataSource_BaseUrl();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.DataSource#getResourceType <em>Resource Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Resource Type</em>'.
+   * @see org.applause.lang.applauseDsl.DataSource#getResourceType()
+   * @see #getDataSource()
+   * @generated
+   */
+  EReference getDataSource_ResourceType();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.DataSource#getMethods <em>Methods</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Methods</em>'.
+   * @see org.applause.lang.applauseDsl.DataSource#getMethods()
+   * @see #getDataSource()
+   * @generated
+   */
+  EReference getDataSource_Methods();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.DataSourceAccessMethod <em>Data Source Access Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Source Access Method</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceAccessMethod
+   * @generated
+   */
+  EClass getDataSourceAccessMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSourceAccessMethod#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceAccessMethod#getName()
+   * @see #getDataSourceAccessMethod()
+   * @generated
+   */
+  EAttribute getDataSourceAccessMethod_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.DataSourceAccessMethod#getDeclaredParameters <em>Declared Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Declared Parameters</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceAccessMethod#getDeclaredParameters()
+   * @see #getDataSourceAccessMethod()
+   * @generated
+   */
+  EReference getDataSourceAccessMethod_DeclaredParameters();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSourceAccessMethod#isReturnsMany <em>Returns Many</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Returns Many</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceAccessMethod#isReturnsMany()
+   * @see #getDataSourceAccessMethod()
+   * @generated
+   */
+  EAttribute getDataSourceAccessMethod_ReturnsMany();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.DataSourceAccessMethod#getRestSpecification <em>Rest Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rest Specification</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceAccessMethod#getRestSpecification()
+   * @see #getDataSourceAccessMethod()
+   * @generated
+   */
+  EReference getDataSourceAccessMethod_RestSpecification();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.RESTSpecification <em>REST Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>REST Specification</em>'.
+   * @see org.applause.lang.applauseDsl.RESTSpecification
+   * @generated
+   */
+  EClass getRESTSpecification();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.RESTSpecification#getVerb <em>Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Verb</em>'.
+   * @see org.applause.lang.applauseDsl.RESTSpecification#getVerb()
+   * @see #getRESTSpecification()
+   * @generated
+   */
+  EAttribute getRESTSpecification_Verb();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.RESTSpecification#getPath <em>Path</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Path</em>'.
+   * @see org.applause.lang.applauseDsl.RESTSpecification#getPath()
+   * @see #getRESTSpecification()
+   * @generated
+   */
+  EAttribute getRESTSpecification_Path();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.RESTSpecification#getBody <em>Body</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Body</em>'.
+   * @see org.applause.lang.applauseDsl.RESTSpecification#getBody()
+   * @see #getRESTSpecification()
+   * @generated
+   */
+  EReference getRESTSpecification_Body();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.DataSourceBodySpecification <em>Data Source Body Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Source Body Specification</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceBodySpecification
+   * @generated
+   */
+  EClass getDataSourceBodySpecification();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.DataSourceBodySpecification#getBodycontents <em>Bodycontents</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Bodycontents</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceBodySpecification#getBodycontents()
+   * @see #getDataSourceBodySpecification()
+   * @generated
+   */
+  EReference getDataSourceBodySpecification_Bodycontents();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Parameter</em>'.
+   * @see org.applause.lang.applauseDsl.Parameter
+   * @generated
+   */
+  EClass getParameter();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.Parameter#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.applause.lang.applauseDsl.Parameter#getType()
+   * @see #getParameter()
+   * @generated
+   */
+  EReference getParameter_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Parameter#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.Parameter#getName()
+   * @see #getParameter()
+   * @generated
+   */
+  EAttribute getParameter_Name();
+
+  /**
+   * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>REST Verb</em>'.
+   * @see org.applause.lang.applauseDsl.RESTVerb
+   * @generated
+   */
+  EEnum getRESTVerb();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -835,12 +1221,158 @@ public interface ApplauseDslPackage extends EPackage
     EClass DATA_SOURCE = eINSTANCE.getDataSource();
 
     /**
+     * The meta object literal for the '<em><b>Base Url</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_SOURCE__BASE_URL = eINSTANCE.getDataSource_BaseUrl();
+
+    /**
+     * The meta object literal for the '<em><b>Resource Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_SOURCE__RESOURCE_TYPE = eINSTANCE.getDataSource_ResourceType();
+
+    /**
+     * The meta object literal for the '<em><b>Methods</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_SOURCE__METHODS = eINSTANCE.getDataSource_Methods();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.DataSourceAccessMethodImpl <em>Data Source Access Method</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.DataSourceAccessMethodImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceAccessMethod()
+     * @generated
+     */
+    EClass DATA_SOURCE_ACCESS_METHOD = eINSTANCE.getDataSourceAccessMethod();
+
+    /**
      * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DATA_SOURCE__NAME = eINSTANCE.getDataSource_Name();
+    EAttribute DATA_SOURCE_ACCESS_METHOD__NAME = eINSTANCE.getDataSourceAccessMethod_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Declared Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_SOURCE_ACCESS_METHOD__DECLARED_PARAMETERS = eINSTANCE.getDataSourceAccessMethod_DeclaredParameters();
+
+    /**
+     * The meta object literal for the '<em><b>Returns Many</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_SOURCE_ACCESS_METHOD__RETURNS_MANY = eINSTANCE.getDataSourceAccessMethod_ReturnsMany();
+
+    /**
+     * The meta object literal for the '<em><b>Rest Specification</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_SOURCE_ACCESS_METHOD__REST_SPECIFICATION = eINSTANCE.getDataSourceAccessMethod_RestSpecification();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.RESTSpecificationImpl <em>REST Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.RESTSpecificationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTSpecification()
+     * @generated
+     */
+    EClass REST_SPECIFICATION = eINSTANCE.getRESTSpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Verb</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REST_SPECIFICATION__VERB = eINSTANCE.getRESTSpecification_Verb();
+
+    /**
+     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REST_SPECIFICATION__PATH = eINSTANCE.getRESTSpecification_Path();
+
+    /**
+     * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REST_SPECIFICATION__BODY = eINSTANCE.getRESTSpecification_Body();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.DataSourceBodySpecificationImpl <em>Data Source Body Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.DataSourceBodySpecificationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceBodySpecification()
+     * @generated
+     */
+    EClass DATA_SOURCE_BODY_SPECIFICATION = eINSTANCE.getDataSourceBodySpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Bodycontents</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_SOURCE_BODY_SPECIFICATION__BODYCONTENTS = eINSTANCE.getDataSourceBodySpecification_Bodycontents();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ParameterImpl <em>Parameter</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ParameterImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getParameter()
+     * @generated
+     */
+    EClass PARAMETER = eINSTANCE.getParameter();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.RESTVerb
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTVerb()
+     * @generated
+     */
+    EEnum REST_VERB = eINSTANCE.getRESTVerb();
 
   }
 

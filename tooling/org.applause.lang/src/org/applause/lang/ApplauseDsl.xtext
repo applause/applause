@@ -7,7 +7,7 @@ Model:
 ;
 
 NamedElement:
-	Type | Platform
+	Type | Platform | DataSource
 ;
 
 // -----------------------------------------
@@ -56,5 +56,31 @@ TypeMapping:
 
 DataSource:
 	'datasource' name=ID '{'
+		'baseUrl' ':' baseUrl=STRING // TODO: change STRING to a real URL value type
+		'resource' ':' resourceType=[Type]
+		methods += DataSourceAccessMethod*
 	'}'
 ;
+
+DataSourceAccessMethod:
+	name=ID '(' (declaredParameters += Parameter (',' declaredParameters += Parameter)* )? ')' (returnsMany?='[]')? restSpecification=RESTSpecification 
+;
+
+RESTSpecification:
+	verb=RESTVerb 
+	path=STRING // TODO: change STRING to a real URL value type 
+	('{' body=DataSourceBodySpecification '}')?	
+;
+
+DataSourceBodySpecification:
+	bodycontents=[Parameter]	
+;
+
+enum RESTVerb:
+	GET | POST | PUT | DELETE
+;
+
+Parameter:
+	type=[Type] name=ID	
+;
+

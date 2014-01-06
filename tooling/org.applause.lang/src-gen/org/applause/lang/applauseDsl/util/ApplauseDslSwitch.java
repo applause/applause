@@ -146,6 +146,35 @@ public class ApplauseDslSwitch<T> extends Switch<T>
       {
         DataSource dataSource = (DataSource)theEObject;
         T result = caseDataSource(dataSource);
+        if (result == null) result = caseNamedElement(dataSource);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.DATA_SOURCE_ACCESS_METHOD:
+      {
+        DataSourceAccessMethod dataSourceAccessMethod = (DataSourceAccessMethod)theEObject;
+        T result = caseDataSourceAccessMethod(dataSourceAccessMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.REST_SPECIFICATION:
+      {
+        RESTSpecification restSpecification = (RESTSpecification)theEObject;
+        T result = caseRESTSpecification(restSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.DATA_SOURCE_BODY_SPECIFICATION:
+      {
+        DataSourceBodySpecification dataSourceBodySpecification = (DataSourceBodySpecification)theEObject;
+        T result = caseDataSourceBodySpecification(dataSourceBodySpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,6 +338,70 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDataSource(DataSource object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Source Access Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Source Access Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataSourceAccessMethod(DataSourceAccessMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>REST Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>REST Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRESTSpecification(RESTSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Source Body Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Source Body Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataSourceBodySpecification(DataSourceBodySpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
   {
     return null;
   }

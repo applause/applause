@@ -5,6 +5,7 @@ package org.applause.lang.applauseDsl.impl;
 import org.applause.lang.applauseDsl.*;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 
@@ -74,8 +75,46 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.PLATFORM_MAPPING: return createPlatformMapping();
       case ApplauseDslPackage.TYPE_MAPPING: return createTypeMapping();
       case ApplauseDslPackage.DATA_SOURCE: return createDataSource();
+      case ApplauseDslPackage.DATA_SOURCE_ACCESS_METHOD: return createDataSourceAccessMethod();
+      case ApplauseDslPackage.REST_SPECIFICATION: return createRESTSpecification();
+      case ApplauseDslPackage.DATA_SOURCE_BODY_SPECIFICATION: return createDataSourceBodySpecification();
+      case ApplauseDslPackage.PARAMETER: return createParameter();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public Object createFromString(EDataType eDataType, String initialValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case ApplauseDslPackage.REST_VERB:
+        return createRESTVerbFromString(eDataType, initialValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+    }
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String convertToString(EDataType eDataType, Object instanceValue)
+  {
+    switch (eDataType.getClassifierID())
+    {
+      case ApplauseDslPackage.REST_VERB:
+        return convertRESTVerbToString(eDataType, instanceValue);
+      default:
+        throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
   }
 
@@ -187,6 +226,72 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     DataSourceImpl dataSource = new DataSourceImpl();
     return dataSource;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataSourceAccessMethod createDataSourceAccessMethod()
+  {
+    DataSourceAccessMethodImpl dataSourceAccessMethod = new DataSourceAccessMethodImpl();
+    return dataSourceAccessMethod;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RESTSpecification createRESTSpecification()
+  {
+    RESTSpecificationImpl restSpecification = new RESTSpecificationImpl();
+    return restSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataSourceBodySpecification createDataSourceBodySpecification()
+  {
+    DataSourceBodySpecificationImpl dataSourceBodySpecification = new DataSourceBodySpecificationImpl();
+    return dataSourceBodySpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameter createParameter()
+  {
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RESTVerb createRESTVerbFromString(EDataType eDataType, String initialValue)
+  {
+    RESTVerb result = RESTVerb.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertRESTVerbToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
   }
 
   /**

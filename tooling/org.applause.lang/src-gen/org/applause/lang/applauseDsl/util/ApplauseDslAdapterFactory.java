@@ -125,6 +125,26 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createDataSourceAdapter();
       }
       @Override
+      public Adapter caseDataSourceAccessMethod(DataSourceAccessMethod object)
+      {
+        return createDataSourceAccessMethodAdapter();
+      }
+      @Override
+      public Adapter caseRESTSpecification(RESTSpecification object)
+      {
+        return createRESTSpecificationAdapter();
+      }
+      @Override
+      public Adapter caseDataSourceBodySpecification(DataSourceBodySpecification object)
+      {
+        return createDataSourceBodySpecificationAdapter();
+      }
+      @Override
+      public Adapter caseParameter(Parameter object)
+      {
+        return createParameterAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -292,6 +312,66 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createDataSourceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.DataSourceAccessMethod <em>Data Source Access Method</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.DataSourceAccessMethod
+   * @generated
+   */
+  public Adapter createDataSourceAccessMethodAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.RESTSpecification <em>REST Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.RESTSpecification
+   * @generated
+   */
+  public Adapter createRESTSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.DataSourceBodySpecification <em>Data Source Body Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.DataSourceBodySpecification
+   * @generated
+   */
+  public Adapter createDataSourceBodySpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.Parameter <em>Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.Parameter
+   * @generated
+   */
+  public Adapter createParameterAdapter()
   {
     return null;
   }

@@ -113,6 +113,42 @@ public interface ApplauseDslFactory extends EFactory
   DataSource createDataSource();
 
   /**
+   * Returns a new object of class '<em>Data Source Access Method</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Source Access Method</em>'.
+   * @generated
+   */
+  DataSourceAccessMethod createDataSourceAccessMethod();
+
+  /**
+   * Returns a new object of class '<em>REST Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>REST Specification</em>'.
+   * @generated
+   */
+  RESTSpecification createRESTSpecification();
+
+  /**
+   * Returns a new object of class '<em>Data Source Body Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Source Body Specification</em>'.
+   * @generated
+   */
+  DataSourceBodySpecification createDataSourceBodySpecification();
+
+  /**
+   * Returns a new object of class '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter</em>'.
+   * @generated
+   */
+  Parameter createParameter();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
