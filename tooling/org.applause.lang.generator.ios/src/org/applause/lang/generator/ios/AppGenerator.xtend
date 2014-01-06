@@ -11,6 +11,7 @@ import org.eclipse.xtext.generator.IGenerator
 import org.applause.lang.generator.ios.supportfiles.MainClassCompiler
 import org.applause.lang.generator.ios.supportfiles.PrecompiledHeaderCompiler
 import org.applause.lang.generator.ios.supportfiles.PlistCompiler
+import org.applause.lang.generator.ios.supportfiles.InfoPlistStringsCompiler
 
 class AppGenerator implements IGenerator {
 	
@@ -22,6 +23,7 @@ class AppGenerator implements IGenerator {
 	@Inject MainClassCompiler mainClassCompiler
 	@Inject PrecompiledHeaderCompiler precompiledHeaderCompiler
 	@Inject PlistCompiler plistCompiler
+	@Inject InfoPlistStringsCompiler infoPlistStringsCompiler
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		entityCompiler.doGenerate(resource, fsa)
@@ -32,6 +34,7 @@ class AppGenerator implements IGenerator {
 		mainClassCompiler.doGenerate(resource, fsa)
 		precompiledHeaderCompiler.doGenerate(resource, fsa)
 		plistCompiler.doGenerate(resource, fsa)
+		infoPlistStringsCompiler.doGenerate(resource, fsa)
 	}	
 	
 }

@@ -5,6 +5,7 @@ import org.applause.lang.generator.ios.dataaccess.APIClientCompiler;
 import org.applause.lang.generator.ios.dataaccess.DataAccessCompiler;
 import org.applause.lang.generator.ios.dataaccess.DataMappingCompiler;
 import org.applause.lang.generator.ios.model.EntityCompiler;
+import org.applause.lang.generator.ios.supportfiles.InfoPlistStringsCompiler;
 import org.applause.lang.generator.ios.supportfiles.MainClassCompiler;
 import org.applause.lang.generator.ios.supportfiles.PlistCompiler;
 import org.applause.lang.generator.ios.supportfiles.PrecompiledHeaderCompiler;
@@ -35,6 +36,9 @@ public class AppGenerator implements IGenerator {
   @Inject
   private PlistCompiler plistCompiler;
   
+  @Inject
+  private InfoPlistStringsCompiler infoPlistStringsCompiler;
+  
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     this.entityCompiler.doGenerate(resource, fsa);
     this.apiClientCompiler.doGenerate(resource, fsa);
@@ -43,5 +47,6 @@ public class AppGenerator implements IGenerator {
     this.mainClassCompiler.doGenerate(resource, fsa);
     this.precompiledHeaderCompiler.doGenerate(resource, fsa);
     this.plistCompiler.doGenerate(resource, fsa);
+    this.infoPlistStringsCompiler.doGenerate(resource, fsa);
   }
 }
