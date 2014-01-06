@@ -13,3 +13,9 @@ The iOS Code Generator generates iOS applications
 - "API Client Generator": describes how the API client is generated
  
 ##UI
+
+## Support Files
+
+- "Main Class Generator": describes how the iOS app's main class is generated'
+- "Precompiled Header Generator": describes how the .pch file for the iOS app is generated
+- "Plist Generator": describes how the Plist file for the iOS app is generated

@@ -1,3 +1,10 @@
+/*******************************************************************************
+ * Copyright (c) 2011 itemis AG (http://www.itemis.eu) and others.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *******************************************************************************/
 package org.applause.lang.ui.builder;
 
 import static com.google.common.collect.Lists.newArrayList;
@@ -168,7 +175,7 @@ public class ApplauseBuilderParticipant implements IXtextBuilderParticipant {
 		if (context.getBuildType() == BuildType.CLEAN || context.getBuildType() == BuildType.RECOVERY) {
 			SubMonitor cleanMonitor = SubMonitor.convert(subMonitor.newChild(1), outputConfigurations.size());
 			for (OutputConfiguration config : outputConfigurations.values()) {
-				cleanOutput(context, config, access, cleanMonitor.newChild(1));
+				cleanOutput(context, config, cleanMonitor.newChild(1));
 			}
 			if (context.getBuildType() == BuildType.CLEAN)
 				return;
@@ -272,13 +279,6 @@ public class ApplauseBuilderParticipant implements IXtextBuilderParticipant {
 	}
 
 	protected void cleanOutput(IBuildContext ctx, OutputConfiguration config, IProgressMonitor monitor) throws CoreException {
-		cleanOutput(ctx, config, null, monitor);
-	}
-
-	/**
-	 * @since 2.5
-	 */
-	protected void cleanOutput(IBuildContext ctx, OutputConfiguration config, ApplauseEclipseResourceFileSystemAccess2 access, IProgressMonitor monitor) throws CoreException {
 		final IProject project = ctx.getBuiltProject();
 		IContainer container = getContainer(project, config.getOutputDirectory());
 		if (!container.exists()) {
@@ -286,41 +286,16 @@ public class ApplauseBuilderParticipant implements IXtextBuilderParticipant {
 		}
 		if (config.isCanClearOutputDirectory()) {
 			for (IResource resource : container.members()) {
-				if (!config.isKeepLocalHistory()) {
-					resource.delete(IResource.NONE, monitor);
-				} else if (access == null) {
-					resource.delete(IResource.KEEP_HISTORY, monitor);
-				} else {
-					delete(resource, config, access, monitor);
-				}
+				resource.delete(IResource.KEEP_HISTORY, monitor);
 			}
 		} else if (config.isCleanUpDerivedResources()) {
 			List<IFile> resources = derivedResourceMarkers.findDerivedResources(container, null);
 			for (IFile iFile : resources) {
-				if (access != null) {
-					access.deleteFile(iFile, config.getName(), monitor);
-				} else {
-					iFile.delete(config.isKeepLocalHistory() ? IResource.KEEP_HISTORY : IResource.NONE, monitor);	
-				}
+				iFile.delete(IResource.KEEP_HISTORY, monitor);
 			}
 		}
 	}
 	
-	private void delete(IResource resource, OutputConfiguration config, ApplauseEclipseResourceFileSystemAccess2 access, IProgressMonitor monitor) throws CoreException {
-		if (resource instanceof IContainer) {
-			IContainer container = (IContainer) resource;
-			for (IResource child : container.members()) {
-				delete(child, config, access, monitor);
-			}
-			container.delete(IResource.KEEP_HISTORY, monitor);
-		} else if (resource instanceof IFile) {
-			IFile file = (IFile) resource;
-			access.deleteFile(file, config.getName(), monitor);
-		} else {
-			resource.delete(IResource.KEEP_HISTORY, monitor);
-		}
-	}
-
 	protected void handleChangedContents(Delta delta, IBuildContext context, ApplauseEclipseResourceFileSystemAccess2 fileSystemAccess) throws CoreException {
 		// TODO: we will run out of memory here if the number of deltas is large enough
 		Resource resource = context.getResourceSet().getResource(delta.getUri(), true);

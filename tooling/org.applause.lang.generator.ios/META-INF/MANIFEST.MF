@@ -8,4 +8,5 @@ Require-Bundle: org.applause.lang;bundle-version="1.0.0"
 Bundle-Vendor: Peter Friese / Applause.org
 Export-Package: org.applause.lang.generator.ios,
  org.applause.lang.generator.ios.dataaccess,
- org.applause.lang.generator.ios.model
+ org.applause.lang.generator.ios.model,
+ org.applause.lang.generator.ios.supportfiles

@@ -12,7 +12,8 @@ public class EntityDataAccessExtensions {
   }
   
   public String plural(final String it) {
-    return (it + "s");
+    String _plus = (it + "s");
+    return _plus;
   }
   
   public String listAllMethodName(final Entity it) {

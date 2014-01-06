@@ -8,6 +8,8 @@ class IosOutputConfigurationProvider implements IOutputConfigurationProvider {
 	public final static String IOS_DEFAULT_OUTPUT = "IOS_DEFAULT_OUTPUT";
 	public final static String IOS_OUTPUT_MODELS = "IOS_OUTPUT_MODELS";
 	public final static String IOS_OUTPUT_DATAACCESS = "IOS_OUTPUT_DATAACCESS";
+	public final static String IOS_OUTPUT_SUPPORTFILES = "IOS_OUTPUT_SUPPORTFILES";
+	public final static String IOS_OUTPUT_SUPPORTFILES_LOCALIZED_EN = "IOS_OUTPUT_SUPPORTFILES_LOCALIZED_EN";
 	
 	override getOutputConfigurations() {
 		val defaultOutput = new OutputConfiguration(IOS_DEFAULT_OUTPUT);
@@ -18,7 +20,7 @@ class IosOutputConfigurationProvider implements IOutputConfigurationProvider {
 			createOutputDirectory = true
 			cleanUpDerivedResources = true
 			setDerivedProperty = true
-			keepLocalHistory = true
+			// Xtext 2.5 feature keepLocalHistory = true
 		]
 
 		val modelsOutput = new OutputConfiguration(IOS_OUTPUT_MODELS);
@@ -29,7 +31,7 @@ class IosOutputConfigurationProvider implements IOutputConfigurationProvider {
 			createOutputDirectory = true
 			cleanUpDerivedResources = true
 			setDerivedProperty = true
-			keepLocalHistory = true
+			// Xtext 2.5 feature keepLocalHistory = true
 		]
 		
 		val dataAccessOutput = new OutputConfiguration(IOS_OUTPUT_DATAACCESS);
@@ -40,10 +42,32 @@ class IosOutputConfigurationProvider implements IOutputConfigurationProvider {
 			createOutputDirectory = true
 			cleanUpDerivedResources = true
 			setDerivedProperty = true
-			keepLocalHistory = true
+			// Xtext 2.5 feature keepLocalHistory = true
 		]
 		
-		#{defaultOutput, modelsOutput, dataAccessOutput}
+		val supportFilesOutput = new OutputConfiguration(IOS_OUTPUT_SUPPORTFILES);
+		supportFilesOutput => [
+			description = "iOS Support Files Output Folder"
+			outputDirectory = "../../$PROJECTNAME$-iOS/output2/"
+			overrideExistingResources = true
+			createOutputDirectory = true
+			cleanUpDerivedResources = true
+			setDerivedProperty = true
+			// Xtext 2.5 feature keepLocalHistory = true
+		]
+		
+		val localizedSupportFilesOutput = new OutputConfiguration(IOS_OUTPUT_SUPPORTFILES_LOCALIZED_EN);
+		localizedSupportFilesOutput => [
+			description = "iOS Localized Support Files Output Folder"
+			outputDirectory = "../../$PROJECTNAME$-iOS/output2/en.lproj"
+			overrideExistingResources = true
+			createOutputDirectory = true
+			cleanUpDerivedResources = true
+			setDerivedProperty = true
+			// Xtext 2.5 feature keepLocalHistory = true
+		]
+		
+		#{defaultOutput, modelsOutput, dataAccessOutput, supportFilesOutput, localizedSupportFilesOutput}
 	}
 	
 }
