@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import org.eclipse.xtext.generator.IGenerator
 import org.applause.lang.generator.ios.supportfiles.MainClassCompiler
+import org.applause.lang.generator.ios.supportfiles.PrecompiledHeaderCompiler
 
 class AppGenerator implements IGenerator {
 	
@@ -18,6 +19,7 @@ class AppGenerator implements IGenerator {
 	@Inject DataMappingCompiler dataMappingCompiler
 	
 	@Inject MainClassCompiler mainClassCompiler
+	@Inject PrecompiledHeaderCompiler precompiledHeaderCompiler
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		entityCompiler.doGenerate(resource, fsa)
@@ -26,6 +28,7 @@ class AppGenerator implements IGenerator {
 		dataMappingCompiler.doGenerate(resource, fsa)
 		
 		mainClassCompiler.doGenerate(resource, fsa)
+		precompiledHeaderCompiler.doGenerate(resource, fsa)
 	}	
 	
 }
