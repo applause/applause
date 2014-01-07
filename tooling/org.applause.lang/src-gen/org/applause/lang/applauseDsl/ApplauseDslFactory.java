@@ -203,6 +203,159 @@ public interface ApplauseDslFactory extends EFactory
   Variable createVariable();
 
   /**
+   * Returns a new object of class '<em>Screen</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Screen</em>'.
+   * @generated
+   */
+  Screen createScreen();
+
+  /**
+   * Returns a new object of class '<em>Screen Section</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Screen Section</em>'.
+   * @generated
+   */
+  ScreenSection createScreenSection();
+
+  /**
+   * Returns a new object of class '<em>Screen Section Items</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Screen Section Items</em>'.
+   * @generated
+   */
+  ScreenSectionItems createScreenSectionItems();
+
+  /**
+   * Returns a new object of class '<em>Screen List Item Cell</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Screen List Item Cell</em>'.
+   * @generated
+   */
+  ScreenListItemCell createScreenListItemCell();
+
+  /**
+   * Returns a new object of class '<em>List Item Cell Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>List Item Cell Declaration</em>'.
+   * @generated
+   */
+  ListItemCellDeclaration createListItemCellDeclaration();
+
+  /**
+   * Returns a new object of class '<em>UI Component Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Component Declaration</em>'.
+   * @generated
+   */
+  UIComponentDeclaration createUIComponentDeclaration();
+
+  /**
+   * Returns a new object of class '<em>UI Component Member Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Component Member Declaration</em>'.
+   * @generated
+   */
+  UIComponentMemberDeclaration createUIComponentMemberDeclaration();
+
+  /**
+   * Returns a new object of class '<em>UI Component Or Data Type</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Component Or Data Type</em>'.
+   * @generated
+   */
+  UIComponentOrDataType createUIComponentOrDataType();
+
+  /**
+   * Returns a new object of class '<em>REST Method Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>REST Method Call</em>'.
+   * @generated
+   */
+  RESTMethodCall createRESTMethodCall();
+
+  /**
+   * Returns a new object of class '<em>Data Source Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Data Source Call</em>'.
+   * @generated
+   */
+  DataSourceCall createDataSourceCall();
+
+  /**
+   * Returns a new object of class '<em>UI Component Member Configuration</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Component Member Configuration</em>'.
+   * @generated
+   */
+  UIComponentMemberConfiguration createUIComponentMemberConfiguration();
+
+  /**
+   * Returns a new object of class '<em>UI Component Member Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Component Member Call</em>'.
+   * @generated
+   */
+  UIComponentMemberCall createUIComponentMemberCall();
+
+  /**
+   * Returns a new object of class '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression</em>'.
+   * @generated
+   */
+  Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Entity Member Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity Member Call</em>'.
+   * @generated
+   */
+  EntityMemberCall createEntityMemberCall();
+
+  /**
+   * Returns a new object of class '<em>Entity Member Call Tail</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Entity Member Call Tail</em>'.
+   * @generated
+   */
+  EntityMemberCallTail createEntityMemberCallTail();
+
+  /**
+   * Returns a new object of class '<em>Attribute Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute Reference</em>'.
+   * @generated
+   */
+  AttributeReference createAttributeReference();
+
+  /**
+   * Returns a new object of class '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Literal</em>'.
+   * @generated
+   */
+  StringLiteral createStringLiteral();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

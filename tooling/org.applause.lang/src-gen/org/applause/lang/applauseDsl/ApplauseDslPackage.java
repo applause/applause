@@ -762,6 +762,626 @@ public interface ApplauseDslPackage extends EPackage
   int VARIABLE_FEATURE_COUNT = URL_FRAGMENT_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ScreenImpl <em>Screen</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ScreenImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreen()
+   * @generated
+   */
+  int SCREEN = 20;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__KIND = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Datasource</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__DATASOURCE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+
+  /**
+   * The feature id for the '<em><b>Sections</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__SECTIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+   * The number of structural features of the '<em>Screen</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionImpl <em>Screen Section</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ScreenSectionImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenSection()
+   * @generated
+   */
+  int SCREEN_SECTION = 21;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_SECTION__TITLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Datasource</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_SECTION__DATASOURCE = 1;
+
+  /**
+   * The feature id for the '<em><b>Items</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_SECTION__ITEMS = 2;
+
+  /**
+   * The number of structural features of the '<em>Screen Section</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_SECTION_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionItemsImpl <em>Screen Section Items</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ScreenSectionItemsImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenSectionItems()
+   * @generated
+   */
+  int SCREEN_SECTION_ITEMS = 22;
+
+  /**
+   * The feature id for the '<em><b>Items</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_SECTION_ITEMS__ITEMS = 0;
+
+  /**
+   * The number of structural features of the '<em>Screen Section Items</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_SECTION_ITEMS_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ScreenListItemCellImpl <em>Screen List Item Cell</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ScreenListItemCellImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenListItemCell()
+   * @generated
+   */
+  int SCREEN_LIST_ITEM_CELL = 23;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_LIST_ITEM_CELL__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Rest Method</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_LIST_ITEM_CELL__REST_METHOD = 1;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_LIST_ITEM_CELL__VARIABLE = 2;
+
+  /**
+   * The feature id for the '<em><b>Configurations</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_LIST_ITEM_CELL__CONFIGURATIONS = 3;
+
+  /**
+   * The number of structural features of the '<em>Screen List Item Cell</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_LIST_ITEM_CELL_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ListItemCellDeclarationImpl <em>List Item Cell Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ListItemCellDeclarationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getListItemCellDeclaration()
+   * @generated
+   */
+  int LIST_ITEM_CELL_DECLARATION = 24;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_ITEM_CELL_DECLARATION__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Members</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_ITEM_CELL_DECLARATION__MEMBERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>List Item Cell Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LIST_ITEM_CELL_DECLARATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIComponentDeclarationImpl <em>UI Component Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIComponentDeclarationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentDeclaration()
+   * @generated
+   */
+  int UI_COMPONENT_DECLARATION = 25;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_DECLARATION__NAME = NAMED_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Members</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_DECLARATION__MEMBERS = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>UI Component Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_DECLARATION_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIComponentMemberDeclarationImpl <em>UI Component Member Declaration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIComponentMemberDeclarationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberDeclaration()
+   * @generated
+   */
+  int UI_COMPONENT_MEMBER_DECLARATION = 26;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_DECLARATION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_DECLARATION__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>UI Component Member Declaration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_DECLARATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIComponentOrDataTypeImpl <em>UI Component Or Data Type</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIComponentOrDataTypeImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentOrDataType()
+   * @generated
+   */
+  int UI_COMPONENT_OR_DATA_TYPE = 27;
+
+  /**
+   * The number of structural features of the '<em>UI Component Or Data Type</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_OR_DATA_TYPE_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.RESTMethodCallImpl <em>REST Method Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.RESTMethodCallImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTMethodCall()
+   * @generated
+   */
+  int REST_METHOD_CALL = 28;
+
+  /**
+   * The feature id for the '<em><b>Datasource</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_METHOD_CALL__DATASOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>Rest Method</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_METHOD_CALL__REST_METHOD = 1;
+
+  /**
+   * The number of structural features of the '<em>REST Method Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REST_METHOD_CALL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.DataSourceCallImpl <em>Data Source Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.DataSourceCallImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceCall()
+   * @generated
+   */
+  int DATA_SOURCE_CALL = 29;
+
+  /**
+   * The feature id for the '<em><b>Datasource</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_CALL__DATASOURCE = 0;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_CALL__NAME = 1;
+
+  /**
+   * The number of structural features of the '<em>Data Source Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DATA_SOURCE_CALL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIComponentMemberConfigurationImpl <em>UI Component Member Configuration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIComponentMemberConfigurationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberConfiguration()
+   * @generated
+   */
+  int UI_COMPONENT_MEMBER_CONFIGURATION = 30;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_CONFIGURATION__TYPE = 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_CONFIGURATION__VALUE = 1;
+
+  /**
+   * The number of structural features of the '<em>UI Component Member Configuration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_CONFIGURATION_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIComponentMemberCallImpl <em>UI Component Member Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIComponentMemberCallImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberCall()
+   * @generated
+   */
+  int UI_COMPONENT_MEMBER_CALL = 31;
+
+  /**
+   * The feature id for the '<em><b>Component</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_CALL__COMPONENT = 0;
+
+  /**
+   * The feature id for the '<em><b>Member</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_CALL__MEMBER = 1;
+
+  /**
+   * The number of structural features of the '<em>UI Component Member Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_COMPONENT_MEMBER_CALL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ExpressionImpl <em>Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ExpressionImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getExpression()
+   * @generated
+   */
+  int EXPRESSION = 32;
+
+  /**
+   * The number of structural features of the '<em>Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int EXPRESSION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.EntityMemberCallImpl <em>Entity Member Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.EntityMemberCallImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntityMemberCall()
+   * @generated
+   */
+  int ENTITY_MEMBER_CALL = 33;
+
+  /**
+   * The feature id for the '<em><b>Head</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MEMBER_CALL__HEAD = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MEMBER_CALL__TAIL = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Entity Member Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MEMBER_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.EntityMemberCallTailImpl <em>Entity Member Call Tail</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.EntityMemberCallTailImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntityMemberCallTail()
+   * @generated
+   */
+  int ENTITY_MEMBER_CALL_TAIL = 34;
+
+  /**
+   * The feature id for the '<em><b>Head</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MEMBER_CALL_TAIL__HEAD = 0;
+
+  /**
+   * The feature id for the '<em><b>Tail</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MEMBER_CALL_TAIL__TAIL = 1;
+
+  /**
+   * The number of structural features of the '<em>Entity Member Call Tail</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ENTITY_MEMBER_CALL_TAIL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.AttributeReferenceImpl <em>Attribute Reference</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.AttributeReferenceImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getAttributeReference()
+   * @generated
+   */
+  int ATTRIBUTE_REFERENCE = 35;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_REFERENCE__VALUE = 0;
+
+  /**
+   * The number of structural features of the '<em>Attribute Reference</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ATTRIBUTE_REFERENCE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.StringLiteralImpl <em>String Literal</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.StringLiteralImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringLiteral()
+   * @generated
+   */
+  int STRING_LITERAL = 36;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Literal</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_LITERAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -769,7 +1389,17 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTVerb()
    * @generated
    */
-  int REST_VERB = 20;
+  int REST_VERB = 37;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.ScreenKind <em>Screen Kind</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.ScreenKind
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenKind()
+   * @generated
+   */
+  int SCREEN_KIND = 38;
 
 
   /**
@@ -1292,6 +1922,506 @@ public interface ApplauseDslPackage extends EPackage
   EReference getVariable_ParameterReference();
 
   /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Screen <em>Screen</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Screen</em>'.
+   * @see org.applause.lang.applauseDsl.Screen
+   * @generated
+   */
+  EClass getScreen();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Screen#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Kind</em>'.
+   * @see org.applause.lang.applauseDsl.Screen#getKind()
+   * @see #getScreen()
+   * @generated
+   */
+  EAttribute getScreen_Kind();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Screen#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Title</em>'.
+   * @see org.applause.lang.applauseDsl.Screen#getTitle()
+   * @see #getScreen()
+   * @generated
+   */
+  EAttribute getScreen_Title();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.Screen#getDatasource <em>Datasource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Datasource</em>'.
+   * @see org.applause.lang.applauseDsl.Screen#getDatasource()
+   * @see #getScreen()
+   * @generated
+   */
+  EReference getScreen_Datasource();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.Screen#getSections <em>Sections</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Sections</em>'.
+   * @see org.applause.lang.applauseDsl.Screen#getSections()
+   * @see #getScreen()
+   * @generated
+   */
+  EReference getScreen_Sections();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ScreenSection <em>Screen Section</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Screen Section</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenSection
+   * @generated
+   */
+  EClass getScreenSection();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.ScreenSection#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Title</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenSection#getTitle()
+   * @see #getScreenSection()
+   * @generated
+   */
+  EAttribute getScreenSection_Title();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.ScreenSection#getDatasource <em>Datasource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Datasource</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenSection#getDatasource()
+   * @see #getScreenSection()
+   * @generated
+   */
+  EReference getScreenSection_Datasource();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.ScreenSection#getItems <em>Items</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Items</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenSection#getItems()
+   * @see #getScreenSection()
+   * @generated
+   */
+  EReference getScreenSection_Items();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ScreenSectionItems <em>Screen Section Items</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Screen Section Items</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenSectionItems
+   * @generated
+   */
+  EClass getScreenSectionItems();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.ScreenSectionItems#getItems <em>Items</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Items</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenSectionItems#getItems()
+   * @see #getScreenSectionItems()
+   * @generated
+   */
+  EReference getScreenSectionItems_Items();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ScreenListItemCell <em>Screen List Item Cell</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Screen List Item Cell</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell
+   * @generated
+   */
+  EClass getScreenListItemCell();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell#getType()
+   * @see #getScreenListItemCell()
+   * @generated
+   */
+  EReference getScreenListItemCell_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getRestMethod <em>Rest Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Rest Method</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell#getRestMethod()
+   * @see #getScreenListItemCell()
+   * @generated
+   */
+  EReference getScreenListItemCell_RestMethod();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell#getVariable()
+   * @see #getScreenListItemCell()
+   * @generated
+   */
+  EAttribute getScreenListItemCell_Variable();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getConfigurations <em>Configurations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Configurations</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell#getConfigurations()
+   * @see #getScreenListItemCell()
+   * @generated
+   */
+  EReference getScreenListItemCell_Configurations();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ListItemCellDeclaration <em>List Item Cell Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>List Item Cell Declaration</em>'.
+   * @see org.applause.lang.applauseDsl.ListItemCellDeclaration
+   * @generated
+   */
+  EClass getListItemCellDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.ListItemCellDeclaration#getMembers <em>Members</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Members</em>'.
+   * @see org.applause.lang.applauseDsl.ListItemCellDeclaration#getMembers()
+   * @see #getListItemCellDeclaration()
+   * @generated
+   */
+  EReference getListItemCellDeclaration_Members();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIComponentDeclaration <em>UI Component Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Component Declaration</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentDeclaration
+   * @generated
+   */
+  EClass getUIComponentDeclaration();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.UIComponentDeclaration#getMembers <em>Members</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Members</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentDeclaration#getMembers()
+   * @see #getUIComponentDeclaration()
+   * @generated
+   */
+  EReference getUIComponentDeclaration_Members();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIComponentMemberDeclaration <em>UI Component Member Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Component Member Declaration</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberDeclaration
+   * @generated
+   */
+  EClass getUIComponentMemberDeclaration();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.UIComponentMemberDeclaration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Type</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberDeclaration#getType()
+   * @see #getUIComponentMemberDeclaration()
+   * @generated
+   */
+  EReference getUIComponentMemberDeclaration_Type();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIComponentMemberDeclaration#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberDeclaration#getName()
+   * @see #getUIComponentMemberDeclaration()
+   * @generated
+   */
+  EAttribute getUIComponentMemberDeclaration_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIComponentOrDataType <em>UI Component Or Data Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Component Or Data Type</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentOrDataType
+   * @generated
+   */
+  EClass getUIComponentOrDataType();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.RESTMethodCall <em>REST Method Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>REST Method Call</em>'.
+   * @see org.applause.lang.applauseDsl.RESTMethodCall
+   * @generated
+   */
+  EClass getRESTMethodCall();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.RESTMethodCall#getDatasource <em>Datasource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Datasource</em>'.
+   * @see org.applause.lang.applauseDsl.RESTMethodCall#getDatasource()
+   * @see #getRESTMethodCall()
+   * @generated
+   */
+  EReference getRESTMethodCall_Datasource();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.RESTMethodCall#getRestMethod <em>Rest Method</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Rest Method</em>'.
+   * @see org.applause.lang.applauseDsl.RESTMethodCall#getRestMethod()
+   * @see #getRESTMethodCall()
+   * @generated
+   */
+  EReference getRESTMethodCall_RestMethod();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.DataSourceCall <em>Data Source Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Data Source Call</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceCall
+   * @generated
+   */
+  EClass getDataSourceCall();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.DataSourceCall#getDatasource <em>Datasource</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Datasource</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceCall#getDatasource()
+   * @see #getDataSourceCall()
+   * @generated
+   */
+  EReference getDataSourceCall_Datasource();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSourceCall#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.DataSourceCall#getName()
+   * @see #getDataSourceCall()
+   * @generated
+   */
+  EAttribute getDataSourceCall_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIComponentMemberConfiguration <em>UI Component Member Configuration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Component Member Configuration</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberConfiguration
+   * @generated
+   */
+  EClass getUIComponentMemberConfiguration();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.UIComponentMemberConfiguration#getType <em>Type</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Type</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberConfiguration#getType()
+   * @see #getUIComponentMemberConfiguration()
+   * @generated
+   */
+  EReference getUIComponentMemberConfiguration_Type();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.UIComponentMemberConfiguration#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Value</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberConfiguration#getValue()
+   * @see #getUIComponentMemberConfiguration()
+   * @generated
+   */
+  EReference getUIComponentMemberConfiguration_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIComponentMemberCall <em>UI Component Member Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Component Member Call</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberCall
+   * @generated
+   */
+  EClass getUIComponentMemberCall();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.UIComponentMemberCall#getComponent <em>Component</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Component</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberCall#getComponent()
+   * @see #getUIComponentMemberCall()
+   * @generated
+   */
+  EReference getUIComponentMemberCall_Component();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.UIComponentMemberCall#getMember <em>Member</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Member</em>'.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberCall#getMember()
+   * @see #getUIComponentMemberCall()
+   * @generated
+   */
+  EReference getUIComponentMemberCall_Member();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Expression</em>'.
+   * @see org.applause.lang.applauseDsl.Expression
+   * @generated
+   */
+  EClass getExpression();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.EntityMemberCall <em>Entity Member Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entity Member Call</em>'.
+   * @see org.applause.lang.applauseDsl.EntityMemberCall
+   * @generated
+   */
+  EClass getEntityMemberCall();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.EntityMemberCall#getHead <em>Head</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Head</em>'.
+   * @see org.applause.lang.applauseDsl.EntityMemberCall#getHead()
+   * @see #getEntityMemberCall()
+   * @generated
+   */
+  EReference getEntityMemberCall_Head();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.EntityMemberCall#getTail <em>Tail</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tail</em>'.
+   * @see org.applause.lang.applauseDsl.EntityMemberCall#getTail()
+   * @see #getEntityMemberCall()
+   * @generated
+   */
+  EReference getEntityMemberCall_Tail();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.EntityMemberCallTail <em>Entity Member Call Tail</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Entity Member Call Tail</em>'.
+   * @see org.applause.lang.applauseDsl.EntityMemberCallTail
+   * @generated
+   */
+  EClass getEntityMemberCallTail();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.EntityMemberCallTail#getHead <em>Head</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Head</em>'.
+   * @see org.applause.lang.applauseDsl.EntityMemberCallTail#getHead()
+   * @see #getEntityMemberCallTail()
+   * @generated
+   */
+  EReference getEntityMemberCallTail_Head();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.EntityMemberCallTail#getTail <em>Tail</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Tail</em>'.
+   * @see org.applause.lang.applauseDsl.EntityMemberCallTail#getTail()
+   * @see #getEntityMemberCallTail()
+   * @generated
+   */
+  EReference getEntityMemberCallTail_Tail();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.AttributeReference <em>Attribute Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Attribute Reference</em>'.
+   * @see org.applause.lang.applauseDsl.AttributeReference
+   * @generated
+   */
+  EClass getAttributeReference();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.AttributeReference#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Value</em>'.
+   * @see org.applause.lang.applauseDsl.AttributeReference#getValue()
+   * @see #getAttributeReference()
+   * @generated
+   */
+  EReference getAttributeReference_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Literal</em>'.
+   * @see org.applause.lang.applauseDsl.StringLiteral
+   * @generated
+   */
+  EClass getStringLiteral();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.StringLiteral#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.applause.lang.applauseDsl.StringLiteral#getValue()
+   * @see #getStringLiteral()
+   * @generated
+   */
+  EAttribute getStringLiteral_Value();
+
+  /**
    * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1300,6 +2430,16 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EEnum getRESTVerb();
+
+  /**
+   * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.ScreenKind <em>Screen Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Screen Kind</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenKind
+   * @generated
+   */
+  EEnum getScreenKind();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -1757,6 +2897,416 @@ public interface ApplauseDslPackage extends EPackage
     EReference VARIABLE__PARAMETER_REFERENCE = eINSTANCE.getVariable_ParameterReference();
 
     /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ScreenImpl <em>Screen</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ScreenImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreen()
+     * @generated
+     */
+    EClass SCREEN = eINSTANCE.getScreen();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCREEN__KIND = eINSTANCE.getScreen_Kind();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCREEN__TITLE = eINSTANCE.getScreen_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Datasource</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN__DATASOURCE = eINSTANCE.getScreen_Datasource();
+
+    /**
+     * The meta object literal for the '<em><b>Sections</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN__SECTIONS = eINSTANCE.getScreen_Sections();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionImpl <em>Screen Section</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ScreenSectionImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenSection()
+     * @generated
+     */
+    EClass SCREEN_SECTION = eINSTANCE.getScreenSection();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCREEN_SECTION__TITLE = eINSTANCE.getScreenSection_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Datasource</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_SECTION__DATASOURCE = eINSTANCE.getScreenSection_Datasource();
+
+    /**
+     * The meta object literal for the '<em><b>Items</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_SECTION__ITEMS = eINSTANCE.getScreenSection_Items();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionItemsImpl <em>Screen Section Items</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ScreenSectionItemsImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenSectionItems()
+     * @generated
+     */
+    EClass SCREEN_SECTION_ITEMS = eINSTANCE.getScreenSectionItems();
+
+    /**
+     * The meta object literal for the '<em><b>Items</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_SECTION_ITEMS__ITEMS = eINSTANCE.getScreenSectionItems_Items();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ScreenListItemCellImpl <em>Screen List Item Cell</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ScreenListItemCellImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenListItemCell()
+     * @generated
+     */
+    EClass SCREEN_LIST_ITEM_CELL = eINSTANCE.getScreenListItemCell();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_LIST_ITEM_CELL__TYPE = eINSTANCE.getScreenListItemCell_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Rest Method</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_LIST_ITEM_CELL__REST_METHOD = eINSTANCE.getScreenListItemCell_RestMethod();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCREEN_LIST_ITEM_CELL__VARIABLE = eINSTANCE.getScreenListItemCell_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_LIST_ITEM_CELL__CONFIGURATIONS = eINSTANCE.getScreenListItemCell_Configurations();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ListItemCellDeclarationImpl <em>List Item Cell Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ListItemCellDeclarationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getListItemCellDeclaration()
+     * @generated
+     */
+    EClass LIST_ITEM_CELL_DECLARATION = eINSTANCE.getListItemCellDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LIST_ITEM_CELL_DECLARATION__MEMBERS = eINSTANCE.getListItemCellDeclaration_Members();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIComponentDeclarationImpl <em>UI Component Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIComponentDeclarationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentDeclaration()
+     * @generated
+     */
+    EClass UI_COMPONENT_DECLARATION = eINSTANCE.getUIComponentDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Members</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_COMPONENT_DECLARATION__MEMBERS = eINSTANCE.getUIComponentDeclaration_Members();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIComponentMemberDeclarationImpl <em>UI Component Member Declaration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIComponentMemberDeclarationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberDeclaration()
+     * @generated
+     */
+    EClass UI_COMPONENT_MEMBER_DECLARATION = eINSTANCE.getUIComponentMemberDeclaration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_COMPONENT_MEMBER_DECLARATION__TYPE = eINSTANCE.getUIComponentMemberDeclaration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_COMPONENT_MEMBER_DECLARATION__NAME = eINSTANCE.getUIComponentMemberDeclaration_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIComponentOrDataTypeImpl <em>UI Component Or Data Type</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIComponentOrDataTypeImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentOrDataType()
+     * @generated
+     */
+    EClass UI_COMPONENT_OR_DATA_TYPE = eINSTANCE.getUIComponentOrDataType();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.RESTMethodCallImpl <em>REST Method Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.RESTMethodCallImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTMethodCall()
+     * @generated
+     */
+    EClass REST_METHOD_CALL = eINSTANCE.getRESTMethodCall();
+
+    /**
+     * The meta object literal for the '<em><b>Datasource</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REST_METHOD_CALL__DATASOURCE = eINSTANCE.getRESTMethodCall_Datasource();
+
+    /**
+     * The meta object literal for the '<em><b>Rest Method</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference REST_METHOD_CALL__REST_METHOD = eINSTANCE.getRESTMethodCall_RestMethod();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.DataSourceCallImpl <em>Data Source Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.DataSourceCallImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceCall()
+     * @generated
+     */
+    EClass DATA_SOURCE_CALL = eINSTANCE.getDataSourceCall();
+
+    /**
+     * The meta object literal for the '<em><b>Datasource</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference DATA_SOURCE_CALL__DATASOURCE = eINSTANCE.getDataSourceCall_Datasource();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute DATA_SOURCE_CALL__NAME = eINSTANCE.getDataSourceCall_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIComponentMemberConfigurationImpl <em>UI Component Member Configuration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIComponentMemberConfigurationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberConfiguration()
+     * @generated
+     */
+    EClass UI_COMPONENT_MEMBER_CONFIGURATION = eINSTANCE.getUIComponentMemberConfiguration();
+
+    /**
+     * The meta object literal for the '<em><b>Type</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_COMPONENT_MEMBER_CONFIGURATION__TYPE = eINSTANCE.getUIComponentMemberConfiguration_Type();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_COMPONENT_MEMBER_CONFIGURATION__VALUE = eINSTANCE.getUIComponentMemberConfiguration_Value();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIComponentMemberCallImpl <em>UI Component Member Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIComponentMemberCallImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberCall()
+     * @generated
+     */
+    EClass UI_COMPONENT_MEMBER_CALL = eINSTANCE.getUIComponentMemberCall();
+
+    /**
+     * The meta object literal for the '<em><b>Component</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_COMPONENT_MEMBER_CALL__COMPONENT = eINSTANCE.getUIComponentMemberCall_Component();
+
+    /**
+     * The meta object literal for the '<em><b>Member</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_COMPONENT_MEMBER_CALL__MEMBER = eINSTANCE.getUIComponentMemberCall_Member();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ExpressionImpl <em>Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ExpressionImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getExpression()
+     * @generated
+     */
+    EClass EXPRESSION = eINSTANCE.getExpression();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.EntityMemberCallImpl <em>Entity Member Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.EntityMemberCallImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntityMemberCall()
+     * @generated
+     */
+    EClass ENTITY_MEMBER_CALL = eINSTANCE.getEntityMemberCall();
+
+    /**
+     * The meta object literal for the '<em><b>Head</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY_MEMBER_CALL__HEAD = eINSTANCE.getEntityMemberCall_Head();
+
+    /**
+     * The meta object literal for the '<em><b>Tail</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY_MEMBER_CALL__TAIL = eINSTANCE.getEntityMemberCall_Tail();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.EntityMemberCallTailImpl <em>Entity Member Call Tail</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.EntityMemberCallTailImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntityMemberCallTail()
+     * @generated
+     */
+    EClass ENTITY_MEMBER_CALL_TAIL = eINSTANCE.getEntityMemberCallTail();
+
+    /**
+     * The meta object literal for the '<em><b>Head</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY_MEMBER_CALL_TAIL__HEAD = eINSTANCE.getEntityMemberCallTail_Head();
+
+    /**
+     * The meta object literal for the '<em><b>Tail</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ENTITY_MEMBER_CALL_TAIL__TAIL = eINSTANCE.getEntityMemberCallTail_Tail();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.AttributeReferenceImpl <em>Attribute Reference</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.AttributeReferenceImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getAttributeReference()
+     * @generated
+     */
+    EClass ATTRIBUTE_REFERENCE = eINSTANCE.getAttributeReference();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ATTRIBUTE_REFERENCE__VALUE = eINSTANCE.getAttributeReference_Value();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.StringLiteralImpl <em>String Literal</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.StringLiteralImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringLiteral()
+     * @generated
+     */
+    EClass STRING_LITERAL = eINSTANCE.getStringLiteral();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_LITERAL__VALUE = eINSTANCE.getStringLiteral_Value();
+
+    /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1765,6 +3315,16 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EEnum REST_VERB = eINSTANCE.getRESTVerb();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.ScreenKind <em>Screen Kind</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.ScreenKind
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenKind()
+     * @generated
+     */
+    EEnum SCREEN_KIND = eINSTANCE.getScreenKind();
 
   }
 

@@ -175,6 +175,91 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createVariableAdapter();
       }
       @Override
+      public Adapter caseScreen(Screen object)
+      {
+        return createScreenAdapter();
+      }
+      @Override
+      public Adapter caseScreenSection(ScreenSection object)
+      {
+        return createScreenSectionAdapter();
+      }
+      @Override
+      public Adapter caseScreenSectionItems(ScreenSectionItems object)
+      {
+        return createScreenSectionItemsAdapter();
+      }
+      @Override
+      public Adapter caseScreenListItemCell(ScreenListItemCell object)
+      {
+        return createScreenListItemCellAdapter();
+      }
+      @Override
+      public Adapter caseListItemCellDeclaration(ListItemCellDeclaration object)
+      {
+        return createListItemCellDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseUIComponentDeclaration(UIComponentDeclaration object)
+      {
+        return createUIComponentDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseUIComponentMemberDeclaration(UIComponentMemberDeclaration object)
+      {
+        return createUIComponentMemberDeclarationAdapter();
+      }
+      @Override
+      public Adapter caseUIComponentOrDataType(UIComponentOrDataType object)
+      {
+        return createUIComponentOrDataTypeAdapter();
+      }
+      @Override
+      public Adapter caseRESTMethodCall(RESTMethodCall object)
+      {
+        return createRESTMethodCallAdapter();
+      }
+      @Override
+      public Adapter caseDataSourceCall(DataSourceCall object)
+      {
+        return createDataSourceCallAdapter();
+      }
+      @Override
+      public Adapter caseUIComponentMemberConfiguration(UIComponentMemberConfiguration object)
+      {
+        return createUIComponentMemberConfigurationAdapter();
+      }
+      @Override
+      public Adapter caseUIComponentMemberCall(UIComponentMemberCall object)
+      {
+        return createUIComponentMemberCallAdapter();
+      }
+      @Override
+      public Adapter caseExpression(Expression object)
+      {
+        return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseEntityMemberCall(EntityMemberCall object)
+      {
+        return createEntityMemberCallAdapter();
+      }
+      @Override
+      public Adapter caseEntityMemberCallTail(EntityMemberCallTail object)
+      {
+        return createEntityMemberCallTailAdapter();
+      }
+      @Override
+      public Adapter caseAttributeReference(AttributeReference object)
+      {
+        return createAttributeReferenceAdapter();
+      }
+      @Override
+      public Adapter caseStringLiteral(StringLiteral object)
+      {
+        return createStringLiteralAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -492,6 +577,261 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.Screen <em>Screen</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.Screen
+   * @generated
+   */
+  public Adapter createScreenAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ScreenSection <em>Screen Section</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ScreenSection
+   * @generated
+   */
+  public Adapter createScreenSectionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ScreenSectionItems <em>Screen Section Items</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ScreenSectionItems
+   * @generated
+   */
+  public Adapter createScreenSectionItemsAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ScreenListItemCell <em>Screen List Item Cell</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell
+   * @generated
+   */
+  public Adapter createScreenListItemCellAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ListItemCellDeclaration <em>List Item Cell Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ListItemCellDeclaration
+   * @generated
+   */
+  public Adapter createListItemCellDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIComponentDeclaration <em>UI Component Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIComponentDeclaration
+   * @generated
+   */
+  public Adapter createUIComponentDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIComponentMemberDeclaration <em>UI Component Member Declaration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberDeclaration
+   * @generated
+   */
+  public Adapter createUIComponentMemberDeclarationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIComponentOrDataType <em>UI Component Or Data Type</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIComponentOrDataType
+   * @generated
+   */
+  public Adapter createUIComponentOrDataTypeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.RESTMethodCall <em>REST Method Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.RESTMethodCall
+   * @generated
+   */
+  public Adapter createRESTMethodCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.DataSourceCall <em>Data Source Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.DataSourceCall
+   * @generated
+   */
+  public Adapter createDataSourceCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIComponentMemberConfiguration <em>UI Component Member Configuration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberConfiguration
+   * @generated
+   */
+  public Adapter createUIComponentMemberConfigurationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIComponentMemberCall <em>UI Component Member Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIComponentMemberCall
+   * @generated
+   */
+  public Adapter createUIComponentMemberCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.Expression
+   * @generated
+   */
+  public Adapter createExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.EntityMemberCall <em>Entity Member Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.EntityMemberCall
+   * @generated
+   */
+  public Adapter createEntityMemberCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.EntityMemberCallTail <em>Entity Member Call Tail</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.EntityMemberCallTail
+   * @generated
+   */
+  public Adapter createEntityMemberCallTailAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.AttributeReference <em>Attribute Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.AttributeReference
+   * @generated
+   */
+  public Adapter createAttributeReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.StringLiteral <em>String Literal</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.StringLiteral
+   * @generated
+   */
+  public Adapter createStringLiteralAdapter()
   {
     return null;
   }
