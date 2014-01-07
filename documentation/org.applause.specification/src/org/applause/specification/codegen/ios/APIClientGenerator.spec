@@ -96,10 +96,10 @@ describe "API Client Generator"{
 					{
 						self = [super initWithBaseURL:url];
 						if (self) {
-							AFJSONSerializer *responseSerializer = [AFJSONSerializer serializer];
+							AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
 							responseSerializer.readingOptions = NSJSONReadingAllowFragments;
 							self.responseSerializer = responseSerializer;
-							self.requestSerializer = [AFJSONSerializer serializer];
+							self.requestSerializer = [AFJSONRequestSerializer serializer];
 						}
 						return self;
 					}
