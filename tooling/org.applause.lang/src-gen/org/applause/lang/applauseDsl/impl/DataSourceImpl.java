@@ -7,7 +7,7 @@ import java.util.Collection;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
-import org.applause.lang.applauseDsl.Type;
+import org.applause.lang.applauseDsl.Entity;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -67,7 +67,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
    * @generated
    * @ordered
    */
-  protected Type resourceType;
+  protected Entity resourceType;
 
   /**
    * The cached value of the '{@link #getMethods() <em>Methods</em>}' containment reference list.
@@ -128,12 +128,12 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type getResourceType()
+  public Entity getResourceType()
   {
     if (resourceType != null && resourceType.eIsProxy())
     {
       InternalEObject oldResourceType = (InternalEObject)resourceType;
-      resourceType = (Type)eResolveProxy(oldResourceType);
+      resourceType = (Entity)eResolveProxy(oldResourceType);
       if (resourceType != oldResourceType)
       {
         if (eNotificationRequired())
@@ -148,7 +148,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
    * <!-- end-user-doc -->
    * @generated
    */
-  public Type basicGetResourceType()
+  public Entity basicGetResourceType()
   {
     return resourceType;
   }
@@ -158,9 +158,9 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setResourceType(Type newResourceType)
+  public void setResourceType(Entity newResourceType)
   {
-    Type oldResourceType = resourceType;
+    Entity oldResourceType = resourceType;
     resourceType = newResourceType;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.DATA_SOURCE__RESOURCE_TYPE, oldResourceType, resourceType));
@@ -232,7 +232,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
         setBaseUrl((String)newValue);
         return;
       case ApplauseDslPackage.DATA_SOURCE__RESOURCE_TYPE:
-        setResourceType((Type)newValue);
+        setResourceType((Entity)newValue);
         return;
       case ApplauseDslPackage.DATA_SOURCE__METHODS:
         getMethods().clear();
@@ -256,7 +256,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
         setBaseUrl(BASE_URL_EDEFAULT);
         return;
       case ApplauseDslPackage.DATA_SOURCE__RESOURCE_TYPE:
-        setResourceType((Type)null);
+        setResourceType((Entity)null);
         return;
       case ApplauseDslPackage.DATA_SOURCE__METHODS:
         getMethods().clear();

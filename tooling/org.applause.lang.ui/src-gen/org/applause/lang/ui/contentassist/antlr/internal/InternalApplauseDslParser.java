@@ -6448,17 +6448,17 @@ public class InternalApplauseDslParser extends AbstractInternalContentAssistPars
             // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:2463:1: ( ( RULE_ID ) )
             // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:2464:1: ( RULE_ID )
             {
-             before(grammarAccess.getDataSourceAccess().getResourceTypeTypeCrossReference_8_0()); 
+             before(grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); 
             // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:2465:1: ( RULE_ID )
             // ../org.applause.lang.ui/src-gen/org/applause/lang/ui/contentassist/antlr/internal/InternalApplauseDsl.g:2466:1: RULE_ID
             {
-             before(grammarAccess.getDataSourceAccess().getResourceTypeTypeIDTerminalRuleCall_8_0_1()); 
+             before(grammarAccess.getDataSourceAccess().getResourceTypeEntityIDTerminalRuleCall_8_0_1()); 
             match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DataSource__ResourceTypeAssignment_84921); 
-             after(grammarAccess.getDataSourceAccess().getResourceTypeTypeIDTerminalRuleCall_8_0_1()); 
+             after(grammarAccess.getDataSourceAccess().getResourceTypeEntityIDTerminalRuleCall_8_0_1()); 
 
             }
 
-             after(grammarAccess.getDataSourceAccess().getResourceTypeTypeCrossReference_8_0()); 
+             after(grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); 
 
             }
 

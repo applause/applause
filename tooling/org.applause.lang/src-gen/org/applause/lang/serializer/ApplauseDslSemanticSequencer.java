@@ -148,7 +148,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (name=ID baseUrl=STRING resourceType=[Type|ID] methods+=DataSourceAccessMethod*)
+	 *     (name=ID baseUrl=STRING resourceType=[Entity|ID] methods+=DataSourceAccessMethod*)
 	 */
 	protected void sequence_DataSource(EObject context, DataSource semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -13,6 +13,7 @@ import org.jnario.runner.CreateWith
 
 import static org.hamcrest.CoreMatchers.*
 import static org.junit.Assert.*
+import org.applause.lang.applauseDsl.DataSource
 
 @InjectWith(ApplauseDslInjectorProvider)
 @CreateWith(typeof(ApplauseDslTestCreator))
@@ -27,25 +28,40 @@ describe "Entity Data Access Generator"{
 		model.elements.filter(typeof(Entity)).findFirst[name == entityName]
 	}
 	
-	def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-		val entity = input.entity(entityName)
-		val result = entity.compileHeaderFile
+	private def datasource(CharSequence input, String datasourceName) {
+		val model = input.parse
+		model.elements.filter(typeof(DataSource)).findFirst[name == datasourceName]
+	}
+	
+	def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String dataSourceName,  CharSequence input) {
+		val datasource = input.datasource(dataSourceName)
+		val result = datasource.compileHeaderFile
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
 	
-	def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-		val entity = input.entity(entityName)		
-		val result = entity.compileModuleFile
+	def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String dataSourceName,  CharSequence input) {
+		val datasource = input.datasource(dataSourceName)		
+		val result = datasource.compileModuleFile
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
 	
-context "Generating Entities" {
+context "Generating Data Access Code for Entities" {
 		
 		/**
-		 * A simple entity like this:
+		 * A simple model like this:
 		 * 
 		 * <pre class="prettyprint linenums lang-applause">
 		 * entity Person {
+		 * }
+		 * entity Person {
+		 * }
+		 * datasource PersonDataSource {
+		 * 	baseUrl: "http://localhost:2403"
+		 * 	resource: Person
+		 * 	allPersons()[] GET "/persons"
+		 * 	create(Person person) POST "/persons/:person.id" { person }
+		 * 	update(Person person) PUT "/persons/:person.id" { person }
+		 * 	remove(Person person) DELETE "/person/:person.id"
 		 * }
 		 * </pre>
 		 * 
@@ -53,8 +69,16 @@ context "Generating Entities" {
 		 */
 		describe "Data Access Code" {
 			
-			val simplePersonEntity = '''
+			val simpleDataSource = '''
 				entity Person {
+				}
+				datasource PersonDataSource {
+					baseUrl: "http://localhost:2403"
+					resource: Person
+					allPersons()[] GET "/persons"
+					create(Person person) POST "/persons/:person.id" { person }
+					update(Person person) PUT "/persons/:person.id" { person }
+					remove(Person person) DELETE "/person/:person.id"
 				}
 			'''
 			
@@ -68,11 +92,11 @@ context "Generating Entities" {
 
 					@interface Person (DataAccess)
 					+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block;
-					- (void)post:(void (^)(Person *person, NSError *error))block;
-					- (void)put:(void (^)(Person *person, NSError *error))block;
+					- (void)create:(void (^)(Person *person, NSError *error))block;
+					- (void)update:(void (^)(Person *person, NSError *error))block;
 					- (void)remove:(void (^)(Person *person, NSError *error))block;
 					@end
-				'''.isGeneratedHeaderFileFromModel("Person", simplePersonEntity)
+				'''.isGeneratedHeaderFileFromModel("PersonDataSource", simpleDataSource)
 			}
 			
 			/**
@@ -113,7 +137,7 @@ context "Generating Entities" {
 						}];
 					}
 					
-					- (void)post:(void (^)(Person *person, NSError *error))block
+					- (void)create:(void (^)(Person *person, NSError *error))block
 					{
 						NSDictionary *elementDictionary = [self attributes];
 						[[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
@@ -130,7 +154,7 @@ context "Generating Entities" {
 						}];
 					}
 					
-					- (void)put:(void (^)(Person *person, NSError *error))block
+					- (void)update:(void (^)(Person *person, NSError *error))block
 					{
 						NSDictionary *elementDictionary = [self attributes];
 						[[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
@@ -164,7 +188,7 @@ context "Generating Entities" {
 					}
 					
 					@end
-				'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)
+				'''.isGeneratedModuleFileFromModel("PersonDataSource", simpleDataSource)
 			}
 			
 		}

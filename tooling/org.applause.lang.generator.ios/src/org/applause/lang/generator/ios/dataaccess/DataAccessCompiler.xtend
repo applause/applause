@@ -9,6 +9,10 @@ import org.applause.lang.generator.ios.model.TypeExtensions
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*;
+import org.applause.lang.applauseDsl.DataSource
+import org.applause.lang.applauseDsl.DataSourceAccessMethod
+import org.applause.lang.applauseDsl.RESTVerb
+import org.applause.lang.applauseDsl.Type
 
 class DataAccessCompiler implements ICompilerModule {
 	
@@ -18,9 +22,9 @@ class DataAccessCompiler implements ICompilerModule {
 	@Inject extension DataAccessClassExtensions
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
-		resource.allContents.toIterable.filter(typeof(Entity)).forEach[
-			fsa.generateFile(it.entityDataAccessCategoryHeaderFileName, IOS_OUTPUT_DATAACCESS, it.compileHeaderFile)
-			fsa.generateFile(it.entityDataAccessCategoryModuleFileName, IOS_OUTPUT_DATAACCESS, it.compileModuleFile)
+		resource.allContents.toIterable.filter(typeof(DataSource)).forEach[
+			fsa.generateFile(it.resourceType.entityDataAccessCategoryHeaderFileName, IOS_OUTPUT_DATAACCESS, it.compileHeaderFile)
+			fsa.generateFile(it.resourceType.entityDataAccessCategoryModuleFileName, IOS_OUTPUT_DATAACCESS, it.compileModuleFile)
 		]		
 	}
 	
@@ -45,6 +49,12 @@ class DataAccessClassExtensions {
 
 class EntityDataAccessExtensions {
 	
+	@Inject extension TypeExtensions
+	
+	def parameterName(Type it) {
+		it.name.toFirstLower
+	}
+	
 	def parameterName(Entity it) {
 		it.name.toFirstLower
 	}
@@ -57,6 +67,14 @@ class EntityDataAccessExtensions {
 		'all' + it.name.plural.toFirstUpper
 	}
 	
+	def parameterList(DataSourceAccessMethod it) {
+		declaredParameters.map(param | param.type.typeName + ' *' + param.type.parameterName).join(', ') 
+	}
+	
+	def resourceType(DataSourceAccessMethod it) {
+		(it.eContainer as DataSource).resourceType
+	}
+	
 }
 
 class EntityDataAccessHeaderFileCompiler {
@@ -65,16 +83,40 @@ class EntityDataAccessHeaderFileCompiler {
 	@Inject extension TypeExtensions
 	@Inject extension EntityDataAccessExtensions
 	
-	def compileHeaderFile(Entity it) '''
+	def compileHeaderFile(DataSource it) '''
 		#import <Foundation/Foundation.h>
-		#import "«entityModelHeaderFileName»"
+		#import "«resourceType.entityModelHeaderFileName»"
 		
-		@interface «name» (DataAccess)
-		+ (void)«listAllMethodName»:(void (^)(NSArray *«parameterName.plural», NSError *error))block;
-		- (void)post:(void (^)(«typeName» *«parameterName», NSError *error))block;
-		- (void)put:(void (^)(«typeName» *«parameterName», NSError *error))block;
-		- (void)remove:(void (^)(«typeName» *«parameterName», NSError *error))block;
+		@interface «resourceType.typeName» (DataAccess)
+		«FOR method: methods»
+			«method.compileRESTMethod»
+		«ENDFOR»
 		@end
+	'''
+	
+	def compileRESTMethod(DataSourceAccessMethod it) {
+		switch restSpecification.verb {
+			case RESTVerb.GET: compileGETLISTMethod
+			case RESTVerb.POST: compilePOSTMethod
+			case RESTVerb.PUT: compilePUTMethod
+			case RESTVerb.DELETE: compileDELETEMethod
+		}
+	}
+	
+	def compileGETLISTMethod(DataSourceAccessMethod it) '''
+		+ (void)«name»:(void (^)(NSArray *«resourceType.parameterName.plural», NSError *error))block;
+	'''
+	
+	def compilePOSTMethod(DataSourceAccessMethod it) '''
+		- (void)«name»:(void (^)(«parameterList()», NSError *error))block;
+	'''	
+	
+	def compilePUTMethod(DataSourceAccessMethod it) '''
+		- (void)«name»:(void (^)(«parameterList()», NSError *error))block;
+	'''	
+	
+	def compileDELETEMethod(DataSourceAccessMethod it) '''
+		- (void)«name»:(void (^)(«parameterList()», NSError *error))block;
 	'''
 	
 }
@@ -128,26 +170,43 @@ class EntityDataAccessModuleFileCompiler {
 	@Inject extension APIClientClassExtensions
 	@Inject extension DataAccessClassExtensions
 	
-	def compileModuleFile(Entity it) '''
-		#import "«entityDataAccessCategoryHeaderFileName»"
-		#import "«apiClientClassName.headerFileName»"
-		#import "«mappingClassName.headerFileName»"
+	def compileModuleFile(DataSource it) '''
+		#import "«resourceType.entityDataAccessCategoryHeaderFileName»"
+		#import "«resourceType.apiClientClassName.headerFileName»"
+		#import "«resourceType.mappingClassName.headerFileName»"
 		
-		static NSString *const «listAllUrlConstantName» = @"«listAllUrlPattern»";
-		static NSString *const «postUrlConstantName» = @"«postUrlPattern»";
-		static NSString *const «putUrlConstantName» = @"«putUrlPattern»";
-		static NSString *const «deleteUrlConstantName» = @"«deleteUrlPattern»";
+		static NSString *const «resourceType.listAllUrlConstantName» = @"«resourceType.listAllUrlPattern»";
+		static NSString *const «resourceType.postUrlConstantName» = @"«resourceType.postUrlPattern»";
+		static NSString *const «resourceType.putUrlConstantName» = @"«resourceType.putUrlPattern»";
+		static NSString *const «resourceType.deleteUrlConstantName» = @"«resourceType.deleteUrlPattern»";
 		
-		@implementation «name» (DataAccess)
+		@implementation «resourceType.typeName» (DataAccess)
 		
-		+ (void)«listAllMethodName»:(void (^)(NSArray *«parameterName.plural», NSError *error))block
+		«FOR method: methods»
+			«method.compileRESTMethod»
+			
+		«ENDFOR»
+		@end
+	'''
+	
+	def compileRESTMethod(DataSourceAccessMethod it) {
+		switch restSpecification.verb {
+			case RESTVerb.GET: compileGETLISTMethod
+			case RESTVerb.POST: compilePOSTMethod
+			case RESTVerb.PUT: compilePUTMethod
+			case RESTVerb.DELETE: compileDELETEMethod
+		}
+	}
+	
+	def compileGETLISTMethod(DataSourceAccessMethod it) '''
+		+ (void)«name»:(void (^)(NSArray *«resourceType.parameterName.plural», NSError *error))block
 		{
-			[[«apiClientClassName» sharedClient] GET:«listAllUrlConstantName» parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+			[[«resourceType.apiClientClassName» sharedClient] GET:«resourceType.listAllUrlConstantName» parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 			{
 				NSArray *elementsFromJSON = responseObject;
 				NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[elementsFromJSON count]];
 				for (NSDictionary *attributes in elementsFromJSON) {
-					«typeName» *mappedElement = [[«typeName» alloc] initWithAttributes:attributes];
+					«resourceType.typeName» *mappedElement = [[«resourceType.typeName» alloc] initWithAttributes:attributes];
 					[result addObject:mappedElement];
 				}
 		
@@ -161,13 +220,15 @@ class EntityDataAccessModuleFileCompiler {
 				}
 			}];
 		}
-		
-		- (void)post:(void (^)(«typeName» *«parameterName», NSError *error))block
+	'''
+	
+	def compilePOSTMethod(DataSourceAccessMethod it) '''
+		- (void)«name»:(void (^)(«parameterList()», NSError *error))block
 		{
 			NSDictionary *elementDictionary = [self attributes];
-			[[«apiClientClassName» sharedClient] POST:«postUrlConstantName» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+			[[«resourceType.apiClientClassName» sharedClient] POST:«resourceType.postUrlConstantName» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 			{
-				«typeName» *postedElement = responseObject;
+				«resourceType.typeName» *postedElement = responseObject;
 				if(block) {
 					block(postedElement, nil);
 				}
@@ -178,13 +239,15 @@ class EntityDataAccessModuleFileCompiler {
 				}
 			}];
 		}
-		
-		- (void)put:(void (^)(«typeName» *«parameterName», NSError *error))block
+	'''
+	
+	def compilePUTMethod(DataSourceAccessMethod it) '''
+		- (void)«name»:(void (^)(«parameterList()», NSError *error))block
 		{
 			NSDictionary *elementDictionary = [self attributes];
-			[[«apiClientClassName» sharedClient] PUT:«putUrlConstantName» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+			[[«resourceType.apiClientClassName» sharedClient] PUT:«resourceType.putUrlConstantName» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 			{
-				«typeName» *postedElement = responseObject;
+				«resourceType.typeName» *postedElement = responseObject;
 				if(block) {
 					block(postedElement, nil);
 				}
@@ -195,11 +258,13 @@ class EntityDataAccessModuleFileCompiler {
 				}
 			}];
 		}
-		
-		- (void)remove:(void (^)(«typeName» *«parameterName», NSError *error))block
+	'''
+	
+	def compileDELETEMethod(DataSourceAccessMethod it) '''
+		- (void)«name»:(void (^)(«parameterList()», NSError *error))block
 		{
-			NSString *urlString = [NSString stringWithFormat:«deleteUrlConstantName», self.id];
-			[[«apiClientClassName» sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+			NSString *urlString = [NSString stringWithFormat:«resourceType.deleteUrlConstantName», self.id];
+			[[«resourceType.apiClientClassName» sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 			{
 				if(block) {
 					block(self, nil);
@@ -211,8 +276,6 @@ class EntityDataAccessModuleFileCompiler {
 				}
 			}];
 		}
-		
-		@end
 	'''
 	
 }

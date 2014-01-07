@@ -7,6 +7,16 @@ import org.applause.lang.applauseDsl.Type;
 
 @SuppressWarnings("all")
 public class TypeExtensions {
+  public String typeName(final Type it) {
+    String _xifexpression = null;
+    boolean _notEquals = (!Objects.equal(it, null));
+    if (_notEquals) {
+      String _name = it.getName();
+      _xifexpression = _name;
+    }
+    return _xifexpression;
+  }
+  
   public String typeName(final Entity it) {
     String _xifexpression = null;
     boolean _notEquals = (!Objects.equal(it, null));

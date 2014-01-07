@@ -59,12 +59,12 @@ public interface DataSource extends NamedElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Resource Type</em>' reference.
-   * @see #setResourceType(Type)
+   * @see #setResourceType(Entity)
    * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getDataSource_ResourceType()
    * @model
    * @generated
    */
-  Type getResourceType();
+  Entity getResourceType();
 
   /**
    * Sets the value of the '{@link org.applause.lang.applauseDsl.DataSource#getResourceType <em>Resource Type</em>}' reference.
@@ -74,7 +74,7 @@ public interface DataSource extends NamedElement
    * @see #getResourceType()
    * @generated
    */
-  void setResourceType(Type value);
+  void setResourceType(Entity value);
 
   /**
    * Returns the value of the '<em><b>Methods</b></em>' containment reference list.

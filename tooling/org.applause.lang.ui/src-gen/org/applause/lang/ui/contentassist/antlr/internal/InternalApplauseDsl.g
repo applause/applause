@@ -2461,12 +2461,12 @@ rule__DataSource__ResourceTypeAssignment_8
     }
 :
 (
-{ before(grammarAccess.getDataSourceAccess().getResourceTypeTypeCrossReference_8_0()); }
+{ before(grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); }
 (
-{ before(grammarAccess.getDataSourceAccess().getResourceTypeTypeIDTerminalRuleCall_8_0_1()); }
-	RULE_ID{ after(grammarAccess.getDataSourceAccess().getResourceTypeTypeIDTerminalRuleCall_8_0_1()); }
+{ before(grammarAccess.getDataSourceAccess().getResourceTypeEntityIDTerminalRuleCall_8_0_1()); }
+	RULE_ID{ after(grammarAccess.getDataSourceAccess().getResourceTypeEntityIDTerminalRuleCall_8_0_1()); }
 )
-{ after(grammarAccess.getDataSourceAccess().getResourceTypeTypeCrossReference_8_0()); }
+{ after(grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); }
 )
 
 ;

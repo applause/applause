@@ -323,8 +323,8 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cResourceKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		private final Keyword cColonKeyword_7 = (Keyword)cGroup.eContents().get(7);
 		private final Assignment cResourceTypeAssignment_8 = (Assignment)cGroup.eContents().get(8);
-		private final CrossReference cResourceTypeTypeCrossReference_8_0 = (CrossReference)cResourceTypeAssignment_8.eContents().get(0);
-		private final RuleCall cResourceTypeTypeIDTerminalRuleCall_8_0_1 = (RuleCall)cResourceTypeTypeCrossReference_8_0.eContents().get(1);
+		private final CrossReference cResourceTypeEntityCrossReference_8_0 = (CrossReference)cResourceTypeAssignment_8.eContents().get(0);
+		private final RuleCall cResourceTypeEntityIDTerminalRuleCall_8_0_1 = (RuleCall)cResourceTypeEntityCrossReference_8_0.eContents().get(1);
 		private final Assignment cMethodsAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cMethodsDataSourceAccessMethodParserRuleCall_9_0 = (RuleCall)cMethodsAssignment_9.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
@@ -334,11 +334,11 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//// -----------------------------------------
 		//DataSource:
 		//	"datasource" name=ID "{" "baseUrl" ":" baseUrl= // TODO: change STRING to a real URL value type
-		//	STRING "resource" ":" resourceType=[Type] methods+=DataSourceAccessMethod* "}";
+		//	STRING "resource" ":" resourceType=[Entity] methods+=DataSourceAccessMethod* "}";
 		public ParserRule getRule() { return rule; }
 
 		//"datasource" name=ID "{" "baseUrl" ":" baseUrl= // TODO: change STRING to a real URL value type
-		//STRING "resource" ":" resourceType=[Type] methods+=DataSourceAccessMethod* "}"
+		//STRING "resource" ":" resourceType=[Entity] methods+=DataSourceAccessMethod* "}"
 		public Group getGroup() { return cGroup; }
 
 		//"datasource"
@@ -373,14 +373,14 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//":"
 		public Keyword getColonKeyword_7() { return cColonKeyword_7; }
 
-		//resourceType=[Type]
+		//resourceType=[Entity]
 		public Assignment getResourceTypeAssignment_8() { return cResourceTypeAssignment_8; }
 
-		//[Type]
-		public CrossReference getResourceTypeTypeCrossReference_8_0() { return cResourceTypeTypeCrossReference_8_0; }
+		//[Entity]
+		public CrossReference getResourceTypeEntityCrossReference_8_0() { return cResourceTypeEntityCrossReference_8_0; }
 
 		//ID
-		public RuleCall getResourceTypeTypeIDTerminalRuleCall_8_0_1() { return cResourceTypeTypeIDTerminalRuleCall_8_0_1; }
+		public RuleCall getResourceTypeEntityIDTerminalRuleCall_8_0_1() { return cResourceTypeEntityIDTerminalRuleCall_8_0_1; }
 
 		//methods+=DataSourceAccessMethod*
 		public Assignment getMethodsAssignment_9() { return cMethodsAssignment_9; }
@@ -770,7 +770,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	//// -----------------------------------------
 	//DataSource:
 	//	"datasource" name=ID "{" "baseUrl" ":" baseUrl= // TODO: change STRING to a real URL value type
-	//	STRING "resource" ":" resourceType=[Type] methods+=DataSourceAccessMethod* "}";
+	//	STRING "resource" ":" resourceType=[Entity] methods+=DataSourceAccessMethod* "}";
 	public DataSourceElements getDataSourceAccess() {
 		return (pDataSource != null) ? pDataSource : (pDataSource = new DataSourceElements());
 	}

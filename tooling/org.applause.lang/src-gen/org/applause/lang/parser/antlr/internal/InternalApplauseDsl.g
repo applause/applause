@@ -646,7 +646,7 @@ ruleDataSource returns [EObject current=null]
         }
 	otherlv_8=RULE_ID
 	{
-		newLeafNode(otherlv_8, grammarAccess.getDataSourceAccess().getResourceTypeTypeCrossReference_8_0()); 
+		newLeafNode(otherlv_8, grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); 
 	}
 
 )

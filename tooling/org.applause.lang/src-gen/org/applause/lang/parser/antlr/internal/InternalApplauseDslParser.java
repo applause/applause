@@ -1513,7 +1513,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     
             otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSource1448); 
 
-            		newLeafNode(otherlv_8, grammarAccess.getDataSourceAccess().getResourceTypeTypeCrossReference_8_0()); 
+            		newLeafNode(otherlv_8, grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); 
             	
 
             }

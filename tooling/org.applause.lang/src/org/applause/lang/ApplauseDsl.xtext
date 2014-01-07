@@ -57,11 +57,15 @@ TypeMapping:
 DataSource:
 	'datasource' name=ID '{'
 		'baseUrl' ':' baseUrl=STRING // TODO: change STRING to a real URL value type
-		'resource' ':' resourceType=[Type]
+		'resource' ':' resourceType=[Entity]
 		methods += DataSourceAccessMethod*
 	'}'
 ;
 
+// TODO: As we can have multiple datasource for each entity, we should either:
+// (a) make sure only one datasource cen be defined per dentity
+// (b) there always is just one data source access method with the same name for any given entity
+// IMO, (a) seems to be easier  
 DataSourceAccessMethod:
 	name=ID '(' (declaredParameters += Parameter (',' declaredParameters += Parameter)* )? ')' (returnsMany?='[]')? restSpecification=RESTSpecification 
 ;

@@ -2,6 +2,7 @@ package org.applause.lang.generator.ios.dataaccess;
 
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.generator.ios.ICompilerModule;
 import org.applause.lang.generator.ios.IosOutputConfigurationProvider;
@@ -34,17 +35,19 @@ public class DataAccessCompiler implements ICompilerModule {
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
-    Iterable<Entity> _filter = Iterables.<Entity>filter(_iterable, Entity.class);
-    final Procedure1<Entity> _function = new Procedure1<Entity>() {
-      public void apply(final Entity it) {
-        String _entityDataAccessCategoryHeaderFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(it);
+    Iterable<DataSource> _filter = Iterables.<DataSource>filter(_iterable, DataSource.class);
+    final Procedure1<DataSource> _function = new Procedure1<DataSource>() {
+      public void apply(final DataSource it) {
+        Entity _resourceType = it.getResourceType();
+        String _entityDataAccessCategoryHeaderFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(_resourceType);
         CharSequence _compileHeaderFile = DataAccessCompiler.this._entityDataAccessHeaderFileCompiler.compileHeaderFile(it);
         fsa.generateFile(_entityDataAccessCategoryHeaderFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileHeaderFile);
-        String _entityDataAccessCategoryModuleFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryModuleFileName(it);
+        Entity _resourceType_1 = it.getResourceType();
+        String _entityDataAccessCategoryModuleFileName = DataAccessCompiler.this._dataAccessClassExtensions.entityDataAccessCategoryModuleFileName(_resourceType_1);
         CharSequence _compileModuleFile = DataAccessCompiler.this._entityDataAccessModuleFileCompiler.compileModuleFile(it);
         fsa.generateFile(_entityDataAccessCategoryModuleFileName, IosOutputConfigurationProvider.IOS_OUTPUT_DATAACCESS, _compileModuleFile);
       }
     };
-    IterableExtensions.<Entity>forEach(_filter, _function);
+    IterableExtensions.<DataSource>forEach(_filter, _function);
   }
 }
