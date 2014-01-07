@@ -266,7 +266,7 @@
 				ORGANIZATIONNAME = "Peter Friese";
 				TargetAttributes = {
 					885674EC17DD42ED00E5E4F5 = {
-						TestTargetID = 885674D117DD42EC00E5E4F5 /* TodoMobile */;
+						TestTargetID = 885674D117DD42EC00E5E4F5;
 					};
 				};
 			};
