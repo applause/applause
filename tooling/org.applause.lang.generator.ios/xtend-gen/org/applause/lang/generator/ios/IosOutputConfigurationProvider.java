@@ -28,7 +28,7 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
       final Procedure1<OutputConfiguration> _function = new Procedure1<OutputConfiguration>() {
         public void apply(final OutputConfiguration it) {
           it.setDescription("iOS Output Folder");
-          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/$PROJECTNAME$");
           it.setOverrideExistingResources(true);
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
@@ -41,7 +41,7 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
       final Procedure1<OutputConfiguration> _function_1 = new Procedure1<OutputConfiguration>() {
         public void apply(final OutputConfiguration it) {
           it.setDescription("iOS Models Output Folder");
-          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/Models");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/$PROJECTNAME$/Models");
           it.setOverrideExistingResources(true);
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
@@ -54,7 +54,7 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
       final Procedure1<OutputConfiguration> _function_2 = new Procedure1<OutputConfiguration>() {
         public void apply(final OutputConfiguration it) {
           it.setDescription("iOS Data Access Output Folder");
-          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/DataAccess");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/$PROJECTNAME$/DataAccess");
           it.setOverrideExistingResources(true);
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
@@ -67,7 +67,7 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
       final Procedure1<OutputConfiguration> _function_3 = new Procedure1<OutputConfiguration>() {
         public void apply(final OutputConfiguration it) {
           it.setDescription("iOS Support Files Output Folder");
-          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/$PROJECTNAME$");
           it.setOverrideExistingResources(true);
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);
@@ -80,7 +80,7 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
       final Procedure1<OutputConfiguration> _function_4 = new Procedure1<OutputConfiguration>() {
         public void apply(final OutputConfiguration it) {
           it.setDescription("iOS Localized Support Files Output Folder");
-          it.setOutputDirectory("../../$PROJECTNAME$-iOS/output2/en.lproj");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/$PROJECTNAME$/en.lproj");
           it.setOverrideExistingResources(true);
           it.setCreateOutputDirectory(true);
           it.setCleanUpDerivedResources(true);

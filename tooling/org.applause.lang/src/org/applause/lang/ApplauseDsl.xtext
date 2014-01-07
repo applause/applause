@@ -56,7 +56,7 @@ TypeMapping:
 
 DataSource:
 	'datasource' name=ID '{'
-		'baseUrl' ':' baseUrl=STRING // TODO: change STRING to a real URL value type
+		'baseUrl' ':' baseUrl=AbsoluteRESTURL
 		'resource' ':' resourceType=[Entity]
 		methods += DataSourceAccessMethod*
 	'}'
@@ -72,7 +72,7 @@ DataSourceAccessMethod:
 
 RESTSpecification:
 	verb=RESTVerb 
-	path=STRING // TODO: change STRING to a real URL value type 
+	path=RESTURL 
 	('{' body=DataSourceBodySpecification '}')?	
 ;
 
@@ -88,3 +88,32 @@ Parameter:
 	type=[Type] name=ID	
 ;
 
+RESTURL:
+	AbsoluteRESTURL | RelativeRESTURL
+;
+
+AbsoluteRESTURL:
+	{AbsoluteRESTURL} 'http://' host=UrlFragment (':' port=INT)? ('/' fragments+=UrlFragment)*
+;
+
+
+RelativeRESTURL:
+	{RelativeRESTURL} '/' fragments+=UrlFragment ('/' fragments+=UrlFragment)*
+;
+
+
+UrlFragment:
+	UrlPathFragment | Variable
+;
+
+UrlPathFragment:
+	name=QualifiedName
+;
+
+Variable:
+	':' parameterReference=[Parameter]
+;
+
+QualifiedName:
+	ID ('.' ID)*
+;

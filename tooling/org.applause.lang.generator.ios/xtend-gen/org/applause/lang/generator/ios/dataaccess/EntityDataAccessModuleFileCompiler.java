@@ -6,11 +6,13 @@ import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.RESTSpecification;
+import org.applause.lang.applauseDsl.RESTURL;
 import org.applause.lang.applauseDsl.RESTVerb;
 import org.applause.lang.generator.ios.FileNameExtensions;
 import org.applause.lang.generator.ios.dataaccess.APIClientClassExtensions;
 import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessExtensions;
+import org.applause.lang.generator.ios.dataaccess.RESTURLExtensions;
 import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -31,67 +33,9 @@ public class EntityDataAccessModuleFileCompiler {
   @Extension
   private FileNameExtensions _fileNameExtensions;
   
-  public String listAllUrlConstantName(final Entity it) {
-    String _name = it.getName();
-    String _plural = this._entityDataAccessExtensions.plural(_name);
-    String _plus = ("kAll" + _plural);
-    String _plus_1 = (_plus + "Path");
-    return _plus_1;
-  }
-  
-  public String listAllUrlPattern(final Entity it) {
-    String _name = it.getName();
-    String _plural = this._entityDataAccessExtensions.plural(_name);
-    String _firstLower = StringExtensions.toFirstLower(_plural);
-    String _plus = ("/" + _firstLower);
-    return _plus;
-  }
-  
-  public String putUrlConstantName(final Entity it) {
-    String _name = it.getName();
-    String _plus = ("kPut" + _name);
-    String _plus_1 = (_plus + "Path");
-    return _plus_1;
-  }
-  
-  public String putUrlPattern(final Entity it) {
-    String _name = it.getName();
-    String _plural = this._entityDataAccessExtensions.plural(_name);
-    String _firstLower = StringExtensions.toFirstLower(_plural);
-    String _plus = ("/" + _firstLower);
-    return _plus;
-  }
-  
-  public String postUrlConstantName(final Entity it) {
-    String _name = it.getName();
-    String _plus = ("kPost" + _name);
-    String _plus_1 = (_plus + "Path");
-    return _plus_1;
-  }
-  
-  public String postUrlPattern(final Entity it) {
-    String _name = it.getName();
-    String _plural = this._entityDataAccessExtensions.plural(_name);
-    String _firstLower = StringExtensions.toFirstLower(_plural);
-    String _plus = ("/" + _firstLower);
-    return _plus;
-  }
-  
-  public String deleteUrlConstantName(final Entity it) {
-    String _name = it.getName();
-    String _plus = ("kDelete" + _name);
-    String _plus_1 = (_plus + "Path");
-    return _plus_1;
-  }
-  
-  public String deleteUrlPattern(final Entity it) {
-    String _name = it.getName();
-    String _plural = this._entityDataAccessExtensions.plural(_name);
-    String _firstLower = StringExtensions.toFirstLower(_plural);
-    String _plus = ("/" + _firstLower);
-    String _plus_1 = (_plus + "/%@");
-    return _plus_1;
-  }
+  @Inject
+  @Extension
+  private RESTURLExtensions _rESTURLExtensions;
   
   public String mappingClassName(final Entity it) {
     String _typeName = this._typeExtensions.typeName(it);
@@ -131,50 +75,9 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("static NSString *const ");
-    Entity _resourceType_3 = it.getResourceType();
-    String _listAllUrlConstantName = this.listAllUrlConstantName(_resourceType_3);
-    _builder.append(_listAllUrlConstantName, "");
-    _builder.append(" = @\"");
-    Entity _resourceType_4 = it.getResourceType();
-    String _listAllUrlPattern = this.listAllUrlPattern(_resourceType_4);
-    _builder.append(_listAllUrlPattern, "");
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("static NSString *const ");
-    Entity _resourceType_5 = it.getResourceType();
-    String _postUrlConstantName = this.postUrlConstantName(_resourceType_5);
-    _builder.append(_postUrlConstantName, "");
-    _builder.append(" = @\"");
-    Entity _resourceType_6 = it.getResourceType();
-    String _postUrlPattern = this.postUrlPattern(_resourceType_6);
-    _builder.append(_postUrlPattern, "");
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("static NSString *const ");
-    Entity _resourceType_7 = it.getResourceType();
-    String _putUrlConstantName = this.putUrlConstantName(_resourceType_7);
-    _builder.append(_putUrlConstantName, "");
-    _builder.append(" = @\"");
-    Entity _resourceType_8 = it.getResourceType();
-    String _putUrlPattern = this.putUrlPattern(_resourceType_8);
-    _builder.append(_putUrlPattern, "");
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.append("static NSString *const ");
-    Entity _resourceType_9 = it.getResourceType();
-    String _deleteUrlConstantName = this.deleteUrlConstantName(_resourceType_9);
-    _builder.append(_deleteUrlConstantName, "");
-    _builder.append(" = @\"");
-    Entity _resourceType_10 = it.getResourceType();
-    String _deleteUrlPattern = this.deleteUrlPattern(_resourceType_10);
-    _builder.append(_deleteUrlPattern, "");
-    _builder.append("\";");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
     _builder.append("@implementation ");
-    Entity _resourceType_11 = it.getResourceType();
-    String _typeName = this._typeExtensions.typeName(_resourceType_11);
+    Entity _resourceType_3 = it.getResourceType();
+    String _typeName = this._typeExtensions.typeName(_resourceType_3);
     _builder.append(_typeName, "");
     _builder.append(" (DataAccess)");
     _builder.newLineIfNotEmpty();
@@ -230,8 +133,27 @@ public class EntityDataAccessModuleFileCompiler {
     return _switchResult;
   }
   
+  public String urlConstantForRESTMethod(final DataSourceAccessMethod it) {
+    String _name = it.getName();
+    String _firstUpper = StringExtensions.toFirstUpper(_name);
+    String _plus = ("k" + _firstUpper);
+    String _plus_1 = (_plus + "Path");
+    return _plus_1;
+  }
+  
   public CharSequence compileGETLISTMethod(final DataSourceAccessMethod it) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("static NSString *const ");
+    String _urlConstantForRESTMethod = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod, "");
+    _builder.append(" = @\"");
+    RESTSpecification _restSpecification = it.getRestSpecification();
+    RESTURL _path = _restSpecification.getPath();
+    String _value = this._rESTURLExtensions.value(_path);
+    _builder.append(_value, "");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("+ (void)");
     String _name = it.getName();
     _builder.append(_name, "");
@@ -250,9 +172,8 @@ public class EntityDataAccessModuleFileCompiler {
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType_1);
     _builder.append(_apiClientClassName, "	");
     _builder.append(" sharedClient] GET:");
-    Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
-    String _listAllUrlConstantName = this.listAllUrlConstantName(_resourceType_2);
-    _builder.append(_listAllUrlConstantName, "	");
+    String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod_1, "	");
     _builder.append(" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -268,12 +189,12 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("for (NSDictionary *attributes in elementsFromJSON) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    Entity _resourceType_3 = this._entityDataAccessExtensions.resourceType(it);
-    String _typeName = this._typeExtensions.typeName(_resourceType_3);
+    Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
+    String _typeName = this._typeExtensions.typeName(_resourceType_2);
     _builder.append(_typeName, "			");
     _builder.append(" *mappedElement = [[");
-    Entity _resourceType_4 = this._entityDataAccessExtensions.resourceType(it);
-    String _typeName_1 = this._typeExtensions.typeName(_resourceType_4);
+    Entity _resourceType_3 = this._entityDataAccessExtensions.resourceType(it);
+    String _typeName_1 = this._typeExtensions.typeName(_resourceType_3);
     _builder.append(_typeName_1, "			");
     _builder.append(" alloc] initWithAttributes:attributes];");
     _builder.newLineIfNotEmpty();
@@ -318,6 +239,17 @@ public class EntityDataAccessModuleFileCompiler {
   
   public CharSequence compilePOSTMethod(final DataSourceAccessMethod it) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("static NSString *const ");
+    String _urlConstantForRESTMethod = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod, "");
+    _builder.append(" = @\"");
+    RESTSpecification _restSpecification = it.getRestSpecification();
+    RESTURL _path = _restSpecification.getPath();
+    String _value = this._rESTURLExtensions.value(_path);
+    _builder.append(_value, "");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("- (void)");
     String _name = it.getName();
     _builder.append(_name, "");
@@ -337,17 +269,16 @@ public class EntityDataAccessModuleFileCompiler {
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
     _builder.append(_apiClientClassName, "	");
     _builder.append(" sharedClient] POST:");
-    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
-    String _postUrlConstantName = this.postUrlConstantName(_resourceType_1);
-    _builder.append(_postUrlConstantName, "	");
+    String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod_1, "	");
     _builder.append(" parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
-    String _typeName = this._typeExtensions.typeName(_resourceType_2);
+    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
+    String _typeName = this._typeExtensions.typeName(_resourceType_1);
     _builder.append(_typeName, "		");
     _builder.append(" *postedElement = responseObject;");
     _builder.newLineIfNotEmpty();
@@ -385,6 +316,17 @@ public class EntityDataAccessModuleFileCompiler {
   
   public CharSequence compilePUTMethod(final DataSourceAccessMethod it) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("static NSString *const ");
+    String _urlConstantForRESTMethod = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod, "");
+    _builder.append(" = @\"");
+    RESTSpecification _restSpecification = it.getRestSpecification();
+    RESTURL _path = _restSpecification.getPath();
+    String _value = this._rESTURLExtensions.value(_path);
+    _builder.append(_value, "");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("- (void)");
     String _name = it.getName();
     _builder.append(_name, "");
@@ -404,17 +346,16 @@ public class EntityDataAccessModuleFileCompiler {
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
     _builder.append(_apiClientClassName, "	");
     _builder.append(" sharedClient] PUT:");
-    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
-    String _putUrlConstantName = this.putUrlConstantName(_resourceType_1);
-    _builder.append(_putUrlConstantName, "	");
+    String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod_1, "	");
     _builder.append(" parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
-    String _typeName = this._typeExtensions.typeName(_resourceType_2);
+    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
+    String _typeName = this._typeExtensions.typeName(_resourceType_1);
     _builder.append(_typeName, "		");
     _builder.append(" *postedElement = responseObject;");
     _builder.newLineIfNotEmpty();
@@ -452,6 +393,17 @@ public class EntityDataAccessModuleFileCompiler {
   
   public CharSequence compileDELETEMethod(final DataSourceAccessMethod it) {
     StringConcatenation _builder = new StringConcatenation();
+    _builder.append("static NSString *const ");
+    String _urlConstantForRESTMethod = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod, "");
+    _builder.append(" = @\"");
+    RESTSpecification _restSpecification = it.getRestSpecification();
+    RESTURL _path = _restSpecification.getPath();
+    String _value = this._rESTURLExtensions.value(_path);
+    _builder.append(_value, "");
+    _builder.append("\";");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("- (void)");
     String _name = it.getName();
     _builder.append(_name, "");
@@ -464,15 +416,14 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("NSString *urlString = [NSString stringWithFormat:");
-    Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
-    String _deleteUrlConstantName = this.deleteUrlConstantName(_resourceType);
-    _builder.append(_deleteUrlConstantName, "	");
+    String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
+    _builder.append(_urlConstantForRESTMethod_1, "	");
     _builder.append(", self.id];");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("[[");
-    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
-    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType_1);
+    Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
+    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
     _builder.append(_apiClientClassName, "	");
     _builder.append(" sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();

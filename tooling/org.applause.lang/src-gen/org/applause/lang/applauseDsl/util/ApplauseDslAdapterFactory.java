@@ -145,6 +145,36 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createParameterAdapter();
       }
       @Override
+      public Adapter caseRESTURL(RESTURL object)
+      {
+        return createRESTURLAdapter();
+      }
+      @Override
+      public Adapter caseAbsoluteRESTURL(AbsoluteRESTURL object)
+      {
+        return createAbsoluteRESTURLAdapter();
+      }
+      @Override
+      public Adapter caseRelativeRESTURL(RelativeRESTURL object)
+      {
+        return createRelativeRESTURLAdapter();
+      }
+      @Override
+      public Adapter caseUrlFragment(UrlFragment object)
+      {
+        return createUrlFragmentAdapter();
+      }
+      @Override
+      public Adapter caseUrlPathFragment(UrlPathFragment object)
+      {
+        return createUrlPathFragmentAdapter();
+      }
+      @Override
+      public Adapter caseVariable(Variable object)
+      {
+        return createVariableAdapter();
+      }
+      @Override
       public Adapter defaultCase(EObject object)
       {
         return createEObjectAdapter();
@@ -372,6 +402,96 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.RESTURL <em>RESTURL</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.RESTURL
+   * @generated
+   */
+  public Adapter createRESTURLAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.AbsoluteRESTURL <em>Absolute RESTURL</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.AbsoluteRESTURL
+   * @generated
+   */
+  public Adapter createAbsoluteRESTURLAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.RelativeRESTURL <em>Relative RESTURL</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.RelativeRESTURL
+   * @generated
+   */
+  public Adapter createRelativeRESTURLAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UrlFragment <em>Url Fragment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UrlFragment
+   * @generated
+   */
+  public Adapter createUrlFragmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UrlPathFragment <em>Url Path Fragment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UrlPathFragment
+   * @generated
+   */
+  public Adapter createUrlPathFragmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.Variable
+   * @generated
+   */
+  public Adapter createVariableAdapter()
   {
     return null;
   }

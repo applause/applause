@@ -17,5 +17,7 @@ The data access layer DSL in Applause is a domain specific language that allows 
 
 ##Describing Data Access
 
+- "REST URLs": are used to describe access to RESTful resources on the internet
+
 * remote data access
 * local data access

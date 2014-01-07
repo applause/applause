@@ -25,30 +25,30 @@ import org.eclipse.emf.common.util.EList;
 public interface DataSource extends NamedElement
 {
   /**
-   * Returns the value of the '<em><b>Base Url</b></em>' attribute.
+   * Returns the value of the '<em><b>Base Url</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Base Url</em>' attribute isn't clear,
+   * If the meaning of the '<em>Base Url</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Base Url</em>' attribute.
-   * @see #setBaseUrl(String)
+   * @return the value of the '<em>Base Url</em>' containment reference.
+   * @see #setBaseUrl(AbsoluteRESTURL)
    * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getDataSource_BaseUrl()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getBaseUrl();
+  AbsoluteRESTURL getBaseUrl();
 
   /**
-   * Sets the value of the '{@link org.applause.lang.applauseDsl.DataSource#getBaseUrl <em>Base Url</em>}' attribute.
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.DataSource#getBaseUrl <em>Base Url</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Base Url</em>' attribute.
+   * @param value the new value of the '<em>Base Url</em>' containment reference.
    * @see #getBaseUrl()
    * @generated
    */
-  void setBaseUrl(String value);
+  void setBaseUrl(AbsoluteRESTURL value);
 
   /**
    * Returns the value of the '<em><b>Resource Type</b></em>' reference.

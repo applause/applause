@@ -149,6 +149,60 @@ public interface ApplauseDslFactory extends EFactory
   Parameter createParameter();
 
   /**
+   * Returns a new object of class '<em>RESTURL</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>RESTURL</em>'.
+   * @generated
+   */
+  RESTURL createRESTURL();
+
+  /**
+   * Returns a new object of class '<em>Absolute RESTURL</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Absolute RESTURL</em>'.
+   * @generated
+   */
+  AbsoluteRESTURL createAbsoluteRESTURL();
+
+  /**
+   * Returns a new object of class '<em>Relative RESTURL</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Relative RESTURL</em>'.
+   * @generated
+   */
+  RelativeRESTURL createRelativeRESTURL();
+
+  /**
+   * Returns a new object of class '<em>Url Fragment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Url Fragment</em>'.
+   * @generated
+   */
+  UrlFragment createUrlFragment();
+
+  /**
+   * Returns a new object of class '<em>Url Path Fragment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Url Path Fragment</em>'.
+   * @generated
+   */
+  UrlPathFragment createUrlPathFragment();
+
+  /**
+   * Returns a new object of class '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable</em>'.
+   * @generated
+   */
+  Variable createVariable();
+
+  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

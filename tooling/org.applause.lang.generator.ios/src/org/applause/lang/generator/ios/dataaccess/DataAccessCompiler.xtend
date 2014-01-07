@@ -1,18 +1,19 @@
 package org.applause.lang.generator.ios.dataaccess
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.DataSource
+import org.applause.lang.applauseDsl.DataSourceAccessMethod
 import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.RESTVerb
+import org.applause.lang.applauseDsl.Type
 import org.applause.lang.generator.ios.FileNameExtensions
 import org.applause.lang.generator.ios.ICompilerModule
 import org.applause.lang.generator.ios.model.EntityClassExtensions
 import org.applause.lang.generator.ios.model.TypeExtensions
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
-import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*;
-import org.applause.lang.applauseDsl.DataSource
-import org.applause.lang.applauseDsl.DataSourceAccessMethod
-import org.applause.lang.applauseDsl.RESTVerb
-import org.applause.lang.applauseDsl.Type
+
+import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
 
 class DataAccessCompiler implements ICompilerModule {
 	
@@ -126,42 +127,7 @@ class EntityDataAccessModuleFileCompiler {
 	@Inject extension EntityDataAccessExtensions
 	@Inject extension TypeExtensions
 	@Inject extension FileNameExtensions
-	
-	def listAllUrlConstantName(Entity it) {
-		'kAll' + name.plural + 'Path'
-	}
-	
-	// TODO this needs to be coerced from the datasource! 
-	def listAllUrlPattern(Entity it) {
-		'/' + name.plural.toFirstLower
-	}
-	
-	def putUrlConstantName(Entity it) {
-		'kPut' + name + 'Path'
-	}
-	
-	// TODO this needs to be coerced from the datasource! 
-	def putUrlPattern(Entity it) {
-		'/' + name.plural.toFirstLower
-	}
-	
-	def postUrlConstantName(Entity it) {
-		'kPost' + name + 'Path'
-	}
-	
-	// TODO this needs to be coerced from the datasource! 
-	def postUrlPattern(Entity it) {
-		'/' + name.plural.toFirstLower
-	}
-	
-	def deleteUrlConstantName(Entity it) {
-		'kDelete' + name + 'Path'
-	}
-	
-	// TODO this needs to be coerced from the datasource! 
-	def deleteUrlPattern(Entity it) {
-		'/' + name.plural.toFirstLower + '/%@'
-	}
+	@Inject extension RESTURLExtensions
 	
 	def mappingClassName(Entity it) {
 		typeName + '+' + 'DataMapping'
@@ -174,11 +140,6 @@ class EntityDataAccessModuleFileCompiler {
 		#import "«resourceType.entityDataAccessCategoryHeaderFileName»"
 		#import "«resourceType.apiClientClassName.headerFileName»"
 		#import "«resourceType.mappingClassName.headerFileName»"
-		
-		static NSString *const «resourceType.listAllUrlConstantName» = @"«resourceType.listAllUrlPattern»";
-		static NSString *const «resourceType.postUrlConstantName» = @"«resourceType.postUrlPattern»";
-		static NSString *const «resourceType.putUrlConstantName» = @"«resourceType.putUrlPattern»";
-		static NSString *const «resourceType.deleteUrlConstantName» = @"«resourceType.deleteUrlPattern»";
 		
 		@implementation «resourceType.typeName» (DataAccess)
 		
@@ -198,10 +159,16 @@ class EntityDataAccessModuleFileCompiler {
 		}
 	}
 	
+	def urlConstantForRESTMethod(DataSourceAccessMethod it) {
+		'k' + name.toFirstUpper + 'Path'
+	}
+	
 	def compileGETLISTMethod(DataSourceAccessMethod it) '''
+		static NSString *const «urlConstantForRESTMethod» = @"«restSpecification.path.value»";
+		
 		+ (void)«name»:(void (^)(NSArray *«resourceType.parameterName.plural», NSError *error))block
 		{
-			[[«resourceType.apiClientClassName» sharedClient] GET:«resourceType.listAllUrlConstantName» parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
+			[[«resourceType.apiClientClassName» sharedClient] GET:«urlConstantForRESTMethod» parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 			{
 				NSArray *elementsFromJSON = responseObject;
 				NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[elementsFromJSON count]];
@@ -223,10 +190,12 @@ class EntityDataAccessModuleFileCompiler {
 	'''
 	
 	def compilePOSTMethod(DataSourceAccessMethod it) '''
+		static NSString *const «urlConstantForRESTMethod» = @"«restSpecification.path.value»";
+
 		- (void)«name»:(void (^)(«parameterList()», NSError *error))block
 		{
 			NSDictionary *elementDictionary = [self attributes];
-			[[«resourceType.apiClientClassName» sharedClient] POST:«resourceType.postUrlConstantName» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+			[[«resourceType.apiClientClassName» sharedClient] POST:«urlConstantForRESTMethod» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 			{
 				«resourceType.typeName» *postedElement = responseObject;
 				if(block) {
@@ -242,10 +211,12 @@ class EntityDataAccessModuleFileCompiler {
 	'''
 	
 	def compilePUTMethod(DataSourceAccessMethod it) '''
+		static NSString *const «urlConstantForRESTMethod» = @"«restSpecification.path.value»";
+		
 		- (void)«name»:(void (^)(«parameterList()», NSError *error))block
 		{
 			NSDictionary *elementDictionary = [self attributes];
-			[[«resourceType.apiClientClassName» sharedClient] PUT:«resourceType.putUrlConstantName» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+			[[«resourceType.apiClientClassName» sharedClient] PUT:«urlConstantForRESTMethod» parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 			{
 				«resourceType.typeName» *postedElement = responseObject;
 				if(block) {
@@ -261,9 +232,11 @@ class EntityDataAccessModuleFileCompiler {
 	'''
 	
 	def compileDELETEMethod(DataSourceAccessMethod it) '''
+		static NSString *const «urlConstantForRESTMethod» = @"«restSpecification.path.value»";
+		
 		- (void)«name»:(void (^)(«parameterList()», NSError *error))block
 		{
-			NSString *urlString = [NSString stringWithFormat:«resourceType.deleteUrlConstantName», self.id];
+			NSString *urlString = [NSString stringWithFormat:«urlConstantForRESTMethod», self.id];
 			[[«resourceType.apiClientClassName» sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 			{
 				if(block) {

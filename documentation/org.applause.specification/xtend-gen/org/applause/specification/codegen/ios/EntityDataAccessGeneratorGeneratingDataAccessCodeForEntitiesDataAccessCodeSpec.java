@@ -18,12 +18,12 @@ import org.junit.runner.RunWith;
  * entity Person {
  * }
  * datasource PersonDataSource {
- * 	baseUrl: "http://localhost:2403"
+ * 	baseUrl: http://localhost:2403
  * 	resource: Person
- * 	allPersons()[] GET "/persons"
- * 	create(Person person) POST "/persons/:person.id" { person }
- * 	update(Person person) PUT "/persons/:person.id" { person }
- * 	remove(Person person) DELETE "/person/:person.id"
+ * 	allPersons()[] GET /persons
+ * 	create(Person person) POST /persons
+ * 	update(Person person) PUT /persons
+ * 	remove(Person person) DELETE /person/:person
  * }
  * </pre>
  * 
@@ -43,22 +43,22 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
       _builder.append("datasource PersonDataSource {");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("baseUrl: \"http://localhost:2403\"");
+      _builder.append("baseUrl: http://localhost:2403");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("resource: Person");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("allPersons()[] GET \"/persons\"");
+      _builder.append("allPersons()[] GET /persons");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("create(Person person) POST \"/persons/:person.id\" { person }");
+      _builder.append("create(Person person) POST /persons");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("update(Person person) PUT \"/persons/:person.id\" { person }");
+      _builder.append("update(Person person) PUT /persons");
       _builder.newLine();
       _builder.append("\t");
-      _builder.append("remove(Person person) DELETE \"/person/:person.id\"");
+      _builder.append("remove(Person person) DELETE /persons/:person");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
@@ -109,16 +109,10 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
     _builder.append("#import \"Person+DataMapping.h\"");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("static NSString *const kAllPersonsPath = @\"/persons\";");
-    _builder.newLine();
-    _builder.append("static NSString *const kPostPersonPath = @\"/persons\";");
-    _builder.newLine();
-    _builder.append("static NSString *const kPutPersonPath = @\"/persons\";");
-    _builder.newLine();
-    _builder.append("static NSString *const kDeletePersonPath = @\"/persons/%@\";");
-    _builder.newLine();
-    _builder.newLine();
     _builder.append("@implementation Person (DataAccess)");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("static NSString *const kAllPersonsPath = @\"/persons\";");
     _builder.newLine();
     _builder.newLine();
     _builder.append("+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block");
@@ -180,6 +174,9 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("static NSString *const kCreatePath = @\"/persons\";");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("- (void)create:(void (^)(Person *person, NSError *error))block");
     _builder.newLine();
     _builder.append("{");
@@ -188,7 +185,7 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
     _builder.append("NSDictionary *elementDictionary = [self attributes];");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("[[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
+    _builder.append("[[PersonAPIClient sharedClient] POST:kCreatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("{");
@@ -224,6 +221,9 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
     _builder.append("}];");
     _builder.newLine();
     _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("static NSString *const kUpdatePath = @\"/persons\";");
     _builder.newLine();
     _builder.newLine();
     _builder.append("- (void)update:(void (^)(Person *person, NSError *error))block");
@@ -234,7 +234,7 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
     _builder.append("NSDictionary *elementDictionary = [self attributes];");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("[[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
+    _builder.append("[[PersonAPIClient sharedClient] PUT:kUpdatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("{");
@@ -272,12 +272,15 @@ public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAcc
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("static NSString *const kRemovePath = @\"/persons/%@\";");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("- (void)remove:(void (^)(Person *person, NSError *error))block");
     _builder.newLine();
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("NSString *urlString = [NSString stringWithFormat:kDeletePersonPath, self.id];");
+    _builder.append("NSString *urlString = [NSString stringWithFormat:kRemovePath, self.id];");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[[PersonAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");

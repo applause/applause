@@ -1,7 +1,7 @@
 package org.applause.specification.codegen.ios
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.DataSource
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler
@@ -13,7 +13,6 @@ import org.jnario.runner.CreateWith
 
 import static org.hamcrest.CoreMatchers.*
 import static org.junit.Assert.*
-import org.applause.lang.applauseDsl.DataSource
 
 @InjectWith(ApplauseDslInjectorProvider)
 @CreateWith(typeof(ApplauseDslTestCreator))
@@ -22,11 +21,6 @@ describe "Entity Data Access Generator"{
 	@Inject extension ParseHelper<Model>
 	@Inject extension EntityDataAccessHeaderFileCompiler
 	@Inject extension EntityDataAccessModuleFileCompiler
-	
-	private def entity(CharSequence input, String entityName) {
-		val model = input.parse
-		model.elements.filter(typeof(Entity)).findFirst[name == entityName]
-	}
 	
 	private def datasource(CharSequence input, String datasourceName) {
 		val model = input.parse
@@ -56,12 +50,12 @@ context "Generating Data Access Code for Entities" {
 		 * entity Person {
 		 * }
 		 * datasource PersonDataSource {
-		 * 	baseUrl: "http://localhost:2403"
+		 * 	baseUrl: http://localhost:2403
 		 * 	resource: Person
-		 * 	allPersons()[] GET "/persons"
-		 * 	create(Person person) POST "/persons/:person.id" { person }
-		 * 	update(Person person) PUT "/persons/:person.id" { person }
-		 * 	remove(Person person) DELETE "/person/:person.id"
+		 * 	allPersons()[] GET /persons
+		 * 	create(Person person) POST /persons
+		 * 	update(Person person) PUT /persons
+		 * 	remove(Person person) DELETE /person/:person
 		 * }
 		 * </pre>
 		 * 
@@ -73,12 +67,12 @@ context "Generating Data Access Code for Entities" {
 				entity Person {
 				}
 				datasource PersonDataSource {
-					baseUrl: "http://localhost:2403"
+					baseUrl: http://localhost:2403
 					resource: Person
-					allPersons()[] GET "/persons"
-					create(Person person) POST "/persons/:person.id" { person }
-					update(Person person) PUT "/persons/:person.id" { person }
-					remove(Person person) DELETE "/person/:person.id"
+					allPersons()[] GET /persons
+					create(Person person) POST /persons
+					update(Person person) PUT /persons
+					remove(Person person) DELETE /persons/:person
 				}
 			'''
 			
@@ -108,12 +102,9 @@ context "Generating Data Access Code for Entities" {
 					#import "PersonAPIClient.h"
 					#import "Person+DataMapping.h"
 					
-					static NSString *const kAllPersonsPath = @"/persons";
-					static NSString *const kPostPersonPath = @"/persons";
-					static NSString *const kPutPersonPath = @"/persons";
-					static NSString *const kDeletePersonPath = @"/persons/%@";
-					
 					@implementation Person (DataAccess)
+					
+					static NSString *const kAllPersonsPath = @"/persons";
 					
 					+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block
 					{
@@ -137,10 +128,12 @@ context "Generating Data Access Code for Entities" {
 						}];
 					}
 					
+					static NSString *const kCreatePath = @"/persons";
+					
 					- (void)create:(void (^)(Person *person, NSError *error))block
 					{
 						NSDictionary *elementDictionary = [self attributes];
-						[[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+						[[PersonAPIClient sharedClient] POST:kCreatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 						{
 							Person *postedElement = responseObject;
 							if(block) {
@@ -153,11 +146,13 @@ context "Generating Data Access Code for Entities" {
 							}
 						}];
 					}
+					
+					static NSString *const kUpdatePath = @"/persons";
 					
 					- (void)update:(void (^)(Person *person, NSError *error))block
 					{
 						NSDictionary *elementDictionary = [self attributes];
-						[[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+						[[PersonAPIClient sharedClient] PUT:kUpdatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 						{
 							Person *postedElement = responseObject;
 							if(block) {
@@ -171,9 +166,11 @@ context "Generating Data Access Code for Entities" {
 						}];
 					}
 					
+					static NSString *const kRemovePath = @"/persons/%@";
+					
 					- (void)remove:(void (^)(Person *person, NSError *error))block
 					{
-						NSString *urlString = [NSString stringWithFormat:kDeletePersonPath, self.id];
+						NSString *urlString = [NSString stringWithFormat:kRemovePath, self.id];
 						[[PersonAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 						{
 							if(block) {

@@ -2,6 +2,7 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
+import org.applause.lang.applauseDsl.AbsoluteRESTURL;
 import org.applause.lang.applauseDsl.ApplauseDslFactory;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
@@ -17,8 +18,12 @@ import org.applause.lang.applauseDsl.Platform;
 import org.applause.lang.applauseDsl.PlatformMapping;
 import org.applause.lang.applauseDsl.RESTSpecification;
 import org.applause.lang.applauseDsl.RESTVerb;
+import org.applause.lang.applauseDsl.RelativeRESTURL;
 import org.applause.lang.applauseDsl.Type;
 import org.applause.lang.applauseDsl.TypeMapping;
+import org.applause.lang.applauseDsl.UrlFragment;
+import org.applause.lang.applauseDsl.UrlPathFragment;
+import org.applause.lang.applauseDsl.Variable;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
@@ -133,6 +138,48 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EClass parameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resturlEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass absoluteRESTURLEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relativeRESTURLEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass urlFragmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass urlPathFragmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -419,9 +466,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataSource_BaseUrl()
+  public EReference getDataSource_BaseUrl()
   {
-    return (EAttribute)dataSourceEClass.getEStructuralFeatures().get(0);
+    return (EReference)dataSourceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -519,9 +566,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getRESTSpecification_Path()
+  public EReference getRESTSpecification_Path()
   {
-    return (EAttribute)restSpecificationEClass.getEStructuralFeatures().get(1);
+    return (EReference)restSpecificationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -582,6 +629,116 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EAttribute getParameter_Name()
   {
     return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRESTURL()
+  {
+    return resturlEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRESTURL_Fragments()
+  {
+    return (EReference)resturlEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbsoluteRESTURL()
+  {
+    return absoluteRESTURLEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbsoluteRESTURL_Host()
+  {
+    return (EReference)absoluteRESTURLEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbsoluteRESTURL_Port()
+  {
+    return (EAttribute)absoluteRESTURLEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRelativeRESTURL()
+  {
+    return relativeRESTURLEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUrlFragment()
+  {
+    return urlFragmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUrlPathFragment()
+  {
+    return urlPathFragmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUrlPathFragment_Name()
+  {
+    return (EAttribute)urlPathFragmentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVariable()
+  {
+    return variableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariable_ParameterReference()
+  {
+    return (EReference)variableEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -654,7 +811,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEAttribute(typeMappingEClass, TYPE_MAPPING__SIMPLE_NAME);
 
     dataSourceEClass = createEClass(DATA_SOURCE);
-    createEAttribute(dataSourceEClass, DATA_SOURCE__BASE_URL);
+    createEReference(dataSourceEClass, DATA_SOURCE__BASE_URL);
     createEReference(dataSourceEClass, DATA_SOURCE__RESOURCE_TYPE);
     createEReference(dataSourceEClass, DATA_SOURCE__METHODS);
 
@@ -666,7 +823,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     restSpecificationEClass = createEClass(REST_SPECIFICATION);
     createEAttribute(restSpecificationEClass, REST_SPECIFICATION__VERB);
-    createEAttribute(restSpecificationEClass, REST_SPECIFICATION__PATH);
+    createEReference(restSpecificationEClass, REST_SPECIFICATION__PATH);
     createEReference(restSpecificationEClass, REST_SPECIFICATION__BODY);
 
     dataSourceBodySpecificationEClass = createEClass(DATA_SOURCE_BODY_SPECIFICATION);
@@ -675,6 +832,23 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     parameterEClass = createEClass(PARAMETER);
     createEReference(parameterEClass, PARAMETER__TYPE);
     createEAttribute(parameterEClass, PARAMETER__NAME);
+
+    resturlEClass = createEClass(RESTURL);
+    createEReference(resturlEClass, RESTURL__FRAGMENTS);
+
+    absoluteRESTURLEClass = createEClass(ABSOLUTE_RESTURL);
+    createEReference(absoluteRESTURLEClass, ABSOLUTE_RESTURL__HOST);
+    createEAttribute(absoluteRESTURLEClass, ABSOLUTE_RESTURL__PORT);
+
+    relativeRESTURLEClass = createEClass(RELATIVE_RESTURL);
+
+    urlFragmentEClass = createEClass(URL_FRAGMENT);
+
+    urlPathFragmentEClass = createEClass(URL_PATH_FRAGMENT);
+    createEAttribute(urlPathFragmentEClass, URL_PATH_FRAGMENT__NAME);
+
+    variableEClass = createEClass(VARIABLE);
+    createEReference(variableEClass, VARIABLE__PARAMETER_REFERENCE);
 
     // Create enums
     restVerbEEnum = createEEnum(REST_VERB);
@@ -715,6 +889,10 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     platformEClass.getESuperTypes().add(this.getNamedElement());
     typeMappingEClass.getESuperTypes().add(this.getPlatformMapping());
     dataSourceEClass.getESuperTypes().add(this.getNamedElement());
+    absoluteRESTURLEClass.getESuperTypes().add(this.getRESTURL());
+    relativeRESTURLEClass.getESuperTypes().add(this.getRESTURL());
+    urlPathFragmentEClass.getESuperTypes().add(this.getUrlFragment());
+    variableEClass.getESuperTypes().add(this.getUrlFragment());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -747,7 +925,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEAttribute(getTypeMapping_SimpleName(), ecorePackage.getEString(), "simpleName", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataSource_BaseUrl(), ecorePackage.getEString(), "baseUrl", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataSource_BaseUrl(), this.getAbsoluteRESTURL(), null, "baseUrl", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataSource_ResourceType(), this.getEntity(), null, "resourceType", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getDataSource_Methods(), this.getDataSourceAccessMethod(), null, "methods", null, 0, -1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -759,7 +937,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(restSpecificationEClass, RESTSpecification.class, "RESTSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getRESTSpecification_Verb(), this.getRESTVerb(), "verb", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getRESTSpecification_Path(), ecorePackage.getEString(), "path", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRESTSpecification_Path(), this.getRESTURL(), null, "path", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRESTSpecification_Body(), this.getDataSourceBodySpecification(), null, "body", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataSourceBodySpecificationEClass, DataSourceBodySpecification.class, "DataSourceBodySpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -768,6 +946,23 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resturlEClass, org.applause.lang.applauseDsl.RESTURL.class, "RESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRESTURL_Fragments(), this.getUrlFragment(), null, "fragments", null, 0, -1, org.applause.lang.applauseDsl.RESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(absoluteRESTURLEClass, AbsoluteRESTURL.class, "AbsoluteRESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbsoluteRESTURL_Host(), this.getUrlFragment(), null, "host", null, 0, 1, AbsoluteRESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbsoluteRESTURL_Port(), ecorePackage.getEInt(), "port", null, 0, 1, AbsoluteRESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relativeRESTURLEClass, RelativeRESTURL.class, "RelativeRESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(urlFragmentEClass, UrlFragment.class, "UrlFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(urlPathFragmentEClass, UrlPathFragment.class, "UrlPathFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUrlPathFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, UrlPathFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariable_ParameterReference(), this.getParameter(), null, "parameterReference", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(restVerbEEnum, RESTVerb.class, "RESTVerb");

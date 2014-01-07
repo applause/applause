@@ -40,7 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//TypeMapping/simpleName"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//DataSource">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//DataSource/baseUrl"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DataSource/baseUrl"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DataSource/resourceType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DataSource/methods"/>
     </genClasses>
@@ -52,7 +52,7 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//RESTSpecification">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//RESTSpecification/verb"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//RESTSpecification/path"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTSpecification/path"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTSpecification/body"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//DataSourceBodySpecification">
@@ -61,6 +61,21 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//Parameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Parameter/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Parameter/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//RESTURL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTURL/fragments"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//AbsoluteRESTURL">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//AbsoluteRESTURL/host"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//AbsoluteRESTURL/port"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//RelativeRESTURL"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UrlFragment"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UrlPathFragment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UrlPathFragment/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//Variable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Variable/parameterReference"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

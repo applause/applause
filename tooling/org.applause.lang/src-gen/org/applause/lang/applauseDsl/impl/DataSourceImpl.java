@@ -4,6 +4,7 @@ package org.applause.lang.applauseDsl.impl;
 
 import java.util.Collection;
 
+import org.applause.lang.applauseDsl.AbsoluteRESTURL;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
@@ -40,24 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
 public class DataSourceImpl extends NamedElementImpl implements DataSource
 {
   /**
-   * The default value of the '{@link #getBaseUrl() <em>Base Url</em>}' attribute.
+   * The cached value of the '{@link #getBaseUrl() <em>Base Url</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getBaseUrl()
    * @generated
    * @ordered
    */
-  protected static final String BASE_URL_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getBaseUrl() <em>Base Url</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getBaseUrl()
-   * @generated
-   * @ordered
-   */
-  protected String baseUrl = BASE_URL_EDEFAULT;
+  protected AbsoluteRESTURL baseUrl;
 
   /**
    * The cached value of the '{@link #getResourceType() <em>Resource Type</em>}' reference.
@@ -105,7 +96,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getBaseUrl()
+  public AbsoluteRESTURL getBaseUrl()
   {
     return baseUrl;
   }
@@ -115,12 +106,37 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBaseUrl(String newBaseUrl)
+  public NotificationChain basicSetBaseUrl(AbsoluteRESTURL newBaseUrl, NotificationChain msgs)
   {
-    String oldBaseUrl = baseUrl;
+    AbsoluteRESTURL oldBaseUrl = baseUrl;
     baseUrl = newBaseUrl;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.DATA_SOURCE__BASE_URL, oldBaseUrl, baseUrl));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.DATA_SOURCE__BASE_URL, oldBaseUrl, newBaseUrl);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setBaseUrl(AbsoluteRESTURL newBaseUrl)
+  {
+    if (newBaseUrl != baseUrl)
+    {
+      NotificationChain msgs = null;
+      if (baseUrl != null)
+        msgs = ((InternalEObject)baseUrl).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.DATA_SOURCE__BASE_URL, null, msgs);
+      if (newBaseUrl != null)
+        msgs = ((InternalEObject)newBaseUrl).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.DATA_SOURCE__BASE_URL, null, msgs);
+      msgs = basicSetBaseUrl(newBaseUrl, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.DATA_SOURCE__BASE_URL, newBaseUrl, newBaseUrl));
   }
 
   /**
@@ -190,6 +206,8 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.DATA_SOURCE__BASE_URL:
+        return basicSetBaseUrl(null, msgs);
       case ApplauseDslPackage.DATA_SOURCE__METHODS:
         return ((InternalEList<?>)getMethods()).basicRemove(otherEnd, msgs);
     }
@@ -229,7 +247,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
     switch (featureID)
     {
       case ApplauseDslPackage.DATA_SOURCE__BASE_URL:
-        setBaseUrl((String)newValue);
+        setBaseUrl((AbsoluteRESTURL)newValue);
         return;
       case ApplauseDslPackage.DATA_SOURCE__RESOURCE_TYPE:
         setResourceType((Entity)newValue);
@@ -253,7 +271,7 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
     switch (featureID)
     {
       case ApplauseDslPackage.DATA_SOURCE__BASE_URL:
-        setBaseUrl(BASE_URL_EDEFAULT);
+        setBaseUrl((AbsoluteRESTURL)null);
         return;
       case ApplauseDslPackage.DATA_SOURCE__RESOURCE_TYPE:
         setResourceType((Entity)null);
@@ -276,30 +294,13 @@ public class DataSourceImpl extends NamedElementImpl implements DataSource
     switch (featureID)
     {
       case ApplauseDslPackage.DATA_SOURCE__BASE_URL:
-        return BASE_URL_EDEFAULT == null ? baseUrl != null : !BASE_URL_EDEFAULT.equals(baseUrl);
+        return baseUrl != null;
       case ApplauseDslPackage.DATA_SOURCE__RESOURCE_TYPE:
         return resourceType != null;
       case ApplauseDslPackage.DATA_SOURCE__METHODS:
         return methods != null && !methods.isEmpty();
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (baseUrl: ");
-    result.append(baseUrl);
-    result.append(')');
-    return result.toString();
   }
 
 } //DataSourceImpl

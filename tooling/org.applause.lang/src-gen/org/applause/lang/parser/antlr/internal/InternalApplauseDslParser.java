@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datatype'", "'abstract'", "'entity'", "'extends'", "'{'", "'}'", "'[]'", "'platform'", "'typemapping'", "'->'", "'datasource'", "'baseUrl'", "':'", "'resource'", "'('", "','", "')'", "'GET'", "'POST'", "'PUT'", "'DELETE'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_INT", "RULE_STRING", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'datatype'", "'abstract'", "'entity'", "'extends'", "'{'", "'}'", "'[]'", "'platform'", "'typemapping'", "'->'", "'datasource'", "'baseUrl'", "':'", "'resource'", "'('", "','", "')'", "'http://'", "'/'", "'.'", "'GET'", "'POST'", "'PUT'", "'DELETE'"
     };
     public static final int RULE_ID=4;
     public static final int T__29=29;
@@ -42,8 +42,11 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     public static final int T__30=30;
     public static final int T__19=19;
     public static final int T__31=31;
-    public static final int RULE_STRING=5;
+    public static final int RULE_STRING=6;
+    public static final int T__32=32;
+    public static final int T__33=33;
     public static final int T__16=16;
+    public static final int T__34=34;
     public static final int T__15=15;
     public static final int T__18=18;
     public static final int T__17=17;
@@ -51,7 +54,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_INT=6;
+    public static final int RULE_INT=5;
     public static final int RULE_WS=9;
 
     // delegates
@@ -1398,7 +1401,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleDataSource"
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:576:1: ruleDataSource returns [EObject current=null] : (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= RULE_STRING ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:576:1: ruleDataSource returns [EObject current=null] : (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= ruleAbsoluteRESTURL ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' ) ;
     public final EObject ruleDataSource() throws RecognitionException {
         EObject current = null;
 
@@ -1407,22 +1410,23 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
         Token otherlv_2=null;
         Token otherlv_3=null;
         Token otherlv_4=null;
-        Token lv_baseUrl_5_0=null;
         Token otherlv_6=null;
         Token otherlv_7=null;
         Token otherlv_8=null;
         Token otherlv_10=null;
+        EObject lv_baseUrl_5_0 = null;
+
         EObject lv_methods_9_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:579:28: ( (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= RULE_STRING ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:580:1: (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= RULE_STRING ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:579:28: ( (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= ruleAbsoluteRESTURL ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:580:1: (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= ruleAbsoluteRESTURL ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:580:1: (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= RULE_STRING ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:580:3: otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= RULE_STRING ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:580:1: (otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= ruleAbsoluteRESTURL ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:580:3: otherlv_0= 'datasource' ( (lv_name_1_0= RULE_ID ) ) otherlv_2= '{' otherlv_3= 'baseUrl' otherlv_4= ':' ( (lv_baseUrl_5_0= ruleAbsoluteRESTURL ) ) otherlv_6= 'resource' otherlv_7= ':' ( (otherlv_8= RULE_ID ) ) ( (lv_methods_9_0= ruleDataSourceAccessMethod ) )* otherlv_10= '}'
             {
             otherlv_0=(Token)match(input,21,FOLLOW_21_in_ruleDataSource1324); 
 
@@ -1466,25 +1470,30 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
                 	newLeafNode(otherlv_4, grammarAccess.getDataSourceAccess().getColonKeyword_4());
                 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:614:1: ( (lv_baseUrl_5_0= RULE_STRING ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:615:1: (lv_baseUrl_5_0= RULE_STRING )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:614:1: ( (lv_baseUrl_5_0= ruleAbsoluteRESTURL ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:615:1: (lv_baseUrl_5_0= ruleAbsoluteRESTURL )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:615:1: (lv_baseUrl_5_0= RULE_STRING )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:616:3: lv_baseUrl_5_0= RULE_STRING
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:615:1: (lv_baseUrl_5_0= ruleAbsoluteRESTURL )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:616:3: lv_baseUrl_5_0= ruleAbsoluteRESTURL
             {
-            lv_baseUrl_5_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleDataSource1399); 
+             
+            	        newCompositeNode(grammarAccess.getDataSourceAccess().getBaseUrlAbsoluteRESTURLParserRuleCall_5_0()); 
+            	    
+            pushFollow(FOLLOW_ruleAbsoluteRESTURL_in_ruleDataSource1403);
+            lv_baseUrl_5_0=ruleAbsoluteRESTURL();
 
-            			newLeafNode(lv_baseUrl_5_0, grammarAccess.getDataSourceAccess().getBaseUrlSTRINGTerminalRuleCall_5_0()); 
-            		
+            state._fsp--;
+
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getDataSourceRule());
+            	            current = createModelElementForParent(grammarAccess.getDataSourceRule());
             	        }
-                   		setWithLastConsumed(
+                   		set(
                    			current, 
                    			"baseUrl",
                     		lv_baseUrl_5_0, 
-                    		"STRING");
+                    		"AbsoluteRESTURL");
+            	        afterParserOrEnumRuleCall();
             	    
 
             }
@@ -1492,11 +1501,11 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleDataSource1416); 
+            otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleDataSource1415); 
 
                 	newLeafNode(otherlv_6, grammarAccess.getDataSourceAccess().getResourceKeyword_6());
                 
-            otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleDataSource1428); 
+            otherlv_7=(Token)match(input,23,FOLLOW_23_in_ruleDataSource1427); 
 
                 	newLeafNode(otherlv_7, grammarAccess.getDataSourceAccess().getColonKeyword_7());
                 
@@ -1511,7 +1520,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             	            current = createModelElement(grammarAccess.getDataSourceRule());
             	        }
                     
-            otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSource1448); 
+            otherlv_8=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSource1447); 
 
             		newLeafNode(otherlv_8, grammarAccess.getDataSourceAccess().getResourceTypeEntityCrossReference_8_0()); 
             	
@@ -1542,7 +1551,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             	     
             	    	        newCompositeNode(grammarAccess.getDataSourceAccess().getMethodsDataSourceAccessMethodParserRuleCall_9_0()); 
             	    	    
-            	    pushFollow(FOLLOW_ruleDataSourceAccessMethod_in_ruleDataSource1469);
+            	    pushFollow(FOLLOW_ruleDataSourceAccessMethod_in_ruleDataSource1468);
             	    lv_methods_9_0=ruleDataSourceAccessMethod();
 
             	    state._fsp--;
@@ -1570,7 +1579,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                 }
             } while (true);
 
-            otherlv_10=(Token)match(input,16,FOLLOW_16_in_ruleDataSource1482); 
+            otherlv_10=(Token)match(input,16,FOLLOW_16_in_ruleDataSource1481); 
 
                 	newLeafNode(otherlv_10, grammarAccess.getDataSourceAccess().getRightCurlyBracketKeyword_10());
                 
@@ -1607,13 +1616,13 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:685:2: iv_ruleDataSourceAccessMethod= ruleDataSourceAccessMethod EOF
             {
              newCompositeNode(grammarAccess.getDataSourceAccessMethodRule()); 
-            pushFollow(FOLLOW_ruleDataSourceAccessMethod_in_entryRuleDataSourceAccessMethod1518);
+            pushFollow(FOLLOW_ruleDataSourceAccessMethod_in_entryRuleDataSourceAccessMethod1517);
             iv_ruleDataSourceAccessMethod=ruleDataSourceAccessMethod();
 
             state._fsp--;
 
              current =iv_ruleDataSourceAccessMethod; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDataSourceAccessMethod1528); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDataSourceAccessMethod1527); 
 
             }
 
@@ -1662,7 +1671,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:697:1: (lv_name_0_0= RULE_ID )
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:698:3: lv_name_0_0= RULE_ID
             {
-            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSourceAccessMethod1570); 
+            lv_name_0_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSourceAccessMethod1569); 
 
             			newLeafNode(lv_name_0_0, grammarAccess.getDataSourceAccessMethodAccess().getNameIDTerminalRuleCall_0_0()); 
             		
@@ -1682,7 +1691,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleDataSourceAccessMethod1587); 
+            otherlv_1=(Token)match(input,25,FOLLOW_25_in_ruleDataSourceAccessMethod1586); 
 
                 	newLeafNode(otherlv_1, grammarAccess.getDataSourceAccessMethodAccess().getLeftParenthesisKeyword_1());
                 
@@ -1706,7 +1715,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getDataSourceAccessMethodAccess().getDeclaredParametersParameterParserRuleCall_2_0_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1609);
+                    pushFollow(FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1608);
                     lv_declaredParameters_2_0=ruleParameter();
 
                     state._fsp--;
@@ -1743,7 +1752,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	case 1 :
                     	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:736:4: otherlv_3= ',' ( (lv_declaredParameters_4_0= ruleParameter ) )
                     	    {
-                    	    otherlv_3=(Token)match(input,26,FOLLOW_26_in_ruleDataSourceAccessMethod1622); 
+                    	    otherlv_3=(Token)match(input,26,FOLLOW_26_in_ruleDataSourceAccessMethod1621); 
 
                     	        	newLeafNode(otherlv_3, grammarAccess.getDataSourceAccessMethodAccess().getCommaKeyword_2_1_0());
                     	        
@@ -1756,7 +1765,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     	     
                     	    	        newCompositeNode(grammarAccess.getDataSourceAccessMethodAccess().getDeclaredParametersParameterParserRuleCall_2_1_1_0()); 
                     	    	    
-                    	    pushFollow(FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1643);
+                    	    pushFollow(FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1642);
                     	    lv_declaredParameters_4_0=ruleParameter();
 
                     	    state._fsp--;
@@ -1793,7 +1802,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            otherlv_5=(Token)match(input,27,FOLLOW_27_in_ruleDataSourceAccessMethod1659); 
+            otherlv_5=(Token)match(input,27,FOLLOW_27_in_ruleDataSourceAccessMethod1658); 
 
                 	newLeafNode(otherlv_5, grammarAccess.getDataSourceAccessMethodAccess().getRightParenthesisKeyword_3());
                 
@@ -1811,7 +1820,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:763:1: (lv_returnsMany_6_0= '[]' )
                     // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:764:3: lv_returnsMany_6_0= '[]'
                     {
-                    lv_returnsMany_6_0=(Token)match(input,17,FOLLOW_17_in_ruleDataSourceAccessMethod1677); 
+                    lv_returnsMany_6_0=(Token)match(input,17,FOLLOW_17_in_ruleDataSourceAccessMethod1676); 
 
                             newLeafNode(lv_returnsMany_6_0, grammarAccess.getDataSourceAccessMethodAccess().getReturnsManyLeftSquareBracketRightSquareBracketKeyword_4_0());
                         
@@ -1839,7 +1848,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getDataSourceAccessMethodAccess().getRestSpecificationRESTSpecificationParserRuleCall_5_0()); 
             	    
-            pushFollow(FOLLOW_ruleRESTSpecification_in_ruleDataSourceAccessMethod1712);
+            pushFollow(FOLLOW_ruleRESTSpecification_in_ruleDataSourceAccessMethod1711);
             lv_restSpecification_7_0=ruleRESTSpecification();
 
             state._fsp--;
@@ -1894,13 +1903,13 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:805:2: iv_ruleRESTSpecification= ruleRESTSpecification EOF
             {
              newCompositeNode(grammarAccess.getRESTSpecificationRule()); 
-            pushFollow(FOLLOW_ruleRESTSpecification_in_entryRuleRESTSpecification1748);
+            pushFollow(FOLLOW_ruleRESTSpecification_in_entryRuleRESTSpecification1747);
             iv_ruleRESTSpecification=ruleRESTSpecification();
 
             state._fsp--;
 
              current =iv_ruleRESTSpecification; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRESTSpecification1758); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRESTSpecification1757); 
 
             }
 
@@ -1918,14 +1927,15 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRESTSpecification"
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:812:1: ruleRESTSpecification returns [EObject current=null] : ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:812:1: ruleRESTSpecification returns [EObject current=null] : ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= ruleRESTURL ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? ) ;
     public final EObject ruleRESTSpecification() throws RecognitionException {
         EObject current = null;
 
-        Token lv_path_1_0=null;
         Token otherlv_2=null;
         Token otherlv_4=null;
         Enumerator lv_verb_0_0 = null;
+
+        EObject lv_path_1_0 = null;
 
         EObject lv_body_3_0 = null;
 
@@ -1933,11 +1943,11 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:815:28: ( ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:1: ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:815:28: ( ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= ruleRESTURL ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:1: ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= ruleRESTURL ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:1: ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:2: ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= RULE_STRING ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:1: ( ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= ruleRESTURL ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )? )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:2: ( (lv_verb_0_0= ruleRESTVerb ) ) ( (lv_path_1_0= ruleRESTURL ) ) (otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}' )?
             {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:816:2: ( (lv_verb_0_0= ruleRESTVerb ) )
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:817:1: (lv_verb_0_0= ruleRESTVerb )
@@ -1948,7 +1958,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
              
             	        newCompositeNode(grammarAccess.getRESTSpecificationAccess().getVerbRESTVerbEnumRuleCall_0_0()); 
             	    
-            pushFollow(FOLLOW_ruleRESTVerb_in_ruleRESTSpecification1804);
+            pushFollow(FOLLOW_ruleRESTVerb_in_ruleRESTSpecification1803);
             lv_verb_0_0=ruleRESTVerb();
 
             state._fsp--;
@@ -1970,25 +1980,30 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:834:2: ( (lv_path_1_0= RULE_STRING ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:835:1: (lv_path_1_0= RULE_STRING )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:834:2: ( (lv_path_1_0= ruleRESTURL ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:835:1: (lv_path_1_0= ruleRESTURL )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:835:1: (lv_path_1_0= RULE_STRING )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:836:3: lv_path_1_0= RULE_STRING
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:835:1: (lv_path_1_0= ruleRESTURL )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:836:3: lv_path_1_0= ruleRESTURL
             {
-            lv_path_1_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleRESTSpecification1821); 
+             
+            	        newCompositeNode(grammarAccess.getRESTSpecificationAccess().getPathRESTURLParserRuleCall_1_0()); 
+            	    
+            pushFollow(FOLLOW_ruleRESTURL_in_ruleRESTSpecification1824);
+            lv_path_1_0=ruleRESTURL();
 
-            			newLeafNode(lv_path_1_0, grammarAccess.getRESTSpecificationAccess().getPathSTRINGTerminalRuleCall_1_0()); 
-            		
+            state._fsp--;
+
 
             	        if (current==null) {
-            	            current = createModelElement(grammarAccess.getRESTSpecificationRule());
+            	            current = createModelElementForParent(grammarAccess.getRESTSpecificationRule());
             	        }
-                   		setWithLastConsumed(
+                   		set(
                    			current, 
                    			"path",
                     		lv_path_1_0, 
-                    		"STRING");
+                    		"RESTURL");
+            	        afterParserOrEnumRuleCall();
             	    
 
             }
@@ -2007,7 +2022,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                 case 1 :
                     // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:852:4: otherlv_2= '{' ( (lv_body_3_0= ruleDataSourceBodySpecification ) ) otherlv_4= '}'
                     {
-                    otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleRESTSpecification1839); 
+                    otherlv_2=(Token)match(input,15,FOLLOW_15_in_ruleRESTSpecification1837); 
 
                         	newLeafNode(otherlv_2, grammarAccess.getRESTSpecificationAccess().getLeftCurlyBracketKeyword_2_0());
                         
@@ -2020,7 +2035,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                      
                     	        newCompositeNode(grammarAccess.getRESTSpecificationAccess().getBodyDataSourceBodySpecificationParserRuleCall_2_1_0()); 
                     	    
-                    pushFollow(FOLLOW_ruleDataSourceBodySpecification_in_ruleRESTSpecification1860);
+                    pushFollow(FOLLOW_ruleDataSourceBodySpecification_in_ruleRESTSpecification1858);
                     lv_body_3_0=ruleDataSourceBodySpecification();
 
                     state._fsp--;
@@ -2042,7 +2057,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleRESTSpecification1872); 
+                    otherlv_4=(Token)match(input,16,FOLLOW_16_in_ruleRESTSpecification1870); 
 
                         	newLeafNode(otherlv_4, grammarAccess.getRESTSpecificationAccess().getRightCurlyBracketKeyword_2_2());
                         
@@ -2085,13 +2100,13 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:888:2: iv_ruleDataSourceBodySpecification= ruleDataSourceBodySpecification EOF
             {
              newCompositeNode(grammarAccess.getDataSourceBodySpecificationRule()); 
-            pushFollow(FOLLOW_ruleDataSourceBodySpecification_in_entryRuleDataSourceBodySpecification1910);
+            pushFollow(FOLLOW_ruleDataSourceBodySpecification_in_entryRuleDataSourceBodySpecification1908);
             iv_ruleDataSourceBodySpecification=ruleDataSourceBodySpecification();
 
             state._fsp--;
 
              current =iv_ruleDataSourceBodySpecification; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleDataSourceBodySpecification1920); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleDataSourceBodySpecification1918); 
 
             }
 
@@ -2132,7 +2147,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             	            current = createModelElement(grammarAccess.getDataSourceBodySpecificationRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSourceBodySpecification1964); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleDataSourceBodySpecification1962); 
 
             		newLeafNode(otherlv_0, grammarAccess.getDataSourceBodySpecificationAccess().getBodycontentsParameterCrossReference_0()); 
             	
@@ -2172,13 +2187,13 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:922:2: iv_ruleParameter= ruleParameter EOF
             {
              newCompositeNode(grammarAccess.getParameterRule()); 
-            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter1999);
+            pushFollow(FOLLOW_ruleParameter_in_entryRuleParameter1997);
             iv_ruleParameter=ruleParameter();
 
             state._fsp--;
 
              current =iv_ruleParameter; 
-            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter2009); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleParameter2007); 
 
             }
 
@@ -2223,7 +2238,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             	            current = createModelElement(grammarAccess.getParameterRule());
             	        }
                     
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter2054); 
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter2052); 
 
             		newLeafNode(otherlv_0, grammarAccess.getParameterAccess().getTypeTypeCrossReference_0_0()); 
             	
@@ -2239,7 +2254,7 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:947:1: (lv_name_1_0= RULE_ID )
             // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:948:3: lv_name_1_0= RULE_ID
             {
-            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter2071); 
+            lv_name_1_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleParameter2069); 
 
             			newLeafNode(lv_name_1_0, grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0()); 
             		
@@ -2279,8 +2294,984 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleParameter"
 
 
+    // $ANTLR start "entryRuleRESTURL"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:972:1: entryRuleRESTURL returns [EObject current=null] : iv_ruleRESTURL= ruleRESTURL EOF ;
+    public final EObject entryRuleRESTURL() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleRESTURL = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:973:2: (iv_ruleRESTURL= ruleRESTURL EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:974:2: iv_ruleRESTURL= ruleRESTURL EOF
+            {
+             newCompositeNode(grammarAccess.getRESTURLRule()); 
+            pushFollow(FOLLOW_ruleRESTURL_in_entryRuleRESTURL2110);
+            iv_ruleRESTURL=ruleRESTURL();
+
+            state._fsp--;
+
+             current =iv_ruleRESTURL; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRESTURL2120); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleRESTURL"
+
+
+    // $ANTLR start "ruleRESTURL"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:981:1: ruleRESTURL returns [EObject current=null] : (this_AbsoluteRESTURL_0= ruleAbsoluteRESTURL | this_RelativeRESTURL_1= ruleRelativeRESTURL ) ;
+    public final EObject ruleRESTURL() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_AbsoluteRESTURL_0 = null;
+
+        EObject this_RelativeRESTURL_1 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:984:28: ( (this_AbsoluteRESTURL_0= ruleAbsoluteRESTURL | this_RelativeRESTURL_1= ruleRelativeRESTURL ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:985:1: (this_AbsoluteRESTURL_0= ruleAbsoluteRESTURL | this_RelativeRESTURL_1= ruleRelativeRESTURL )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:985:1: (this_AbsoluteRESTURL_0= ruleAbsoluteRESTURL | this_RelativeRESTURL_1= ruleRelativeRESTURL )
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==28) ) {
+                alt14=1;
+            }
+            else if ( (LA14_0==29) ) {
+                alt14=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 14, 0, input);
+
+                throw nvae;
+            }
+            switch (alt14) {
+                case 1 :
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:986:5: this_AbsoluteRESTURL_0= ruleAbsoluteRESTURL
+                    {
+                     
+                            newCompositeNode(grammarAccess.getRESTURLAccess().getAbsoluteRESTURLParserRuleCall_0()); 
+                        
+                    pushFollow(FOLLOW_ruleAbsoluteRESTURL_in_ruleRESTURL2167);
+                    this_AbsoluteRESTURL_0=ruleAbsoluteRESTURL();
+
+                    state._fsp--;
+
+                     
+                            current = this_AbsoluteRESTURL_0; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:996:5: this_RelativeRESTURL_1= ruleRelativeRESTURL
+                    {
+                     
+                            newCompositeNode(grammarAccess.getRESTURLAccess().getRelativeRESTURLParserRuleCall_1()); 
+                        
+                    pushFollow(FOLLOW_ruleRelativeRESTURL_in_ruleRESTURL2194);
+                    this_RelativeRESTURL_1=ruleRelativeRESTURL();
+
+                    state._fsp--;
+
+                     
+                            current = this_RelativeRESTURL_1; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleRESTURL"
+
+
+    // $ANTLR start "entryRuleAbsoluteRESTURL"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1012:1: entryRuleAbsoluteRESTURL returns [EObject current=null] : iv_ruleAbsoluteRESTURL= ruleAbsoluteRESTURL EOF ;
+    public final EObject entryRuleAbsoluteRESTURL() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleAbsoluteRESTURL = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1013:2: (iv_ruleAbsoluteRESTURL= ruleAbsoluteRESTURL EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1014:2: iv_ruleAbsoluteRESTURL= ruleAbsoluteRESTURL EOF
+            {
+             newCompositeNode(grammarAccess.getAbsoluteRESTURLRule()); 
+            pushFollow(FOLLOW_ruleAbsoluteRESTURL_in_entryRuleAbsoluteRESTURL2229);
+            iv_ruleAbsoluteRESTURL=ruleAbsoluteRESTURL();
+
+            state._fsp--;
+
+             current =iv_ruleAbsoluteRESTURL; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAbsoluteRESTURL2239); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleAbsoluteRESTURL"
+
+
+    // $ANTLR start "ruleAbsoluteRESTURL"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1021:1: ruleAbsoluteRESTURL returns [EObject current=null] : ( () otherlv_1= 'http://' ( (lv_host_2_0= ruleUrlFragment ) ) (otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) ) )? (otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) ) )* ) ;
+    public final EObject ruleAbsoluteRESTURL() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token lv_port_4_0=null;
+        Token otherlv_5=null;
+        EObject lv_host_2_0 = null;
+
+        EObject lv_fragments_6_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1024:28: ( ( () otherlv_1= 'http://' ( (lv_host_2_0= ruleUrlFragment ) ) (otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) ) )? (otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) ) )* ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1025:1: ( () otherlv_1= 'http://' ( (lv_host_2_0= ruleUrlFragment ) ) (otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) ) )? (otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) ) )* )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1025:1: ( () otherlv_1= 'http://' ( (lv_host_2_0= ruleUrlFragment ) ) (otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) ) )? (otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) ) )* )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1025:2: () otherlv_1= 'http://' ( (lv_host_2_0= ruleUrlFragment ) ) (otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) ) )? (otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) ) )*
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1025:2: ()
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1026:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getAbsoluteRESTURLAccess().getAbsoluteRESTURLAction_0(),
+                        current);
+                
+
+            }
+
+            otherlv_1=(Token)match(input,28,FOLLOW_28_in_ruleAbsoluteRESTURL2285); 
+
+                	newLeafNode(otherlv_1, grammarAccess.getAbsoluteRESTURLAccess().getHttpKeyword_1());
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1035:1: ( (lv_host_2_0= ruleUrlFragment ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1036:1: (lv_host_2_0= ruleUrlFragment )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1036:1: (lv_host_2_0= ruleUrlFragment )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1037:3: lv_host_2_0= ruleUrlFragment
+            {
+             
+            	        newCompositeNode(grammarAccess.getAbsoluteRESTURLAccess().getHostUrlFragmentParserRuleCall_2_0()); 
+            	    
+            pushFollow(FOLLOW_ruleUrlFragment_in_ruleAbsoluteRESTURL2306);
+            lv_host_2_0=ruleUrlFragment();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getAbsoluteRESTURLRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"host",
+                    		lv_host_2_0, 
+                    		"UrlFragment");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1053:2: (otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) ) )?
+            int alt15=2;
+            int LA15_0 = input.LA(1);
+
+            if ( (LA15_0==23) ) {
+                alt15=1;
+            }
+            switch (alt15) {
+                case 1 :
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1053:4: otherlv_3= ':' ( (lv_port_4_0= RULE_INT ) )
+                    {
+                    otherlv_3=(Token)match(input,23,FOLLOW_23_in_ruleAbsoluteRESTURL2319); 
+
+                        	newLeafNode(otherlv_3, grammarAccess.getAbsoluteRESTURLAccess().getColonKeyword_3_0());
+                        
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1057:1: ( (lv_port_4_0= RULE_INT ) )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1058:1: (lv_port_4_0= RULE_INT )
+                    {
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1058:1: (lv_port_4_0= RULE_INT )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1059:3: lv_port_4_0= RULE_INT
+                    {
+                    lv_port_4_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleAbsoluteRESTURL2336); 
+
+                    			newLeafNode(lv_port_4_0, grammarAccess.getAbsoluteRESTURLAccess().getPortINTTerminalRuleCall_3_1_0()); 
+                    		
+
+                    	        if (current==null) {
+                    	            current = createModelElement(grammarAccess.getAbsoluteRESTURLRule());
+                    	        }
+                           		setWithLastConsumed(
+                           			current, 
+                           			"port",
+                            		lv_port_4_0, 
+                            		"INT");
+                    	    
+
+                    }
+
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1075:4: (otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) ) )*
+            loop16:
+            do {
+                int alt16=2;
+                int LA16_0 = input.LA(1);
+
+                if ( (LA16_0==29) ) {
+                    alt16=1;
+                }
+
+
+                switch (alt16) {
+            	case 1 :
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1075:6: otherlv_5= '/' ( (lv_fragments_6_0= ruleUrlFragment ) )
+            	    {
+            	    otherlv_5=(Token)match(input,29,FOLLOW_29_in_ruleAbsoluteRESTURL2356); 
+
+            	        	newLeafNode(otherlv_5, grammarAccess.getAbsoluteRESTURLAccess().getSolidusKeyword_4_0());
+            	        
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1079:1: ( (lv_fragments_6_0= ruleUrlFragment ) )
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1080:1: (lv_fragments_6_0= ruleUrlFragment )
+            	    {
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1080:1: (lv_fragments_6_0= ruleUrlFragment )
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1081:3: lv_fragments_6_0= ruleUrlFragment
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getAbsoluteRESTURLAccess().getFragmentsUrlFragmentParserRuleCall_4_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleUrlFragment_in_ruleAbsoluteRESTURL2377);
+            	    lv_fragments_6_0=ruleUrlFragment();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getAbsoluteRESTURLRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"fragments",
+            	            		lv_fragments_6_0, 
+            	            		"UrlFragment");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop16;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleAbsoluteRESTURL"
+
+
+    // $ANTLR start "entryRuleRelativeRESTURL"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1105:1: entryRuleRelativeRESTURL returns [EObject current=null] : iv_ruleRelativeRESTURL= ruleRelativeRESTURL EOF ;
+    public final EObject entryRuleRelativeRESTURL() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleRelativeRESTURL = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1106:2: (iv_ruleRelativeRESTURL= ruleRelativeRESTURL EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1107:2: iv_ruleRelativeRESTURL= ruleRelativeRESTURL EOF
+            {
+             newCompositeNode(grammarAccess.getRelativeRESTURLRule()); 
+            pushFollow(FOLLOW_ruleRelativeRESTURL_in_entryRuleRelativeRESTURL2415);
+            iv_ruleRelativeRESTURL=ruleRelativeRESTURL();
+
+            state._fsp--;
+
+             current =iv_ruleRelativeRESTURL; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelativeRESTURL2425); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleRelativeRESTURL"
+
+
+    // $ANTLR start "ruleRelativeRESTURL"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1114:1: ruleRelativeRESTURL returns [EObject current=null] : ( () otherlv_1= '/' ( (lv_fragments_2_0= ruleUrlFragment ) ) (otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) ) )* ) ;
+    public final EObject ruleRelativeRESTURL() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        EObject lv_fragments_2_0 = null;
+
+        EObject lv_fragments_4_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1117:28: ( ( () otherlv_1= '/' ( (lv_fragments_2_0= ruleUrlFragment ) ) (otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) ) )* ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1118:1: ( () otherlv_1= '/' ( (lv_fragments_2_0= ruleUrlFragment ) ) (otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) ) )* )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1118:1: ( () otherlv_1= '/' ( (lv_fragments_2_0= ruleUrlFragment ) ) (otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) ) )* )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1118:2: () otherlv_1= '/' ( (lv_fragments_2_0= ruleUrlFragment ) ) (otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) ) )*
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1118:2: ()
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1119:5: 
+            {
+
+                    current = forceCreateModelElement(
+                        grammarAccess.getRelativeRESTURLAccess().getRelativeRESTURLAction_0(),
+                        current);
+                
+
+            }
+
+            otherlv_1=(Token)match(input,29,FOLLOW_29_in_ruleRelativeRESTURL2471); 
+
+                	newLeafNode(otherlv_1, grammarAccess.getRelativeRESTURLAccess().getSolidusKeyword_1());
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1128:1: ( (lv_fragments_2_0= ruleUrlFragment ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1129:1: (lv_fragments_2_0= ruleUrlFragment )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1129:1: (lv_fragments_2_0= ruleUrlFragment )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1130:3: lv_fragments_2_0= ruleUrlFragment
+            {
+             
+            	        newCompositeNode(grammarAccess.getRelativeRESTURLAccess().getFragmentsUrlFragmentParserRuleCall_2_0()); 
+            	    
+            pushFollow(FOLLOW_ruleUrlFragment_in_ruleRelativeRESTURL2492);
+            lv_fragments_2_0=ruleUrlFragment();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getRelativeRESTURLRule());
+            	        }
+                   		add(
+                   			current, 
+                   			"fragments",
+                    		lv_fragments_2_0, 
+                    		"UrlFragment");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1146:2: (otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) ) )*
+            loop17:
+            do {
+                int alt17=2;
+                int LA17_0 = input.LA(1);
+
+                if ( (LA17_0==29) ) {
+                    alt17=1;
+                }
+
+
+                switch (alt17) {
+            	case 1 :
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1146:4: otherlv_3= '/' ( (lv_fragments_4_0= ruleUrlFragment ) )
+            	    {
+            	    otherlv_3=(Token)match(input,29,FOLLOW_29_in_ruleRelativeRESTURL2505); 
+
+            	        	newLeafNode(otherlv_3, grammarAccess.getRelativeRESTURLAccess().getSolidusKeyword_3_0());
+            	        
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1150:1: ( (lv_fragments_4_0= ruleUrlFragment ) )
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1151:1: (lv_fragments_4_0= ruleUrlFragment )
+            	    {
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1151:1: (lv_fragments_4_0= ruleUrlFragment )
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1152:3: lv_fragments_4_0= ruleUrlFragment
+            	    {
+            	     
+            	    	        newCompositeNode(grammarAccess.getRelativeRESTURLAccess().getFragmentsUrlFragmentParserRuleCall_3_1_0()); 
+            	    	    
+            	    pushFollow(FOLLOW_ruleUrlFragment_in_ruleRelativeRESTURL2526);
+            	    lv_fragments_4_0=ruleUrlFragment();
+
+            	    state._fsp--;
+
+
+            	    	        if (current==null) {
+            	    	            current = createModelElementForParent(grammarAccess.getRelativeRESTURLRule());
+            	    	        }
+            	           		add(
+            	           			current, 
+            	           			"fragments",
+            	            		lv_fragments_4_0, 
+            	            		"UrlFragment");
+            	    	        afterParserOrEnumRuleCall();
+            	    	    
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop17;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleRelativeRESTURL"
+
+
+    // $ANTLR start "entryRuleUrlFragment"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1176:1: entryRuleUrlFragment returns [EObject current=null] : iv_ruleUrlFragment= ruleUrlFragment EOF ;
+    public final EObject entryRuleUrlFragment() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleUrlFragment = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1177:2: (iv_ruleUrlFragment= ruleUrlFragment EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1178:2: iv_ruleUrlFragment= ruleUrlFragment EOF
+            {
+             newCompositeNode(grammarAccess.getUrlFragmentRule()); 
+            pushFollow(FOLLOW_ruleUrlFragment_in_entryRuleUrlFragment2564);
+            iv_ruleUrlFragment=ruleUrlFragment();
+
+            state._fsp--;
+
+             current =iv_ruleUrlFragment; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUrlFragment2574); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleUrlFragment"
+
+
+    // $ANTLR start "ruleUrlFragment"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1185:1: ruleUrlFragment returns [EObject current=null] : (this_UrlPathFragment_0= ruleUrlPathFragment | this_Variable_1= ruleVariable ) ;
+    public final EObject ruleUrlFragment() throws RecognitionException {
+        EObject current = null;
+
+        EObject this_UrlPathFragment_0 = null;
+
+        EObject this_Variable_1 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1188:28: ( (this_UrlPathFragment_0= ruleUrlPathFragment | this_Variable_1= ruleVariable ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1189:1: (this_UrlPathFragment_0= ruleUrlPathFragment | this_Variable_1= ruleVariable )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1189:1: (this_UrlPathFragment_0= ruleUrlPathFragment | this_Variable_1= ruleVariable )
+            int alt18=2;
+            int LA18_0 = input.LA(1);
+
+            if ( (LA18_0==RULE_ID) ) {
+                alt18=1;
+            }
+            else if ( (LA18_0==23) ) {
+                alt18=2;
+            }
+            else {
+                NoViableAltException nvae =
+                    new NoViableAltException("", 18, 0, input);
+
+                throw nvae;
+            }
+            switch (alt18) {
+                case 1 :
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1190:5: this_UrlPathFragment_0= ruleUrlPathFragment
+                    {
+                     
+                            newCompositeNode(grammarAccess.getUrlFragmentAccess().getUrlPathFragmentParserRuleCall_0()); 
+                        
+                    pushFollow(FOLLOW_ruleUrlPathFragment_in_ruleUrlFragment2621);
+                    this_UrlPathFragment_0=ruleUrlPathFragment();
+
+                    state._fsp--;
+
+                     
+                            current = this_UrlPathFragment_0; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+                case 2 :
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1200:5: this_Variable_1= ruleVariable
+                    {
+                     
+                            newCompositeNode(grammarAccess.getUrlFragmentAccess().getVariableParserRuleCall_1()); 
+                        
+                    pushFollow(FOLLOW_ruleVariable_in_ruleUrlFragment2648);
+                    this_Variable_1=ruleVariable();
+
+                    state._fsp--;
+
+                     
+                            current = this_Variable_1; 
+                            afterParserOrEnumRuleCall();
+                        
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleUrlFragment"
+
+
+    // $ANTLR start "entryRuleUrlPathFragment"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1216:1: entryRuleUrlPathFragment returns [EObject current=null] : iv_ruleUrlPathFragment= ruleUrlPathFragment EOF ;
+    public final EObject entryRuleUrlPathFragment() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleUrlPathFragment = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1217:2: (iv_ruleUrlPathFragment= ruleUrlPathFragment EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1218:2: iv_ruleUrlPathFragment= ruleUrlPathFragment EOF
+            {
+             newCompositeNode(grammarAccess.getUrlPathFragmentRule()); 
+            pushFollow(FOLLOW_ruleUrlPathFragment_in_entryRuleUrlPathFragment2683);
+            iv_ruleUrlPathFragment=ruleUrlPathFragment();
+
+            state._fsp--;
+
+             current =iv_ruleUrlPathFragment; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleUrlPathFragment2693); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleUrlPathFragment"
+
+
+    // $ANTLR start "ruleUrlPathFragment"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1225:1: ruleUrlPathFragment returns [EObject current=null] : ( (lv_name_0_0= ruleQualifiedName ) ) ;
+    public final EObject ruleUrlPathFragment() throws RecognitionException {
+        EObject current = null;
+
+        AntlrDatatypeRuleToken lv_name_0_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1228:28: ( ( (lv_name_0_0= ruleQualifiedName ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1229:1: ( (lv_name_0_0= ruleQualifiedName ) )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1229:1: ( (lv_name_0_0= ruleQualifiedName ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1230:1: (lv_name_0_0= ruleQualifiedName )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1230:1: (lv_name_0_0= ruleQualifiedName )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1231:3: lv_name_0_0= ruleQualifiedName
+            {
+             
+            	        newCompositeNode(grammarAccess.getUrlPathFragmentAccess().getNameQualifiedNameParserRuleCall_0()); 
+            	    
+            pushFollow(FOLLOW_ruleQualifiedName_in_ruleUrlPathFragment2738);
+            lv_name_0_0=ruleQualifiedName();
+
+            state._fsp--;
+
+
+            	        if (current==null) {
+            	            current = createModelElementForParent(grammarAccess.getUrlPathFragmentRule());
+            	        }
+                   		set(
+                   			current, 
+                   			"name",
+                    		lv_name_0_0, 
+                    		"QualifiedName");
+            	        afterParserOrEnumRuleCall();
+            	    
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleUrlPathFragment"
+
+
+    // $ANTLR start "entryRuleVariable"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1255:1: entryRuleVariable returns [EObject current=null] : iv_ruleVariable= ruleVariable EOF ;
+    public final EObject entryRuleVariable() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleVariable = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1256:2: (iv_ruleVariable= ruleVariable EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1257:2: iv_ruleVariable= ruleVariable EOF
+            {
+             newCompositeNode(grammarAccess.getVariableRule()); 
+            pushFollow(FOLLOW_ruleVariable_in_entryRuleVariable2773);
+            iv_ruleVariable=ruleVariable();
+
+            state._fsp--;
+
+             current =iv_ruleVariable; 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleVariable2783); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleVariable"
+
+
+    // $ANTLR start "ruleVariable"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1264:1: ruleVariable returns [EObject current=null] : (otherlv_0= ':' ( (otherlv_1= RULE_ID ) ) ) ;
+    public final EObject ruleVariable() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1267:28: ( (otherlv_0= ':' ( (otherlv_1= RULE_ID ) ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1268:1: (otherlv_0= ':' ( (otherlv_1= RULE_ID ) ) )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1268:1: (otherlv_0= ':' ( (otherlv_1= RULE_ID ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1268:3: otherlv_0= ':' ( (otherlv_1= RULE_ID ) )
+            {
+            otherlv_0=(Token)match(input,23,FOLLOW_23_in_ruleVariable2820); 
+
+                	newLeafNode(otherlv_0, grammarAccess.getVariableAccess().getColonKeyword_0());
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1272:1: ( (otherlv_1= RULE_ID ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1273:1: (otherlv_1= RULE_ID )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1273:1: (otherlv_1= RULE_ID )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1274:3: otherlv_1= RULE_ID
+            {
+
+            			if (current==null) {
+            	            current = createModelElement(grammarAccess.getVariableRule());
+            	        }
+                    
+            otherlv_1=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleVariable2840); 
+
+            		newLeafNode(otherlv_1, grammarAccess.getVariableAccess().getParameterReferenceParameterCrossReference_1_0()); 
+            	
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleVariable"
+
+
+    // $ANTLR start "entryRuleQualifiedName"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1293:1: entryRuleQualifiedName returns [String current=null] : iv_ruleQualifiedName= ruleQualifiedName EOF ;
+    public final String entryRuleQualifiedName() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleQualifiedName = null;
+
+
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1294:2: (iv_ruleQualifiedName= ruleQualifiedName EOF )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1295:2: iv_ruleQualifiedName= ruleQualifiedName EOF
+            {
+             newCompositeNode(grammarAccess.getQualifiedNameRule()); 
+            pushFollow(FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName2877);
+            iv_ruleQualifiedName=ruleQualifiedName();
+
+            state._fsp--;
+
+             current =iv_ruleQualifiedName.getText(); 
+            match(input,EOF,FOLLOW_EOF_in_entryRuleQualifiedName2888); 
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleQualifiedName"
+
+
+    // $ANTLR start "ruleQualifiedName"
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1302:1: ruleQualifiedName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) ;
+    public final AntlrDatatypeRuleToken ruleQualifiedName() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token this_ID_0=null;
+        Token kw=null;
+        Token this_ID_2=null;
+
+         enterRule(); 
+            
+        try {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1305:28: ( (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1306:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            {
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1306:1: (this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )* )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1306:6: this_ID_0= RULE_ID (kw= '.' this_ID_2= RULE_ID )*
+            {
+            this_ID_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName2928); 
+
+            		current.merge(this_ID_0);
+                
+             
+                newLeafNode(this_ID_0, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_0()); 
+                
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1313:1: (kw= '.' this_ID_2= RULE_ID )*
+            loop19:
+            do {
+                int alt19=2;
+                int LA19_0 = input.LA(1);
+
+                if ( (LA19_0==30) ) {
+                    alt19=1;
+                }
+
+
+                switch (alt19) {
+            	case 1 :
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1314:2: kw= '.' this_ID_2= RULE_ID
+            	    {
+            	    kw=(Token)match(input,30,FOLLOW_30_in_ruleQualifiedName2947); 
+
+            	            current.merge(kw);
+            	            newLeafNode(kw, grammarAccess.getQualifiedNameAccess().getFullStopKeyword_1_0()); 
+            	        
+            	    this_ID_2=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleQualifiedName2962); 
+
+            	    		current.merge(this_ID_2);
+            	        
+            	     
+            	        newLeafNode(this_ID_2, grammarAccess.getQualifiedNameAccess().getIDTerminalRuleCall_1_1()); 
+            	        
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop19;
+                }
+            } while (true);
+
+
+            }
+
+
+            }
+
+             leaveRule(); 
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleQualifiedName"
+
+
     // $ANTLR start "ruleRESTVerb"
-    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:972:1: ruleRESTVerb returns [Enumerator current=null] : ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) ) ;
+    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1334:1: ruleRESTVerb returns [Enumerator current=null] : ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) ) ;
     public final Enumerator ruleRESTVerb() throws RecognitionException {
         Enumerator current = null;
 
@@ -2291,47 +3282,47 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:974:28: ( ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:975:1: ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1336:28: ( ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1337:1: ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:975:1: ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) )
-            int alt14=4;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1337:1: ( (enumLiteral_0= 'GET' ) | (enumLiteral_1= 'POST' ) | (enumLiteral_2= 'PUT' ) | (enumLiteral_3= 'DELETE' ) )
+            int alt20=4;
             switch ( input.LA(1) ) {
-            case 28:
-                {
-                alt14=1;
-                }
-                break;
-            case 29:
-                {
-                alt14=2;
-                }
-                break;
-            case 30:
-                {
-                alt14=3;
-                }
-                break;
             case 31:
                 {
-                alt14=4;
+                alt20=1;
+                }
+                break;
+            case 32:
+                {
+                alt20=2;
+                }
+                break;
+            case 33:
+                {
+                alt20=3;
+                }
+                break;
+            case 34:
+                {
+                alt20=4;
                 }
                 break;
             default:
                 NoViableAltException nvae =
-                    new NoViableAltException("", 14, 0, input);
+                    new NoViableAltException("", 20, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt14) {
+            switch (alt20) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:975:2: (enumLiteral_0= 'GET' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1337:2: (enumLiteral_0= 'GET' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:975:2: (enumLiteral_0= 'GET' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:975:4: enumLiteral_0= 'GET'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1337:2: (enumLiteral_0= 'GET' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1337:4: enumLiteral_0= 'GET'
                     {
-                    enumLiteral_0=(Token)match(input,28,FOLLOW_28_in_ruleRESTVerb2126); 
+                    enumLiteral_0=(Token)match(input,31,FOLLOW_31_in_ruleRESTVerb3023); 
 
                             current = grammarAccess.getRESTVerbAccess().getGETEnumLiteralDeclaration_0().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_0, grammarAccess.getRESTVerbAccess().getGETEnumLiteralDeclaration_0()); 
@@ -2343,12 +3334,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:981:6: (enumLiteral_1= 'POST' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1343:6: (enumLiteral_1= 'POST' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:981:6: (enumLiteral_1= 'POST' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:981:8: enumLiteral_1= 'POST'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1343:6: (enumLiteral_1= 'POST' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1343:8: enumLiteral_1= 'POST'
                     {
-                    enumLiteral_1=(Token)match(input,29,FOLLOW_29_in_ruleRESTVerb2143); 
+                    enumLiteral_1=(Token)match(input,32,FOLLOW_32_in_ruleRESTVerb3040); 
 
                             current = grammarAccess.getRESTVerbAccess().getPOSTEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_1, grammarAccess.getRESTVerbAccess().getPOSTEnumLiteralDeclaration_1()); 
@@ -2360,12 +3351,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:987:6: (enumLiteral_2= 'PUT' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1349:6: (enumLiteral_2= 'PUT' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:987:6: (enumLiteral_2= 'PUT' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:987:8: enumLiteral_2= 'PUT'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1349:6: (enumLiteral_2= 'PUT' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1349:8: enumLiteral_2= 'PUT'
                     {
-                    enumLiteral_2=(Token)match(input,30,FOLLOW_30_in_ruleRESTVerb2160); 
+                    enumLiteral_2=(Token)match(input,33,FOLLOW_33_in_ruleRESTVerb3057); 
 
                             current = grammarAccess.getRESTVerbAccess().getPUTEnumLiteralDeclaration_2().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_2, grammarAccess.getRESTVerbAccess().getPUTEnumLiteralDeclaration_2()); 
@@ -2377,12 +3368,12 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:993:6: (enumLiteral_3= 'DELETE' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1355:6: (enumLiteral_3= 'DELETE' )
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:993:6: (enumLiteral_3= 'DELETE' )
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:993:8: enumLiteral_3= 'DELETE'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1355:6: (enumLiteral_3= 'DELETE' )
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1355:8: enumLiteral_3= 'DELETE'
                     {
-                    enumLiteral_3=(Token)match(input,31,FOLLOW_31_in_ruleRESTVerb2177); 
+                    enumLiteral_3=(Token)match(input,34,FOLLOW_34_in_ruleRESTVerb3074); 
 
                             current = grammarAccess.getRESTVerbAccess().getDELETEEnumLiteralDeclaration_3().getEnumLiteral().getInstance();
                             newLeafNode(enumLiteral_3, grammarAccess.getRESTVerbAccess().getDELETEEnumLiteralDeclaration_3()); 
@@ -2470,40 +3461,74 @@ public class InternalApplauseDslParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleDataSource1341 = new BitSet(new long[]{0x0000000000008000L});
     public static final BitSet FOLLOW_15_in_ruleDataSource1358 = new BitSet(new long[]{0x0000000000400000L});
     public static final BitSet FOLLOW_22_in_ruleDataSource1370 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleDataSource1382 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleDataSource1399 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleDataSource1416 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_23_in_ruleDataSource1428 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDataSource1448 = new BitSet(new long[]{0x0000000000010010L});
-    public static final BitSet FOLLOW_ruleDataSourceAccessMethod_in_ruleDataSource1469 = new BitSet(new long[]{0x0000000000010010L});
-    public static final BitSet FOLLOW_16_in_ruleDataSource1482 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataSourceAccessMethod_in_entryRuleDataSourceAccessMethod1518 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDataSourceAccessMethod1528 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDataSourceAccessMethod1570 = new BitSet(new long[]{0x0000000002000000L});
-    public static final BitSet FOLLOW_25_in_ruleDataSourceAccessMethod1587 = new BitSet(new long[]{0x0000000008000010L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1609 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_26_in_ruleDataSourceAccessMethod1622 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1643 = new BitSet(new long[]{0x000000000C000000L});
-    public static final BitSet FOLLOW_27_in_ruleDataSourceAccessMethod1659 = new BitSet(new long[]{0x00000000F0020000L});
-    public static final BitSet FOLLOW_17_in_ruleDataSourceAccessMethod1677 = new BitSet(new long[]{0x00000000F0020000L});
-    public static final BitSet FOLLOW_ruleRESTSpecification_in_ruleDataSourceAccessMethod1712 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRESTSpecification_in_entryRuleRESTSpecification1748 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRESTSpecification1758 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRESTVerb_in_ruleRESTSpecification1804 = new BitSet(new long[]{0x0000000000000020L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleRESTSpecification1821 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_15_in_ruleRESTSpecification1839 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_ruleDataSourceBodySpecification_in_ruleRESTSpecification1860 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleRESTSpecification1872 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleDataSourceBodySpecification_in_entryRuleDataSourceBodySpecification1910 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleDataSourceBodySpecification1920 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleDataSourceBodySpecification1964 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter1999 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleParameter2009 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter2054 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter2071 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_28_in_ruleRESTVerb2126 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_29_in_ruleRESTVerb2143 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_30_in_ruleRESTVerb2160 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_31_in_ruleRESTVerb2177 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleDataSource1382 = new BitSet(new long[]{0x0000000010000000L});
+    public static final BitSet FOLLOW_ruleAbsoluteRESTURL_in_ruleDataSource1403 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleDataSource1415 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_23_in_ruleDataSource1427 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDataSource1447 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_ruleDataSourceAccessMethod_in_ruleDataSource1468 = new BitSet(new long[]{0x0000000000010010L});
+    public static final BitSet FOLLOW_16_in_ruleDataSource1481 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataSourceAccessMethod_in_entryRuleDataSourceAccessMethod1517 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDataSourceAccessMethod1527 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDataSourceAccessMethod1569 = new BitSet(new long[]{0x0000000002000000L});
+    public static final BitSet FOLLOW_25_in_ruleDataSourceAccessMethod1586 = new BitSet(new long[]{0x0000000008000010L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1608 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_26_in_ruleDataSourceAccessMethod1621 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleParameter_in_ruleDataSourceAccessMethod1642 = new BitSet(new long[]{0x000000000C000000L});
+    public static final BitSet FOLLOW_27_in_ruleDataSourceAccessMethod1658 = new BitSet(new long[]{0x0000000780020000L});
+    public static final BitSet FOLLOW_17_in_ruleDataSourceAccessMethod1676 = new BitSet(new long[]{0x0000000780020000L});
+    public static final BitSet FOLLOW_ruleRESTSpecification_in_ruleDataSourceAccessMethod1711 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRESTSpecification_in_entryRuleRESTSpecification1747 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRESTSpecification1757 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRESTVerb_in_ruleRESTSpecification1803 = new BitSet(new long[]{0x0000000030000000L});
+    public static final BitSet FOLLOW_ruleRESTURL_in_ruleRESTSpecification1824 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_15_in_ruleRESTSpecification1837 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_ruleDataSourceBodySpecification_in_ruleRESTSpecification1858 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleRESTSpecification1870 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleDataSourceBodySpecification_in_entryRuleDataSourceBodySpecification1908 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleDataSourceBodySpecification1918 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleDataSourceBodySpecification1962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleParameter_in_entryRuleParameter1997 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleParameter2007 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter2052 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleParameter2069 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRESTURL_in_entryRuleRESTURL2110 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRESTURL2120 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteRESTURL_in_ruleRESTURL2167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelativeRESTURL_in_ruleRESTURL2194 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAbsoluteRESTURL_in_entryRuleAbsoluteRESTURL2229 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAbsoluteRESTURL2239 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_28_in_ruleAbsoluteRESTURL2285 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_ruleUrlFragment_in_ruleAbsoluteRESTURL2306 = new BitSet(new long[]{0x0000000020800002L});
+    public static final BitSet FOLLOW_23_in_ruleAbsoluteRESTURL2319 = new BitSet(new long[]{0x0000000000000020L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleAbsoluteRESTURL2336 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_29_in_ruleAbsoluteRESTURL2356 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_ruleUrlFragment_in_ruleAbsoluteRESTURL2377 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_ruleRelativeRESTURL_in_entryRuleRelativeRESTURL2415 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelativeRESTURL2425 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_29_in_ruleRelativeRESTURL2471 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_ruleUrlFragment_in_ruleRelativeRESTURL2492 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_29_in_ruleRelativeRESTURL2505 = new BitSet(new long[]{0x0000000000800010L});
+    public static final BitSet FOLLOW_ruleUrlFragment_in_ruleRelativeRESTURL2526 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_ruleUrlFragment_in_entryRuleUrlFragment2564 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUrlFragment2574 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUrlPathFragment_in_ruleUrlFragment2621 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_ruleUrlFragment2648 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUrlPathFragment_in_entryRuleUrlPathFragment2683 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleUrlPathFragment2693 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_ruleUrlPathFragment2738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleVariable_in_entryRuleVariable2773 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleVariable2783 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleVariable2820 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleVariable2840 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleQualifiedName_in_entryRuleQualifiedName2877 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleQualifiedName2888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName2928 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_30_in_ruleQualifiedName2947 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleQualifiedName2962 = new BitSet(new long[]{0x0000000040000002L});
+    public static final BitSet FOLLOW_31_in_ruleRESTVerb3023 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_32_in_ruleRESTVerb3040 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_33_in_ruleRESTVerb3057 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_34_in_ruleRESTVerb3074 = new BitSet(new long[]{0x0000000000000002L});
 
 }

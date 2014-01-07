@@ -32,7 +32,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="simpleName" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DataSource" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="baseUrl" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="baseUrl" eType="#//AbsoluteRESTURL"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="resourceType" eType="#//Entity"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="methods" upperBound="-1"
         eType="#//DataSourceAccessMethod" containment="true"/>
@@ -47,7 +48,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RESTSpecification">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="verb" eType="#//RESTVerb"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="path" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//RESTURL"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//DataSourceBodySpecification"
         containment="true"/>
   </eClassifiers>
@@ -63,5 +65,22 @@
   <eClassifiers xsi:type="ecore:EClass" name="Parameter">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RESTURL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
+        eType="#//UrlFragment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AbsoluteRESTURL" eSuperTypes="#//RESTURL">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="host" eType="#//UrlFragment"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="port" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativeRESTURL" eSuperTypes="#//RESTURL"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UrlFragment"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UrlPathFragment" eSuperTypes="#//UrlFragment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//UrlFragment">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReference" eType="#//Parameter"/>
   </eClassifiers>
 </ecore:EPackage>

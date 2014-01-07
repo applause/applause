@@ -383,7 +383,7 @@ public interface ApplauseDslPackage extends EPackage
   int DATA_SOURCE__NAME = NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Base Url</b></em>' attribute.
+   * The feature id for the '<em><b>Base Url</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -493,7 +493,7 @@ public interface ApplauseDslPackage extends EPackage
   int REST_SPECIFICATION__VERB = 0;
 
   /**
-   * The feature id for the '<em><b>Path</b></em>' attribute.
+   * The feature id for the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -585,6 +585,183 @@ public interface ApplauseDslPackage extends EPackage
   int PARAMETER_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.RESTURLImpl <em>RESTURL</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.RESTURLImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTURL()
+   * @generated
+   */
+  int RESTURL = 14;
+
+  /**
+   * The feature id for the '<em><b>Fragments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTURL__FRAGMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>RESTURL</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RESTURL_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.AbsoluteRESTURLImpl <em>Absolute RESTURL</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.AbsoluteRESTURLImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getAbsoluteRESTURL()
+   * @generated
+   */
+  int ABSOLUTE_RESTURL = 15;
+
+  /**
+   * The feature id for the '<em><b>Fragments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSOLUTE_RESTURL__FRAGMENTS = RESTURL__FRAGMENTS;
+
+  /**
+   * The feature id for the '<em><b>Host</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSOLUTE_RESTURL__HOST = RESTURL_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Port</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSOLUTE_RESTURL__PORT = RESTURL_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Absolute RESTURL</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ABSOLUTE_RESTURL_FEATURE_COUNT = RESTURL_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.RelativeRESTURLImpl <em>Relative RESTURL</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.RelativeRESTURLImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRelativeRESTURL()
+   * @generated
+   */
+  int RELATIVE_RESTURL = 16;
+
+  /**
+   * The feature id for the '<em><b>Fragments</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIVE_RESTURL__FRAGMENTS = RESTURL__FRAGMENTS;
+
+  /**
+   * The number of structural features of the '<em>Relative RESTURL</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIVE_RESTURL_FEATURE_COUNT = RESTURL_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UrlFragmentImpl <em>Url Fragment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UrlFragmentImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUrlFragment()
+   * @generated
+   */
+  int URL_FRAGMENT = 17;
+
+  /**
+   * The number of structural features of the '<em>Url Fragment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int URL_FRAGMENT_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UrlPathFragmentImpl <em>Url Path Fragment</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UrlPathFragmentImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUrlPathFragment()
+   * @generated
+   */
+  int URL_PATH_FRAGMENT = 18;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int URL_PATH_FRAGMENT__NAME = URL_FRAGMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Url Path Fragment</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int URL_PATH_FRAGMENT_FEATURE_COUNT = URL_FRAGMENT_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.VariableImpl <em>Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.VariableImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getVariable()
+   * @generated
+   */
+  int VARIABLE = 19;
+
+  /**
+   * The feature id for the '<em><b>Parameter Reference</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE__PARAMETER_REFERENCE = URL_FRAGMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VARIABLE_FEATURE_COUNT = URL_FRAGMENT_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -592,7 +769,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTVerb()
    * @generated
    */
-  int REST_VERB = 14;
+  int REST_VERB = 20;
 
 
   /**
@@ -817,15 +994,15 @@ public interface ApplauseDslPackage extends EPackage
   EClass getDataSource();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.DataSource#getBaseUrl <em>Base Url</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.DataSource#getBaseUrl <em>Base Url</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Base Url</em>'.
+   * @return the meta object for the containment reference '<em>Base Url</em>'.
    * @see org.applause.lang.applauseDsl.DataSource#getBaseUrl()
    * @see #getDataSource()
    * @generated
    */
-  EAttribute getDataSource_BaseUrl();
+  EReference getDataSource_BaseUrl();
 
   /**
    * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.DataSource#getResourceType <em>Resource Type</em>}'.
@@ -925,15 +1102,15 @@ public interface ApplauseDslPackage extends EPackage
   EAttribute getRESTSpecification_Verb();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.RESTSpecification#getPath <em>Path</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.RESTSpecification#getPath <em>Path</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Path</em>'.
+   * @return the meta object for the containment reference '<em>Path</em>'.
    * @see org.applause.lang.applauseDsl.RESTSpecification#getPath()
    * @see #getRESTSpecification()
    * @generated
    */
-  EAttribute getRESTSpecification_Path();
+  EReference getRESTSpecification_Path();
 
   /**
    * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.RESTSpecification#getBody <em>Body</em>}'.
@@ -998,6 +1175,121 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EAttribute getParameter_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.RESTURL <em>RESTURL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>RESTURL</em>'.
+   * @see org.applause.lang.applauseDsl.RESTURL
+   * @generated
+   */
+  EClass getRESTURL();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.RESTURL#getFragments <em>Fragments</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Fragments</em>'.
+   * @see org.applause.lang.applauseDsl.RESTURL#getFragments()
+   * @see #getRESTURL()
+   * @generated
+   */
+  EReference getRESTURL_Fragments();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.AbsoluteRESTURL <em>Absolute RESTURL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Absolute RESTURL</em>'.
+   * @see org.applause.lang.applauseDsl.AbsoluteRESTURL
+   * @generated
+   */
+  EClass getAbsoluteRESTURL();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.AbsoluteRESTURL#getHost <em>Host</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Host</em>'.
+   * @see org.applause.lang.applauseDsl.AbsoluteRESTURL#getHost()
+   * @see #getAbsoluteRESTURL()
+   * @generated
+   */
+  EReference getAbsoluteRESTURL_Host();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.AbsoluteRESTURL#getPort <em>Port</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Port</em>'.
+   * @see org.applause.lang.applauseDsl.AbsoluteRESTURL#getPort()
+   * @see #getAbsoluteRESTURL()
+   * @generated
+   */
+  EAttribute getAbsoluteRESTURL_Port();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.RelativeRESTURL <em>Relative RESTURL</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Relative RESTURL</em>'.
+   * @see org.applause.lang.applauseDsl.RelativeRESTURL
+   * @generated
+   */
+  EClass getRelativeRESTURL();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UrlFragment <em>Url Fragment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Url Fragment</em>'.
+   * @see org.applause.lang.applauseDsl.UrlFragment
+   * @generated
+   */
+  EClass getUrlFragment();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UrlPathFragment <em>Url Path Fragment</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Url Path Fragment</em>'.
+   * @see org.applause.lang.applauseDsl.UrlPathFragment
+   * @generated
+   */
+  EClass getUrlPathFragment();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UrlPathFragment#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.UrlPathFragment#getName()
+   * @see #getUrlPathFragment()
+   * @generated
+   */
+  EAttribute getUrlPathFragment_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.Variable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Variable</em>'.
+   * @see org.applause.lang.applauseDsl.Variable
+   * @generated
+   */
+  EClass getVariable();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.Variable#getParameterReference <em>Parameter Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Parameter Reference</em>'.
+   * @see org.applause.lang.applauseDsl.Variable#getParameterReference()
+   * @see #getVariable()
+   * @generated
+   */
+  EReference getVariable_ParameterReference();
 
   /**
    * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}'.
@@ -1221,12 +1513,12 @@ public interface ApplauseDslPackage extends EPackage
     EClass DATA_SOURCE = eINSTANCE.getDataSource();
 
     /**
-     * The meta object literal for the '<em><b>Base Url</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Base Url</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute DATA_SOURCE__BASE_URL = eINSTANCE.getDataSource_BaseUrl();
+    EReference DATA_SOURCE__BASE_URL = eINSTANCE.getDataSource_BaseUrl();
 
     /**
      * The meta object literal for the '<em><b>Resource Type</b></em>' reference feature.
@@ -1305,12 +1597,12 @@ public interface ApplauseDslPackage extends EPackage
     EAttribute REST_SPECIFICATION__VERB = eINSTANCE.getRESTSpecification_Verb();
 
     /**
-     * The meta object literal for the '<em><b>Path</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Path</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute REST_SPECIFICATION__PATH = eINSTANCE.getRESTSpecification_Path();
+    EReference REST_SPECIFICATION__PATH = eINSTANCE.getRESTSpecification_Path();
 
     /**
      * The meta object literal for the '<em><b>Body</b></em>' containment reference feature.
@@ -1363,6 +1655,106 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.RESTURLImpl <em>RESTURL</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.RESTURLImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTURL()
+     * @generated
+     */
+    EClass RESTURL = eINSTANCE.getRESTURL();
+
+    /**
+     * The meta object literal for the '<em><b>Fragments</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RESTURL__FRAGMENTS = eINSTANCE.getRESTURL_Fragments();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.AbsoluteRESTURLImpl <em>Absolute RESTURL</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.AbsoluteRESTURLImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getAbsoluteRESTURL()
+     * @generated
+     */
+    EClass ABSOLUTE_RESTURL = eINSTANCE.getAbsoluteRESTURL();
+
+    /**
+     * The meta object literal for the '<em><b>Host</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ABSOLUTE_RESTURL__HOST = eINSTANCE.getAbsoluteRESTURL_Host();
+
+    /**
+     * The meta object literal for the '<em><b>Port</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ABSOLUTE_RESTURL__PORT = eINSTANCE.getAbsoluteRESTURL_Port();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.RelativeRESTURLImpl <em>Relative RESTURL</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.RelativeRESTURLImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRelativeRESTURL()
+     * @generated
+     */
+    EClass RELATIVE_RESTURL = eINSTANCE.getRelativeRESTURL();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UrlFragmentImpl <em>Url Fragment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UrlFragmentImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUrlFragment()
+     * @generated
+     */
+    EClass URL_FRAGMENT = eINSTANCE.getUrlFragment();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UrlPathFragmentImpl <em>Url Path Fragment</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UrlPathFragmentImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUrlPathFragment()
+     * @generated
+     */
+    EClass URL_PATH_FRAGMENT = eINSTANCE.getUrlPathFragment();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute URL_PATH_FRAGMENT__NAME = eINSTANCE.getUrlPathFragment_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.VariableImpl <em>Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.VariableImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getVariable()
+     * @generated
+     */
+    EClass VARIABLE = eINSTANCE.getVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Parameter Reference</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference VARIABLE__PARAMETER_REFERENCE = eINSTANCE.getVariable_ParameterReference();
 
     /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.RESTVerb <em>REST Verb</em>}' enum.

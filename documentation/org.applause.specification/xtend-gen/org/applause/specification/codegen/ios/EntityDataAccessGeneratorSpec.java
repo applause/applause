@@ -4,7 +4,6 @@ import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.DataSource;
-import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.NamedElement;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler;
@@ -49,29 +48,6 @@ public class EntityDataAccessGeneratorSpec {
   @Extension
   @org.jnario.runner.Extension
   public EntityDataAccessModuleFileCompiler _entityDataAccessModuleFileCompiler;
-  
-  private Entity entity(final CharSequence input, final String entityName) {
-    try {
-      Entity _xblockexpression = null;
-      {
-        final Model model = this._parseHelper.parse(input);
-        EList<NamedElement> _elements = model.getElements();
-        Iterable<Entity> _filter = Iterables.<Entity>filter(_elements, Entity.class);
-        final Function1<Entity,Boolean> _function = new Function1<Entity,Boolean>() {
-          public Boolean apply(final Entity it) {
-            String _name = it.getName();
-            boolean _equals = Objects.equal(_name, entityName);
-            return Boolean.valueOf(_equals);
-          }
-        };
-        Entity _findFirst = IterableExtensions.<Entity>findFirst(_filter, _function);
-        _xblockexpression = (_findFirst);
-      }
-      return _xblockexpression;
-    } catch (Throwable _e) {
-      throw Exceptions.sneakyThrow(_e);
-    }
-  }
   
   private DataSource datasource(final CharSequence input, final String datasourceName) {
     try {

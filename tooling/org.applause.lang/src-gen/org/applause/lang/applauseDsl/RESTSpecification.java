@@ -54,30 +54,30 @@ public interface RESTSpecification extends EObject
   void setVerb(RESTVerb value);
 
   /**
-   * Returns the value of the '<em><b>Path</b></em>' attribute.
+   * Returns the value of the '<em><b>Path</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Path</em>' attribute isn't clear,
+   * If the meaning of the '<em>Path</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Path</em>' attribute.
-   * @see #setPath(String)
+   * @return the value of the '<em>Path</em>' containment reference.
+   * @see #setPath(RESTURL)
    * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getRESTSpecification_Path()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  String getPath();
+  RESTURL getPath();
 
   /**
-   * Sets the value of the '{@link org.applause.lang.applauseDsl.RESTSpecification#getPath <em>Path</em>}' attribute.
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.RESTSpecification#getPath <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Path</em>' attribute.
+   * @param value the new value of the '<em>Path</em>' containment reference.
    * @see #getPath()
    * @generated
    */
-  void setPath(String value);
+  void setPath(RESTURL value);
 
   /**
    * Returns the value of the '<em><b>Body</b></em>' containment reference.

@@ -5,6 +5,7 @@ package org.applause.lang.applauseDsl.impl;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.DataSourceBodySpecification;
 import org.applause.lang.applauseDsl.RESTSpecification;
+import org.applause.lang.applauseDsl.RESTURL;
 import org.applause.lang.applauseDsl.RESTVerb;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -54,24 +55,14 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
   protected RESTVerb verb = VERB_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getPath() <em>Path</em>}' attribute.
+   * The cached value of the '{@link #getPath() <em>Path</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getPath()
    * @generated
    * @ordered
    */
-  protected static final String PATH_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getPath() <em>Path</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getPath()
-   * @generated
-   * @ordered
-   */
-  protected String path = PATH_EDEFAULT;
+  protected RESTURL path;
 
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -132,7 +123,7 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getPath()
+  public RESTURL getPath()
   {
     return path;
   }
@@ -142,12 +133,37 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setPath(String newPath)
+  public NotificationChain basicSetPath(RESTURL newPath, NotificationChain msgs)
   {
-    String oldPath = path;
+    RESTURL oldPath = path;
     path = newPath;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.REST_SPECIFICATION__PATH, oldPath, path));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.REST_SPECIFICATION__PATH, oldPath, newPath);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setPath(RESTURL newPath)
+  {
+    if (newPath != path)
+    {
+      NotificationChain msgs = null;
+      if (path != null)
+        msgs = ((InternalEObject)path).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.REST_SPECIFICATION__PATH, null, msgs);
+      if (newPath != null)
+        msgs = ((InternalEObject)newPath).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.REST_SPECIFICATION__PATH, null, msgs);
+      msgs = basicSetPath(newPath, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.REST_SPECIFICATION__PATH, newPath, newPath));
   }
 
   /**
@@ -208,6 +224,8 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.REST_SPECIFICATION__PATH:
+        return basicSetPath(null, msgs);
       case ApplauseDslPackage.REST_SPECIFICATION__BODY:
         return basicSetBody(null, msgs);
     }
@@ -248,7 +266,7 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
         setVerb((RESTVerb)newValue);
         return;
       case ApplauseDslPackage.REST_SPECIFICATION__PATH:
-        setPath((String)newValue);
+        setPath((RESTURL)newValue);
         return;
       case ApplauseDslPackage.REST_SPECIFICATION__BODY:
         setBody((DataSourceBodySpecification)newValue);
@@ -271,7 +289,7 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
         setVerb(VERB_EDEFAULT);
         return;
       case ApplauseDslPackage.REST_SPECIFICATION__PATH:
-        setPath(PATH_EDEFAULT);
+        setPath((RESTURL)null);
         return;
       case ApplauseDslPackage.REST_SPECIFICATION__BODY:
         setBody((DataSourceBodySpecification)null);
@@ -293,7 +311,7 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
       case ApplauseDslPackage.REST_SPECIFICATION__VERB:
         return verb != VERB_EDEFAULT;
       case ApplauseDslPackage.REST_SPECIFICATION__PATH:
-        return PATH_EDEFAULT == null ? path != null : !PATH_EDEFAULT.equals(path);
+        return path != null;
       case ApplauseDslPackage.REST_SPECIFICATION__BODY:
         return body != null;
     }
@@ -313,8 +331,6 @@ public class RESTSpecificationImpl extends MinimalEObjectImpl.Container implemen
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (verb: ");
     result.append(verb);
-    result.append(", path: ");
-    result.append(path);
     result.append(')');
     return result.toString();
   }
