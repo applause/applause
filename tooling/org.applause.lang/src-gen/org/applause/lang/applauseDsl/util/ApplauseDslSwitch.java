@@ -146,6 +146,81 @@ public class ApplauseDslSwitch<T> extends Switch<T>
       {
         DataSource dataSource = (DataSource)theEObject;
         T result = caseDataSource(dataSource);
+        if (result == null) result = caseNamedElement(dataSource);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.DATA_SOURCE_ACCESS_METHOD:
+      {
+        DataSourceAccessMethod dataSourceAccessMethod = (DataSourceAccessMethod)theEObject;
+        T result = caseDataSourceAccessMethod(dataSourceAccessMethod);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.REST_SPECIFICATION:
+      {
+        RESTSpecification restSpecification = (RESTSpecification)theEObject;
+        T result = caseRESTSpecification(restSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.DATA_SOURCE_BODY_SPECIFICATION:
+      {
+        DataSourceBodySpecification dataSourceBodySpecification = (DataSourceBodySpecification)theEObject;
+        T result = caseDataSourceBodySpecification(dataSourceBodySpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PARAMETER:
+      {
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.RESTURL:
+      {
+        RESTURL resturl = (RESTURL)theEObject;
+        T result = caseRESTURL(resturl);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.ABSOLUTE_RESTURL:
+      {
+        AbsoluteRESTURL absoluteRESTURL = (AbsoluteRESTURL)theEObject;
+        T result = caseAbsoluteRESTURL(absoluteRESTURL);
+        if (result == null) result = caseRESTURL(absoluteRESTURL);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.RELATIVE_RESTURL:
+      {
+        RelativeRESTURL relativeRESTURL = (RelativeRESTURL)theEObject;
+        T result = caseRelativeRESTURL(relativeRESTURL);
+        if (result == null) result = caseRESTURL(relativeRESTURL);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.URL_FRAGMENT:
+      {
+        UrlFragment urlFragment = (UrlFragment)theEObject;
+        T result = caseUrlFragment(urlFragment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.URL_PATH_FRAGMENT:
+      {
+        UrlPathFragment urlPathFragment = (UrlPathFragment)theEObject;
+        T result = caseUrlPathFragment(urlPathFragment);
+        if (result == null) result = caseUrlFragment(urlPathFragment);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.VARIABLE:
+      {
+        Variable variable = (Variable)theEObject;
+        T result = caseVariable(variable);
+        if (result == null) result = caseUrlFragment(variable);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -309,6 +384,166 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseDataSource(DataSource object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Source Access Method</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Source Access Method</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataSourceAccessMethod(DataSourceAccessMethod object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>REST Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>REST Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRESTSpecification(RESTSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Source Body Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Source Body Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataSourceBodySpecification(DataSourceBodySpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameter(Parameter object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>RESTURL</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>RESTURL</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRESTURL(RESTURL object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Absolute RESTURL</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Absolute RESTURL</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbsoluteRESTURL(AbsoluteRESTURL object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relative RESTURL</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relative RESTURL</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelativeRESTURL(RelativeRESTURL object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Url Fragment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Url Fragment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUrlFragment(UrlFragment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Url Path Fragment</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Url Path Fragment</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUrlPathFragment(UrlPathFragment object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariable(Variable object)
   {
     return null;
   }

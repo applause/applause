@@ -35,12 +35,22 @@
 					<div class="span12">
 						  <div class="tab-content">
 							  	<div class="tab-pane active" id="spec">
-<h3 class="exampleGroup notrun"  id="Generating_Entities">Generating Entities</h3>
+<h3 class="exampleGroup notrun"  id="Generating_Data_Access_Code_for_Entities">Generating Data Access Code for Entities</h3>
 <div class="level">
 <h4 class="exampleGroup notrun"  id="Data_Access_Code">Data Access Code</h4>
-<p>A simple entity like this:</p>
+<p>A simple model like this:</p>
 <pre class="prettyprint linenums lang-applause">
 entity Person {
+}
+entity Person {
+}
+datasource PersonDataSource {
+	baseUrl: http://localhost:2403
+	resource: Person
+	allPersons()[] GET /persons
+	create(Person person) POST /persons
+	update(Person person) PUT /persons
+	remove(Person person) DELETE /person/:person
 }
 </pre><p>will result in the following header and implementation files:</p>
 <ul><li><p id="Header_File" class="example notrun"><strong>Header File</strong></p>
@@ -50,8 +60,8 @@ entity Person {
 
 @interface Person (DataAccess)
 + (void)allPersons:(void (^)(NSArray *persons, NSError *error))block;
-- (void)post:(void (^)(Person *person, NSError *error))block;
-- (void)put:(void (^)(Person *person, NSError *error))block;
+- (void)create:(void (^)(Person *person, NSError *error))block;
+- (void)update:(void (^)(Person *person, NSError *error))block;
 - (void)remove:(void (^)(Person *person, NSError *error))block;
 @end</pre>
 </li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
@@ -60,12 +70,9 @@ entity Person {
 #import &quot;PersonAPIClient.h&quot;
 #import &quot;Person+DataMapping.h&quot;
 
-static NSString *const kAllPersonsPath = @&quot;/persons&quot;;
-static NSString *const kPostPersonPath = @&quot;/persons&quot;;
-static NSString *const kPutPersonPath = @&quot;/persons&quot;;
-static NSString *const kDeletePersonPath = @&quot;/persons/%@&quot;;
-
 @implementation Person (DataAccess)
+
+static NSString *const kAllPersonsPath = @&quot;/persons&quot;;
 
 + (void)allPersons:(void (^)(NSArray *persons, NSError *error))block
 {
@@ -89,10 +96,12 @@ static NSString *const kDeletePersonPath = @&quot;/persons/%@&quot;;
   }];
 }
 
-- (void)post:(void (^)(Person *person, NSError *error))block
+static NSString *const kCreatePath = @&quot;/persons&quot;;
+
+- (void)create:(void (^)(Person *person, NSError *error))block
 {
   NSDictionary *elementDictionary = [self attributes];
-  [[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+  [[PersonAPIClient sharedClient] POST:kCreatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
   {
     Person *postedElement = responseObject;
     if(block) {
@@ -106,10 +115,12 @@ static NSString *const kDeletePersonPath = @&quot;/persons/%@&quot;;
   }];
 }
 
-- (void)put:(void (^)(Person *person, NSError *error))block
+static NSString *const kUpdatePath = @&quot;/persons&quot;;
+
+- (void)update:(void (^)(Person *person, NSError *error))block
 {
   NSDictionary *elementDictionary = [self attributes];
-  [[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+  [[PersonAPIClient sharedClient] PUT:kUpdatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
   {
     Person *postedElement = responseObject;
     if(block) {
@@ -122,10 +133,12 @@ static NSString *const kDeletePersonPath = @&quot;/persons/%@&quot;;
     }
   }];
 }
+
+static NSString *const kRemovePath = @&quot;/persons/%@&quot;;
 
 - (void)remove:(void (^)(Person *person, NSError *error))block
 {
-  NSString *urlString = [NSString stringWithFormat:kDeletePersonPath, self.id];
+  NSString *urlString = [NSString stringWithFormat:kRemovePath, self.id];
   [[PersonAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
   {
     if(block) {
@@ -150,7 +163,7 @@ static NSString *const kDeletePersonPath = @&quot;/persons/%@&quot;;
 package org.applause.specification.codegen.ios
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.DataSource
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler
@@ -171,30 +184,40 @@ describe &quot;Entity Data Access Generator&quot;{
   @Inject extension EntityDataAccessHeaderFileCompiler
   @Inject extension EntityDataAccessModuleFileCompiler
   
-  private def entity(CharSequence input, String entityName) {
+  private def datasource(CharSequence input, String datasourceName) {
     val model = input.parse
-    model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+    model.elements.filter(typeof(DataSource)).findFirst[name == datasourceName]
   }
   
-  def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-    val entity = input.entity(entityName)
-    val result = entity.compileHeaderFile
+  def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String dataSourceName,  CharSequence input) {
+    val datasource = input.datasource(dataSourceName)
+    val result = datasource.compileHeaderFile
     assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
   }
   
-  def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-    val entity = input.entity(entityName)    
-    val result = entity.compileModuleFile
+  def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String dataSourceName,  CharSequence input) {
+    val datasource = input.datasource(dataSourceName)    
+    val result = datasource.compileModuleFile
     assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
   }
   
-context &quot;Generating Entities&quot; {
+context &quot;Generating Data Access Code for Entities&quot; {
     
     /**
-     * A simple entity like this:
+     * A simple model like this:
      * 
      * &lt;pre class=&quot;prettyprint linenums lang-applause&quot;&gt;
      * entity Person {
+     * }
+     * entity Person {
+     * }
+     * datasource PersonDataSource {
+     *   baseUrl: http://localhost:2403
+     *   resource: Person
+     *   allPersons()[] GET /persons
+     *   create(Person person) POST /persons
+     *   update(Person person) PUT /persons
+     *   remove(Person person) DELETE /person/:person
      * }
      * &lt;/pre&gt;
      * 
@@ -202,8 +225,16 @@ context &quot;Generating Entities&quot; {
      */
     describe &quot;Data Access Code&quot; {
       
-      val simplePersonEntity = '''
+      val simpleDataSource = '''
         entity Person {
+        }
+        datasource PersonDataSource {
+          baseUrl: http://localhost:2403
+          resource: Person
+          allPersons()[] GET /persons
+          create(Person person) POST /persons
+          update(Person person) PUT /persons
+          remove(Person person) DELETE /persons/:person
         }
       '''
       
@@ -217,11 +248,11 @@ context &quot;Generating Entities&quot; {
 
           @interface Person (DataAccess)
           + (void)allPersons:(void (^)(NSArray *persons, NSError *error))block;
-          - (void)post:(void (^)(Person *person, NSError *error))block;
-          - (void)put:(void (^)(Person *person, NSError *error))block;
+          - (void)create:(void (^)(Person *person, NSError *error))block;
+          - (void)update:(void (^)(Person *person, NSError *error))block;
           - (void)remove:(void (^)(Person *person, NSError *error))block;
           @end
-        '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
+        '''.isGeneratedHeaderFileFromModel(&quot;PersonDataSource&quot;, simpleDataSource)
       }
       
       /**
@@ -233,12 +264,9 @@ context &quot;Generating Entities&quot; {
           #import &quot;PersonAPIClient.h&quot;
           #import &quot;Person+DataMapping.h&quot;
           
-          static NSString *const kAllPersonsPath = @&quot;/persons&quot;;
-          static NSString *const kPostPersonPath = @&quot;/persons&quot;;
-          static NSString *const kPutPersonPath = @&quot;/persons&quot;;
-          static NSString *const kDeletePersonPath = @&quot;/persons/%@&quot;;
-          
           @implementation Person (DataAccess)
+          
+          static NSString *const kAllPersonsPath = @&quot;/persons&quot;;
           
           + (void)allPersons:(void (^)(NSArray *persons, NSError *error))block
           {
@@ -262,10 +290,12 @@ context &quot;Generating Entities&quot; {
             }];
           }
           
-          - (void)post:(void (^)(Person *person, NSError *error))block
+          static NSString *const kCreatePath = @&quot;/persons&quot;;
+          
+          - (void)create:(void (^)(Person *person, NSError *error))block
           {
             NSDictionary *elementDictionary = [self attributes];
-            [[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+            [[PersonAPIClient sharedClient] POST:kCreatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
             {
               Person *postedElement = responseObject;
               if(block) {
@@ -279,10 +309,12 @@ context &quot;Generating Entities&quot; {
             }];
           }
           
-          - (void)put:(void (^)(Person *person, NSError *error))block
+          static NSString *const kUpdatePath = @&quot;/persons&quot;;
+          
+          - (void)update:(void (^)(Person *person, NSError *error))block
           {
             NSDictionary *elementDictionary = [self attributes];
-            [[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+            [[PersonAPIClient sharedClient] PUT:kUpdatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
             {
               Person *postedElement = responseObject;
               if(block) {
@@ -295,10 +327,12 @@ context &quot;Generating Entities&quot; {
               }
             }];
           }
+          
+          static NSString *const kRemovePath = @&quot;/persons/%@&quot;;
           
           - (void)remove:(void (^)(Person *person, NSError *error))block
           {
-            NSString *urlString = [NSString stringWithFormat:kDeletePersonPath, self.id];
+            NSString *urlString = [NSString stringWithFormat:kRemovePath, self.id];
             [[PersonAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
             {
               if(block) {
@@ -313,7 +347,7 @@ context &quot;Generating Entities&quot; {
           }
           
           @end
-        '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
+        '''.isGeneratedModuleFileFromModel(&quot;PersonDataSource&quot;, simpleDataSource)
       }
       
     }

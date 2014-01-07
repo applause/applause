@@ -89,7 +89,7 @@ public class APIClientModuleFileCompiler {
     _builder.append("if (self) {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("AFJSONSerializer *responseSerializer = [AFJSONSerializer serializer];");
+    _builder.append("AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("responseSerializer.readingOptions = NSJSONReadingAllowFragments;");
@@ -98,7 +98,7 @@ public class APIClientModuleFileCompiler {
     _builder.append("self.responseSerializer = responseSerializer;");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("self.requestSerializer = [AFJSONSerializer serializer];");
+    _builder.append("self.requestSerializer = [AFJSONRequestSerializer serializer];");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");

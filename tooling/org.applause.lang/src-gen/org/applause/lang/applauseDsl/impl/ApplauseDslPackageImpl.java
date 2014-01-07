@@ -2,21 +2,32 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
+import org.applause.lang.applauseDsl.AbsoluteRESTURL;
 import org.applause.lang.applauseDsl.ApplauseDslFactory;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.DataSource;
+import org.applause.lang.applauseDsl.DataSourceAccessMethod;
+import org.applause.lang.applauseDsl.DataSourceBodySpecification;
 import org.applause.lang.applauseDsl.DataType;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.NamedElement;
+import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.Platform;
 import org.applause.lang.applauseDsl.PlatformMapping;
+import org.applause.lang.applauseDsl.RESTSpecification;
+import org.applause.lang.applauseDsl.RESTVerb;
+import org.applause.lang.applauseDsl.RelativeRESTURL;
 import org.applause.lang.applauseDsl.Type;
 import org.applause.lang.applauseDsl.TypeMapping;
+import org.applause.lang.applauseDsl.UrlFragment;
+import org.applause.lang.applauseDsl.UrlPathFragment;
+import org.applause.lang.applauseDsl.Variable;
 
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
@@ -99,6 +110,83 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EClass dataSourceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataSourceAccessMethodEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass restSpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass dataSourceBodySpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass resturlEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass absoluteRESTURLEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relativeRESTURLEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass urlFragmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass urlPathFragmentEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass variableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum restVerbEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -378,9 +466,289 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getDataSource_Name()
+  public EReference getDataSource_BaseUrl()
   {
-    return (EAttribute)dataSourceEClass.getEStructuralFeatures().get(0);
+    return (EReference)dataSourceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataSource_ResourceType()
+  {
+    return (EReference)dataSourceEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataSource_Methods()
+  {
+    return (EReference)dataSourceEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDataSourceAccessMethod()
+  {
+    return dataSourceAccessMethodEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataSourceAccessMethod_Name()
+  {
+    return (EAttribute)dataSourceAccessMethodEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataSourceAccessMethod_DeclaredParameters()
+  {
+    return (EReference)dataSourceAccessMethodEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getDataSourceAccessMethod_ReturnsMany()
+  {
+    return (EAttribute)dataSourceAccessMethodEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataSourceAccessMethod_RestSpecification()
+  {
+    return (EReference)dataSourceAccessMethodEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRESTSpecification()
+  {
+    return restSpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getRESTSpecification_Verb()
+  {
+    return (EAttribute)restSpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRESTSpecification_Path()
+  {
+    return (EReference)restSpecificationEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRESTSpecification_Body()
+  {
+    return (EReference)restSpecificationEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getDataSourceBodySpecification()
+  {
+    return dataSourceBodySpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getDataSourceBodySpecification_Bodycontents()
+  {
+    return (EReference)dataSourceBodySpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameter()
+  {
+    return parameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameter_Type()
+  {
+    return (EReference)parameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getParameter_Name()
+  {
+    return (EAttribute)parameterEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRESTURL()
+  {
+    return resturlEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRESTURL_Fragments()
+  {
+    return (EReference)resturlEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getAbsoluteRESTURL()
+  {
+    return absoluteRESTURLEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getAbsoluteRESTURL_Host()
+  {
+    return (EReference)absoluteRESTURLEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getAbsoluteRESTURL_Port()
+  {
+    return (EAttribute)absoluteRESTURLEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getRelativeRESTURL()
+  {
+    return relativeRESTURLEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUrlFragment()
+  {
+    return urlFragmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUrlPathFragment()
+  {
+    return urlPathFragmentEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUrlPathFragment_Name()
+  {
+    return (EAttribute)urlPathFragmentEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getVariable()
+  {
+    return variableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getVariable_ParameterReference()
+  {
+    return (EReference)variableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getRESTVerb()
+  {
+    return restVerbEEnum;
   }
 
   /**
@@ -443,7 +811,47 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEAttribute(typeMappingEClass, TYPE_MAPPING__SIMPLE_NAME);
 
     dataSourceEClass = createEClass(DATA_SOURCE);
-    createEAttribute(dataSourceEClass, DATA_SOURCE__NAME);
+    createEReference(dataSourceEClass, DATA_SOURCE__BASE_URL);
+    createEReference(dataSourceEClass, DATA_SOURCE__RESOURCE_TYPE);
+    createEReference(dataSourceEClass, DATA_SOURCE__METHODS);
+
+    dataSourceAccessMethodEClass = createEClass(DATA_SOURCE_ACCESS_METHOD);
+    createEAttribute(dataSourceAccessMethodEClass, DATA_SOURCE_ACCESS_METHOD__NAME);
+    createEReference(dataSourceAccessMethodEClass, DATA_SOURCE_ACCESS_METHOD__DECLARED_PARAMETERS);
+    createEAttribute(dataSourceAccessMethodEClass, DATA_SOURCE_ACCESS_METHOD__RETURNS_MANY);
+    createEReference(dataSourceAccessMethodEClass, DATA_SOURCE_ACCESS_METHOD__REST_SPECIFICATION);
+
+    restSpecificationEClass = createEClass(REST_SPECIFICATION);
+    createEAttribute(restSpecificationEClass, REST_SPECIFICATION__VERB);
+    createEReference(restSpecificationEClass, REST_SPECIFICATION__PATH);
+    createEReference(restSpecificationEClass, REST_SPECIFICATION__BODY);
+
+    dataSourceBodySpecificationEClass = createEClass(DATA_SOURCE_BODY_SPECIFICATION);
+    createEReference(dataSourceBodySpecificationEClass, DATA_SOURCE_BODY_SPECIFICATION__BODYCONTENTS);
+
+    parameterEClass = createEClass(PARAMETER);
+    createEReference(parameterEClass, PARAMETER__TYPE);
+    createEAttribute(parameterEClass, PARAMETER__NAME);
+
+    resturlEClass = createEClass(RESTURL);
+    createEReference(resturlEClass, RESTURL__FRAGMENTS);
+
+    absoluteRESTURLEClass = createEClass(ABSOLUTE_RESTURL);
+    createEReference(absoluteRESTURLEClass, ABSOLUTE_RESTURL__HOST);
+    createEAttribute(absoluteRESTURLEClass, ABSOLUTE_RESTURL__PORT);
+
+    relativeRESTURLEClass = createEClass(RELATIVE_RESTURL);
+
+    urlFragmentEClass = createEClass(URL_FRAGMENT);
+
+    urlPathFragmentEClass = createEClass(URL_PATH_FRAGMENT);
+    createEAttribute(urlPathFragmentEClass, URL_PATH_FRAGMENT__NAME);
+
+    variableEClass = createEClass(VARIABLE);
+    createEReference(variableEClass, VARIABLE__PARAMETER_REFERENCE);
+
+    // Create enums
+    restVerbEEnum = createEEnum(REST_VERB);
   }
 
   /**
@@ -480,6 +888,11 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     entityEClass.getESuperTypes().add(this.getType());
     platformEClass.getESuperTypes().add(this.getNamedElement());
     typeMappingEClass.getESuperTypes().add(this.getPlatformMapping());
+    dataSourceEClass.getESuperTypes().add(this.getNamedElement());
+    absoluteRESTURLEClass.getESuperTypes().add(this.getRESTURL());
+    relativeRESTURLEClass.getESuperTypes().add(this.getRESTURL());
+    urlPathFragmentEClass.getESuperTypes().add(this.getUrlFragment());
+    variableEClass.getESuperTypes().add(this.getUrlFragment());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -512,7 +925,51 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEAttribute(getTypeMapping_SimpleName(), ecorePackage.getEString(), "simpleName", null, 0, 1, TypeMapping.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataSourceEClass, DataSource.class, "DataSource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getDataSource_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataSource_BaseUrl(), this.getAbsoluteRESTURL(), null, "baseUrl", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataSource_ResourceType(), this.getEntity(), null, "resourceType", null, 0, 1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataSource_Methods(), this.getDataSourceAccessMethod(), null, "methods", null, 0, -1, DataSource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataSourceAccessMethodEClass, DataSourceAccessMethod.class, "DataSourceAccessMethod", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDataSourceAccessMethod_Name(), ecorePackage.getEString(), "name", null, 0, 1, DataSourceAccessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataSourceAccessMethod_DeclaredParameters(), this.getParameter(), null, "declaredParameters", null, 0, -1, DataSourceAccessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDataSourceAccessMethod_ReturnsMany(), ecorePackage.getEBoolean(), "returnsMany", null, 0, 1, DataSourceAccessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDataSourceAccessMethod_RestSpecification(), this.getRESTSpecification(), null, "restSpecification", null, 0, 1, DataSourceAccessMethod.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(restSpecificationEClass, RESTSpecification.class, "RESTSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getRESTSpecification_Verb(), this.getRESTVerb(), "verb", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRESTSpecification_Path(), this.getRESTURL(), null, "path", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRESTSpecification_Body(), this.getDataSourceBodySpecification(), null, "body", null, 0, 1, RESTSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(dataSourceBodySpecificationEClass, DataSourceBodySpecification.class, "DataSourceBodySpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getDataSourceBodySpecification_Bodycontents(), this.getParameter(), null, "bodycontents", null, 0, 1, DataSourceBodySpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterEClass, Parameter.class, "Parameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameter_Type(), this.getType(), null, "type", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, Parameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(resturlEClass, org.applause.lang.applauseDsl.RESTURL.class, "RESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRESTURL_Fragments(), this.getUrlFragment(), null, "fragments", null, 0, -1, org.applause.lang.applauseDsl.RESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(absoluteRESTURLEClass, AbsoluteRESTURL.class, "AbsoluteRESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getAbsoluteRESTURL_Host(), this.getUrlFragment(), null, "host", null, 0, 1, AbsoluteRESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getAbsoluteRESTURL_Port(), ecorePackage.getEInt(), "port", null, 0, 1, AbsoluteRESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relativeRESTURLEClass, RelativeRESTURL.class, "RelativeRESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(urlFragmentEClass, UrlFragment.class, "UrlFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(urlPathFragmentEClass, UrlPathFragment.class, "UrlPathFragment", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUrlPathFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, UrlPathFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getVariable_ParameterReference(), this.getParameter(), null, "parameterReference", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    // Initialize enums and add enum literals
+    initEEnum(restVerbEEnum, RESTVerb.class, "RESTVerb");
+    addEEnumLiteral(restVerbEEnum, RESTVerb.GET);
+    addEEnumLiteral(restVerbEEnum, RESTVerb.POST);
+    addEEnumLiteral(restVerbEEnum, RESTVerb.PUT);
+    addEEnumLiteral(restVerbEEnum, RESTVerb.DELETE);
 
     // Create resource
     createResource(eNS_URI);

@@ -7,7 +7,7 @@ Model:
 ;
 
 NamedElement:
-	Type | Platform
+	Type | Platform | DataSource
 ;
 
 // -----------------------------------------
@@ -56,5 +56,64 @@ TypeMapping:
 
 DataSource:
 	'datasource' name=ID '{'
+		'baseUrl' ':' baseUrl=AbsoluteRESTURL
+		'resource' ':' resourceType=[Entity]
+		methods += DataSourceAccessMethod*
 	'}'
+;
+
+// TODO: As we can have multiple datasource for each entity, we should either:
+// (a) make sure only one datasource cen be defined per dentity
+// (b) there always is just one data source access method with the same name for any given entity
+// IMO, (a) seems to be easier  
+DataSourceAccessMethod:
+	name=ID '(' (declaredParameters += Parameter (',' declaredParameters += Parameter)* )? ')' (returnsMany?='[]')? restSpecification=RESTSpecification 
+;
+
+RESTSpecification:
+	verb=RESTVerb 
+	path=RESTURL 
+	('{' body=DataSourceBodySpecification '}')?	
+;
+
+DataSourceBodySpecification:
+	bodycontents=[Parameter]	
+;
+
+enum RESTVerb:
+	GET | POST | PUT | DELETE
+;
+
+Parameter:
+	type=[Type] name=ID	
+;
+
+RESTURL:
+	AbsoluteRESTURL | RelativeRESTURL
+;
+
+AbsoluteRESTURL:
+	{AbsoluteRESTURL} 'http://' host=UrlFragment (':' port=INT)? ('/' fragments+=UrlFragment)*
+;
+
+
+RelativeRESTURL:
+	{RelativeRESTURL} '/' fragments+=UrlFragment ('/' fragments+=UrlFragment)*
+;
+
+
+UrlFragment:
+	UrlPathFragment | Variable
+;
+
+UrlPathFragment:
+	name=QualifiedName
+;
+
+Variable:
+	':' parameterReference=[Parameter]
+;
+
+QualifiedName:
+	ID ('.' ID)*
 ;

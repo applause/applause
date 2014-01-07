@@ -28,7 +28,7 @@ public class EntityDataMappingGeneratorMappingEntitiesDataMappingCodeSpec extend
   final String simplePersonEntity = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append("datatype String ");
+      _builder.append("datatype String");
       _builder.newLine();
       _builder.append("entity Person {");
       _builder.newLine();
@@ -108,6 +108,20 @@ public class EntityDataMappingGeneratorMappingEntitiesDataMappingCodeSpec extend
     _builder.newLine();
     _builder.append("{");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("if (self.name != nil) {");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("attributes[@\"name\"] = self.name;");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("return attributes;");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

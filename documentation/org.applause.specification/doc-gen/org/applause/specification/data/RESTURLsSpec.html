@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>REST URLs</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-tab.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header notrun">
+					<h1>REST URLs</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
+<h3 class="exampleGroup notrun"  id="Absolute_REST_URLs">Absolute REST URLs</h3>
+<ul><li><p id="Simple_absolute_REST_URLS" class="example notrun"><strong>Simple absolute REST URLS</strong></p>
+<p>Absolute REST URLs start with <code>http://</code>, continue with a hostname, and end with a resource path</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://localhost/persons
+  resource: Person
+}</pre>
+</li><li><p id="Simple_absolute_REST_URLS_with_port" class="example notrun"><strong>Simple absolute REST URLS with port</strong></p>
+<p>An absolute REST URL can contain a port.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://localhost:2403/persons
+  resource: Person
+}</pre>
+</li><li><p id="Absolute_REST_URL_with_full_domain_name_port_and_deep_path" class="example notrun"><strong>Absolute REST URL with full domain name, port and deep path</strong></p>
+<p>An absolute REST URL can have a full domain name, a port and a deep path.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://www.foobar.com:2403/foo/bar/baz
+  resource: Person
+}</pre>
+</li></ul>
+<h3 class="exampleGroup pending"  id="Relative_REST_URLs">Relative REST URLs</h3>
+<ul><li><p id="Simple_relative_REST_URL" class="example notrun"><strong>Simple relative REST URL</strong></p>
+<p>Relative REST URLs start with <code>/</code>, and continue with a resource path</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://localhost/persons
+  resource: Person
+  post(Person person) GET /persons
+}</pre>
+</li><li><p id="More_complex_relative_REST_URL" class="example notrun"><strong>More complex relative REST URL</strong></p>
+<p>Relative REST URLs start with <code>/</code>, and continue with a resource path</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://localhost/persons
+  resource: Person
+  post(Person person) GET /boo/bar/baz/persons
+}</pre>
+</li></ul>
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>RESTURL.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.specification.data
+
+import com.google.inject.Inject
+import org.applause.lang.applauseDsl.DataSource
+import org.applause.lang.applauseDsl.Model
+import org.applause.lang.generator.ios.dataaccess.RESTURLExtensions
+import org.applause.specification.ApplauseDslInjectorProvider
+import org.applause.specification.ApplauseDslTestCreator
+import org.eclipse.xtext.junit4.InjectWith
+import org.eclipse.xtext.junit4.util.ParseHelper
+import org.jnario.runner.CreateWith
+
+import static org.hamcrest.CoreMatchers.*
+import static org.junit.Assert.*
+
+@InjectWith(ApplauseDslInjectorProvider)
+@CreateWith(typeof(ApplauseDslTestCreator))
+describe &quot;REST URLs&quot; {
+  
+  @Inject extension ParseHelper&lt;Model&gt;
+  @Inject extension RESTURLExtensions
+  
+  describe &quot;Absolute REST URLs&quot; {
+    
+    def void baseUrlShouldBe(CharSequence sequence, String url) {
+      val model = sequence.parse
+      val datasource = model.elements.filter(typeof(DataSource)).head
+      val baseUrl = datasource.baseUrl
+      
+      assertThat(baseUrl.value, is(url))
+    }
+    
+    /**
+     * Absolute REST URLs start with `http://`, continue with a hostname, and end with a resource path
+     * @filter('''|.baseUrlShouldBe.*)
+     */
+    fact &quot;Simple absolute REST URLS&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://localhost/persons
+          resource: Person
+        }
+      '''.baseUrlShouldBe(&quot;http://localhost/persons&quot;)      
+    }
+    
+    /**
+     * An absolute REST URL can contain a port.
+     * @filter('''|.baseUrlShouldBe.*)
+     */
+    fact &quot;Simple absolute REST URLS with port&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://localhost:2403/persons
+          resource: Person
+        }
+      '''.baseUrlShouldBe(&quot;http://localhost:2403/persons&quot;)      
+    }
+    
+    /**
+     * An absolute REST URL can have a full domain name, a port and a deep path.
+     * @filter('''|.baseUrlShouldBe.*)
+     */
+    fact &quot;Absolute REST URL with full domain name, port and deep path&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://www.foobar.com:2403/foo/bar/baz
+          resource: Person
+        }
+      '''.baseUrlShouldBe(&quot;http://www.foobar.com:2403/foo/bar/baz&quot;)      
+    }
+    
+  }
+  
+  describe &quot;Relative REST URLs&quot; {
+    
+    def void dataSourceAccessMethodUrlShouldBe(CharSequence sequence, String url) {
+      val model = sequence.parse
+      val datasource = model.elements.filter(typeof(DataSource)).head
+      val method = datasource.methods.head
+      
+      assertThat(method.restSpecification.path.value, is(url))
+    }
+    
+    /**
+     * Relative REST URLs start with `/`, and continue with a resource path
+     * @filter('''|.dataSourceAccessMethodUrlShouldBe.*)
+     */
+    fact &quot;Simple relative REST URL&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://localhost/persons
+          resource: Person
+          post(Person person) GET /persons
+        }
+      '''.dataSourceAccessMethodUrlShouldBe(&quot;/persons&quot;)      
+    }
+    
+    /**
+     * Relative REST URLs start with `/`, and continue with a resource path
+     * @filter('''|.dataSourceAccessMethodUrlShouldBe.*)
+     */
+    fact &quot;More complex relative REST URL&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://localhost/persons
+          resource: Person
+          post(Person person) GET /boo/bar/baz/persons
+        }
+      '''.dataSourceAccessMethodUrlShouldBe(&quot;/boo/bar/baz/persons&quot;)      
+    }
+    
+    
+  }
+
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+	</div> <!-- /container -->
+
+</body>
+</html>

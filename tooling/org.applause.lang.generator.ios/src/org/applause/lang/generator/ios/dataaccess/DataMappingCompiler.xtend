@@ -83,10 +83,39 @@ class EntityDataMappingModuleFileCompiler {
 		
 		- (NSDictionary *)attributes
 		{
-		
+			NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+			«FOR attribute: it.attributes»
+				«attribute.compilePropertyToAttributeMapping»
+			«ENDFOR»
+			return attributes;
 		}
 		@end
 	'''
+	
+	def compilePropertyToAttributeMapping(Attribute it) {
+		switch (typeName) {
+			case "NSString": 
+				'''
+					if (self.«propertyName» != nil) {
+						attributes[@"«propertyName»"] = self.«propertyName»;
+					}
+				'''
+			case "NSDate":
+				'''
+					NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+					[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
+					[dateFormatter setDateStyle:NSDateFormatterShortStyle];
+					NSString *«propertyName»String = [dateFormatter stringFromDate:self.dueDate];
+					if («propertyName»String != nil) {
+						attributes[@"«propertyName»"] = «propertyName»String;
+					}
+				'''
+			case "BOOL":
+				'''
+					attributes[@"«propertyName»"] = [NSNumber numberWithBool:self.«propertyName»];
+				'''
+		}
+	}
 	
 	def compileAttributeToPropertyMapping(Attribute it) {
 		switch (typeName) {

@@ -1,6 +1,6 @@
 package org.applause.specification.codegen.ios;
 
-import org.applause.specification.codegen.ios.EntityDataAccessGeneratorGeneratingEntitiesSpec;
+import org.applause.specification.codegen.ios.EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesSpec;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.jnario.runner.ExampleGroupRunner;
@@ -10,10 +10,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * A simple entity like this:
+ * A simple model like this:
  * 
  * <pre class="prettyprint linenums lang-applause">
  * entity Person {
+ * }
+ * entity Person {
+ * }
+ * datasource PersonDataSource {
+ * 	baseUrl: http://localhost:2403
+ * 	resource: Person
+ * 	allPersons()[] GET /persons
+ * 	create(Person person) POST /persons
+ * 	update(Person person) PUT /persons
+ * 	remove(Person person) DELETE /person/:person
  * }
  * </pre>
  * 
@@ -22,11 +32,33 @@ import org.junit.runner.RunWith;
 @Named("Data Access Code")
 @RunWith(ExampleGroupRunner.class)
 @SuppressWarnings("all")
-public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec extends EntityDataAccessGeneratorGeneratingEntitiesSpec {
-  final String simplePersonEntity = new Function0<String>() {
+public class EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesDataAccessCodeSpec extends EntityDataAccessGeneratorGeneratingDataAccessCodeForEntitiesSpec {
+  final String simpleDataSource = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("entity Person {");
+      _builder.newLine();
+      _builder.append("}");
+      _builder.newLine();
+      _builder.append("datasource PersonDataSource {");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("baseUrl: http://localhost:2403");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("resource: Person");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("allPersons()[] GET /persons");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("create(Person person) POST /persons");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("update(Person person) PUT /persons");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("remove(Person person) DELETE /persons/:person");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
@@ -51,15 +83,15 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.newLine();
     _builder.append("+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block;");
     _builder.newLine();
-    _builder.append("- (void)post:(void (^)(Person *person, NSError *error))block;");
+    _builder.append("- (void)create:(void (^)(Person *person, NSError *error))block;");
     _builder.newLine();
-    _builder.append("- (void)put:(void (^)(Person *person, NSError *error))block;");
+    _builder.append("- (void)update:(void (^)(Person *person, NSError *error))block;");
     _builder.newLine();
     _builder.append("- (void)remove:(void (^)(Person *person, NSError *error))block;");
     _builder.newLine();
     _builder.append("@end");
     _builder.newLine();
-    this.isGeneratedHeaderFileFromModel(_builder, "Person", this.simplePersonEntity);
+    this.isGeneratedHeaderFileFromModel(_builder, "PersonDataSource", this.simpleDataSource);
   }
   
   /**
@@ -77,16 +109,10 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("#import \"Person+DataMapping.h\"");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("static NSString *const kAllPersonsPath = @\"/persons\";");
-    _builder.newLine();
-    _builder.append("static NSString *const kPostPersonPath = @\"/persons\";");
-    _builder.newLine();
-    _builder.append("static NSString *const kPutPersonPath = @\"/persons\";");
-    _builder.newLine();
-    _builder.append("static NSString *const kDeletePersonPath = @\"/persons/%@\";");
-    _builder.newLine();
-    _builder.newLine();
     _builder.append("@implementation Person (DataAccess)");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("static NSString *const kAllPersonsPath = @\"/persons\";");
     _builder.newLine();
     _builder.newLine();
     _builder.append("+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block");
@@ -148,7 +174,10 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("- (void)post:(void (^)(Person *person, NSError *error))block");
+    _builder.append("static NSString *const kCreatePath = @\"/persons\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- (void)create:(void (^)(Person *person, NSError *error))block");
     _builder.newLine();
     _builder.append("{");
     _builder.newLine();
@@ -156,7 +185,7 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("NSDictionary *elementDictionary = [self attributes];");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("[[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
+    _builder.append("[[PersonAPIClient sharedClient] POST:kCreatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("{");
@@ -194,7 +223,10 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("- (void)put:(void (^)(Person *person, NSError *error))block");
+    _builder.append("static NSString *const kUpdatePath = @\"/persons\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- (void)update:(void (^)(Person *person, NSError *error))block");
     _builder.newLine();
     _builder.append("{");
     _builder.newLine();
@@ -202,7 +234,7 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("NSDictionary *elementDictionary = [self attributes];");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("[[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
+    _builder.append("[[PersonAPIClient sharedClient] PUT:kUpdatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("{");
@@ -238,6 +270,9 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("}];");
     _builder.newLine();
     _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("static NSString *const kRemovePath = @\"/persons/%@\";");
     _builder.newLine();
     _builder.newLine();
     _builder.append("- (void)remove:(void (^)(Person *person, NSError *error))block");
@@ -245,7 +280,7 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("NSString *urlString = [NSString stringWithFormat:kDeletePersonPath, self.id];");
+    _builder.append("NSString *urlString = [NSString stringWithFormat:kRemovePath, self.id];");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[[PersonAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");
@@ -285,6 +320,6 @@ public class EntityDataAccessGeneratorGeneratingEntitiesDataAccessCodeSpec exten
     _builder.newLine();
     _builder.append("@end");
     _builder.newLine();
-    this.isGeneratedModuleFileFromModel(_builder, "Person", this.simplePersonEntity);
+    this.isGeneratedModuleFileFromModel(_builder, "PersonDataSource", this.simpleDataSource);
   }
 }

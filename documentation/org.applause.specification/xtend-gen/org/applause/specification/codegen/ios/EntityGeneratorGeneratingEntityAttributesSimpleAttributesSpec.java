@@ -30,10 +30,15 @@ public class EntityGeneratorGeneratingEntityAttributesSimpleAttributesSpec exten
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("datatype String");
       _builder.newLine();
+      _builder.append("datatype Bool");
+      _builder.newLine();
       _builder.append("entity Person {");
       _builder.newLine();
       _builder.append("\t");
       _builder.append("String name");
+      _builder.newLine();
+      _builder.append("\t");
+      _builder.append("Bool grownUp");
       _builder.newLine();
       _builder.append("}");
       _builder.newLine();
@@ -55,6 +60,8 @@ public class EntityGeneratorGeneratingEntityAttributesSimpleAttributesSpec exten
     _builder.append("@interface Person : NSObject");
     _builder.newLine();
     _builder.append("@property (nonatomic, strong) NSString *name;");
+    _builder.newLine();
+    _builder.append("@property (nonatomic) BOOL grownUp;");
     _builder.newLine();
     _builder.append("@end");
     _builder.newLine();

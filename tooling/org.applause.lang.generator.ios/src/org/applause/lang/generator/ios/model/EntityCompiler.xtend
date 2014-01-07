@@ -64,7 +64,11 @@ class EntityHeaderFileCompiler {
 	'''
 	
 	def compile(Attribute it) '''
-		@property (nonatomic, strong) «typeName» *«propertyName»;
+		«IF scalar»
+			@property (nonatomic) «typeName» «propertyName»;
+		«ELSE»
+			@property (nonatomic, strong) «typeName» *«propertyName»;
+		«ENDIF»
 	'''
 	
 }

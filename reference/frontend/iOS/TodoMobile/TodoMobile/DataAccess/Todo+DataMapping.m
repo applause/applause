@@ -30,7 +30,6 @@
 
 - (NSDictionary *)attributes
 {
-
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setTimeStyle:NSDateFormatterNoStyle];
 	[dateFormatter setDateStyle:NSDateFormatterShortStyle];

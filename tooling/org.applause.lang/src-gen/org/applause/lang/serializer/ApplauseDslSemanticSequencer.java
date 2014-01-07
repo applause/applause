@@ -2,14 +2,22 @@ package org.applause.lang.serializer;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import org.applause.lang.applauseDsl.AbsoluteRESTURL;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.DataSource;
+import org.applause.lang.applauseDsl.DataSourceAccessMethod;
+import org.applause.lang.applauseDsl.DataSourceBodySpecification;
 import org.applause.lang.applauseDsl.DataType;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Model;
+import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.Platform;
+import org.applause.lang.applauseDsl.RESTSpecification;
+import org.applause.lang.applauseDsl.RelativeRESTURL;
 import org.applause.lang.applauseDsl.TypeMapping;
+import org.applause.lang.applauseDsl.UrlPathFragment;
+import org.applause.lang.applauseDsl.Variable;
 import org.applause.lang.services.ApplauseDslGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
@@ -31,6 +39,13 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	public void createSequence(EObject context, EObject semanticObject) {
 		if(semanticObject.eClass().getEPackage() == ApplauseDslPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+			case ApplauseDslPackage.ABSOLUTE_RESTURL:
+				if(context == grammarAccess.getAbsoluteRESTURLRule() ||
+				   context == grammarAccess.getRESTURLRule()) {
+					sequence_AbsoluteRESTURL(context, (AbsoluteRESTURL) semanticObject); 
+					return; 
+				}
+				else break;
 			case ApplauseDslPackage.ATTRIBUTE:
 				if(context == grammarAccess.getAttributeRule()) {
 					sequence_Attribute(context, (Attribute) semanticObject); 
@@ -38,8 +53,21 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 				}
 				else break;
 			case ApplauseDslPackage.DATA_SOURCE:
-				if(context == grammarAccess.getDataSourceRule()) {
+				if(context == grammarAccess.getDataSourceRule() ||
+				   context == grammarAccess.getNamedElementRule()) {
 					sequence_DataSource(context, (DataSource) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.DATA_SOURCE_ACCESS_METHOD:
+				if(context == grammarAccess.getDataSourceAccessMethodRule()) {
+					sequence_DataSourceAccessMethod(context, (DataSourceAccessMethod) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.DATA_SOURCE_BODY_SPECIFICATION:
+				if(context == grammarAccess.getDataSourceBodySpecificationRule()) {
+					sequence_DataSourceBodySpecification(context, (DataSourceBodySpecification) semanticObject); 
 					return; 
 				}
 				else break;
@@ -65,10 +93,29 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case ApplauseDslPackage.PARAMETER:
+				if(context == grammarAccess.getParameterRule()) {
+					sequence_Parameter(context, (Parameter) semanticObject); 
+					return; 
+				}
+				else break;
 			case ApplauseDslPackage.PLATFORM:
 				if(context == grammarAccess.getNamedElementRule() ||
 				   context == grammarAccess.getPlatformRule()) {
 					sequence_Platform(context, (Platform) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.REST_SPECIFICATION:
+				if(context == grammarAccess.getRESTSpecificationRule()) {
+					sequence_RESTSpecification(context, (RESTSpecification) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.RELATIVE_RESTURL:
+				if(context == grammarAccess.getRESTURLRule() ||
+				   context == grammarAccess.getRelativeRESTURLRule()) {
+					sequence_RelativeRESTURL(context, (RelativeRESTURL) semanticObject); 
 					return; 
 				}
 				else break;
@@ -79,9 +126,32 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case ApplauseDslPackage.URL_PATH_FRAGMENT:
+				if(context == grammarAccess.getUrlFragmentRule() ||
+				   context == grammarAccess.getUrlPathFragmentRule()) {
+					sequence_UrlPathFragment(context, (UrlPathFragment) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.VARIABLE:
+				if(context == grammarAccess.getUrlFragmentRule() ||
+				   context == grammarAccess.getVariableRule()) {
+					sequence_Variable(context, (Variable) semanticObject); 
+					return; 
+				}
+				else break;
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (host=UrlFragment port=INT? fragments+=UrlFragment*)
+	 */
+	protected void sequence_AbsoluteRESTURL(EObject context, AbsoluteRESTURL semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -94,17 +164,35 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     name=ID
+	 *     (name=ID (declaredParameters+=Parameter declaredParameters+=Parameter*)? returnsMany?='[]'? restSpecification=RESTSpecification)
 	 */
-	protected void sequence_DataSource(EObject context, DataSource semanticObject) {
+	protected void sequence_DataSourceAccessMethod(EObject context, DataSourceAccessMethod semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     bodycontents=[Parameter|ID]
+	 */
+	protected void sequence_DataSourceBodySpecification(EObject context, DataSourceBodySpecification semanticObject) {
 		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.DATA_SOURCE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.DATA_SOURCE__NAME));
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.DATA_SOURCE_BODY_SPECIFICATION__BODYCONTENTS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.DATA_SOURCE_BODY_SPECIFICATION__BODYCONTENTS));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDataSourceAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDataSourceBodySpecificationAccess().getBodycontentsParameterIDTerminalRuleCall_0_1(), semanticObject.getBodycontents());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (name=ID baseUrl=AbsoluteRESTURL resourceType=[Entity|ID] methods+=DataSourceAccessMethod*)
+	 */
+	protected void sequence_DataSource(EObject context, DataSource semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -144,9 +232,46 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (type=[Type|ID] name=ID)
+	 */
+	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER__TYPE));
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getParameterAccess().getTypeTypeIDTerminalRuleCall_0_0_1(), semanticObject.getType());
+		feeder.accept(grammarAccess.getParameterAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=ID mappings+=PlatformMapping*)
 	 */
 	protected void sequence_Platform(EObject context, Platform semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (verb=RESTVerb path=RESTURL body=DataSourceBodySpecification?)
+	 */
+	protected void sequence_RESTSpecification(EObject context, RESTSpecification semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (fragments+=UrlFragment fragments+=UrlFragment*)
+	 */
+	protected void sequence_RelativeRESTURL(EObject context, RelativeRESTURL semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
@@ -166,6 +291,38 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getTypeMappingAccess().getTypeDataTypeIDTerminalRuleCall_1_0_1(), semanticObject.getType());
 		feeder.accept(grammarAccess.getTypeMappingAccess().getSimpleNameIDTerminalRuleCall_3_0(), semanticObject.getSimpleName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=QualifiedName
+	 */
+	protected void sequence_UrlPathFragment(EObject context, UrlPathFragment semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.URL_PATH_FRAGMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.URL_PATH_FRAGMENT__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUrlPathFragmentAccess().getNameQualifiedNameParserRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     parameterReference=[Parameter|ID]
+	 */
+	protected void sequence_Variable(EObject context, Variable semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.VARIABLE__PARAMETER_REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.VARIABLE__PARAMETER_REFERENCE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getVariableAccess().getParameterReferenceParameterIDTerminalRuleCall_1_0_1(), semanticObject.getParameterReference());
 		feeder.finish();
 	}
 }

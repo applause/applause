@@ -1,7 +1,7 @@
 package org.applause.specification.codegen.ios
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.DataSource
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler
@@ -22,30 +22,40 @@ describe "Entity Data Access Generator"{
 	@Inject extension EntityDataAccessHeaderFileCompiler
 	@Inject extension EntityDataAccessModuleFileCompiler
 	
-	private def entity(CharSequence input, String entityName) {
+	private def datasource(CharSequence input, String datasourceName) {
 		val model = input.parse
-		model.elements.filter(typeof(Entity)).findFirst[name == entityName]
+		model.elements.filter(typeof(DataSource)).findFirst[name == datasourceName]
 	}
 	
-	def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-		val entity = input.entity(entityName)
-		val result = entity.compileHeaderFile
+	def void isGeneratedHeaderFileFromModel(CharSequence expectedGeneratedCode, String dataSourceName,  CharSequence input) {
+		val datasource = input.datasource(dataSourceName)
+		val result = datasource.compileHeaderFile
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
 	
-	def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String entityName,  CharSequence input) {
-		val entity = input.entity(entityName)		
-		val result = entity.compileModuleFile
+	def void isGeneratedModuleFileFromModel(CharSequence expectedGeneratedCode, String dataSourceName,  CharSequence input) {
+		val datasource = input.datasource(dataSourceName)		
+		val result = datasource.compileModuleFile
 		assertThat(result.toString, equalTo(expectedGeneratedCode.toString))
 	}
 	
-context "Generating Entities" {
+context "Generating Data Access Code for Entities" {
 		
 		/**
-		 * A simple entity like this:
+		 * A simple model like this:
 		 * 
 		 * <pre class="prettyprint linenums lang-applause">
 		 * entity Person {
+		 * }
+		 * entity Person {
+		 * }
+		 * datasource PersonDataSource {
+		 * 	baseUrl: http://localhost:2403
+		 * 	resource: Person
+		 * 	allPersons()[] GET /persons
+		 * 	create(Person person) POST /persons
+		 * 	update(Person person) PUT /persons
+		 * 	remove(Person person) DELETE /person/:person
 		 * }
 		 * </pre>
 		 * 
@@ -53,8 +63,16 @@ context "Generating Entities" {
 		 */
 		describe "Data Access Code" {
 			
-			val simplePersonEntity = '''
+			val simpleDataSource = '''
 				entity Person {
+				}
+				datasource PersonDataSource {
+					baseUrl: http://localhost:2403
+					resource: Person
+					allPersons()[] GET /persons
+					create(Person person) POST /persons
+					update(Person person) PUT /persons
+					remove(Person person) DELETE /persons/:person
 				}
 			'''
 			
@@ -68,11 +86,11 @@ context "Generating Entities" {
 
 					@interface Person (DataAccess)
 					+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block;
-					- (void)post:(void (^)(Person *person, NSError *error))block;
-					- (void)put:(void (^)(Person *person, NSError *error))block;
+					- (void)create:(void (^)(Person *person, NSError *error))block;
+					- (void)update:(void (^)(Person *person, NSError *error))block;
 					- (void)remove:(void (^)(Person *person, NSError *error))block;
 					@end
-				'''.isGeneratedHeaderFileFromModel("Person", simplePersonEntity)
+				'''.isGeneratedHeaderFileFromModel("PersonDataSource", simpleDataSource)
 			}
 			
 			/**
@@ -84,12 +102,9 @@ context "Generating Entities" {
 					#import "PersonAPIClient.h"
 					#import "Person+DataMapping.h"
 					
-					static NSString *const kAllPersonsPath = @"/persons";
-					static NSString *const kPostPersonPath = @"/persons";
-					static NSString *const kPutPersonPath = @"/persons";
-					static NSString *const kDeletePersonPath = @"/persons/%@";
-					
 					@implementation Person (DataAccess)
+					
+					static NSString *const kAllPersonsPath = @"/persons";
 					
 					+ (void)allPersons:(void (^)(NSArray *persons, NSError *error))block
 					{
@@ -113,10 +128,12 @@ context "Generating Entities" {
 						}];
 					}
 					
-					- (void)post:(void (^)(Person *person, NSError *error))block
+					static NSString *const kCreatePath = @"/persons";
+					
+					- (void)create:(void (^)(Person *person, NSError *error))block
 					{
 						NSDictionary *elementDictionary = [self attributes];
-						[[PersonAPIClient sharedClient] POST:kPostPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+						[[PersonAPIClient sharedClient] POST:kCreatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 						{
 							Person *postedElement = responseObject;
 							if(block) {
@@ -130,10 +147,12 @@ context "Generating Entities" {
 						}];
 					}
 					
-					- (void)put:(void (^)(Person *person, NSError *error))block
+					static NSString *const kUpdatePath = @"/persons";
+					
+					- (void)update:(void (^)(Person *person, NSError *error))block
 					{
 						NSDictionary *elementDictionary = [self attributes];
-						[[PersonAPIClient sharedClient] PUT:kPutPersonPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+						[[PersonAPIClient sharedClient] PUT:kUpdatePath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
 						{
 							Person *postedElement = responseObject;
 							if(block) {
@@ -146,10 +165,12 @@ context "Generating Entities" {
 							}
 						}];
 					}
+					
+					static NSString *const kRemovePath = @"/persons/%@";
 					
 					- (void)remove:(void (^)(Person *person, NSError *error))block
 					{
-						NSString *urlString = [NSString stringWithFormat:kDeletePersonPath, self.id];
+						NSString *urlString = [NSString stringWithFormat:kRemovePath, self.id];
 						[[PersonAPIClient sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)
 						{
 							if(block) {
@@ -164,7 +185,7 @@ context "Generating Entities" {
 					}
 					
 					@end
-				'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)
+				'''.isGeneratedModuleFileFromModel("PersonDataSource", simpleDataSource)
 			}
 			
 		}
