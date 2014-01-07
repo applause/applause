@@ -26,4 +26,11 @@ class TypeExtensions {
 		}
 	}
 	
+	def isScalar(Attribute it) {
+		return switch type.name {
+			case "Bool": true
+			default: false
+		}
+	}
+	
 }

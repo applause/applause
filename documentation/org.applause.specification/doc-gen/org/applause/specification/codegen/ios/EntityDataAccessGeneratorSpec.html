@@ -163,7 +163,7 @@ static NSString *const kRemovePath = @&quot;/persons/%@&quot;;
 package org.applause.specification.codegen.ios
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.DataSource
 import org.applause.lang.applauseDsl.Model
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessHeaderFileCompiler
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessModuleFileCompiler
@@ -175,7 +175,6 @@ import org.jnario.runner.CreateWith
 
 import static org.hamcrest.CoreMatchers.*
 import static org.junit.Assert.*
-import org.applause.lang.applauseDsl.DataSource
 
 @InjectWith(ApplauseDslInjectorProvider)
 @CreateWith(typeof(ApplauseDslTestCreator))

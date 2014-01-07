@@ -95,6 +95,7 @@ entity Person {
 
 @interface Person : NSObject
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic) BOOL grownUp;
 @end</pre>
 </li><li><p id="Implementation_file" class="example notrun"><strong>Implementation file</strong></p>
 <pre class="prettyprint lang-spec linenums">
@@ -256,8 +257,10 @@ describe &quot;Entity Generator&quot; {
       
       val simplePersonEntity = '''
         datatype String
+        datatype Bool
         entity Person {
           String name
+          Bool grownUp
         }
       '''
       
@@ -270,6 +273,7 @@ describe &quot;Entity Generator&quot; {
           
           @interface Person : NSObject
           @property (nonatomic, strong) NSString *name;
+          @property (nonatomic) BOOL grownUp;
           @end
         '''.isGeneratedHeaderFileFromModel(&quot;Person&quot;, simplePersonEntity)
       }

@@ -66,4 +66,22 @@ public class TypeExtensions {
     }
     return _switchResult;
   }
+  
+  public boolean isScalar(final Attribute it) {
+    boolean _switchResult = false;
+    Type _type = it.getType();
+    String _name = _type.getName();
+    final String _switchValue = _name;
+    boolean _matched = false;
+    if (!_matched) {
+      if (Objects.equal(_switchValue,"Bool")) {
+        _matched=true;
+        _switchResult = true;
+      }
+    }
+    if (!_matched) {
+      _switchResult = false;
+    }
+    return _switchResult;
+  }
 }

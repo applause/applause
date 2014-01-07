@@ -69,14 +69,28 @@ public class EntityHeaderFileCompiler {
   
   public CharSequence compile(final Attribute it) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("@property (nonatomic, strong) ");
-    String _typeName = this._typeExtensions.typeName(it);
-    _builder.append(_typeName, "");
-    _builder.append(" *");
-    String _propertyName = this._entityClassExtensions.propertyName(it);
-    _builder.append(_propertyName, "");
-    _builder.append(";");
-    _builder.newLineIfNotEmpty();
+    {
+      boolean _isScalar = this._typeExtensions.isScalar(it);
+      if (_isScalar) {
+        _builder.append("@property (nonatomic) ");
+        String _typeName = this._typeExtensions.typeName(it);
+        _builder.append(_typeName, "");
+        _builder.append(" ");
+        String _propertyName = this._entityClassExtensions.propertyName(it);
+        _builder.append(_propertyName, "");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      } else {
+        _builder.append("@property (nonatomic, strong) ");
+        String _typeName_1 = this._typeExtensions.typeName(it);
+        _builder.append(_typeName_1, "");
+        _builder.append(" *");
+        String _propertyName_1 = this._entityClassExtensions.propertyName(it);
+        _builder.append(_propertyName_1, "");
+        _builder.append(";");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
 }
