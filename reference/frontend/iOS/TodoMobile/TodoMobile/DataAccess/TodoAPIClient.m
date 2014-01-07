@@ -23,10 +23,10 @@ static NSString *const kBaseUrl = @"http://localhost:2403";
 {
 	self = [super initWithBaseURL:url];
 	if (self) {
-//		AFJSONSerializer *responseSerializer = [AFJSONSerializer serializer];
-//		responseSerializer.readingOptions = NSJSONReadingAllowFragments;
-//		self.responseSerializer = responseSerializer;
-//		self.requestSerializer = [AFJSONSerializer serializer];
+		AFJSONResponseSerializer *responseSerializer = [AFJSONResponseSerializer serializer];
+		responseSerializer.readingOptions = NSJSONReadingAllowFragments;
+		self.responseSerializer = responseSerializer;
+		self.requestSerializer = [AFJSONRequestSerializer serializer];
 	}
 	return self;
 }

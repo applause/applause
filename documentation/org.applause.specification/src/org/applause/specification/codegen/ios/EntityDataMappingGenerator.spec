@@ -56,7 +56,7 @@ describe "Entity Data Mapping Generator" {
 		describe "Data Mapping Code" {
 			
 			val simplePersonEntity = '''
-				datatype String 
+				datatype String
 				entity Person {
 					String name
 				}
@@ -99,7 +99,11 @@ describe "Entity Data Mapping Generator" {
 					
 					- (NSDictionary *)attributes
 					{
-					
+						NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+						if (self.name != nil) {
+							attributes[@"name"] = self.name;
+						}
+						return attributes;
 					}
 					@end
 				'''.isGeneratedModuleFileFromModel("Person", simplePersonEntity)

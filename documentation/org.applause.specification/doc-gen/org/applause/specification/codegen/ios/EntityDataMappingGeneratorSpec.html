@@ -73,7 +73,11 @@ entity Person {
 
 - (NSDictionary *)attributes
 {
-
+  NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+  if (self.name != nil) {
+    attributes[@&quot;name&quot;] = self.name;
+  }
+  return attributes;
 }
 @end</pre>
 </li></ul>
@@ -141,7 +145,7 @@ describe &quot;Entity Data Mapping Generator&quot; {
     describe &quot;Data Mapping Code&quot; {
       
       val simplePersonEntity = '''
-        datatype String 
+        datatype String
         entity Person {
           String name
         }
@@ -184,7 +188,11 @@ describe &quot;Entity Data Mapping Generator&quot; {
           
           - (NSDictionary *)attributes
           {
-          
+            NSMutableDictionary *attributes = [[NSMutableDictionary alloc] init];
+            if (self.name != nil) {
+              attributes[@&quot;name&quot;] = self.name;
+            }
+            return attributes;
           }
           @end
         '''.isGeneratedModuleFileFromModel(&quot;Person&quot;, simplePersonEntity)
