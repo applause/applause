@@ -1,3 +1,17 @@
 package org.applause.specification.ui
 
 #User Interface DSL
+
+The user interface DSL in Applause is a domain specific language that allows you to describe user interfaces and how they connect to data. In particular, it supports:
+
+* specifying UI components and their properties
+* using those UI components to construct screens
+* describe different kinds of screens, such as list screens and detail screens
+* connect screens to datasources
+* describe how to connect UI components to datasources
+
+## Describing UI Components and Screens
+
+- "Screens": make up the visible UI of an app. They can be connected to data sources to acquire and display data.
+
+## Describing Data Binding
