@@ -12,6 +12,7 @@ import org.applause.lang.generator.ios.supportfiles.MainClassCompiler
 import org.applause.lang.generator.ios.supportfiles.PrecompiledHeaderCompiler
 import org.applause.lang.generator.ios.supportfiles.PlistCompiler
 import org.applause.lang.generator.ios.supportfiles.InfoPlistStringsCompiler
+import org.applause.lang.generator.ios.ui.ScreenCompiler
 
 class AppGenerator implements IGenerator {
 	
@@ -25,6 +26,8 @@ class AppGenerator implements IGenerator {
 	@Inject PlistCompiler plistCompiler
 	@Inject InfoPlistStringsCompiler infoPlistStringsCompiler
 	
+	@Inject ScreenCompiler screenCompiler
+	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		entityCompiler.doGenerate(resource, fsa)
 		apiClientCompiler.doGenerate(resource, fsa)
@@ -35,6 +38,8 @@ class AppGenerator implements IGenerator {
 		precompiledHeaderCompiler.doGenerate(resource, fsa)
 		plistCompiler.doGenerate(resource, fsa)
 		infoPlistStringsCompiler.doGenerate(resource, fsa)
+		
+		screenCompiler.doGenerate(resource, fsa)
 	}	
 	
 }

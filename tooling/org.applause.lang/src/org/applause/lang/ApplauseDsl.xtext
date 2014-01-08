@@ -201,6 +201,7 @@ UIComponentMemberCall:
 
 // -----------------------------------------
 // Expressions
+// TODO: implement a proper type system
 // -----------------------------------------
 
 Expression:
