@@ -99,6 +99,7 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         DataType dataType = (DataType)theEObject;
         T result = caseDataType(dataType);
         if (result == null) result = caseType(dataType);
+        if (result == null) result = caseUIComponentOrDataType(dataType);
         if (result == null) result = caseNamedElement(dataType);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -221,6 +222,131 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         Variable variable = (Variable)theEObject;
         T result = caseVariable(variable);
         if (result == null) result = caseUrlFragment(variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.SCREEN:
+      {
+        Screen screen = (Screen)theEObject;
+        T result = caseScreen(screen);
+        if (result == null) result = caseNamedElement(screen);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.SCREEN_SECTION:
+      {
+        ScreenSection screenSection = (ScreenSection)theEObject;
+        T result = caseScreenSection(screenSection);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.SCREEN_SECTION_ITEMS:
+      {
+        ScreenSectionItems screenSectionItems = (ScreenSectionItems)theEObject;
+        T result = caseScreenSectionItems(screenSectionItems);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.SCREEN_LIST_ITEM_CELL:
+      {
+        ScreenListItemCell screenListItemCell = (ScreenListItemCell)theEObject;
+        T result = caseScreenListItemCell(screenListItemCell);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.LIST_ITEM_CELL_DECLARATION:
+      {
+        ListItemCellDeclaration listItemCellDeclaration = (ListItemCellDeclaration)theEObject;
+        T result = caseListItemCellDeclaration(listItemCellDeclaration);
+        if (result == null) result = caseNamedElement(listItemCellDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_COMPONENT_DECLARATION:
+      {
+        UIComponentDeclaration uiComponentDeclaration = (UIComponentDeclaration)theEObject;
+        T result = caseUIComponentDeclaration(uiComponentDeclaration);
+        if (result == null) result = caseNamedElement(uiComponentDeclaration);
+        if (result == null) result = caseUIComponentOrDataType(uiComponentDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_COMPONENT_MEMBER_DECLARATION:
+      {
+        UIComponentMemberDeclaration uiComponentMemberDeclaration = (UIComponentMemberDeclaration)theEObject;
+        T result = caseUIComponentMemberDeclaration(uiComponentMemberDeclaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_COMPONENT_OR_DATA_TYPE:
+      {
+        UIComponentOrDataType uiComponentOrDataType = (UIComponentOrDataType)theEObject;
+        T result = caseUIComponentOrDataType(uiComponentOrDataType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.REST_METHOD_CALL:
+      {
+        RESTMethodCall restMethodCall = (RESTMethodCall)theEObject;
+        T result = caseRESTMethodCall(restMethodCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.DATA_SOURCE_CALL:
+      {
+        DataSourceCall dataSourceCall = (DataSourceCall)theEObject;
+        T result = caseDataSourceCall(dataSourceCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_COMPONENT_MEMBER_CONFIGURATION:
+      {
+        UIComponentMemberConfiguration uiComponentMemberConfiguration = (UIComponentMemberConfiguration)theEObject;
+        T result = caseUIComponentMemberConfiguration(uiComponentMemberConfiguration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_COMPONENT_MEMBER_CALL:
+      {
+        UIComponentMemberCall uiComponentMemberCall = (UIComponentMemberCall)theEObject;
+        T result = caseUIComponentMemberCall(uiComponentMemberCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.ENTITY_MEMBER_CALL:
+      {
+        EntityMemberCall entityMemberCall = (EntityMemberCall)theEObject;
+        T result = caseEntityMemberCall(entityMemberCall);
+        if (result == null) result = caseExpression(entityMemberCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.ENTITY_MEMBER_CALL_TAIL:
+      {
+        EntityMemberCallTail entityMemberCallTail = (EntityMemberCallTail)theEObject;
+        T result = caseEntityMemberCallTail(entityMemberCallTail);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.ATTRIBUTE_REFERENCE:
+      {
+        AttributeReference attributeReference = (AttributeReference)theEObject;
+        T result = caseAttributeReference(attributeReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.STRING_LITERAL:
+      {
+        StringLiteral stringLiteral = (StringLiteral)theEObject;
+        T result = caseStringLiteral(stringLiteral);
+        if (result == null) result = caseExpression(stringLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -544,6 +670,278 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseVariable(Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Screen</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Screen</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScreen(Screen object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Screen Section</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Screen Section</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScreenSection(ScreenSection object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Screen Section Items</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Screen Section Items</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScreenSectionItems(ScreenSectionItems object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Screen List Item Cell</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Screen List Item Cell</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseScreenListItemCell(ScreenListItemCell object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>List Item Cell Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>List Item Cell Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseListItemCellDeclaration(ListItemCellDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Component Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Component Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIComponentDeclaration(UIComponentDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Component Member Declaration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Component Member Declaration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIComponentMemberDeclaration(UIComponentMemberDeclaration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Component Or Data Type</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Component Or Data Type</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIComponentOrDataType(UIComponentOrDataType object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>REST Method Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>REST Method Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRESTMethodCall(RESTMethodCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Data Source Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Data Source Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDataSourceCall(DataSourceCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Component Member Configuration</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Component Member Configuration</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIComponentMemberConfiguration(UIComponentMemberConfiguration object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Component Member Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Component Member Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIComponentMemberCall(UIComponentMemberCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseExpression(Expression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Entity Member Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entity Member Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntityMemberCall(EntityMemberCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Entity Member Call Tail</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Entity Member Call Tail</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseEntityMemberCallTail(EntityMemberCallTail object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribute Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribute Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttributeReference(AttributeReference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Literal</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringLiteral(StringLiteral object)
   {
     return null;
   }

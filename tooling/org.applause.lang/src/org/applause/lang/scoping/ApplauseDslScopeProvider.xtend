@@ -3,6 +3,18 @@
  */
 package org.applause.lang.scoping
 
+import org.applause.lang.applauseDsl.DataType
+import org.applause.lang.applauseDsl.Entity
+import org.applause.lang.applauseDsl.EntityMemberCall
+import org.applause.lang.applauseDsl.RESTMethodCall
+import org.applause.lang.applauseDsl.ScreenListItemCell
+import org.applause.lang.applauseDsl.UIComponentDeclaration
+import org.applause.lang.applauseDsl.UIComponentMemberCall
+import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
+
+import static org.eclipse.xtext.scoping.Scopes.*
+
 /**
  * This class contains custom scoping description.
  * 
@@ -10,6 +22,46 @@ package org.applause.lang.scoping
  * on how and when to use it 
  *
  */
-class ApplauseDslScopeProvider extends org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider {
+class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
+	
+	def scope_RESTMethodCall_restMethod(RESTMethodCall ctx, EReference ref) {
+		scopeFor(ctx.datasource.datasource.methods)
+	}
+	
+	def scope_UIComponentMemberCall_component(ScreenListItemCell ctx, EReference ref) {
+		scopeFor(ctx.type.members)
+	}
+	
+	def scope_UIComponentMemberCall_member(UIComponentMemberCall ctx, EReference ref) {
+		val type = ctx.component.type
+		type.membersScope
+	}
+	
+	def private dispatch membersScope(UIComponentDeclaration type) {
+		scopeFor(type.members)
+	}
+	
+	def private dispatch membersScope(DataType type) {
+		null
+	}
 
+	def scope_EntityMemberCall_head(ScreenListItemCell ctx, EReference ref) {
+		val type = ctx.restMethod.datasource.datasource.resourceType
+		type.attributesScope
+	}
+	
+	def scope_EntityMemberCallTail_head(EntityMemberCall ctx, EReference ref) {
+		val type = ctx.head.type
+		type.attributesScope
+	}
+	
+	def private dispatch attributesScope(DataType type) {
+		null
+	}
+	
+	def private dispatch attributesScope(Entity entity) {
+		scopeFor(entity.attributes)
+	}
+	
+	
 }

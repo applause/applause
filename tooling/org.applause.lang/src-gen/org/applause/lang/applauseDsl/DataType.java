@@ -13,6 +13,6 @@ package org.applause.lang.applauseDsl;
  * @model
  * @generated
  */
-public interface DataType extends Type
+public interface DataType extends Type, UIComponentOrDataType
 {
 } // DataType

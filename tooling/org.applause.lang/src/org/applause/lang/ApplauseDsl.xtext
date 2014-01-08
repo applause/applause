@@ -7,7 +7,7 @@ Model:
 ;
 
 NamedElement:
-	Type | Platform | DataSource
+	Type | Platform | DataSource | Screen | UIComponentDeclaration | ListItemCellDeclaration
 ;
 
 // -----------------------------------------
@@ -18,8 +18,13 @@ Type:
 	DataType | Entity
 ;
 
+// HACK as suggested by Jan Köhnlein in per http://www.eclipse.org/forums/index.php/mv/msg/200409/639873/#msg_639873
+KeywordedID:
+	'title' | 'platform' | 'resource' | 'section' | 'abstract' | ID
+;
+
 DataType:
-	'datatype' name=ID	
+	'datatype' name=KeywordedID	
 ;
 
 Entity:
@@ -29,7 +34,7 @@ Entity:
 ;
 
 Attribute:
-	type=[Type]	(many?='[]')? name=ID
+	type=[Type]	(many?='[]')? name=KeywordedID
 ;
 
 // -----------------------------------------
@@ -67,7 +72,7 @@ DataSource:
 // (b) there always is just one data source access method with the same name for any given entity
 // IMO, (a) seems to be easier  
 DataSourceAccessMethod:
-	name=ID '(' (declaredParameters += Parameter (',' declaredParameters += Parameter)* )? ')' (returnsMany?='[]')? restSpecification=RESTSpecification 
+	name=KeywordedID '(' (declaredParameters += Parameter (',' declaredParameters += Parameter)* )? ')' (returnsMany?='[]')? restSpecification=RESTSpecification 
 ;
 
 RESTSpecification:
@@ -85,7 +90,7 @@ enum RESTVerb:
 ;
 
 Parameter:
-	type=[Type] name=ID	
+	type=[Type] name=KeywordedID	
 ;
 
 RESTURL:
@@ -116,4 +121,105 @@ Variable:
 
 QualifiedName:
 	ID ('.' ID)*
+;
+
+// -----------------------------------------
+// Screens
+// -----------------------------------------
+
+Screen:
+	'screen' kind=ScreenKind name=ID '{'
+		('title' '=' title=STRING)?
+		('datasource' '=' datasource=DataSourceCall)?
+		'sections' '{'
+			sections+=ScreenSection*
+		'}'
+	'}'
+;
+
+// TODO: this should later use a reflective approach just like we use for cells
+enum ScreenKind:
+	DefaultList | DefaultDetails
+;
+
+ScreenSection:
+	'section' '{'
+		('title' '=' title=STRING)?
+		('datasource' '=' datasource=DataSourceCall)?
+		items=ScreenSectionItems
+	'}'	
+;
+
+ScreenSectionItems: {ScreenSectionItems}
+	'items' '{'
+		items+=ScreenListItemCell*
+	'}'
+;
+
+ScreenListItemCell:
+	'cell' type=[ListItemCellDeclaration] 'foreach' restMethod=RESTMethodCall 'as' variable=ID '{'
+		configurations+=UIComponentMemberConfiguration*
+	'}'
+;
+
+ListItemCellDeclaration:
+	'listitemcell' name=ID '{'
+		members+=UIComponentMemberDeclaration*
+	'}'
+;
+
+UIComponentDeclaration:
+	'uicomponent' name=ID '{'
+		members+=UIComponentMemberDeclaration*	
+	'}'
+;
+
+UIComponentMemberDeclaration:
+	type=[UIComponentOrDataType] name=ID
+;
+
+UIComponentOrDataType:
+	UIComponentDeclaration | DataType
+;
+
+RESTMethodCall:
+	datasource=[DataSourceCall] '.' restMethod=[DataSourceAccessMethod] '(' /* TODO: add parameters */')'
+;
+
+DataSourceCall:
+	datasource=[DataSource] 'as' name=ID
+;
+
+UIComponentMemberConfiguration:
+	type=UIComponentMemberCall '=' value=Expression
+;
+
+UIComponentMemberCall:
+	component=[UIComponentMemberDeclaration]('.' member=[UIComponentMemberDeclaration])?
+;
+
+
+// -----------------------------------------
+// Expressions
+// TODO: implement a proper type system
+// -----------------------------------------
+
+Expression:
+	StringLiteral | EntityMemberCall
+;
+
+EntityMemberCall:
+	head=[Attribute] (tail=EntityMemberCallTail)?
+;
+
+EntityMemberCallTail:
+	'.' head=[Attribute] (tail=EntityMemberCallTail)?
+;
+
+AttributeReference:
+	value=[Attribute]
+;
+
+StringLiteral:
+	value=STRING
 ;

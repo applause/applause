@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Screens</title>
+<meta name="description" content="">
+<meta name="author" content="Jnario">
+
+<!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+<link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../../../css/bootstrap-responsive.min.css">
+<link rel="stylesheet" href="../../../../css/custom.css">
+<link rel="stylesheet" href="../../../../css/prettify.css">
+<script type="text/javascript" src="../../../../js/prettify.js"></script>
+<script type="text/javascript" src="../../../../js/lang-jnario.js"></script>
+<script type="text/javascript" src="../../../../js/jquery.js"></script>
+<script type="text/javascript" src="../../../../js/bootstrap-tab.js"></script>
+</head>
+
+<body onload="prettyPrint()">
+	<div class="container">
+		<div class="tabbable">
+			<div class="content">
+				<div class="page-header pending">
+					<h1>Screens</h1>
+					  <ul class="nav nav-tabs pull-right">
+					    <li class="active"><a href="#spec" data-toggle="tab">Spec</a></li>
+						<li><a href="#source" data-toggle="tab">Source</a></li>
+					  </ul>
+				</div>
+				<div class="row">
+					<div class="span12">
+						  <div class="tab-content">
+							  	<div class="tab-pane active" id="spec">
+<p>Screens represent a full screen UI in Applause.</p>
+<h3 class="exampleGroup pending"  id="Defining_Screens">Defining Screens</h3>
+<ul><li><p id="Simple_screens" class="example notrun"><strong>Simple screens</strong></p>
+<p>Screens can be defined using the <code>screen</code> keyword. A screen can either be a list screen or a details screen, which is indicated by either specifying <code>DefaultList</code> or <code>DefaultDetails</code>. Each screen is identified by its name, which needs to be unique.</p>
+<pre class="prettyprint lang-spec linenums">
+screen DefaultList PersonList {
+}
+screen DefaultDetails PersonDetails {
+}</pre>
+</li><li><p id="Screens_must_be_unique" class="example notrun"><strong>Screens must be unique</strong></p>
+<p>Screens must be unique. Currently, this means they must be unique across the board and <strong>cannot</strong> be namespaced.</p>
+<pre class="prettyprint lang-spec linenums">
+screen DefaultList PersonList {
+}
+screen DefaultList PersonList {
+}</pre>
+</li><li><p id="Screens_can_have_an_optional_title" class="example notrun"><strong>Screens can have an optional title</strong></p>
+<p>Screens can have an optional title, which will be displayed in the title area of a screen.</p>
+<pre class="prettyprint lang-spec linenums">
+screen DefaultList PersonList {
+  title = &quot;Persons&quot;
+}</pre>
+</li><li><p id="Screens_can_have_an_optional_data_source" class="example notrun"><strong>Screens can have an optional data source</strong></p>
+<p>Screens can be linked to a data source, which can then be used to fetch data to be displayed on the screen.</p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://localhost/persons
+  resource: Person
+}
+screen DefaultList PersonList {
+  title = &quot;Persons&quot;
+  datasource = PersonDataSource
+}</pre>
+</li></ul>
+							</div>
+						    <div class="tab-pane" id="source">
+						    	<h3>Screens.spec</h3>
+						    	<p>
+<pre class="prettyprint lang-spec linenums">
+package org.applause.specification.ui
+
+import com.google.inject.Inject
+import org.applause.specification.ApplauseDslInjectorProvider
+import org.applause.specification.ApplauseDslTestCreator
+import org.eclipse.xtext.junit4.InjectWith
+import org.jnario.runner.CreateWith
+
+/**
+ * Screens represent a full screen UI in Applause. 
+ */
+@InjectWith(ApplauseDslInjectorProvider)
+@CreateWith(typeof(ApplauseDslTestCreator))
+describe &quot;Screens&quot;{
+  
+  @Inject extension ScreensValidationTestHelper
+
+  describe &quot;Defining Screens&quot; {
+
+    /**
+     * Screens can be defined using the `screen` keyword. A screen can either be a list screen or a details screen,
+     * which is indicated by either specifying `DefaultList` or `DefaultDetails`. Each screen is identified by its name,
+     * which needs to be unique.
+     * @filter('''|.valid.*)
+     */
+    fact &quot;Simple screens&quot; {
+      '''
+        screen DefaultList PersonList {
+        }
+        screen DefaultDetails PersonDetails {
+        }
+      '''.validScreen
+    }
+    
+    /**
+     * Screens must be unique. Currently, this means they must be unique across the board and __cannot__
+     * be namespaced.
+     * @filter('''|.hasDuplicateScreen)
+     */
+    fact &quot;Screens must be unique&quot; {
+      '''
+        screen DefaultList PersonList {
+        }
+        screen DefaultList PersonList {
+        }
+      '''.hasDuplicateScreen
+    }
+    
+    /**
+     * Screens can have an optional title, which will be displayed in the title area of a screen.
+     * @filter('''|.hasTitle.*)
+     */
+    fact &quot;Screens can have an optional title&quot; {
+      '''
+        screen DefaultList PersonList {
+          title = &quot;Persons&quot;
+        }
+      '''.hasTitle(&quot;Person&quot;)      
+    }
+    
+    /**
+     * Screens can be linked to a data source, which can then be used to fetch data to be displayed on the screen.
+     * @filter('''|hasDataSource.*)
+     */
+    fact &quot;Screens can have an optional data source&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://localhost/persons
+          resource: Person
+        }
+        screen DefaultList PersonList {
+          title = &quot;Persons&quot;
+          datasource = PersonDataSource
+        }
+      '''.hasDataSource      
+    }
+  }
+
+}
+</pre>
+						    </p></div>
+						  </div>
+					</div> 
+				</div> <!-- /row -->
+			</div> <!-- /content -->
+		</div> <!-- /tabbable -->
+		<footer>
+			<p><small>Generated by <a href="http://www.jnario.org">Jnario</a>.</small></p>
+		</footer>
+	</div> <!-- /container -->
+
+</body>
+</html>

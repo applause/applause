@@ -10,7 +10,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type" eSuperTypes="#//NamedElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="DataType" eSuperTypes="#//Type"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DataType" eSuperTypes="#//Type #//UIComponentOrDataType"/>
   <eClassifiers xsi:type="ecore:EClass" name="Entity" eSuperTypes="#//Type">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="superType" eType="#//Entity"/>
@@ -82,5 +82,84 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Variable" eSuperTypes="#//UrlFragment">
     <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReference" eType="#//Parameter"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ScreenKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSourceCall"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+        eType="#//ScreenSection" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ScreenKind">
+    <eLiterals name="DefaultList" literal="DefaultList"/>
+    <eLiterals name="DefaultDetails" value="1" literal="DefaultDetails"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScreenSection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSourceCall"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" eType="#//ScreenSectionItems"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScreenSectionItems">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//ScreenListItemCell" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScreenListItemCell">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ListItemCellDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restMethod" eType="#//RESTMethodCall"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
+        eType="#//UIComponentMemberConfiguration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItemCellDeclaration" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//UIComponentMemberDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIComponentDeclaration" eSuperTypes="#//NamedElement #//UIComponentOrDataType">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"
+        eType="#//UIComponentMemberDeclaration" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIComponentMemberDeclaration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//UIComponentOrDataType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIComponentOrDataType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RESTMethodCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSourceCall"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="restMethod" eType="#//DataSourceAccessMethod"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DataSourceCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSource"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIComponentMemberConfiguration">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//UIComponentMemberCall"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIComponentMemberCall">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" eType="#//UIComponentMemberDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="member" eType="#//UIComponentMemberDeclaration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityMemberCall" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tail" eType="#//EntityMemberCallTail"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EntityMemberCallTail">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="head" eType="#//Attribute"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tail" eType="#//EntityMemberCallTail"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AttributeReference">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Attribute"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringLiteral" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
 </ecore:EPackage>

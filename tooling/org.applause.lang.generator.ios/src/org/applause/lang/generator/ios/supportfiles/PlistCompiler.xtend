@@ -9,10 +9,10 @@ import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
 
 class PlistCompiler implements ICompilerModule {
 	
-	@Inject extension MainClassModuleFileCompiler
+	@Inject extension PlistFileCompiler
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
-		fsa.generateFile('Application-Info.plist', IOS_OUTPUT_SUPPORTFILES, compileModuleFile)
+		fsa.generateFile('Application-Info.plist', IOS_OUTPUT_SUPPORTFILES, compilePlistFile)
 	}
 	
 }

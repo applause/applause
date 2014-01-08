@@ -20,6 +20,8 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
   
   public final static String IOS_OUTPUT_SUPPORTFILES_LOCALIZED_EN = "IOS_OUTPUT_SUPPORTFILES_LOCALIZED_EN";
   
+  public final static String IOS_OUTPUT_CONTROLLERS = "IOS_OUTPUT_CONTROLLERS";
+  
   public Set<OutputConfiguration> getOutputConfigurations() {
     Set<OutputConfiguration> _xblockexpression = null;
     {
@@ -88,7 +90,20 @@ public class IosOutputConfigurationProvider implements IOutputConfigurationProvi
         }
       };
       ObjectExtensions.<OutputConfiguration>operator_doubleArrow(localizedSupportFilesOutput, _function_4);
-      _xblockexpression = (Collections.<OutputConfiguration>unmodifiableSet(Sets.<OutputConfiguration>newHashSet(defaultOutput, modelsOutput, dataAccessOutput, supportFilesOutput, localizedSupportFilesOutput)));
+      OutputConfiguration _outputConfiguration_5 = new OutputConfiguration(IosOutputConfigurationProvider.IOS_OUTPUT_CONTROLLERS);
+      final OutputConfiguration contollerFilesOutput = _outputConfiguration_5;
+      final Procedure1<OutputConfiguration> _function_5 = new Procedure1<OutputConfiguration>() {
+        public void apply(final OutputConfiguration it) {
+          it.setDescription("iOS Localized Support Files Output Folder");
+          it.setOutputDirectory("../../$PROJECTNAME$-iOS/$PROJECTNAME$/Controllers");
+          it.setOverrideExistingResources(true);
+          it.setCreateOutputDirectory(true);
+          it.setCleanUpDerivedResources(true);
+          it.setSetDerivedProperty(true);
+        }
+      };
+      ObjectExtensions.<OutputConfiguration>operator_doubleArrow(contollerFilesOutput, _function_5);
+      _xblockexpression = (Collections.<OutputConfiguration>unmodifiableSet(Sets.<OutputConfiguration>newHashSet(defaultOutput, modelsOutput, dataAccessOutput, supportFilesOutput, localizedSupportFilesOutput, contollerFilesOutput)));
     }
     return _xblockexpression;
   }

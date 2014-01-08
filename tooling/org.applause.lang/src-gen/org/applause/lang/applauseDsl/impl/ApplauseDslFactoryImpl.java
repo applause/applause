@@ -85,6 +85,23 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.URL_FRAGMENT: return createUrlFragment();
       case ApplauseDslPackage.URL_PATH_FRAGMENT: return createUrlPathFragment();
       case ApplauseDslPackage.VARIABLE: return createVariable();
+      case ApplauseDslPackage.SCREEN: return createScreen();
+      case ApplauseDslPackage.SCREEN_SECTION: return createScreenSection();
+      case ApplauseDslPackage.SCREEN_SECTION_ITEMS: return createScreenSectionItems();
+      case ApplauseDslPackage.SCREEN_LIST_ITEM_CELL: return createScreenListItemCell();
+      case ApplauseDslPackage.LIST_ITEM_CELL_DECLARATION: return createListItemCellDeclaration();
+      case ApplauseDslPackage.UI_COMPONENT_DECLARATION: return createUIComponentDeclaration();
+      case ApplauseDslPackage.UI_COMPONENT_MEMBER_DECLARATION: return createUIComponentMemberDeclaration();
+      case ApplauseDslPackage.UI_COMPONENT_OR_DATA_TYPE: return createUIComponentOrDataType();
+      case ApplauseDslPackage.REST_METHOD_CALL: return createRESTMethodCall();
+      case ApplauseDslPackage.DATA_SOURCE_CALL: return createDataSourceCall();
+      case ApplauseDslPackage.UI_COMPONENT_MEMBER_CONFIGURATION: return createUIComponentMemberConfiguration();
+      case ApplauseDslPackage.UI_COMPONENT_MEMBER_CALL: return createUIComponentMemberCall();
+      case ApplauseDslPackage.EXPRESSION: return createExpression();
+      case ApplauseDslPackage.ENTITY_MEMBER_CALL: return createEntityMemberCall();
+      case ApplauseDslPackage.ENTITY_MEMBER_CALL_TAIL: return createEntityMemberCallTail();
+      case ApplauseDslPackage.ATTRIBUTE_REFERENCE: return createAttributeReference();
+      case ApplauseDslPackage.STRING_LITERAL: return createStringLiteral();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -102,6 +119,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     {
       case ApplauseDslPackage.REST_VERB:
         return createRESTVerbFromString(eDataType, initialValue);
+      case ApplauseDslPackage.SCREEN_KIND:
+        return createScreenKindFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -119,6 +138,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
     {
       case ApplauseDslPackage.REST_VERB:
         return convertRESTVerbToString(eDataType, instanceValue);
+      case ApplauseDslPackage.SCREEN_KIND:
+        return convertScreenKindToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -349,6 +370,193 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public Screen createScreen()
+  {
+    ScreenImpl screen = new ScreenImpl();
+    return screen;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ScreenSection createScreenSection()
+  {
+    ScreenSectionImpl screenSection = new ScreenSectionImpl();
+    return screenSection;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ScreenSectionItems createScreenSectionItems()
+  {
+    ScreenSectionItemsImpl screenSectionItems = new ScreenSectionItemsImpl();
+    return screenSectionItems;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ScreenListItemCell createScreenListItemCell()
+  {
+    ScreenListItemCellImpl screenListItemCell = new ScreenListItemCellImpl();
+    return screenListItemCell;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ListItemCellDeclaration createListItemCellDeclaration()
+  {
+    ListItemCellDeclarationImpl listItemCellDeclaration = new ListItemCellDeclarationImpl();
+    return listItemCellDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIComponentDeclaration createUIComponentDeclaration()
+  {
+    UIComponentDeclarationImpl uiComponentDeclaration = new UIComponentDeclarationImpl();
+    return uiComponentDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIComponentMemberDeclaration createUIComponentMemberDeclaration()
+  {
+    UIComponentMemberDeclarationImpl uiComponentMemberDeclaration = new UIComponentMemberDeclarationImpl();
+    return uiComponentMemberDeclaration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIComponentOrDataType createUIComponentOrDataType()
+  {
+    UIComponentOrDataTypeImpl uiComponentOrDataType = new UIComponentOrDataTypeImpl();
+    return uiComponentOrDataType;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RESTMethodCall createRESTMethodCall()
+  {
+    RESTMethodCallImpl restMethodCall = new RESTMethodCallImpl();
+    return restMethodCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DataSourceCall createDataSourceCall()
+  {
+    DataSourceCallImpl dataSourceCall = new DataSourceCallImpl();
+    return dataSourceCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIComponentMemberConfiguration createUIComponentMemberConfiguration()
+  {
+    UIComponentMemberConfigurationImpl uiComponentMemberConfiguration = new UIComponentMemberConfigurationImpl();
+    return uiComponentMemberConfiguration;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIComponentMemberCall createUIComponentMemberCall()
+  {
+    UIComponentMemberCallImpl uiComponentMemberCall = new UIComponentMemberCallImpl();
+    return uiComponentMemberCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression createExpression()
+  {
+    ExpressionImpl expression = new ExpressionImpl();
+    return expression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EntityMemberCall createEntityMemberCall()
+  {
+    EntityMemberCallImpl entityMemberCall = new EntityMemberCallImpl();
+    return entityMemberCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EntityMemberCallTail createEntityMemberCallTail()
+  {
+    EntityMemberCallTailImpl entityMemberCallTail = new EntityMemberCallTailImpl();
+    return entityMemberCallTail;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AttributeReference createAttributeReference()
+  {
+    AttributeReferenceImpl attributeReference = new AttributeReferenceImpl();
+    return attributeReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringLiteral createStringLiteral()
+  {
+    StringLiteralImpl stringLiteral = new StringLiteralImpl();
+    return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RESTVerb createRESTVerbFromString(EDataType eDataType, String initialValue)
   {
     RESTVerb result = RESTVerb.get(initialValue);
@@ -362,6 +570,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * @generated
    */
   public String convertRESTVerbToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ScreenKind createScreenKindFromString(EDataType eDataType, String initialValue)
+  {
+    ScreenKind result = ScreenKind.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertScreenKindToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

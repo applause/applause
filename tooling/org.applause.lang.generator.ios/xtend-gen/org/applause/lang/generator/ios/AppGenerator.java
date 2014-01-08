@@ -9,6 +9,7 @@ import org.applause.lang.generator.ios.supportfiles.InfoPlistStringsCompiler;
 import org.applause.lang.generator.ios.supportfiles.MainClassCompiler;
 import org.applause.lang.generator.ios.supportfiles.PlistCompiler;
 import org.applause.lang.generator.ios.supportfiles.PrecompiledHeaderCompiler;
+import org.applause.lang.generator.ios.ui.ScreenCompiler;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
@@ -39,6 +40,9 @@ public class AppGenerator implements IGenerator {
   @Inject
   private InfoPlistStringsCompiler infoPlistStringsCompiler;
   
+  @Inject
+  private ScreenCompiler screenCompiler;
+  
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     this.entityCompiler.doGenerate(resource, fsa);
     this.apiClientCompiler.doGenerate(resource, fsa);
@@ -48,5 +52,6 @@ public class AppGenerator implements IGenerator {
     this.precompiledHeaderCompiler.doGenerate(resource, fsa);
     this.plistCompiler.doGenerate(resource, fsa);
     this.infoPlistStringsCompiler.doGenerate(resource, fsa);
+    this.screenCompiler.doGenerate(resource, fsa);
   }
 }
