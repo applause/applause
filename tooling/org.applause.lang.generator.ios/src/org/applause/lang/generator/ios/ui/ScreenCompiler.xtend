@@ -9,13 +9,16 @@ import org.applause.lang.applauseDsl.ScreenKind
 
 class ScreenCompiler implements ICompilerModule {
 	
-	@Inject DefaultListScreenCompiler defaultListScreenCompiler 
+	@Inject DefaultListScreenCompiler defaultListScreenCompiler
+	@Inject DefaultDetailsScreenCompiler defaultDetailsScreenCompiler 
 	
 	override doGenerate(Resource resource, IFileSystemAccess fsa) {
 		resource.allContents.toIterable.filter(typeof(Screen)).forEach [
 			switch (kind) {
 				case ScreenKind.DEFAULT_LIST:
-					defaultListScreenCompiler.doGenerate(resource, fsa)
+					defaultListScreenCompiler.doGenerate(it, fsa)
+				case ScreenKind.DEFAULT_DETAILS:
+					defaultDetailsScreenCompiler.doGenerate(it, fsa)
 			}
 		]
 	}

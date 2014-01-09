@@ -62,9 +62,8 @@
     <eLiterals name="PUT" value="2" literal="PUT"/>
     <eLiterals name="DELETE" value="3" literal="DELETE"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter" eSuperTypes="#//ReferrableElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//Type"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="RESTURL">
     <eStructuralFeatures xsi:type="ecore:EReference" name="fragments" upperBound="-1"
@@ -85,6 +84,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Screen" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//ScreenKind"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameter" eType="#//Parameter"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="datasource" eType="#//DataSourceCall"
         containment="true"/>
@@ -110,9 +111,34 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ListItemCellDeclaration"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="restMethod" eType="#//RESTMethodCall"
         containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="variable" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//LoopVariable"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" upperBound="-1"
         eType="#//UIComponentMemberConfiguration" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//UIAction" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferrableElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LoopVariable" eSuperTypes="#//ReferrableElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UIAction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//UIActionKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//UIActionSpecification"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIActionSpecification"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UIActionNavigateAction" eSuperTypes="#//UIActionSpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="targetScreen" eType="#//Screen"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//ReferrableElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UIActionDeleteAction" eSuperTypes="#//UIActionSpecification"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="UIActionKind">
+    <eLiterals name="navigate" literal="navigate"/>
+    <eLiterals name="delete" value="1" literal="delete"/>
+    <eLiterals name="performaction" value="2" literal="performaction"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ListItemCellDeclaration" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="members" upperBound="-1"

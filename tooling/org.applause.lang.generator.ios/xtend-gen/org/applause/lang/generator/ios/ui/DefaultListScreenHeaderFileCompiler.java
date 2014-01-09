@@ -2,7 +2,7 @@ package org.applause.lang.generator.ios.ui;
 
 import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Screen;
-import org.applause.lang.generator.ios.ui.ScreenClassExtensions;
+import org.applause.lang.generator.ios.ui.DefaultListScreenClassExtensions;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
 
@@ -10,7 +10,7 @@ import org.eclipse.xtext.xbase.lib.Extension;
 public class DefaultListScreenHeaderFileCompiler {
   @Inject
   @Extension
-  private ScreenClassExtensions _screenClassExtensions;
+  private DefaultListScreenClassExtensions _defaultListScreenClassExtensions;
   
   public CharSequence compileHeader(final Screen it) {
     StringConcatenation _builder = new StringConcatenation();
@@ -18,7 +18,7 @@ public class DefaultListScreenHeaderFileCompiler {
     _builder.newLine();
     _builder.newLine();
     _builder.append("@interface ");
-    String _controllerClassName = this._screenClassExtensions.controllerClassName(it);
+    String _controllerClassName = this._defaultListScreenClassExtensions.controllerClassName(it);
     _builder.append(_controllerClassName, "");
     _builder.append(" : UITableViewController");
     _builder.newLineIfNotEmpty();

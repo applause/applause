@@ -15,6 +15,7 @@ import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.EntityMemberCall;
 import org.applause.lang.applauseDsl.EntityMemberCallTail;
 import org.applause.lang.applauseDsl.ListItemCellDeclaration;
+import org.applause.lang.applauseDsl.LoopVariable;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.Platform;
@@ -27,6 +28,9 @@ import org.applause.lang.applauseDsl.ScreenSection;
 import org.applause.lang.applauseDsl.ScreenSectionItems;
 import org.applause.lang.applauseDsl.StringLiteral;
 import org.applause.lang.applauseDsl.TypeMapping;
+import org.applause.lang.applauseDsl.UIAction;
+import org.applause.lang.applauseDsl.UIActionDeleteAction;
+import org.applause.lang.applauseDsl.UIActionNavigateAction;
 import org.applause.lang.applauseDsl.UIComponentDeclaration;
 import org.applause.lang.applauseDsl.UIComponentMemberCall;
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration;
@@ -135,6 +139,13 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case ApplauseDslPackage.LOOP_VARIABLE:
+				if(context == grammarAccess.getLoopVariableRule() ||
+				   context == grammarAccess.getReferrableElementRule()) {
+					sequence_LoopVariable(context, (LoopVariable) semanticObject); 
+					return; 
+				}
+				else break;
 			case ApplauseDslPackage.MODEL:
 				if(context == grammarAccess.getModelRule()) {
 					sequence_Model(context, (Model) semanticObject); 
@@ -142,7 +153,8 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 				}
 				else break;
 			case ApplauseDslPackage.PARAMETER:
-				if(context == grammarAccess.getParameterRule()) {
+				if(context == grammarAccess.getParameterRule() ||
+				   context == grammarAccess.getReferrableElementRule()) {
 					sequence_Parameter(context, (Parameter) semanticObject); 
 					return; 
 				}
@@ -209,6 +221,26 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 				if(context == grammarAccess.getPlatformMappingRule() ||
 				   context == grammarAccess.getTypeMappingRule()) {
 					sequence_TypeMapping(context, (TypeMapping) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.UI_ACTION:
+				if(context == grammarAccess.getUIActionRule()) {
+					sequence_UIAction(context, (UIAction) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.UI_ACTION_DELETE_ACTION:
+				if(context == grammarAccess.getUIActionDeleteActionRule() ||
+				   context == grammarAccess.getUIActionSpecificationRule()) {
+					sequence_UIActionDeleteAction(context, (UIActionDeleteAction) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION:
+				if(context == grammarAccess.getUIActionNavigateActionRule() ||
+				   context == grammarAccess.getUIActionSpecificationRule()) {
+					sequence_UIActionNavigateAction(context, (UIActionNavigateAction) semanticObject); 
 					return; 
 				}
 				else break;
@@ -397,6 +429,22 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_LoopVariable(EObject context, LoopVariable semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.REFERRABLE_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.REFERRABLE_ELEMENT__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLoopVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     elements+=NamedElement*
 	 */
 	protected void sequence_Model(EObject context, Model semanticObject) {
@@ -410,10 +458,10 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 */
 	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
 		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.REFERRABLE_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.REFERRABLE_ELEMENT__NAME));
 			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER__TYPE));
-			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER__NAME));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
@@ -471,7 +519,12 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (type=[ListItemCellDeclaration|ID] restMethod=RESTMethodCall variable=ID configurations+=UIComponentMemberConfiguration*)
+	 *     (
+	 *         type=[ListItemCellDeclaration|ID] 
+	 *         (restMethod=RESTMethodCall variable=LoopVariable)? 
+	 *         configurations+=UIComponentMemberConfiguration* 
+	 *         actions+=UIAction*
+	 *     )
 	 */
 	protected void sequence_ScreenListItemCell(EObject context, ScreenListItemCell semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -498,7 +551,14 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (kind=ScreenKind name=ID title=STRING? datasource=DataSourceCall? sections+=ScreenSection*)
+	 *     (
+	 *         kind=ScreenKind 
+	 *         name=ID 
+	 *         inputParameter=Parameter? 
+	 *         title=STRING? 
+	 *         datasource=DataSourceCall? 
+	 *         sections+=ScreenSection*
+	 *     )
 	 */
 	protected void sequence_Screen(EObject context, Screen semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -537,6 +597,33 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 		feeder.accept(grammarAccess.getTypeMappingAccess().getTypeDataTypeIDTerminalRuleCall_1_0_1(), semanticObject.getType());
 		feeder.accept(grammarAccess.getTypeMappingAccess().getSimpleNameIDTerminalRuleCall_3_0(), semanticObject.getSimpleName());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     {UIActionDeleteAction}
+	 */
+	protected void sequence_UIActionDeleteAction(EObject context, UIActionDeleteAction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (targetScreen=[Screen|ID] variable=[ReferrableElement|ID]?)
+	 */
+	protected void sequence_UIActionNavigateAction(EObject context, UIActionNavigateAction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (kind=UIActionKind title=STRING? icon=STRING? action=UIActionSpecification)
+	 */
+	protected void sequence_UIAction(EObject context, UIAction semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

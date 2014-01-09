@@ -128,7 +128,7 @@ QualifiedName:
 // -----------------------------------------
 
 Screen:
-	'screen' kind=ScreenKind name=ID '{'
+	'screen' kind=ScreenKind name=ID ('(' inputParameter=Parameter ')')? '{'
 		('title' '=' title=STRING)?
 		('datasource' '=' datasource=DataSourceCall)?
 		'sections' '{'
@@ -157,9 +157,46 @@ ScreenSectionItems: {ScreenSectionItems}
 ;
 
 ScreenListItemCell:
-	'cell' type=[ListItemCellDeclaration] 'foreach' restMethod=RESTMethodCall 'as' variable=ID '{'
+	'cell' type=[ListItemCellDeclaration] ('foreach' restMethod=RESTMethodCall 'as' variable=LoopVariable)? '{'
 		configurations+=UIComponentMemberConfiguration*
+		('actions' '{'
+			actions+=UIAction*
+		'}')?
 	'}'
+;
+
+ReferrableElement:
+	Parameter | LoopVariable
+;
+
+LoopVariable:
+	name=ID
+;
+
+UIAction:
+	kind=UIActionKind '{'
+		('title' '=' title=STRING)?
+		('icon' '=' icon=STRING)?
+		'action' '=' action=UIActionSpecification
+	'}'
+;
+
+UIActionSpecification:
+	UIActionNavigateAction | UIActionDeleteAction 
+;
+
+UIActionNavigateAction: {UIActionNavigateAction}
+	'navigate' targetScreen=[Screen] '(' (variable=[ReferrableElement])? ')'
+;
+
+UIActionDeleteAction: {UIActionDeleteAction}
+	'delete'
+;
+
+
+
+enum UIActionKind:
+	navigate | delete | performaction
 ;
 
 ListItemCellDeclaration:

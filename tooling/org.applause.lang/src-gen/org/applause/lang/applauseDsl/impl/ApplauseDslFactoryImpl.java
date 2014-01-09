@@ -89,6 +89,12 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.SCREEN_SECTION: return createScreenSection();
       case ApplauseDslPackage.SCREEN_SECTION_ITEMS: return createScreenSectionItems();
       case ApplauseDslPackage.SCREEN_LIST_ITEM_CELL: return createScreenListItemCell();
+      case ApplauseDslPackage.REFERRABLE_ELEMENT: return createReferrableElement();
+      case ApplauseDslPackage.LOOP_VARIABLE: return createLoopVariable();
+      case ApplauseDslPackage.UI_ACTION: return createUIAction();
+      case ApplauseDslPackage.UI_ACTION_SPECIFICATION: return createUIActionSpecification();
+      case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION: return createUIActionNavigateAction();
+      case ApplauseDslPackage.UI_ACTION_DELETE_ACTION: return createUIActionDeleteAction();
       case ApplauseDslPackage.LIST_ITEM_CELL_DECLARATION: return createListItemCellDeclaration();
       case ApplauseDslPackage.UI_COMPONENT_DECLARATION: return createUIComponentDeclaration();
       case ApplauseDslPackage.UI_COMPONENT_MEMBER_DECLARATION: return createUIComponentMemberDeclaration();
@@ -121,6 +127,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return createRESTVerbFromString(eDataType, initialValue);
       case ApplauseDslPackage.SCREEN_KIND:
         return createScreenKindFromString(eDataType, initialValue);
+      case ApplauseDslPackage.UI_ACTION_KIND:
+        return createUIActionKindFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -140,6 +148,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return convertRESTVerbToString(eDataType, instanceValue);
       case ApplauseDslPackage.SCREEN_KIND:
         return convertScreenKindToString(eDataType, instanceValue);
+      case ApplauseDslPackage.UI_ACTION_KIND:
+        return convertUIActionKindToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -414,6 +424,72 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ReferrableElement createReferrableElement()
+  {
+    ReferrableElementImpl referrableElement = new ReferrableElementImpl();
+    return referrableElement;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LoopVariable createLoopVariable()
+  {
+    LoopVariableImpl loopVariable = new LoopVariableImpl();
+    return loopVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIAction createUIAction()
+  {
+    UIActionImpl uiAction = new UIActionImpl();
+    return uiAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIActionSpecification createUIActionSpecification()
+  {
+    UIActionSpecificationImpl uiActionSpecification = new UIActionSpecificationImpl();
+    return uiActionSpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIActionNavigateAction createUIActionNavigateAction()
+  {
+    UIActionNavigateActionImpl uiActionNavigateAction = new UIActionNavigateActionImpl();
+    return uiActionNavigateAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIActionDeleteAction createUIActionDeleteAction()
+  {
+    UIActionDeleteActionImpl uiActionDeleteAction = new UIActionDeleteActionImpl();
+    return uiActionDeleteAction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ListItemCellDeclaration createListItemCellDeclaration()
   {
     ListItemCellDeclarationImpl listItemCellDeclaration = new ListItemCellDeclarationImpl();
@@ -592,6 +668,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * @generated
    */
   public String convertScreenKindToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UIActionKind createUIActionKindFromString(EDataType eDataType, String initialValue)
+  {
+    UIActionKind result = UIActionKind.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertUIActionKindToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

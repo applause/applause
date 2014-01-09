@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.Screen#getInputParameter <em>Input Parameter</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getTitle <em>Title</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getDatasource <em>Datasource</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getSections <em>Sections</em>}</li>
@@ -53,6 +54,32 @@ public interface Screen extends NamedElement
    * @generated
    */
   void setKind(ScreenKind value);
+
+  /**
+   * Returns the value of the '<em><b>Input Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Input Parameter</em>' containment reference isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Input Parameter</em>' containment reference.
+   * @see #setInputParameter(Parameter)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getScreen_InputParameter()
+   * @model containment="true"
+   * @generated
+   */
+  Parameter getInputParameter();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.Screen#getInputParameter <em>Input Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Input Parameter</em>' containment reference.
+   * @see #getInputParameter()
+   * @generated
+   */
+  void setInputParameter(Parameter value);
 
   /**
    * Returns the value of the '<em><b>Title</b></em>' attribute.

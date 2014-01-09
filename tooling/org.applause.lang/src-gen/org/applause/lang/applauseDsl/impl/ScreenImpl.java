@@ -6,6 +6,7 @@ import java.util.Collection;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.DataSourceCall;
+import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.ScreenKind;
 import org.applause.lang.applauseDsl.ScreenSection;
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getKind <em>Kind</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getInputParameter <em>Input Parameter</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getDatasource <em>Datasource</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getSections <em>Sections</em>}</li>
@@ -60,6 +62,16 @@ public class ScreenImpl extends NamedElementImpl implements Screen
    * @ordered
    */
   protected ScreenKind kind = KIND_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getInputParameter() <em>Input Parameter</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getInputParameter()
+   * @generated
+   * @ordered
+   */
+  protected Parameter inputParameter;
 
   /**
    * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
@@ -143,6 +155,54 @@ public class ScreenImpl extends NamedElementImpl implements Screen
     kind = newKind == null ? KIND_EDEFAULT : newKind;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SCREEN__KIND, oldKind, kind));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Parameter getInputParameter()
+  {
+    return inputParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetInputParameter(Parameter newInputParameter, NotificationChain msgs)
+  {
+    Parameter oldInputParameter = inputParameter;
+    inputParameter = newInputParameter;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SCREEN__INPUT_PARAMETER, oldInputParameter, newInputParameter);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setInputParameter(Parameter newInputParameter)
+  {
+    if (newInputParameter != inputParameter)
+    {
+      NotificationChain msgs = null;
+      if (inputParameter != null)
+        msgs = ((InternalEObject)inputParameter).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SCREEN__INPUT_PARAMETER, null, msgs);
+      if (newInputParameter != null)
+        msgs = ((InternalEObject)newInputParameter).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - ApplauseDslPackage.SCREEN__INPUT_PARAMETER, null, msgs);
+      msgs = basicSetInputParameter(newInputParameter, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.SCREEN__INPUT_PARAMETER, newInputParameter, newInputParameter));
   }
 
   /**
@@ -240,6 +300,8 @@ public class ScreenImpl extends NamedElementImpl implements Screen
   {
     switch (featureID)
     {
+      case ApplauseDslPackage.SCREEN__INPUT_PARAMETER:
+        return basicSetInputParameter(null, msgs);
       case ApplauseDslPackage.SCREEN__DATASOURCE:
         return basicSetDatasource(null, msgs);
       case ApplauseDslPackage.SCREEN__SECTIONS:
@@ -260,6 +322,8 @@ public class ScreenImpl extends NamedElementImpl implements Screen
     {
       case ApplauseDslPackage.SCREEN__KIND:
         return getKind();
+      case ApplauseDslPackage.SCREEN__INPUT_PARAMETER:
+        return getInputParameter();
       case ApplauseDslPackage.SCREEN__TITLE:
         return getTitle();
       case ApplauseDslPackage.SCREEN__DATASOURCE:
@@ -283,6 +347,9 @@ public class ScreenImpl extends NamedElementImpl implements Screen
     {
       case ApplauseDslPackage.SCREEN__KIND:
         setKind((ScreenKind)newValue);
+        return;
+      case ApplauseDslPackage.SCREEN__INPUT_PARAMETER:
+        setInputParameter((Parameter)newValue);
         return;
       case ApplauseDslPackage.SCREEN__TITLE:
         setTitle((String)newValue);
@@ -311,6 +378,9 @@ public class ScreenImpl extends NamedElementImpl implements Screen
       case ApplauseDslPackage.SCREEN__KIND:
         setKind(KIND_EDEFAULT);
         return;
+      case ApplauseDslPackage.SCREEN__INPUT_PARAMETER:
+        setInputParameter((Parameter)null);
+        return;
       case ApplauseDslPackage.SCREEN__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
@@ -336,6 +406,8 @@ public class ScreenImpl extends NamedElementImpl implements Screen
     {
       case ApplauseDslPackage.SCREEN__KIND:
         return kind != KIND_EDEFAULT;
+      case ApplauseDslPackage.SCREEN__INPUT_PARAMETER:
+        return inputParameter != null;
       case ApplauseDslPackage.SCREEN__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case ApplauseDslPackage.SCREEN__DATASOURCE:

@@ -31,5 +31,4 @@ Export-Package: org.applause.lang,
  org.applause.lang.parser.antlr.internal,
  org.applause.lang.validation,
  org.applause.lang.scoping,
- org.applause.lang.formatting,
- org.applause.lang.generator
+ org.applause.lang.formatting

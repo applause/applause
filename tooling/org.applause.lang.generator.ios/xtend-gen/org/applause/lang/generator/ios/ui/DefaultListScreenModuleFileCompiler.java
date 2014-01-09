@@ -14,13 +14,17 @@ import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.ScreenListItemCell;
 import org.applause.lang.applauseDsl.ScreenSection;
 import org.applause.lang.applauseDsl.ScreenSectionItems;
+import org.applause.lang.applauseDsl.UIAction;
+import org.applause.lang.applauseDsl.UIActionKind;
+import org.applause.lang.applauseDsl.UIActionNavigateAction;
+import org.applause.lang.applauseDsl.UIActionSpecification;
 import org.applause.lang.applauseDsl.UIComponentMemberCall;
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration;
 import org.applause.lang.applauseDsl.UIComponentMemberDeclaration;
 import org.applause.lang.generator.ios.ExpressionExtensions;
 import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
 import org.applause.lang.generator.ios.model.TypeExtensions;
-import org.applause.lang.generator.ios.ui.ScreenClassExtensions;
+import org.applause.lang.generator.ios.ui.DefaultListScreenClassExtensions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -32,7 +36,7 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 public class DefaultListScreenModuleFileCompiler {
   @Inject
   @Extension
-  private ScreenClassExtensions _screenClassExtensions;
+  private DefaultListScreenClassExtensions _defaultListScreenClassExtensions;
   
   @Inject
   @Extension
@@ -112,7 +116,7 @@ public class DefaultListScreenModuleFileCompiler {
   public CharSequence compileModule(final Screen it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#import \"");
-    String _screenHeaderFileName = this._screenClassExtensions.screenHeaderFileName(it);
+    String _screenHeaderFileName = this._defaultListScreenClassExtensions.screenHeaderFileName(it);
     _builder.append(_screenHeaderFileName, "");
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
@@ -122,9 +126,15 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append(_entityDataAccessCategoryHeaderFileName, "");
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
+    _builder.append("#import \"");
+    Screen _targetNavigationScreen = this.targetNavigationScreen(it);
+    String _screenHeaderFileName_1 = this._defaultListScreenClassExtensions.screenHeaderFileName(_targetNavigationScreen);
+    _builder.append(_screenHeaderFileName_1, "");
+    _builder.append("\"");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("@interface ");
-    String _controllerClassName = this._screenClassExtensions.controllerClassName(it);
+    String _controllerClassName = this._defaultListScreenClassExtensions.controllerClassName(it);
     _builder.append(_controllerClassName, "");
     _builder.append(" ()");
     _builder.newLineIfNotEmpty();
@@ -134,7 +144,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.newLine();
     _builder.newLine();
     _builder.append("@implementation ");
-    String _controllerClassName_1 = this._screenClassExtensions.controllerClassName(it);
+    String _controllerClassName_1 = this._defaultListScreenClassExtensions.controllerClassName(it);
     _builder.append(_controllerClassName_1, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -265,6 +275,25 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("#pragma mark - Table view delegate");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath");
+    _builder.newLine();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    Entity _resourceType_3 = this.resourceType(it);
+    String _typeName_2 = this._typeExtensions.typeName(_resourceType_3);
+    _builder.append(_typeName_2, "	");
+    _builder.append(" *item = self.items[(NSUInteger) indexPath.row];");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("[self onEditItem:item];");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("#pragma mark - Data access");
     _builder.newLine();
     _builder.newLine();
@@ -284,9 +313,9 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[");
-    Entity _resourceType_3 = this.resourceType(it);
-    String _typeName_2 = this._typeExtensions.typeName(_resourceType_3);
-    _builder.append(_typeName_2, "	");
+    Entity _resourceType_4 = this.resourceType(it);
+    String _typeName_3 = this._typeExtensions.typeName(_resourceType_4);
+    _builder.append(_typeName_3, "	");
     _builder.append(" ");
     DataSourceAccessMethod _restMethod = this.restMethod(it);
     String _name = _restMethod.getName();
@@ -338,9 +367,62 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("}");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("#pragma mark - Actions");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("- (void)onEditItem:(");
+    Entity _resourceType_5 = this.resourceType(it);
+    String _typeName_4 = this._typeExtensions.typeName(_resourceType_5);
+    _builder.append(_typeName_4, "");
+    _builder.append(" *)item");
+    _builder.newLineIfNotEmpty();
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("[");
+    Screen _targetNavigationScreen_1 = this.targetNavigationScreen(it);
+    String _controllerClassName_2 = this._defaultListScreenClassExtensions.controllerClassName(_targetNavigationScreen_1);
+    _builder.append(_controllerClassName_2, "	");
+    _builder.append(" presentForEditingItem:item fromParent:self onDone:^(");
+    Entity _resourceType_6 = this.resourceType(it);
+    String _typeName_5 = this._typeExtensions.typeName(_resourceType_6);
+    _builder.append(_typeName_5, "	");
+    _builder.append(" *editedItem)");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("{");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("[self refresh];");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("}];");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.newLine();
     _builder.append("@end");
     _builder.newLine();
     return _builder;
+  }
+  
+  public Screen targetNavigationScreen(final Screen it) {
+    ScreenListItemCell _defaultCell = this.defaultCell(it);
+    EList<UIAction> _actions = _defaultCell.getActions();
+    final Function1<UIAction,Boolean> _function = new Function1<UIAction,Boolean>() {
+      public Boolean apply(final UIAction it) {
+        UIActionKind _kind = it.getKind();
+        boolean _equals = Objects.equal(_kind, UIActionKind.NAVIGATE);
+        return Boolean.valueOf(_equals);
+      }
+    };
+    Iterable<UIAction> _filter = IterableExtensions.<UIAction>filter(_actions, _function);
+    UIAction _head = IterableExtensions.<UIAction>head(_filter);
+    UIActionSpecification _action = _head.getAction();
+    Screen _targetScreen = ((UIActionNavigateAction) _action).getTargetScreen();
+    return _targetScreen;
   }
   
   public CharSequence compileConfiguration(final UIComponentMemberConfiguration it) {

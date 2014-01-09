@@ -176,6 +176,7 @@ public class ApplauseDslSwitch<T> extends Switch<T>
       {
         Parameter parameter = (Parameter)theEObject;
         T result = caseParameter(parameter);
+        if (result == null) result = caseReferrableElement(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -251,6 +252,51 @@ public class ApplauseDslSwitch<T> extends Switch<T>
       {
         ScreenListItemCell screenListItemCell = (ScreenListItemCell)theEObject;
         T result = caseScreenListItemCell(screenListItemCell);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.REFERRABLE_ELEMENT:
+      {
+        ReferrableElement referrableElement = (ReferrableElement)theEObject;
+        T result = caseReferrableElement(referrableElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.LOOP_VARIABLE:
+      {
+        LoopVariable loopVariable = (LoopVariable)theEObject;
+        T result = caseLoopVariable(loopVariable);
+        if (result == null) result = caseReferrableElement(loopVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_ACTION:
+      {
+        UIAction uiAction = (UIAction)theEObject;
+        T result = caseUIAction(uiAction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_ACTION_SPECIFICATION:
+      {
+        UIActionSpecification uiActionSpecification = (UIActionSpecification)theEObject;
+        T result = caseUIActionSpecification(uiActionSpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION:
+      {
+        UIActionNavigateAction uiActionNavigateAction = (UIActionNavigateAction)theEObject;
+        T result = caseUIActionNavigateAction(uiActionNavigateAction);
+        if (result == null) result = caseUIActionSpecification(uiActionNavigateAction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.UI_ACTION_DELETE_ACTION:
+      {
+        UIActionDeleteAction uiActionDeleteAction = (UIActionDeleteAction)theEObject;
+        T result = caseUIActionDeleteAction(uiActionDeleteAction);
+        if (result == null) result = caseUIActionSpecification(uiActionDeleteAction);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -734,6 +780,102 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseScreenListItemCell(ScreenListItemCell object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Referrable Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Referrable Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReferrableElement(ReferrableElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Loop Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Loop Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLoopVariable(LoopVariable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIAction(UIAction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Action Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Action Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIActionSpecification(UIActionSpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Action Navigate Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Action Navigate Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIActionNavigateAction(UIActionNavigateAction object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>UI Action Delete Action</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>UI Action Delete Action</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUIActionDeleteAction(UIActionDeleteAction object)
   {
     return null;
   }

@@ -14,6 +14,9 @@ import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
 import static org.eclipse.xtext.scoping.Scopes.*
+import org.eclipse.xtext.EcoreUtil2
+import com.google.inject.Inject
+import org.applause.lang.applauseDsl.Screen
 
 /**
  * This class contains custom scoping description.
@@ -44,14 +47,22 @@ class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
 	def private dispatch membersScope(DataType type) {
 		null
 	}
+	
+	def screen(ScreenListItemCell it) {
+		EcoreUtil2.getContainerOfType(it, typeof(Screen))
+	}
+	
+	def screen(EntityMemberCall it) {
+		EcoreUtil2.getContainerOfType(it, typeof(Screen))
+	}
 
 	def scope_EntityMemberCall_head(ScreenListItemCell ctx, EReference ref) {
-		val type = ctx.restMethod.datasource.datasource.resourceType
+		val type = ctx?.restMethod?.datasource?.datasource?.resourceType ?: ctx.screen.inputParameter.type
 		type.attributesScope
 	}
 	
 	def scope_EntityMemberCallTail_head(EntityMemberCall ctx, EReference ref) {
-		val type = ctx.head.type
+		val type = ctx.head.type ?: ctx.screen.inputParameter.type
 		type.attributesScope
 	}
 	

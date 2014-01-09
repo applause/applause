@@ -12,7 +12,9 @@ import org.applause.lang.applauseDsl.DataType;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.EntityMemberCall;
 import org.applause.lang.applauseDsl.ListItemCellDeclaration;
+import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.RESTMethodCall;
+import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.ScreenListItemCell;
 import org.applause.lang.applauseDsl.Type;
 import org.applause.lang.applauseDsl.UIComponentDeclaration;
@@ -22,9 +24,11 @@ import org.applause.lang.applauseDsl.UIComponentOrDataType;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.Scopes;
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider;
+import org.eclipse.xtext.xbase.lib.ObjectExtensions;
 
 /**
  * This class contains custom scoping description.
@@ -70,13 +74,45 @@ public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
     return null;
   }
   
+  public Screen screen(final ScreenListItemCell it) {
+    Screen _containerOfType = EcoreUtil2.<Screen>getContainerOfType(it, Screen.class);
+    return _containerOfType;
+  }
+  
+  public Screen screen(final EntityMemberCall it) {
+    Screen _containerOfType = EcoreUtil2.<Screen>getContainerOfType(it, Screen.class);
+    return _containerOfType;
+  }
+  
   public Object scope_EntityMemberCall_head(final ScreenListItemCell ctx, final EReference ref) {
     Object _xblockexpression = null;
     {
-      RESTMethodCall _restMethod = ctx.getRestMethod();
-      DataSourceCall _datasource = _restMethod.getDatasource();
-      DataSource _datasource_1 = _datasource.getDatasource();
-      final Entity type = _datasource_1.getResourceType();
+      Type _elvis = null;
+      RESTMethodCall _restMethod = null;
+      if (ctx!=null) {
+        _restMethod=ctx.getRestMethod();
+      }
+      DataSourceCall _datasource = null;
+      if (_restMethod!=null) {
+        _datasource=_restMethod.getDatasource();
+      }
+      DataSource _datasource_1 = null;
+      if (_datasource!=null) {
+        _datasource_1=_datasource.getDatasource();
+      }
+      Entity _resourceType = null;
+      if (_datasource_1!=null) {
+        _resourceType=_datasource_1.getResourceType();
+      }
+      if (_resourceType != null) {
+        _elvis = _resourceType;
+      } else {
+        Screen _screen = this.screen(ctx);
+        Parameter _inputParameter = _screen.getInputParameter();
+        Type _type = _inputParameter.getType();
+        _elvis = ObjectExtensions.<Type>operator_elvis(_resourceType, _type);
+      }
+      final Type type = _elvis;
       Object _attributesScope = this.attributesScope(type);
       _xblockexpression = (_attributesScope);
     }
@@ -86,8 +122,18 @@ public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
   public Object scope_EntityMemberCallTail_head(final EntityMemberCall ctx, final EReference ref) {
     Object _xblockexpression = null;
     {
+      Type _elvis = null;
       Attribute _head = ctx.getHead();
-      final Type type = _head.getType();
+      Type _type = _head.getType();
+      if (_type != null) {
+        _elvis = _type;
+      } else {
+        Screen _screen = this.screen(ctx);
+        Parameter _inputParameter = _screen.getInputParameter();
+        Type _type_1 = _inputParameter.getType();
+        _elvis = ObjectExtensions.<Type>operator_elvis(_type, _type_1);
+      }
+      final Type type = _elvis;
       Object _attributesScope = this.attributesScope(type);
       _xblockexpression = (_attributesScope);
     }

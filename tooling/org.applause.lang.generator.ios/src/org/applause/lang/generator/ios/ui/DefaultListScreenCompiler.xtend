@@ -2,51 +2,37 @@ package org.applause.lang.generator.ios.ui
 
 import com.google.inject.Inject
 import org.applause.lang.applauseDsl.Screen
+import org.applause.lang.applauseDsl.UIActionNavigateAction
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration
 import org.applause.lang.generator.ios.ExpressionExtensions
-import org.applause.lang.generator.ios.ICompilerModule
 import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions
 import org.applause.lang.generator.ios.model.TypeExtensions
-import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
+import org.applause.lang.applauseDsl.UIActionKind
 
-class DefaultListScreenCompiler implements ICompilerModule {
+class DefaultListScreenCompiler {
 	
 	@Inject extension DefaultListScreenHeaderFileCompiler
 	@Inject extension DefaultListScreenModuleFileCompiler
-	@Inject extension ScreenClassExtensions
+	@Inject extension DefaultListScreenClassExtensions
 	
-	override doGenerate(Resource resource, IFileSystemAccess fsa) {
-		resource.allContents.toIterable.filter(typeof(Screen)).forEach [
-			fsa.generateFile(it.screenHeaderFileName, IOS_OUTPUT_CONTROLLERS, it.compileHeader)
-			fsa.generateFile(it.screenModuleFileName, IOS_OUTPUT_CONTROLLERS, it.compileModule)
-		]
+	def doGenerate(Screen it, IFileSystemAccess fsa) {
+		fsa.generateFile(it.screenHeaderFileName, IOS_OUTPUT_CONTROLLERS, it.compileHeader)
+		fsa.generateFile(it.screenModuleFileName, IOS_OUTPUT_CONTROLLERS, it.compileModule)
 	}
 
 }
 
-class ScreenClassExtensions {
-	
-	def controllerClassName(Screen it) {
-		name + 'ViewController'
-	}
-	
-	def screenHeaderFileName(Screen it) {
-		controllerClassName + '.h'
-	}
-	
-	def screenModuleFileName(Screen it) {
-		controllerClassName + '.m'
-	}
+class DefaultListScreenClassExtensions extends ScreenClassExtensions {
 	
 }
 
 
 class DefaultListScreenHeaderFileCompiler {
 	
-	@Inject extension ScreenClassExtensions
+	@Inject extension DefaultListScreenClassExtensions
 	
 	def compileHeader(Screen it) '''
 		#import <UIKit/UIKit.h>
@@ -60,7 +46,7 @@ class DefaultListScreenHeaderFileCompiler {
 
 class DefaultListScreenModuleFileCompiler {
 	
-	@Inject extension ScreenClassExtensions
+	@Inject extension DefaultListScreenClassExtensions
 	@Inject extension TypeExtensions
 	@Inject extension ExpressionExtensions
 	@Inject extension DataAccessClassExtensions
@@ -84,6 +70,7 @@ class DefaultListScreenModuleFileCompiler {
 	def compileModule(Screen it) '''
 		#import "«screenHeaderFileName»"
 		#import "«resourceType.entityDataAccessCategoryHeaderFileName»"
+		#import "«targetNavigationScreen.screenHeaderFileName»"
 		
 		@interface «controllerClassName» ()
 		@property(nonatomic, strong) NSArray *items;		
@@ -142,6 +129,14 @@ class DefaultListScreenModuleFileCompiler {
 		    return cell;
 		}
 		
+		#pragma mark - Table view delegate
+		
+		- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+		{
+			«resourceType.typeName» *item = self.items[(NSUInteger) indexPath.row];
+			[self onEditItem:item];
+		}
+		
 		#pragma mark - Data access
 		
 		- (void)refresh
@@ -168,8 +163,24 @@ class DefaultListScreenModuleFileCompiler {
 			}];
 		}
 		
+		#pragma mark - Actions
+		
+		- (void)onEditItem:(«resourceType.typeName» *)item
+		{
+			[«targetNavigationScreen.controllerClassName» presentForEditingItem:item fromParent:self onDone:^(«resourceType.typeName» *editedItem)
+			{
+				[self refresh];
+			}];
+		
+		}
+		
+		
 		@end
 	'''
+	
+	def targetNavigationScreen(Screen it) {
+		(defaultCell.actions.filter[kind == UIActionKind.NAVIGATE].head.action as UIActionNavigateAction).targetScreen
+	}
 	
 	def compileConfiguration(UIComponentMemberConfiguration it) '''
 		cell.«type.component.name».«type.member.name» = item.«value.evaluateExpression»;
