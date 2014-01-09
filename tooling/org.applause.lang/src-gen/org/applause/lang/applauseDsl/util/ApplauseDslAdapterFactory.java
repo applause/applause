@@ -195,6 +195,36 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createScreenListItemCellAdapter();
       }
       @Override
+      public Adapter caseReferrableElement(ReferrableElement object)
+      {
+        return createReferrableElementAdapter();
+      }
+      @Override
+      public Adapter caseLoopVariable(LoopVariable object)
+      {
+        return createLoopVariableAdapter();
+      }
+      @Override
+      public Adapter caseUIAction(UIAction object)
+      {
+        return createUIActionAdapter();
+      }
+      @Override
+      public Adapter caseUIActionSpecification(UIActionSpecification object)
+      {
+        return createUIActionSpecificationAdapter();
+      }
+      @Override
+      public Adapter caseUIActionNavigateAction(UIActionNavigateAction object)
+      {
+        return createUIActionNavigateActionAdapter();
+      }
+      @Override
+      public Adapter caseUIActionDeleteAction(UIActionDeleteAction object)
+      {
+        return createUIActionDeleteActionAdapter();
+      }
+      @Override
       public Adapter caseListItemCellDeclaration(ListItemCellDeclaration object)
       {
         return createListItemCellDeclarationAdapter();
@@ -637,6 +667,96 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createScreenListItemCellAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ReferrableElement <em>Referrable Element</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ReferrableElement
+   * @generated
+   */
+  public Adapter createReferrableElementAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.LoopVariable <em>Loop Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.LoopVariable
+   * @generated
+   */
+  public Adapter createLoopVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIAction <em>UI Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIAction
+   * @generated
+   */
+  public Adapter createUIActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIActionSpecification <em>UI Action Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIActionSpecification
+   * @generated
+   */
+  public Adapter createUIActionSpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIActionNavigateAction <em>UI Action Navigate Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIActionNavigateAction
+   * @generated
+   */
+  public Adapter createUIActionNavigateActionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UIActionDeleteAction <em>UI Action Delete Action</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UIActionDeleteAction
+   * @generated
+   */
+  public Adapter createUIActionDeleteActionAdapter()
   {
     return null;
   }

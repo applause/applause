@@ -239,6 +239,60 @@ public interface ApplauseDslFactory extends EFactory
   ScreenListItemCell createScreenListItemCell();
 
   /**
+   * Returns a new object of class '<em>Referrable Element</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Referrable Element</em>'.
+   * @generated
+   */
+  ReferrableElement createReferrableElement();
+
+  /**
+   * Returns a new object of class '<em>Loop Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Loop Variable</em>'.
+   * @generated
+   */
+  LoopVariable createLoopVariable();
+
+  /**
+   * Returns a new object of class '<em>UI Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Action</em>'.
+   * @generated
+   */
+  UIAction createUIAction();
+
+  /**
+   * Returns a new object of class '<em>UI Action Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Action Specification</em>'.
+   * @generated
+   */
+  UIActionSpecification createUIActionSpecification();
+
+  /**
+   * Returns a new object of class '<em>UI Action Navigate Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Action Navigate Action</em>'.
+   * @generated
+   */
+  UIActionNavigateAction createUIActionNavigateAction();
+
+  /**
+   * Returns a new object of class '<em>UI Action Delete Action</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>UI Action Delete Action</em>'.
+   * @generated
+   */
+  UIActionDeleteAction createUIActionDeleteAction();
+
+  /**
    * Returns a new object of class '<em>List Item Cell Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

@@ -6,6 +6,7 @@ import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.ScreenKind;
 import org.applause.lang.generator.ios.ICompilerModule;
+import org.applause.lang.generator.ios.ui.DefaultDetailsScreenCompiler;
 import org.applause.lang.generator.ios.ui.DefaultListScreenCompiler;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.ecore.EObject;
@@ -20,6 +21,9 @@ public class ScreenCompiler implements ICompilerModule {
   @Inject
   private DefaultListScreenCompiler defaultListScreenCompiler;
   
+  @Inject
+  private DefaultDetailsScreenCompiler defaultDetailsScreenCompiler;
+  
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
     TreeIterator<EObject> _allContents = resource.getAllContents();
     Iterable<EObject> _iterable = IteratorExtensions.<EObject>toIterable(_allContents);
@@ -32,7 +36,13 @@ public class ScreenCompiler implements ICompilerModule {
         if (!_matched) {
           if (Objects.equal(getKind,ScreenKind.DEFAULT_LIST)) {
             _matched=true;
-            ScreenCompiler.this.defaultListScreenCompiler.doGenerate(resource, fsa);
+            ScreenCompiler.this.defaultListScreenCompiler.doGenerate(it, fsa);
+          }
+        }
+        if (!_matched) {
+          if (Objects.equal(getKind,ScreenKind.DEFAULT_DETAILS)) {
+            _matched=true;
+            ScreenCompiler.this.defaultDetailsScreenCompiler.doGenerate(it, fsa);
           }
         }
       }

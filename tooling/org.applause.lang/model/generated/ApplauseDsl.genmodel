@@ -17,6 +17,11 @@
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ScreenKind/DefaultList"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ScreenKind/DefaultDetails"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//UIActionKind">
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//UIActionKind/navigate"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//UIActionKind/delete"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//UIActionKind/performaction"/>
+    </genEnums>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/elements"/>
     </genClasses>
@@ -64,7 +69,6 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Parameter">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Parameter/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Parameter/name"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//RESTURL">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTURL/fragments"/>
@@ -83,6 +87,7 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Screen">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Screen/kind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/inputParameter"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Screen/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/datasource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/sections"/>
@@ -98,9 +103,26 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//ScreenListItemCell">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ScreenListItemCell/type"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ScreenListItemCell/restMethod"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ScreenListItemCell/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ScreenListItemCell/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ScreenListItemCell/configurations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ScreenListItemCell/actions"/>
     </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ReferrableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ReferrableElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//LoopVariable"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UIAction">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UIAction/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UIAction/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UIAction/icon"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIAction/action"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UIActionSpecification"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UIActionNavigateAction">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIActionNavigateAction/targetScreen"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIActionNavigateAction/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UIActionDeleteAction"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ListItemCellDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ListItemCellDeclaration/members"/>
     </genClasses>

@@ -548,6 +548,34 @@ public interface ApplauseDslPackage extends EPackage
   int DATA_SOURCE_BODY_SPECIFICATION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ReferrableElementImpl <em>Referrable Element</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.ReferrableElementImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getReferrableElement()
+   * @generated
+   */
+  int REFERRABLE_ELEMENT = 24;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERRABLE_ELEMENT__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Referrable Element</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int REFERRABLE_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ParameterImpl <em>Parameter</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -558,22 +586,22 @@ public interface ApplauseDslPackage extends EPackage
   int PARAMETER = 13;
 
   /**
-   * The feature id for the '<em><b>Type</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PARAMETER__TYPE = 0;
-
-  /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PARAMETER__NAME = 1;
+  int PARAMETER__NAME = REFERRABLE_ELEMENT__NAME;
+
+  /**
+   * The feature id for the '<em><b>Type</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PARAMETER__TYPE = REFERRABLE_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Parameter</em>' class.
@@ -582,7 +610,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PARAMETER_FEATURE_COUNT = 2;
+  int PARAMETER_FEATURE_COUNT = REFERRABLE_ELEMENT_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.RESTURLImpl <em>RESTURL</em>}' class.
@@ -790,13 +818,22 @@ public interface ApplauseDslPackage extends EPackage
   int SCREEN__KIND = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Input Parameter</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__INPUT_PARAMETER = NAMED_ELEMENT_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCREEN__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 1;
+  int SCREEN__TITLE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
    * The feature id for the '<em><b>Datasource</b></em>' containment reference.
@@ -805,7 +842,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCREEN__DATASOURCE = NAMED_ELEMENT_FEATURE_COUNT + 2;
+  int SCREEN__DATASOURCE = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
    * The feature id for the '<em><b>Sections</b></em>' containment reference list.
@@ -814,7 +851,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCREEN__SECTIONS = NAMED_ELEMENT_FEATURE_COUNT + 3;
+  int SCREEN__SECTIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
    * The number of structural features of the '<em>Screen</em>' class.
@@ -823,7 +860,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCREEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 4;
+  int SCREEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionImpl <em>Screen Section</em>}' class.
@@ -928,7 +965,7 @@ public interface ApplauseDslPackage extends EPackage
   int SCREEN_LIST_ITEM_CELL__REST_METHOD = 1;
 
   /**
-   * The feature id for the '<em><b>Variable</b></em>' attribute.
+   * The feature id for the '<em><b>Variable</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -946,13 +983,180 @@ public interface ApplauseDslPackage extends EPackage
   int SCREEN_LIST_ITEM_CELL__CONFIGURATIONS = 3;
 
   /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN_LIST_ITEM_CELL__ACTIONS = 4;
+
+  /**
    * The number of structural features of the '<em>Screen List Item Cell</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCREEN_LIST_ITEM_CELL_FEATURE_COUNT = 4;
+  int SCREEN_LIST_ITEM_CELL_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.LoopVariableImpl <em>Loop Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.LoopVariableImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getLoopVariable()
+   * @generated
+   */
+  int LOOP_VARIABLE = 25;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOOP_VARIABLE__NAME = REFERRABLE_ELEMENT__NAME;
+
+  /**
+   * The number of structural features of the '<em>Loop Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOOP_VARIABLE_FEATURE_COUNT = REFERRABLE_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIActionImpl <em>UI Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIActionImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIAction()
+   * @generated
+   */
+  int UI_ACTION = 26;
+
+  /**
+   * The feature id for the '<em><b>Kind</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION__KIND = 0;
+
+  /**
+   * The feature id for the '<em><b>Title</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION__TITLE = 1;
+
+  /**
+   * The feature id for the '<em><b>Icon</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION__ICON = 2;
+
+  /**
+   * The feature id for the '<em><b>Action</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION__ACTION = 3;
+
+  /**
+   * The number of structural features of the '<em>UI Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIActionSpecificationImpl <em>UI Action Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIActionSpecificationImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionSpecification()
+   * @generated
+   */
+  int UI_ACTION_SPECIFICATION = 27;
+
+  /**
+   * The number of structural features of the '<em>UI Action Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_SPECIFICATION_FEATURE_COUNT = 0;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl <em>UI Action Navigate Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionNavigateAction()
+   * @generated
+   */
+  int UI_ACTION_NAVIGATE_ACTION = 28;
+
+  /**
+   * The feature id for the '<em><b>Target Screen</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_NAVIGATE_ACTION__VARIABLE = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>UI Action Navigate Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_NAVIGATE_ACTION_FEATURE_COUNT = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIActionDeleteActionImpl <em>UI Action Delete Action</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.impl.UIActionDeleteActionImpl
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionDeleteAction()
+   * @generated
+   */
+  int UI_ACTION_DELETE_ACTION = 29;
+
+  /**
+   * The number of structural features of the '<em>UI Action Delete Action</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_DELETE_ACTION_FEATURE_COUNT = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ListItemCellDeclarationImpl <em>List Item Cell Declaration</em>}' class.
@@ -962,7 +1166,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getListItemCellDeclaration()
    * @generated
    */
-  int LIST_ITEM_CELL_DECLARATION = 24;
+  int LIST_ITEM_CELL_DECLARATION = 30;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -999,7 +1203,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentDeclaration()
    * @generated
    */
-  int UI_COMPONENT_DECLARATION = 25;
+  int UI_COMPONENT_DECLARATION = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1036,7 +1240,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberDeclaration()
    * @generated
    */
-  int UI_COMPONENT_MEMBER_DECLARATION = 26;
+  int UI_COMPONENT_MEMBER_DECLARATION = 32;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' reference.
@@ -1073,7 +1277,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentOrDataType()
    * @generated
    */
-  int UI_COMPONENT_OR_DATA_TYPE = 27;
+  int UI_COMPONENT_OR_DATA_TYPE = 33;
 
   /**
    * The number of structural features of the '<em>UI Component Or Data Type</em>' class.
@@ -1092,7 +1296,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTMethodCall()
    * @generated
    */
-  int REST_METHOD_CALL = 28;
+  int REST_METHOD_CALL = 34;
 
   /**
    * The feature id for the '<em><b>Datasource</b></em>' reference.
@@ -1129,7 +1333,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getDataSourceCall()
    * @generated
    */
-  int DATA_SOURCE_CALL = 29;
+  int DATA_SOURCE_CALL = 35;
 
   /**
    * The feature id for the '<em><b>Datasource</b></em>' reference.
@@ -1166,7 +1370,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberConfiguration()
    * @generated
    */
-  int UI_COMPONENT_MEMBER_CONFIGURATION = 30;
+  int UI_COMPONENT_MEMBER_CONFIGURATION = 36;
 
   /**
    * The feature id for the '<em><b>Type</b></em>' containment reference.
@@ -1203,7 +1407,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIComponentMemberCall()
    * @generated
    */
-  int UI_COMPONENT_MEMBER_CALL = 31;
+  int UI_COMPONENT_MEMBER_CALL = 37;
 
   /**
    * The feature id for the '<em><b>Component</b></em>' reference.
@@ -1240,7 +1444,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 32;
+  int EXPRESSION = 38;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -1259,7 +1463,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntityMemberCall()
    * @generated
    */
-  int ENTITY_MEMBER_CALL = 33;
+  int ENTITY_MEMBER_CALL = 39;
 
   /**
    * The feature id for the '<em><b>Head</b></em>' reference.
@@ -1296,7 +1500,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getEntityMemberCallTail()
    * @generated
    */
-  int ENTITY_MEMBER_CALL_TAIL = 34;
+  int ENTITY_MEMBER_CALL_TAIL = 40;
 
   /**
    * The feature id for the '<em><b>Head</b></em>' reference.
@@ -1333,7 +1537,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getAttributeReference()
    * @generated
    */
-  int ATTRIBUTE_REFERENCE = 35;
+  int ATTRIBUTE_REFERENCE = 41;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' reference.
@@ -1361,7 +1565,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getStringLiteral()
    * @generated
    */
-  int STRING_LITERAL = 36;
+  int STRING_LITERAL = 42;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1389,7 +1593,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getRESTVerb()
    * @generated
    */
-  int REST_VERB = 37;
+  int REST_VERB = 43;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.ScreenKind <em>Screen Kind</em>}' enum.
@@ -1399,7 +1603,17 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getScreenKind()
    * @generated
    */
-  int SCREEN_KIND = 38;
+  int SCREEN_KIND = 44;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.UIActionKind <em>UI Action Kind</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.UIActionKind
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionKind()
+   * @generated
+   */
+  int UI_ACTION_KIND = 45;
 
 
   /**
@@ -1796,17 +2010,6 @@ public interface ApplauseDslPackage extends EPackage
   EReference getParameter_Type();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Parameter#getName <em>Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.applause.lang.applauseDsl.Parameter#getName()
-   * @see #getParameter()
-   * @generated
-   */
-  EAttribute getParameter_Name();
-
-  /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.RESTURL <em>RESTURL</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1943,6 +2146,17 @@ public interface ApplauseDslPackage extends EPackage
   EAttribute getScreen_Kind();
 
   /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.Screen#getInputParameter <em>Input Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Input Parameter</em>'.
+   * @see org.applause.lang.applauseDsl.Screen#getInputParameter()
+   * @see #getScreen()
+   * @generated
+   */
+  EReference getScreen_InputParameter();
+
+  /**
    * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.Screen#getTitle <em>Title</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2072,15 +2286,15 @@ public interface ApplauseDslPackage extends EPackage
   EReference getScreenListItemCell_RestMethod();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getVariable <em>Variable</em>}'.
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getVariable <em>Variable</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Variable</em>'.
+   * @return the meta object for the containment reference '<em>Variable</em>'.
    * @see org.applause.lang.applauseDsl.ScreenListItemCell#getVariable()
    * @see #getScreenListItemCell()
    * @generated
    */
-  EAttribute getScreenListItemCell_Variable();
+  EReference getScreenListItemCell_Variable();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getConfigurations <em>Configurations</em>}'.
@@ -2092,6 +2306,154 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EReference getScreenListItemCell_Configurations();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.ScreenListItemCell#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.applause.lang.applauseDsl.ScreenListItemCell#getActions()
+   * @see #getScreenListItemCell()
+   * @generated
+   */
+  EReference getScreenListItemCell_Actions();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ReferrableElement <em>Referrable Element</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Referrable Element</em>'.
+   * @see org.applause.lang.applauseDsl.ReferrableElement
+   * @generated
+   */
+  EClass getReferrableElement();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.ReferrableElement#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.applause.lang.applauseDsl.ReferrableElement#getName()
+   * @see #getReferrableElement()
+   * @generated
+   */
+  EAttribute getReferrableElement_Name();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.LoopVariable <em>Loop Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Loop Variable</em>'.
+   * @see org.applause.lang.applauseDsl.LoopVariable
+   * @generated
+   */
+  EClass getLoopVariable();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIAction <em>UI Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Action</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction
+   * @generated
+   */
+  EClass getUIAction();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getKind <em>Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Kind</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction#getKind()
+   * @see #getUIAction()
+   * @generated
+   */
+  EAttribute getUIAction_Kind();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getTitle <em>Title</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Title</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction#getTitle()
+   * @see #getUIAction()
+   * @generated
+   */
+  EAttribute getUIAction_Title();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getIcon <em>Icon</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Icon</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction#getIcon()
+   * @see #getUIAction()
+   * @generated
+   */
+  EAttribute getUIAction_Icon();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.applause.lang.applauseDsl.UIAction#getAction <em>Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Action</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction#getAction()
+   * @see #getUIAction()
+   * @generated
+   */
+  EReference getUIAction_Action();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIActionSpecification <em>UI Action Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Action Specification</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionSpecification
+   * @generated
+   */
+  EClass getUIActionSpecification();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIActionNavigateAction <em>UI Action Navigate Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Action Navigate Action</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionNavigateAction
+   * @generated
+   */
+  EClass getUIActionNavigateAction();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getTargetScreen <em>Target Screen</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Target Screen</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionNavigateAction#getTargetScreen()
+   * @see #getUIActionNavigateAction()
+   * @generated
+   */
+  EReference getUIActionNavigateAction_TargetScreen();
+
+  /**
+   * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionNavigateAction#getVariable()
+   * @see #getUIActionNavigateAction()
+   * @generated
+   */
+  EReference getUIActionNavigateAction_Variable();
+
+  /**
+   * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIActionDeleteAction <em>UI Action Delete Action</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>UI Action Delete Action</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionDeleteAction
+   * @generated
+   */
+  EClass getUIActionDeleteAction();
 
   /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ListItemCellDeclaration <em>List Item Cell Declaration</em>}'.
@@ -2442,6 +2804,16 @@ public interface ApplauseDslPackage extends EPackage
   EEnum getScreenKind();
 
   /**
+   * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.UIActionKind <em>UI Action Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>UI Action Kind</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionKind
+   * @generated
+   */
+  EEnum getUIActionKind();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2789,14 +3161,6 @@ public interface ApplauseDslPackage extends EPackage
     EReference PARAMETER__TYPE = eINSTANCE.getParameter_Type();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute PARAMETER__NAME = eINSTANCE.getParameter_Name();
-
-    /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.RESTURLImpl <em>RESTURL</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2915,6 +3279,14 @@ public interface ApplauseDslPackage extends EPackage
     EAttribute SCREEN__KIND = eINSTANCE.getScreen_Kind();
 
     /**
+     * The meta object literal for the '<em><b>Input Parameter</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN__INPUT_PARAMETER = eINSTANCE.getScreen_InputParameter();
+
+    /**
      * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3017,12 +3389,12 @@ public interface ApplauseDslPackage extends EPackage
     EReference SCREEN_LIST_ITEM_CELL__REST_METHOD = eINSTANCE.getScreenListItemCell_RestMethod();
 
     /**
-     * The meta object literal for the '<em><b>Variable</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Variable</b></em>' containment reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute SCREEN_LIST_ITEM_CELL__VARIABLE = eINSTANCE.getScreenListItemCell_Variable();
+    EReference SCREEN_LIST_ITEM_CELL__VARIABLE = eINSTANCE.getScreenListItemCell_Variable();
 
     /**
      * The meta object literal for the '<em><b>Configurations</b></em>' containment reference list feature.
@@ -3031,6 +3403,130 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference SCREEN_LIST_ITEM_CELL__CONFIGURATIONS = eINSTANCE.getScreenListItemCell_Configurations();
+
+    /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN_LIST_ITEM_CELL__ACTIONS = eINSTANCE.getScreenListItemCell_Actions();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ReferrableElementImpl <em>Referrable Element</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.ReferrableElementImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getReferrableElement()
+     * @generated
+     */
+    EClass REFERRABLE_ELEMENT = eINSTANCE.getReferrableElement();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute REFERRABLE_ELEMENT__NAME = eINSTANCE.getReferrableElement_Name();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.LoopVariableImpl <em>Loop Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.LoopVariableImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getLoopVariable()
+     * @generated
+     */
+    EClass LOOP_VARIABLE = eINSTANCE.getLoopVariable();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIActionImpl <em>UI Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIActionImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIAction()
+     * @generated
+     */
+    EClass UI_ACTION = eINSTANCE.getUIAction();
+
+    /**
+     * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_ACTION__KIND = eINSTANCE.getUIAction_Kind();
+
+    /**
+     * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_ACTION__TITLE = eINSTANCE.getUIAction_Title();
+
+    /**
+     * The meta object literal for the '<em><b>Icon</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_ACTION__ICON = eINSTANCE.getUIAction_Icon();
+
+    /**
+     * The meta object literal for the '<em><b>Action</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_ACTION__ACTION = eINSTANCE.getUIAction_Action();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIActionSpecificationImpl <em>UI Action Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIActionSpecificationImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionSpecification()
+     * @generated
+     */
+    EClass UI_ACTION_SPECIFICATION = eINSTANCE.getUIActionSpecification();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl <em>UI Action Navigate Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionNavigateAction()
+     * @generated
+     */
+    EClass UI_ACTION_NAVIGATE_ACTION = eINSTANCE.getUIActionNavigateAction();
+
+    /**
+     * The meta object literal for the '<em><b>Target Screen</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN = eINSTANCE.getUIActionNavigateAction_TargetScreen();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference UI_ACTION_NAVIGATE_ACTION__VARIABLE = eINSTANCE.getUIActionNavigateAction_Variable();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIActionDeleteActionImpl <em>UI Action Delete Action</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.impl.UIActionDeleteActionImpl
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionDeleteAction()
+     * @generated
+     */
+    EClass UI_ACTION_DELETE_ACTION = eINSTANCE.getUIActionDeleteAction();
 
     /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ListItemCellDeclarationImpl <em>List Item Cell Declaration</em>}' class.
@@ -3325,6 +3821,16 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EEnum SCREEN_KIND = eINSTANCE.getScreenKind();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.UIActionKind <em>UI Action Kind</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.UIActionKind
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionKind()
+     * @generated
+     */
+    EEnum UI_ACTION_KIND = eINSTANCE.getUIActionKind();
 
   }
 
