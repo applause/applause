@@ -28,7 +28,7 @@
 
  For example, a JSON response serializer may check for an acceptable status code (`2XX` range) and content type (`application/json`), decoding a valid JSON response into an object.
  */
-@protocol AFURLResponseSerialization <NSCoding, NSCopying>
+@protocol AFURLResponseSerialization <NSObject, NSCoding, NSCopying>
 
 /**
  The response object decoded from the data associated with a specified response.
@@ -48,9 +48,9 @@
 #pragma mark -
 
 /**
- `AFHTTPSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
+ `AFHTTPResponseSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
 
- Any request or response serializer dealing with HTTP is encouraged to subclass `AFHTTPSerializer` in order to ensure consistent default behavior.
+ Any request or response serializer dealing with HTTP is encouraged to subclass `AFHTTPResponseSerializer` in order to ensure consistent default behavior.
  */
 @interface AFHTTPResponseSerializer : NSObject <AFURLResponseSerialization>
 
@@ -101,12 +101,13 @@
 
 
 /**
- `AFJSONSerializer` is a subclass of `AFHTTPSerializer` that validates and decodes JSON responses.
+ `AFJSONResponseSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes JSON responses.
 
- By default, `AFJSONSerializer` accepts the following MIME types, which includes the official standard, `application/json`, as well as other commonly-used types:
+ By default, `AFJSONResponseSerializer` accepts the following MIME types, which includes the official standard, `application/json`, as well as other commonly-used types:
 
  - `application/json`
  - `text/json`
+ - `text/javascript`
  */
 @interface AFJSONResponseSerializer : AFHTTPResponseSerializer
 
@@ -119,7 +120,6 @@
  Creates and returns a JSON serializer with specified reading and writing options.
 
  @param readingOptions The specified JSON reading options.
- @param writingOptions The specified JSON writing options.
  */
 + (instancetype)serializerWithReadingOptions:(NSJSONReadingOptions)readingOptions;
 
@@ -128,7 +128,7 @@
 #pragma mark -
 
 /**
- `AFXMLParserSerializer` is a subclass of `AFHTTPSerializer` that validates and decodes XML responses as an `NSXMLParser` objects.
+ `AFXMLParserSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLParser` objects.
 
  By default, `AFXMLParserSerializer` accepts the following MIME types, which includes the official standard, `application/xml`, as well as other commonly-used types:
 
@@ -144,7 +144,7 @@
 #ifdef __MAC_OS_X_VERSION_MIN_REQUIRED
 
 /**
- `AFXMLDocumentSerializer` is a subclass of `AFHTTPSerializer` that validates and decodes XML responses as an `NSXMLDocument` objects.
+ `AFXMLDocumentSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLDocument` objects.
 
  By default, `AFXMLDocumentSerializer` accepts the following MIME types, which includes the official standard, `application/xml`, as well as other commonly-used types:
 
@@ -172,7 +172,7 @@
 #pragma mark -
 
 /**
- `AFPropertyListSerializer` is a subclass of `AFHTTPSerializer` that validates and decodes XML responses as an `NSXMLDocument` objects.
+ `AFPropertyListSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes XML responses as an `NSXMLDocument` objects.
 
  By default, `AFPropertyListSerializer` accepts the following MIME types:
 
@@ -195,7 +195,6 @@
 
  @param format The property list format.
  @param readOptions The property list reading options.
- @param writeOptions The property list write options.
  */
 + (instancetype)serializerWithFormat:(NSPropertyListFormat)format
                          readOptions:(NSPropertyListReadOptions)readOptions;
@@ -205,7 +204,7 @@
 #pragma mark -
 
 /**
- `AFImageSerializer` is a subclass of `AFHTTPSerializer` that validates and decodes image responses.
+ `AFImageSerializer` is a subclass of `AFHTTPResponseSerializer` that validates and decodes image responses.
 
  By default, `AFImageSerializer` accepts the following MIME types, which correspond to the image formats supported by UIImage or NSImage:
 
@@ -239,7 +238,7 @@
 #pragma mark -
 
 /**
- `AFCompoundSerializer` is a subclass of `AFHTTPSerializer` that delegates the response serialization to the first `AFHTTPSerializer` object that returns `YES` to `validateResponse:data:error:`, falling back on the default behavior of `AFHTTPSerializer`. This is useful for supporting multiple potential types and structures of server responses with a single serializer.
+ `AFCompoundSerializer` is a subclass of `AFHTTPResponseSerializer` that delegates the response serialization to the first `AFHTTPResponseSerializer` object that returns `YES` to `validateResponse:data:error:`, falling back on the default behavior of `AFHTTPResponseSerializer`. This is useful for supporting multiple potential types and structures of server responses with a single serializer.
  */
 @interface AFCompoundResponseSerializer : AFHTTPResponseSerializer
 
@@ -251,7 +250,7 @@
 /**
  Creates and returns a compound serializer comprised of the specified response serializers.
 
- @warning Each response serializer specified must be a subclass of `AFHTTPSerializer`, and response to `-validateResponse:data:error:`.
+ @warning Each response serializer specified must be a subclass of `AFHTTPResponseSerializer`, and response to `-validateResponse:data:error:`.
  */
 + (instancetype)compoundSerializerWithResponseSerializers:(NSArray *)responseSerializers;
 

@@ -1,4 +1,4 @@
-// AFHTTPClient.m
+// AFHTTPRequestOperationManager.m
 //
 // Copyright (c) 2013 AFNetworking (http://afnetworking.com)
 //
@@ -40,7 +40,7 @@
 @implementation AFHTTPRequestOperationManager
 
 + (instancetype)manager {
-    return [[AFHTTPRequestOperationManager alloc] initWithBaseURL:nil];
+    return [[[self class] alloc] initWithBaseURL:nil];
 }
 
 - (instancetype)initWithBaseURL:(NSURL *)url {
@@ -56,16 +56,20 @@
 
     self.baseURL = url;
 
-    self.requestSerializer = [AFJSONRequestSerializer serializer];
-    self.responseSerializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[[AFJSONResponseSerializer serializer]]];
+    self.requestSerializer = [AFHTTPRequestSerializer serializer];
+    self.responseSerializer = [AFJSONResponseSerializer serializer];
 
     self.securityPolicy = [AFSecurityPolicy defaultPolicy];
 
-    if (self.baseURL) {
+    if (self.baseURL.host) {
         self.reachabilityManager = [AFNetworkReachabilityManager managerForDomain:self.baseURL.host];
     } else {
         self.reachabilityManager = [AFNetworkReachabilityManager sharedManager];
     }
+
+    [self.reachabilityManager startMonitoring];
+
+    self.operationQueue = [[NSOperationQueue alloc] init];
 
     return self;
 }
@@ -99,6 +103,9 @@
 {
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
     operation.responseSerializer = self.responseSerializer;
+    operation.shouldUseCredentialStorage = self.shouldUseCredentialStorage;
+    operation.credential = self.credential;
+    operation.securityPolicy = self.securityPolicy;
 
     [operation setCompletionBlockWithSuccess:success failure:failure];
 
@@ -198,24 +205,24 @@
 
 #pragma mark - NSCoding
 
-- (id)initWithCoder:(NSCoder *)aDecoder {
-    NSURL *baseURL = [aDecoder decodeObjectForKey:@"baseURL"];
+- (id)initWithCoder:(NSCoder *)decoder {
+    NSURL *baseURL = [decoder decodeObjectForKey:NSStringFromSelector(@selector(baseURL))];
 
     self = [self initWithBaseURL:baseURL];
     if (!self) {
         return nil;
     }
 
-    self.requestSerializer = [aDecoder decodeObjectForKey:@"requestSerializer"];
-    self.responseSerializer = [aDecoder decodeObjectForKey:@"responseSerializer"];
+    self.requestSerializer = [decoder decodeObjectForKey:NSStringFromSelector(@selector(requestSerializer))];
+    self.responseSerializer = [decoder decodeObjectForKey:NSStringFromSelector(@selector(responseSerializer))];
 
     return self;
 }
 
-- (void)encodeWithCoder:(NSCoder *)aCoder {
-    [aCoder encodeObject:self.baseURL forKey:@"baseURL"];
-    [aCoder encodeObject:self.requestSerializer forKey:@"requestSerializer"];
-    [aCoder encodeObject:self.responseSerializer forKey:@"responseSerializer"];
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [coder encodeObject:self.baseURL forKey:NSStringFromSelector(@selector(baseURL))];
+    [coder encodeObject:self.requestSerializer forKey:NSStringFromSelector(@selector(requestSerializer))];
+    [coder encodeObject:self.responseSerializer forKey:NSStringFromSelector(@selector(responseSerializer))];
 }
 
 #pragma mark - NSCopying

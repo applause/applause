@@ -30,7 +30,7 @@
 
  For example, a JSON request serializer may set the HTTP body of the request to a JSON representation, and set the `Content-Type` HTTP header field value to `application/json`.
  */
-@protocol AFURLRequestSerialization <NSCoding, NSCopying>
+@protocol AFURLRequestSerialization <NSObject, NSCoding, NSCopying>
 
 /**
  Returns a request with the specified parameters encoded into a copy of the original request.
@@ -59,9 +59,9 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 @protocol AFMultipartFormData;
 
 /**
- `AFHTTPSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
+ `AFHTTPRequestSerializer` conforms to the `AFURLRequestSerialization` & `AFURLResponseSerialization` protocols, offering a concrete base implementation of query string / URL form-encoded parameter serialization and default request headers, as well as response status code and content type validation.
 
- Any request or response serializer dealing with HTTP is encouraged to subclass `AFHTTPSerializer` in order to ensure consistent default behavior.
+ Any request or response serializer dealing with HTTP is encouraged to subclass `AFHTTPRequestSerializer` in order to ensure consistent default behavior.
  */
 @interface AFHTTPRequestSerializer : NSObject <AFURLRequestSerialization>
 
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 /**
  Sets the value for the HTTP headers set in request objects made by the HTTP client. If `nil`, removes the existing value for that header.
 
- @param header The HTTP header to set a default value for
+ @param field The HTTP header to set a default value for
  @param value The value set as default for the specified header, or `nil`
  */
 - (void)setValue:(NSString *)value forHTTPHeaderField:(NSString *)field;
@@ -135,7 +135,7 @@ typedef NS_ENUM(NSUInteger, AFHTTPRequestQueryStringSerializationStyle) {
 /**
  Set the a custom method of query string serialization according to the specified block.
 
- @param block A block that defines a process of encoding parameters into a query string. This block returns the query string and takes three arguments: the request, the parameters to encode, and the error that occured when attempting to encode parameters for the given request.
+ @param block A block that defines a process of encoding parameters into a query string. This block returns the query string and takes three arguments: the request, the parameters to encode, and the error that occurred when attempting to encode parameters for the given request.
  */
 - (void)setQueryStringSerializationWithBlock:(NSString * (^)(NSURLRequest *request, NSDictionary *parameters, NSError *__autoreleasing *error))block;
 
@@ -183,7 +183,7 @@ extern NSUInteger const kAFUploadStream3GSuggestedPacketSize;
 extern NSTimeInterval const kAFUploadStream3GSuggestedDelay;
 
 /**
- The `AFMultipartFormData` protocol defines the methods supported by the parameter in the block argument of `AFHTTPClient -multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:`.
+ The `AFMultipartFormData` protocol defines the methods supported by the parameter in the block argument of `AFHTTPRequestSerializer -multipartFormRequestWithMethod:URLString:parameters:constructingBodyWithBlock:`.
  */
 @protocol AFMultipartFormData
 
@@ -313,7 +313,6 @@ extern NSTimeInterval const kAFUploadStream3GSuggestedDelay;
 /**
  Creates and returns a JSON serializer with specified reading and writing options.
 
- @param readingOptions The specified JSON reading options.
  @param writingOptions The specified JSON writing options.
  */
 + (instancetype)serializerWithWritingOptions:(NSJSONWritingOptions)writingOptions;

@@ -71,7 +71,7 @@
         [[tableView cellForElement:weakSelf] setNeedsDisplay];
         [tableView deselectRowAtIndexPath:indexPath animated:YES];
     };
-    [controller displayViewController:textController withPresentationMode:self.presentationMode];
+    [controller displayViewControllerInPopover:textController withNavigation:NO];
 }
 
 - (void)fetchValueIntoObject:(id)obj
