@@ -12,10 +12,11 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.applause.lang.applauseDsl.UIAction#getKind <em>Kind</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.UIAction#getTitle <em>Title</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.UIAction#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.UIAction#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.UIAction#getGesture <em>Gesture</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.UIAction#getOrder <em>Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,35 +26,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UIAction extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Kind</b></em>' attribute.
-   * The literals are from the enumeration {@link org.applause.lang.applauseDsl.UIActionKind}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Kind</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Kind</em>' attribute.
-   * @see org.applause.lang.applauseDsl.UIActionKind
-   * @see #setKind(UIActionKind)
-   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getUIAction_Kind()
-   * @model
-   * @generated
-   */
-  UIActionKind getKind();
-
-  /**
-   * Sets the value of the '{@link org.applause.lang.applauseDsl.UIAction#getKind <em>Kind</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Kind</em>' attribute.
-   * @see org.applause.lang.applauseDsl.UIActionKind
-   * @see #getKind()
-   * @generated
-   */
-  void setKind(UIActionKind value);
-
   /**
    * Returns the value of the '<em><b>Title</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -131,5 +103,60 @@ public interface UIAction extends EObject
    * @generated
    */
   void setAction(UIActionSpecification value);
+
+  /**
+   * Returns the value of the '<em><b>Gesture</b></em>' attribute.
+   * The literals are from the enumeration {@link org.applause.lang.applauseDsl.GestureKind}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Gesture</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Gesture</em>' attribute.
+   * @see org.applause.lang.applauseDsl.GestureKind
+   * @see #setGesture(GestureKind)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getUIAction_Gesture()
+   * @model
+   * @generated
+   */
+  GestureKind getGesture();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.UIAction#getGesture <em>Gesture</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Gesture</em>' attribute.
+   * @see org.applause.lang.applauseDsl.GestureKind
+   * @see #getGesture()
+   * @generated
+   */
+  void setGesture(GestureKind value);
+
+  /**
+   * Returns the value of the '<em><b>Order</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Order</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Order</em>' attribute.
+   * @see #setOrder(int)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getUIAction_Order()
+   * @model
+   * @generated
+   */
+  int getOrder();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.UIAction#getOrder <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Order</em>' attribute.
+   * @see #getOrder()
+   * @generated
+   */
+  void setOrder(int value);
 
 } // UIAction

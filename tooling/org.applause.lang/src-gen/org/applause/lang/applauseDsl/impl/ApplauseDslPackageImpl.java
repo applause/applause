@@ -3,6 +3,7 @@
 package org.applause.lang.applauseDsl.impl;
 
 import org.applause.lang.applauseDsl.AbsoluteRESTURL;
+import org.applause.lang.applauseDsl.ActionVerb;
 import org.applause.lang.applauseDsl.ApplauseDslFactory;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
@@ -16,6 +17,7 @@ import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.EntityMemberCall;
 import org.applause.lang.applauseDsl.EntityMemberCallTail;
 import org.applause.lang.applauseDsl.Expression;
+import org.applause.lang.applauseDsl.GestureKind;
 import org.applause.lang.applauseDsl.ListItemCellDeclaration;
 import org.applause.lang.applauseDsl.LoopVariable;
 import org.applause.lang.applauseDsl.Model;
@@ -380,6 +382,20 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * @generated
    */
   private EEnum screenKindEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum gestureKindEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum actionVerbEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -996,6 +1012,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getScreen_Actions()
+  {
+    return (EReference)screenEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getScreenSection()
   {
     return screenSectionEClass;
@@ -1156,7 +1182,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUIAction_Kind()
+  public EAttribute getUIAction_Title()
   {
     return (EAttribute)uiActionEClass.getEStructuralFeatures().get(0);
   }
@@ -1166,7 +1192,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUIAction_Title()
+  public EAttribute getUIAction_Icon()
   {
     return (EAttribute)uiActionEClass.getEStructuralFeatures().get(1);
   }
@@ -1176,9 +1202,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUIAction_Icon()
+  public EReference getUIAction_Action()
   {
-    return (EAttribute)uiActionEClass.getEStructuralFeatures().get(2);
+    return (EReference)uiActionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1186,9 +1212,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getUIAction_Action()
+  public EAttribute getUIAction_Gesture()
   {
-    return (EReference)uiActionEClass.getEStructuralFeatures().get(3);
+    return (EAttribute)uiActionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUIAction_Order()
+  {
+    return (EAttribute)uiActionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1226,9 +1262,19 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getUIActionNavigateAction_ActionVerb()
+  {
+    return (EAttribute)uiActionNavigateActionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getUIActionNavigateAction_Variable()
   {
-    return (EReference)uiActionNavigateActionEClass.getEStructuralFeatures().get(1);
+    return (EReference)uiActionNavigateActionEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1576,6 +1622,26 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getGestureKind()
+  {
+    return gestureKindEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EEnum getActionVerb()
+  {
+    return actionVerbEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getUIActionKind()
   {
     return uiActionKindEEnum;
@@ -1685,6 +1751,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEAttribute(screenEClass, SCREEN__TITLE);
     createEReference(screenEClass, SCREEN__DATASOURCE);
     createEReference(screenEClass, SCREEN__SECTIONS);
+    createEReference(screenEClass, SCREEN__ACTIONS);
 
     screenSectionEClass = createEClass(SCREEN_SECTION);
     createEAttribute(screenSectionEClass, SCREEN_SECTION__TITLE);
@@ -1707,15 +1774,17 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     loopVariableEClass = createEClass(LOOP_VARIABLE);
 
     uiActionEClass = createEClass(UI_ACTION);
-    createEAttribute(uiActionEClass, UI_ACTION__KIND);
     createEAttribute(uiActionEClass, UI_ACTION__TITLE);
     createEAttribute(uiActionEClass, UI_ACTION__ICON);
     createEReference(uiActionEClass, UI_ACTION__ACTION);
+    createEAttribute(uiActionEClass, UI_ACTION__GESTURE);
+    createEAttribute(uiActionEClass, UI_ACTION__ORDER);
 
     uiActionSpecificationEClass = createEClass(UI_ACTION_SPECIFICATION);
 
     uiActionNavigateActionEClass = createEClass(UI_ACTION_NAVIGATE_ACTION);
     createEReference(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN);
+    createEAttribute(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__ACTION_VERB);
     createEReference(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__VARIABLE);
 
     uiActionDeleteActionEClass = createEClass(UI_ACTION_DELETE_ACTION);
@@ -1767,6 +1836,8 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     // Create enums
     restVerbEEnum = createEEnum(REST_VERB);
     screenKindEEnum = createEEnum(SCREEN_KIND);
+    gestureKindEEnum = createEEnum(GESTURE_KIND);
+    actionVerbEEnum = createEEnum(ACTION_VERB);
     uiActionKindEEnum = createEEnum(UI_ACTION_KIND);
   }
 
@@ -1896,6 +1967,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEAttribute(getScreen_Title(), ecorePackage.getEString(), "title", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScreen_Datasource(), this.getDataSourceCall(), null, "datasource", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScreen_Sections(), this.getScreenSection(), null, "sections", null, 0, -1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScreen_Actions(), this.getUIAction(), null, "actions", null, 0, -1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(screenSectionEClass, ScreenSection.class, "ScreenSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScreenSection_Title(), ecorePackage.getEString(), "title", null, 0, 1, ScreenSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1918,15 +1990,17 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEClass(loopVariableEClass, LoopVariable.class, "LoopVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(uiActionEClass, UIAction.class, "UIAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUIAction_Kind(), this.getUIActionKind(), "kind", null, 0, 1, UIAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUIAction_Title(), ecorePackage.getEString(), "title", null, 0, 1, UIAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getUIAction_Icon(), ecorePackage.getEString(), "icon", null, 0, 1, UIAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUIAction_Action(), this.getUIActionSpecification(), null, "action", null, 0, 1, UIAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUIAction_Gesture(), this.getGestureKind(), "gesture", null, 0, 1, UIAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUIAction_Order(), ecorePackage.getEInt(), "order", null, 0, 1, UIAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(uiActionSpecificationEClass, UIActionSpecification.class, "UIActionSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(uiActionNavigateActionEClass, UIActionNavigateAction.class, "UIActionNavigateAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUIActionNavigateAction_TargetScreen(), this.getScreen(), null, "targetScreen", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getUIActionNavigateAction_ActionVerb(), this.getActionVerb(), "actionVerb", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUIActionNavigateAction_Variable(), this.getReferrableElement(), null, "variable", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(uiActionDeleteActionEClass, UIActionDeleteAction.class, "UIActionDeleteAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1985,6 +2059,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEEnum(screenKindEEnum, ScreenKind.class, "ScreenKind");
     addEEnumLiteral(screenKindEEnum, ScreenKind.DEFAULT_LIST);
     addEEnumLiteral(screenKindEEnum, ScreenKind.DEFAULT_DETAILS);
+
+    initEEnum(gestureKindEEnum, GestureKind.class, "GestureKind");
+    addEEnumLiteral(gestureKindEEnum, GestureKind.TAP);
+    addEEnumLiteral(gestureKindEEnum, GestureKind.SWIPE);
+    addEEnumLiteral(gestureKindEEnum, GestureKind.LONGPRESS);
+
+    initEEnum(actionVerbEEnum, ActionVerb.class, "ActionVerb");
+    addEEnumLiteral(actionVerbEEnum, ActionVerb.EDIT);
+    addEEnumLiteral(actionVerbEEnum, ActionVerb.DISPLAY);
+    addEEnumLiteral(actionVerbEEnum, ActionVerb.ADD);
 
     initEEnum(uiActionKindEEnum, UIActionKind.class, "UIActionKind");
     addEEnumLiteral(uiActionKindEEnum, UIActionKind.NAVIGATE);

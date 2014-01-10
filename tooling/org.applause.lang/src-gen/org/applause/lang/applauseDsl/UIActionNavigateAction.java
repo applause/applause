@@ -12,6 +12,7 @@ package org.applause.lang.applauseDsl;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getTargetScreen <em>Target Screen</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getActionVerb <em>Action Verb</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getVariable <em>Variable</em>}</li>
  * </ul>
  * </p>
@@ -47,6 +48,35 @@ public interface UIActionNavigateAction extends UIActionSpecification
    * @generated
    */
   void setTargetScreen(Screen value);
+
+  /**
+   * Returns the value of the '<em><b>Action Verb</b></em>' attribute.
+   * The literals are from the enumeration {@link org.applause.lang.applauseDsl.ActionVerb}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Action Verb</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Action Verb</em>' attribute.
+   * @see org.applause.lang.applauseDsl.ActionVerb
+   * @see #setActionVerb(ActionVerb)
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getUIActionNavigateAction_ActionVerb()
+   * @model
+   * @generated
+   */
+  ActionVerb getActionVerb();
+
+  /**
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getActionVerb <em>Action Verb</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Action Verb</em>' attribute.
+   * @see org.applause.lang.applauseDsl.ActionVerb
+   * @see #getActionVerb()
+   * @generated
+   */
+  void setActionVerb(ActionVerb value);
 
   /**
    * Returns the value of the '<em><b>Variable</b></em>' reference.

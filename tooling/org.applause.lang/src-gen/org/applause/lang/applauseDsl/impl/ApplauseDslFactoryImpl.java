@@ -127,6 +127,10 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return createRESTVerbFromString(eDataType, initialValue);
       case ApplauseDslPackage.SCREEN_KIND:
         return createScreenKindFromString(eDataType, initialValue);
+      case ApplauseDslPackage.GESTURE_KIND:
+        return createGestureKindFromString(eDataType, initialValue);
+      case ApplauseDslPackage.ACTION_VERB:
+        return createActionVerbFromString(eDataType, initialValue);
       case ApplauseDslPackage.UI_ACTION_KIND:
         return createUIActionKindFromString(eDataType, initialValue);
       default:
@@ -148,6 +152,10 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return convertRESTVerbToString(eDataType, instanceValue);
       case ApplauseDslPackage.SCREEN_KIND:
         return convertScreenKindToString(eDataType, instanceValue);
+      case ApplauseDslPackage.GESTURE_KIND:
+        return convertGestureKindToString(eDataType, instanceValue);
+      case ApplauseDslPackage.ACTION_VERB:
+        return convertActionVerbToString(eDataType, instanceValue);
       case ApplauseDslPackage.UI_ACTION_KIND:
         return convertUIActionKindToString(eDataType, instanceValue);
       default:
@@ -668,6 +676,50 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * @generated
    */
   public String convertScreenKindToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GestureKind createGestureKindFromString(EDataType eDataType, String initialValue)
+  {
+    GestureKind result = GestureKind.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertGestureKindToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ActionVerb createActionVerbFromString(EDataType eDataType, String initialValue)
+  {
+    ActionVerb result = ActionVerb.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertActionVerbToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

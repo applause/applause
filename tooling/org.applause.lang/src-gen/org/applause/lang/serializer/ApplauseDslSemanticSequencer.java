@@ -557,7 +557,8 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         inputParameter=Parameter? 
 	 *         title=STRING? 
 	 *         datasource=DataSourceCall? 
-	 *         sections+=ScreenSection*
+	 *         sections+=ScreenSection* 
+	 *         actions+=UIAction*
 	 *     )
 	 */
 	protected void sequence_Screen(EObject context, Screen semanticObject) {
@@ -611,7 +612,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (targetScreen=[Screen|ID] variable=[ReferrableElement|ID]?)
+	 *     (targetScreen=[Screen|ID] actionVerb=ActionVerb variable=[ReferrableElement|ID]?)
 	 */
 	protected void sequence_UIActionNavigateAction(EObject context, UIActionNavigateAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -620,7 +621,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (kind=UIActionKind title=STRING? icon=STRING? action=UIActionSpecification)
+	 *     (title=STRING? icon=STRING? action=UIActionSpecification gesture=GestureKind? order=INT?)
 	 */
 	protected void sequence_UIAction(EObject context, UIAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

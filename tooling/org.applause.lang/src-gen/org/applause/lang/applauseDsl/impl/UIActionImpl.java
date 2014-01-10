@@ -3,8 +3,8 @@
 package org.applause.lang.applauseDsl.impl;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
+import org.applause.lang.applauseDsl.GestureKind;
 import org.applause.lang.applauseDsl.UIAction;
-import org.applause.lang.applauseDsl.UIActionKind;
 import org.applause.lang.applauseDsl.UIActionSpecification;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -23,10 +23,11 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionImpl#getKind <em>Kind</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionImpl#getTitle <em>Title</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionImpl#getIcon <em>Icon</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionImpl#getAction <em>Action</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionImpl#getGesture <em>Gesture</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionImpl#getOrder <em>Order</em>}</li>
  * </ul>
  * </p>
  *
@@ -34,26 +35,6 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  */
 public class UIActionImpl extends MinimalEObjectImpl.Container implements UIAction
 {
-  /**
-   * The default value of the '{@link #getKind() <em>Kind</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKind()
-   * @generated
-   * @ordered
-   */
-  protected static final UIActionKind KIND_EDEFAULT = UIActionKind.NAVIGATE;
-
-  /**
-   * The cached value of the '{@link #getKind() <em>Kind</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getKind()
-   * @generated
-   * @ordered
-   */
-  protected UIActionKind kind = KIND_EDEFAULT;
-
   /**
    * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -105,6 +86,46 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
   protected UIActionSpecification action;
 
   /**
+   * The default value of the '{@link #getGesture() <em>Gesture</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGesture()
+   * @generated
+   * @ordered
+   */
+  protected static final GestureKind GESTURE_EDEFAULT = GestureKind.TAP;
+
+  /**
+   * The cached value of the '{@link #getGesture() <em>Gesture</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getGesture()
+   * @generated
+   * @ordered
+   */
+  protected GestureKind gesture = GESTURE_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected static final int ORDER_EDEFAULT = 0;
+
+  /**
+   * The cached value of the '{@link #getOrder() <em>Order</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOrder()
+   * @generated
+   * @ordered
+   */
+  protected int order = ORDER_EDEFAULT;
+
+  /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
@@ -123,29 +144,6 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
   protected EClass eStaticClass()
   {
     return ApplauseDslPackage.Literals.UI_ACTION;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UIActionKind getKind()
-  {
-    return kind;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setKind(UIActionKind newKind)
-  {
-    UIActionKind oldKind = kind;
-    kind = newKind == null ? KIND_EDEFAULT : newKind;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.UI_ACTION__KIND, oldKind, kind));
   }
 
   /**
@@ -247,6 +245,52 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
    * <!-- end-user-doc -->
    * @generated
    */
+  public GestureKind getGesture()
+  {
+    return gesture;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setGesture(GestureKind newGesture)
+  {
+    GestureKind oldGesture = gesture;
+    gesture = newGesture == null ? GESTURE_EDEFAULT : newGesture;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.UI_ACTION__GESTURE, oldGesture, gesture));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public int getOrder()
+  {
+    return order;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setOrder(int newOrder)
+  {
+    int oldOrder = order;
+    order = newOrder;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.UI_ACTION__ORDER, oldOrder, order));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -268,14 +312,16 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.UI_ACTION__KIND:
-        return getKind();
       case ApplauseDslPackage.UI_ACTION__TITLE:
         return getTitle();
       case ApplauseDslPackage.UI_ACTION__ICON:
         return getIcon();
       case ApplauseDslPackage.UI_ACTION__ACTION:
         return getAction();
+      case ApplauseDslPackage.UI_ACTION__GESTURE:
+        return getGesture();
+      case ApplauseDslPackage.UI_ACTION__ORDER:
+        return getOrder();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -290,9 +336,6 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.UI_ACTION__KIND:
-        setKind((UIActionKind)newValue);
-        return;
       case ApplauseDslPackage.UI_ACTION__TITLE:
         setTitle((String)newValue);
         return;
@@ -301,6 +344,12 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
         return;
       case ApplauseDslPackage.UI_ACTION__ACTION:
         setAction((UIActionSpecification)newValue);
+        return;
+      case ApplauseDslPackage.UI_ACTION__GESTURE:
+        setGesture((GestureKind)newValue);
+        return;
+      case ApplauseDslPackage.UI_ACTION__ORDER:
+        setOrder((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -316,9 +365,6 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.UI_ACTION__KIND:
-        setKind(KIND_EDEFAULT);
-        return;
       case ApplauseDslPackage.UI_ACTION__TITLE:
         setTitle(TITLE_EDEFAULT);
         return;
@@ -327,6 +373,12 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
         return;
       case ApplauseDslPackage.UI_ACTION__ACTION:
         setAction((UIActionSpecification)null);
+        return;
+      case ApplauseDslPackage.UI_ACTION__GESTURE:
+        setGesture(GESTURE_EDEFAULT);
+        return;
+      case ApplauseDslPackage.UI_ACTION__ORDER:
+        setOrder(ORDER_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -342,14 +394,16 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
   {
     switch (featureID)
     {
-      case ApplauseDslPackage.UI_ACTION__KIND:
-        return kind != KIND_EDEFAULT;
       case ApplauseDslPackage.UI_ACTION__TITLE:
         return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
       case ApplauseDslPackage.UI_ACTION__ICON:
         return ICON_EDEFAULT == null ? icon != null : !ICON_EDEFAULT.equals(icon);
       case ApplauseDslPackage.UI_ACTION__ACTION:
         return action != null;
+      case ApplauseDslPackage.UI_ACTION__GESTURE:
+        return gesture != GESTURE_EDEFAULT;
+      case ApplauseDslPackage.UI_ACTION__ORDER:
+        return order != ORDER_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -365,12 +419,14 @@ public class UIActionImpl extends MinimalEObjectImpl.Container implements UIActi
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (kind: ");
-    result.append(kind);
-    result.append(", title: ");
+    result.append(" (title: ");
     result.append(title);
     result.append(", icon: ");
     result.append(icon);
+    result.append(", gesture: ");
+    result.append(gesture);
+    result.append(", order: ");
+    result.append(order);
     result.append(')');
     return result.toString();
   }

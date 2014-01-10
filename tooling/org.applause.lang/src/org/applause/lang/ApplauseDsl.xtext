@@ -134,6 +134,9 @@ Screen:
 		'sections' '{'
 			sections+=ScreenSection*
 		'}'
+		('actions' '{'
+			actions+=UIAction*
+		'}')?
 	'}'
 ;
 
@@ -174,11 +177,17 @@ LoopVariable:
 ;
 
 UIAction:
-	kind=UIActionKind '{'
+	'action' '{'
 		('title' '=' title=STRING)?
 		('icon' '=' icon=STRING)?
 		'action' '=' action=UIActionSpecification
+		('gesture' '=' gesture = GestureKind)?
+		('order' '=' order=INT)?
 	'}'
+;
+
+enum GestureKind:
+	tap | swipe | longpress
 ;
 
 UIActionSpecification:
@@ -186,14 +195,16 @@ UIActionSpecification:
 ;
 
 UIActionNavigateAction: {UIActionNavigateAction}
-	'navigate' targetScreen=[Screen] '(' (variable=[ReferrableElement])? ')'
+	targetScreen=[Screen] '.' actionVerb=ActionVerb '(' (variable=[ReferrableElement])? ')'
+;
+
+enum ActionVerb:
+	edit | display | add
 ;
 
 UIActionDeleteAction: {UIActionDeleteAction}
 	'delete'
 ;
-
-
 
 enum UIActionKind:
 	navigate | delete | performaction

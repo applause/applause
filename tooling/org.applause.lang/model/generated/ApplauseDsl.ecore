@@ -91,6 +91,8 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
         eType="#//ScreenSection" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actions" upperBound="-1"
+        eType="#//UIAction" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ScreenKind">
     <eLiterals name="DefaultList" literal="DefaultList"/>
@@ -123,16 +125,28 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="LoopVariable" eSuperTypes="#//ReferrableElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIAction">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" eType="#//UIActionKind"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="icon" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="action" eType="#//UIActionSpecification"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="gesture" eType="#//GestureKind"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="GestureKind">
+    <eLiterals name="tap" literal="tap"/>
+    <eLiterals name="swipe" value="1" literal="swipe"/>
+    <eLiterals name="longpress" value="2" literal="longpress"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIActionSpecification"/>
   <eClassifiers xsi:type="ecore:EClass" name="UIActionNavigateAction" eSuperTypes="#//UIActionSpecification">
     <eStructuralFeatures xsi:type="ecore:EReference" name="targetScreen" eType="#//Screen"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="actionVerb" eType="#//ActionVerb"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//ReferrableElement"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ActionVerb">
+    <eLiterals name="edit" literal="edit"/>
+    <eLiterals name="display" value="1" literal="display"/>
+    <eLiterals name="add" value="2" literal="add"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="UIActionDeleteAction" eSuperTypes="#//UIActionSpecification"/>
   <eClassifiers xsi:type="ecore:EEnum" name="UIActionKind">

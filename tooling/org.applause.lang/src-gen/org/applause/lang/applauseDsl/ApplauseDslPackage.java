@@ -854,13 +854,22 @@ public interface ApplauseDslPackage extends EPackage
   int SCREEN__SECTIONS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
+   * The feature id for the '<em><b>Actions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCREEN__ACTIONS = NAMED_ELEMENT_FEATURE_COUNT + 5;
+
+  /**
    * The number of structural features of the '<em>Screen</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCREEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
+  int SCREEN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionImpl <em>Screen Section</em>}' class.
@@ -1039,22 +1048,13 @@ public interface ApplauseDslPackage extends EPackage
   int UI_ACTION = 26;
 
   /**
-   * The feature id for the '<em><b>Kind</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UI_ACTION__KIND = 0;
-
-  /**
    * The feature id for the '<em><b>Title</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UI_ACTION__TITLE = 1;
+  int UI_ACTION__TITLE = 0;
 
   /**
    * The feature id for the '<em><b>Icon</b></em>' attribute.
@@ -1063,7 +1063,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UI_ACTION__ICON = 2;
+  int UI_ACTION__ICON = 1;
 
   /**
    * The feature id for the '<em><b>Action</b></em>' containment reference.
@@ -1072,7 +1072,25 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UI_ACTION__ACTION = 3;
+  int UI_ACTION__ACTION = 2;
+
+  /**
+   * The feature id for the '<em><b>Gesture</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION__GESTURE = 3;
+
+  /**
+   * The feature id for the '<em><b>Order</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION__ORDER = 4;
 
   /**
    * The number of structural features of the '<em>UI Action</em>' class.
@@ -1081,7 +1099,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UI_ACTION_FEATURE_COUNT = 4;
+  int UI_ACTION_FEATURE_COUNT = 5;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIActionSpecificationImpl <em>UI Action Specification</em>}' class.
@@ -1122,13 +1140,22 @@ public interface ApplauseDslPackage extends EPackage
   int UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Action Verb</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UI_ACTION_NAVIGATE_ACTION__ACTION_VERB = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 1;
+
+  /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int UI_ACTION_NAVIGATE_ACTION__VARIABLE = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 1;
+  int UI_ACTION_NAVIGATE_ACTION__VARIABLE = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 2;
 
   /**
    * The number of structural features of the '<em>UI Action Navigate Action</em>' class.
@@ -1137,7 +1164,7 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    * @ordered
    */
-  int UI_ACTION_NAVIGATE_ACTION_FEATURE_COUNT = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 2;
+  int UI_ACTION_NAVIGATE_ACTION_FEATURE_COUNT = UI_ACTION_SPECIFICATION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.impl.UIActionDeleteActionImpl <em>UI Action Delete Action</em>}' class.
@@ -1606,6 +1633,26 @@ public interface ApplauseDslPackage extends EPackage
   int SCREEN_KIND = 44;
 
   /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.GestureKind <em>Gesture Kind</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.GestureKind
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getGestureKind()
+   * @generated
+   */
+  int GESTURE_KIND = 45;
+
+  /**
+   * The meta object id for the '{@link org.applause.lang.applauseDsl.ActionVerb <em>Action Verb</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.applause.lang.applauseDsl.ActionVerb
+   * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getActionVerb()
+   * @generated
+   */
+  int ACTION_VERB = 46;
+
+  /**
    * The meta object id for the '{@link org.applause.lang.applauseDsl.UIActionKind <em>UI Action Kind</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1613,7 +1660,7 @@ public interface ApplauseDslPackage extends EPackage
    * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getUIActionKind()
    * @generated
    */
-  int UI_ACTION_KIND = 45;
+  int UI_ACTION_KIND = 47;
 
 
   /**
@@ -2190,6 +2237,17 @@ public interface ApplauseDslPackage extends EPackage
   EReference getScreen_Sections();
 
   /**
+   * Returns the meta object for the containment reference list '{@link org.applause.lang.applauseDsl.Screen#getActions <em>Actions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Actions</em>'.
+   * @see org.applause.lang.applauseDsl.Screen#getActions()
+   * @see #getScreen()
+   * @generated
+   */
+  EReference getScreen_Actions();
+
+  /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.ScreenSection <em>Screen Section</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2360,17 +2418,6 @@ public interface ApplauseDslPackage extends EPackage
   EClass getUIAction();
 
   /**
-   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getKind <em>Kind</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Kind</em>'.
-   * @see org.applause.lang.applauseDsl.UIAction#getKind()
-   * @see #getUIAction()
-   * @generated
-   */
-  EAttribute getUIAction_Kind();
-
-  /**
    * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getTitle <em>Title</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2404,6 +2451,28 @@ public interface ApplauseDslPackage extends EPackage
   EReference getUIAction_Action();
 
   /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getGesture <em>Gesture</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Gesture</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction#getGesture()
+   * @see #getUIAction()
+   * @generated
+   */
+  EAttribute getUIAction_Gesture();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIAction#getOrder <em>Order</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Order</em>'.
+   * @see org.applause.lang.applauseDsl.UIAction#getOrder()
+   * @see #getUIAction()
+   * @generated
+   */
+  EAttribute getUIAction_Order();
+
+  /**
    * Returns the meta object for class '{@link org.applause.lang.applauseDsl.UIActionSpecification <em>UI Action Specification</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2433,6 +2502,17 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EReference getUIActionNavigateAction_TargetScreen();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getActionVerb <em>Action Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Action Verb</em>'.
+   * @see org.applause.lang.applauseDsl.UIActionNavigateAction#getActionVerb()
+   * @see #getUIActionNavigateAction()
+   * @generated
+   */
+  EAttribute getUIActionNavigateAction_ActionVerb();
 
   /**
    * Returns the meta object for the reference '{@link org.applause.lang.applauseDsl.UIActionNavigateAction#getVariable <em>Variable</em>}'.
@@ -2802,6 +2882,26 @@ public interface ApplauseDslPackage extends EPackage
    * @generated
    */
   EEnum getScreenKind();
+
+  /**
+   * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.GestureKind <em>Gesture Kind</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Gesture Kind</em>'.
+   * @see org.applause.lang.applauseDsl.GestureKind
+   * @generated
+   */
+  EEnum getGestureKind();
+
+  /**
+   * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.ActionVerb <em>Action Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Action Verb</em>'.
+   * @see org.applause.lang.applauseDsl.ActionVerb
+   * @generated
+   */
+  EEnum getActionVerb();
 
   /**
    * Returns the meta object for enum '{@link org.applause.lang.applauseDsl.UIActionKind <em>UI Action Kind</em>}'.
@@ -3311,6 +3411,14 @@ public interface ApplauseDslPackage extends EPackage
     EReference SCREEN__SECTIONS = eINSTANCE.getScreen_Sections();
 
     /**
+     * The meta object literal for the '<em><b>Actions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCREEN__ACTIONS = eINSTANCE.getScreen_Actions();
+
+    /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.ScreenSectionImpl <em>Screen Section</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3451,14 +3559,6 @@ public interface ApplauseDslPackage extends EPackage
     EClass UI_ACTION = eINSTANCE.getUIAction();
 
     /**
-     * The meta object literal for the '<em><b>Kind</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute UI_ACTION__KIND = eINSTANCE.getUIAction_Kind();
-
-    /**
      * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -3481,6 +3581,22 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference UI_ACTION__ACTION = eINSTANCE.getUIAction_Action();
+
+    /**
+     * The meta object literal for the '<em><b>Gesture</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_ACTION__GESTURE = eINSTANCE.getUIAction_Gesture();
+
+    /**
+     * The meta object literal for the '<em><b>Order</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_ACTION__ORDER = eINSTANCE.getUIAction_Order();
 
     /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.impl.UIActionSpecificationImpl <em>UI Action Specification</em>}' class.
@@ -3509,6 +3625,14 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EReference UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN = eINSTANCE.getUIActionNavigateAction_TargetScreen();
+
+    /**
+     * The meta object literal for the '<em><b>Action Verb</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute UI_ACTION_NAVIGATE_ACTION__ACTION_VERB = eINSTANCE.getUIActionNavigateAction_ActionVerb();
 
     /**
      * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
@@ -3821,6 +3945,26 @@ public interface ApplauseDslPackage extends EPackage
      * @generated
      */
     EEnum SCREEN_KIND = eINSTANCE.getScreenKind();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.GestureKind <em>Gesture Kind</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.GestureKind
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getGestureKind()
+     * @generated
+     */
+    EEnum GESTURE_KIND = eINSTANCE.getGestureKind();
+
+    /**
+     * The meta object literal for the '{@link org.applause.lang.applauseDsl.ActionVerb <em>Action Verb</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.applause.lang.applauseDsl.ActionVerb
+     * @see org.applause.lang.applauseDsl.impl.ApplauseDslPackageImpl#getActionVerb()
+     * @generated
+     */
+    EEnum ACTION_VERB = eINSTANCE.getActionVerb();
 
     /**
      * The meta object literal for the '{@link org.applause.lang.applauseDsl.UIActionKind <em>UI Action Kind</em>}' enum.

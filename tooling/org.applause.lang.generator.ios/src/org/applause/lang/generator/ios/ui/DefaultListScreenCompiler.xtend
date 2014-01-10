@@ -1,16 +1,19 @@
 package org.applause.lang.generator.ios.ui
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.ActionVerb
 import org.applause.lang.applauseDsl.Screen
+import org.applause.lang.applauseDsl.UIAction
 import org.applause.lang.applauseDsl.UIActionNavigateAction
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration
 import org.applause.lang.generator.ios.ExpressionExtensions
 import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions
 import org.applause.lang.generator.ios.model.TypeExtensions
+import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
-import org.applause.lang.applauseDsl.UIActionKind
+import org.applause.lang.applauseDsl.UIActionDeleteAction
 
 class DefaultListScreenCompiler {
 	
@@ -26,6 +29,30 @@ class DefaultListScreenCompiler {
 }
 
 class DefaultListScreenClassExtensions extends ScreenClassExtensions {
+	
+	def resourceType(Screen it) {
+		datasource.datasource.resourceType
+	}
+	
+	def configurations(Screen it) {
+		sections.map[items].map[items].flatten.map[configurations].flatten
+	}
+	
+	def defaultCell(Screen it) {
+		sections.map[items].map[items].flatten.head
+	}
+	
+	def restMethod(Screen it) {
+		defaultCell.restMethod.restMethod
+	}
+	
+	def targetNavigationScreen(Screen it) {
+		defaultCell.actions.map[action].filter(typeof(UIActionNavigateAction)).head.targetScreen
+	}
+	
+	def screen(UIAction it) {
+		EcoreUtil2.getContainerOfType(it, Screen)
+	}
 	
 }
 
@@ -50,22 +77,8 @@ class DefaultListScreenModuleFileCompiler {
 	@Inject extension TypeExtensions
 	@Inject extension ExpressionExtensions
 	@Inject extension DataAccessClassExtensions
-	
-	def resourceType(Screen it) {
-		datasource.datasource.resourceType
-	}
-	
-	def configurations(Screen it) {
-		sections.map[items].map[items].flatten.map[configurations].flatten
-	}
-	
-	def defaultCell(Screen it) {
-		sections.map[items].map[items].flatten.head
-	}
-	
-	def restMethod(Screen it) {
-		defaultCell.restMethod.restMethod
-	}
+	@Inject extension DefaultListScreenActionCompiler
+	@Inject extension DefaultListScreenEditActionCompiler
 	
 	def compileModule(Screen it) '''
 		#import "«screenHeaderFileName»"
@@ -73,7 +86,7 @@ class DefaultListScreenModuleFileCompiler {
 		#import "«targetNavigationScreen.screenHeaderFileName»"
 		
 		@interface «controllerClassName» ()
-		@property(nonatomic, strong) NSArray *items;		
+		@property(nonatomic, strong) NSMutableArray *items;		
 		@end
 		
 		@implementation «controllerClassName»
@@ -95,6 +108,8 @@ class DefaultListScreenModuleFileCompiler {
 				// refresh control
 				self.refreshControl = [[UIRefreshControl alloc] init];
 				[self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+				
+				«compileActionButtons»
 			}
 		    return self;
 		}
@@ -137,6 +152,10 @@ class DefaultListScreenModuleFileCompiler {
 			[self onEditItem:item];
 		}
 		
+		«IF supportsDeleteAction»
+			«compileCommitEditing»
+		«ENDIF»
+		
 		#pragma mark - Data access
 		
 		- (void)refresh
@@ -157,7 +176,7 @@ class DefaultListScreenModuleFileCompiler {
 									  otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
 				}
 				else {
-					self.items = items;
+					self.items = [NSMutableArray arrayWithArray:items];
 					[self.tableView reloadData];
 				}
 			}];
@@ -165,6 +184,101 @@ class DefaultListScreenModuleFileCompiler {
 		
 		#pragma mark - Actions
 		
+		«compileActionMethods»
+		
+		@end
+	'''
+	
+	def compileConfiguration(UIComponentMemberConfiguration it) '''
+		cell.«type.component.name».«type.member.name» = item.«value.evaluateExpression»;
+	'''
+	
+}
+
+class DefaultListScreenEditActionCompiler {
+	
+	@Inject extension DefaultListScreenClassExtensions
+	@Inject extension TypeExtensions
+	
+	def supportsDeleteAction(Screen it) {
+		defaultCell.actions.map[action].filter(typeof(UIActionDeleteAction)).size > 0
+	}
+	
+	def compileCommitEditing(Screen it) '''
+		- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+		{
+			«resourceType.typeName» *item= self.items[indexPath.row];
+			[item remove:^(«resourceType.typeName» *item, NSError *error)
+			{
+				if (error) {
+					NSLog(@"Error %@", error);
+				}
+				else {
+					if (indexPath.row < self.items.count) {
+						[self.items removeObjectAtIndex:indexPath.row];
+						[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+					}
+				}
+			}];
+		}
+	'''
+	
+}
+
+class DefaultListScreenActionCompiler {
+	
+	@Inject extension DefaultListScreenClassExtensions
+	@Inject extension TypeExtensions
+	
+	def compileActionButtons(Screen it) '''
+		// register action buttons
+		self.navigationItem.rightBarButtonItems = @[
+			«FOR action: actions»
+				«action.compileActionButton»
+			«ENDFOR»
+		];
+	'''
+	
+	private def compileActionButton(UIAction it) {
+		if (it.action instanceof UIActionNavigateAction) {
+			switch ((it.action as UIActionNavigateAction).actionVerb) {
+				case ActionVerb.ADD: screen.compileActionButton_AddItem
+			}
+		}	
+	}
+	
+	private def compileActionButton_AddItem(Screen it) '''
+		[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+													  target:self
+													  action:@selector(onAddItem)]
+	'''
+	
+	def compileActionMethods(Screen it) '''
+		«FOR action: defaultCell.actions + actions»
+			«action.compileActionMethod»
+		«ENDFOR»
+	'''
+
+	private def compileActionMethod(UIAction it) {
+		if (it.action instanceof UIActionNavigateAction) {
+			switch ((it.action as UIActionNavigateAction).actionVerb) {
+				case ActionVerb.ADD: screen.compileActionMethod_AddItem
+				case ActionVerb.EDIT: screen.compileActionMethod_EditItem
+			}
+		}	
+	}
+	
+	private def compileActionMethod_AddItem(Screen it) '''
+		- (void)onAddItem
+		{
+			[«targetNavigationScreen.controllerClassName» presentForAddingNewItemFromParent:self onDone:^(«resourceType.typeName» *item)
+			{
+				[self refresh];
+			}];
+		}
+	'''
+	
+	private def compileActionMethod_EditItem(Screen it) '''
 		- (void)onEditItem:(«resourceType.typeName» *)item
 		{
 			[«targetNavigationScreen.controllerClassName» presentForEditingItem:item fromParent:self onDone:^(«resourceType.typeName» *editedItem)
@@ -173,17 +287,5 @@ class DefaultListScreenModuleFileCompiler {
 			}];
 		
 		}
-		
-		
-		@end
 	'''
-	
-	def targetNavigationScreen(Screen it) {
-		(defaultCell.actions.filter[kind == UIActionKind.NAVIGATE].head.action as UIActionNavigateAction).targetScreen
-	}
-	
-	def compileConfiguration(UIComponentMemberConfiguration it) '''
-		cell.«type.component.name».«type.member.name» = item.«value.evaluateExpression»;
-	'''
-	
 }

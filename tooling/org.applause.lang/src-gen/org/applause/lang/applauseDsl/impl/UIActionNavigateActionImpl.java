@@ -2,6 +2,7 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
+import org.applause.lang.applauseDsl.ActionVerb;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.ReferrableElement;
 import org.applause.lang.applauseDsl.Screen;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl#getTargetScreen <em>Target Screen</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl#getActionVerb <em>Action Verb</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.UIActionNavigateActionImpl#getVariable <em>Variable</em>}</li>
  * </ul>
  * </p>
@@ -39,6 +41,26 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
    * @ordered
    */
   protected Screen targetScreen;
+
+  /**
+   * The default value of the '{@link #getActionVerb() <em>Action Verb</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActionVerb()
+   * @generated
+   * @ordered
+   */
+  protected static final ActionVerb ACTION_VERB_EDEFAULT = ActionVerb.EDIT;
+
+  /**
+   * The cached value of the '{@link #getActionVerb() <em>Action Verb</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getActionVerb()
+   * @generated
+   * @ordered
+   */
+  protected ActionVerb actionVerb = ACTION_VERB_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
@@ -119,6 +141,29 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
    * <!-- end-user-doc -->
    * @generated
    */
+  public ActionVerb getActionVerb()
+  {
+    return actionVerb;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setActionVerb(ActionVerb newActionVerb)
+  {
+    ActionVerb oldActionVerb = actionVerb;
+    actionVerb = newActionVerb == null ? ACTION_VERB_EDEFAULT : newActionVerb;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB, oldActionVerb, actionVerb));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ReferrableElement getVariable()
   {
     if (variable != null && variable.eIsProxy())
@@ -170,6 +215,8 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN:
         if (resolve) return getTargetScreen();
         return basicGetTargetScreen();
+      case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
+        return getActionVerb();
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         if (resolve) return getVariable();
         return basicGetVariable();
@@ -189,6 +236,9 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
     {
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN:
         setTargetScreen((Screen)newValue);
+        return;
+      case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
+        setActionVerb((ActionVerb)newValue);
         return;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         setVariable((ReferrableElement)newValue);
@@ -210,6 +260,9 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN:
         setTargetScreen((Screen)null);
         return;
+      case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
+        setActionVerb(ACTION_VERB_EDEFAULT);
+        return;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         setVariable((ReferrableElement)null);
         return;
@@ -229,10 +282,29 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
     {
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN:
         return targetScreen != null;
+      case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
+        return actionVerb != ACTION_VERB_EDEFAULT;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         return variable != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (actionVerb: ");
+    result.append(actionVerb);
+    result.append(')');
+    return result.toString();
   }
 
 } //UIActionNavigateActionImpl

@@ -25,18 +25,24 @@ public class InternalApplauseDslLexer extends Lexer {
     public static final int RULE_ANY_OTHER=10;
     public static final int T__20=20;
     public static final int EOF=-1;
+    public static final int T__55=55;
     public static final int T__19=19;
-    public static final int T__16=16;
+    public static final int T__56=56;
+    public static final int T__57=57;
+    public static final int T__58=58;
     public static final int T__51=51;
+    public static final int T__16=16;
     public static final int T__52=52;
     public static final int T__15=15;
     public static final int T__53=53;
     public static final int T__18=18;
+    public static final int T__54=54;
     public static final int T__17=17;
     public static final int T__12=12;
     public static final int T__11=11;
     public static final int T__14=14;
     public static final int T__13=13;
+    public static final int T__59=59;
     public static final int RULE_INT=5;
     public static final int T__50=50;
     public static final int T__42=42;
@@ -598,10 +604,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:36:7: ( 'items' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:36:9: 'items'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:36:7: ( 'actions' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:36:9: 'actions'
             {
-            match("items"); 
+            match("actions"); 
 
 
             }
@@ -619,10 +625,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:37:7: ( 'cell' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:37:9: 'cell'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:37:7: ( 'items' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:37:9: 'items'
             {
-            match("cell"); 
+            match("items"); 
 
 
             }
@@ -640,10 +646,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:38:7: ( 'foreach' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:38:9: 'foreach'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:38:7: ( 'cell' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:38:9: 'cell'
             {
-            match("foreach"); 
+            match("cell"); 
 
 
             }
@@ -661,10 +667,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:39:7: ( 'as' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:39:9: 'as'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:39:7: ( 'foreach' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:39:9: 'foreach'
             {
-            match("as"); 
+            match("foreach"); 
 
 
             }
@@ -682,10 +688,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:40:7: ( 'actions' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:40:9: 'actions'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:40:7: ( 'as' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:40:9: 'as'
             {
-            match("actions"); 
+            match("as"); 
 
 
             }
@@ -703,10 +709,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:41:7: ( 'icon' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:41:9: 'icon'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:41:7: ( 'action' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:41:9: 'action'
             {
-            match("icon"); 
+            match("action"); 
 
 
             }
@@ -724,10 +730,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:42:7: ( 'action' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:42:9: 'action'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:42:7: ( 'icon' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:42:9: 'icon'
             {
-            match("action"); 
+            match("icon"); 
 
 
             }
@@ -745,10 +751,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:43:7: ( 'navigate' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:43:9: 'navigate'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:43:7: ( 'gesture' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:43:9: 'gesture'
             {
-            match("navigate"); 
+            match("gesture"); 
 
 
             }
@@ -766,10 +772,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:44:7: ( 'delete' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:44:9: 'delete'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:44:7: ( 'order' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:44:9: 'order'
             {
-            match("delete"); 
+            match("order"); 
 
 
             }
@@ -787,10 +793,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:45:7: ( 'listitemcell' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:45:9: 'listitemcell'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:45:7: ( 'delete' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:45:9: 'delete'
             {
-            match("listitemcell"); 
+            match("delete"); 
 
 
             }
@@ -808,10 +814,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:46:7: ( 'uicomponent' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:46:9: 'uicomponent'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:46:7: ( 'listitemcell' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:46:9: 'listitemcell'
             {
-            match("uicomponent"); 
+            match("listitemcell"); 
 
 
             }
@@ -829,10 +835,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:47:7: ( 'GET' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:47:9: 'GET'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:47:7: ( 'uicomponent' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:47:9: 'uicomponent'
             {
-            match("GET"); 
+            match("uicomponent"); 
 
 
             }
@@ -850,10 +856,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:48:7: ( 'POST' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:48:9: 'POST'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:48:7: ( 'GET' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:48:9: 'GET'
             {
-            match("POST"); 
+            match("GET"); 
 
 
             }
@@ -871,10 +877,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:49:7: ( 'PUT' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:49:9: 'PUT'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:49:7: ( 'POST' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:49:9: 'POST'
             {
-            match("PUT"); 
+            match("POST"); 
 
 
             }
@@ -892,10 +898,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:50:7: ( 'DELETE' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:50:9: 'DELETE'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:50:7: ( 'PUT' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:50:9: 'PUT'
             {
-            match("DELETE"); 
+            match("PUT"); 
 
 
             }
@@ -913,10 +919,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:51:7: ( 'DefaultList' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:51:9: 'DefaultList'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:51:7: ( 'DELETE' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:51:9: 'DELETE'
             {
-            match("DefaultList"); 
+            match("DELETE"); 
 
 
             }
@@ -934,10 +940,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:52:7: ( 'DefaultDetails' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:52:9: 'DefaultDetails'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:52:7: ( 'DefaultList' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:52:9: 'DefaultList'
             {
-            match("DefaultDetails"); 
+            match("DefaultList"); 
 
 
             }
@@ -955,10 +961,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:53:7: ( 'performaction' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:53:9: 'performaction'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:53:7: ( 'DefaultDetails' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:53:9: 'DefaultDetails'
             {
-            match("performaction"); 
+            match("DefaultDetails"); 
 
 
             }
@@ -971,15 +977,141 @@ public class InternalApplauseDslLexer extends Lexer {
     }
     // $ANTLR end "T__53"
 
+    // $ANTLR start "T__54"
+    public final void mT__54() throws RecognitionException {
+        try {
+            int _type = T__54;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:54:7: ( 'tap' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:54:9: 'tap'
+            {
+            match("tap"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__54"
+
+    // $ANTLR start "T__55"
+    public final void mT__55() throws RecognitionException {
+        try {
+            int _type = T__55;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:55:7: ( 'swipe' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:55:9: 'swipe'
+            {
+            match("swipe"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__55"
+
+    // $ANTLR start "T__56"
+    public final void mT__56() throws RecognitionException {
+        try {
+            int _type = T__56;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:56:7: ( 'longpress' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:56:9: 'longpress'
+            {
+            match("longpress"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__56"
+
+    // $ANTLR start "T__57"
+    public final void mT__57() throws RecognitionException {
+        try {
+            int _type = T__57;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:57:7: ( 'edit' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:57:9: 'edit'
+            {
+            match("edit"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__57"
+
+    // $ANTLR start "T__58"
+    public final void mT__58() throws RecognitionException {
+        try {
+            int _type = T__58;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:58:7: ( 'display' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:58:9: 'display'
+            {
+            match("display"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__58"
+
+    // $ANTLR start "T__59"
+    public final void mT__59() throws RecognitionException {
+        try {
+            int _type = T__59;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:59:7: ( 'add' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:59:9: 'add'
+            {
+            match("add"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__59"
+
     // $ANTLR start "RULE_ID"
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2886:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2886:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2999:9: ( ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2999:11: ( '^' )? ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2886:11: ( '^' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2999:11: ( '^' )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -988,7 +1120,7 @@ public class InternalApplauseDslLexer extends Lexer {
             }
             switch (alt1) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2886:11: '^'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2999:11: '^'
                     {
                     match('^'); 
 
@@ -1006,7 +1138,7 @@ public class InternalApplauseDslLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2886:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2999:40: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop2:
             do {
                 int alt2=2;
@@ -1055,10 +1187,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2888:10: ( ( '0' .. '9' )+ )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2888:12: ( '0' .. '9' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3001:10: ( ( '0' .. '9' )+ )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3001:12: ( '0' .. '9' )+
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2888:12: ( '0' .. '9' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3001:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -1072,7 +1204,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2888:13: '0' .. '9'
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3001:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1104,10 +1236,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:13: ( ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' ) )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:15: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' | '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\'' )
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -1125,10 +1257,10 @@ public class InternalApplauseDslLexer extends Lexer {
             }
             switch (alt6) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:16: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
                     {
                     match('\"'); 
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:20: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
                     loop4:
                     do {
                         int alt4=3;
@@ -1144,7 +1276,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                         switch (alt4) {
                     	case 1 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:21: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1160,7 +1292,7 @@ public class InternalApplauseDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:66: ~ ( ( '\\\\' | '\"' ) )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:66: ~ ( ( '\\\\' | '\"' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1185,10 +1317,10 @@ public class InternalApplauseDslLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:86: '\\'' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\\''
                     {
                     match('\''); 
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:91: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
                     loop5:
                     do {
                         int alt5=3;
@@ -1204,7 +1336,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                         switch (alt5) {
                     	case 1 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:92: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
                     	    {
                     	    match('\\'); 
                     	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1220,7 +1352,7 @@ public class InternalApplauseDslLexer extends Lexer {
                     	    }
                     	    break;
                     	case 2 :
-                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2890:137: ~ ( ( '\\\\' | '\\'' ) )
+                    	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3003:137: ~ ( ( '\\\\' | '\\'' ) )
                     	    {
                     	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                     	        input.consume();
@@ -1263,12 +1395,12 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2892:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2892:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3005:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3005:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2892:24: ( options {greedy=false; } : . )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3005:24: ( options {greedy=false; } : . )*
             loop7:
             do {
                 int alt7=2;
@@ -1293,7 +1425,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2892:52: .
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3005:52: .
             	    {
             	    matchAny(); 
 
@@ -1323,12 +1455,12 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop8:
             do {
                 int alt8=2;
@@ -1341,7 +1473,7 @@ public class InternalApplauseDslLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1361,7 +1493,7 @@ public class InternalApplauseDslLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:40: ( ( '\\r' )? '\\n' )?
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:40: ( ( '\\r' )? '\\n' )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1370,9 +1502,9 @@ public class InternalApplauseDslLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:41: ( '\\r' )? '\\n'
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:41: ( '\\r' )?
+                    // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:41: ( '\\r' )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1381,7 +1513,7 @@ public class InternalApplauseDslLexer extends Lexer {
                     }
                     switch (alt9) {
                         case 1 :
-                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2894:41: '\\r'
+                            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3007:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1413,10 +1545,10 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2896:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2896:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3009:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3009:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2896:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3009:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt11=0;
             loop11:
             do {
@@ -1470,8 +1602,8 @@ public class InternalApplauseDslLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2898:16: ( . )
-            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:2898:18: .
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3011:16: ( . )
+            // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:3011:18: .
             {
             matchAny(); 
 
@@ -1486,8 +1618,8 @@ public class InternalApplauseDslLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
-        int alt12=50;
+        // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:8: ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        int alt12=56;
         alt12 = dfa12.predict(input);
         switch (alt12) {
             case 1 :
@@ -1792,49 +1924,91 @@ public class InternalApplauseDslLexer extends Lexer {
                 }
                 break;
             case 44 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:268: RULE_ID
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:268: T__54
+                {
+                mT__54(); 
+
+                }
+                break;
+            case 45 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:274: T__55
+                {
+                mT__55(); 
+
+                }
+                break;
+            case 46 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:280: T__56
+                {
+                mT__56(); 
+
+                }
+                break;
+            case 47 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:286: T__57
+                {
+                mT__57(); 
+
+                }
+                break;
+            case 48 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:292: T__58
+                {
+                mT__58(); 
+
+                }
+                break;
+            case 49 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:298: T__59
+                {
+                mT__59(); 
+
+                }
+                break;
+            case 50 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:304: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 45 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:276: RULE_INT
+            case 51 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:312: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 46 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:285: RULE_STRING
+            case 52 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:321: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 47 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:297: RULE_ML_COMMENT
+            case 53 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:333: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 48 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:313: RULE_SL_COMMENT
+            case 54 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:349: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 49 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:329: RULE_WS
+            case 55 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:365: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 50 :
-                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:337: RULE_ANY_OTHER
+            case 56 :
+                // ../org.applause.lang/src-gen/org/applause/lang/parser/antlr/internal/InternalApplauseDsl.g:1:373: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1848,152 +2022,140 @@ public class InternalApplauseDslLexer extends Lexer {
 
     protected DFA12 dfa12 = new DFA12(this);
     static final String DFA12_eotS =
-        "\1\uffff\7\47\2\uffff\2\44\1\47\4\uffff\1\47\1\100\2\uffff\11\47"+
-        "\1\44\2\uffff\2\44\2\uffff\2\47\1\uffff\6\47\1\132\5\47\4\uffff"+
-        "\1\47\4\uffff\1\47\5\uffff\14\47\3\uffff\10\47\1\uffff\16\47\1\u0084"+
-        "\1\47\1\u0086\22\47\1\u009a\1\u009b\4\47\1\uffff\1\u00a0\1\uffff"+
-        "\2\47\1\u00a3\16\47\1\uffff\1\u00b2\2\uffff\4\47\1\uffff\2\47\1"+
-        "\uffff\5\47\1\u00be\1\47\1\u00c1\2\47\1\u00c4\1\u00c5\2\47\1\uffff"+
-        "\4\47\1\u00cc\5\47\1\u00d3\1\uffff\1\47\1\u00d5\1\uffff\2\47\2\uffff"+
-        "\1\u00d8\1\u00d9\1\u00da\3\47\1\uffff\2\47\1\u00e1\1\47\1\u00e3"+
-        "\1\u00e4\1\uffff\1\u00e5\1\uffff\1\u00e6\1\47\3\uffff\1\u00e8\5"+
-        "\47\1\uffff\1\47\4\uffff\1\47\1\uffff\6\47\1\u00f6\4\47\1\u00fb"+
-        "\1\47\1\uffff\1\47\1\u00fe\1\u00ff\1\47\1\uffff\1\47\1\u0102\2\uffff"+
-        "\1\47\1\u0104\1\uffff\1\47\1\uffff\1\u0106\1\uffff";
+        "\1\uffff\7\51\2\uffff\2\45\1\51\4\uffff\1\51\1\105\2\uffff\12\51"+
+        "\1\45\2\uffff\2\45\2\uffff\3\51\1\uffff\7\51\1\143\7\51\4\uffff"+
+        "\1\51\4\uffff\1\51\5\uffff\16\51\3\uffff\2\51\1\175\7\51\1\uffff"+
+        "\1\u0085\21\51\1\u0097\1\51\1\u0099\4\51\1\uffff\7\51\1\uffff\5"+
+        "\51\1\u00ab\3\51\1\u00af\1\u00b0\6\51\1\uffff\1\u00b7\1\uffff\2"+
+        "\51\1\u00ba\5\51\1\u00c0\10\51\1\uffff\1\51\1\uffff\1\u00ca\2\uffff"+
+        "\2\51\1\u00cd\3\51\1\uffff\2\51\1\uffff\4\51\1\u00d7\1\uffff\1\51"+
+        "\1\u00da\2\51\1\u00dd\1\51\1\u00df\2\51\1\uffff\2\51\1\uffff\3\51"+
+        "\1\u00e7\4\51\1\u00ed\1\uffff\1\51\1\u00ef\1\uffff\2\51\1\uffff"+
+        "\1\u00f2\1\uffff\1\u00f3\1\u00f4\1\u00f5\1\u00f6\3\51\1\uffff\2"+
+        "\51\1\u00fd\1\u00fe\1\u00ff\1\uffff\1\u0100\1\uffff\1\u0101\1\51"+
+        "\5\uffff\6\51\5\uffff\2\51\1\u010b\4\51\1\u0110\1\51\1\uffff\3\51"+
+        "\1\u0115\1\uffff\1\51\1\u0117\1\u0118\1\51\1\uffff\1\u011a\2\uffff"+
+        "\1\51\1\uffff\1\51\1\u011d\1\uffff";
     static final String DFA12_eofS =
-        "\u0107\uffff";
+        "\u011e\uffff";
     static final String DFA12_minS =
-        "\1\0\1\151\2\145\1\143\1\142\1\141\1\156\2\uffff\1\135\1\76\1\141"+
-        "\4\uffff\1\164\1\52\2\uffff\1\143\1\145\1\157\1\141\2\151\1\105"+
-        "\1\117\1\105\1\101\2\uffff\2\0\2\uffff\1\164\1\160\1\uffff\1\141"+
-        "\1\162\1\163\1\143\1\162\1\163\1\60\2\164\1\154\2\164\4\uffff\1"+
-        "\163\4\uffff\1\164\5\uffff\1\145\1\157\1\154\1\162\1\166\1\163\1"+
-        "\143\1\124\1\123\1\124\1\114\1\146\3\uffff\1\154\1\145\1\164\1\146"+
-        "\1\157\1\164\1\145\1\164\1\uffff\1\151\1\141\1\145\1\151\2\145\1"+
-        "\160\1\155\1\156\1\154\1\145\1\151\1\164\1\157\1\60\1\124\1\60\1"+
-        "\105\1\141\1\145\1\155\1\146\1\157\1\165\1\151\1\145\1\162\1\157"+
-        "\1\163\2\164\1\156\1\125\1\72\1\163\2\60\1\141\1\147\1\151\1\155"+
-        "\1\uffff\1\60\1\uffff\1\124\1\165\1\60\1\141\1\157\2\162\1\157\1"+
-        "\156\1\141\1\156\1\171\1\157\1\145\1\171\1\144\1\162\1\uffff\1\60"+
-        "\2\uffff\1\143\1\141\1\164\1\160\1\uffff\1\105\1\154\1\uffff\1\160"+
-        "\1\162\1\155\1\143\1\156\1\60\1\143\1\60\1\160\1\165\2\60\1\163"+
-        "\1\154\1\uffff\1\150\1\164\1\145\1\157\1\60\1\164\1\160\1\155\1"+
-        "\141\1\145\1\60\1\uffff\1\164\1\60\1\uffff\1\145\1\162\2\uffff\3"+
-        "\60\1\145\1\155\1\156\1\uffff\1\104\1\151\1\60\1\143\2\60\1\uffff"+
-        "\1\60\1\uffff\1\60\1\143\3\uffff\1\60\1\143\1\145\1\151\1\145\1"+
-        "\156\1\uffff\1\164\4\uffff\1\145\1\uffff\1\145\1\156\1\163\1\164"+
-        "\1\147\1\151\1\60\1\154\2\164\1\141\1\60\1\157\1\uffff\1\154\2\60"+
-        "\1\151\1\uffff\1\156\1\60\2\uffff\1\154\1\60\1\uffff\1\163\1\uffff"+
+        "\1\0\1\141\1\154\1\145\1\143\1\142\1\141\1\144\2\uffff\1\135\1\76"+
+        "\1\141\4\uffff\1\164\1\52\2\uffff\1\143\1\145\1\157\1\145\1\162"+
+        "\2\151\1\105\1\117\1\105\1\101\2\uffff\2\0\2\uffff\1\164\2\160\1"+
+        "\uffff\1\141\1\163\1\143\1\162\1\151\1\163\1\164\1\60\1\144\1\164"+
+        "\1\154\1\163\2\164\1\151\4\uffff\1\163\4\uffff\1\164\5\uffff\1\145"+
+        "\1\157\1\154\1\162\1\163\1\144\1\163\1\156\1\143\1\124\1\123\1\124"+
+        "\1\114\1\146\3\uffff\1\154\1\145\1\60\1\164\1\157\1\164\1\145\1"+
+        "\160\1\164\1\151\1\uffff\1\60\1\141\1\145\1\160\1\151\1\145\1\164"+
+        "\1\145\1\160\1\155\1\156\1\154\1\145\1\164\1\145\1\164\1\147\1\157"+
+        "\1\60\1\124\1\60\1\105\1\141\1\145\1\155\1\uffff\1\146\1\165\1\151"+
+        "\2\145\1\162\1\157\1\uffff\1\163\1\164\1\154\1\164\1\156\1\60\1"+
+        "\125\1\72\1\163\2\60\1\141\1\165\1\162\1\151\1\160\1\155\1\uffff"+
+        "\1\60\1\uffff\1\124\1\165\1\60\1\141\1\157\1\162\1\157\1\156\1\60"+
+        "\1\141\1\156\1\171\1\157\1\145\1\141\1\171\1\144\1\uffff\1\162\1"+
+        "\uffff\1\60\2\uffff\1\143\1\162\1\60\1\164\1\162\1\160\1\uffff\1"+
+        "\105\1\154\1\uffff\1\160\1\162\1\143\1\156\1\60\1\uffff\1\143\1"+
+        "\60\1\160\1\165\1\60\1\171\1\60\1\163\1\154\1\uffff\1\150\1\145"+
+        "\1\uffff\2\145\1\157\1\60\1\164\1\160\1\155\1\145\1\60\1\uffff\1"+
+        "\164\1\60\1\uffff\1\145\1\162\1\uffff\1\60\1\uffff\4\60\1\155\1"+
+        "\163\1\156\1\uffff\1\104\1\151\3\60\1\uffff\1\60\1\uffff\1\60\1"+
+        "\143\5\uffff\1\143\1\163\1\145\1\151\1\145\1\156\5\uffff\2\145\1"+
+        "\60\1\156\1\163\1\164\1\147\1\60\1\154\1\uffff\2\164\1\141\1\60"+
+        "\1\uffff\1\154\2\60\1\151\1\uffff\1\60\2\uffff\1\154\1\uffff\1\163"+
         "\1\60\1\uffff";
     static final String DFA12_maxS =
-        "\1\uffff\1\171\1\154\2\145\1\163\1\145\1\170\2\uffff\1\135\1\76"+
-        "\1\141\4\uffff\1\164\1\57\2\uffff\1\164\1\145\1\157\1\141\2\151"+
-        "\1\105\1\125\1\145\1\172\2\uffff\2\uffff\2\uffff\1\164\1\160\1\uffff"+
-        "\1\141\1\162\1\163\1\143\1\162\1\163\1\172\2\164\1\154\2\164\4\uffff"+
-        "\1\163\4\uffff\1\164\5\uffff\1\145\1\157\1\154\1\162\1\166\1\163"+
-        "\1\143\1\124\1\123\1\124\1\114\1\146\3\uffff\1\154\1\145\1\164\1"+
-        "\146\1\157\1\164\1\145\1\164\1\uffff\1\151\1\141\1\145\1\151\2\145"+
-        "\1\160\1\155\1\156\1\154\1\145\1\151\1\164\1\157\1\172\1\124\1\172"+
-        "\1\105\1\141\1\145\1\155\1\146\1\157\1\165\1\151\1\145\1\162\1\157"+
-        "\3\164\1\156\1\125\1\72\1\163\2\172\1\141\1\147\1\151\1\155\1\uffff"+
-        "\1\172\1\uffff\1\124\1\165\1\172\1\141\1\157\2\162\1\157\1\156\1"+
-        "\141\1\156\1\171\1\157\1\145\1\171\1\144\1\162\1\uffff\1\172\2\uffff"+
-        "\1\143\1\141\1\164\1\160\1\uffff\1\105\1\154\1\uffff\1\160\1\162"+
-        "\1\155\1\143\1\156\1\172\1\143\1\172\1\160\1\165\2\172\1\163\1\154"+
-        "\1\uffff\1\150\1\164\1\145\1\157\1\172\1\164\1\160\1\155\1\141\1"+
-        "\145\1\172\1\uffff\1\164\1\172\1\uffff\1\145\1\162\2\uffff\3\172"+
-        "\1\145\1\155\1\156\1\uffff\1\114\1\151\1\172\1\143\2\172\1\uffff"+
-        "\1\172\1\uffff\1\172\1\143\3\uffff\1\172\1\143\1\145\1\151\1\145"+
-        "\1\156\1\uffff\1\164\4\uffff\1\145\1\uffff\1\145\1\156\1\163\1\164"+
-        "\1\147\1\151\1\172\1\154\2\164\1\141\1\172\1\157\1\uffff\1\154\2"+
-        "\172\1\151\1\uffff\1\156\1\172\2\uffff\1\154\1\172\1\uffff\1\163"+
-        "\1\uffff\1\172\1\uffff";
+        "\1\uffff\1\171\1\154\1\145\1\167\1\163\1\151\1\170\2\uffff\1\135"+
+        "\1\76\1\141\4\uffff\1\164\1\57\2\uffff\1\164\1\145\1\157\1\145\1"+
+        "\162\1\157\1\151\1\105\1\125\1\145\1\172\2\uffff\2\uffff\2\uffff"+
+        "\1\164\2\160\1\uffff\1\141\1\163\1\143\1\162\1\151\1\163\1\164\1"+
+        "\172\1\144\1\164\1\154\1\163\2\164\1\151\4\uffff\1\163\4\uffff\1"+
+        "\164\5\uffff\1\145\1\157\1\154\1\162\1\163\1\144\1\163\1\156\1\143"+
+        "\1\124\1\123\1\124\1\114\1\146\3\uffff\1\154\1\145\1\172\1\164\1"+
+        "\157\1\164\1\145\1\160\1\164\1\151\1\uffff\1\172\1\141\1\145\1\160"+
+        "\1\151\1\145\1\164\1\145\1\160\1\155\1\156\1\154\1\145\1\164\1\145"+
+        "\1\164\1\147\1\157\1\172\1\124\1\172\1\105\1\141\1\145\1\155\1\uffff"+
+        "\1\146\1\165\1\151\2\145\1\162\1\157\1\uffff\2\164\1\154\1\164\1"+
+        "\156\1\172\1\125\1\72\1\163\2\172\1\141\1\165\1\162\1\151\1\160"+
+        "\1\155\1\uffff\1\172\1\uffff\1\124\1\165\1\172\1\141\1\157\1\162"+
+        "\1\157\1\156\1\172\1\141\1\156\1\171\1\157\1\145\1\141\1\171\1\144"+
+        "\1\uffff\1\162\1\uffff\1\172\2\uffff\1\143\1\162\1\172\1\164\1\162"+
+        "\1\160\1\uffff\1\105\1\154\1\uffff\1\160\1\162\1\143\1\156\1\172"+
+        "\1\uffff\1\143\1\172\1\160\1\165\1\172\1\171\1\172\1\163\1\154\1"+
+        "\uffff\1\150\1\145\1\uffff\2\145\1\157\1\172\1\164\1\160\1\155\1"+
+        "\145\1\172\1\uffff\1\164\1\172\1\uffff\1\145\1\162\1\uffff\1\172"+
+        "\1\uffff\4\172\1\155\1\163\1\156\1\uffff\1\114\1\151\3\172\1\uffff"+
+        "\1\172\1\uffff\1\172\1\143\5\uffff\1\143\1\163\1\145\1\151\1\145"+
+        "\1\156\5\uffff\2\145\1\172\1\156\1\163\1\164\1\147\1\172\1\154\1"+
+        "\uffff\2\164\1\141\1\172\1\uffff\1\154\2\172\1\151\1\uffff\1\172"+
+        "\2\uffff\1\154\1\uffff\1\163\1\172\1\uffff";
     static final String DFA12_acceptS =
         "\10\uffff\1\11\1\12\3\uffff\1\20\1\21\1\22\1\23\2\uffff\1\26\1\30"+
-        "\12\uffff\1\54\1\55\2\uffff\1\61\1\62\2\uffff\1\54\14\uffff\1\11"+
-        "\1\12\1\13\1\15\1\uffff\1\20\1\21\1\22\1\23\1\uffff\1\57\1\60\1"+
-        "\25\1\26\1\30\14\uffff\1\55\1\56\1\61\10\uffff\1\35\51\uffff\1\45"+
-        "\1\uffff\1\47\21\uffff\1\24\1\uffff\1\37\1\33\4\uffff\1\46\2\uffff"+
-        "\1\1\16\uffff\1\32\13\uffff\1\27\2\uffff\1\40\2\uffff\1\42\1\7\6"+
-        "\uffff\1\50\6\uffff\1\4\1\uffff\1\36\2\uffff\1\10\1\17\1\34\6\uffff"+
-        "\1\2\1\uffff\1\3\1\31\1\5\1\6\1\uffff\1\41\15\uffff\1\16\4\uffff"+
-        "\1\14\2\uffff\1\44\1\51\2\uffff\1\43\1\uffff\1\53\1\uffff\1\52";
+        "\13\uffff\1\62\1\63\2\uffff\1\67\1\70\3\uffff\1\62\17\uffff\1\11"+
+        "\1\12\1\13\1\15\1\uffff\1\20\1\21\1\22\1\23\1\uffff\1\65\1\66\1"+
+        "\25\1\26\1\30\16\uffff\1\63\1\64\1\67\12\uffff\1\36\31\uffff\1\54"+
+        "\7\uffff\1\61\21\uffff\1\46\1\uffff\1\50\21\uffff\1\57\1\uffff\1"+
+        "\24\1\uffff\1\40\1\34\6\uffff\1\47\2\uffff\1\1\5\uffff\1\55\11\uffff"+
+        "\1\33\2\uffff\1\42\11\uffff\1\27\2\uffff\1\37\2\uffff\1\43\1\uffff"+
+        "\1\7\7\uffff\1\51\5\uffff\1\4\1\uffff\1\32\2\uffff\1\60\1\10\1\17"+
+        "\1\35\1\41\6\uffff\1\2\1\3\1\31\1\5\1\6\11\uffff\1\56\4\uffff\1"+
+        "\16\4\uffff\1\14\1\uffff\1\45\1\52\1\uffff\1\44\2\uffff\1\53";
     static final String DFA12_specialS =
-        "\1\2\40\uffff\1\1\1\0\u00e4\uffff}>";
+        "\1\2\41\uffff\1\1\1\0\u00fa\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\11\44\2\43\2\44\1\43\22\44\1\43\1\44\1\41\4\44\1\42\1\16\1"+
-            "\20\2\44\1\17\1\13\1\23\1\22\12\40\1\15\2\44\1\24\3\44\3\37"+
-            "\1\35\2\37\1\33\10\37\1\34\12\37\1\12\2\44\1\36\1\37\1\44\1"+
-            "\5\1\14\1\26\1\6\1\7\1\27\1\37\1\21\1\25\2\37\1\31\1\37\1\30"+
-            "\1\37\1\2\1\37\1\3\1\4\1\1\1\32\5\37\1\10\1\44\1\11\uff82\44",
-            "\1\45\17\uffff\1\46",
-            "\1\51\6\uffff\1\50",
+            "\11\45\2\44\2\45\1\44\22\45\1\44\1\45\1\42\4\45\1\43\1\16\1"+
+            "\20\2\45\1\17\1\13\1\23\1\22\12\41\1\15\2\45\1\24\3\45\3\40"+
+            "\1\36\2\40\1\34\10\40\1\35\12\40\1\12\2\45\1\37\1\40\1\45\1"+
+            "\5\1\14\1\26\1\6\1\7\1\27\1\30\1\21\1\25\2\40\1\32\2\40\1\31"+
+            "\1\2\1\40\1\3\1\4\1\1\1\33\5\40\1\10\1\45\1\11\uff82\45",
+            "\1\50\7\uffff\1\46\17\uffff\1\47",
             "\1\52",
-            "\1\54\1\uffff\1\53",
-            "\1\55\1\57\17\uffff\1\56",
-            "\1\60\3\uffff\1\61",
-            "\1\62\11\uffff\1\63",
+            "\1\53",
+            "\1\55\1\uffff\1\54\21\uffff\1\56",
+            "\1\57\1\60\1\62\16\uffff\1\61",
+            "\1\63\3\uffff\1\64\3\uffff\1\65",
+            "\1\70\11\uffff\1\66\11\uffff\1\67",
             "",
             "",
-            "\1\66",
-            "\1\67",
-            "\1\70",
-            "",
-            "",
-            "",
-            "",
+            "\1\73",
+            "\1\74",
             "\1\75",
-            "\1\76\4\uffff\1\77",
             "",
             "",
-            "\1\104\20\uffff\1\103",
-            "\1\105",
-            "\1\106",
-            "\1\107",
-            "\1\110",
-            "\1\111",
+            "",
+            "",
+            "\1\102",
+            "\1\103\4\uffff\1\104",
+            "",
+            "",
+            "\1\111\20\uffff\1\110",
             "\1\112",
-            "\1\113\5\uffff\1\114",
-            "\1\115\37\uffff\1\116",
-            "\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\113",
+            "\1\114",
+            "\1\115",
+            "\1\116\5\uffff\1\117",
+            "\1\120",
+            "\1\121",
+            "\1\122\5\uffff\1\123",
+            "\1\124\37\uffff\1\125",
+            "\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "",
-            "\0\120",
-            "\0\120",
+            "\0\127",
+            "\0\127",
             "",
             "",
-            "\1\122",
-            "\1\123",
-            "",
-            "\1\124",
-            "\1\125",
-            "\1\126",
-            "\1\127",
-            "\1\130",
             "\1\131",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\132",
             "\1\133",
+            "",
             "\1\134",
             "\1\135",
             "\1\136",
             "\1\137",
-            "",
-            "",
-            "",
-            "",
             "\1\140",
-            "",
-            "",
-            "",
-            "",
             "\1\141",
-            "",
-            "",
-            "",
-            "",
-            "",
             "\1\142",
-            "\1\143",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\144",
             "\1\145",
             "\1\146",
@@ -2001,12 +2163,22 @@ public class InternalApplauseDslLexer extends Lexer {
             "\1\150",
             "\1\151",
             "\1\152",
+            "",
+            "",
+            "",
+            "",
             "\1\153",
+            "",
+            "",
+            "",
+            "",
             "\1\154",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\155",
-            "",
-            "",
-            "",
             "\1\156",
             "\1\157",
             "\1\160",
@@ -2015,24 +2187,27 @@ public class InternalApplauseDslLexer extends Lexer {
             "\1\163",
             "\1\164",
             "\1\165",
-            "",
             "\1\166",
             "\1\167",
             "\1\170",
             "\1\171",
             "\1\172",
+            "",
+            "",
+            "",
             "\1\173",
             "\1\174",
-            "\1\175",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\176",
             "\1\177",
             "\1\u0080",
             "\1\u0081",
             "\1\u0082",
             "\1\u0083",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\1\u0085",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u0084",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0086",
             "\1\u0087",
             "\1\u0088",
             "\1\u0089",
@@ -2044,149 +2219,178 @@ public class InternalApplauseDslLexer extends Lexer {
             "\1\u008f",
             "\1\u0090",
             "\1\u0091",
-            "\1\u0093\1\u0092",
+            "\1\u0092",
+            "\1\u0093",
             "\1\u0094",
             "\1\u0095",
             "\1\u0096",
-            "\1\u0097",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u0098",
-            "\1\u0099",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u009a",
+            "\1\u009b",
             "\1\u009c",
             "\1\u009d",
+            "",
             "\1\u009e",
             "\1\u009f",
-            "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "",
+            "\1\u00a0",
             "\1\u00a1",
             "\1\u00a2",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00a3",
             "\1\u00a4",
-            "\1\u00a5",
-            "\1\u00a6",
+            "",
+            "\1\u00a6\1\u00a5",
             "\1\u00a7",
             "\1\u00a8",
             "\1\u00a9",
             "\1\u00aa",
-            "\1\u00ab",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00ac",
             "\1\u00ad",
             "\1\u00ae",
-            "\1\u00af",
-            "\1\u00b0",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00b1",
-            "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "",
-            "",
+            "\1\u00b2",
             "\1\u00b3",
             "\1\u00b4",
             "\1\u00b5",
             "\1\u00b6",
             "",
-            "\1\u00b7",
-            "\1\u00b8",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
+            "\1\u00b8",
             "\1\u00b9",
-            "\1\u00ba",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00bb",
             "\1\u00bc",
             "\1\u00bd",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00be",
             "\1\u00bf",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\22\47\1\u00c0\7\47",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00c1",
             "\1\u00c2",
             "\1\u00c3",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00c4",
+            "\1\u00c5",
             "\1\u00c6",
             "\1\u00c7",
-            "",
             "\1\u00c8",
+            "",
             "\1\u00c9",
-            "\1\u00ca",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "",
             "\1\u00cb",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\1\u00cd",
+            "\1\u00cc",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
+            "",
             "\1\u00d1",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\22\47\1\u00d2\7\47",
+            "\1\u00d2",
             "",
+            "\1\u00d3",
             "\1\u00d4",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "",
+            "\1\u00d5",
             "\1\u00d6",
-            "\1\u00d7",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00d8",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\22\51\1\u00d9\7\51",
             "\1\u00db",
             "\1\u00dc",
-            "\1\u00dd",
-            "",
-            "\1\u00df\7\uffff\1\u00de",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00de",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00e0",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00e1",
+            "",
             "\1\u00e2",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00e3",
             "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\1\u00e7",
-            "",
-            "",
-            "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\1\u00e4",
+            "\1\u00e5",
+            "\1\u00e6",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u00e8",
             "\1\u00e9",
             "\1\u00ea",
             "\1\u00eb",
-            "\1\u00ec",
-            "\1\u00ed",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\22\51\1\u00ec\7\51",
             "",
             "\1\u00ee",
-            "",
-            "",
-            "",
-            "",
-            "\1\u00ef",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
             "\1\u00f0",
             "\1\u00f1",
-            "\1\u00f2",
-            "\1\u00f3",
-            "\1\u00f4",
-            "\1\u00f5",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "\1\u00f7",
             "\1\u00f8",
             "\1\u00f9",
-            "\1\u00fa",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "",
+            "\1\u00fb\7\uffff\1\u00fa",
             "\1\u00fc",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\1\u00fd",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "\1\u0100",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             "",
-            "\1\u0101",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0102",
+            "",
+            "",
+            "",
             "",
             "",
             "\1\u0103",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
-            "",
+            "\1\u0104",
             "\1\u0105",
+            "\1\u0106",
+            "\1\u0107",
+            "\1\u0108",
             "",
-            "\12\47\7\uffff\32\47\4\uffff\1\47\1\uffff\32\47",
+            "",
+            "",
+            "",
+            "",
+            "\1\u0109",
+            "\1\u010a",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u010c",
+            "\1\u010d",
+            "\1\u010e",
+            "\1\u010f",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0111",
+            "",
+            "\1\u0112",
+            "\1\u0113",
+            "\1\u0114",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "\1\u0116",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "\1\u0119",
+            "",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
+            "",
+            "",
+            "\1\u011b",
+            "",
+            "\1\u011c",
+            "\12\51\7\uffff\32\51\4\uffff\1\51\1\uffff\32\51",
             ""
     };
 
@@ -2220,29 +2424,29 @@ public class InternalApplauseDslLexer extends Lexer {
             this.transition = DFA12_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__11 | T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | RULE_ID | RULE_INT | RULE_STRING | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA12_34 = input.LA(1);
+                        int LA12_35 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_34>='\u0000' && LA12_34<='\uFFFF')) ) {s = 80;}
+                        if ( ((LA12_35>='\u0000' && LA12_35<='\uFFFF')) ) {s = 87;}
 
-                        else s = 36;
+                        else s = 37;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA12_33 = input.LA(1);
+                        int LA12_34 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA12_33>='\u0000' && LA12_33<='\uFFFF')) ) {s = 80;}
+                        if ( ((LA12_34>='\u0000' && LA12_34<='\uFFFF')) ) {s = 87;}
 
-                        else s = 36;
+                        else s = 37;
 
                         if ( s>=0 ) return s;
                         break;
@@ -2296,31 +2500,33 @@ public class InternalApplauseDslLexer extends Lexer {
 
                         else if ( (LA12_0=='f') ) {s = 23;}
 
-                        else if ( (LA12_0=='n') ) {s = 24;}
+                        else if ( (LA12_0=='g') ) {s = 24;}
 
-                        else if ( (LA12_0=='l') ) {s = 25;}
+                        else if ( (LA12_0=='o') ) {s = 25;}
 
-                        else if ( (LA12_0=='u') ) {s = 26;}
+                        else if ( (LA12_0=='l') ) {s = 26;}
 
-                        else if ( (LA12_0=='G') ) {s = 27;}
+                        else if ( (LA12_0=='u') ) {s = 27;}
 
-                        else if ( (LA12_0=='P') ) {s = 28;}
+                        else if ( (LA12_0=='G') ) {s = 28;}
 
-                        else if ( (LA12_0=='D') ) {s = 29;}
+                        else if ( (LA12_0=='P') ) {s = 29;}
 
-                        else if ( (LA12_0=='^') ) {s = 30;}
+                        else if ( (LA12_0=='D') ) {s = 30;}
 
-                        else if ( ((LA12_0>='A' && LA12_0<='C')||(LA12_0>='E' && LA12_0<='F')||(LA12_0>='H' && LA12_0<='O')||(LA12_0>='Q' && LA12_0<='Z')||LA12_0=='_'||LA12_0=='g'||(LA12_0>='j' && LA12_0<='k')||LA12_0=='m'||LA12_0=='o'||LA12_0=='q'||(LA12_0>='v' && LA12_0<='z')) ) {s = 31;}
+                        else if ( (LA12_0=='^') ) {s = 31;}
 
-                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 32;}
+                        else if ( ((LA12_0>='A' && LA12_0<='C')||(LA12_0>='E' && LA12_0<='F')||(LA12_0>='H' && LA12_0<='O')||(LA12_0>='Q' && LA12_0<='Z')||LA12_0=='_'||(LA12_0>='j' && LA12_0<='k')||(LA12_0>='m' && LA12_0<='n')||LA12_0=='q'||(LA12_0>='v' && LA12_0<='z')) ) {s = 32;}
 
-                        else if ( (LA12_0=='\"') ) {s = 33;}
+                        else if ( ((LA12_0>='0' && LA12_0<='9')) ) {s = 33;}
 
-                        else if ( (LA12_0=='\'') ) {s = 34;}
+                        else if ( (LA12_0=='\"') ) {s = 34;}
 
-                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 35;}
+                        else if ( (LA12_0=='\'') ) {s = 35;}
 
-                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>=';' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='\\' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 36;}
+                        else if ( ((LA12_0>='\t' && LA12_0<='\n')||LA12_0=='\r'||LA12_0==' ') ) {s = 36;}
+
+                        else if ( ((LA12_0>='\u0000' && LA12_0<='\b')||(LA12_0>='\u000B' && LA12_0<='\f')||(LA12_0>='\u000E' && LA12_0<='\u001F')||LA12_0=='!'||(LA12_0>='#' && LA12_0<='&')||(LA12_0>='*' && LA12_0<='+')||(LA12_0>=';' && LA12_0<='<')||(LA12_0>='>' && LA12_0<='@')||(LA12_0>='\\' && LA12_0<=']')||LA12_0=='`'||LA12_0=='|'||(LA12_0>='~' && LA12_0<='\uFFFF')) ) {s = 37;}
 
                         if ( s>=0 ) return s;
                         break;

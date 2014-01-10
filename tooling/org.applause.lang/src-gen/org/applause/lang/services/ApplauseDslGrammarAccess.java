@@ -862,18 +862,24 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cSectionsAssignment_9 = (Assignment)cGroup.eContents().get(9);
 		private final RuleCall cSectionsScreenSectionParserRuleCall_9_0 = (RuleCall)cSectionsAssignment_9.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Keyword cRightCurlyBracketKeyword_11 = (Keyword)cGroup.eContents().get(11);
+		private final Group cGroup_11 = (Group)cGroup.eContents().get(11);
+		private final Keyword cActionsKeyword_11_0 = (Keyword)cGroup_11.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_11_1 = (Keyword)cGroup_11.eContents().get(1);
+		private final Assignment cActionsAssignment_11_2 = (Assignment)cGroup_11.eContents().get(2);
+		private final RuleCall cActionsUIActionParserRuleCall_11_2_0 = (RuleCall)cActionsAssignment_11_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_11_3 = (Keyword)cGroup_11.eContents().get(3);
+		private final Keyword cRightCurlyBracketKeyword_12 = (Keyword)cGroup.eContents().get(12);
 		
 		//// -----------------------------------------
 		//// Screens
 		//// -----------------------------------------
 		//Screen:
 		//	"screen" kind=ScreenKind name=ID ("(" inputParameter=Parameter ")")? "{" ("title" "=" title=STRING)? ("datasource" "="
-		//	datasource=DataSourceCall)? "sections" "{" sections+=ScreenSection* "}" "}";
+		//	datasource=DataSourceCall)? "sections" "{" sections+=ScreenSection* "}" ("actions" "{" actions+=UIAction* "}")? "}";
 		public ParserRule getRule() { return rule; }
 
 		//"screen" kind=ScreenKind name=ID ("(" inputParameter=Parameter ")")? "{" ("title" "=" title=STRING)? ("datasource" "="
-		//datasource=DataSourceCall)? "sections" "{" sections+=ScreenSection* "}" "}"
+		//datasource=DataSourceCall)? "sections" "{" sections+=ScreenSection* "}" ("actions" "{" actions+=UIAction* "}")? "}"
 		public Group getGroup() { return cGroup; }
 
 		//"screen"
@@ -954,8 +960,26 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_10() { return cRightCurlyBracketKeyword_10; }
 
+		//("actions" "{" actions+=UIAction* "}")?
+		public Group getGroup_11() { return cGroup_11; }
+
+		//"actions"
+		public Keyword getActionsKeyword_11_0() { return cActionsKeyword_11_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_11_1() { return cLeftCurlyBracketKeyword_11_1; }
+
+		//actions+=UIAction*
+		public Assignment getActionsAssignment_11_2() { return cActionsAssignment_11_2; }
+
+		//UIAction
+		public RuleCall getActionsUIActionParserRuleCall_11_2_0() { return cActionsUIActionParserRuleCall_11_2_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_11() { return cRightCurlyBracketKeyword_11; }
+		public Keyword getRightCurlyBracketKeyword_11_3() { return cRightCurlyBracketKeyword_11_3; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_12() { return cRightCurlyBracketKeyword_12; }
 	}
 
 	public class ScreenSectionElements extends AbstractParserRuleElementFinder {
@@ -1203,8 +1227,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	public class UIActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UIAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cKindAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cKindUIActionKindEnumRuleCall_0_0 = (RuleCall)cKindAssignment_0.eContents().get(0);
+		private final Keyword cActionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
 		private final Keyword cTitleKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
@@ -1220,22 +1243,29 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		private final Assignment cActionAssignment_6 = (Assignment)cGroup.eContents().get(6);
 		private final RuleCall cActionUIActionSpecificationParserRuleCall_6_0 = (RuleCall)cActionAssignment_6.eContents().get(0);
-		private final Keyword cRightCurlyBracketKeyword_7 = (Keyword)cGroup.eContents().get(7);
+		private final Group cGroup_7 = (Group)cGroup.eContents().get(7);
+		private final Keyword cGestureKeyword_7_0 = (Keyword)cGroup_7.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_7_1 = (Keyword)cGroup_7.eContents().get(1);
+		private final Assignment cGestureAssignment_7_2 = (Assignment)cGroup_7.eContents().get(2);
+		private final RuleCall cGestureGestureKindEnumRuleCall_7_2_0 = (RuleCall)cGestureAssignment_7_2.eContents().get(0);
+		private final Group cGroup_8 = (Group)cGroup.eContents().get(8);
+		private final Keyword cOrderKeyword_8_0 = (Keyword)cGroup_8.eContents().get(0);
+		private final Keyword cEqualsSignKeyword_8_1 = (Keyword)cGroup_8.eContents().get(1);
+		private final Assignment cOrderAssignment_8_2 = (Assignment)cGroup_8.eContents().get(2);
+		private final RuleCall cOrderINTTerminalRuleCall_8_2_0 = (RuleCall)cOrderAssignment_8_2.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_9 = (Keyword)cGroup.eContents().get(9);
 		
 		//UIAction:
-		//	kind=UIActionKind "{" ("title" "=" title=STRING)? ("icon" "=" icon=STRING)? "action" "=" action=UIActionSpecification
-		//	"}";
+		//	"action" "{" ("title" "=" title=STRING)? ("icon" "=" icon=STRING)? "action" "=" action=UIActionSpecification
+		//	("gesture" "=" gesture=GestureKind)? ("order" "=" order=INT)? "}";
 		public ParserRule getRule() { return rule; }
 
-		//kind=UIActionKind "{" ("title" "=" title=STRING)? ("icon" "=" icon=STRING)? "action" "=" action=UIActionSpecification
-		//"}"
+		//"action" "{" ("title" "=" title=STRING)? ("icon" "=" icon=STRING)? "action" "=" action=UIActionSpecification ("gesture"
+		//"=" gesture=GestureKind)? ("order" "=" order=INT)? "}"
 		public Group getGroup() { return cGroup; }
 
-		//kind=UIActionKind
-		public Assignment getKindAssignment_0() { return cKindAssignment_0; }
-
-		//UIActionKind
-		public RuleCall getKindUIActionKindEnumRuleCall_0_0() { return cKindUIActionKindEnumRuleCall_0_0; }
+		//"action"
+		public Keyword getActionKeyword_0() { return cActionKeyword_0; }
 
 		//"{"
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
@@ -1282,8 +1312,38 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		//UIActionSpecification
 		public RuleCall getActionUIActionSpecificationParserRuleCall_6_0() { return cActionUIActionSpecificationParserRuleCall_6_0; }
 
+		//("gesture" "=" gesture=GestureKind)?
+		public Group getGroup_7() { return cGroup_7; }
+
+		//"gesture"
+		public Keyword getGestureKeyword_7_0() { return cGestureKeyword_7_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_7_1() { return cEqualsSignKeyword_7_1; }
+
+		//gesture=GestureKind
+		public Assignment getGestureAssignment_7_2() { return cGestureAssignment_7_2; }
+
+		//GestureKind
+		public RuleCall getGestureGestureKindEnumRuleCall_7_2_0() { return cGestureGestureKindEnumRuleCall_7_2_0; }
+
+		//("order" "=" order=INT)?
+		public Group getGroup_8() { return cGroup_8; }
+
+		//"order"
+		public Keyword getOrderKeyword_8_0() { return cOrderKeyword_8_0; }
+
+		//"="
+		public Keyword getEqualsSignKeyword_8_1() { return cEqualsSignKeyword_8_1; }
+
+		//order=INT
+		public Assignment getOrderAssignment_8_2() { return cOrderAssignment_8_2; }
+
+		//INT
+		public RuleCall getOrderINTTerminalRuleCall_8_2_0() { return cOrderINTTerminalRuleCall_8_2_0; }
+
 		//"}"
-		public Keyword getRightCurlyBracketKeyword_7() { return cRightCurlyBracketKeyword_7; }
+		public Keyword getRightCurlyBracketKeyword_9() { return cRightCurlyBracketKeyword_9; }
 	}
 
 	public class UIActionSpecificationElements extends AbstractParserRuleElementFinder {
@@ -1310,52 +1370,60 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UIActionNavigateAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cUIActionNavigateActionAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cNavigateKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cTargetScreenAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final CrossReference cTargetScreenScreenCrossReference_2_0 = (CrossReference)cTargetScreenAssignment_2.eContents().get(0);
-		private final RuleCall cTargetScreenScreenIDTerminalRuleCall_2_0_1 = (RuleCall)cTargetScreenScreenCrossReference_2_0.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Assignment cVariableAssignment_4 = (Assignment)cGroup.eContents().get(4);
-		private final CrossReference cVariableReferrableElementCrossReference_4_0 = (CrossReference)cVariableAssignment_4.eContents().get(0);
-		private final RuleCall cVariableReferrableElementIDTerminalRuleCall_4_0_1 = (RuleCall)cVariableReferrableElementCrossReference_4_0.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Assignment cTargetScreenAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final CrossReference cTargetScreenScreenCrossReference_1_0 = (CrossReference)cTargetScreenAssignment_1.eContents().get(0);
+		private final RuleCall cTargetScreenScreenIDTerminalRuleCall_1_0_1 = (RuleCall)cTargetScreenScreenCrossReference_1_0.eContents().get(1);
+		private final Keyword cFullStopKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cActionVerbAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cActionVerbActionVerbEnumRuleCall_3_0 = (RuleCall)cActionVerbAssignment_3.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cVariableAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final CrossReference cVariableReferrableElementCrossReference_5_0 = (CrossReference)cVariableAssignment_5.eContents().get(0);
+		private final RuleCall cVariableReferrableElementIDTerminalRuleCall_5_0_1 = (RuleCall)cVariableReferrableElementCrossReference_5_0.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//UIActionNavigateAction:
-		//	{UIActionNavigateAction} "navigate" targetScreen=[Screen] "(" variable=[ReferrableElement]? ")";
+		//	{UIActionNavigateAction} targetScreen=[Screen] "." actionVerb=ActionVerb "(" variable=[ReferrableElement]? ")";
 		public ParserRule getRule() { return rule; }
 
-		//{UIActionNavigateAction} "navigate" targetScreen=[Screen] "(" variable=[ReferrableElement]? ")"
+		//{UIActionNavigateAction} targetScreen=[Screen] "." actionVerb=ActionVerb "(" variable=[ReferrableElement]? ")"
 		public Group getGroup() { return cGroup; }
 
 		//{UIActionNavigateAction}
 		public Action getUIActionNavigateActionAction_0() { return cUIActionNavigateActionAction_0; }
 
-		//"navigate"
-		public Keyword getNavigateKeyword_1() { return cNavigateKeyword_1; }
-
 		//targetScreen=[Screen]
-		public Assignment getTargetScreenAssignment_2() { return cTargetScreenAssignment_2; }
+		public Assignment getTargetScreenAssignment_1() { return cTargetScreenAssignment_1; }
 
 		//[Screen]
-		public CrossReference getTargetScreenScreenCrossReference_2_0() { return cTargetScreenScreenCrossReference_2_0; }
+		public CrossReference getTargetScreenScreenCrossReference_1_0() { return cTargetScreenScreenCrossReference_1_0; }
 
 		//ID
-		public RuleCall getTargetScreenScreenIDTerminalRuleCall_2_0_1() { return cTargetScreenScreenIDTerminalRuleCall_2_0_1; }
+		public RuleCall getTargetScreenScreenIDTerminalRuleCall_1_0_1() { return cTargetScreenScreenIDTerminalRuleCall_1_0_1; }
+
+		//"."
+		public Keyword getFullStopKeyword_2() { return cFullStopKeyword_2; }
+
+		//actionVerb=ActionVerb
+		public Assignment getActionVerbAssignment_3() { return cActionVerbAssignment_3; }
+
+		//ActionVerb
+		public RuleCall getActionVerbActionVerbEnumRuleCall_3_0() { return cActionVerbActionVerbEnumRuleCall_3_0; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_3() { return cLeftParenthesisKeyword_3; }
+		public Keyword getLeftParenthesisKeyword_4() { return cLeftParenthesisKeyword_4; }
 
 		//variable=[ReferrableElement]?
-		public Assignment getVariableAssignment_4() { return cVariableAssignment_4; }
+		public Assignment getVariableAssignment_5() { return cVariableAssignment_5; }
 
 		//[ReferrableElement]
-		public CrossReference getVariableReferrableElementCrossReference_4_0() { return cVariableReferrableElementCrossReference_4_0; }
+		public CrossReference getVariableReferrableElementCrossReference_5_0() { return cVariableReferrableElementCrossReference_5_0; }
 
 		//ID
-		public RuleCall getVariableReferrableElementIDTerminalRuleCall_4_0_1() { return cVariableReferrableElementIDTerminalRuleCall_4_0_1; }
+		public RuleCall getVariableReferrableElementIDTerminalRuleCall_5_0_1() { return cVariableReferrableElementIDTerminalRuleCall_5_0_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_5() { return cRightParenthesisKeyword_5; }
+		public Keyword getRightParenthesisKeyword_6() { return cRightParenthesisKeyword_6; }
 	}
 
 	public class UIActionDeleteActionElements extends AbstractParserRuleElementFinder {
@@ -1872,6 +1940,78 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getDefaultDetailsDefaultDetailsKeyword_1_0() { return cDefaultDetailsDefaultDetailsKeyword_1_0; }
 	}
 
+	public class GestureKindElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "GestureKind");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cTapEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cTapTapKeyword_0_0 = (Keyword)cTapEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cSwipeEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cSwipeSwipeKeyword_1_0 = (Keyword)cSwipeEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cLongpressEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cLongpressLongpressKeyword_2_0 = (Keyword)cLongpressEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum GestureKind:
+		//	tap | swipe | longpress;
+		public EnumRule getRule() { return rule; }
+
+		//tap | swipe | longpress
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//tap
+		public EnumLiteralDeclaration getTapEnumLiteralDeclaration_0() { return cTapEnumLiteralDeclaration_0; }
+
+		//"tap"
+		public Keyword getTapTapKeyword_0_0() { return cTapTapKeyword_0_0; }
+
+		//swipe
+		public EnumLiteralDeclaration getSwipeEnumLiteralDeclaration_1() { return cSwipeEnumLiteralDeclaration_1; }
+
+		//"swipe"
+		public Keyword getSwipeSwipeKeyword_1_0() { return cSwipeSwipeKeyword_1_0; }
+
+		//longpress
+		public EnumLiteralDeclaration getLongpressEnumLiteralDeclaration_2() { return cLongpressEnumLiteralDeclaration_2; }
+
+		//"longpress"
+		public Keyword getLongpressLongpressKeyword_2_0() { return cLongpressLongpressKeyword_2_0; }
+	}
+
+	public class ActionVerbElements extends AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "ActionVerb");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cEditEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cEditEditKeyword_0_0 = (Keyword)cEditEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cDisplayEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cDisplayDisplayKeyword_1_0 = (Keyword)cDisplayEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cAddEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cAddAddKeyword_2_0 = (Keyword)cAddEnumLiteralDeclaration_2.eContents().get(0);
+		
+		//enum ActionVerb:
+		//	edit | display | add;
+		public EnumRule getRule() { return rule; }
+
+		//edit | display | add
+		public Alternatives getAlternatives() { return cAlternatives; }
+
+		//edit
+		public EnumLiteralDeclaration getEditEnumLiteralDeclaration_0() { return cEditEnumLiteralDeclaration_0; }
+
+		//"edit"
+		public Keyword getEditEditKeyword_0_0() { return cEditEditKeyword_0_0; }
+
+		//display
+		public EnumLiteralDeclaration getDisplayEnumLiteralDeclaration_1() { return cDisplayEnumLiteralDeclaration_1; }
+
+		//"display"
+		public Keyword getDisplayDisplayKeyword_1_0() { return cDisplayDisplayKeyword_1_0; }
+
+		//add
+		public EnumLiteralDeclaration getAddEnumLiteralDeclaration_2() { return cAddEnumLiteralDeclaration_2; }
+
+		//"add"
+		public Keyword getAddAddKeyword_2_0() { return cAddAddKeyword_2_0; }
+	}
+
 	public class UIActionKindElements extends AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "UIActionKind");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
@@ -1939,8 +2079,10 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	private ReferrableElementElements pReferrableElement;
 	private LoopVariableElements pLoopVariable;
 	private UIActionElements pUIAction;
+	private GestureKindElements unknownRuleGestureKind;
 	private UIActionSpecificationElements pUIActionSpecification;
 	private UIActionNavigateActionElements pUIActionNavigateAction;
+	private ActionVerbElements unknownRuleActionVerb;
 	private UIActionDeleteActionElements pUIActionDeleteAction;
 	private UIActionKindElements unknownRuleUIActionKind;
 	private ListItemCellDeclarationElements pListItemCellDeclaration;
@@ -2246,7 +2388,7 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	//// -----------------------------------------
 	//Screen:
 	//	"screen" kind=ScreenKind name=ID ("(" inputParameter=Parameter ")")? "{" ("title" "=" title=STRING)? ("datasource" "="
-	//	datasource=DataSourceCall)? "sections" "{" sections+=ScreenSection* "}" "}";
+	//	datasource=DataSourceCall)? "sections" "{" sections+=ScreenSection* "}" ("actions" "{" actions+=UIAction* "}")? "}";
 	public ScreenElements getScreenAccess() {
 		return (pScreen != null) ? pScreen : (pScreen = new ScreenElements());
 	}
@@ -2318,14 +2460,24 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UIAction:
-	//	kind=UIActionKind "{" ("title" "=" title=STRING)? ("icon" "=" icon=STRING)? "action" "=" action=UIActionSpecification
-	//	"}";
+	//	"action" "{" ("title" "=" title=STRING)? ("icon" "=" icon=STRING)? "action" "=" action=UIActionSpecification
+	//	("gesture" "=" gesture=GestureKind)? ("order" "=" order=INT)? "}";
 	public UIActionElements getUIActionAccess() {
 		return (pUIAction != null) ? pUIAction : (pUIAction = new UIActionElements());
 	}
 	
 	public ParserRule getUIActionRule() {
 		return getUIActionAccess().getRule();
+	}
+
+	//enum GestureKind:
+	//	tap | swipe | longpress;
+	public GestureKindElements getGestureKindAccess() {
+		return (unknownRuleGestureKind != null) ? unknownRuleGestureKind : (unknownRuleGestureKind = new GestureKindElements());
+	}
+	
+	public EnumRule getGestureKindRule() {
+		return getGestureKindAccess().getRule();
 	}
 
 	//UIActionSpecification:
@@ -2339,13 +2491,23 @@ public class ApplauseDslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UIActionNavigateAction:
-	//	{UIActionNavigateAction} "navigate" targetScreen=[Screen] "(" variable=[ReferrableElement]? ")";
+	//	{UIActionNavigateAction} targetScreen=[Screen] "." actionVerb=ActionVerb "(" variable=[ReferrableElement]? ")";
 	public UIActionNavigateActionElements getUIActionNavigateActionAccess() {
 		return (pUIActionNavigateAction != null) ? pUIActionNavigateAction : (pUIActionNavigateAction = new UIActionNavigateActionElements());
 	}
 	
 	public ParserRule getUIActionNavigateActionRule() {
 		return getUIActionNavigateActionAccess().getRule();
+	}
+
+	//enum ActionVerb:
+	//	edit | display | add;
+	public ActionVerbElements getActionVerbAccess() {
+		return (unknownRuleActionVerb != null) ? unknownRuleActionVerb : (unknownRuleActionVerb = new ActionVerbElements());
+	}
+	
+	public EnumRule getActionVerbRule() {
+		return getActionVerbAccess().getRule();
 	}
 
 	//UIActionDeleteAction:

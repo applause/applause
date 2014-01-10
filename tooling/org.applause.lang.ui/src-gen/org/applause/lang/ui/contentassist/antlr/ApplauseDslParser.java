@@ -48,6 +48,8 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getRESTVerbAccess().getAlternatives(), "rule__RESTVerb__Alternatives");
 					put(grammarAccess.getScreenKindAccess().getAlternatives(), "rule__ScreenKind__Alternatives");
+					put(grammarAccess.getGestureKindAccess().getAlternatives(), "rule__GestureKind__Alternatives");
+					put(grammarAccess.getActionVerbAccess().getAlternatives(), "rule__ActionVerb__Alternatives");
 					put(grammarAccess.getUIActionKindAccess().getAlternatives(), "rule__UIActionKind__Alternatives");
 					put(grammarAccess.getDataTypeAccess().getGroup(), "rule__DataType__Group__0");
 					put(grammarAccess.getEntityAccess().getGroup(), "rule__Entity__Group__0");
@@ -74,6 +76,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScreenAccess().getGroup_3(), "rule__Screen__Group_3__0");
 					put(grammarAccess.getScreenAccess().getGroup_5(), "rule__Screen__Group_5__0");
 					put(grammarAccess.getScreenAccess().getGroup_6(), "rule__Screen__Group_6__0");
+					put(grammarAccess.getScreenAccess().getGroup_11(), "rule__Screen__Group_11__0");
 					put(grammarAccess.getScreenSectionAccess().getGroup(), "rule__ScreenSection__Group__0");
 					put(grammarAccess.getScreenSectionAccess().getGroup_2(), "rule__ScreenSection__Group_2__0");
 					put(grammarAccess.getScreenSectionAccess().getGroup_3(), "rule__ScreenSection__Group_3__0");
@@ -84,6 +87,8 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getUIActionAccess().getGroup(), "rule__UIAction__Group__0");
 					put(grammarAccess.getUIActionAccess().getGroup_2(), "rule__UIAction__Group_2__0");
 					put(grammarAccess.getUIActionAccess().getGroup_3(), "rule__UIAction__Group_3__0");
+					put(grammarAccess.getUIActionAccess().getGroup_7(), "rule__UIAction__Group_7__0");
+					put(grammarAccess.getUIActionAccess().getGroup_8(), "rule__UIAction__Group_8__0");
 					put(grammarAccess.getUIActionNavigateActionAccess().getGroup(), "rule__UIActionNavigateAction__Group__0");
 					put(grammarAccess.getUIActionDeleteActionAccess().getGroup(), "rule__UIActionDeleteAction__Group__0");
 					put(grammarAccess.getListItemCellDeclarationAccess().getGroup(), "rule__ListItemCellDeclaration__Group__0");
@@ -137,6 +142,7 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScreenAccess().getTitleAssignment_5_2(), "rule__Screen__TitleAssignment_5_2");
 					put(grammarAccess.getScreenAccess().getDatasourceAssignment_6_2(), "rule__Screen__DatasourceAssignment_6_2");
 					put(grammarAccess.getScreenAccess().getSectionsAssignment_9(), "rule__Screen__SectionsAssignment_9");
+					put(grammarAccess.getScreenAccess().getActionsAssignment_11_2(), "rule__Screen__ActionsAssignment_11_2");
 					put(grammarAccess.getScreenSectionAccess().getTitleAssignment_2_2(), "rule__ScreenSection__TitleAssignment_2_2");
 					put(grammarAccess.getScreenSectionAccess().getDatasourceAssignment_3_2(), "rule__ScreenSection__DatasourceAssignment_3_2");
 					put(grammarAccess.getScreenSectionAccess().getItemsAssignment_4(), "rule__ScreenSection__ItemsAssignment_4");
@@ -147,12 +153,14 @@ public class ApplauseDslParser extends AbstractContentAssistParser {
 					put(grammarAccess.getScreenListItemCellAccess().getConfigurationsAssignment_4(), "rule__ScreenListItemCell__ConfigurationsAssignment_4");
 					put(grammarAccess.getScreenListItemCellAccess().getActionsAssignment_5_2(), "rule__ScreenListItemCell__ActionsAssignment_5_2");
 					put(grammarAccess.getLoopVariableAccess().getNameAssignment(), "rule__LoopVariable__NameAssignment");
-					put(grammarAccess.getUIActionAccess().getKindAssignment_0(), "rule__UIAction__KindAssignment_0");
 					put(grammarAccess.getUIActionAccess().getTitleAssignment_2_2(), "rule__UIAction__TitleAssignment_2_2");
 					put(grammarAccess.getUIActionAccess().getIconAssignment_3_2(), "rule__UIAction__IconAssignment_3_2");
 					put(grammarAccess.getUIActionAccess().getActionAssignment_6(), "rule__UIAction__ActionAssignment_6");
-					put(grammarAccess.getUIActionNavigateActionAccess().getTargetScreenAssignment_2(), "rule__UIActionNavigateAction__TargetScreenAssignment_2");
-					put(grammarAccess.getUIActionNavigateActionAccess().getVariableAssignment_4(), "rule__UIActionNavigateAction__VariableAssignment_4");
+					put(grammarAccess.getUIActionAccess().getGestureAssignment_7_2(), "rule__UIAction__GestureAssignment_7_2");
+					put(grammarAccess.getUIActionAccess().getOrderAssignment_8_2(), "rule__UIAction__OrderAssignment_8_2");
+					put(grammarAccess.getUIActionNavigateActionAccess().getTargetScreenAssignment_1(), "rule__UIActionNavigateAction__TargetScreenAssignment_1");
+					put(grammarAccess.getUIActionNavigateActionAccess().getActionVerbAssignment_3(), "rule__UIActionNavigateAction__ActionVerbAssignment_3");
+					put(grammarAccess.getUIActionNavigateActionAccess().getVariableAssignment_5(), "rule__UIActionNavigateAction__VariableAssignment_5");
 					put(grammarAccess.getListItemCellDeclarationAccess().getNameAssignment_1(), "rule__ListItemCellDeclaration__NameAssignment_1");
 					put(grammarAccess.getListItemCellDeclarationAccess().getMembersAssignment_3(), "rule__ListItemCellDeclaration__MembersAssignment_3");
 					put(grammarAccess.getUIComponentDeclarationAccess().getNameAssignment_1(), "rule__UIComponentDeclaration__NameAssignment_1");

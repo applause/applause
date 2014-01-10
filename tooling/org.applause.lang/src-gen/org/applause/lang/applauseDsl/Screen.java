@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getTitle <em>Title</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getDatasource <em>Datasource</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getSections <em>Sections</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.Screen#getActions <em>Actions</em>}</li>
  * </ul>
  * </p>
  *
@@ -148,5 +149,21 @@ public interface Screen extends NamedElement
    * @generated
    */
   EList<ScreenSection> getSections();
+
+  /**
+   * Returns the value of the '<em><b>Actions</b></em>' containment reference list.
+   * The list contents are of type {@link org.applause.lang.applauseDsl.UIAction}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Actions</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Actions</em>' containment reference list.
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getScreen_Actions()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UIAction> getActions();
 
 } // Screen

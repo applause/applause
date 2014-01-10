@@ -1,36 +1,24 @@
 package org.applause.lang.generator.ios.ui;
 
 import com.google.common.base.Objects;
-import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
-import java.util.List;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.DataSourceCall;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Expression;
-import org.applause.lang.applauseDsl.RESTMethodCall;
 import org.applause.lang.applauseDsl.Screen;
-import org.applause.lang.applauseDsl.ScreenListItemCell;
-import org.applause.lang.applauseDsl.ScreenSection;
-import org.applause.lang.applauseDsl.ScreenSectionItems;
-import org.applause.lang.applauseDsl.UIAction;
-import org.applause.lang.applauseDsl.UIActionKind;
-import org.applause.lang.applauseDsl.UIActionNavigateAction;
-import org.applause.lang.applauseDsl.UIActionSpecification;
 import org.applause.lang.applauseDsl.UIComponentMemberCall;
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration;
 import org.applause.lang.applauseDsl.UIComponentMemberDeclaration;
 import org.applause.lang.generator.ios.ExpressionExtensions;
 import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
 import org.applause.lang.generator.ios.model.TypeExtensions;
+import org.applause.lang.generator.ios.ui.DefaultListScreenActionCompiler;
 import org.applause.lang.generator.ios.ui.DefaultListScreenClassExtensions;
-import org.eclipse.emf.common.util.EList;
+import org.applause.lang.generator.ios.ui.DefaultListScreenEditActionCompiler;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 @SuppressWarnings("all")
 public class DefaultListScreenModuleFileCompiler {
@@ -50,68 +38,13 @@ public class DefaultListScreenModuleFileCompiler {
   @Extension
   private DataAccessClassExtensions _dataAccessClassExtensions;
   
-  public Entity resourceType(final Screen it) {
-    DataSourceCall _datasource = it.getDatasource();
-    DataSource _datasource_1 = _datasource.getDatasource();
-    Entity _resourceType = _datasource_1.getResourceType();
-    return _resourceType;
-  }
+  @Inject
+  @Extension
+  private DefaultListScreenActionCompiler _defaultListScreenActionCompiler;
   
-  public Iterable<UIComponentMemberConfiguration> configurations(final Screen it) {
-    EList<ScreenSection> _sections = it.getSections();
-    final Function1<ScreenSection,ScreenSectionItems> _function = new Function1<ScreenSection,ScreenSectionItems>() {
-      public ScreenSectionItems apply(final ScreenSection it) {
-        ScreenSectionItems _items = it.getItems();
-        return _items;
-      }
-    };
-    List<ScreenSectionItems> _map = ListExtensions.<ScreenSection, ScreenSectionItems>map(_sections, _function);
-    final Function1<ScreenSectionItems,EList<ScreenListItemCell>> _function_1 = new Function1<ScreenSectionItems,EList<ScreenListItemCell>>() {
-      public EList<ScreenListItemCell> apply(final ScreenSectionItems it) {
-        EList<ScreenListItemCell> _items = it.getItems();
-        return _items;
-      }
-    };
-    List<EList<ScreenListItemCell>> _map_1 = ListExtensions.<ScreenSectionItems, EList<ScreenListItemCell>>map(_map, _function_1);
-    Iterable<ScreenListItemCell> _flatten = Iterables.<ScreenListItemCell>concat(_map_1);
-    final Function1<ScreenListItemCell,EList<UIComponentMemberConfiguration>> _function_2 = new Function1<ScreenListItemCell,EList<UIComponentMemberConfiguration>>() {
-      public EList<UIComponentMemberConfiguration> apply(final ScreenListItemCell it) {
-        EList<UIComponentMemberConfiguration> _configurations = it.getConfigurations();
-        return _configurations;
-      }
-    };
-    Iterable<EList<UIComponentMemberConfiguration>> _map_2 = IterableExtensions.<ScreenListItemCell, EList<UIComponentMemberConfiguration>>map(_flatten, _function_2);
-    Iterable<UIComponentMemberConfiguration> _flatten_1 = Iterables.<UIComponentMemberConfiguration>concat(_map_2);
-    return _flatten_1;
-  }
-  
-  public ScreenListItemCell defaultCell(final Screen it) {
-    EList<ScreenSection> _sections = it.getSections();
-    final Function1<ScreenSection,ScreenSectionItems> _function = new Function1<ScreenSection,ScreenSectionItems>() {
-      public ScreenSectionItems apply(final ScreenSection it) {
-        ScreenSectionItems _items = it.getItems();
-        return _items;
-      }
-    };
-    List<ScreenSectionItems> _map = ListExtensions.<ScreenSection, ScreenSectionItems>map(_sections, _function);
-    final Function1<ScreenSectionItems,EList<ScreenListItemCell>> _function_1 = new Function1<ScreenSectionItems,EList<ScreenListItemCell>>() {
-      public EList<ScreenListItemCell> apply(final ScreenSectionItems it) {
-        EList<ScreenListItemCell> _items = it.getItems();
-        return _items;
-      }
-    };
-    List<EList<ScreenListItemCell>> _map_1 = ListExtensions.<ScreenSectionItems, EList<ScreenListItemCell>>map(_map, _function_1);
-    Iterable<ScreenListItemCell> _flatten = Iterables.<ScreenListItemCell>concat(_map_1);
-    ScreenListItemCell _head = IterableExtensions.<ScreenListItemCell>head(_flatten);
-    return _head;
-  }
-  
-  public DataSourceAccessMethod restMethod(final Screen it) {
-    ScreenListItemCell _defaultCell = this.defaultCell(it);
-    RESTMethodCall _restMethod = _defaultCell.getRestMethod();
-    DataSourceAccessMethod _restMethod_1 = _restMethod.getRestMethod();
-    return _restMethod_1;
-  }
+  @Inject
+  @Extension
+  private DefaultListScreenEditActionCompiler _defaultListScreenEditActionCompiler;
   
   public CharSequence compileModule(final Screen it) {
     StringConcatenation _builder = new StringConcatenation();
@@ -121,13 +54,13 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.append("#import \"");
-    Entity _resourceType = this.resourceType(it);
+    Entity _resourceType = this._defaultListScreenClassExtensions.resourceType(it);
     String _entityDataAccessCategoryHeaderFileName = this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(_resourceType);
     _builder.append(_entityDataAccessCategoryHeaderFileName, "");
     _builder.append("\"");
     _builder.newLineIfNotEmpty();
     _builder.append("#import \"");
-    Screen _targetNavigationScreen = this.targetNavigationScreen(it);
+    Screen _targetNavigationScreen = this._defaultListScreenClassExtensions.targetNavigationScreen(it);
     String _screenHeaderFileName_1 = this._defaultListScreenClassExtensions.screenHeaderFileName(_targetNavigationScreen);
     _builder.append(_screenHeaderFileName_1, "");
     _builder.append("\"");
@@ -138,7 +71,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append(_controllerClassName, "");
     _builder.append(" ()");
     _builder.newLineIfNotEmpty();
-    _builder.append("@property(nonatomic, strong) NSArray *items;\t\t");
+    _builder.append("@property(nonatomic, strong) NSMutableArray *items;\t\t");
     _builder.newLine();
     _builder.append("@end");
     _builder.newLine();
@@ -199,6 +132,12 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("\t\t");
     _builder.append("[self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];");
     _builder.newLine();
+    _builder.append("\t\t");
+    _builder.newLine();
+    _builder.append("\t\t");
+    CharSequence _compileActionButtons = this._defaultListScreenActionCompiler.compileActionButtons(it);
+    _builder.append(_compileActionButtons, "		");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
@@ -254,13 +193,13 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("    ");
     _builder.newLine();
     _builder.append("\t");
-    Entity _resourceType_2 = this.resourceType(it);
+    Entity _resourceType_2 = this._defaultListScreenClassExtensions.resourceType(it);
     String _typeName_1 = this._typeExtensions.typeName(_resourceType_2);
     _builder.append(_typeName_1, "	");
     _builder.append(" *item = self.items[(NSUInteger) indexPath.row];");
     _builder.newLineIfNotEmpty();
     {
-      Iterable<UIComponentMemberConfiguration> _configurations = this.configurations(it);
+      Iterable<UIComponentMemberConfiguration> _configurations = this._defaultListScreenClassExtensions.configurations(it);
       for(final UIComponentMemberConfiguration it_1 : _configurations) {
         _builder.append("\t");
         CharSequence _compileConfiguration = this.compileConfiguration(it_1);
@@ -283,7 +222,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
-    Entity _resourceType_3 = this.resourceType(it);
+    Entity _resourceType_3 = this._defaultListScreenClassExtensions.resourceType(it);
     String _typeName_2 = this._typeExtensions.typeName(_resourceType_3);
     _builder.append(_typeName_2, "	");
     _builder.append(" *item = self.items[(NSUInteger) indexPath.row];");
@@ -293,6 +232,15 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    _builder.newLine();
+    {
+      boolean _supportsDeleteAction = this._defaultListScreenEditActionCompiler.supportsDeleteAction(it);
+      if (_supportsDeleteAction) {
+        CharSequence _compileCommitEditing = this._defaultListScreenEditActionCompiler.compileCommitEditing(it);
+        _builder.append(_compileCommitEditing, "");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.newLine();
     _builder.append("#pragma mark - Data access");
     _builder.newLine();
@@ -313,11 +261,11 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[");
-    Entity _resourceType_4 = this.resourceType(it);
+    Entity _resourceType_4 = this._defaultListScreenClassExtensions.resourceType(it);
     String _typeName_3 = this._typeExtensions.typeName(_resourceType_4);
     _builder.append(_typeName_3, "	");
     _builder.append(" ");
-    DataSourceAccessMethod _restMethod = this.restMethod(it);
+    DataSourceAccessMethod _restMethod = this._defaultListScreenClassExtensions.restMethod(it);
     String _name = _restMethod.getName();
     _builder.append(_name, "	");
     _builder.append(":^(NSArray *items, NSError *error)");
@@ -353,7 +301,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("else {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("self.items = items;");
+    _builder.append("self.items = [NSMutableArray arrayWithArray:items];");
     _builder.newLine();
     _builder.append("\t\t\t");
     _builder.append("[self.tableView reloadData];");
@@ -370,59 +318,13 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("#pragma mark - Actions");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("- (void)onEditItem:(");
-    Entity _resourceType_5 = this.resourceType(it);
-    String _typeName_4 = this._typeExtensions.typeName(_resourceType_5);
-    _builder.append(_typeName_4, "");
-    _builder.append(" *)item");
+    CharSequence _compileActionMethods = this._defaultListScreenActionCompiler.compileActionMethods(it);
+    _builder.append(_compileActionMethods, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("[");
-    Screen _targetNavigationScreen_1 = this.targetNavigationScreen(it);
-    String _controllerClassName_2 = this._defaultListScreenClassExtensions.controllerClassName(_targetNavigationScreen_1);
-    _builder.append(_controllerClassName_2, "	");
-    _builder.append(" presentForEditingItem:item fromParent:self onDone:^(");
-    Entity _resourceType_6 = this.resourceType(it);
-    String _typeName_5 = this._typeExtensions.typeName(_resourceType_6);
-    _builder.append(_typeName_5, "	");
-    _builder.append(" *editedItem)");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("[self refresh];");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("}];");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
     _builder.newLine();
     _builder.append("@end");
     _builder.newLine();
     return _builder;
-  }
-  
-  public Screen targetNavigationScreen(final Screen it) {
-    ScreenListItemCell _defaultCell = this.defaultCell(it);
-    EList<UIAction> _actions = _defaultCell.getActions();
-    final Function1<UIAction,Boolean> _function = new Function1<UIAction,Boolean>() {
-      public Boolean apply(final UIAction it) {
-        UIActionKind _kind = it.getKind();
-        boolean _equals = Objects.equal(_kind, UIActionKind.NAVIGATE);
-        return Boolean.valueOf(_equals);
-      }
-    };
-    Iterable<UIAction> _filter = IterableExtensions.<UIAction>filter(_actions, _function);
-    UIAction _head = IterableExtensions.<UIAction>head(_filter);
-    UIActionSpecification _action = _head.getAction();
-    Screen _targetScreen = ((UIActionNavigateAction) _action).getTargetScreen();
-    return _targetScreen;
   }
   
   public CharSequence compileConfiguration(final UIComponentMemberConfiguration it) {
