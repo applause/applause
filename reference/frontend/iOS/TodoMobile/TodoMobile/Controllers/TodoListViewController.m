@@ -12,7 +12,7 @@
 
 @interface TodoListViewController ()
 
-@property(nonatomic, strong) NSArray *todos;
+@property(nonatomic, strong) NSMutableArray *todos;
 @end
 
 @implementation TodoListViewController
@@ -35,9 +35,11 @@ static NSString *kCellIdentifier = @"TodoCell";
 		[self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
 
 		// register action buttons
-		self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
-																							   target:self
-																							   action:@selector(onAddTodo)];
+		self.navigationItem.rightBarButtonItems = @[
+			[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+														  target:self
+														  action:@selector(onAddTodo)]
+		];
 	}
     return self;
 }
@@ -86,7 +88,12 @@ static NSString *kCellIdentifier = @"TodoCell";
 		if (error) {
 			NSLog(@"Error %@", error);
 		}
-		[self refresh];
+		else {
+			if (indexPath.row < self.todos.count) {
+				[self.todos removeObjectAtIndex:indexPath.row];
+				[self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+			}
+		}
 	}];
 }
 
@@ -110,7 +117,7 @@ static NSString *kCellIdentifier = @"TodoCell";
 							  otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
 		}
 		else {
-			self.todos = todos;
+			self.todos = [NSMutableArray arrayWithArray:todos];
 			[self.tableView reloadData];
 		}
 	}];
