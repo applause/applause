@@ -24,6 +24,14 @@
 			"required": false,
 			"id": "done",
 			"order": 2
+		},
+		"parent": {
+			"name": "parent",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "parent",
+			"order": 3
 		}
 	}
 }
