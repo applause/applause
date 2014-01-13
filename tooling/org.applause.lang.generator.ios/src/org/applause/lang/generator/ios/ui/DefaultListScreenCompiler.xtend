@@ -14,6 +14,7 @@ import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
 import org.applause.lang.applauseDsl.UIActionDeleteAction
+import org.applause.lang.applauseDsl.RESTVerb
 
 class DefaultListScreenCompiler {
 	
@@ -204,11 +205,19 @@ class DefaultListScreenEditActionCompiler {
 		defaultCell.actions.map[action].filter(typeof(UIActionDeleteAction)).size > 0
 	}
 	
+	def deleteAction(Screen it) {
+		defaultCell.actions.map[action].filter(typeof(UIActionDeleteAction)).head
+	}
+	
+	def deleteMethod(Screen it) {
+		it.datasource.datasource.methods.filter[restSpecification.verb == RESTVerb.DELETE].head
+	}
+	
 	def compileCommitEditing(Screen it) '''
 		- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 		{
 			«resourceType.typeName» *item= self.items[indexPath.row];
-			[item remove:^(«resourceType.typeName» *item, NSError *error)
+			[item «deleteMethod.name»:^(«resourceType.typeName» *item, NSError *error)
 			{
 				if (error) {
 					NSLog(@"Error %@", error);
