@@ -2,8 +2,8 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
-import org.applause.lang.applauseDsl.ActionVerb;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
+import org.applause.lang.applauseDsl.ControllerVerb;
 import org.applause.lang.applauseDsl.ReferrableElement;
 import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.UIActionNavigateAction;
@@ -43,24 +43,14 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
   protected Screen targetScreen;
 
   /**
-   * The default value of the '{@link #getActionVerb() <em>Action Verb</em>}' attribute.
+   * The cached value of the '{@link #getActionVerb() <em>Action Verb</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getActionVerb()
    * @generated
    * @ordered
    */
-  protected static final ActionVerb ACTION_VERB_EDEFAULT = ActionVerb.EDIT;
-
-  /**
-   * The cached value of the '{@link #getActionVerb() <em>Action Verb</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getActionVerb()
-   * @generated
-   * @ordered
-   */
-  protected ActionVerb actionVerb = ACTION_VERB_EDEFAULT;
+  protected ControllerVerb actionVerb;
 
   /**
    * The cached value of the '{@link #getVariable() <em>Variable</em>}' reference.
@@ -141,7 +131,27 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActionVerb getActionVerb()
+  public ControllerVerb getActionVerb()
+  {
+    if (actionVerb != null && actionVerb.eIsProxy())
+    {
+      InternalEObject oldActionVerb = (InternalEObject)actionVerb;
+      actionVerb = (ControllerVerb)eResolveProxy(oldActionVerb);
+      if (actionVerb != oldActionVerb)
+      {
+        if (eNotificationRequired())
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB, oldActionVerb, actionVerb));
+      }
+    }
+    return actionVerb;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ControllerVerb basicGetActionVerb()
   {
     return actionVerb;
   }
@@ -151,10 +161,10 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setActionVerb(ActionVerb newActionVerb)
+  public void setActionVerb(ControllerVerb newActionVerb)
   {
-    ActionVerb oldActionVerb = actionVerb;
-    actionVerb = newActionVerb == null ? ACTION_VERB_EDEFAULT : newActionVerb;
+    ControllerVerb oldActionVerb = actionVerb;
+    actionVerb = newActionVerb;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB, oldActionVerb, actionVerb));
   }
@@ -216,7 +226,8 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
         if (resolve) return getTargetScreen();
         return basicGetTargetScreen();
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
-        return getActionVerb();
+        if (resolve) return getActionVerb();
+        return basicGetActionVerb();
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         if (resolve) return getVariable();
         return basicGetVariable();
@@ -238,7 +249,7 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
         setTargetScreen((Screen)newValue);
         return;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
-        setActionVerb((ActionVerb)newValue);
+        setActionVerb((ControllerVerb)newValue);
         return;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         setVariable((ReferrableElement)newValue);
@@ -261,7 +272,7 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
         setTargetScreen((Screen)null);
         return;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
-        setActionVerb(ACTION_VERB_EDEFAULT);
+        setActionVerb((ControllerVerb)null);
         return;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         setVariable((ReferrableElement)null);
@@ -283,28 +294,11 @@ public class UIActionNavigateActionImpl extends UIActionSpecificationImpl implem
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN:
         return targetScreen != null;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__ACTION_VERB:
-        return actionVerb != ACTION_VERB_EDEFAULT;
+        return actionVerb != null;
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION__VARIABLE:
         return variable != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (actionVerb: ");
-    result.append(actionVerb);
-    result.append(')');
-    return result.toString();
   }
 
 } //UIActionNavigateActionImpl

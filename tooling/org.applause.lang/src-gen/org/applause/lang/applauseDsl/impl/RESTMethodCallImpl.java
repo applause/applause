@@ -2,18 +2,27 @@
  */
 package org.applause.lang.applauseDsl.impl;
 
+import java.util.Collection;
+
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.DataSourceCall;
+import org.applause.lang.applauseDsl.ParameterReference;
 import org.applause.lang.applauseDsl.RESTMethodCall;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,6 +33,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.RESTMethodCallImpl#getDatasource <em>Datasource</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.RESTMethodCallImpl#getRestMethod <em>Rest Method</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.RESTMethodCallImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -50,6 +60,16 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
    * @ordered
    */
   protected DataSourceAccessMethod restMethod;
+
+  /**
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameters()
+   * @generated
+   * @ordered
+   */
+  protected EList<ParameterReference> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -163,6 +183,36 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ParameterReference> getParameters()
+  {
+    if (parameters == null)
+    {
+      parameters = new EObjectContainmentEList<ParameterReference>(ParameterReference.class, this, ApplauseDslPackage.REST_METHOD_CALL__PARAMETERS);
+    }
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case ApplauseDslPackage.REST_METHOD_CALL__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public Object eGet(int featureID, boolean resolve, boolean coreType)
   {
@@ -174,6 +224,8 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
       case ApplauseDslPackage.REST_METHOD_CALL__REST_METHOD:
         if (resolve) return getRestMethod();
         return basicGetRestMethod();
+      case ApplauseDslPackage.REST_METHOD_CALL__PARAMETERS:
+        return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -183,6 +235,7 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
@@ -193,6 +246,10 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
         return;
       case ApplauseDslPackage.REST_METHOD_CALL__REST_METHOD:
         setRestMethod((DataSourceAccessMethod)newValue);
+        return;
+      case ApplauseDslPackage.REST_METHOD_CALL__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends ParameterReference>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -214,6 +271,9 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
       case ApplauseDslPackage.REST_METHOD_CALL__REST_METHOD:
         setRestMethod((DataSourceAccessMethod)null);
         return;
+      case ApplauseDslPackage.REST_METHOD_CALL__PARAMETERS:
+        getParameters().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -232,6 +292,8 @@ public class RESTMethodCallImpl extends MinimalEObjectImpl.Container implements 
         return datasource != null;
       case ApplauseDslPackage.REST_METHOD_CALL__REST_METHOD:
         return restMethod != null;
+      case ApplauseDslPackage.REST_METHOD_CALL__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
   }

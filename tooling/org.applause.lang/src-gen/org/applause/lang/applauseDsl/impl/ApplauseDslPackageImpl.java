@@ -3,11 +3,12 @@
 package org.applause.lang.applauseDsl.impl;
 
 import org.applause.lang.applauseDsl.AbsoluteRESTURL;
-import org.applause.lang.applauseDsl.ActionVerb;
 import org.applause.lang.applauseDsl.ApplauseDslFactory;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.AttributeReference;
+import org.applause.lang.applauseDsl.ControllerVerb;
+import org.applause.lang.applauseDsl.ControllerVerbKind;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.DataSourceBodySpecification;
@@ -23,6 +24,9 @@ import org.applause.lang.applauseDsl.LoopVariable;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.NamedElement;
 import org.applause.lang.applauseDsl.Parameter;
+import org.applause.lang.applauseDsl.ParameterCall;
+import org.applause.lang.applauseDsl.ParameterMemberCall;
+import org.applause.lang.applauseDsl.ParameterReference;
 import org.applause.lang.applauseDsl.Platform;
 import org.applause.lang.applauseDsl.PlatformMapping;
 import org.applause.lang.applauseDsl.RESTMethodCall;
@@ -40,7 +44,6 @@ import org.applause.lang.applauseDsl.Type;
 import org.applause.lang.applauseDsl.TypeMapping;
 import org.applause.lang.applauseDsl.UIAction;
 import org.applause.lang.applauseDsl.UIActionDeleteAction;
-import org.applause.lang.applauseDsl.UIActionKind;
 import org.applause.lang.applauseDsl.UIActionNavigateAction;
 import org.applause.lang.applauseDsl.UIActionSpecification;
 import org.applause.lang.applauseDsl.UIComponentDeclaration;
@@ -49,6 +52,7 @@ import org.applause.lang.applauseDsl.UIComponentMemberConfiguration;
 import org.applause.lang.applauseDsl.UIComponentMemberDeclaration;
 import org.applause.lang.applauseDsl.UIComponentOrDataType;
 import org.applause.lang.applauseDsl.UrlFragment;
+import org.applause.lang.applauseDsl.UrlParameter;
 import org.applause.lang.applauseDsl.UrlPathFragment;
 import org.applause.lang.applauseDsl.Variable;
 
@@ -185,6 +189,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass urlParameterEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass relativeRESTURLEClass = null;
 
   /**
@@ -283,6 +294,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass controllerVerbEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass listItemCellDeclarationEClass = null;
 
   /**
@@ -346,6 +364,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass parameterReferenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass entityMemberCallEClass = null;
 
   /**
@@ -374,6 +399,20 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass parameterCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass parameterMemberCallEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum restVerbEEnum = null;
 
   /**
@@ -395,14 +434,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum actionVerbEEnum = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EEnum uiActionKindEEnum = null;
+  private EEnum controllerVerbKindEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -862,6 +894,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRESTURL_Parameters()
+  {
+    return (EReference)resturlEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getAbsoluteRESTURL()
   {
     return absoluteRESTURLEClass;
@@ -885,6 +927,36 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EAttribute getAbsoluteRESTURL_Port()
   {
     return (EAttribute)absoluteRESTURLEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUrlParameter()
+  {
+    return urlParameterEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUrlParameter_Name()
+  {
+    return (EAttribute)urlParameterEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUrlParameter_Value()
+  {
+    return (EReference)urlParameterEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1015,6 +1087,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EReference getScreen_Actions()
   {
     return (EReference)screenEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getScreen_Verbs()
+  {
+    return (EReference)screenEClass.getEStructuralFeatures().get(6);
   }
 
   /**
@@ -1262,9 +1344,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getUIActionNavigateAction_ActionVerb()
+  public EReference getUIActionNavigateAction_ActionVerb()
   {
-    return (EAttribute)uiActionNavigateActionEClass.getEStructuralFeatures().get(1);
+    return (EReference)uiActionNavigateActionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1285,6 +1367,56 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EClass getUIActionDeleteAction()
   {
     return uiActionDeleteActionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getControllerVerb()
+  {
+    return controllerVerbEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getControllerVerb_Kind()
+  {
+    return (EAttribute)controllerVerbEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getControllerVerb_Name()
+  {
+    return (EAttribute)controllerVerbEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControllerVerb_DeclaredParameters()
+  {
+    return (EReference)controllerVerbEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getControllerVerb_RestMethod()
+  {
+    return (EReference)controllerVerbEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -1402,6 +1534,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EReference getRESTMethodCall_Parameters()
+  {
+    return (EReference)restMethodCallEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getDataSourceCall()
   {
     return dataSourceCallEClass;
@@ -1495,6 +1637,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
   public EClass getExpression()
   {
     return expressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterReference()
+  {
+    return parameterReferenceEClass;
   }
 
   /**
@@ -1602,6 +1754,56 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getParameterCall()
+  {
+    return parameterCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterCall_Head()
+  {
+    return (EReference)parameterCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getParameterMemberCall()
+  {
+    return parameterMemberCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterMemberCall_Reference()
+  {
+    return (EReference)parameterMemberCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getParameterMemberCall_Tail()
+  {
+    return (EReference)parameterMemberCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getRESTVerb()
   {
     return restVerbEEnum;
@@ -1632,19 +1834,9 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
    * <!-- end-user-doc -->
    * @generated
    */
-  public EEnum getActionVerb()
+  public EEnum getControllerVerbKind()
   {
-    return actionVerbEEnum;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EEnum getUIActionKind()
-  {
-    return uiActionKindEEnum;
+    return controllerVerbKindEEnum;
   }
 
   /**
@@ -1730,10 +1922,15 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     resturlEClass = createEClass(RESTURL);
     createEReference(resturlEClass, RESTURL__FRAGMENTS);
+    createEReference(resturlEClass, RESTURL__PARAMETERS);
 
     absoluteRESTURLEClass = createEClass(ABSOLUTE_RESTURL);
     createEReference(absoluteRESTURLEClass, ABSOLUTE_RESTURL__HOST);
     createEAttribute(absoluteRESTURLEClass, ABSOLUTE_RESTURL__PORT);
+
+    urlParameterEClass = createEClass(URL_PARAMETER);
+    createEAttribute(urlParameterEClass, URL_PARAMETER__NAME);
+    createEReference(urlParameterEClass, URL_PARAMETER__VALUE);
 
     relativeRESTURLEClass = createEClass(RELATIVE_RESTURL);
 
@@ -1752,6 +1949,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     createEReference(screenEClass, SCREEN__DATASOURCE);
     createEReference(screenEClass, SCREEN__SECTIONS);
     createEReference(screenEClass, SCREEN__ACTIONS);
+    createEReference(screenEClass, SCREEN__VERBS);
 
     screenSectionEClass = createEClass(SCREEN_SECTION);
     createEAttribute(screenSectionEClass, SCREEN_SECTION__TITLE);
@@ -1784,10 +1982,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     uiActionNavigateActionEClass = createEClass(UI_ACTION_NAVIGATE_ACTION);
     createEReference(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__TARGET_SCREEN);
-    createEAttribute(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__ACTION_VERB);
+    createEReference(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__ACTION_VERB);
     createEReference(uiActionNavigateActionEClass, UI_ACTION_NAVIGATE_ACTION__VARIABLE);
 
     uiActionDeleteActionEClass = createEClass(UI_ACTION_DELETE_ACTION);
+
+    controllerVerbEClass = createEClass(CONTROLLER_VERB);
+    createEAttribute(controllerVerbEClass, CONTROLLER_VERB__KIND);
+    createEAttribute(controllerVerbEClass, CONTROLLER_VERB__NAME);
+    createEReference(controllerVerbEClass, CONTROLLER_VERB__DECLARED_PARAMETERS);
+    createEReference(controllerVerbEClass, CONTROLLER_VERB__REST_METHOD);
 
     listItemCellDeclarationEClass = createEClass(LIST_ITEM_CELL_DECLARATION);
     createEReference(listItemCellDeclarationEClass, LIST_ITEM_CELL_DECLARATION__MEMBERS);
@@ -1804,6 +2008,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     restMethodCallEClass = createEClass(REST_METHOD_CALL);
     createEReference(restMethodCallEClass, REST_METHOD_CALL__DATASOURCE);
     createEReference(restMethodCallEClass, REST_METHOD_CALL__REST_METHOD);
+    createEReference(restMethodCallEClass, REST_METHOD_CALL__PARAMETERS);
 
     dataSourceCallEClass = createEClass(DATA_SOURCE_CALL);
     createEReference(dataSourceCallEClass, DATA_SOURCE_CALL__DATASOURCE);
@@ -1819,6 +2024,8 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     expressionEClass = createEClass(EXPRESSION);
 
+    parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
+
     entityMemberCallEClass = createEClass(ENTITY_MEMBER_CALL);
     createEReference(entityMemberCallEClass, ENTITY_MEMBER_CALL__HEAD);
     createEReference(entityMemberCallEClass, ENTITY_MEMBER_CALL__TAIL);
@@ -1833,12 +2040,18 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     stringLiteralEClass = createEClass(STRING_LITERAL);
     createEAttribute(stringLiteralEClass, STRING_LITERAL__VALUE);
 
+    parameterCallEClass = createEClass(PARAMETER_CALL);
+    createEReference(parameterCallEClass, PARAMETER_CALL__HEAD);
+
+    parameterMemberCallEClass = createEClass(PARAMETER_MEMBER_CALL);
+    createEReference(parameterMemberCallEClass, PARAMETER_MEMBER_CALL__REFERENCE);
+    createEReference(parameterMemberCallEClass, PARAMETER_MEMBER_CALL__TAIL);
+
     // Create enums
     restVerbEEnum = createEEnum(REST_VERB);
     screenKindEEnum = createEEnum(SCREEN_KIND);
     gestureKindEEnum = createEEnum(GESTURE_KIND);
-    actionVerbEEnum = createEEnum(ACTION_VERB);
-    uiActionKindEEnum = createEEnum(UI_ACTION_KIND);
+    controllerVerbKindEEnum = createEEnum(CONTROLLER_VERB_KIND);
   }
 
   /**
@@ -1891,6 +2104,8 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     uiComponentDeclarationEClass.getESuperTypes().add(this.getUIComponentOrDataType());
     entityMemberCallEClass.getESuperTypes().add(this.getExpression());
     stringLiteralEClass.getESuperTypes().add(this.getExpression());
+    parameterCallEClass.getESuperTypes().add(this.getParameterReference());
+    parameterMemberCallEClass.getESuperTypes().add(this.getParameterReference());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1946,10 +2161,15 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(resturlEClass, org.applause.lang.applauseDsl.RESTURL.class, "RESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRESTURL_Fragments(), this.getUrlFragment(), null, "fragments", null, 0, -1, org.applause.lang.applauseDsl.RESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRESTURL_Parameters(), this.getUrlParameter(), null, "parameters", null, 0, -1, org.applause.lang.applauseDsl.RESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(absoluteRESTURLEClass, AbsoluteRESTURL.class, "AbsoluteRESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getAbsoluteRESTURL_Host(), this.getUrlFragment(), null, "host", null, 0, 1, AbsoluteRESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getAbsoluteRESTURL_Port(), ecorePackage.getEInt(), "port", null, 0, 1, AbsoluteRESTURL.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(urlParameterEClass, UrlParameter.class, "UrlParameter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUrlParameter_Name(), ecorePackage.getEString(), "name", null, 0, 1, UrlParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUrlParameter_Value(), this.getVariable(), null, "value", null, 0, 1, UrlParameter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(relativeRESTURLEClass, RelativeRESTURL.class, "RelativeRESTURL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1959,7 +2179,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEAttribute(getUrlPathFragment_Name(), ecorePackage.getEString(), "name", null, 0, 1, UrlPathFragment.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableEClass, Variable.class, "Variable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getVariable_ParameterReference(), this.getParameter(), null, "parameterReference", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getVariable_ParameterReference(), this.getParameterReference(), null, "parameterReference", null, 0, 1, Variable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(screenEClass, Screen.class, "Screen", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScreen_Kind(), this.getScreenKind(), "kind", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1968,6 +2188,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEReference(getScreen_Datasource(), this.getDataSourceCall(), null, "datasource", null, 0, 1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScreen_Sections(), this.getScreenSection(), null, "sections", null, 0, -1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getScreen_Actions(), this.getUIAction(), null, "actions", null, 0, -1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getScreen_Verbs(), this.getControllerVerb(), null, "verbs", null, 0, -1, Screen.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(screenSectionEClass, ScreenSection.class, "ScreenSection", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getScreenSection_Title(), ecorePackage.getEString(), "title", null, 0, 1, ScreenSection.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2000,10 +2221,16 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(uiActionNavigateActionEClass, UIActionNavigateAction.class, "UIActionNavigateAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getUIActionNavigateAction_TargetScreen(), this.getScreen(), null, "targetScreen", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getUIActionNavigateAction_ActionVerb(), this.getActionVerb(), "actionVerb", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getUIActionNavigateAction_ActionVerb(), this.getControllerVerb(), null, "actionVerb", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getUIActionNavigateAction_Variable(), this.getReferrableElement(), null, "variable", null, 0, 1, UIActionNavigateAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(uiActionDeleteActionEClass, UIActionDeleteAction.class, "UIActionDeleteAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(controllerVerbEClass, ControllerVerb.class, "ControllerVerb", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getControllerVerb_Kind(), this.getControllerVerbKind(), "kind", null, 0, 1, ControllerVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getControllerVerb_Name(), ecorePackage.getEString(), "name", null, 0, 1, ControllerVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControllerVerb_DeclaredParameters(), this.getParameter(), null, "declaredParameters", null, 0, -1, ControllerVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getControllerVerb_RestMethod(), this.getRESTMethodCall(), null, "restMethod", null, 0, 1, ControllerVerb.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(listItemCellDeclarationEClass, ListItemCellDeclaration.class, "ListItemCellDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getListItemCellDeclaration_Members(), this.getUIComponentMemberDeclaration(), null, "members", null, 0, -1, ListItemCellDeclaration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2020,6 +2247,7 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     initEClass(restMethodCallEClass, RESTMethodCall.class, "RESTMethodCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getRESTMethodCall_Datasource(), this.getDataSourceCall(), null, "datasource", null, 0, 1, RESTMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getRESTMethodCall_RestMethod(), this.getDataSourceAccessMethod(), null, "restMethod", null, 0, 1, RESTMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRESTMethodCall_Parameters(), this.getParameterReference(), null, "parameters", null, 0, -1, RESTMethodCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(dataSourceCallEClass, DataSourceCall.class, "DataSourceCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDataSourceCall_Datasource(), this.getDataSource(), null, "datasource", null, 0, 1, DataSourceCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2035,6 +2263,8 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
     initEClass(entityMemberCallEClass, EntityMemberCall.class, "EntityMemberCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEntityMemberCall_Head(), this.getAttribute(), null, "head", null, 0, 1, EntityMemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getEntityMemberCall_Tail(), this.getEntityMemberCallTail(), null, "tail", null, 0, 1, EntityMemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2048,6 +2278,13 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
 
     initEClass(stringLiteralEClass, StringLiteral.class, "StringLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getStringLiteral_Value(), ecorePackage.getEString(), "value", null, 0, 1, StringLiteral.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterCallEClass, ParameterCall.class, "ParameterCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterCall_Head(), this.getParameter(), null, "head", null, 0, 1, ParameterCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(parameterMemberCallEClass, ParameterMemberCall.class, "ParameterMemberCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getParameterMemberCall_Reference(), this.getParameterReference(), null, "reference", null, 0, 1, ParameterMemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getParameterMemberCall_Tail(), this.getAttribute(), null, "tail", null, 0, 1, ParameterMemberCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(restVerbEEnum, RESTVerb.class, "RESTVerb");
@@ -2065,15 +2302,11 @@ public class ApplauseDslPackageImpl extends EPackageImpl implements ApplauseDslP
     addEEnumLiteral(gestureKindEEnum, GestureKind.SWIPE);
     addEEnumLiteral(gestureKindEEnum, GestureKind.LONGPRESS);
 
-    initEEnum(actionVerbEEnum, ActionVerb.class, "ActionVerb");
-    addEEnumLiteral(actionVerbEEnum, ActionVerb.EDIT);
-    addEEnumLiteral(actionVerbEEnum, ActionVerb.DISPLAY);
-    addEEnumLiteral(actionVerbEEnum, ActionVerb.ADD);
-
-    initEEnum(uiActionKindEEnum, UIActionKind.class, "UIActionKind");
-    addEEnumLiteral(uiActionKindEEnum, UIActionKind.NAVIGATE);
-    addEEnumLiteral(uiActionKindEEnum, UIActionKind.DELETE);
-    addEEnumLiteral(uiActionKindEEnum, UIActionKind.PERFORMACTION);
+    initEEnum(controllerVerbKindEEnum, ControllerVerbKind.class, "ControllerVerbKind");
+    addEEnumLiteral(controllerVerbKindEEnum, ControllerVerbKind.ADD);
+    addEEnumLiteral(controllerVerbKindEEnum, ControllerVerbKind.EDIT);
+    addEEnumLiteral(controllerVerbKindEEnum, ControllerVerbKind.DISPLAY);
+    addEEnumLiteral(controllerVerbKindEEnum, ControllerVerbKind.DELETE);
 
     // Create resource
     createResource(eNS_URI);

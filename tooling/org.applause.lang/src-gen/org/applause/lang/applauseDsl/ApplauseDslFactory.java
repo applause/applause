@@ -167,6 +167,15 @@ public interface ApplauseDslFactory extends EFactory
   AbsoluteRESTURL createAbsoluteRESTURL();
 
   /**
+   * Returns a new object of class '<em>Url Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Url Parameter</em>'.
+   * @generated
+   */
+  UrlParameter createUrlParameter();
+
+  /**
    * Returns a new object of class '<em>Relative RESTURL</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -293,6 +302,15 @@ public interface ApplauseDslFactory extends EFactory
   UIActionDeleteAction createUIActionDeleteAction();
 
   /**
+   * Returns a new object of class '<em>Controller Verb</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Controller Verb</em>'.
+   * @generated
+   */
+  ControllerVerb createControllerVerb();
+
+  /**
    * Returns a new object of class '<em>List Item Cell Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -374,6 +392,15 @@ public interface ApplauseDslFactory extends EFactory
   Expression createExpression();
 
   /**
+   * Returns a new object of class '<em>Parameter Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Reference</em>'.
+   * @generated
+   */
+  ParameterReference createParameterReference();
+
+  /**
    * Returns a new object of class '<em>Entity Member Call</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -408,6 +435,24 @@ public interface ApplauseDslFactory extends EFactory
    * @generated
    */
   StringLiteral createStringLiteral();
+
+  /**
+   * Returns a new object of class '<em>Parameter Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Call</em>'.
+   * @generated
+   */
+  ParameterCall createParameterCall();
+
+  /**
+   * Returns a new object of class '<em>Parameter Member Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Parameter Member Call</em>'.
+   * @generated
+   */
+  ParameterMemberCall createParameterMemberCall();
 
   /**
    * Returns the package supported by this factory.

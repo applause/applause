@@ -155,6 +155,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createAbsoluteRESTURLAdapter();
       }
       @Override
+      public Adapter caseUrlParameter(UrlParameter object)
+      {
+        return createUrlParameterAdapter();
+      }
+      @Override
       public Adapter caseRelativeRESTURL(RelativeRESTURL object)
       {
         return createRelativeRESTURLAdapter();
@@ -225,6 +230,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createUIActionDeleteActionAdapter();
       }
       @Override
+      public Adapter caseControllerVerb(ControllerVerb object)
+      {
+        return createControllerVerbAdapter();
+      }
+      @Override
       public Adapter caseListItemCellDeclaration(ListItemCellDeclaration object)
       {
         return createListItemCellDeclarationAdapter();
@@ -270,6 +280,11 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
         return createExpressionAdapter();
       }
       @Override
+      public Adapter caseParameterReference(ParameterReference object)
+      {
+        return createParameterReferenceAdapter();
+      }
+      @Override
       public Adapter caseEntityMemberCall(EntityMemberCall object)
       {
         return createEntityMemberCallAdapter();
@@ -288,6 +303,16 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
       public Adapter caseStringLiteral(StringLiteral object)
       {
         return createStringLiteralAdapter();
+      }
+      @Override
+      public Adapter caseParameterCall(ParameterCall object)
+      {
+        return createParameterCallAdapter();
+      }
+      @Override
+      public Adapter caseParameterMemberCall(ParameterMemberCall object)
+      {
+        return createParameterMemberCallAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -552,6 +577,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.UrlParameter <em>Url Parameter</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.UrlParameter
+   * @generated
+   */
+  public Adapter createUrlParameterAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.RelativeRESTURL <em>Relative RESTURL</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -762,6 +802,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ControllerVerb <em>Controller Verb</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ControllerVerb
+   * @generated
+   */
+  public Adapter createControllerVerbAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ListItemCellDeclaration <em>List Item Cell Declaration</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -897,6 +952,21 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ParameterReference <em>Parameter Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ParameterReference
+   * @generated
+   */
+  public Adapter createParameterReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.EntityMemberCall <em>Entity Member Call</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -952,6 +1022,36 @@ public class ApplauseDslAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createStringLiteralAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ParameterCall <em>Parameter Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ParameterCall
+   * @generated
+   */
+  public Adapter createParameterCallAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.applause.lang.applauseDsl.ParameterMemberCall <em>Parameter Member Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.applause.lang.applauseDsl.ParameterMemberCall
+   * @generated
+   */
+  public Adapter createParameterMemberCallAdapter()
   {
     return null;
   }

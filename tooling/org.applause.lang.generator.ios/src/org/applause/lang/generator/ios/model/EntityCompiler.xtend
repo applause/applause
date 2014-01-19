@@ -52,11 +52,16 @@ class EntityHeaderFileCompiler {
 		«ENDIF»
 	'''
 	
+	def superTypeName(Entity it) {
+		if (superType != null) superType.typeName
+		else 'NSObject'
+	}
+	
 	def compileHeader(Entity it) '''
 		#import <Foundation/Foundation.h>
 		«superTypeForwardDeclaration»
 		
-		@interface «name» : «superType.typeName»
+		@interface «name» : «superTypeName»
 			«FOR attribute: attributes»
 		«attribute.compile»
 			«ENDFOR»

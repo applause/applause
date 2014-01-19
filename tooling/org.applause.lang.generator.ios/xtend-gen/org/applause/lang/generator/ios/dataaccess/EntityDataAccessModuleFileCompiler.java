@@ -5,18 +5,21 @@ import com.google.inject.Inject;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.Entity;
+import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.RESTSpecification;
 import org.applause.lang.applauseDsl.RESTURL;
 import org.applause.lang.applauseDsl.RESTVerb;
-import org.applause.lang.generator.ios.FileNameExtensions;
 import org.applause.lang.generator.ios.dataaccess.APIClientClassExtensions;
-import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
+import org.applause.lang.generator.ios.dataaccess.DataAccessImportHelper;
+import org.applause.lang.generator.ios.dataaccess.DataAccessMethodCompiler;
 import org.applause.lang.generator.ios.dataaccess.EntityDataAccessExtensions;
 import org.applause.lang.generator.ios.dataaccess.RESTURLExtensions;
 import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 @SuppressWarnings("all")
@@ -31,11 +34,19 @@ public class EntityDataAccessModuleFileCompiler {
   
   @Inject
   @Extension
-  private FileNameExtensions _fileNameExtensions;
+  private RESTURLExtensions _rESTURLExtensions;
   
   @Inject
   @Extension
-  private RESTURLExtensions _rESTURLExtensions;
+  private APIClientClassExtensions _aPIClientClassExtensions;
+  
+  @Inject
+  @Extension
+  private DataAccessImportHelper _dataAccessImportHelper;
+  
+  @Inject
+  @Extension
+  private DataAccessMethodCompiler _dataAccessMethodCompiler;
   
   public String mappingClassName(final Entity it) {
     String _typeName = this._typeExtensions.typeName(it);
@@ -44,40 +55,15 @@ public class EntityDataAccessModuleFileCompiler {
     return _plus_1;
   }
   
-  @Inject
-  @Extension
-  private APIClientClassExtensions _aPIClientClassExtensions;
-  
-  @Inject
-  @Extension
-  private DataAccessClassExtensions _dataAccessClassExtensions;
-  
   public CharSequence compileModuleFile(final DataSource it) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("#import \"");
-    Entity _resourceType = it.getResourceType();
-    String _entityDataAccessCategoryHeaderFileName = this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(_resourceType);
-    _builder.append(_entityDataAccessCategoryHeaderFileName, "");
-    _builder.append("\"");
-    _builder.newLineIfNotEmpty();
-    _builder.append("#import \"");
-    Entity _resourceType_1 = it.getResourceType();
-    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType_1);
-    String _headerFileName = this._fileNameExtensions.headerFileName(_apiClientClassName);
-    _builder.append(_headerFileName, "");
-    _builder.append("\"");
-    _builder.newLineIfNotEmpty();
-    _builder.append("#import \"");
-    Entity _resourceType_2 = it.getResourceType();
-    String _mappingClassName = this.mappingClassName(_resourceType_2);
-    String _headerFileName_1 = this._fileNameExtensions.headerFileName(_mappingClassName);
-    _builder.append(_headerFileName_1, "");
-    _builder.append("\"");
+    CharSequence _compileModuleImports = this._dataAccessImportHelper.compileModuleImports(it);
+    _builder.append(_compileModuleImports, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("@implementation ");
-    Entity _resourceType_3 = it.getResourceType();
-    String _typeName = this._typeExtensions.typeName(_resourceType_3);
+    Entity _resourceType = it.getResourceType();
+    String _typeName = this._typeExtensions.typeName(_resourceType);
     _builder.append(_typeName, "");
     _builder.append(" (DataAccess)");
     _builder.newLineIfNotEmpty();
@@ -105,8 +91,16 @@ public class EntityDataAccessModuleFileCompiler {
     if (!_matched) {
       if (Objects.equal(_switchValue,RESTVerb.GET)) {
         _matched=true;
-        CharSequence _compileGETLISTMethod = this.compileGETLISTMethod(it);
-        _switchResult = _compileGETLISTMethod;
+        CharSequence _xifexpression = null;
+        boolean _isReturnsMany = it.isReturnsMany();
+        if (_isReturnsMany) {
+          CharSequence _compileGETLISTMethod = this.compileGETLISTMethod(it);
+          _xifexpression = _compileGETLISTMethod;
+        } else {
+          CharSequence _compileGETMethod = this.compileGETMethod(it);
+          _xifexpression = _compileGETMethod;
+        }
+        _switchResult = _xifexpression;
       }
     }
     if (!_matched) {
@@ -154,22 +148,15 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("+ (void)");
-    String _name = it.getName();
-    _builder.append(_name, "");
-    _builder.append(":(void (^)(NSArray *");
-    Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
-    String _parameterName = this._entityDataAccessExtensions.parameterName(_resourceType);
-    String _plural = this._entityDataAccessExtensions.plural(_parameterName);
-    _builder.append(_plural, "");
-    _builder.append(", NSError *error))block");
+    String _dataAccessMethodName = this._dataAccessMethodCompiler.dataAccessMethodName(it);
+    _builder.append(_dataAccessMethodName, "");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("[[");
-    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
-    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType_1);
+    Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
+    String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
     _builder.append(_apiClientClassName, "	");
     _builder.append(" sharedClient] GET:");
     String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
@@ -189,12 +176,12 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("for (NSDictionary *attributes in elementsFromJSON) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
-    String _typeName = this._typeExtensions.typeName(_resourceType_2);
+    Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
+    String _typeName = this._typeExtensions.typeName(_resourceType_1);
     _builder.append(_typeName, "			");
     _builder.append(" *mappedElement = [[");
-    Entity _resourceType_3 = this._entityDataAccessExtensions.resourceType(it);
-    String _typeName_1 = this._typeExtensions.typeName(_resourceType_3);
+    Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
+    String _typeName_1 = this._typeExtensions.typeName(_resourceType_2);
     _builder.append(_typeName_1, "			");
     _builder.append(" alloc] initWithAttributes:attributes];");
     _builder.newLineIfNotEmpty();
@@ -206,10 +193,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("if (block) {");
+    _builder.append("if (resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block([result copy], nil);");
+    _builder.append("resultBlock([result copy], nil);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -221,10 +208,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("if (block) {");
+    _builder.append("if (resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(@[], error);");
+    _builder.append("resultBlock(@[], error);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -234,6 +221,17 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();
+    return _builder;
+  }
+  
+  public CharSequence compileGETMethod(final DataSourceAccessMethod it) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("// TODO generate GET method for single items:");
+    _builder.newLine();
+    _builder.append("// ");
+    String _dataAccessMethodName = this._dataAccessMethodCompiler.dataAccessMethodName(it);
+    _builder.append(_dataAccessMethodName, "");
+    _builder.newLineIfNotEmpty();
     return _builder;
   }
   
@@ -250,13 +248,8 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("- (void)");
-    String _name = it.getName();
-    _builder.append(_name, "");
-    _builder.append(":(void (^)(");
-    String _parameterList = this._entityDataAccessExtensions.parameterList(it);
-    _builder.append(_parameterList, "");
-    _builder.append(", NSError *error))block");
+    String _dataAccessMethodName = this._dataAccessMethodCompiler.dataAccessMethodName(it);
+    _builder.append(_dataAccessMethodName, "");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
@@ -283,10 +276,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append(" *postedElement = responseObject;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("if(block) {");
+    _builder.append("if(resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(postedElement, nil);");
+    _builder.append("resultBlock(postedElement, nil);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -298,10 +291,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("if(block) {");
+    _builder.append("if(resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(nil, error);");
+    _builder.append("resultBlock(nil, error);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -327,13 +320,8 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("- (void)");
-    String _name = it.getName();
-    _builder.append(_name, "");
-    _builder.append(":(void (^)(");
-    String _parameterList = this._entityDataAccessExtensions.parameterList(it);
-    _builder.append(_parameterList, "");
-    _builder.append(", NSError *error))block");
+    String _dataAccessMethodName = this._dataAccessMethodCompiler.dataAccessMethodName(it);
+    _builder.append(_dataAccessMethodName, "");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
@@ -360,10 +348,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append(" *postedElement = responseObject;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
-    _builder.append("if(block) {");
+    _builder.append("if(resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(postedElement, nil);");
+    _builder.append("resultBlock(postedElement, nil);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -375,10 +363,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("if(block) {");
+    _builder.append("if(resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(nil, error);");
+    _builder.append("resultBlock(nil, error);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -389,6 +377,82 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("}");
     _builder.newLine();
     return _builder;
+  }
+  
+  public String composeUrlString(final DataSourceAccessMethod it) {
+    String _urlConstantForRESTMethod = this.urlConstantForRESTMethod(it);
+    String _plus = ("[NSString stringWithFormat:" + _urlConstantForRESTMethod);
+    String _plus_1 = (_plus + 
+      ", ");
+    String _composeUrlVariables = this.composeUrlVariables(it);
+    String _plus_2 = (_plus_1 + _composeUrlVariables);
+    String _plus_3 = (_plus_2 + 
+      "]");
+    return _plus_3;
+  }
+  
+  public String composeUrlVariables(final DataSourceAccessMethod it) {
+    String _xblockexpression = null;
+    {
+      Parameter _parametersInEntity = this._dataAccessMethodCompiler.parametersInEntity(it);
+      final String paramInEntity = _parametersInEntity.getName();
+      RESTSpecification _restSpecification = it.getRestSpecification();
+      RESTURL _path = _restSpecification.getPath();
+      Iterable<String> _variables = this._rESTURLExtensions.variables(_path);
+      final Function1<String,String> _function = new Function1<String,String>() {
+        public String apply(final String it) {
+          String _xifexpression = null;
+          String _variableName = EntityDataAccessModuleFileCompiler.this.variableName(it);
+          boolean _equals = Objects.equal(_variableName, paramInEntity);
+          if (_equals) {
+            String _variableTail = EntityDataAccessModuleFileCompiler.this.variableTail(it);
+            String _plus = ("self" + _variableTail);
+            _xifexpression = _plus;
+          } else {
+            _xifexpression = it;
+          }
+          return _xifexpression;
+        }
+      };
+      Iterable<String> _map = IterableExtensions.<String, String>map(_variables, _function);
+      String _join = IterableExtensions.join(_map, ", ");
+      _xblockexpression = (_join);
+    }
+    return _xblockexpression;
+  }
+  
+  private String variableName(final String variableExpression) {
+    String _xblockexpression = null;
+    {
+      final int dot = variableExpression.indexOf(".");
+      String _xifexpression = null;
+      boolean _greaterThan = (dot > 0);
+      if (_greaterThan) {
+        String _substring = variableExpression.substring(0, dot);
+        _xifexpression = _substring;
+      } else {
+        _xifexpression = variableExpression;
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
+  }
+  
+  private String variableTail(final String variableExpression) {
+    String _xblockexpression = null;
+    {
+      final int dot = variableExpression.indexOf(".");
+      String _xifexpression = null;
+      boolean _greaterThan = (dot > 0);
+      if (_greaterThan) {
+        String _substring = variableExpression.substring(dot);
+        _xifexpression = _substring;
+      } else {
+        _xifexpression = "";
+      }
+      _xblockexpression = (_xifexpression);
+    }
+    return _xblockexpression;
   }
   
   public CharSequence compileDELETEMethod(final DataSourceAccessMethod it) {
@@ -404,21 +468,16 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("- (void)");
-    String _name = it.getName();
-    _builder.append(_name, "");
-    _builder.append(":(void (^)(");
-    String _parameterList = this._entityDataAccessExtensions.parameterList(it);
-    _builder.append(_parameterList, "");
-    _builder.append(", NSError *error))block");
+    String _dataAccessMethodName = this._dataAccessMethodCompiler.dataAccessMethodName(it);
+    _builder.append(_dataAccessMethodName, "");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("NSString *urlString = [NSString stringWithFormat:");
-    String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
-    _builder.append(_urlConstantForRESTMethod_1, "	");
-    _builder.append(", self.id];");
+    _builder.append("NSString *urlString = ");
+    String _composeUrlString = this.composeUrlString(it);
+    _builder.append(_composeUrlString, "	");
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("[[");
@@ -431,10 +490,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("if(block) {");
+    _builder.append("if(resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(self, nil);");
+    _builder.append("resultBlock(self, nil);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");
@@ -446,10 +505,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("{");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("if(block) {");
+    _builder.append("if(resultBlock) {");
     _builder.newLine();
     _builder.append("\t\t\t");
-    _builder.append("block(nil, error);");
+    _builder.append("resultBlock(nil, error);");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("}");

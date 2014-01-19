@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.RESTURL#getFragments <em>Fragments</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.RESTURL#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -39,5 +40,21 @@ public interface RESTURL extends EObject
    * @generated
    */
   EList<UrlFragment> getFragments();
+
+  /**
+   * Returns the value of the '<em><b>Parameters</b></em>' containment reference list.
+   * The list contents are of type {@link org.applause.lang.applauseDsl.UrlParameter}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Parameters</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Parameters</em>' containment reference list.
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getRESTURL_Parameters()
+   * @model containment="true"
+   * @generated
+   */
+  EList<UrlParameter> getParameters();
 
 } // RESTURL

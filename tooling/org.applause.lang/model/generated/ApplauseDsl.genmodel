@@ -22,15 +22,11 @@
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//GestureKind/swipe"/>
       <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//GestureKind/longpress"/>
     </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//ActionVerb">
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ActionVerb/edit"/>
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ActionVerb/display"/>
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ActionVerb/add"/>
-    </genEnums>
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//UIActionKind">
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//UIActionKind/navigate"/>
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//UIActionKind/delete"/>
-      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//UIActionKind/performaction"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="ApplauseDsl.ecore#//ControllerVerbKind">
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ControllerVerbKind/add"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ControllerVerbKind/edit"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ControllerVerbKind/display"/>
+      <genEnumLiterals ecoreEnumLiteral="ApplauseDsl.ecore#//ControllerVerbKind/delete"/>
     </genEnums>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Model">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Model/elements"/>
@@ -82,10 +78,15 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//RESTURL">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTURL/fragments"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTURL/parameters"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//AbsoluteRESTURL">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//AbsoluteRESTURL/host"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//AbsoluteRESTURL/port"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//UrlParameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UrlParameter/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UrlParameter/value"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//RelativeRESTURL"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//UrlFragment"/>
@@ -93,7 +94,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UrlPathFragment/name"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Variable">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Variable/parameterReference"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Variable/parameterReference"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Screen">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//Screen/kind"/>
@@ -102,6 +103,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/datasource"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/sections"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/actions"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//Screen/verbs"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ScreenSection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ScreenSection/title"/>
@@ -132,10 +134,16 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//UIActionSpecification"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//UIActionNavigateAction">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIActionNavigateAction/targetScreen"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//UIActionNavigateAction/actionVerb"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIActionNavigateAction/actionVerb"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIActionNavigateAction/variable"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//UIActionDeleteAction"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ControllerVerb">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ControllerVerb/kind"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//ControllerVerb/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ControllerVerb/declaredParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ControllerVerb/restMethod"/>
+    </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//ListItemCellDeclaration">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ListItemCellDeclaration/members"/>
     </genClasses>
@@ -150,6 +158,7 @@
     <genClasses ecoreClass="ApplauseDsl.ecore#//RESTMethodCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTMethodCall/datasource"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTMethodCall/restMethod"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//RESTMethodCall/parameters"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//DataSourceCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//DataSourceCall/datasource"/>
@@ -164,6 +173,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//UIComponentMemberCall/member"/>
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//Expression"/>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ParameterReference"/>
     <genClasses ecoreClass="ApplauseDsl.ecore#//EntityMemberCall">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//EntityMemberCall/head"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//EntityMemberCall/tail"/>
@@ -177,6 +187,13 @@
     </genClasses>
     <genClasses ecoreClass="ApplauseDsl.ecore#//StringLiteral">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ApplauseDsl.ecore#//StringLiteral/value"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ParameterCall">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ParameterCall/head"/>
+    </genClasses>
+    <genClasses ecoreClass="ApplauseDsl.ecore#//ParameterMemberCall">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ParameterMemberCall/reference"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ApplauseDsl.ecore#//ParameterMemberCall/tail"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

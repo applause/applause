@@ -20,7 +20,9 @@ Type:
 
 // HACK as suggested by Jan Köhnlein in per http://www.eclipse.org/forums/index.php/mv/msg/200409/639873/#msg_639873
 KeywordedID:
-	'title' | 'platform' | 'resource' | 'section' | 'abstract' | ID
+	ID |
+	'title' | 'platform' | 'resource' | 'section' | 'abstract' |
+	'delete' | 'add' | 'edit' | 'display' // can be removed later when  we remove ActionVerb
 ;
 
 DataType:
@@ -98,12 +100,16 @@ RESTURL:
 ;
 
 AbsoluteRESTURL:
-	{AbsoluteRESTURL} 'http://' host=UrlFragment (':' port=INT)? ('/' fragments+=UrlFragment)*
+	{AbsoluteRESTURL} 'http://' host=UrlFragment (':' port=INT)? ('/' fragments+=UrlFragment)* ('?' parameters+=UrlParameter ('&'parameters+=UrlParameter)* )?
+;
+
+UrlParameter:
+	name=KeywordedID '=' value=Variable
 ;
 
 
 RelativeRESTURL:
-	{RelativeRESTURL} '/' fragments+=UrlFragment ('/' fragments+=UrlFragment)*
+	{RelativeRESTURL} '/' fragments+=UrlFragment ('/' fragments+=UrlFragment)* ('?' parameters+=UrlParameter ('&'parameters+=UrlParameter)* )?
 ;
 
 
@@ -116,7 +122,7 @@ UrlPathFragment:
 ;
 
 Variable:
-	':' parameterReference=[Parameter]
+	':' parameterReference=ParameterMemberCall
 ;
 
 QualifiedName:
@@ -136,6 +142,9 @@ Screen:
 		'}'
 		('actions' '{'
 			actions+=UIAction*
+		'}')?
+		('controller' '{'
+			verbs+=ControllerVerb*
 		'}')?
 	'}'
 ;
@@ -195,19 +204,21 @@ UIActionSpecification:
 ;
 
 UIActionNavigateAction: {UIActionNavigateAction}
-	targetScreen=[Screen] '.' actionVerb=ActionVerb '(' (variable=[ReferrableElement])? ')'
-;
-
-enum ActionVerb:
-	edit | display | add
+	targetScreen=[Screen] '.' actionVerb=[ControllerVerb|KeywordedID] '(' (variable=[ReferrableElement])? ')'
 ;
 
 UIActionDeleteAction: {UIActionDeleteAction}
 	'delete'
 ;
 
-enum UIActionKind:
-	navigate | delete | performaction
+ControllerVerb:
+	kind=ControllerVerbKind name=KeywordedID '(' (declaredParameters += Parameter (',' declaredParameters += Parameter)* )? ')' '{'
+		(restMethod=RESTMethodCall)?
+	'}'
+;
+
+enum ControllerVerbKind:
+	add | edit | display | delete
 ;
 
 ListItemCellDeclaration:
@@ -231,11 +242,11 @@ UIComponentOrDataType:
 ;
 
 RESTMethodCall:
-	datasource=[DataSourceCall] '.' restMethod=[DataSourceAccessMethod] '(' /* TODO: add parameters */')'
+	datasource=[DataSourceCall] '.' restMethod=[DataSourceAccessMethod|KeywordedID] '(' (parameters+=ParameterCall)? (',' parameters+=ParameterCall)*')'
 ;
 
 DataSourceCall:
-	datasource=[DataSource] 'as' name=ID
+	datasource=[DataSource] 'as' name=KeywordedID
 ;
 
 UIComponentMemberConfiguration:
@@ -254,6 +265,15 @@ UIComponentMemberCall:
 
 Expression:
 	StringLiteral | EntityMemberCall
+;
+
+// as outlined here http://christiandietrich.wordpress.com/2013/05/18/xtext-and-dot-expressions/
+ParameterCall returns ParameterReference:
+	{ParameterCall} head=[Parameter]
+;
+
+ParameterMemberCall returns ParameterReference:
+	ParameterCall ({ParameterMemberCall.reference=current} '.' tail=[Attribute])*	
 ;
 
 EntityMemberCall:

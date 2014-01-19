@@ -6,6 +6,7 @@ import org.applause.lang.applauseDsl.AbsoluteRESTURL;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.Attribute;
 import org.applause.lang.applauseDsl.AttributeReference;
+import org.applause.lang.applauseDsl.ControllerVerb;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.DataSourceBodySpecification;
@@ -18,6 +19,8 @@ import org.applause.lang.applauseDsl.ListItemCellDeclaration;
 import org.applause.lang.applauseDsl.LoopVariable;
 import org.applause.lang.applauseDsl.Model;
 import org.applause.lang.applauseDsl.Parameter;
+import org.applause.lang.applauseDsl.ParameterCall;
+import org.applause.lang.applauseDsl.ParameterMemberCall;
 import org.applause.lang.applauseDsl.Platform;
 import org.applause.lang.applauseDsl.RESTMethodCall;
 import org.applause.lang.applauseDsl.RESTSpecification;
@@ -35,6 +38,7 @@ import org.applause.lang.applauseDsl.UIComponentDeclaration;
 import org.applause.lang.applauseDsl.UIComponentMemberCall;
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration;
 import org.applause.lang.applauseDsl.UIComponentMemberDeclaration;
+import org.applause.lang.applauseDsl.UrlParameter;
 import org.applause.lang.applauseDsl.UrlPathFragment;
 import org.applause.lang.applauseDsl.Variable;
 import org.applause.lang.services.ApplauseDslGrammarAccess;
@@ -74,6 +78,12 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 			case ApplauseDslPackage.ATTRIBUTE_REFERENCE:
 				if(context == grammarAccess.getAttributeReferenceRule()) {
 					sequence_AttributeReference(context, (AttributeReference) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.CONTROLLER_VERB:
+				if(context == grammarAccess.getControllerVerbRule()) {
+					sequence_ControllerVerb(context, (ControllerVerb) semanticObject); 
 					return; 
 				}
 				else break;
@@ -156,6 +166,21 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 				if(context == grammarAccess.getParameterRule() ||
 				   context == grammarAccess.getReferrableElementRule()) {
 					sequence_Parameter(context, (Parameter) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.PARAMETER_CALL:
+				if(context == grammarAccess.getParameterCallRule() ||
+				   context == grammarAccess.getParameterMemberCallRule() ||
+				   context == grammarAccess.getParameterMemberCallAccess().getParameterMemberCallReferenceAction_1_0()) {
+					sequence_ParameterCall(context, (ParameterCall) semanticObject); 
+					return; 
+				}
+				else break;
+			case ApplauseDslPackage.PARAMETER_MEMBER_CALL:
+				if(context == grammarAccess.getParameterMemberCallRule() ||
+				   context == grammarAccess.getParameterMemberCallAccess().getParameterMemberCallReferenceAction_1_0()) {
+					sequence_ParameterMemberCall(context, (ParameterMemberCall) semanticObject); 
 					return; 
 				}
 				else break;
@@ -270,6 +295,12 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 					return; 
 				}
 				else break;
+			case ApplauseDslPackage.URL_PARAMETER:
+				if(context == grammarAccess.getUrlParameterRule()) {
+					sequence_UrlParameter(context, (UrlParameter) semanticObject); 
+					return; 
+				}
+				else break;
 			case ApplauseDslPackage.URL_PATH_FRAGMENT:
 				if(context == grammarAccess.getUrlFragmentRule() ||
 				   context == grammarAccess.getUrlPathFragmentRule()) {
@@ -290,7 +321,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (host=UrlFragment port=INT? fragments+=UrlFragment*)
+	 *     (host=UrlFragment port=INT? fragments+=UrlFragment* (parameters+=UrlParameter parameters+=UrlParameter*)?)
 	 */
 	protected void sequence_AbsoluteRESTURL(EObject context, AbsoluteRESTURL semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -324,6 +355,15 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (kind=ControllerVerbKind name=KeywordedID (declaredParameters+=Parameter declaredParameters+=Parameter*)? restMethod=RESTMethodCall?)
+	 */
+	protected void sequence_ControllerVerb(EObject context, ControllerVerb semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (name=KeywordedID (declaredParameters+=Parameter declaredParameters+=Parameter*)? returnsMany?='[]'? restSpecification=RESTSpecification)
 	 */
 	protected void sequence_DataSourceAccessMethod(EObject context, DataSourceAccessMethod semanticObject) {
@@ -349,7 +389,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (datasource=[DataSource|ID] name=ID)
+	 *     (datasource=[DataSource|ID] name=KeywordedID)
 	 */
 	protected void sequence_DataSourceCall(EObject context, DataSourceCall semanticObject) {
 		if(errorAcceptor != null) {
@@ -361,7 +401,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getDataSourceCallAccess().getDatasourceDataSourceIDTerminalRuleCall_0_0_1(), semanticObject.getDatasource());
-		feeder.accept(grammarAccess.getDataSourceCallAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getDataSourceCallAccess().getNameKeywordedIDParserRuleCall_2_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
@@ -454,6 +494,41 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     head=[Parameter|ID]
+	 */
+	protected void sequence_ParameterCall(EObject context, ParameterCall semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER_CALL__HEAD) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER_CALL__HEAD));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getParameterCallAccess().getHeadParameterIDTerminalRuleCall_1_0_1(), semanticObject.getHead());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (reference=ParameterMemberCall_ParameterMemberCall_1_0 tail=[Attribute|ID])
+	 */
+	protected void sequence_ParameterMemberCall(EObject context, ParameterMemberCall semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER_MEMBER_CALL__REFERENCE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER_MEMBER_CALL__REFERENCE));
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.PARAMETER_MEMBER_CALL__TAIL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.PARAMETER_MEMBER_CALL__TAIL));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getParameterMemberCallAccess().getParameterMemberCallReferenceAction_1_0(), semanticObject.getReference());
+		feeder.accept(grammarAccess.getParameterMemberCallAccess().getTailAttributeIDTerminalRuleCall_1_2_0_1(), semanticObject.getTail());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (type=[Type|ID] name=KeywordedID)
 	 */
 	protected void sequence_Parameter(EObject context, Parameter semanticObject) {
@@ -482,20 +557,10 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (datasource=[DataSourceCall|ID] restMethod=[DataSourceAccessMethod|ID])
+	 *     (datasource=[DataSourceCall|ID] restMethod=[DataSourceAccessMethod|KeywordedID] parameters+=ParameterCall? parameters+=ParameterCall*)
 	 */
 	protected void sequence_RESTMethodCall(EObject context, RESTMethodCall semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.REST_METHOD_CALL__DATASOURCE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.REST_METHOD_CALL__DATASOURCE));
-			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.REST_METHOD_CALL__REST_METHOD) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.REST_METHOD_CALL__REST_METHOD));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getRESTMethodCallAccess().getDatasourceDataSourceCallIDTerminalRuleCall_0_0_1(), semanticObject.getDatasource());
-		feeder.accept(grammarAccess.getRESTMethodCallAccess().getRestMethodDataSourceAccessMethodIDTerminalRuleCall_2_0_1(), semanticObject.getRestMethod());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -510,7 +575,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (fragments+=UrlFragment fragments+=UrlFragment*)
+	 *     (fragments+=UrlFragment fragments+=UrlFragment* (parameters+=UrlParameter parameters+=UrlParameter*)?)
 	 */
 	protected void sequence_RelativeRESTURL(EObject context, RelativeRESTURL semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -558,7 +623,8 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	 *         title=STRING? 
 	 *         datasource=DataSourceCall? 
 	 *         sections+=ScreenSection* 
-	 *         actions+=UIAction*
+	 *         actions+=UIAction* 
+	 *         verbs+=ControllerVerb*
 	 *     )
 	 */
 	protected void sequence_Screen(EObject context, Screen semanticObject) {
@@ -612,7 +678,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     (targetScreen=[Screen|ID] actionVerb=ActionVerb variable=[ReferrableElement|ID]?)
+	 *     (targetScreen=[Screen|ID] actionVerb=[ControllerVerb|KeywordedID] variable=[ReferrableElement|ID]?)
 	 */
 	protected void sequence_UIActionNavigateAction(EObject context, UIActionNavigateAction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -686,6 +752,25 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
+	 *     (name=KeywordedID value=Variable)
+	 */
+	protected void sequence_UrlParameter(EObject context, UrlParameter semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.URL_PARAMETER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.URL_PARAMETER__NAME));
+			if(transientValues.isValueTransient(semanticObject, ApplauseDslPackage.Literals.URL_PARAMETER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, ApplauseDslPackage.Literals.URL_PARAMETER__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getUrlParameterAccess().getNameKeywordedIDParserRuleCall_0_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getUrlParameterAccess().getValueVariableParserRuleCall_2_0(), semanticObject.getValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     name=QualifiedName
 	 */
 	protected void sequence_UrlPathFragment(EObject context, UrlPathFragment semanticObject) {
@@ -702,7 +787,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 	
 	/**
 	 * Constraint:
-	 *     parameterReference=[Parameter|ID]
+	 *     parameterReference=ParameterMemberCall
 	 */
 	protected void sequence_Variable(EObject context, Variable semanticObject) {
 		if(errorAcceptor != null) {
@@ -711,7 +796,7 @@ public class ApplauseDslSemanticSequencer extends AbstractDelegatingSemanticSequ
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getVariableAccess().getParameterReferenceParameterIDTerminalRuleCall_1_0_1(), semanticObject.getParameterReference());
+		feeder.accept(grammarAccess.getVariableAccess().getParameterReferenceParameterMemberCallParserRuleCall_1_0(), semanticObject.getParameterReference());
 		feeder.finish();
 	}
 }

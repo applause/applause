@@ -81,6 +81,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.PARAMETER: return createParameter();
       case ApplauseDslPackage.RESTURL: return createRESTURL();
       case ApplauseDslPackage.ABSOLUTE_RESTURL: return createAbsoluteRESTURL();
+      case ApplauseDslPackage.URL_PARAMETER: return createUrlParameter();
       case ApplauseDslPackage.RELATIVE_RESTURL: return createRelativeRESTURL();
       case ApplauseDslPackage.URL_FRAGMENT: return createUrlFragment();
       case ApplauseDslPackage.URL_PATH_FRAGMENT: return createUrlPathFragment();
@@ -95,6 +96,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.UI_ACTION_SPECIFICATION: return createUIActionSpecification();
       case ApplauseDslPackage.UI_ACTION_NAVIGATE_ACTION: return createUIActionNavigateAction();
       case ApplauseDslPackage.UI_ACTION_DELETE_ACTION: return createUIActionDeleteAction();
+      case ApplauseDslPackage.CONTROLLER_VERB: return createControllerVerb();
       case ApplauseDslPackage.LIST_ITEM_CELL_DECLARATION: return createListItemCellDeclaration();
       case ApplauseDslPackage.UI_COMPONENT_DECLARATION: return createUIComponentDeclaration();
       case ApplauseDslPackage.UI_COMPONENT_MEMBER_DECLARATION: return createUIComponentMemberDeclaration();
@@ -104,10 +106,13 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
       case ApplauseDslPackage.UI_COMPONENT_MEMBER_CONFIGURATION: return createUIComponentMemberConfiguration();
       case ApplauseDslPackage.UI_COMPONENT_MEMBER_CALL: return createUIComponentMemberCall();
       case ApplauseDslPackage.EXPRESSION: return createExpression();
+      case ApplauseDslPackage.PARAMETER_REFERENCE: return createParameterReference();
       case ApplauseDslPackage.ENTITY_MEMBER_CALL: return createEntityMemberCall();
       case ApplauseDslPackage.ENTITY_MEMBER_CALL_TAIL: return createEntityMemberCallTail();
       case ApplauseDslPackage.ATTRIBUTE_REFERENCE: return createAttributeReference();
       case ApplauseDslPackage.STRING_LITERAL: return createStringLiteral();
+      case ApplauseDslPackage.PARAMETER_CALL: return createParameterCall();
+      case ApplauseDslPackage.PARAMETER_MEMBER_CALL: return createParameterMemberCall();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -129,10 +134,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return createScreenKindFromString(eDataType, initialValue);
       case ApplauseDslPackage.GESTURE_KIND:
         return createGestureKindFromString(eDataType, initialValue);
-      case ApplauseDslPackage.ACTION_VERB:
-        return createActionVerbFromString(eDataType, initialValue);
-      case ApplauseDslPackage.UI_ACTION_KIND:
-        return createUIActionKindFromString(eDataType, initialValue);
+      case ApplauseDslPackage.CONTROLLER_VERB_KIND:
+        return createControllerVerbKindFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -154,10 +157,8 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
         return convertScreenKindToString(eDataType, instanceValue);
       case ApplauseDslPackage.GESTURE_KIND:
         return convertGestureKindToString(eDataType, instanceValue);
-      case ApplauseDslPackage.ACTION_VERB:
-        return convertActionVerbToString(eDataType, instanceValue);
-      case ApplauseDslPackage.UI_ACTION_KIND:
-        return convertUIActionKindToString(eDataType, instanceValue);
+      case ApplauseDslPackage.CONTROLLER_VERB_KIND:
+        return convertControllerVerbKindToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -344,6 +345,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public UrlParameter createUrlParameter()
+  {
+    UrlParameterImpl urlParameter = new UrlParameterImpl();
+    return urlParameter;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public RelativeRESTURL createRelativeRESTURL()
   {
     RelativeRESTURLImpl relativeRESTURL = new RelativeRESTURLImpl();
@@ -498,6 +510,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ControllerVerb createControllerVerb()
+  {
+    ControllerVerbImpl controllerVerb = new ControllerVerbImpl();
+    return controllerVerb;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public ListItemCellDeclaration createListItemCellDeclaration()
   {
     ListItemCellDeclarationImpl listItemCellDeclaration = new ListItemCellDeclarationImpl();
@@ -597,6 +620,17 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
+  public ParameterReference createParameterReference()
+  {
+    ParameterReferenceImpl parameterReference = new ParameterReferenceImpl();
+    return parameterReference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EntityMemberCall createEntityMemberCall()
   {
     EntityMemberCallImpl entityMemberCall = new EntityMemberCallImpl();
@@ -634,6 +668,28 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
   {
     StringLiteralImpl stringLiteral = new StringLiteralImpl();
     return stringLiteral;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterCall createParameterCall()
+  {
+    ParameterCallImpl parameterCall = new ParameterCallImpl();
+    return parameterCall;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ParameterMemberCall createParameterMemberCall()
+  {
+    ParameterMemberCallImpl parameterMemberCall = new ParameterMemberCallImpl();
+    return parameterMemberCall;
   }
 
   /**
@@ -707,9 +763,9 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public ActionVerb createActionVerbFromString(EDataType eDataType, String initialValue)
+  public ControllerVerbKind createControllerVerbKindFromString(EDataType eDataType, String initialValue)
   {
-    ActionVerb result = ActionVerb.get(initialValue);
+    ControllerVerbKind result = ControllerVerbKind.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -719,29 +775,7 @@ public class ApplauseDslFactoryImpl extends EFactoryImpl implements ApplauseDslF
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertActionVerbToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public UIActionKind createUIActionKindFromString(EDataType eDataType, String initialValue)
-  {
-    UIActionKind result = UIActionKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertUIActionKindToString(EDataType eDataType, Object instanceValue)
+  public String convertControllerVerbKindToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

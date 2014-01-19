@@ -7,6 +7,7 @@ import java.util.Collection;
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
 import org.applause.lang.applauseDsl.RESTURL;
 import org.applause.lang.applauseDsl.UrlFragment;
+import org.applause.lang.applauseDsl.UrlParameter;
 
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -28,6 +29,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.applause.lang.applauseDsl.impl.RESTURLImpl#getFragments <em>Fragments</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.RESTURLImpl#getParameters <em>Parameters</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +46,16 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
    * @ordered
    */
   protected EList<UrlFragment> fragments;
+
+  /**
+   * The cached value of the '{@link #getParameters() <em>Parameters</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getParameters()
+   * @generated
+   * @ordered
+   */
+  protected EList<UrlParameter> parameters;
 
   /**
    * <!-- begin-user-doc -->
@@ -85,6 +97,20 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<UrlParameter> getParameters()
+  {
+    if (parameters == null)
+    {
+      parameters = new EObjectContainmentEList<UrlParameter>(UrlParameter.class, this, ApplauseDslPackage.RESTURL__PARAMETERS);
+    }
+    return parameters;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -92,6 +118,8 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
     {
       case ApplauseDslPackage.RESTURL__FRAGMENTS:
         return ((InternalEList<?>)getFragments()).basicRemove(otherEnd, msgs);
+      case ApplauseDslPackage.RESTURL__PARAMETERS:
+        return ((InternalEList<?>)getParameters()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,6 +136,8 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
     {
       case ApplauseDslPackage.RESTURL__FRAGMENTS:
         return getFragments();
+      case ApplauseDslPackage.RESTURL__PARAMETERS:
+        return getParameters();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -127,6 +157,10 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
         getFragments().clear();
         getFragments().addAll((Collection<? extends UrlFragment>)newValue);
         return;
+      case ApplauseDslPackage.RESTURL__PARAMETERS:
+        getParameters().clear();
+        getParameters().addAll((Collection<? extends UrlParameter>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -144,6 +178,9 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
       case ApplauseDslPackage.RESTURL__FRAGMENTS:
         getFragments().clear();
         return;
+      case ApplauseDslPackage.RESTURL__PARAMETERS:
+        getParameters().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -160,6 +197,8 @@ public class RESTURLImpl extends MinimalEObjectImpl.Container implements RESTURL
     {
       case ApplauseDslPackage.RESTURL__FRAGMENTS:
         return fragments != null && !fragments.isEmpty();
+      case ApplauseDslPackage.RESTURL__PARAMETERS:
+        return parameters != null && !parameters.isEmpty();
     }
     return super.eIsSet(featureID);
   }

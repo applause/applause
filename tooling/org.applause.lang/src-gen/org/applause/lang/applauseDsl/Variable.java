@@ -22,29 +22,29 @@ package org.applause.lang.applauseDsl;
 public interface Variable extends UrlFragment
 {
   /**
-   * Returns the value of the '<em><b>Parameter Reference</b></em>' reference.
+   * Returns the value of the '<em><b>Parameter Reference</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Parameter Reference</em>' reference isn't clear,
+   * If the meaning of the '<em>Parameter Reference</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Parameter Reference</em>' reference.
-   * @see #setParameterReference(Parameter)
+   * @return the value of the '<em>Parameter Reference</em>' containment reference.
+   * @see #setParameterReference(ParameterReference)
    * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getVariable_ParameterReference()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  Parameter getParameterReference();
+  ParameterReference getParameterReference();
 
   /**
-   * Sets the value of the '{@link org.applause.lang.applauseDsl.Variable#getParameterReference <em>Parameter Reference</em>}' reference.
+   * Sets the value of the '{@link org.applause.lang.applauseDsl.Variable#getParameterReference <em>Parameter Reference</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Parameter Reference</em>' reference.
+   * @param value the new value of the '<em>Parameter Reference</em>' containment reference.
    * @see #getParameterReference()
    * @generated
    */
-  void setParameterReference(Parameter value);
+  void setParameterReference(ParameterReference value);
 
 } // Variable

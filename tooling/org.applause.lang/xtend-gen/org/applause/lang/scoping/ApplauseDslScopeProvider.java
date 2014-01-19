@@ -5,6 +5,7 @@ package org.applause.lang.scoping;
 
 import java.util.Arrays;
 import org.applause.lang.applauseDsl.Attribute;
+import org.applause.lang.applauseDsl.ControllerVerb;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
 import org.applause.lang.applauseDsl.DataSourceCall;
@@ -13,10 +14,14 @@ import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.EntityMemberCall;
 import org.applause.lang.applauseDsl.ListItemCellDeclaration;
 import org.applause.lang.applauseDsl.Parameter;
+import org.applause.lang.applauseDsl.ParameterCall;
+import org.applause.lang.applauseDsl.ParameterMemberCall;
+import org.applause.lang.applauseDsl.ParameterReference;
 import org.applause.lang.applauseDsl.RESTMethodCall;
 import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.ScreenListItemCell;
 import org.applause.lang.applauseDsl.Type;
+import org.applause.lang.applauseDsl.UIActionNavigateAction;
 import org.applause.lang.applauseDsl.UIComponentDeclaration;
 import org.applause.lang.applauseDsl.UIComponentMemberCall;
 import org.applause.lang.applauseDsl.UIComponentMemberDeclaration;
@@ -147,6 +152,37 @@ public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
   private IScope _attributesScope(final Entity entity) {
     EList<Attribute> _attributes = entity.getAttributes();
     IScope _scopeFor = Scopes.scopeFor(_attributes);
+    return _scopeFor;
+  }
+  
+  public Object scope_ParameterMemberCall_tail(final ParameterMemberCall ctx, final EReference ref) {
+    Object _xblockexpression = null;
+    {
+      final ParameterReference head = ctx.getReference();
+      Object _switchResult = null;
+      boolean _matched = false;
+      if (!_matched) {
+        if (head instanceof ParameterCall) {
+          final ParameterCall _parameterCall = (ParameterCall)head;
+          _matched=true;
+          Parameter _head = _parameterCall.getHead();
+          Type _type = _head.getType();
+          Object _attributesScope = this.attributesScope(_type);
+          _switchResult = _attributesScope;
+        }
+      }
+      if (!_matched) {
+        _switchResult = IScope.NULLSCOPE;
+      }
+      _xblockexpression = (_switchResult);
+    }
+    return _xblockexpression;
+  }
+  
+  public IScope scope_UIActionNavigateAction_actionVerb(final UIActionNavigateAction ctx, final EReference ref) {
+    Screen _targetScreen = ctx.getTargetScreen();
+    EList<ControllerVerb> _verbs = _targetScreen.getVerbs();
+    IScope _scopeFor = Scopes.scopeFor(_verbs);
     return _scopeFor;
   }
   

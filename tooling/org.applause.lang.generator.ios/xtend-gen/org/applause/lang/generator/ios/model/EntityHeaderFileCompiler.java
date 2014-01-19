@@ -38,6 +38,20 @@ public class EntityHeaderFileCompiler {
     return _builder;
   }
   
+  public String superTypeName(final Entity it) {
+    String _xifexpression = null;
+    Entity _superType = it.getSuperType();
+    boolean _notEquals = (!Objects.equal(_superType, null));
+    if (_notEquals) {
+      Entity _superType_1 = it.getSuperType();
+      String _typeName = this._typeExtensions.typeName(_superType_1);
+      _xifexpression = _typeName;
+    } else {
+      _xifexpression = "NSObject";
+    }
+    return _xifexpression;
+  }
+  
   public CharSequence compileHeader(final Entity it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("#import <Foundation/Foundation.h>");
@@ -50,9 +64,8 @@ public class EntityHeaderFileCompiler {
     String _name = it.getName();
     _builder.append(_name, "");
     _builder.append(" : ");
-    Entity _superType = it.getSuperType();
-    String _typeName = this._typeExtensions.typeName(_superType);
-    _builder.append(_typeName, "");
+    String _superTypeName = this.superTypeName(it);
+    _builder.append(_superTypeName, "");
     _builder.newLineIfNotEmpty();
     {
       EList<Attribute> _attributes = it.getAttributes();

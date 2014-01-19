@@ -10,15 +10,25 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Action Verb</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Controller Verb Kind</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getActionVerb()
+ * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getControllerVerbKind()
  * @model
  * @generated
  */
-public enum ActionVerb implements Enumerator
+public enum ControllerVerbKind implements Enumerator
 {
+  /**
+   * The '<em><b>Add</b></em>' literal object.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #ADD_VALUE
+   * @generated
+   * @ordered
+   */
+  ADD(0, "add", "add"),
+
   /**
    * The '<em><b>Edit</b></em>' literal object.
    * <!-- begin-user-doc -->
@@ -27,7 +37,7 @@ public enum ActionVerb implements Enumerator
    * @generated
    * @ordered
    */
-  EDIT(0, "edit", "edit"),
+  EDIT(1, "edit", "edit"),
 
   /**
    * The '<em><b>Display</b></em>' literal object.
@@ -37,47 +47,17 @@ public enum ActionVerb implements Enumerator
    * @generated
    * @ordered
    */
-  DISPLAY(1, "display", "display"),
+  DISPLAY(2, "display", "display"),
 
   /**
-   * The '<em><b>Add</b></em>' literal object.
+   * The '<em><b>Delete</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #ADD_VALUE
+   * @see #DELETE_VALUE
    * @generated
    * @ordered
    */
-  ADD(2, "add", "add");
-
-  /**
-   * The '<em><b>Edit</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Edit</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #EDIT
-   * @model name="edit"
-   * @generated
-   * @ordered
-   */
-  public static final int EDIT_VALUE = 0;
-
-  /**
-   * The '<em><b>Display</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of '<em><b>Display</b></em>' literal object isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @see #DISPLAY
-   * @model name="display"
-   * @generated
-   * @ordered
-   */
-  public static final int DISPLAY_VALUE = 1;
+  DELETE(3, "delete", "delete");
 
   /**
    * The '<em><b>Add</b></em>' literal value.
@@ -92,41 +72,87 @@ public enum ActionVerb implements Enumerator
    * @generated
    * @ordered
    */
-  public static final int ADD_VALUE = 2;
+  public static final int ADD_VALUE = 0;
 
   /**
-   * An array of all the '<em><b>Action Verb</b></em>' enumerators.
+   * The '<em><b>Edit</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Edit</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #EDIT
+   * @model name="edit"
+   * @generated
+   * @ordered
+   */
+  public static final int EDIT_VALUE = 1;
+
+  /**
+   * The '<em><b>Display</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Display</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #DISPLAY
+   * @model name="display"
+   * @generated
+   * @ordered
+   */
+  public static final int DISPLAY_VALUE = 2;
+
+  /**
+   * The '<em><b>Delete</b></em>' literal value.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of '<em><b>Delete</b></em>' literal object isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @see #DELETE
+   * @model name="delete"
+   * @generated
+   * @ordered
+   */
+  public static final int DELETE_VALUE = 3;
+
+  /**
+   * An array of all the '<em><b>Controller Verb Kind</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final ActionVerb[] VALUES_ARRAY =
-    new ActionVerb[]
+  private static final ControllerVerbKind[] VALUES_ARRAY =
+    new ControllerVerbKind[]
     {
+      ADD,
       EDIT,
       DISPLAY,
-      ADD,
+      DELETE,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Action Verb</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Controller Verb Kind</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<ActionVerb> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<ControllerVerbKind> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Action Verb</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Controller Verb Kind</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static ActionVerb get(String literal)
+  public static ControllerVerbKind get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      ActionVerb result = VALUES_ARRAY[i];
+      ControllerVerbKind result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -136,16 +162,16 @@ public enum ActionVerb implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Action Verb</b></em>' literal with the specified name.
+   * Returns the '<em><b>Controller Verb Kind</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static ActionVerb getByName(String name)
+  public static ControllerVerbKind getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      ActionVerb result = VALUES_ARRAY[i];
+      ControllerVerbKind result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -155,18 +181,19 @@ public enum ActionVerb implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Action Verb</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Controller Verb Kind</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static ActionVerb get(int value)
+  public static ControllerVerbKind get(int value)
   {
     switch (value)
     {
+      case ADD_VALUE: return ADD;
       case EDIT_VALUE: return EDIT;
       case DISPLAY_VALUE: return DISPLAY;
-      case ADD_VALUE: return ADD;
+      case DELETE_VALUE: return DELETE;
     }
     return null;
   }
@@ -198,7 +225,7 @@ public enum ActionVerb implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private ActionVerb(int value, String name, String literal)
+  private ControllerVerbKind(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -247,4 +274,4 @@ public enum ActionVerb implements Enumerator
     return literal;
   }
   
-} //ActionVerb
+} //ControllerVerbKind

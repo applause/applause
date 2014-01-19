@@ -3,6 +3,7 @@ package org.applause.lang.generator.ios.ui;
 import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import java.util.HashSet;
 import java.util.List;
 import org.applause.lang.applauseDsl.DataSource;
 import org.applause.lang.applauseDsl.DataSourceAccessMethod;
@@ -10,6 +11,7 @@ import org.applause.lang.applauseDsl.DataSourceCall;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Expression;
 import org.applause.lang.applauseDsl.ListItemCellDeclaration;
+import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.RESTMethodCall;
 import org.applause.lang.applauseDsl.RESTSpecification;
 import org.applause.lang.applauseDsl.RESTVerb;
@@ -21,9 +23,11 @@ import org.applause.lang.applauseDsl.UIComponentMemberCall;
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration;
 import org.applause.lang.applauseDsl.UIComponentMemberDeclaration;
 import org.applause.lang.generator.ios.ExpressionExtensions;
-import org.applause.lang.generator.ios.dataaccess.DataAccessClassExtensions;
+import org.applause.lang.generator.ios.dataaccess.DataAccessMethodCompiler;
 import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.applause.lang.generator.ios.ui.DefaultDetailsScreenClassExtensions;
+import org.applause.lang.generator.ios.ui.DefaultDetailsScreenControllerCompiler;
+import org.applause.lang.generator.ios.ui.DefaultDetailsScreenImportHelper;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Extension;
@@ -48,7 +52,15 @@ public class DefaultDetailsScreenModuleFileCompiler {
   
   @Inject
   @Extension
-  private DataAccessClassExtensions _dataAccessClassExtensions;
+  private DefaultDetailsScreenControllerCompiler _defaultDetailsScreenControllerCompiler;
+  
+  @Inject
+  @Extension
+  private DefaultDetailsScreenImportHelper _defaultDetailsScreenImportHelper;
+  
+  @Inject
+  @Extension
+  private DataAccessMethodCompiler _dataAccessMethodCompiler;
   
   public Iterable<UIComponentMemberConfiguration> configurations(final Screen it) {
     EList<ScreenSection> _sections = it.getSections();
@@ -128,26 +140,8 @@ public class DefaultDetailsScreenModuleFileCompiler {
   
   public CharSequence compileModule(final Screen it) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("#import \"");
-    String _screenHeaderFileName = this._defaultDetailsScreenClassExtensions.screenHeaderFileName(it);
-    _builder.append(_screenHeaderFileName, "");
-    _builder.append("\"");
-    _builder.newLineIfNotEmpty();
-    _builder.append("#import \"QRootElement.h\"");
-    _builder.newLine();
-    _builder.append("#import \"QEntryElement.h\"");
-    _builder.newLine();
-    _builder.append("#import \"QBooleanElement.h\"");
-    _builder.newLine();
-    _builder.append("#import \"QDateTimeInlineElement.h\"");
-    _builder.newLine();
-    _builder.append("#import \"QButtonElement.h\"");
-    _builder.newLine();
-    _builder.append("#import \"");
-    Entity _resourceType = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _entityDataAccessCategoryHeaderFileName = this._dataAccessClassExtensions.entityDataAccessCategoryHeaderFileName(_resourceType);
-    _builder.append(_entityDataAccessCategoryHeaderFileName, "");
-    _builder.append("\"");
+    CharSequence _compileModuleImports = this._defaultDetailsScreenImportHelper.compileModuleImports(it);
+    _builder.append(_compileModuleImports, "");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("@interface ");
@@ -158,10 +152,23 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.append("@property(nonatomic) enum DetailsViewMode mode;");
     _builder.newLine();
     _builder.append("@property(nonatomic, copy) void (^doneBlock)(");
-    Entity _resourceType_1 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName = this._typeExtensions.typeName(_resourceType_1);
+    Entity _resourceType = this._defaultDetailsScreenClassExtensions.resourceType(it);
+    String _typeName = this._typeExtensions.typeName(_resourceType);
     _builder.append(_typeName, "");
     _builder.append(" *);");
+    _builder.newLineIfNotEmpty();
+    Iterable<Parameter> _considerableParameters = this._defaultDetailsScreenControllerCompiler.considerableParameters(it);
+    final Function1<Parameter,String> _function = new Function1<Parameter,String>() {
+      public String apply(final Parameter it) {
+        CharSequence _compile = DefaultDetailsScreenModuleFileCompiler.this._defaultDetailsScreenControllerCompiler.compile(it);
+        String _string = _compile.toString();
+        return _string;
+      }
+    };
+    Iterable<String> _map = IterableExtensions.<Parameter, String>map(_considerableParameters, _function);
+    HashSet<String> _unique = this._defaultDetailsScreenImportHelper.unique(_map);
+    String _join = IterableExtensions.join(_unique);
+    _builder.append(_join, "");
     _builder.newLineIfNotEmpty();
     _builder.append("@end");
     _builder.newLine();
@@ -179,121 +186,17 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.append("\t");
     _builder.append("DetailsViewModeEdit,");
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("DetailsViewModeDisplay");
+    _builder.newLine();
     _builder.append("};");
     _builder.newLine();
     _builder.append("typedef enum DetailsViewMode DetailsViewMode;");
     _builder.newLine();
     _builder.newLine();
-    _builder.append("+ (void)presentForAddingNewItemFromParent:(UIViewController *)parent onDone:(void (^)(");
-    Entity _resourceType_2 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_1 = this._typeExtensions.typeName(_resourceType_2);
-    _builder.append(_typeName_1, "");
-    _builder.append(" *item))doneBlock");
+    CharSequence _compileControllerMethods = this._defaultDetailsScreenControllerCompiler.compileControllerMethods(it);
+    _builder.append(_compileControllerMethods, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t");
-    String _controllerClassName_2 = this._defaultDetailsScreenClassExtensions.controllerClassName(it);
-    _builder.append(_controllerClassName_2, "	");
-    _builder.append(" *detailsViewController = [[");
-    String _controllerClassName_3 = this._defaultDetailsScreenClassExtensions.controllerClassName(it);
-    _builder.append(_controllerClassName_3, "	");
-    _builder.append(" alloc] initWithMode:DetailsViewModeAdd];");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("detailsViewController.item = [[");
-    Entity _resourceType_3 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_2 = this._typeExtensions.typeName(_resourceType_3);
-    _builder.append(_typeName_2, "	");
-    _builder.append(" alloc] init];");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("detailsViewController.doneBlock = ^(");
-    Entity _resourceType_4 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_3 = this._typeExtensions.typeName(_resourceType_4);
-    _builder.append(_typeName_3, "	");
-    _builder.append(" *editedItem)");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("[parent dismissViewControllerAnimated:YES completion:nil];");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("if (doneBlock) {");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("doneBlock(editedItem);");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("};");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:detailsViewController];");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("[parent presentViewController:navigationController animated:YES completion:nil];");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
-    _builder.newLine();
-    _builder.append("+ (void)presentForEditingItem:(");
-    Entity _resourceType_5 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_4 = this._typeExtensions.typeName(_resourceType_5);
-    _builder.append(_typeName_4, "");
-    _builder.append(" *)item fromParent:(UIViewController *)parent onDone:(void (^)(");
-    Entity _resourceType_6 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_5 = this._typeExtensions.typeName(_resourceType_6);
-    _builder.append(_typeName_5, "");
-    _builder.append(" *editedItem))doneBlock");
-    _builder.newLineIfNotEmpty();
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t");
-    String _controllerClassName_4 = this._defaultDetailsScreenClassExtensions.controllerClassName(it);
-    _builder.append(_controllerClassName_4, "	");
-    _builder.append(" *detailsViewController = [[");
-    String _controllerClassName_5 = this._defaultDetailsScreenClassExtensions.controllerClassName(it);
-    _builder.append(_controllerClassName_5, "	");
-    _builder.append(" alloc] initWithMode:DetailsViewModeEdit];");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("detailsViewController.item = item;");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("detailsViewController.doneBlock = ^(");
-    Entity _resourceType_7 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_6 = this._typeExtensions.typeName(_resourceType_7);
-    _builder.append(_typeName_6, "	");
-    _builder.append(" *editedItem)");
-    _builder.newLineIfNotEmpty();
-    _builder.append("\t");
-    _builder.append("{");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("[parent.navigationController popViewControllerAnimated:YES];");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("if (doneBlock) {");
-    _builder.newLine();
-    _builder.append("\t\t\t");
-    _builder.append("doneBlock(editedItem);");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("};");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("[parent.navigationController pushViewController:detailsViewController animated:YES];");
-    _builder.newLine();
-    _builder.append("}");
-    _builder.newLine();
     _builder.newLine();
     _builder.append("- (id)initWithMode:(DetailsViewMode)mode");
     _builder.newLine();
@@ -392,9 +295,9 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.newLine();
     _builder.newLine();
     _builder.append("- (void)setItem:(");
-    Entity _resourceType_8 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_7 = this._typeExtensions.typeName(_resourceType_8);
-    _builder.append(_typeName_7, "");
+    Entity _resourceType_1 = this._defaultDetailsScreenClassExtensions.resourceType(it);
+    String _typeName_1 = this._typeExtensions.typeName(_resourceType_1);
+    _builder.append(_typeName_1, "");
     _builder.append(" *)item");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
@@ -426,23 +329,6 @@ public class DefaultDetailsScreenModuleFileCompiler {
         RESTSpecification _restSpecification = it.getRestSpecification();
         RESTVerb _verb = _restSpecification.getVerb();
         boolean _equals = Objects.equal(_verb, RESTVerb.PUT);
-        return Boolean.valueOf(_equals);
-      }
-    };
-    DataSourceAccessMethod _findFirst = IterableExtensions.<DataSourceAccessMethod>findFirst(_methods, _function);
-    String _name = _findFirst.getName();
-    return _name;
-  }
-  
-  public String dataAccessMethodNameForCreate(final Screen it) {
-    DataSourceCall _datasource = it.getDatasource();
-    DataSource _datasource_1 = _datasource.getDatasource();
-    EList<DataSourceAccessMethod> _methods = _datasource_1.getMethods();
-    final Function1<DataSourceAccessMethod,Boolean> _function = new Function1<DataSourceAccessMethod,Boolean>() {
-      public Boolean apply(final DataSourceAccessMethod it) {
-        RESTSpecification _restSpecification = it.getRestSpecification();
-        RESTVerb _verb = _restSpecification.getVerb();
-        boolean _equals = Objects.equal(_verb, RESTVerb.POST);
         return Boolean.valueOf(_equals);
       }
     };
@@ -501,16 +387,45 @@ public class DefaultDetailsScreenModuleFileCompiler {
     return _builder;
   }
   
+  public String dataAccessMethodNameForCreate(final Screen it) {
+    DataSourceCall _datasource = it.getDatasource();
+    DataSource _datasource_1 = _datasource.getDatasource();
+    EList<DataSourceAccessMethod> _methods = _datasource_1.getMethods();
+    final Function1<DataSourceAccessMethod,Boolean> _function = new Function1<DataSourceAccessMethod,Boolean>() {
+      public Boolean apply(final DataSourceAccessMethod it) {
+        RESTSpecification _restSpecification = it.getRestSpecification();
+        RESTVerb _verb = _restSpecification.getVerb();
+        boolean _equals = Objects.equal(_verb, RESTVerb.POST);
+        return Boolean.valueOf(_equals);
+      }
+    };
+    DataSourceAccessMethod _findFirst = IterableExtensions.<DataSourceAccessMethod>findFirst(_methods, _function);
+    String _name = _findFirst.getName();
+    return _name;
+  }
+  
+  public String dataAccessMethodCallForCreate(final Screen it) {
+    DataSourceCall _datasource = it.getDatasource();
+    DataSource _datasource_1 = _datasource.getDatasource();
+    EList<DataSourceAccessMethod> _methods = _datasource_1.getMethods();
+    final Function1<DataSourceAccessMethod,Boolean> _function = new Function1<DataSourceAccessMethod,Boolean>() {
+      public Boolean apply(final DataSourceAccessMethod it) {
+        RESTSpecification _restSpecification = it.getRestSpecification();
+        RESTVerb _verb = _restSpecification.getVerb();
+        boolean _equals = Objects.equal(_verb, RESTVerb.POST);
+        return Boolean.valueOf(_equals);
+      }
+    };
+    DataSourceAccessMethod _findFirst = IterableExtensions.<DataSourceAccessMethod>findFirst(_methods, _function);
+    String _dataAccessMethodCall = this._dataAccessMethodCompiler.dataAccessMethodCall(_findFirst);
+    return _dataAccessMethodCall;
+  }
+  
   public CharSequence compileCreateNewItemFragment(final Screen it) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("[self.item ");
-    String _dataAccessMethodNameForCreate = this.dataAccessMethodNameForCreate(it);
-    _builder.append(_dataAccessMethodNameForCreate, "");
-    _builder.append(":^(");
-    Entity _resourceType = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName = this._typeExtensions.typeName(_resourceType);
-    _builder.append(_typeName, "");
-    _builder.append(" *item, NSError *error)");
+    String _dataAccessMethodCallForCreate = this.dataAccessMethodCallForCreate(it);
+    _builder.append(_dataAccessMethodCallForCreate, "");
     _builder.newLineIfNotEmpty();
     _builder.append("{");
     _builder.newLine();
@@ -537,9 +452,9 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("NSLog(@\"Problem saving the ");
-    Entity _resourceType_1 = this._defaultDetailsScreenClassExtensions.resourceType(it);
-    String _typeName_1 = this._typeExtensions.typeName(_resourceType_1);
-    String _firstLower = StringExtensions.toFirstLower(_typeName_1);
+    Entity _resourceType = this._defaultDetailsScreenClassExtensions.resourceType(it);
+    String _typeName = this._typeExtensions.typeName(_resourceType);
+    String _firstLower = StringExtensions.toFirstLower(_typeName);
     _builder.append(_firstLower, "		");
     _builder.append(". Try again later.\");");
     _builder.newLineIfNotEmpty();

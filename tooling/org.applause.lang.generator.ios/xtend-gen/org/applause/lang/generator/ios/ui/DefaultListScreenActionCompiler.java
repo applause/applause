@@ -1,15 +1,11 @@
 package org.applause.lang.generator.ios.ui;
 
-import com.google.common.base.Objects;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
-import org.applause.lang.applauseDsl.ActionVerb;
 import org.applause.lang.applauseDsl.Entity;
 import org.applause.lang.applauseDsl.Screen;
 import org.applause.lang.applauseDsl.ScreenListItemCell;
 import org.applause.lang.applauseDsl.UIAction;
-import org.applause.lang.applauseDsl.UIActionNavigateAction;
-import org.applause.lang.applauseDsl.UIActionSpecification;
 import org.applause.lang.generator.ios.model.TypeExtensions;
 import org.applause.lang.generator.ios.ui.DefaultListScreenClassExtensions;
 import org.eclipse.emf.common.util.EList;
@@ -36,7 +32,7 @@ public class DefaultListScreenActionCompiler {
       EList<UIAction> _actions = it.getActions();
       for(final UIAction action : _actions) {
         _builder.append("\t");
-        CharSequence _compileActionButton = this.compileActionButton(action);
+        Object _compileActionButton = this.compileActionButton(action);
         _builder.append(_compileActionButton, "	");
         _builder.newLineIfNotEmpty();
       }
@@ -46,26 +42,8 @@ public class DefaultListScreenActionCompiler {
     return _builder;
   }
   
-  private CharSequence compileActionButton(final UIAction it) {
-    CharSequence _xifexpression = null;
-    UIActionSpecification _action = it.getAction();
-    if ((_action instanceof UIActionNavigateAction)) {
-      CharSequence _switchResult = null;
-      UIActionSpecification _action_1 = it.getAction();
-      ActionVerb _actionVerb = ((UIActionNavigateAction) _action_1).getActionVerb();
-      final ActionVerb _switchValue = _actionVerb;
-      boolean _matched = false;
-      if (!_matched) {
-        if (Objects.equal(_switchValue,ActionVerb.ADD)) {
-          _matched=true;
-          Screen _screen = this._defaultListScreenClassExtensions.screen(it);
-          CharSequence _compileActionButton_AddItem = this.compileActionButton_AddItem(_screen);
-          _switchResult = _compileActionButton_AddItem;
-        }
-      }
-      _xifexpression = _switchResult;
-    }
-    return _xifexpression;
+  private Object compileActionButton(final UIAction it) {
+    return null;
   }
   
   private CharSequence compileActionButton_AddItem(final Screen it) {
@@ -89,7 +67,7 @@ public class DefaultListScreenActionCompiler {
       EList<UIAction> _actions_1 = it.getActions();
       Iterable<UIAction> _plus = Iterables.<UIAction>concat(_actions, _actions_1);
       for(final UIAction action : _plus) {
-        CharSequence _compileActionMethod = this.compileActionMethod(action);
+        Object _compileActionMethod = this.compileActionMethod(action);
         _builder.append(_compileActionMethod, "");
         _builder.newLineIfNotEmpty();
       }
@@ -97,34 +75,8 @@ public class DefaultListScreenActionCompiler {
     return _builder;
   }
   
-  private CharSequence compileActionMethod(final UIAction it) {
-    CharSequence _xifexpression = null;
-    UIActionSpecification _action = it.getAction();
-    if ((_action instanceof UIActionNavigateAction)) {
-      CharSequence _switchResult = null;
-      UIActionSpecification _action_1 = it.getAction();
-      ActionVerb _actionVerb = ((UIActionNavigateAction) _action_1).getActionVerb();
-      final ActionVerb _switchValue = _actionVerb;
-      boolean _matched = false;
-      if (!_matched) {
-        if (Objects.equal(_switchValue,ActionVerb.ADD)) {
-          _matched=true;
-          Screen _screen = this._defaultListScreenClassExtensions.screen(it);
-          CharSequence _compileActionMethod_AddItem = this.compileActionMethod_AddItem(_screen);
-          _switchResult = _compileActionMethod_AddItem;
-        }
-      }
-      if (!_matched) {
-        if (Objects.equal(_switchValue,ActionVerb.EDIT)) {
-          _matched=true;
-          Screen _screen_1 = this._defaultListScreenClassExtensions.screen(it);
-          CharSequence _compileActionMethod_EditItem = this.compileActionMethod_EditItem(_screen_1);
-          _switchResult = _compileActionMethod_EditItem;
-        }
-      }
-      _xifexpression = _switchResult;
-    }
-    return _xifexpression;
+  private Object compileActionMethod(final UIAction it) {
+    return null;
   }
   
   private CharSequence compileActionMethod_AddItem(final Screen it) {

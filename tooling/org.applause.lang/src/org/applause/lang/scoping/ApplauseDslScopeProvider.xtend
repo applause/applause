@@ -6,17 +6,20 @@ package org.applause.lang.scoping
 import org.applause.lang.applauseDsl.DataType
 import org.applause.lang.applauseDsl.Entity
 import org.applause.lang.applauseDsl.EntityMemberCall
+import org.applause.lang.applauseDsl.ParameterCall
+import org.applause.lang.applauseDsl.ParameterMemberCall
 import org.applause.lang.applauseDsl.RESTMethodCall
+import org.applause.lang.applauseDsl.Screen
 import org.applause.lang.applauseDsl.ScreenListItemCell
+import org.applause.lang.applauseDsl.UIActionNavigateAction
 import org.applause.lang.applauseDsl.UIComponentDeclaration
 import org.applause.lang.applauseDsl.UIComponentMemberCall
 import org.eclipse.emf.ecore.EReference
+import org.eclipse.xtext.EcoreUtil2
+import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 
 import static org.eclipse.xtext.scoping.Scopes.*
-import org.eclipse.xtext.EcoreUtil2
-import com.google.inject.Inject
-import org.applause.lang.applauseDsl.Screen
 
 /**
  * This class contains custom scoping description.
@@ -74,5 +77,16 @@ class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
 		scopeFor(entity.attributes)
 	}
 	
+	def scope_ParameterMemberCall_tail(ParameterMemberCall ctx, EReference ref) {
+		val head = ctx.reference
+		switch (head) {
+			ParameterCall: head.head.type.attributesScope
+			default: IScope.NULLSCOPE
+		}
+	}
+	
+	def scope_UIActionNavigateAction_actionVerb(UIActionNavigateAction ctx, EReference ref) {
+		scopeFor(ctx.targetScreen.verbs)
+	}
 	
 }

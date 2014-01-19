@@ -1,8 +1,15 @@
 package org.applause.lang.generator.ios.dataaccess;
 
+import com.google.common.collect.Iterables;
 import java.util.Arrays;
 import java.util.List;
 import org.applause.lang.applauseDsl.AbsoluteRESTURL;
+import org.applause.lang.applauseDsl.Attribute;
+import org.applause.lang.applauseDsl.Parameter;
+import org.applause.lang.applauseDsl.ParameterCall;
+import org.applause.lang.applauseDsl.ParameterMemberCall;
+import org.applause.lang.applauseDsl.ParameterReference;
+import org.applause.lang.applauseDsl.RESTURL;
 import org.applause.lang.applauseDsl.RelativeRESTURL;
 import org.applause.lang.applauseDsl.UrlFragment;
 import org.applause.lang.applauseDsl.UrlPathFragment;
@@ -70,6 +77,45 @@ public class RESTURLExtensions {
     return "%@";
   }
   
+  public Iterable<String> variables(final RESTURL it) {
+    EList<UrlFragment> _fragments = it.getFragments();
+    Iterable<Variable> _filter = Iterables.<Variable>filter(_fragments, Variable.class);
+    final Function1<Variable,String> _function = new Function1<Variable,String>() {
+      public String apply(final Variable it) {
+        String _variable = RESTURLExtensions.this.variable(it);
+        return _variable;
+      }
+    };
+    Iterable<String> _map = IterableExtensions.<Variable, String>map(_filter, _function);
+    return _map;
+  }
+  
+  protected String _variable(final Variable it) {
+    ParameterReference _parameterReference = it.getParameterReference();
+    String _variable = this.variable(_parameterReference);
+    return _variable;
+  }
+  
+  protected String _variable(final ParameterCall it) {
+    Parameter _head = it.getHead();
+    String _name = _head.getName();
+    return _name;
+  }
+  
+  protected String _variable(final ParameterMemberCall it) {
+    ParameterReference _reference = it.getReference();
+    String _variable = this.variable(_reference);
+    String _plus = (_variable + ".");
+    Attribute _tail = it.getTail();
+    String _name = _tail.getName();
+    String _plus_1 = (_plus + _name);
+    return _plus_1;
+  }
+  
+  protected String _variable(final UrlPathFragment it) {
+    return null;
+  }
+  
   public String value(final EObject it) {
     if (it instanceof AbsoluteRESTURL) {
       return _value((AbsoluteRESTURL)it);
@@ -79,6 +125,21 @@ public class RESTURLExtensions {
       return _value((UrlPathFragment)it);
     } else if (it instanceof Variable) {
       return _value((Variable)it);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(it).toString());
+    }
+  }
+  
+  public String variable(final EObject it) {
+    if (it instanceof ParameterCall) {
+      return _variable((ParameterCall)it);
+    } else if (it instanceof ParameterMemberCall) {
+      return _variable((ParameterMemberCall)it);
+    } else if (it instanceof UrlPathFragment) {
+      return _variable((UrlPathFragment)it);
+    } else if (it instanceof Variable) {
+      return _variable((Variable)it);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(it).toString());

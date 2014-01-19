@@ -5,6 +5,7 @@ package org.applause.lang.applauseDsl.impl;
 import java.util.Collection;
 
 import org.applause.lang.applauseDsl.ApplauseDslPackage;
+import org.applause.lang.applauseDsl.ControllerVerb;
 import org.applause.lang.applauseDsl.DataSourceCall;
 import org.applause.lang.applauseDsl.Parameter;
 import org.applause.lang.applauseDsl.Screen;
@@ -38,6 +39,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getDatasource <em>Datasource</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getSections <em>Sections</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.impl.ScreenImpl#getVerbs <em>Verbs</em>}</li>
  * </ul>
  * </p>
  *
@@ -124,6 +126,16 @@ public class ScreenImpl extends NamedElementImpl implements Screen
    * @ordered
    */
   protected EList<UIAction> actions;
+
+  /**
+   * The cached value of the '{@link #getVerbs() <em>Verbs</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVerbs()
+   * @generated
+   * @ordered
+   */
+  protected EList<ControllerVerb> verbs;
 
   /**
    * <!-- begin-user-doc -->
@@ -321,6 +333,20 @@ public class ScreenImpl extends NamedElementImpl implements Screen
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<ControllerVerb> getVerbs()
+  {
+    if (verbs == null)
+    {
+      verbs = new EObjectContainmentEList<ControllerVerb>(ControllerVerb.class, this, ApplauseDslPackage.SCREEN__VERBS);
+    }
+    return verbs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
@@ -334,6 +360,8 @@ public class ScreenImpl extends NamedElementImpl implements Screen
         return ((InternalEList<?>)getSections()).basicRemove(otherEnd, msgs);
       case ApplauseDslPackage.SCREEN__ACTIONS:
         return ((InternalEList<?>)getActions()).basicRemove(otherEnd, msgs);
+      case ApplauseDslPackage.SCREEN__VERBS:
+        return ((InternalEList<?>)getVerbs()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -360,6 +388,8 @@ public class ScreenImpl extends NamedElementImpl implements Screen
         return getSections();
       case ApplauseDslPackage.SCREEN__ACTIONS:
         return getActions();
+      case ApplauseDslPackage.SCREEN__VERBS:
+        return getVerbs();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -395,6 +425,10 @@ public class ScreenImpl extends NamedElementImpl implements Screen
         getActions().clear();
         getActions().addAll((Collection<? extends UIAction>)newValue);
         return;
+      case ApplauseDslPackage.SCREEN__VERBS:
+        getVerbs().clear();
+        getVerbs().addAll((Collection<? extends ControllerVerb>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -427,6 +461,9 @@ public class ScreenImpl extends NamedElementImpl implements Screen
       case ApplauseDslPackage.SCREEN__ACTIONS:
         getActions().clear();
         return;
+      case ApplauseDslPackage.SCREEN__VERBS:
+        getVerbs().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -453,6 +490,8 @@ public class ScreenImpl extends NamedElementImpl implements Screen
         return sections != null && !sections.isEmpty();
       case ApplauseDslPackage.SCREEN__ACTIONS:
         return actions != null && !actions.isEmpty();
+      case ApplauseDslPackage.SCREEN__VERBS:
+        return verbs != null && !verbs.isEmpty();
     }
     return super.eIsSet(featureID);
   }

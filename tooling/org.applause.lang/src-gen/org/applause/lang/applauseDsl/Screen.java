@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getDatasource <em>Datasource</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getSections <em>Sections</em>}</li>
  *   <li>{@link org.applause.lang.applauseDsl.Screen#getActions <em>Actions</em>}</li>
+ *   <li>{@link org.applause.lang.applauseDsl.Screen#getVerbs <em>Verbs</em>}</li>
  * </ul>
  * </p>
  *
@@ -165,5 +166,21 @@ public interface Screen extends NamedElement
    * @generated
    */
   EList<UIAction> getActions();
+
+  /**
+   * Returns the value of the '<em><b>Verbs</b></em>' containment reference list.
+   * The list contents are of type {@link org.applause.lang.applauseDsl.ControllerVerb}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Verbs</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Verbs</em>' containment reference list.
+   * @see org.applause.lang.applauseDsl.ApplauseDslPackage#getScreen_Verbs()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ControllerVerb> getVerbs();
 
 } // Screen

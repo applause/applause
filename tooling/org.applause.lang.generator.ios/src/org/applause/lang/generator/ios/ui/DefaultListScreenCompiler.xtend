@@ -1,9 +1,10 @@
 package org.applause.lang.generator.ios.ui
 
 import com.google.inject.Inject
-import org.applause.lang.applauseDsl.ActionVerb
+import org.applause.lang.applauseDsl.RESTVerb
 import org.applause.lang.applauseDsl.Screen
 import org.applause.lang.applauseDsl.UIAction
+import org.applause.lang.applauseDsl.UIActionDeleteAction
 import org.applause.lang.applauseDsl.UIActionNavigateAction
 import org.applause.lang.applauseDsl.UIComponentMemberConfiguration
 import org.applause.lang.generator.ios.ExpressionExtensions
@@ -13,8 +14,6 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
-import org.applause.lang.applauseDsl.UIActionDeleteAction
-import org.applause.lang.applauseDsl.RESTVerb
 
 class DefaultListScreenCompiler {
 	
@@ -249,11 +248,11 @@ class DefaultListScreenActionCompiler {
 	'''
 	
 	private def compileActionButton(UIAction it) {
-		if (it.action instanceof UIActionNavigateAction) {
-			switch ((it.action as UIActionNavigateAction).actionVerb) {
-				case ActionVerb.ADD: screen.compileActionButton_AddItem
-			}
-		}	
+//		if (it.action instanceof UIActionNavigateAction) {
+//			switch ((it.action as UIActionNavigateAction).actionVerb) {
+//				case ActionVerb.ADD: screen.compileActionButton_AddItem
+//			}
+//		}	
 	}
 	
 	private def compileActionButton_AddItem(Screen it) '''
@@ -269,12 +268,12 @@ class DefaultListScreenActionCompiler {
 	'''
 
 	private def compileActionMethod(UIAction it) {
-		if (it.action instanceof UIActionNavigateAction) {
-			switch ((it.action as UIActionNavigateAction).actionVerb) {
-				case ActionVerb.ADD: screen.compileActionMethod_AddItem
-				case ActionVerb.EDIT: screen.compileActionMethod_EditItem
-			}
-		}	
+//		if (it.action instanceof UIActionNavigateAction) {
+//			switch ((it.action as UIActionNavigateAction).actionVerb) {
+//				case ActionVerb.ADD: screen.compileActionMethod_AddItem
+//				case ActionVerb.EDIT: screen.compileActionMethod_EditItem
+//			}
+//		}	
 	}
 	
 	private def compileActionMethod_AddItem(Screen it) '''

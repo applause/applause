@@ -195,6 +195,13 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.URL_PARAMETER:
+      {
+        UrlParameter urlParameter = (UrlParameter)theEObject;
+        T result = caseUrlParameter(urlParameter);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.RELATIVE_RESTURL:
       {
         RelativeRESTURL relativeRESTURL = (RelativeRESTURL)theEObject;
@@ -300,6 +307,13 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.CONTROLLER_VERB:
+      {
+        ControllerVerb controllerVerb = (ControllerVerb)theEObject;
+        T result = caseControllerVerb(controllerVerb);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.LIST_ITEM_CELL_DECLARATION:
       {
         ListItemCellDeclaration listItemCellDeclaration = (ListItemCellDeclaration)theEObject;
@@ -366,6 +380,13 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case ApplauseDslPackage.PARAMETER_REFERENCE:
+      {
+        ParameterReference parameterReference = (ParameterReference)theEObject;
+        T result = caseParameterReference(parameterReference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case ApplauseDslPackage.ENTITY_MEMBER_CALL:
       {
         EntityMemberCall entityMemberCall = (EntityMemberCall)theEObject;
@@ -393,6 +414,22 @@ public class ApplauseDslSwitch<T> extends Switch<T>
         StringLiteral stringLiteral = (StringLiteral)theEObject;
         T result = caseStringLiteral(stringLiteral);
         if (result == null) result = caseExpression(stringLiteral);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PARAMETER_CALL:
+      {
+        ParameterCall parameterCall = (ParameterCall)theEObject;
+        T result = caseParameterCall(parameterCall);
+        if (result == null) result = caseParameterReference(parameterCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case ApplauseDslPackage.PARAMETER_MEMBER_CALL:
+      {
+        ParameterMemberCall parameterMemberCall = (ParameterMemberCall)theEObject;
+        T result = caseParameterMemberCall(parameterMemberCall);
+        if (result == null) result = caseParameterReference(parameterMemberCall);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -657,6 +694,22 @@ public class ApplauseDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Url Parameter</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Url Parameter</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUrlParameter(UrlParameter object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Relative RESTURL</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -881,6 +934,22 @@ public class ApplauseDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Controller Verb</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Controller Verb</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseControllerVerb(ControllerVerb object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>List Item Cell Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1025,6 +1094,22 @@ public class ApplauseDslSwitch<T> extends Switch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterReference(ParameterReference object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Entity Member Call</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -1084,6 +1169,38 @@ public class ApplauseDslSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseStringLiteral(StringLiteral object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterCall(ParameterCall object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Parameter Member Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Parameter Member Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseParameterMemberCall(ParameterMemberCall object)
   {
     return null;
   }
