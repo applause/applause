@@ -11,3 +11,5 @@ bin
 xcuserdata
 
 workspace.xml
+
+.DS_Store
