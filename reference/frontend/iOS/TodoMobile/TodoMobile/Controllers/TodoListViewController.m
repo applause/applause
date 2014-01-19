@@ -11,13 +11,35 @@
 #import "TodoDetailsViewController.h"
 
 @interface TodoListViewController ()
-
 @property(nonatomic, strong) NSMutableArray *todos;
+@property(nonatomic, strong) List *parent;
 @end
 
 @implementation TodoListViewController
 
 static NSString *kCellIdentifier = @"TodoCell";
+
++ (void)presentForDisplayingTodosOf:(List *)list fromParent:(ListListViewController *)parent onDone:(void (^)(List *))done
+{
+	TodoListViewController *todoListViewController = [[TodoListViewController alloc] init];
+	todoListViewController.parent = list;
+	[parent.navigationController pushViewController:todoListViewController animated:YES];
+}
+
+//+ (void)presentForEditingTodo:(Todo *)todo fromParent:(UIViewController *)parent onDone:(void (^)(Todo *editedTodo))doneBlock
+//{
+//	TodoDetailsViewController *todoDetailsViewController = [[TodoDetailsViewController alloc] initWithMode:TodoDetailsViewModeEdit];
+//	todoDetailsViewController.todo = todo;
+//	todoDetailsViewController.doneBlock = ^(Todo *editedTodo)
+//	{
+//		[parent.navigationController popViewControllerAnimated:YES];
+//		if (doneBlock) {
+//			doneBlock(editedTodo);
+//		}
+//	};
+//	[parent.navigationController pushViewController:todoDetailsViewController animated:YES];
+//}
+
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -44,9 +66,9 @@ static NSString *kCellIdentifier = @"TodoCell";
     return self;
 }
 
-- (void)viewDidLoad
+- (void)viewWillAppear:(BOOL)animated
 {
-    [super viewDidLoad];
+	[super viewWillAppear:animated];
 	[self reload];
 }
 
@@ -106,28 +128,48 @@ static NSString *kCellIdentifier = @"TodoCell";
 
 - (void)reload
 {
-	[Todo allTodos:^(NSArray *todos, NSError *error)
-	{
-		[self.refreshControl endRefreshing];
-		if (error) {
-			[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
-										message:[error localizedDescription]
-									   delegate:nil
-							  cancelButtonTitle:nil
-							  otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
-		}
-		else {
-			self.todos = [NSMutableArray arrayWithArray:todos];
-			[self.tableView reloadData];
-		}
-	}];
+	if (self.parent != nil) {
+		[Todo allTodosOf:self.parent result:^(NSArray *todos, NSError *error)
+		{
+			[self.refreshControl endRefreshing];
+			if (error) {
+				[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+											message:[error localizedDescription]
+										   delegate:nil
+								  cancelButtonTitle:nil
+								  otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+			}
+			else {
+				self.todos = [NSMutableArray arrayWithArray:todos];
+				[self.tableView reloadData];
+			}
+		}];
+	}
+	else {
+		[Todo allTodos:^(NSArray *todos, NSError *error)
+		{
+			[self.refreshControl endRefreshing];
+			if (error) {
+				[[[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil)
+											message:[error localizedDescription]
+										   delegate:nil
+								  cancelButtonTitle:nil
+								  otherButtonTitles:NSLocalizedString(@"OK", nil), nil] show];
+			}
+			else {
+				self.todos = [NSMutableArray arrayWithArray:todos];
+				[self.tableView reloadData];
+			}
+		}];
+	}
+
 }
 
 #pragma mark - Actions
 
 - (void)onAddTodo
 {
-	[TodoDetailsViewController presentForAddingNewTodoFromParent:self onDone:^(Todo *todo)
+	[TodoDetailsViewController presentForAddingNewTodoForList:self.parent fromParent:self onDone:^(Todo *todo)
 	{
 		[self refresh];
 	}];

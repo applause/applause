@@ -4,12 +4,11 @@
 // Copyright (c) 2013 by Peter Friese. All rights reserved.
 //
 
-
 #import "Todo.h"
 #import "Todo+DataMapping.h"
 
-
 @implementation Todo (DataMapping)
+
 - (id)initWithAttributes:(NSDictionary *)attributes
 {
 	self = [super init];
@@ -48,4 +47,5 @@
 	attributes[@"done"] = [NSNumber numberWithBool:self.done];
 	return attributes;
 }
+
 @end

@@ -15,6 +15,7 @@
 @interface TodoDetailsViewController ()
 @property(nonatomic) enum TodoDetailsViewMode mode;
 @property(nonatomic, copy) void (^doneBlock)(Todo *);
+@property(nonatomic, strong) List *list;
 @end
 
 @implementation TodoDetailsViewController
@@ -24,6 +25,22 @@ enum TodoDetailsViewMode {
 	TodoDetailsViewModeEdit,
 };
 typedef enum TodoDetailsViewMode TodoDetailsViewMode;
+
++ (void)presentForAddingNewTodoForList:(List *)list fromParent:(UIViewController *)parent onDone:(void (^)(Todo *todo))doneBlock
+{
+	TodoDetailsViewController *todoDetailsViewController = [[TodoDetailsViewController alloc] initWithMode:TodoDetailsViewModeAdd];
+	todoDetailsViewController.list = list;
+	todoDetailsViewController.todo = [[Todo alloc] init];
+	todoDetailsViewController.doneBlock = ^(Todo *editedTodo)
+	{
+		[parent dismissViewControllerAnimated:YES completion:nil];
+		if (doneBlock) {
+			doneBlock(editedTodo);
+		}
+	};
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:todoDetailsViewController];
+	[parent presentViewController:navigationController animated:YES completion:nil];
+}
 
 + (void)presentForAddingNewTodoFromParent:(UIViewController *)parent onDone:(void (^)(Todo *todo))doneBlock
 {
@@ -80,7 +97,7 @@ typedef enum TodoDetailsViewMode TodoDetailsViewMode;
 {
 	[self.root fetchValueUsingBindingsIntoObject:self.todo];
 	if (self.mode == TodoDetailsViewModeAdd) {
-		[self.todo post:^(Todo *todo, NSError *error)
+		[self.todo postForList:self.list result:^(Todo *todo, NSError *error)
 		{
 			if(error == nil) {
 				if (self.doneBlock) {

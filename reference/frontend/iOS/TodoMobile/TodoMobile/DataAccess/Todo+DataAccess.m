@@ -7,13 +7,41 @@
 #import "Todo+DataAccess.h"
 #import "TodoAPIClient.h"
 #import "Todo+DataMapping.h"
+#import "List.h"
 
 static NSString *const kAllTodosPath = @"/todos";
+static NSString *const kAllTodosOfPath = @"/todos";
 static NSString *const kPostTodoPath = @"/todos";
 static NSString *const kPutTodoPath = @"/todos";
 static NSString *const kDeleteTodoPath = @"/todos/%@";
 
 @implementation Todo (DataAccess)
+
++ (void)allTodosOf:(List *)list result:(void (^)(NSArray *todos, NSError *error))block
+{
+	NSDictionary *parameters = @{
+			@"parent": list.id
+	};
+
+	[[TodoAPIClient sharedClient] GET:kAllTodosPath parameters:parameters success:^(NSURLSessionDataTask *task, id responseObject)
+	{
+		NSArray *elementsFromJSON = responseObject;
+		NSMutableArray *result = [[NSMutableArray alloc] initWithCapacity:[elementsFromJSON count]];
+		for (NSDictionary *attributes in elementsFromJSON) {
+			Todo *mappedElement = [[Todo alloc] initWithAttributes:attributes];
+			[result addObject:mappedElement];
+		}
+
+		if (block) {
+			block([result copy], nil);
+		}
+	} failure:^(NSURLSessionDataTask *task, NSError *error)
+	{
+		if (block) {
+			block(@[], error);
+		}
+	}];
+}
 
 + (void)allTodos:(void (^)(NSArray *todos, NSError *error))block
 {
@@ -33,6 +61,25 @@ static NSString *const kDeleteTodoPath = @"/todos/%@";
 	{
 		if (block) {
 			block(@[], error);
+		}
+	}];
+}
+
+- (void)postForList:(List *)list result:(void (^)(Todo *todo, NSError *error))block
+{
+	NSMutableDictionary *elementDictionary = [[self attributes] mutableCopy];
+	elementDictionary[@"parent"] = list.id;
+
+	[[TodoAPIClient sharedClient] POST:kPostTodoPath parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)
+	{
+		Todo *postedElement = responseObject;
+		if(block) {
+			block(postedElement, nil);
+		}
+	} failure:^(NSURLSessionDataTask *task, NSError *error)
+	{
+		if(block) {
+			block(nil, error);
 		}
 	}];
 }

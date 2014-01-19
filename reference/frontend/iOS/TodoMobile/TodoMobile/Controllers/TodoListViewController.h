@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ListListViewController.h"
+#import "List.h"
 
 @interface TodoListViewController : UITableViewController
-
++ (void)presentForDisplayingTodosOf:(List *)list fromParent:(ListListViewController *)parent onDone:(void (^)(List *))done;
 @end
