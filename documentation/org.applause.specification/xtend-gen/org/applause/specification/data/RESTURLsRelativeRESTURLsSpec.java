@@ -96,4 +96,30 @@ public class RESTURLsRelativeRESTURLsSpec extends RESTURLsSpec {
     _builder.newLine();
     this.dataSourceAccessMethodUrlShouldBe(_builder, "/boo/bar/baz/persons");
   }
+  
+  /**
+   * @filter('''|.dataSourceAccessMethodUrlShouldBe.*)
+   */
+  @Test
+  @Named("Variables")
+  @Order(3)
+  public void _variables() throws Exception {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("entity Person {}");
+    _builder.newLine();
+    _builder.append("datasource PersonDataSource {");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("baseUrl: http://localhost/persons");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("resource: Person");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("post(Person person) GET /boo/bar/baz/persons?id=:person");
+    _builder.newLine();
+    _builder.append("}");
+    _builder.newLine();
+    this.dataSourceAccessMethodUrlShouldBe(_builder, "/boo/bar/baz/persons?id=:person");
+  }
 }

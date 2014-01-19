@@ -80,6 +80,14 @@ datasource PersonDataSource {
   resource: Person
   post(Person person) GET /boo/bar/baz/persons
 }</pre>
+</li><li><p id="Variables" class="example notrun"><strong>Variables</strong></p>
+<pre class="prettyprint lang-spec linenums">
+entity Person {}
+datasource PersonDataSource {
+  baseUrl: http://localhost/persons
+  resource: Person
+  post(Person person) GET /boo/bar/baz/persons?id=:person
+}</pre>
 </li></ul>
 							</div>
 						    <div class="tab-pane" id="source">
@@ -200,6 +208,20 @@ describe &quot;REST URLs&quot; {
           post(Person person) GET /boo/bar/baz/persons
         }
       '''.dataSourceAccessMethodUrlShouldBe(&quot;/boo/bar/baz/persons&quot;)      
+    }
+    
+    /**
+     * @filter('''|.dataSourceAccessMethodUrlShouldBe.*)
+     */
+    fact &quot;Variables&quot; {
+      '''
+        entity Person {}
+        datasource PersonDataSource {
+          baseUrl: http://localhost/persons
+          resource: Person
+          post(Person person) GET /boo/bar/baz/persons?id=:person
+        }
+      '''.dataSourceAccessMethodUrlShouldBe(&quot;/boo/bar/baz/persons?id=:person&quot;)      
     }
     
     

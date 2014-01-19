@@ -114,6 +114,20 @@ describe "REST URLs" {
 			'''.dataSourceAccessMethodUrlShouldBe("/boo/bar/baz/persons")			
 		}
 		
+		/**
+		 * @filter('''|.dataSourceAccessMethodUrlShouldBe.*)
+		 */
+		fact "Variables" {
+			'''
+				entity Person {}
+				datasource PersonDataSource {
+					baseUrl: http://localhost/persons
+					resource: Person
+					post(Person person) GET /boo/bar/baz/persons?id=:person
+				}
+			'''.dataSourceAccessMethodUrlShouldBe("/boo/bar/baz/persons?id=:person")			
+		}
+		
 		
 	}
 
