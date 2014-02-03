@@ -107,7 +107,7 @@ public class DefaultListScreenModuleFileCompiler {
         _builder.append("\t\t");
         _builder.append("self.title = @\"");
         String _title_1 = it.getTitle();
-        _builder.append(_title_1, "		");
+        _builder.append(_title_1, "\t\t");
         _builder.append("\";");
         _builder.newLineIfNotEmpty();
       }
@@ -136,7 +136,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t\t");
     CharSequence _compileActionButtons = this._defaultListScreenActionCompiler.compileActionButtons(it);
-    _builder.append(_compileActionButtons, "		");
+    _builder.append(_compileActionButtons, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
@@ -195,7 +195,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("\t");
     Entity _resourceType_2 = this._defaultListScreenClassExtensions.resourceType(it);
     String _typeName_1 = this._typeExtensions.typeName(_resourceType_2);
-    _builder.append(_typeName_1, "	");
+    _builder.append(_typeName_1, "\t");
     _builder.append(" *item = self.items[(NSUInteger) indexPath.row];");
     _builder.newLineIfNotEmpty();
     {
@@ -203,7 +203,7 @@ public class DefaultListScreenModuleFileCompiler {
       for(final UIComponentMemberConfiguration it_1 : _configurations) {
         _builder.append("\t");
         CharSequence _compileConfiguration = this.compileConfiguration(it_1);
-        _builder.append(_compileConfiguration, "	");
+        _builder.append(_compileConfiguration, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -224,7 +224,7 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("\t");
     Entity _resourceType_3 = this._defaultListScreenClassExtensions.resourceType(it);
     String _typeName_2 = this._typeExtensions.typeName(_resourceType_3);
-    _builder.append(_typeName_2, "	");
+    _builder.append(_typeName_2, "\t");
     _builder.append(" *item = self.items[(NSUInteger) indexPath.row];");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -263,11 +263,11 @@ public class DefaultListScreenModuleFileCompiler {
     _builder.append("[");
     Entity _resourceType_4 = this._defaultListScreenClassExtensions.resourceType(it);
     String _typeName_3 = this._typeExtensions.typeName(_resourceType_4);
-    _builder.append(_typeName_3, "	");
+    _builder.append(_typeName_3, "\t");
     _builder.append(" ");
     DataSourceAccessMethod _restMethod = this._defaultListScreenClassExtensions.restMethod(it);
     String _name = _restMethod.getName();
-    _builder.append(_name, "	");
+    _builder.append(_name, "\t");
     _builder.append(":^(NSArray *items, NSError *error)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

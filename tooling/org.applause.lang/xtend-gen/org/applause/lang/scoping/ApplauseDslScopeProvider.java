@@ -163,9 +163,8 @@ public class ApplauseDslScopeProvider extends AbstractDeclarativeScopeProvider {
       boolean _matched = false;
       if (!_matched) {
         if (head instanceof ParameterCall) {
-          final ParameterCall _parameterCall = (ParameterCall)head;
           _matched=true;
-          Parameter _head = _parameterCall.getHead();
+          Parameter _head = ((ParameterCall)head).getHead();
           Type _type = _head.getType();
           Object _attributesScope = this.attributesScope(_type);
           _switchResult = _attributesScope;

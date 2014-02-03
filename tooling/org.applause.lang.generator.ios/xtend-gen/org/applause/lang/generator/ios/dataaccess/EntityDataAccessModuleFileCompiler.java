@@ -157,10 +157,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("[[");
     Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
-    _builder.append(_apiClientClassName, "	");
+    _builder.append(_apiClientClassName, "\t");
     _builder.append(" sharedClient] GET:");
     String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
-    _builder.append(_urlConstantForRESTMethod_1, "	");
+    _builder.append(_urlConstantForRESTMethod_1, "\t");
     _builder.append(" parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -178,11 +178,11 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\t\t\t");
     Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
     String _typeName = this._typeExtensions.typeName(_resourceType_1);
-    _builder.append(_typeName, "			");
+    _builder.append(_typeName, "\t\t\t");
     _builder.append(" *mappedElement = [[");
     Entity _resourceType_2 = this._entityDataAccessExtensions.resourceType(it);
     String _typeName_1 = this._typeExtensions.typeName(_resourceType_2);
-    _builder.append(_typeName_1, "			");
+    _builder.append(_typeName_1, "\t\t\t");
     _builder.append(" alloc] initWithAttributes:attributes];");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
@@ -260,10 +260,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("[[");
     Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
-    _builder.append(_apiClientClassName, "	");
+    _builder.append(_apiClientClassName, "\t");
     _builder.append(" sharedClient] POST:");
     String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
-    _builder.append(_urlConstantForRESTMethod_1, "	");
+    _builder.append(_urlConstantForRESTMethod_1, "\t");
     _builder.append(" parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -272,7 +272,7 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\t\t");
     Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
     String _typeName = this._typeExtensions.typeName(_resourceType_1);
-    _builder.append(_typeName, "		");
+    _builder.append(_typeName, "\t\t");
     _builder.append(" *postedElement = responseObject;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -332,10 +332,10 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("[[");
     Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
-    _builder.append(_apiClientClassName, "	");
+    _builder.append(_apiClientClassName, "\t");
     _builder.append(" sharedClient] PUT:");
     String _urlConstantForRESTMethod_1 = this.urlConstantForRESTMethod(it);
-    _builder.append(_urlConstantForRESTMethod_1, "	");
+    _builder.append(_urlConstantForRESTMethod_1, "\t");
     _builder.append(" parameters:elementDictionary success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -344,7 +344,7 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\t\t");
     Entity _resourceType_1 = this._entityDataAccessExtensions.resourceType(it);
     String _typeName = this._typeExtensions.typeName(_resourceType_1);
-    _builder.append(_typeName, "		");
+    _builder.append(_typeName, "\t\t");
     _builder.append(" *postedElement = responseObject;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
@@ -426,8 +426,7 @@ public class EntityDataAccessModuleFileCompiler {
     {
       final int dot = variableExpression.indexOf(".");
       String _xifexpression = null;
-      boolean _greaterThan = (dot > 0);
-      if (_greaterThan) {
+      if ((dot > 0)) {
         String _substring = variableExpression.substring(0, dot);
         _xifexpression = _substring;
       } else {
@@ -443,8 +442,7 @@ public class EntityDataAccessModuleFileCompiler {
     {
       final int dot = variableExpression.indexOf(".");
       String _xifexpression = null;
-      boolean _greaterThan = (dot > 0);
-      if (_greaterThan) {
+      if ((dot > 0)) {
         String _substring = variableExpression.substring(dot);
         _xifexpression = _substring;
       } else {
@@ -476,14 +474,14 @@ public class EntityDataAccessModuleFileCompiler {
     _builder.append("\t");
     _builder.append("NSString *urlString = ");
     String _composeUrlString = this.composeUrlString(it);
-    _builder.append(_composeUrlString, "	");
+    _builder.append(_composeUrlString, "\t");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("[[");
     Entity _resourceType = this._entityDataAccessExtensions.resourceType(it);
     String _apiClientClassName = this._aPIClientClassExtensions.apiClientClassName(_resourceType);
-    _builder.append(_apiClientClassName, "	");
+    _builder.append(_apiClientClassName, "\t");
     _builder.append(" sharedClient] DELETE:urlString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject)");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

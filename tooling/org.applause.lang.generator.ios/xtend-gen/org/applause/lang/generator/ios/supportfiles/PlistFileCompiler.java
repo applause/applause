@@ -39,7 +39,7 @@ public class PlistFileCompiler {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("<string>");
-    _builder.append(PlistFileCompiler.PACKAGENAME, "	");
+    _builder.append(PlistFileCompiler.PACKAGENAME, "\t");
     _builder.append(".${PRODUCT_NAME:rfc1034identifier}</string>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

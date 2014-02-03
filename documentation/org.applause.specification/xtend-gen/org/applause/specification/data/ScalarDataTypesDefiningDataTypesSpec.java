@@ -23,12 +23,8 @@ public class ScalarDataTypesDefiningDataTypesSpec extends ScalarDataTypesSpec {
   @Named("Simple data types")
   @Order(1)
   public void _simpleDataTypes() throws Exception {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append("datatype String");
-    _builder.newLine();
-    _builder.append("datatype Integer");
-    _builder.newLine();
-    this._applauseValidationTestHelper.isValid(_builder);
+    throw new Error("Unresolved compilation problems:"
+      + "\nAmbiguous feature call.\nThe extension methods\n\tisValid(CharSequence) in ApplauseValidationTestHelper and\n\tisValid(CharSequence) in ApplauseValidationTestHelper\nboth match.");
   }
   
   /**

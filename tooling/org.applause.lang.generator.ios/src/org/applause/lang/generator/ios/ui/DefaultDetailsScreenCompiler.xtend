@@ -311,6 +311,22 @@ class DefaultDetailsScreenControllerCompiler {
 		+ ' onDone:(void (^)(' + screen.resourceType.typeName + ' *item))doneBlock'
 	}
 	
+	def private parameterCallClause(ControllerVerb it) {
+		'WithParameter:' + it.declaredParameters.map['/* param of type ' + it.type.typeName + ' and name ' + it.name + ' */'].join(' and:')
+	}
+	
+	def controllerMethodCall(ControllerVerb it) {
+		'present'
+		+ purposifiedVerb
+		+ if (it.declaredParameters.size == 0)
+			'FromParent:self'
+		  else {
+		  	parameterCallClause
+		  	+ ' fromParent:self'
+		  }
+		+ ' onDone:^(' + screen.resourceType.typeName  + ' *item)'
+	}
+	
 	def private compileControllerMethodHeader(ControllerVerb it) '''
 		«controllerMethodName»;
 	'''

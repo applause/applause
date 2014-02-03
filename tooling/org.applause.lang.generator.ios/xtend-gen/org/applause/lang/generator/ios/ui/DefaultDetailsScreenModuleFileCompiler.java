@@ -266,7 +266,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t\t");
     CharSequence _compileCreateNewItemFragment = this.compileCreateNewItemFragment(it);
-    _builder.append(_compileCreateNewItemFragment, "		");
+    _builder.append(_compileCreateNewItemFragment, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
@@ -276,7 +276,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.newLine();
     _builder.append("\t\t");
     CharSequence _compileUpdateItemFragment = this.compileUpdateItemFragment(it);
-    _builder.append(_compileUpdateItemFragment, "		");
+    _builder.append(_compileUpdateItemFragment, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("}");
@@ -376,7 +376,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
     Entity _resourceType_1 = this._defaultDetailsScreenClassExtensions.resourceType(it);
     String _typeName_1 = this._typeExtensions.typeName(_resourceType_1);
     String _firstLower = StringExtensions.toFirstLower(_typeName_1);
-    _builder.append(_firstLower, "		");
+    _builder.append(_firstLower, "\t\t");
     _builder.append(". Try again later.\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -455,7 +455,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
     Entity _resourceType = this._defaultDetailsScreenClassExtensions.resourceType(it);
     String _typeName = this._typeExtensions.typeName(_resourceType);
     String _firstLower = StringExtensions.toFirstLower(_typeName);
-    _builder.append(_firstLower, "		");
+    _builder.append(_firstLower, "\t\t");
     _builder.append(". Try again later.\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -478,7 +478,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
     _builder.append("\t");
     _builder.append("root.controllerName = @\"");
     String _controllerClassName = this._defaultDetailsScreenClassExtensions.controllerClassName(it);
-    _builder.append(_controllerClassName, "	");
+    _builder.append(_controllerClassName, "\t");
     _builder.append("\";");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -491,7 +491,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
         _builder.append("\t");
         _builder.append("root.title = @\"");
         String _title_1 = it.getTitle();
-        _builder.append(_title_1, "	");
+        _builder.append(_title_1, "\t");
         _builder.append("\";");
         _builder.newLineIfNotEmpty();
       }
@@ -506,7 +506,7 @@ public class DefaultDetailsScreenModuleFileCompiler {
       for(final ScreenListItemCell it_1 : _cells) {
         _builder.append("\t");
         CharSequence _compileCell = this.compileCell(it_1);
-        _builder.append(_compileCell, "	");
+        _builder.append(_compileCell, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.newLine();

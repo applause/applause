@@ -1,6 +1,7 @@
 package org.applause.lang.generator.ios.ui
 
 import com.google.inject.Inject
+import org.applause.lang.applauseDsl.ControllerVerb
 import org.applause.lang.applauseDsl.RESTVerb
 import org.applause.lang.applauseDsl.Screen
 import org.applause.lang.applauseDsl.UIAction
@@ -14,6 +15,7 @@ import org.eclipse.xtext.EcoreUtil2
 import org.eclipse.xtext.generator.IFileSystemAccess
 
 import static org.applause.lang.generator.ios.IosOutputConfigurationProvider.*
+import org.applause.lang.applauseDsl.ControllerVerbKind
 
 class DefaultListScreenCompiler {
 	
@@ -237,6 +239,7 @@ class DefaultListScreenActionCompiler {
 	
 	@Inject extension DefaultListScreenClassExtensions
 	@Inject extension TypeExtensions
+	@Inject extension DefaultDetailsScreenControllerCompiler
 	
 	def compileActionButtons(Screen it) '''
 		// register action buttons
@@ -263,37 +266,71 @@ class DefaultListScreenActionCompiler {
 	
 	def compileActionMethods(Screen it) '''
 		«FOR action: defaultCell.actions + actions»
-			«action.compileActionMethod»
+			// «action.title»
+			«action.action.compileActionMethod»
 		«ENDFOR»
 	'''
 
-	private def compileActionMethod(UIAction it) {
-//		if (it.action instanceof UIActionNavigateAction) {
-//			switch ((it.action as UIActionNavigateAction).actionVerb) {
-//				case ActionVerb.ADD: screen.compileActionMethod_AddItem
-//				case ActionVerb.EDIT: screen.compileActionMethod_EditItem
-//			}
-//		}	
+	private def dispatch compileActionMethod(UIActionDeleteAction it) '''
+	'''
+	
+	private def methodNameForActionVerb(ControllerVerb it) {
+		switch it.kind {
+			case ControllerVerbKind.ADD: 'onAddItem'
+			case ControllerVerbKind.EDIT: 'onEditItem'
+			default: 'uncaught'
+		}
 	}
 	
-	private def compileActionMethod_AddItem(Screen it) '''
-		- (void)onAddItem
+	private def screen(ControllerVerb it) {
+		EcoreUtil2.getContainerOfType(it, Screen)
+	}
+	
+	private def parameterCallForActionVerb(ControllerVerb it) {
+		switch it.kind {
+			case ControllerVerbKind.ADD: ''
+			case ControllerVerbKind.EDIT: ':(' + screen.resourceType.typeName + '*)item'
+			default: 'uncaught'
+		}
+	}
+	
+	private def dispatch compileActionMethod(UIActionNavigateAction it) '''
+		- (void)«actionVerb.methodNameForActionVerb»«actionVerb.parameterCallForActionVerb»
 		{
-			[«targetNavigationScreen.controllerClassName» presentForAddingNewItemFromParent:self onDone:^(«resourceType.typeName» *item)
+			[«it.targetScreen.controllerClassName» «actionVerb.controllerMethodCall»
 			{
 				[self refresh];
-			}];
+			}]; 
 		}
 	'''
 	
-	private def compileActionMethod_EditItem(Screen it) '''
-		- (void)onEditItem:(«resourceType.typeName» *)item
-		{
-			[«targetNavigationScreen.controllerClassName» presentForEditingItem:item fromParent:self onDone:^(«resourceType.typeName» *editedItem)
-			{
-				[self refresh];
-			}];
-		
-		}
-	'''
+//	private def compileActionMethod(UIAction it) {
+//		if (it.action instanceof UIActionNavigateAction) {
+//			switch ((it.action as UIActionNavigateAction).actionVerb.kind) {
+//				case ControllerVerbKind.ADD: screen.compileActionMethod_AddItem
+//				case ControllerVerbKind.EDIT: screen.compileActionMethod_EditItem
+//			}
+//		}	
+//	}
+	
+//	private def compileActionMethod_AddItem(Screen it) '''
+//		- (void)onAddItem
+//		{
+//			[«targetNavigationScreen.controllerClassName» presentForAddingNewItemFromParent:self onDone:^(«resourceType.typeName» *item)
+//			{
+//				[self refresh];
+//			}];
+//		}
+//	'''
+//	
+//	private def compileActionMethod_EditItem(Screen it) '''
+//		- (void)onEditItem:(«resourceType.typeName» *)item
+//		{
+//			[«targetNavigationScreen.controllerClassName» presentForEditingItem:item fromParent:self onDone:^(«resourceType.typeName» *editedItem)
+//			{
+//				[self refresh];
+//			}];
+//		
+//		}
+//	'''
 }

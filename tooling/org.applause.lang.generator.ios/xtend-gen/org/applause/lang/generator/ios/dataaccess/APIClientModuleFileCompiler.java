@@ -57,7 +57,7 @@ public class APIClientModuleFileCompiler {
     _builder.append("\t");
     _builder.append("static ");
     String _apiClientClassName_3 = this._aPIClientClassExtensions.apiClientClassName(it);
-    _builder.append(_apiClientClassName_3, "	");
+    _builder.append(_apiClientClassName_3, "\t");
     _builder.append(" *defaultInstance = nil;");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -66,7 +66,7 @@ public class APIClientModuleFileCompiler {
     _builder.append("\t\t");
     _builder.append("defaultInstance = [[");
     String _apiClientClassName_4 = this._aPIClientClassExtensions.apiClientClassName(it);
-    _builder.append(_apiClientClassName_4, "		");
+    _builder.append(_apiClientClassName_4, "\t\t");
     _builder.append(" alloc] initWithBaseURL:[NSURL URLWithString:kBaseUrl]];");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

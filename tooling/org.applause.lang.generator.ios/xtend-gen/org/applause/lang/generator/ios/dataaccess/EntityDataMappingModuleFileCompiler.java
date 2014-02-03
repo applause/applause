@@ -58,7 +58,7 @@ public class EntityDataMappingModuleFileCompiler {
       for(final Attribute attribute : _attributes) {
         _builder.append("\t\t");
         CharSequence _compileAttributeToPropertyMapping = this.compileAttributeToPropertyMapping(attribute);
-        _builder.append(_compileAttributeToPropertyMapping, "		");
+        _builder.append(_compileAttributeToPropertyMapping, "\t\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -84,7 +84,7 @@ public class EntityDataMappingModuleFileCompiler {
       for(final Attribute attribute_1 : _attributes_1) {
         _builder.append("\t");
         CharSequence _compilePropertyToAttributeMapping = this.compilePropertyToAttributeMapping(attribute_1);
-        _builder.append(_compilePropertyToAttributeMapping, "	");
+        _builder.append(_compilePropertyToAttributeMapping, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -115,10 +115,10 @@ public class EntityDataMappingModuleFileCompiler {
         _builder.append("\t");
         _builder.append("attributes[@\"");
         String _propertyName_1 = this._entityClassExtensions.propertyName(it);
-        _builder.append(_propertyName_1, "	");
+        _builder.append(_propertyName_1, "\t");
         _builder.append("\"] = self.");
         String _propertyName_2 = this._entityClassExtensions.propertyName(it);
-        _builder.append(_propertyName_2, "	");
+        _builder.append(_propertyName_2, "\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("}");
@@ -149,10 +149,10 @@ public class EntityDataMappingModuleFileCompiler {
         _builder_1.append("\t");
         _builder_1.append("attributes[@\"");
         String _propertyName_5 = this._entityClassExtensions.propertyName(it);
-        _builder_1.append(_propertyName_5, "	");
+        _builder_1.append(_propertyName_5, "\t");
         _builder_1.append("\"] = ");
         String _propertyName_6 = this._entityClassExtensions.propertyName(it);
-        _builder_1.append(_propertyName_6, "	");
+        _builder_1.append(_propertyName_6, "\t");
         _builder_1.append("String;");
         _builder_1.newLineIfNotEmpty();
         _builder_1.append("}");

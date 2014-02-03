@@ -134,6 +134,50 @@ public class DefaultDetailsScreenControllerCompiler {
     return _plus_5;
   }
   
+  private String parameterCallClause(final ControllerVerb it) {
+    EList<Parameter> _declaredParameters = it.getDeclaredParameters();
+    final Function1<Parameter,String> _function = new Function1<Parameter,String>() {
+      public String apply(final Parameter it) {
+        Type _type = it.getType();
+        String _typeName = DefaultDetailsScreenControllerCompiler.this._typeExtensions.typeName(_type);
+        String _plus = ("/* param of type " + _typeName);
+        String _plus_1 = (_plus + " and name ");
+        String _name = it.getName();
+        String _plus_2 = (_plus_1 + _name);
+        String _plus_3 = (_plus_2 + " */");
+        return _plus_3;
+      }
+    };
+    List<String> _map = ListExtensions.<Parameter, String>map(_declaredParameters, _function);
+    String _join = IterableExtensions.join(_map, " and:");
+    String _plus = ("WithParameter:" + _join);
+    return _plus;
+  }
+  
+  public String controllerMethodCall(final ControllerVerb it) {
+    String _purposifiedVerb = this.purposifiedVerb(it);
+    String _plus = ("present" + _purposifiedVerb);
+    String _xifexpression = null;
+    EList<Parameter> _declaredParameters = it.getDeclaredParameters();
+    int _size = _declaredParameters.size();
+    boolean _equals = (_size == 0);
+    if (_equals) {
+      _xifexpression = "FromParent:self";
+    } else {
+      String _parameterCallClause = this.parameterCallClause(it);
+      String _plus_1 = (_parameterCallClause + " fromParent:self");
+      String _plus_2 = (_plus_1 + " onDone:^(");
+      Screen _screen = this.screen(it);
+      Entity _resourceType = this._defaultDetailsScreenClassExtensions.resourceType(_screen);
+      String _typeName = this._typeExtensions.typeName(_resourceType);
+      String _plus_3 = (_plus_2 + _typeName);
+      String _plus_4 = (_plus_3 + " *item)");
+      _xifexpression = _plus_4;
+    }
+    String _plus_5 = (_plus + _xifexpression);
+    return _plus_5;
+  }
+  
   private CharSequence compileControllerMethodHeader(final ControllerVerb it) {
     StringConcatenation _builder = new StringConcatenation();
     String _controllerMethodName = this.controllerMethodName(it);
@@ -152,7 +196,7 @@ public class DefaultDetailsScreenControllerCompiler {
     _builder.newLine();
     _builder.append("\t");
     CharSequence _compileControllerMethodBody = this.compileControllerMethodBody(it);
-    _builder.append(_compileControllerMethodBody, "	");
+    _builder.append(_compileControllerMethodBody, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();

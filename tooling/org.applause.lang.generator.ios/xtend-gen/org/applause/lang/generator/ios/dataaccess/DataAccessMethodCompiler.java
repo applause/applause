@@ -230,11 +230,10 @@ public class DataAccessMethodCompiler {
         _xifexpression = _plus_2;
       }
       final String parameterSection = _xifexpression;
-      String _plus_3 = (parameterSection + "^(");
       String _returnType = this.returnType(it);
-      String _plus_4 = (_plus_3 + _returnType);
-      String _plus_5 = (_plus_4 + ", NSError *error)");
-      _xblockexpression = (_plus_5);
+      String _plus_3 = ((parameterSection + "^(") + _returnType);
+      String _plus_4 = (_plus_3 + ", NSError *error)");
+      _xblockexpression = (_plus_4);
     }
     return _xblockexpression;
   }
